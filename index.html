@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes DeFi — marché & valorisation</title>
+<meta name="description" content="Terminal DeFi — multiples de valorisation, capture par le token, fondamentaux on-chain.">
+<style>
+/* ══════════════════════════════════════════════════════════════════════
+   HERMES DEFI — contrat defi.json schema_version 1
+   Règle du terminal, reprise telle quelle : aucun élément ne dessine un
+   nombre qu'il n'a pas lu. Compteur absent ⇒ pas de forme, et le trou se
+   déclare. Aucune géométrie n'est un chiffre en dur.
+   La page n'émet AUCUNE requête réseau sauf defi.json : piles de polices
+   système, zéro CDN, zéro webfont.
+   ══════════════════════════════════════════════════════════════════════ */
+:root{
+  color-scheme:dark;
+  --bg:#080b16; --bg2:#0b1020;
+  --s1:#101637; --s2:#151d44; --s3:#1c2554;
+  --ink:#e9edfc; --ink2:#b6bfe4; --ink3:#8e98c6; --ink4:#8790bf;
+  --line:color-mix(in oklch, var(--ink) 13%, transparent);
+  --line2:color-mix(in oklch, var(--ink) 24%, transparent);
+  /* ACCENT structurel — jamais sur une donnée. */
+  --acc:#a68cff; --acc2:#5c9bff;
+  /* SÉMANTIQUE — réservée à un ÉTAT, jamais à une variation de marché. */
+  --held:#3fe0b0; --open:#49c7f0; --warn:#f5b642; --broken:#ff5d7d;
+  --on-semantic:#05070f;
+  /* ENCRE DE DONNÉE — une marque dont la couleur ne code RIEN (barre de
+     magnitude, sparkline). Chroma 0,053 : sous le plancher catégoriel de
+     0,10, donc impossible à lire comme une catégorie. */
+  --data:#8e97ba;
+  --hl:inset 0 1px 0 color-mix(in oklch, #fff 7%, transparent);
+  --e1:var(--hl), 0 1px 2px -1px #00000090;
+  --e2:var(--hl), 0 4px 14px -6px #000000b0, 0 1px 3px -1px #00000080;
+  --serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+  --r1:7px; --r2:11px;
+}
+@media (prefers-color-scheme: light){
+  :root{
+    color-scheme:light;
+    --bg:#eef0fa; --bg2:#e5e8f6; --s1:#ffffff; --s2:#f6f7fd; --s3:#eceffb;
+    --ink:#0f1330; --ink2:#3b4270; --ink3:#585f8c; --ink4:#5f678f;
+    --acc:#6b46e0; --acc2:#1f5fd0;
+    --held:#00816a; --open:#00719b; --warn:#8a5a00; --broken:#d31146;
+    --data:#545c76; --on-semantic:#ffffff;
+    --hl:inset 0 1px 0 color-mix(in oklch, #fff 90%, transparent);
+    --e1:var(--hl), 0 1px 2px -1px #1b204a20;
+    --e2:var(--hl), 0 4px 14px -6px #1b204a2e;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#080b16; --bg2:#0b1020; --s1:#101637; --s2:#151d44; --s3:#1c2554;
+  --ink:#e9edfc; --ink2:#b6bfe4; --ink3:#8e98c6; --ink4:#8790bf;
+  --acc:#a68cff; --acc2:#5c9bff;
+  --held:#3fe0b0; --open:#49c7f0; --warn:#f5b642; --broken:#ff5d7d;
+  --data:#8e97ba; --on-semantic:#05070f;
+  --hl:inset 0 1px 0 color-mix(in oklch, #fff 7%, transparent);
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#eef0fa; --bg2:#e5e8f6; --s1:#ffffff; --s2:#f6f7fd; --s3:#eceffb;
+  --ink:#0f1330; --ink2:#3b4270; --ink3:#585f8c; --ink4:#5f678f;
+  --acc:#6b46e0; --acc2:#1f5fd0;
+  --held:#00816a; --open:#00719b; --warn:#8a5a00; --broken:#d31146;
+  --data:#545c76; --on-semantic:#ffffff;
+  --hl:inset 0 1px 0 color-mix(in oklch, #fff 90%, transparent);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 var(--sans);
+  -webkit-font-smoothing:antialiased}
+a{color:var(--acc2);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:5px}
+
+/* ── entête ───────────────────────────────────────────────────────── */
+header{position:sticky;top:0;z-index:20;background:color-mix(in oklch,var(--bg) 88%,transparent);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hwrap{max-width:1280px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;
+  gap:16px;flex-wrap:wrap}
+.brand{font:650 15px var(--sans);letter-spacing:-.01em;display:flex;align-items:baseline;gap:9px}
+.brand small{font:400 11px var(--mono);color:var(--ink4);letter-spacing:.04em}
+nav{display:flex;gap:3px;flex-wrap:wrap;margin-left:auto}
+nav a{font:600 11.5px var(--sans);color:var(--ink3);padding:5px 10px;border-radius:var(--r1)}
+nav a:hover{color:var(--ink);background:var(--s2);text-decoration:none}
+button.tg{font:600 11px var(--mono);color:var(--ink3);background:var(--s2);
+  border:1px solid var(--line);border-radius:var(--r1);padding:5px 10px;cursor:pointer}
+button.tg:hover{color:var(--ink);border-color:var(--line2)}
+
+main{max-width:1280px;margin:0 auto;padding:22px 20px 80px}
+section{margin-bottom:38px;scroll-margin-top:72px}
+.sec{margin:0 0 14px}
+.sec h2{margin:0;font:650 19px/1.25 var(--serif);letter-spacing:-.01em}
+.sec p{margin:3px 0 0;font:11.5px var(--mono);color:var(--ink4);letter-spacing:.02em}
+
+.card{background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  box-shadow:var(--e1);overflow:hidden;margin-bottom:14px}
+.hd{display:flex;align-items:center;gap:9px;padding:10px 14px;border-bottom:1px solid var(--line);
+  flex-wrap:wrap}
+.hd .t{font:650 12.5px var(--sans)}
+.bd{padding:13px 14px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))}
+
+.chip{display:inline-flex;align-items:center;gap:5px;font:600 10px var(--mono);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);background:var(--s2);
+  border:1px solid var(--line);border-radius:5px;padding:2px 7px}
+.chip.acc{color:var(--acc);border-color:color-mix(in oklch,var(--acc) 40%,transparent)}
+.chip.warn{color:var(--warn);border-color:color-mix(in oklch,var(--warn) 40%,transparent)}
+.chip.bad{color:var(--broken);border-color:color-mix(in oklch,var(--broken) 40%,transparent)}
+.chip.good{color:var(--held);border-color:color-mix(in oklch,var(--held) 40%,transparent)}
+.na{color:var(--ink4);font-style:italic}
+.note{font-size:11.5px;color:var(--ink4);line-height:1.5;padding:9px 0 0}
+.note b{color:var(--ink3)}
+.empty{padding:20px 14px;text-align:center;color:var(--ink4);font-size:12.5px}
+.missing{padding:18px 14px;text-align:center;color:var(--ink4);font-size:12.5px}
+.missing b{display:block;color:var(--broken);font:600 11px var(--mono);letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:5px}
+
+/* ── KPI ──────────────────────────────────────────────────────────── */
+.kpis{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
+.kpi{position:relative;background:var(--s2);border:1px solid var(--line);border-radius:var(--r1);
+  padding:10px 12px 12px;overflow:hidden}
+.kpi .l{font:600 9.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink4)}
+.kpi .v{font:650 20px var(--mono);margin-top:3px;letter-spacing:-.02em}
+.kpi .v small{font-size:12px;color:var(--ink4);font-weight:400}
+.kpi .s{font-size:10.5px;color:var(--ink4);margin-top:2px}
+
+/* ── barres de magnitude : la longueur encode, la couleur non ─────── */
+.bars{display:grid;gap:7px}
+.bar{display:grid;grid-template-columns:minmax(84px,1.1fr) minmax(0,2.2fr) auto;
+  align-items:center;gap:10px;font-size:12px}
+.bar .n{color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .t{height:7px;border-radius:5px;background:var(--s3);overflow:hidden}
+.bar .t i{display:block;height:100%;border-radius:5px;
+  background:linear-gradient(90deg,color-mix(in oklch,var(--data) 68%,#000),var(--data))}
+.bar .v{font:12px var(--mono);color:var(--ink);text-align:right;white-space:nowrap}
+.bar .v small{color:var(--ink4);font-size:10.5px}
+
+/* ── tables ───────────────────────────────────────────────────────── */
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font:600 9.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink4);padding:8px 10px;border-bottom:1px solid var(--line2);white-space:nowrap}
+th.r,td.r{text-align:right}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.r{font-family:var(--mono)}
+tbody tr:hover{background:var(--s2)}
+td.k{font:600 12.5px var(--sans)}
+td.k small{display:block;font:400 10.5px var(--mono);color:var(--ink4)}
+
+/* ── LA RÈGLE DE CETTE PAGE ────────────────────────────────────────
+   Aucun multiple ne s'affiche sans son état de résolution. Mesuré le
+   2026-09-15 : 22 protocoles sur 38 portent un P/F dont le dénominateur
+   (les fees) n'a pas été résolu, et la prose du digest bâtit un argument
+   dessus. Le nombre reste visible — on ne cache pas une mesure — mais il
+   perd son autorité typographique et porte son drapeau. */
+.res{display:inline-flex;align-items:center;gap:4px;font:600 9px var(--mono);
+  letter-spacing:.07em;text-transform:uppercase;border-radius:4px;padding:1px 5px;
+  border:1px solid transparent;white-space:nowrap}
+.res.ok{color:var(--held);border-color:color-mix(in oklch,var(--held) 34%,transparent);
+  background:color-mix(in oklch,var(--held) 10%,transparent)}
+.res.partial{color:var(--warn);border-color:color-mix(in oklch,var(--warn) 34%,transparent);
+  background:color-mix(in oklch,var(--warn) 10%,transparent)}
+.res.unresolved{color:var(--warn);border-color:color-mix(in oklch,var(--warn) 45%,transparent);
+  background:color-mix(in oklch,var(--warn) 14%,transparent)}
+.res.nomap{color:var(--broken);border-color:color-mix(in oklch,var(--broken) 40%,transparent);
+  background:color-mix(in oklch,var(--broken) 11%,transparent)}
+/* un multiple non garanti : encre sourde + astérisque, jamais masqué */
+.mult{font:650 13px var(--mono)}
+.mult.weak{color:var(--ink4);font-weight:400}
+.mult.weak::after{content:"*";color:var(--warn);font-weight:700;margin-left:1px}
+tr.weak td.k{color:var(--ink2)}
+
+/* ── sparkline ────────────────────────────────────────────────────── */
+.spark{display:block;overflow:visible}
+.scap{font:10px var(--mono);color:var(--ink4);margin-top:5px}
+
+/* ── prose de synthèse ────────────────────────────────────────────── */
+.prose{font-size:13px;line-height:1.62;color:var(--ink2)}
+.prose h4{margin:15px 0 5px;font:650 11px var(--mono);letter-spacing:.11em;
+  text-transform:uppercase;color:var(--acc)}
+.prose h4:first-child{margin-top:0}
+.prose p{margin:0 0 9px}
+.prose ul{margin:0 0 9px;padding-left:17px}
+.prose li{margin-bottom:4px}
+.prose strong{color:var(--ink);font-weight:650}
+.dated{display:flex;align-items:center;gap:7px;padding:7px 10px;margin-bottom:11px;
+  background:color-mix(in oklch,var(--open) 9%,transparent);
+  border:1px solid color-mix(in oklch,var(--open) 26%,transparent);
+  border-radius:var(--r1);font:11px var(--mono);color:var(--ink3)}
+
+/* ── alerte de provenance ─────────────────────────────────────────── */
+.warnbox{border:1px solid color-mix(in oklch,var(--warn) 40%,transparent);
+  background:color-mix(in oklch,var(--warn) 9%,transparent);border-radius:var(--r1);
+  padding:10px 12px;font-size:12px;color:var(--ink2);margin-bottom:12px}
+/* seul le PREMIER b est le titre de l'encadré ; les autres restent en ligne,
+   sinon chaque emphase du corps devient un pavé en capitales. */
+.warnbox > b:first-child{color:var(--warn);font:650 10.5px var(--mono);letter-spacing:.08em;
+  text-transform:uppercase;display:block;margin-bottom:4px}
+.warnbox b{color:var(--ink);font-weight:650}
+
+.trap{border-left:2px solid var(--broken);padding:3px 0 3px 11px;margin-bottom:10px;font-size:12.5px}
+.trap b{color:var(--broken)}
+.ctl{display:flex;align-items:center;gap:8px;font:11.5px var(--mono);color:var(--ink3);
+  cursor:pointer;user-select:none}
+.ctl input{accent-color:var(--acc);width:14px;height:14px;cursor:pointer}
+@media (max-width:640px){ .hwrap{padding:9px 14px} main{padding:16px 14px 60px} }
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div class="brand">Hermes&nbsp;DeFi <small>marché &amp; valorisation</small></div>
+    <nav>
+      <a href="#valorisation">Valorisation</a>
+      <a href="#marche">Marché</a>
+      <a href="#trackers">Secteurs</a>
+      <a href="#lecture">Lecture</a>
+      <a href="#funding">Funding</a>
+    </nav>
+    <button class="tg" id="theme" type="button">Thème</button>
+  </div>
+</header>
+<main id="app"><div class="empty">chargement…</div></main>
+
+<script>
+/* ── outils ───────────────────────────────────────────────────────── */
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const has=v=>v!==null&&v!==undefined&&v!=="";
+const NA='<span class="na" title="donnée absente du flux">—</span>';
+const nf=(v,d=2)=>has(v)&&isFinite(v)?Number(v).toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d}):null;
+const num=(v,d=2)=>{const s=nf(v,d);return s===null?NA:s;};
+function usd(v){
+  if(!has(v)||!isFinite(v))return null;
+  const a=Math.abs(v);
+  if(a>=1e9)return "$"+nf(v/1e9,2)+" G";
+  if(a>=1e6)return "$"+nf(v/1e6,1)+" M";
+  if(a>=1e3)return "$"+nf(v/1e3,1)+" k";
+  return "$"+nf(v,2);
+}
+function ago(iso){
+  if(!has(iso))return null;
+  const t=Date.parse(String(iso).match(/(Z|[+-]\d\d:?\d\d)$/)?iso:iso+"Z");
+  if(!isFinite(t))return null;
+  const m=Math.round((Date.now()-t)/60000);
+  if(m<1)return "à l'instant";
+  if(m<60)return m+" min";
+  const h=Math.round(m/60);
+  return h<48?h+" h":Math.round(h/24)+" j";
+}
+/* markdown minimal : les synthèses arrivent en markdown GLM */
+function md(src){
+  if(!has(src))return '<p class="na">synthèse absente</p>';
+  const inl=s=>esc(s).replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>")
+                     .replace(/`([^`]+)`/g,"<code>$1</code>");
+  let h="",ul=false;
+  for(const raw of String(src).split(/\r?\n/)){
+    const l=raw.replace(/\s+$/,"");
+    if(/^#{1,4}\s/.test(l)){ if(ul){h+="</ul>";ul=false;} h+="<h4>"+esc(l.replace(/^#{1,4}\s/,""))+"</h4>"; }
+    else if(/^\s*[*-]\s+/.test(l)){ if(!ul){h+="<ul>";ul=true;} h+="<li>"+inl(l.replace(/^\s*[*-]\s+/,""))+"</li>"; }
+    else if(l.trim()){ if(ul){h+="</ul>";ul=false;} h+="<p>"+inl(l)+"</p>"; }
+  }
+  if(ul)h+="</ul>";
+  return h||'<p class="na">synthèse vide</p>';
+}
+/* barres : la longueur encode, la couleur ne code rien */
+function bars(rows){
+  if(!rows||!rows.length)return '<div class="empty">aucune donnée</div>';
+  const mx=Math.max(...rows.map(r=>Math.abs(r.v)||0))||1;
+  return '<div class="bars">'+rows.map(r=>`<div class="bar">
+    <span class="n" title="${esc(r.n)}">${esc(r.n)}</span>
+    <span class="t"><i style="width:${Math.max(2,Math.min(100,Math.abs(r.v)/mx*100)).toFixed(1)}%"></i></span>
+    <span class="v">${r.lbl}</span></div>`).join("")+"</div>";
+}
+/* sparkline — `dom` fixe l'échelle ; sans lui, l'étiquette dit laquelle */
+function spark(pts,w=300,h=48,dom){
+  const v=(pts||[]).map(p=>p.v).filter(x=>has(x)&&isFinite(x));
+  if(v.length<2)return '<span class="na" style="font-size:11px">n='+v.length+"</span>";
+  const amn=Math.min(...v),amx=Math.max(...v);
+  const mn=dom?dom[0]:amn,mx=dom?dom[1]:amx,sp=(mx-mn)||1;
+  const X=i=>3+i*(w-6)/(v.length-1), Y=x=>h-4-((x-mn)/sp)*(h-9);
+  const d=v.map((x,i)=>(i?"L":"M")+X(i).toFixed(1)+" "+Y(x).toFixed(1)).join(" ");
+  const u="g"+Math.random().toString(36).slice(2,8);
+  const lbl=v.length+" points, de "+nf(v[0],2)+" à "+nf(v[v.length-1],2)
+           +", échelle locale "+nf(amn,2)+"–"+nf(amx,2);
+  return `<svg class="spark" width="100%" height="${h}" viewBox="0 0 ${w} ${h}"
+      preserveAspectRatio="none" role="img" aria-label="${esc(lbl)}">
+    <defs><linearGradient id="${u}" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="var(--data)" stop-opacity=".30"/>
+      <stop offset="1" stop-color="var(--data)" stop-opacity="0"/></linearGradient></defs>
+    <path d="${d} L${X(v.length-1).toFixed(1)} ${h} L${X(0).toFixed(1)} ${h} Z" fill="url(#${u})"/>
+    <path d="${d}" fill="none" stroke="var(--data)" stroke-width="1.5" stroke-linejoin="round"
+      stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+  </svg>`;
+}
+/* un bloc absent DIT qu'il est absent — jamais de valeur de repli */
+function guard(bk,render,label){
+  if(!bk)return `<div class="missing"><b>bloc absent</b>${esc(label||"")} n'est pas dans le flux.</div>`;
+  if(bk.err)return `<div class="missing"><b>bloc en erreur</b>${esc(label||"")} — ${esc(bk.err)}
+    <div class="note">Rien n'est affiché plutôt qu'une valeur de substitution.</div></div>`;
+  if(!has(bk.v))return `<div class="missing"><b>bloc vide</b>${esc(label||"")}</div>`;
+  try{ return render(bk.v); }
+  catch(e){ return `<div class="missing"><b>rendu impossible</b>${esc(String(e.message||e))}</div>`; }
+}
+function head(title,bk,extra){
+  const a=bk&&bk.as_of?ago(bk.as_of):null;
+  return `<div class="hd"><span class="t">${esc(title)}</span>
+    ${a?`<span class="chip" title="${esc(bk.as_of)}">${esc(a)}</span>`:""}
+    ${bk&&bk.src?`<span class="chip" title="source">${esc(String(bk.src).slice(0,34))}</span>`:""}
+    ${extra||""}</div>`;
+}
+
+/* ── LA RÈGLE : un multiple porte toujours son état de résolution ─── */
+const RES={OK:["ok","résolu"],PARTIAL:["partial","partiel"],
+           UNRESOLVED:["unresolved","non résolu"],NO_MAPPING:["nomap","non mappé"]};
+function resBadge(state){
+  const k=RES[state]||["nomap",String(state||"?")];
+  return `<span class="res ${k[0]}" title="résolution de la source des fees">${esc(k[1])}</span>`;
+}
+const feesOK=p=>((p.resolution||{}).fees==="OK");
+function mult(v,ok,d=1){
+  if(!has(v))return NA;
+  return `<span class="mult${ok?"":" weak"}" ${ok?"":'title="dénominateur non résolu : ce multiple n\'est pas garanti"'}>${nf(v,d)}</span>`;
+}
+
+/* ══ SECTIONS ══════════════════════════════════════════════════════ */
+function vueValorisation(D){
+  const B=D.blocks, val=B.valuation, prose=B.valuation_prose;
+  let h=`<section id="valorisation"><div class="sec"><h2>Valorisation</h2>
+    <p>0 LLM · valuation_board · multiples, capture par le token, provenance</p></div>`;
+
+  /* les pièges nommés par la couche d'analyse — le plus haut signal */
+  h+=guard(prose,p=>{
+    const av=p.top_capture_verifie||{};
+    return `<div class="card">${head("Ce qui trompe",prose,'<span class="chip warn">prose</span>')}
+      <div class="bd">
+        <div class="warnbox"><b>Autorité des chiffres</b>
+          Ce texte est une <b>lecture</b>, pas une source. Une erreur d'un facteur 10 y a été mesurée
+          le 15/09. <b>Aucun nombre affiché sur cette page n'en vient</b> : ils sortent tous de
+          <code>valuation_board</code>.
+          ${has(av.name)?`<div style="margin-top:6px;font-family:var(--mono);font-size:11.5px">
+            Contrôle — ${esc(av.name)} : capture ${num(av.capture_pct,1)} % ·
+            ${usd(av.holders_rev_ann)||NA}/an · PHR ${num(av.phr,1)}</div>`:""}
+        </div>
+        ${(p.traps||[]).length?(p.traps||[]).map(t=>`<div class="trap">
+          <b>${esc(t.name||"")}</b> — ${esc(t.trap||"")}</div>`).join(""):'<div class="empty">aucun piège signalé</div>'}
+        ${has(p.read)?`<div class="note" style="padding-top:10px">${esc(p.read)}</div>`:""}
+      </div></div>`;
+  },"valuation_prose");
+
+  /* la hiérarchie de capture : qui rend vraiment de la valeur au token */
+  h+=guard(val,v=>{
+    const ch=v.capture_hierarchy||[];
+    return `<div class="card">${head("Ce que le token capte réellement",val,
+      `<span class="chip">${ch.length} premiers</span>`)}
+      <div class="bd">
+        ${bars(ch.map(r=>({n:(r.name||"?")+(r.symbol?" · "+r.symbol:""),v:r.holders_rev_ann,
+          lbl:(usd(r.holders_rev_ann)||"—")+' <small>'+num(r.capture_pct,0)+" % capté</small>"})))}
+        <div class="note"><b>holders_rev_ann</b> = revenu annualisé qui revient effectivement au
+        porteur du token. Un protocole peut générer des fees considérables et n'en reverser
+        <b>rien</b> : c'est la différence entre le protocole et son jeton.</div>
+      </div></div>`;
+  },"valuation");
+
+  /* le tableau des 38, avec l'état de résolution partout */
+  h+=guard(val,v=>{
+    const secs=v.sectors||{};
+    const all=Object.entries(secs).flatMap(([s,l])=>l.map(p=>({...p,_sec:s})));
+    const nOK=all.filter(feesOK).length;
+    const rows=all.map(p=>{
+      const ok=feesOK(p), r=p.resolution||{};
+      return `<tr data-ok="${ok?1:0}"${ok?"":' class="weak"'}>
+        <td class="k">${esc(p.name||"?")}<small>${esc(p.symbol||"")} · ${esc(p._sec)}</small></td>
+        <td>${resBadge(r.fees)}</td>
+        <td class="r">${mult(p.pf,ok)}</td>
+        <td class="r">${mult(p.phr,ok)}</td>
+        <td class="r">${has(p.capture_pct)?num(p.capture_pct,1)+" %":NA}</td>
+        <td class="r">${usd(p.mcap)||NA}</td>
+        <td class="r">${has(p.base_chg_7d_pct)?(p.base_chg_7d_pct>0?"+":"")+num(p.base_chg_7d_pct,1)+" %":NA}</td>
+        <td><span class="chip" title="base de valeur du secteur">${esc(String(p.base_note||"?").slice(0,26))}</span></td>
+      </tr>`;
+    }).join("");
+    const nTvl=all.filter(p=>(p.resolution||{}).tvl==="OK").length;
+    return `<div class="card">${head("Les "+all.length+" protocoles à token",val,
+      `<span class="chip good">${nOK} fees résolues</span>
+       <span class="chip warn">${all.length-nOK} à dénominateur incertain</span>`)}
+      <div class="bd" style="padding-bottom:0">
+        <div class="warnbox"><b>Règle de lecture</b>
+          <b>${all.length-nOK} protocoles sur ${all.length}</b> affichent un P/F dont les fees n'ont
+          pas été résolues par la source. Leur multiple est <span class="mult weak">grisé</span> et
+          suivi d'un astérisque : il reste visible — on ne cache pas une mesure — mais il ne fait pas
+          autorité. Le badge de la colonne <i>fees</i> dit lequel.
+          <label class="ctl" style="margin-top:9px">
+            <input type="checkbox" id="onlyres"> n'afficher que les ${nOK} dont les fees sont résolues</label>
+          <div style="margin-top:7px;font-size:11px;color:var(--ink4)">
+            Le filtre porte sur les <b>fees</b>, dénominateur du P/F. La TVL est résolue pour
+            ${nTvl}/${all.length} — les deux états sont indépendants, et « fees résolues » ne veut
+            pas dire « fiche complète ».</div>
+        </div>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Protocole</th><th>Fees</th><th class="r">P/F</th><th class="r">PHR</th>
+          <th class="r">Capture</th><th class="r">Mcap</th><th class="r">Base 7 j</th><th>Yardstick</th></tr></thead>
+        <tbody id="valbody">${rows}</tbody></table></div>
+      <div class="bd"><div class="note">
+        <b>P/F</b> = mcap ÷ fees annualisés (lissés 7 j). <b>PHR</b> = mcap ÷ revenu annualisé revenant
+        au porteur — le multiple honnête. <b>Yardstick</b> = la base de valeur licite du secteur ;
+        valoriser un DEX ou un perp sur la TVL est une faute de catégorie, la donnée le déclare
+        elle-même. ${has(v.coverage_note)?"<br><br>"+esc(v.coverage_note):""}
+      </div></div></div>`;
+  },"valuation");
+
+  /* suspects et candidats */
+  h+=`<div class="grid g2">`;
+  h+=guard(val,v=>`<div class="card">${head("Signalés par la règle",val,
+      `<span class="chip">${(v.suspect||[]).length}</span>`)}
+      <div class="bd">${(v.suspect||[]).length?(v.suspect||[]).map(s=>`
+        <div style="margin-bottom:11px">
+          <div style="font:650 12.5px var(--sans)">${esc(s.name||"?")}
+            <span class="chip">${esc(s.sector||"")}</span>
+            ${resBadge((s.resolution||{}).fees||"UNRESOLVED")}</div>
+          <div style="font:11.5px var(--mono);color:var(--ink4);margin-top:2px">
+            P/F ${num(s.pf,2)} · capture ${num(s.capture_pct,1)} % · FDV/mcap ${num(s.fdv_mcap,2)}</div>
+          ${(s.suspect_why||[]).map(w=>`<div style="font-size:11.5px;color:var(--ink3);margin-top:3px">↳ ${esc(w)}</div>`).join("")}
+        </div>`).join(""):'<div class="empty">aucun signalement</div>'}</div></div>`,"valuation");
+  h+=guard(val,v=>`<div class="card">${head("Candidats de la règle",val,
+      `<span class="chip">${(v.candidates||[]).length}</span>`)}
+      <div class="bd">${(v.candidates||[]).length?(v.candidates||[]).map(c=>`
+        <div style="margin-bottom:11px">
+          <div style="font:650 12.5px var(--sans)">${esc(c.name||"?")}
+            <span class="chip">${esc(c.sector||"")}</span>
+            <span class="chip acc">rang ${esc(c.rank||"?")}</span></div>
+          <div style="font:11.5px var(--mono);color:var(--ink4);margin-top:2px">P/F ${num(c.pf,2)}</div>
+          <div style="font-size:11.5px;color:var(--ink3);margin-top:3px">↳ ${esc(c.why||"")}</div>
+        </div>`).join(""):'<div class="empty">aucun candidat</div>'}
+        <div class="note">Sélection <b>déterministe</b> : un rang dans un secteur plus des drapeaux de
+        qualité. Ce n'est pas une recommandation, c'est une file d'attente de recherche.</div>
+      </div></div>`,"valuation");
+  h+=`</div></section>`;
+  return h;
+}
+
+function vueMarche(D){
+  const B=D.blocks;
+  let h=`<section id="marche"><div class="sec"><h2>État de la DeFi</h2>
+    <p>0 LLM · fact_api + fundamentals_history · DefiLlama</p></div>`;
+
+  h+=guard(B.macro,m=>{
+    const a=m.agg||{};
+    return `<div class="card"><div class="bd"><div class="kpis">
+      ${[["DeFi TVL",usd(a.defi_tvl_b*1e9),""],["Stables mcap",usd(a.stable_mcap_b*1e9),
+         has(a.stable_d7_pct)?(a.stable_d7_pct>0?"+":"")+num(a.stable_d7_pct,2)+" % 7 j":""],
+        ["DEX vol 24 h",usd(a.dex_vol_24h_b*1e9),""],
+        ["Protocoles suivis",has(m.n_protocols)?String(m.n_protocols):null,""]]
+        .map(k=>`<div class="kpi"><div class="l">${esc(k[0])}</div>
+          <div class="v">${k[1]||NA}</div>${k[2]?`<div class="s">${esc(k[2])}</div>`:""}</div>`).join("")}
+    </div></div></div>`;
+  },"macro");
+
+  h+=`<div class="grid g2">`;
+  h+=guard(B.macro,m=>`<div class="card">${head("TVL par secteur",B.macro)}
+    <div class="bd">${bars((m.sectors||[]).map(s=>({n:s.name,v:s.tvl,
+      lbl:(usd(s.tvl*1e9)||"—")+' <small>'+esc(s.yard||"")+"</small>"})))}
+      <div class="note">Ne pas sommer : LST et restaking double-comptent l'ETH staké. Le yardstick
+      change par secteur.</div></div></div>`,"macro");
+  h+=guard(B.macro,m=>`<div class="card">${head("Fee-yield annualisé",B.macro,'<span class="chip">7 j lissés</span>')}
+    <div class="bd">${bars((m.fee_yield||[]).map(f=>({n:f.name,v:f.fy,
+      lbl:num(f.fy,2)+'% <small>'+esc(f.sector||"")+"</small>"})))}
+      <div class="note">Fees du <b>PROTOCOLE</b> ≠ accrual du <b>TOKEN</b> : le fee-switch se vérifie
+      en gouvernance, pas dans cette barre. La colonne « capture » du tableau de valorisation dit
+      ce qui revient réellement au porteur.</div></div></div>`,"macro");
+  h+=guard(B.macro,m=>`<div class="card">${head("TVL par chaîne",B.macro,'<span class="chip">top 10</span>')}
+    <div class="bd">${bars((m.chains||[]).map(c=>({n:c.n,v:c.tvl_b,lbl:usd(c.tvl_b*1e9)||"—"})))}</div></div>`,"macro");
+  h+=guard(B.macro,m=>`<div class="card">${head("Flux stablecoins par chaîne",B.macro,'<span class="chip">Δ 7 j</span>')}
+    <div class="bd">${bars((m.flows||[]).map(f=>({n:f.chain,v:f.d7,
+      lbl:(f.d7>0?"+":"")+num(f.d7,1)+" M"})))}
+      <div class="note">Le signe est dans le libellé, pas dans la couleur : une hausse n'est pas
+      « bonne », c'est une direction — et ce terminal ne fait pas de direction.</div></div></div>`,"macro");
+  h+=`</div>`;
+
+  h+=`<div class="grid g2">`;
+  h+=guard(B.movers,m=>`<div class="card">${head("Mouvements de TVL · 24 h",B.movers)}
+    <div class="bd"><div class="grid g2">
+      <div><div class="note" style="padding:0 0 6px"><b>Hausses</b></div>
+        ${bars((m.gainers||[]).map(p=>({n:p.name,v:Math.abs(p.chg_1d),
+          lbl:(p.chg_1d>0?"+":"")+num(p.chg_1d,1)+'% <small>'+esc(p.category||"")+"</small>"})))}</div>
+      <div><div class="note" style="padding:0 0 6px"><b>Baisses</b></div>
+        ${bars((m.losers||[]).map(p=>({n:p.name,v:Math.abs(p.chg_1d),
+          lbl:num(p.chg_1d,1)+'% <small>'+esc(p.category||"")+"</small>"})))}</div>
+    </div></div></div>`,"movers");
+  h+=guard(B.prices,p=>`<div class="card">${head("Prix",B.prices,
+      `<span class="chip">${(p.items||[]).length} actifs</span>`)}
+    <div class="tw"><table><thead><tr><th>Actif</th><th class="r">Prix</th>
+      <th class="r">Δ 24 h</th><th class="r">Volume</th></tr></thead><tbody>
+      ${(p.items||[]).map(i=>`<tr><td class="k">${esc(i.sym||"")}<small>${esc(i.name||"")}</small></td>
+        <td class="r">${has(i.p)?"$"+nf(i.p,i.p<1?4:2):NA}</td>
+        <td class="r">${has(i.d)?(i.d>0?"+":"")+num(i.d,2)+" %":NA}</td>
+        <td class="r">${usd(i.vol)||NA}</td></tr>`).join("")}
+    </tbody></table></div>
+    <div class="bd"><div class="note">${esc(p.note||"")}</div></div></div>`,"prices");
+  h+=`</div></section>`;
+  return h;
+}
+
+function vueTrackers(D){
+  const B=D.blocks;
+  const carte=(titre,bk,unite)=>guard(bk,v=>{
+    const hist=v.history||{};
+    const kpis=[["TVL",has(v.tvl_b)?usd(v.tvl_b*1e9):(has(v.tvl_m)?usd(v.tvl_m*1e6):null),""],
+      ["Δ 7 j",has(v.chg_7d)?(v.chg_7d>0?"+":"")+num(v.chg_7d,2)+" %":null,""],
+      ["Δ 24 h",has(v.chg_1d)?(v.chg_1d>0?"+":"")+num(v.chg_1d,2)+" %":null,""],
+      ["Protocoles",has(v.n_protocols)?String(v.n_protocols):null,""],
+      ["Part Morpho",has(v.morpho_share_pct)?num(v.morpho_share_pct,1)+" %":null,""]]
+      .filter(k=>k[1]!==null&&k[1]!==undefined);
+    return `<div class="card">${head(titre,bk)}
+      <div class="bd">
+        <div class="kpis" style="margin-bottom:12px">${kpis.map(k=>`<div class="kpi">
+          <div class="l">${esc(k[0])}</div><div class="v">${k[1]}</div></div>`).join("")}</div>
+        ${(hist.points||[]).length>1?`${spark(hist.points)}
+          <div class="scap">${hist.n} points sur ${hist.n_jours} jour(s)
+            ${hist.from?`· ${esc(hist.from)} → ${esc(hist.to)}`:""}
+            ${hist.note?`<br><b style="color:var(--warn)">${esc(hist.note)}</b>`:""}</div>`
+          :'<div class="empty">série trop courte pour une forme</div>'}
+        ${has(v.synth)?`<div style="margin-top:16px">
+          <div class="dated">⏱ Synthèse écrite le ${esc(String(v.synth_ts||"").replace("T"," ").replace("Z"," UTC"))}
+            — ses chiffres sont ceux de CET instant, pas ceux des compteurs ci-dessus.</div>
+          <div class="prose">${md(v.synth)}</div></div>`:""}
+      </div></div>`;
+  },titre);
+  return `<section id="trackers"><div class="sec"><h2>Trackers sectoriels</h2>
+    <p>on-chain 0-LLM × digest × synthèse causale</p></div>
+    ${carte("RWA",B.rwa)}${carte("Robinhood Chain",B.robinhood)}</section>`;
+}
+
+function vueLecture(D){
+  const B=D.blocks;
+  let h=`<section id="lecture"><div class="sec"><h2>Lecture</h2>
+    <p>ce que l'agent a retenu — réveils L4, sélection éditoriale, fil jugé</p></div>`;
+
+  h+=guard(B.curator,c=>{
+    const refs=new Set((c.featured||[]).map(f=>f.ref));
+    const tag=r=>((c.featured||[]).find(f=>f.ref===r)||{}).tag;
+    return `<div class="card">${head("Mis en avant",B.curator,
+      `<span class="chip acc">${(c.featured||[]).length}</span>`)}
+      <div class="bd">${(c.wakes||[]).filter(w=>refs.has(w.ts)).map(w=>`
+        <div style="margin-bottom:13px">
+          <div style="display:flex;gap:7px;align-items:baseline;flex-wrap:wrap">
+            <span class="chip acc">${esc(tag(w.ts)||"")}</span>
+            <span class="chip">${esc(w.label||"")}</span>
+            <span style="font:10.5px var(--mono);color:var(--ink4)">${esc(ago(w.ts)||"")}</span></div>
+          <div style="font-size:13px;color:var(--ink2);margin-top:5px">${esc(w.summary||"")}</div>
+        </div>`).join("")||'<div class="empty">aucune mise en avant</div>'}
+        <div class="note">La sélection porte son <b>motif</b> — c'est une couche éditoriale, pas un tri
+        par date.</div></div></div>`;
+  },"curator");
+
+  h+=guard(B.wakes,w=>`<div class="card">${head("Réveils du brain · L4",B.wakes,
+      `<span class="chip">${w.n} lectures</span>`)}
+    <div class="tw"><table><thead><tr><th>Quand</th><th>Fenêtre</th><th>Lecture</th>
+      <th class="r">Veilles</th></tr></thead><tbody>
+      ${(w.items||[]).map(i=>`<tr>
+        <td class="r" style="color:var(--ink4);white-space:nowrap">${esc(ago(i.ts)||"?")}</td>
+        <td><span class="chip">${esc(i.label||"")}</span></td>
+        <td style="font-size:12.5px;color:var(--ink2);max-width:640px">${esc(i.summary||"")}</td>
+        <td class="r">${has(i.watches)?i.watches:NA}</td></tr>`).join("")}
+    </tbody></table></div>
+    <div class="bd"><div class="note">${esc(w.note||"")}</div></div></div>`,"wakes");
+
+  h+=guard(B.hot_news,n=>{
+    const t=n.tally||{};
+    const cls=i=>i==="adverse"?"bad":(i==="value-accretive"?"good":"");
+    return `<div class="card">${head("Fil jugé",B.hot_news,
+      `<span class="chip good">${t["value-accretive"]||0} accrétif</span>
+       <span class="chip bad">${t.adverse||0} adverse</span>
+       <span class="chip">${t.neutral||0} neutre</span>`)}
+      <div class="bd">${(n.news||[]).map(a=>`<div style="margin-bottom:11px">
+        <div style="display:flex;gap:7px;align-items:baseline;flex-wrap:wrap">
+          <span class="chip ${cls(a.impact)}">${esc(a.impact||"")}</span>
+          <span class="chip">${esc(a.sector||"")}</span>
+          <span style="font:10.5px var(--mono);color:var(--ink4)">${esc(a.source||"")}</span></div>
+        <div style="font-size:13px;margin-top:4px">${a.url?`<a href="${esc(a.url)}" target="_blank"
+          rel="noopener noreferrer">${esc(a.headline||"")}</a>`:esc(a.headline||"")}</div>
+      </div>`).join("")||'<div class="empty">aucune news</div>'}
+        <div class="note"><b>L'impact est un jugement de modèle</b>, pas une mesure. Il oriente la
+        lecture ; il ne tranche rien.</div></div></div>`;
+  },"hot_news");
+  return h+`</section>`;
+}
+
+function vueFunding(D){
+  const B=D.blocks;
+  return `<section id="funding"><div class="sec"><h2>Funding</h2>
+    <p>0 LLM · le coût du basis perp — un fondamental, pas un signal</p></div>
+    ${guard(B.funding,f=>{
+      const rows=Object.entries(f.funding||{})
+        .map(([sym,v])=>({sym,...v}))
+        .filter(r=>isFinite(r.annualized))
+        .sort((a,b)=>Math.abs(b.annualized)-Math.abs(a.annualized));
+      return `<div class="card">${head("Taux de financement annualisés",B.funding,
+        `<span class="chip">${f.n_non_nuls}/${f.n} non nuls</span>`)}
+        <div class="bd">
+          ${bars(rows.slice(0,18).map(r=>({n:r.sym.replace(/USDT$/,""),v:r.annualized,
+            lbl:(r.annualized>0?"+":"")+num(r.annualized,2)+'% <small>mark '+
+              (has(r.mark_price)?nf(r.mark_price,r.mark_price<1?4:2):"—")+"</small>"})))}
+          <div class="note">Le <b>signe</b> dit qui paie qui : positif, les longs financent les courts.
+          C'est le coût de portage d'une position perp, donc un <b>fondamental</b> du marché des
+          dérivés — pas une direction. Le positionnement long/short, lui, est volontairement absent
+          de ce terminal.
+          ${(f.anomalies_funding||[]).length?`<br><br><b>${f.anomalies_funding.length} écart(s)
+            notable(s)</b> : ${f.anomalies_funding.map(a=>esc(a.symbol)+" ("+num(a.value,1)+"%, z="
+            +num(a.z_score_7d,1)+")").join(" · ")}`:""}
+          </div></div></div>`;
+    },"funding")}</section>`;
+}
+
+/* ══ ASSEMBLAGE ════════════════════════════════════════════════════ */
+function entete(D){
+  const f=(D.failed_blocks||[]);
+  return `<div class="card"><div class="bd" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+    <div><div class="l" style="font:600 9.5px var(--mono);letter-spacing:.12em;
+      text-transform:uppercase;color:var(--ink4)">Flux</div>
+      <div style="font:650 15px var(--mono)">${esc(ago(D.generated_at)||"?")}</div></div>
+    <div style="font-size:11.5px;color:var(--ink4);max-width:620px">${esc(D.perimetre||"")}</div>
+    ${f.length?`<span class="chip bad" style="margin-left:auto">${f.length} bloc(s) en échec :
+      ${esc(f.join(", "))}</span>`:`<span class="chip good" style="margin-left:auto">12 blocs, 0 échec</span>`}
+  </div></div>`;
+}
+
+function render(D){
+  document.getElementById("app").innerHTML =
+    entete(D)+vueValorisation(D)+vueMarche(D)+vueTrackers(D)+vueLecture(D)+vueFunding(D);
+  const cb=document.getElementById("onlyres");
+  if(cb) cb.addEventListener("change",()=>{
+    document.querySelectorAll("#valbody tr").forEach(tr=>{
+      tr.hidden = cb.checked && tr.dataset.ok!=="1";
+    });
+  });
+}
+
+(async function(){
+  try{
+    const r=await fetch("defi.json?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    render(await r.json());
+  }catch(e){
+    document.getElementById("app").innerHTML=
+      `<div class="card"><div class="missing"><b>flux indisponible</b>${esc(String(e.message||e))}
+        <div class="note">Le terminal n'affiche aucune donnée de substitution : sans
+        <code>defi.json</code> valide, il n'y a rien à montrer.</div></div></div>`;
+  }
+})();
+
+/* thème : trois états (système, clair forcé, sombre forcé) */
+document.getElementById("theme").addEventListener("click",()=>{
+  const r=document.documentElement, cur=r.dataset.theme;
+  const next = cur==="dark" ? "light" : cur==="light" ? "" : "dark";
+  if(next) r.dataset.theme=next; else delete r.dataset.theme;
+  try{ next?localStorage.setItem("th",next):localStorage.removeItem("th"); }catch(_){}
+});
+try{ const t=localStorage.getItem("th"); if(t) document.documentElement.dataset.theme=t; }catch(_){}
+</script>
+</body>
+</html>
