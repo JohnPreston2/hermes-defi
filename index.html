@@ -400,7 +400,8 @@ function vueValorisation(D){
   h+=guard(val,v=>{
     const ch=v.capture_hierarchy||[];
     return `<div class="card">${head("Ce que le token capte réellement",val,
-      `<span class="chip">${ch.length} premiers</span>`)}
+      `<span class="chip">${ch.length} premiers</span>
+       <span class="chip warn" title="ces montants viennent du board, qui annualise une seule journée">fenêtre 24 h × 365</span>`)}
       <div class="bd">
         ${bars(ch.map(r=>({n:(r.name||"?")+(r.symbol?" · "+r.symbol:""),v:r.holders_rev_ann,
           lbl:(usd(r.holders_rev_ann)||"—")+' <small>'+num(r.capture_pct,0)+" % du revenu</small>"})))}
