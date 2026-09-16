@@ -171,6 +171,14 @@ td.k small{display:block;font:400 10.5px var(--mono);color:var(--ink4)}
 .res.nomap{color:var(--broken);border-color:color-mix(in oklch,var(--broken) 40%,transparent);
   background:color-mix(in oklch,var(--broken) 11%,transparent)}
 /* un multiple non garanti : encre sourde + astérisque, jamais masqué */
+/* les deux autres fenêtres, à côté du multiple de tête — jamais cachées */
+.fen{font:10px var(--mono);color:var(--ink4);margin-top:2px;white-space:nowrap}
+/* la dispersion EST l'information : un P/F qui varie d'un facteur 30 selon la
+   fenêtre ne dit pas « bon marché », il dit « la semaine ne ressemble pas à
+   l'année ». On la marque au lieu de choisir une fenêtre pour le lecteur. */
+.disp{display:inline-block;margin-top:3px;font:650 9.5px var(--mono);letter-spacing:.05em;
+  color:var(--warn);border:1px solid color-mix(in oklch,var(--warn) 38%,transparent);
+  background:color-mix(in oklch,var(--warn) 11%,transparent);border-radius:4px;padding:1px 5px}
 .mult{font:650 13px var(--mono)}
 .mult.weak{color:var(--ink4);font-weight:400}
 .mult.weak::after{content:"*";color:var(--warn);font-weight:700;margin-left:1px}
@@ -411,22 +419,38 @@ function vueValorisation(D){
     const secs=v.sectors||{};
     const all=Object.entries(secs).flatMap(([s,l])=>l.map(p=>({...p,_sec:s})));
     const nOK=all.filter(feesOK).length;
+    /* La couverture est BIDIRECTIONNELLE et les deux sens sont des défauts de
+       provenance distincts : sous 95 %, le board a sommé moins de modules que
+       le parent ; au-dessus de 105 %, son chiffre ne se reproduit PAS depuis la
+       source déclarée — on ne sait pas d'où il vient. */
+    const covBadge=c=>{
+      if(!c||!has(c.part_captee))return "";
+      const v=c.part_captee*100;
+      if(v<95)return `<span class="res unresolved" title="le board somme ${esc((c.modules_board||[]).join(' + ')||'—')} ; le parent complet contient ${esc((c.modules_parent||[]).join(' + '))}">${nf(v,0)} % des fees du parent</span>`;
+      if(v>105)return `<span class="res nomap" title="le chiffre du board dépasse la somme parent complète : non reproductible depuis DefiLlama">${nf(v,0)} % — non reproductible</span>`;
+      return `<span class="res ok">${nf(v,0)} % du parent</span>`;
+    };
     const rows=all.map(p=>{
       const ok=feesOK(p), r=p.resolution||{};
       const comps=(r.fees_components||[]).join(" + ")||"—";
-      const miss=(r.fees_missing||[]).join(" + ");
+      const F=(p.fenetres||{}).pf||{}, H=(p.fenetres||{}).phr||{};
+      const disp=F.dispersion;
+      /* Le multiple de tête reste le 7 j — c'est la fenêtre du board, donc la
+         continuité de lecture. Mais les deux autres sont à côté, pas cachées. */
+      const cellPF=!has(F["7j"])&&!has(F["1an"])?NA:`
+        <span class="mult">${has(F["7j"])?nf(F["7j"],2):"—"}</span>
+        <div class="fen">30 j ${has(F["30j"])?nf(F["30j"],2):"—"} · 1 an ${has(F["1an"])?nf(F["1an"],2):"—"}</div>
+        ${has(disp)&&disp>=2?`<span class="disp" title="rapport entre la fenêtre la plus chère et la moins chère">×${nf(disp,1)}</span>`:""}`;
       return `<tr data-ok="${ok?1:0}"${ok?"":' class="weak"'}>
         <td class="k">${esc(p.name||"?")}<small>${esc(p.symbol||"")} · ${esc(p._sec)}</small></td>
-        <td><span title="modules sommés : ${esc(comps)}${miss?"  |  déclarés manquants : "+esc(miss):""}">
-          ${resBadge(r.fees)}</span>
-          <div style="font:9.5px var(--mono);color:var(--ink4);margin-top:3px;max-width:190px">${esc(comps)}</div></td>
-        <td class="r">${mult(p.pf,ok)}</td>
-        <td class="r">${mult(p.ps,ok)}</td>
-        <td class="r">${mult(p.phr,ok)}</td>
+        <td>${resBadge(r.fees)} ${covBadge(p.couverture)}
+          <div style="font:9.5px var(--mono);color:var(--ink4);margin-top:3px;max-width:200px">${esc(comps)}</div></td>
+        <td class="r">${cellPF}</td>
+        <td class="r">${has(H["1an"])?`<span class="mult">${nf(H["1an"],2)}</span>
+          <div class="fen">7 j ${has(H["7j"])?nf(H["7j"],2):"—"}</div>`:NA}</td>
         <td class="r">${has(p.capture_pct)?num(p.capture_pct,1)+" %":NA}</td>
         <td class="r">${usd(p.mcap)||NA}</td>
         <td class="r">${has(p.fdv_mcap)?num(p.fdv_mcap,2)+"×":NA}</td>
-        <td class="r">${has(p.base_chg_7d_pct)?(p.base_chg_7d_pct>0?"+":"")+num(p.base_chg_7d_pct,1)+" %":NA}</td>
         <td><span class="chip" title="base de valeur du secteur">${esc(String(p.base_note||"?").slice(0,34))}</span></td>
       </tr>`;
     }).join("");
@@ -438,13 +462,21 @@ function vueValorisation(D){
       `<span class="chip good">${nOK} fees trouvées</span>
        <span class="chip warn">${nWeakPF} multiples à dénominateur incertain</span>`)}
       <div class="bd" style="padding-bottom:0">
-        <div class="warnbox"><b>Ce que « trouvées » veut dire — et ne veut pas dire</b>
-          Le badge de la colonne <i>fees</i> dit que les modules listés dessous <b>ont été trouvés</b>.
-          Il ne dit <b>pas</b> que la liste est complète. Vérifié le 16/09 : Pump est marqué trouvé
-          sur le seul module <code>PumpSwap</code>, sans <code>pump.fun</code> ; Lighter sans
-          <code>Lighter Robinhood Perps</code> — le module que la section Réveils de cette page suit
-          nommément. <b>Un badge vert n'est donc pas une garantie d'exhaustivité</b> : lisez les
-          modules sommés, ils sont écrits sous chaque badge.
+        ${(()=>{ /* la couverture est MESURÉE à chaque passage, plus un exemple figé */
+          const c=all.map(p=>p.couverture).filter(x=>x&&has(x.part_captee));
+          const amp=c.filter(x=>x.part_captee<0.95), sur=c.filter(x=>x.part_captee>1.05);
+          const okBadgeAmpute=all.filter(p=>feesOK(p)&&p.couverture&&p.couverture.part_captee<0.95);
+          return `<div class="warnbox"><b>Ce que « trouvées » veut dire — et ne veut pas dire</b>
+          Le badge de gauche dit que les modules listés dessous <b>ont été trouvés</b>. Il ne dit
+          <b>pas</b> que la liste est complète. C'est désormais mesuré protocole par protocole contre
+          la somme du protocole parent chez DefiLlama :
+          <b>${amp.length} lignes sous 95 %</b> des fees du parent,
+          <b>${sur.length} au-dessus de 105 %</b> (chiffre non reproductible depuis la source).
+          ${okBadgeAmpute.length?`<div style="margin-top:5px">⚠️ <b>${okBadgeAmpute.length} lignes
+            portent un badge « résolu » ET un dénominateur amputé</b> :
+            ${okBadgeAmpute.map(p=>esc(p.name)+" ("+nf(p.couverture.part_captee*100,0)+" %)").join(" · ")}.
+            Un badge vert n'est donc pas une garantie d'exhaustivité.</div>`:""}`;
+        })()}
           <div style="margin-top:6px">
             <b>${nWeakPF} protocoles sur ${all.length}</b> affichent en plus un P/F dont les fees
             n'ont pas été résolues du tout. Leur multiple est <span class="mult weak">grisé</span>
@@ -457,11 +489,12 @@ function vueValorisation(D){
         </div>
       </div>
       <div class="tw"><table>
-        <thead><tr><th>Protocole</th><th>Fees — modules sommés</th><th class="r">P/F</th>
-          <th class="r">P/S</th><th class="r">PHR</th>
+        <thead><tr><th>Protocole</th><th>Provenance des fees</th>
+          <th class="r" title="mcap ÷ fees annualisés, sur trois fenêtres">P/F <small>7 j · 30 j · 1 an</small></th>
+          <th class="r" title="mcap ÷ revenu au porteur, ancré sur 1 an">PHR <small>1 an</small></th>
           <th class="r" title="part du REVENU qui revient au porteur">Capture <small>du rev.</small></th>
           <th class="r">Mcap</th><th class="r" title="dilution à venir">FDV/mc</th>
-          <th class="r">Base 7 j</th><th>Yardstick</th></tr></thead>
+          <th>Yardstick</th></tr></thead>
         <tbody id="valbody">${rows}</tbody></table></div>
       <div class="bd">
         ${(()=>{ /* contrôle exécuté À CHAQUE RENDU, pas une note figée */
@@ -475,18 +508,33 @@ function vueValorisation(D){
             rapportent donc un numérateur et un dénominateur pris sur deux horloges différentes.</b>
             Le défaut est dans la couche qui calcule (<code>valuation_enricher</code>), pas dans cet
             affichage — il est déclaré ici plutôt que masqué, et il n'est pas corrigé.
-            <div style="margin-top:5px">Conséquence pratique : <b>ne citez aucun de ces multiples
-            sans le recalculer.</b> Trouvé par un audit externe le 2026-09-16.</div></div>`:"";
+            <div style="margin-top:5px">Les colonnes P/F et PHR de ce tableau <b>n'utilisent plus
+            ces valeurs</b> : elles sont recalculées depuis <code>defi_windows.json</code>, où les
+            quatre fenêtres sortent du même appel et sont donc comparables entre elles. Le défaut
+            amont subsiste et reste déclaré ici.</div></div>`:"";
         })()}
         <div class="note">
-        <b>P/F</b> = mcap ÷ fees annualisés · <b>P/S</b> = mcap ÷ revenu · <b>PHR</b> = mcap ÷ revenu
-        revenant au porteur. P/S et PHR corrigent le P/F vers le haut quand le protocole ne reverse
-        pas : un P/F bas avec un P/S élevé dit que la valeur reste chez le protocole, pas chez le jeton.
-        <b>Capture</b> = part du <b>revenu</b> (et non des fees) revenant au porteur — deux protocoles
-        à « 100 % » peuvent avoir des take-rates très différents sur ce que paie l'utilisateur.
-        <b>FDV/mc</b> = dilution à venir : un P/F de 20× à FDV/mc 4× est un P/F de 80× sur le jeton
-        pleinement dilué. <b>Yardstick</b> = la base de valeur licite du secteur ; valoriser un DEX
-        ou un perp sur la TVL est une faute de catégorie.
+        <b>Les trois fenêtres ne sont pas trois versions d'un même chiffre</b> — leur écart est
+        l'information. Un P/F de 5× sur 7 jours et de 40× sur un an ne dit pas « bon marché », il dit
+        « la dernière semaine ne ressemble pas à l'année ». La puce <span class="disp">×N</span>
+        marque les cas où le rapport dépasse 2. Mesuré aujourd'hui : <b>le classement par P/F change
+        entre 7 jours et 1 an dans les cinq secteurs sur cinq.</b> Choisir une fenêtre pour vous
+        serait prendre la décision à votre place.
+        <br><br><b>Provenance</b> : le badge de gauche dit si la source des fees a été résolue ; celui
+        de droite dit quelle part des fees du protocole parent le board a réellement sommée.
+        <span class="res unresolved">sous 95 %</span> = des modules manquent.
+        <span class="res nomap">au-dessus de 105 %</span> = le chiffre du board <b>ne se reproduit pas</b>
+        depuis DefiLlama, et on ne sait pas d'où il vient — c'est le défaut de provenance le plus grave.
+        <br><br><b>PHR</b> = mcap ÷ revenu revenant au porteur, ancré sur 1 an parce que les
+        distributions sont grumeleuses : un programme suspendu depuis trois semaines met le 7 j à zéro
+        sans que le jeton ait changé de nature. <b>Capture</b> = part du <b>revenu</b> (et non des
+        fees) revenant au porteur — deux protocoles à « 100 % » peuvent avoir des take-rates très
+        différents sur ce que paie l'utilisateur. <b>FDV/mc</b> = dilution à venir : un P/F de 20× à
+        FDV/mc 4× est un P/F de 80× sur le jeton pleinement dilué. <b>Yardstick</b> = la base de
+        valeur licite du secteur.
+        <br><br>Fenêtres : <code>${esc(v.fenetres_source||"—")}</code>, relevées
+        ${esc(ago(v.fenetres_as_of)||"?")} — sonde de calibration <b>${esc(v.fenetres_sonde||"?")}</b>
+        témoins reproduits. ${v.fenetres_err?`<b style="color:var(--broken)">Fenêtres indisponibles : ${esc(v.fenetres_err)}</b>`:""}
         ${has(v.coverage_note)?"<br><br>"+esc(v.coverage_note):""}
       </div></div></div>`;
   },"valuation");
