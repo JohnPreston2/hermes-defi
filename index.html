@@ -277,17 +277,18 @@ function bars(rows){
     <span class="t"><i style="width:${Math.max(2,Math.min(100,Math.abs(r.v)/mx*100)).toFixed(1)}%"></i></span>
     <span class="v">${r.lbl}</span></div>`).join("")+"</div>";
 }
-/* sparkline — `dom` fixe l'échelle ; sans lui, l'étiquette dit laquelle */
-function spark(pts,w=300,h=48,dom){
+/* sparkline — l'échelle est TOUJOURS écrite sous le tracé, jamais seulement
+   dans l'aria-label : une courbe sans échelle n'est pas une mesure, c'est une
+   forme. Défaut relevé par l'audit externe du 16/09. */
+function spark(pts,w=300,h=48){
   const v=(pts||[]).map(p=>p.v).filter(x=>has(x)&&isFinite(x));
   if(v.length<2)return '<span class="na" style="font-size:11px">n='+v.length+"</span>";
-  const amn=Math.min(...v),amx=Math.max(...v);
-  const mn=dom?dom[0]:amn,mx=dom?dom[1]:amx,sp=(mx-mn)||1;
+  const mn=Math.min(...v),mx=Math.max(...v),sp=(mx-mn)||1;
   const X=i=>3+i*(w-6)/(v.length-1), Y=x=>h-4-((x-mn)/sp)*(h-9);
   const d=v.map((x,i)=>(i?"L":"M")+X(i).toFixed(1)+" "+Y(x).toFixed(1)).join(" ");
   const u="g"+Math.random().toString(36).slice(2,8);
   const lbl=v.length+" points, de "+nf(v[0],2)+" à "+nf(v[v.length-1],2)
-           +", échelle locale "+nf(amn,2)+"–"+nf(amx,2);
+           +", échelle locale "+nf(mn,2)+"–"+nf(mx,2);
   return `<svg class="spark" width="100%" height="${h}" viewBox="0 0 ${w} ${h}"
       preserveAspectRatio="none" role="img" aria-label="${esc(lbl)}">
     <defs><linearGradient id="${u}" x1="0" x2="0" y1="0" y2="1">
@@ -297,6 +298,36 @@ function spark(pts,w=300,h=48,dom){
     <path d="${d}" fill="none" stroke="var(--data)" stroke-width="1.5" stroke-linejoin="round"
       stroke-linecap="round" vector-effect="non-scaling-stroke"/>
   </svg>`;
+}
+/* ── UNE SÉRIE QUI PORTE UNE RUPTURE NE SE TRACE PAS D'UN TRAIT ──────
+   Le feed détecte un saut d'un facteur ≥ 2 entre deux relevés consécutifs :
+   ce n'est pas un mouvement de marché, c'est un changement de périmètre en
+   amont. On ne dessine alors QUE le segment comparable à lui-même, et on
+   déclare ce qu'on a écarté — au lieu de raconter la recatégorisation comme
+   un événement. */
+function serie(hist){
+  const H=hist||{}, pts=H.points||[];
+  if(pts.length<2)return '<div class="empty">série trop courte pour une forme</div>';
+  const rup=H.ruptures||[], from=H.stable_from||0;
+  const use=rup.length?pts.slice(from):pts;
+  const v=use.map(p=>p.v);
+  const mn=Math.min(...v),mx=Math.max(...v);
+  let h="";
+  if(rup.length){
+    h+=`<div class="warnbox"><b>Rupture de définition</b>
+      La série saute d'un facteur ${esc(String(rup[rup.length-1].facteur))}
+      (${esc(String(rup[rup.length-1].de))} → ${esc(String(rup[rup.length-1].vers))})
+      le ${esc(rup[rup.length-1].d)}. Un écart pareil entre deux relevés consécutifs
+      n'est pas un mouvement de marché : c'est le périmètre amont qui a changé.
+      <b>Les ${from} point(s) antérieurs sont écartés du tracé</b> — ils ne sont pas
+      comparables à ce qui suit, et aucune tendance ne peut les traverser.</div>`;
+  }
+  h+=spark(use);
+  h+=`<div class="scap">échelle ${nf(mn,2)} – ${nf(mx,2)} · ${use.length} point(s)
+      ${use[0]&&use[0].d?`· ${esc(use[0].d)} → ${esc(use[use.length-1].d)}`:""}
+      ${H.n_jours&&H.n>H.n_jours?`<br>${H.n} relevés sur ${H.n_jours} jour(s) — intraday,
+        ce n'est pas une série quotidienne.`:""}</div>`;
+  return h;
 }
 /* un bloc absent DIT qu'il est absent — jamais de valeur de repli */
 function guard(bk,render,label){
@@ -341,8 +372,12 @@ function vueValorisation(D){
       <div class="bd">
         <div class="warnbox"><b>Autorité des chiffres</b>
           Ce texte est une <b>lecture</b>, pas une source. Une erreur d'un facteur 10 y a été mesurée
-          le 15/09. <b>Aucun nombre affiché sur cette page n'en vient</b> : ils sortent tous de
+          le 15/09. Aucun nombre des <b>tableaux</b> de cette page n'en vient : ils sortent tous de
           <code>valuation_board</code>.
+          <b>En revanche les chiffres cités dans les phrases ci-dessous appartiennent au texte</b> —
+          ils n'ont pas été recalculés et peuvent être faux. Correction du 16/09 : la version
+          précédente de cet encadré affirmait qu'aucun nombre affiché ne venait de la prose, ce que
+          les phrases juste en dessous démentaient.
           ${has(av.name)?`<div style="margin-top:6px;font-family:var(--mono);font-size:11.5px">
             Contrôle — ${esc(av.name)} : capture ${num(av.capture_pct,1)} % ·
             ${usd(av.holders_rev_ann)||NA}/an · PHR ${num(av.phr,1)}</div>`:""}
@@ -360,10 +395,14 @@ function vueValorisation(D){
       `<span class="chip">${ch.length} premiers</span>`)}
       <div class="bd">
         ${bars(ch.map(r=>({n:(r.name||"?")+(r.symbol?" · "+r.symbol:""),v:r.holders_rev_ann,
-          lbl:(usd(r.holders_rev_ann)||"—")+' <small>'+num(r.capture_pct,0)+" % capté</small>"})))}
+          lbl:(usd(r.holders_rev_ann)||"—")+' <small>'+num(r.capture_pct,0)+" % du revenu</small>"})))}
         <div class="note"><b>holders_rev_ann</b> = revenu annualisé qui revient effectivement au
         porteur du token. Un protocole peut générer des fees considérables et n'en reverser
-        <b>rien</b> : c'est la différence entre le protocole et son jeton.</div>
+        <b>rien</b> : c'est la différence entre le protocole et son jeton.
+        <br><br>⚠️ Le pourcentage est une part du <b>revenu</b>, pas des <b>fees</b> : deux protocoles
+        affichés à 100 % peuvent reverser des fractions très différentes de ce que paie réellement
+        l'utilisateur. Et ce montant annualisé extrapole <b>une seule journée</b> — voir l'avertissement
+        de fenêtre sous le tableau.</div>
       </div></div>`;
   },"valuation");
 
@@ -374,44 +413,81 @@ function vueValorisation(D){
     const nOK=all.filter(feesOK).length;
     const rows=all.map(p=>{
       const ok=feesOK(p), r=p.resolution||{};
+      const comps=(r.fees_components||[]).join(" + ")||"—";
+      const miss=(r.fees_missing||[]).join(" + ");
       return `<tr data-ok="${ok?1:0}"${ok?"":' class="weak"'}>
         <td class="k">${esc(p.name||"?")}<small>${esc(p.symbol||"")} · ${esc(p._sec)}</small></td>
-        <td>${resBadge(r.fees)}</td>
+        <td><span title="modules sommés : ${esc(comps)}${miss?"  |  déclarés manquants : "+esc(miss):""}">
+          ${resBadge(r.fees)}</span>
+          <div style="font:9.5px var(--mono);color:var(--ink4);margin-top:3px;max-width:190px">${esc(comps)}</div></td>
         <td class="r">${mult(p.pf,ok)}</td>
+        <td class="r">${mult(p.ps,ok)}</td>
         <td class="r">${mult(p.phr,ok)}</td>
         <td class="r">${has(p.capture_pct)?num(p.capture_pct,1)+" %":NA}</td>
         <td class="r">${usd(p.mcap)||NA}</td>
+        <td class="r">${has(p.fdv_mcap)?num(p.fdv_mcap,2)+"×":NA}</td>
         <td class="r">${has(p.base_chg_7d_pct)?(p.base_chg_7d_pct>0?"+":"")+num(p.base_chg_7d_pct,1)+" %":NA}</td>
-        <td><span class="chip" title="base de valeur du secteur">${esc(String(p.base_note||"?").slice(0,26))}</span></td>
+        <td><span class="chip" title="base de valeur du secteur">${esc(String(p.base_note||"?").slice(0,34))}</span></td>
       </tr>`;
     }).join("");
     const nTvl=all.filter(p=>(p.resolution||{}).tvl==="OK").length;
+    /* compté sur ce qui est RÉELLEMENT affiché : une ligne sans P/F n'affiche
+       pas un P/F non résolu. Le premier libellé disait 21 pour 19. */
+    const nWeakPF=all.filter(p=>has(p.pf)&&!feesOK(p)).length;
     return `<div class="card">${head("Les "+all.length+" protocoles à token",val,
-      `<span class="chip good">${nOK} fees résolues</span>
-       <span class="chip warn">${all.length-nOK} à dénominateur incertain</span>`)}
+      `<span class="chip good">${nOK} fees trouvées</span>
+       <span class="chip warn">${nWeakPF} multiples à dénominateur incertain</span>`)}
       <div class="bd" style="padding-bottom:0">
-        <div class="warnbox"><b>Règle de lecture</b>
-          <b>${all.length-nOK} protocoles sur ${all.length}</b> affichent un P/F dont les fees n'ont
-          pas été résolues par la source. Leur multiple est <span class="mult weak">grisé</span> et
-          suivi d'un astérisque : il reste visible — on ne cache pas une mesure — mais il ne fait pas
-          autorité. Le badge de la colonne <i>fees</i> dit lequel.
+        <div class="warnbox"><b>Ce que « trouvées » veut dire — et ne veut pas dire</b>
+          Le badge de la colonne <i>fees</i> dit que les modules listés dessous <b>ont été trouvés</b>.
+          Il ne dit <b>pas</b> que la liste est complète. Vérifié le 16/09 : Pump est marqué trouvé
+          sur le seul module <code>PumpSwap</code>, sans <code>pump.fun</code> ; Lighter sans
+          <code>Lighter Robinhood Perps</code> — le module que la section Réveils de cette page suit
+          nommément. <b>Un badge vert n'est donc pas une garantie d'exhaustivité</b> : lisez les
+          modules sommés, ils sont écrits sous chaque badge.
+          <div style="margin-top:6px">
+            <b>${nWeakPF} protocoles sur ${all.length}</b> affichent en plus un P/F dont les fees
+            n'ont pas été résolues du tout. Leur multiple est <span class="mult weak">grisé</span>
+            suivi d'un astérisque : visible — on ne cache pas une mesure — mais sans autorité.</div>
           <label class="ctl" style="margin-top:9px">
-            <input type="checkbox" id="onlyres"> n'afficher que les ${nOK} dont les fees sont résolues</label>
+            <input type="checkbox" id="onlyres"> n'afficher que les ${nOK} dont les fees ont été trouvées</label>
           <div style="margin-top:7px;font-size:11px;color:var(--ink4)">
             Le filtre porte sur les <b>fees</b>, dénominateur du P/F. La TVL est résolue pour
-            ${nTvl}/${all.length} — les deux états sont indépendants, et « fees résolues » ne veut
-            pas dire « fiche complète ».</div>
+            ${nTvl}/${all.length} — les deux états sont indépendants.</div>
         </div>
       </div>
       <div class="tw"><table>
-        <thead><tr><th>Protocole</th><th>Fees</th><th class="r">P/F</th><th class="r">PHR</th>
-          <th class="r">Capture</th><th class="r">Mcap</th><th class="r">Base 7 j</th><th>Yardstick</th></tr></thead>
+        <thead><tr><th>Protocole</th><th>Fees — modules sommés</th><th class="r">P/F</th>
+          <th class="r">P/S</th><th class="r">PHR</th>
+          <th class="r" title="part du REVENU qui revient au porteur">Capture <small>du rev.</small></th>
+          <th class="r">Mcap</th><th class="r" title="dilution à venir">FDV/mc</th>
+          <th class="r">Base 7 j</th><th>Yardstick</th></tr></thead>
         <tbody id="valbody">${rows}</tbody></table></div>
-      <div class="bd"><div class="note">
-        <b>P/F</b> = mcap ÷ fees annualisés (lissés 7 j). <b>PHR</b> = mcap ÷ revenu annualisé revenant
-        au porteur — le multiple honnête. <b>Yardstick</b> = la base de valeur licite du secteur ;
-        valoriser un DEX ou un perp sur la TVL est une faute de catégorie, la donnée le déclare
-        elle-même. ${has(v.coverage_note)?"<br><br>"+esc(v.coverage_note):""}
+      <div class="bd">
+        ${(()=>{ /* contrôle exécuté À CHAQUE RENDU, pas une note figée */
+          const imp=all.filter(p=>isFinite(p.fees_ann)&&isFinite(p.revenue_ann)&&p.revenue_ann>p.fees_ann);
+          return imp.length?`<div class="warnbox"><b>⚠ Défaut amont — les multiples mélangent deux fenêtres</b>
+            <b>${imp.length} protocole(s)</b> affichent un revenu <b>supérieur</b> à leurs fees :
+            ${imp.map(p=>esc(p.name)+" (×"+nf(p.revenue_ann/p.fees_ann,2)+")").join(" · ")}.
+            C'est impossible par définition — le revenu est un sous-ensemble des fees. La cause est
+            mesurée : <code>fees_ann</code> est du 7 jours annualisé, <code>revenue_ann</code> et
+            <code>holders_rev_ann</code> du 24 heures annualisé. <b>Tous les multiples de ce tableau
+            rapportent donc un numérateur et un dénominateur pris sur deux horloges différentes.</b>
+            Le défaut est dans la couche qui calcule (<code>valuation_enricher</code>), pas dans cet
+            affichage — il est déclaré ici plutôt que masqué, et il n'est pas corrigé.
+            <div style="margin-top:5px">Conséquence pratique : <b>ne citez aucun de ces multiples
+            sans le recalculer.</b> Trouvé par un audit externe le 2026-09-16.</div></div>`:"";
+        })()}
+        <div class="note">
+        <b>P/F</b> = mcap ÷ fees annualisés · <b>P/S</b> = mcap ÷ revenu · <b>PHR</b> = mcap ÷ revenu
+        revenant au porteur. P/S et PHR corrigent le P/F vers le haut quand le protocole ne reverse
+        pas : un P/F bas avec un P/S élevé dit que la valeur reste chez le protocole, pas chez le jeton.
+        <b>Capture</b> = part du <b>revenu</b> (et non des fees) revenant au porteur — deux protocoles
+        à « 100 % » peuvent avoir des take-rates très différents sur ce que paie l'utilisateur.
+        <b>FDV/mc</b> = dilution à venir : un P/F de 20× à FDV/mc 4× est un P/F de 80× sur le jeton
+        pleinement dilué. <b>Yardstick</b> = la base de valeur licite du secteur ; valoriser un DEX
+        ou un perp sur la TVL est une faute de catégorie.
+        ${has(v.coverage_note)?"<br><br>"+esc(v.coverage_note):""}
       </div></div></div>`;
   },"valuation");
 
@@ -511,24 +587,30 @@ function vueTrackers(D){
   const B=D.blocks;
   const carte=(titre,bk,unite)=>guard(bk,v=>{
     const hist=v.history||{};
+    const cassé=(hist.ruptures||[]).length>0;
+    /* Un delta qui enjambe une rupture ne mesure rien : on le montre barré et
+       on dit pourquoi, plutôt que de l'afficher comme s'il résumait la série. */
+    const dlt=(lbl,x)=>!has(x)?null:[lbl,
+      (cassé?`<span style="text-decoration:line-through;color:var(--ink4)">`:"")
+      +(x>0?"+":"")+num(x,2)+" %"+(cassé?"</span>":""),
+      cassé?"enjambe la rupture":""];
     const kpis=[["TVL",has(v.tvl_b)?usd(v.tvl_b*1e9):(has(v.tvl_m)?usd(v.tvl_m*1e6):null),""],
-      ["Δ 7 j",has(v.chg_7d)?(v.chg_7d>0?"+":"")+num(v.chg_7d,2)+" %":null,""],
-      ["Δ 24 h",has(v.chg_1d)?(v.chg_1d>0?"+":"")+num(v.chg_1d,2)+" %":null,""],
+      dlt("Δ 7 j",v.chg_7d), dlt("Δ 24 h",v.chg_1d),
       ["Protocoles",has(v.n_protocols)?String(v.n_protocols):null,""],
       ["Part Morpho",has(v.morpho_share_pct)?num(v.morpho_share_pct,1)+" %":null,""]]
-      .filter(k=>k[1]!==null&&k[1]!==undefined);
-    return `<div class="card">${head(titre,bk)}
+      .filter(k=>k&&k[1]!==null&&k[1]!==undefined);
+    return `<div class="card">${head(titre,bk,cassé?'<span class="chip warn">série rompue</span>':"")}
       <div class="bd">
         <div class="kpis" style="margin-bottom:12px">${kpis.map(k=>`<div class="kpi">
-          <div class="l">${esc(k[0])}</div><div class="v">${k[1]}</div></div>`).join("")}</div>
-        ${(hist.points||[]).length>1?`${spark(hist.points)}
-          <div class="scap">${hist.n} points sur ${hist.n_jours} jour(s)
-            ${hist.from?`· ${esc(hist.from)} → ${esc(hist.to)}`:""}
-            ${hist.note?`<br><b style="color:var(--warn)">${esc(hist.note)}</b>`:""}</div>`
-          :'<div class="empty">série trop courte pour une forme</div>'}
+          <div class="l">${esc(k[0])}</div><div class="v">${k[1]}</div>
+          ${k[2]?`<div class="s" style="color:var(--warn)">${esc(k[2])}</div>`:""}</div>`).join("")}</div>
+        ${has(v.deltas_invalides)?`<div class="warnbox" style="margin-bottom:12px">
+          <b>Deltas non mesurants</b>${esc(v.deltas_invalides)}</div>`:""}
+        ${serie(hist)}
         ${has(v.synth)?`<div style="margin-top:16px">
           <div class="dated">⏱ Synthèse écrite le ${esc(String(v.synth_ts||"").replace("T"," ").replace("Z"," UTC"))}
-            — ses chiffres sont ceux de CET instant, pas ceux des compteurs ci-dessus.</div>
+            — ses chiffres sont ceux de CET instant. Ils ne sont pas vérifiés contre la série
+            ci-dessus et peuvent la contredire.</div>
           <div class="prose">${md(v.synth)}</div></div>`:""}
       </div></div>`;
   },titre);
@@ -602,15 +684,21 @@ function vueFunding(D){
         .filter(r=>isFinite(r.annualized))
         .sort((a,b)=>Math.abs(b.annualized)-Math.abs(a.annualized));
       return `<div class="card">${head("Taux de financement annualisés",B.funding,
-        `<span class="chip">${f.n_non_nuls}/${f.n} non nuls</span>`)}
+        `<span class="chip warn">${esc(f.venue||"venue inconnu")}</span>
+         <span class="chip">${f.n_non_nuls}/${f.n} non nuls</span>`)}
         <div class="bd">
           ${bars(rows.slice(0,18).map(r=>({n:r.sym.replace(/USDT$/,""),v:r.annualized,
             lbl:(r.annualized>0?"+":"")+num(r.annualized,2)+'% <small>mark '+
               (has(r.mark_price)?nf(r.mark_price,r.mark_price<1?4:2):"—")+"</small>"})))}
-          <div class="note">Le <b>signe</b> dit qui paie qui : positif, les longs financent les courts.
-          C'est le coût de portage d'une position perp, donc un <b>fondamental</b> du marché des
-          dérivés — pas une direction. Le positionnement long/short, lui, est volontairement absent
-          de ce terminal.
+          <div class="note"><b>Ce sont des perps de CEX, pas de l'on-chain</b> — ${esc(f.venue||"?")}.
+          Le fichier source s'appelle <code>onchain_signals.json</code>, ce qui est trompeur et
+          l'était aussi ici avant le 16/09. Le <b>signe</b> dit qui paie qui : positif, les longs
+          financent les courts. C'est le coût de portage d'une position perp, donc un
+          <b>fondamental</b> du marché des dérivés — pas une direction. Le positionnement long/short
+          est volontairement absent de ce terminal.
+          <br><br><b>Réserve</b> : l'annualisation suppose un règlement toutes les 8 h pour toutes
+          les paires. Une paire réglée en 4 h verrait son taux annualisé doublé à tort. Et plusieurs
+          symboles collés au plancher du venue ne portent pas d'information, seulement un classement.
           ${(f.anomalies_funding||[]).length?`<br><br><b>${f.anomalies_funding.length} écart(s)
             notable(s)</b> : ${f.anomalies_funding.map(a=>esc(a.symbol)+" ("+num(a.value,1)+"%, z="
             +num(a.z_score_7d,1)+")").join(" · ")}`:""}
