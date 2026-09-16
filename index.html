@@ -197,7 +197,9 @@ tr.weak td.k{color:var(--ink2)}
 .prose ul{margin:0 0 9px;padding-left:17px}
 .prose li{margin-bottom:4px}
 .prose strong{color:var(--ink);font-weight:650}
-.dated{display:flex;align-items:center;gap:7px;padding:7px 10px;margin-bottom:11px;
+/* bloc, PAS flex : en flex, chaque <b> du texte devenait une colonne et la
+   phrase se lisait en trois morceaux côte à côte. */
+.dated{padding:8px 11px;margin-bottom:11px;line-height:1.5;
   background:color-mix(in oklch,var(--open) 9%,transparent);
   border:1px solid color-mix(in oklch,var(--open) 26%,transparent);
   border-radius:var(--r1);font:11px var(--mono);color:var(--ink3)}
@@ -225,6 +227,7 @@ tr.weak td.k{color:var(--ink2)}
   <div class="hwrap">
     <div class="brand">Hermes&nbsp;DeFi <small>marché &amp; valorisation</small></div>
     <nav>
+      <a href="#brief">Value Watch</a>
       <a href="#valorisation">Valorisation</a>
       <a href="#marche">Marché</a>
       <a href="#trackers">Secteurs</a>
@@ -251,6 +254,10 @@ function usd(v){
   if(a>=1e3)return "$"+nf(v/1e3,1)+" k";
   return "$"+nf(v,2);
 }
+/* "2026-09-16T08:21:03.039811+00:00" -> "2026-09-16 08:21 UTC". On coupe, on
+   n'arrondit pas : la date affichee reste celle du fichier. */
+const quand=s=>{const m=String(s||"").match(/^(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})/);
+  return m?m[1]+" "+m[2]+" UTC":String(s||"?");};
 function ago(iso){
   if(!has(iso))return null;
   const t=Date.parse(String(iso).match(/(Z|[+-]\d\d:?\d\d)$/)?iso:iso+"Z");
@@ -368,33 +375,78 @@ function mult(v,ok,d=1){
 }
 
 /* ══ SECTIONS ══════════════════════════════════════════════════════ */
+/* ══ LE BRIEF DU JOUR ═══════════════════════════════════════════════
+   `value_watch.py` tourne depuis la session 43, passe deux gates déterministes
+   AVANT publication (scan R2 sans-direction importé de brief_evaluator, et
+   contrôle d'ancrage), part sur Telegram — et n'était sur aucune page.
+   On ne le réécrit pas, on ne le résume pas : on le transcrit avec sa date. */
+function vueBrief(D){
+  const B=D.blocks;
+  let h=`<section id="brief"><div class="sec"><h2>Value Watch</h2>
+    <p>le brief du jour — ce qui a bougé, et à quoi ça engage</p></div>`;
+
+  h+=guard(B.value_watch,v=>{
+    const taux=v.n_briefs?Math.round(100*v.n_silent/v.n_briefs):null;
+    return `<div class="card">${head("Brief de valorisation",B.value_watch,
+      `<span class="chip">${esc(v.model||"?")}</span>
+       ${taux!==null?`<span class="chip good" title="briefs retenus par les gates déterministes avant publication">${v.n_silent}/${v.n_briefs} retenus par le gate</span>`:""}`)}
+      <div class="bd">
+        <div class="dated">⏱ Écrit le ${esc(quand(v.as_of))}
+          — deux gates déterministes ont tourné avant publication : scan R2 sans-direction
+          <b>importé</b> de <code>brief_evaluator</code> (pas réécrit), et contrôle d'ancrage
+          exigeant qu'un mot de valorisation soit dans la même phrase qu'un chiffre.
+          ${taux!==null?`Sur ${v.n_briefs} briefs, <b>${v.n_silent} ont été retenus</b> (${taux} %) :
+          la garde n'est pas décorative.`:""}</div>
+        <div class="prose">${md(v.brief)}</div>
+        <div class="note">⚠️ Les multiples cités viennent du <b>board</b>, donc de la fenêtre mixte
+        signalée plus bas. Les colonnes du tableau, elles, sont recalculées sur des fenêtres
+        comparables — l'écart entre les deux est lisible.</div>
+      </div></div>`;
+  },"value_watch");
+
+  /* les conditions d'invalidation : la seule chose falsifiable dans le temps */
+  h+=guard(B.value_watch,v=>!has(v.kill_conditions)?"":`<div class="card">
+    ${head("Conditions d'invalidation",B.value_watch,'<span class="chip acc">falsifiable</span>')}
+    <div class="bd"><div class="prose">${md(v.kill_conditions)}</div>
+      <div class="note">C'est la seule partie de cette page qui puisse être <b>vérifiée plus tard</b>.
+      Une thèse sans condition d'invalidation n'est pas une thèse, c'est une opinion.</div>
+    </div></div>`,"value_watch");
+
+  /* les deux croisements, 0-LLM */
+  h+=guard(B.croisements,c=>`<div class="grid g2">
+    <div class="card">${head("Ce dont l'agent parle et qui n'a pas de prix",B.croisements,
+      `<span class="chip warn">${(c.trous||[]).length}</span>`)}
+      <div class="bd">${(c.trous||[]).length?(c.trous||[]).map(t=>`
+        <div style="margin-bottom:10px">
+          <div style="font:650 12.5px var(--sans)">${esc(t.nom)}</div>
+          <div style="font:11px var(--mono);color:var(--ink4);margin-top:2px">${esc(t.etat)}${t.motif?" — "+esc(t.motif):""}</div>
+        </div>`).join(""):'<div class="empty">aucun</div>'}
+        <div class="note">Nommés par un réveil de l'agent cette semaine, absents du tableau de
+        valorisation. <b>La couche qui pense et la couche qui price ne regardent pas le même
+        univers</b>, et c'est mesuré ici plutôt que supposé.</div></div></div>
+    <div class="card">${head("Ce que les chiffres crient sans que personne n'écrive",B.croisements,
+      `<span class="chip warn">${(c.muets_bruyants||[]).length}</span>`)}
+      <div class="bd">${bars((c.muets_bruyants||[]).map(m=>({n:m.nom,v:m.dispersion,
+        lbl:"×"+num(m.dispersion,1)+' <small>'+(has(m.pf_7j)?num(m.pf_7j,2):"—")+" → "+(has(m.pf_1an)?num(m.pf_1an,2):"—")+"</small>"})))}
+        <div class="note">Dispersion ≥ 2 entre fenêtres, et <b>aucun réveil ne les a nommés</b>.
+        La file d'attente de recherche, produite par le seul écart des chiffres.
+        <br><br>${esc(c.note||"")}</div></div></div>
+  </div>`,"croisements");
+  return h+`</section>`;
+}
+
 function vueValorisation(D){
-  const B=D.blocks, val=B.valuation, prose=B.valuation_prose;
+  const B=D.blocks, val=B.valuation;
   let h=`<section id="valorisation"><div class="sec"><h2>Valorisation</h2>
     <p>0 LLM · valuation_board · multiples, capture par le token, provenance</p></div>`;
 
-  /* les pièges nommés par la couche d'analyse — le plus haut signal */
-  h+=guard(prose,p=>{
-    const av=p.top_capture_verifie||{};
-    return `<div class="card">${head("Ce qui trompe",prose,'<span class="chip warn">prose</span>')}
-      <div class="bd">
-        <div class="warnbox"><b>Autorité des chiffres</b>
-          Ce texte est une <b>lecture</b>, pas une source. Une erreur d'un facteur 10 y a été mesurée
-          le 15/09. Aucun nombre des <b>tableaux</b> de cette page n'en vient : ils sortent tous de
-          <code>valuation_board</code>.
-          <b>En revanche les chiffres cités dans les phrases ci-dessous appartiennent au texte</b> —
-          ils n'ont pas été recalculés et peuvent être faux. Correction du 16/09 : la version
-          précédente de cet encadré affirmait qu'aucun nombre affiché ne venait de la prose, ce que
-          les phrases juste en dessous démentaient.
-          ${has(av.name)?`<div style="margin-top:6px;font-family:var(--mono);font-size:11.5px">
-            Contrôle — ${esc(av.name)} : capture ${num(av.capture_pct,1)} % ·
-            ${usd(av.holders_rev_ann)||NA}/an · PHR ${num(av.phr,1)}</div>`:""}
-        </div>
-        ${(p.traps||[]).length?(p.traps||[]).map(t=>`<div class="trap">
-          <b>${esc(t.name||"")}</b> — ${esc(t.trap||"")}</div>`).join(""):'<div class="empty">aucun piège signalé</div>'}
-        ${has(p.read)?`<div class="note" style="padding-top:10px">${esc(p.read)}</div>`:""}
-      </div></div>`;
-  },"valuation_prose");
+  /* ── DÉMOLI le 2026-09-16 (règle 9 : on enterre le jour où on remplace) ──
+     Ici se trouvait la carte « Ce qui trompe », qui rendait la prose de
+     `valuation_analysis.json`. Elle est retirée parce que le Value Watch, en
+     tête de page, fait le même travail avec deux gates déterministes qui
+     retiennent un brief sur quatre — là où cette prose-ci portait une erreur
+     d'un facteur 10 mesurée le 15/09 et bâtissait des arguments dessus.
+     Le bloc `valuation_prose` reste dans defi.json, plus aucun rendu ne le lit. */
 
   /* la hiérarchie de capture : qui rend vraiment de la valeur au token */
   h+=guard(val,v=>{
@@ -657,7 +709,7 @@ function vueTrackers(D){
           <b>Deltas non mesurants</b>${esc(v.deltas_invalides)}</div>`:""}
         ${serie(hist)}
         ${has(v.synth)?`<div style="margin-top:16px">
-          <div class="dated">⏱ Synthèse écrite le ${esc(String(v.synth_ts||"").replace("T"," ").replace("Z"," UTC"))}
+          <div class="dated">⏱ Synthèse écrite le ${esc(quand(v.synth_ts))}
             — ses chiffres sont ceux de CET instant. Ils ne sont pas vérifiés contre la série
             ci-dessus et peuvent la contredire.</div>
           <div class="prose">${md(v.synth)}</div></div>`:""}
@@ -770,7 +822,7 @@ function entete(D){
 
 function render(D){
   document.getElementById("app").innerHTML =
-    entete(D)+vueValorisation(D)+vueMarche(D)+vueTrackers(D)+vueLecture(D)+vueFunding(D);
+    entete(D)+vueBrief(D)+vueValorisation(D)+vueMarche(D)+vueTrackers(D)+vueLecture(D)+vueFunding(D);
   const cb=document.getElementById("onlyres");
   if(cb) cb.addEventListener("change",()=>{
     document.querySelectorAll("#valbody tr").forEach(tr=>{
