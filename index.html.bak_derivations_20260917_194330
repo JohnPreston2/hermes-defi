@@ -396,17 +396,8 @@ function mult(v,ok,d=1){
    AVANT publication (scan R2 sans-direction importé de brief_evaluator, et
    contrôle d'ancrage), part sur Telegram — et n'était sur aucune page.
    On ne le réécrit pas, on ne le résume pas : on le transcrit avec sa date. */
-/* Compte VRAIMENT ce que la page consomme. Chaque section lit ses blocs à
-   travers ce proxy, qui note les clés touchées. Le bandeau annonçait « 4 non
-   affichés » — une liste figée écrite avant la dernière refonte — alors que la
-   page en jetait 9. Un compteur qui ne se dérive pas de ce qu'il compte finit
-   toujours par mentir. */
-const BLOCS_LUS=new Set();
-const blocsLus=D=>new Proxy(D.blocks||{},{
-  get(t,k){ if(typeof k==="string") BLOCS_LUS.add(k); return t[k]; }});
-
 function vueBrief(D){
-  const B=blocsLus(D);
+  const B=D.blocks;
   let h=`<section id="brief"><div class="sec"><h2>Value Watch</h2>
     <p>le brief du jour — ce qui a bougé, et à quoi ça engage</p></div>`;
 
@@ -451,11 +442,8 @@ function vueBrief(D){
     return `<div class="card">${head("Registre des thèses",B.theses,
       `<span class="chip good" title="dernier verdict il y a moins de ${T.dormance_jours} jours — le seuil est large, une « vivante » peut dater de 10 jours">${T.n_vivantes} vivantes <small>&lt;${T.dormance_jours}j</small></span>
        ${T.n_cassees?`<span class="chip bad" title="la clause de seuil de leur condition d'invalidation est franchie">${T.n_cassees} condition(s) CASSÉE(S)</span>`:""}
-       <span class="chip good" title="thèses VIVANTES dont toutes les clauses mesurables tiennent">${T.n_tenues} tenue(s)</span>
-       ${T.n_tenues_partiel?`<span class="chip warn" title="une clause tient, une autre n'est pas mesurable — ce n'est pas une tenue, et c'était compté comme telle jusqu'au 17/09">${T.n_tenues_partiel} tenue(s) partielle(s)</span>`:""}
-       <span class="chip warn" title="aucune clause mesurable">${T.n_non_evaluables} non évaluable(s)</span>
-       ${T.n_clauses_non_evaluables?`<span class="chip warn" title="clauses individuelles non mesurables, tous verdicts confondus — le compteur qui manquait">${T.n_clauses_non_evaluables} clause(s) non mesurable(s)</span>`:""}
-       ${T.n_niveau_atteint?`<span class="chip bad" title="la capture est AUJOURD'HUI à la valeur qui déclencherait la condition ; seule la persistance dans le temps n'est pas prouvable">${T.n_niveau_atteint} au niveau de déclenchement</span>`:""}
+       <span class="chip good">${T.n_tenues} tenue(s)</span>
+       <span class="chip warn">${T.n_non_evaluables} non évaluable(s)</span>
        <span class="chip warn">${T.n_dormantes} dormantes</span>
        <span class="chip bad">${T.n_retirees} retirées</span>
        <span class="chip">${T.n_verdicts} verdicts</span>`)}
@@ -497,8 +485,9 @@ function vueBrief(D){
           <br><br>${esc(T.note||"")}
           <br><br><b>Ce que la notation couvre — et ce qu'elle ne couvre pas</b>
           ${esc(T.note_evaluation||"")}
-          <br>Les compteurs ci-dessus portent sur les thèses <b>vivantes</b> seulement : noter la
-          tenue d'une thèse qu'on a retirée ne mesure rien.
+          <br>Seule la clause chiffrée sur la capture est notée, parce qu'on en a la valeur. La
+          clause de durée (« contracte N jours consécutifs ») reste <b>non évaluable</b> et le dit :
+          un verdict fabriqué vaudrait moins qu'aucun verdict.
         </div>
       </div></div>`;
   },"theses");
@@ -527,7 +516,7 @@ function vueBrief(D){
 }
 
 function vueValorisation(D){
-  const B=blocsLus(D), val=B.valuation;
+  const B=D.blocks, val=B.valuation;
   let h=`<section id="valorisation"><div class="sec"><h2>Valorisation</h2>
     <p>0 LLM · valuation_board · multiples, capture par le token, provenance</p></div>`;
 
@@ -567,24 +556,9 @@ function vueValorisation(D){
        provenance distincts : sous 95 %, le board a sommé moins de modules que
        le parent ; au-dessus de 105 %, son chiffre ne se reproduit PAS depuis la
        source déclarée — on ne sait pas d'où il vient. */
-    /* Un ratio sous 95 % ne suffit PAS à accuser d'amputation : `part_captee`
-       compare deux NOMBRES relevés par deux jobs à des heures différentes, pas
-       deux périmètres. Lido l'a montré le 17/09 — 0,8604 le matin, 1,0 le soir,
-       avec `modules_board` et `modules_parent` identiques tout du long ; la page
-       l'avait rangé parmi les dénominateurs amputés, à tort. Quand les deux
-       listes décrivent le même périmètre, l'écart est un écart de VALEUR. Quand
-       le board n'a déclaré aucun module, on ne sait pas : null, pas d'accusation. */
-    const ampute=c=>{
-      if(!c) return null;
-      const b=c.modules_board||[], q=c.modules_parent||[];
-      if(!b.length) return null;
-      if(b.length===q.length && b.every(x=>q.includes(x))) return false;
-      return has(c.part_captee) ? c.part_captee<0.95 : null;
-    };
     const covBadge=c=>{
       if(!c||!has(c.part_captee))return "";
       const v=c.part_captee*100;
-      if(ampute(c)===false)return `<span class="res ok" title="le board et le parent listent les MÊMES modules (${esc((c.modules_board||[]).join(' + '))}) : l'écart au 100 % est un écart de valeur entre deux relevés, pas un dénominateur amputé">${nf(v,0)} % — même périmètre</span>`;
       if(v<95)return `<span class="res unresolved" title="le board somme ${esc((c.modules_board||[]).join(' + ')||'—')} ; le parent complet contient ${esc((c.modules_parent||[]).join(' + '))}">${nf(v,0)} % des fees du parent</span>`;
       if(v>105)return `<span class="res nomap" title="le chiffre du board dépasse la somme parent complète : non reproductible depuis DefiLlama">${nf(v,0)} % — non reproductible</span>`;
       return `<span class="res ok">${nf(v,0)} % du parent</span>`;
@@ -629,21 +603,14 @@ function vueValorisation(D){
       <div class="bd" style="padding-bottom:0">
         ${(()=>{ /* la couverture est MESURÉE à chaque passage, plus un exemple figé */
           const c=all.map(p=>p.couverture).filter(x=>x&&has(x.part_captee));
-          const amp=c.filter(x=>ampute(x)===true), sur=c.filter(x=>x.part_captee>1.05);
-          const memeP=c.filter(x=>ampute(x)===false&&x.part_captee<0.95);
-          const okBadgeAmpute=all.filter(p=>feesOK(p)&&ampute(p.couverture)===true);
+          const amp=c.filter(x=>x.part_captee<0.95), sur=c.filter(x=>x.part_captee>1.05);
+          const okBadgeAmpute=all.filter(p=>feesOK(p)&&p.couverture&&p.couverture.part_captee<0.95);
           return `<div class="warnbox"><b>Ce que « trouvées » veut dire — et ne veut pas dire</b>
           Le badge de gauche dit que les modules listés dessous <b>ont été trouvés</b>. Il ne dit
           <b>pas</b> que la liste est complète. C'est désormais mesuré protocole par protocole contre
           la somme du protocole parent chez DefiLlama :
-          <b>${amp.length} lignes sous 95 %</b> des fees du parent avec un périmètre de modules
-          réellement plus étroit, <b>${sur.length} au-dessus de 105 %</b> (chiffre non
-          reproductible depuis la source)${memeP.length?`, et <b>${memeP.length} sous 95 % qui
-          listent pourtant les MÊMES modules</b> que leur parent — pour celles-là l'écart vient
-          du décalage horaire entre les deux relevés, pas d'un dénominateur amputé`:""}.
-          <div style="margin-top:5px">Cette mesure est relative à <b>DefiLlama</b>, jamais au
-          monde : si un protocole opère là où DefiLlama ne l'indexe pas, le dénominateur
-          « parent » est lui-même incomplet et cette couverture paraîtra rassurante à tort.</div>
+          <b>${amp.length} lignes sous 95 %</b> des fees du parent,
+          <b>${sur.length} au-dessus de 105 %</b> (chiffre non reproductible depuis la source).
           ${okBadgeAmpute.length?`<div style="margin-top:5px">⚠️ <b>${okBadgeAmpute.length} lignes
             portent un badge « résolu » ET un dénominateur amputé</b> :
             ${okBadgeAmpute.map(p=>esc(p.name)+" ("+nf(p.couverture.part_captee*100,0)+" %)").join(" · ")}.
@@ -666,7 +633,7 @@ function vueValorisation(D){
           <th class="r" title="rang recalculé sur les fees du parent, pas sur le pf du board">Rang <small>secteur</small></th>
           <th class="r" title="mcap ÷ revenu au porteur, ancré sur 1 an">PHR <small>1 an</small></th>
           <th class="r" title="part du REVENU qui revient au porteur, annualisée sur 24 h">Capture <small>du rev.</small></th>
-          <th class="r" title="la variation 7 j des FEES du module apparié chez DefiLlama. Ce n'est ni le volume, ni le parent complet. Produit en amont par valuation_screen.py, hors de cette page. Pour un dex ou un perp la colonne Yardstick dit sur quelle base le secteur DEVRAIT se valoriser — ce que ce chiffre ne mesure pas.">Fees 7 j <small>module apparié</small></th>
+          <th class="r" title="variation 7 j de la base de valeur du secteur">Base <small>7 j</small></th>
           <th class="r" title="écart au plus haut historique">Drawdown <small>ATH</small></th>
           <th class="r">Mcap</th><th class="r" title="dilution à venir">FDV/mc</th>
           <th>Yardstick</th></tr></thead>
@@ -706,7 +673,6 @@ function vueValorisation(D){
         fees) revenant au porteur, <b>annualisée sur 24 h</b> — mesuré le 17/09, l'écart avec la
         source atteint 12 % en quelques heures sur Raydium : à lire comme un ordre de grandeur — deux protocoles à « 100 % » peuvent avoir des take-rates très
         différents sur ce que paie l'utilisateur. <b>FDV/mc</b> = dilution à venir : un P/F de 20× à
-        <b>Fees 7 j</b> est le <code>change_7d</code> des <b>fees</b> du module apparié chez DefiLlama — pas un volume, pas le parent complet. La colonne s'appelait « Base 7 j » et son étiquette de secteur annonçait « VOLUME » pour un dex : le 17/09 Orca y affichait −43 % pendant que son volume faisait +77 %, et le brief a répété l'erreur en écrivant « volume collapsed ». Le nombre était juste, son nom était faux. Il est produit en amont, hors de cette page : seule l'étiquette a été corrigée.<br><br>
         FDV/mc 4× est un P/F de 80× sur le jeton pleinement dilué. <b>Yardstick</b> = la base de
         valeur licite du secteur.
         <br><br>Fenêtres : <code>${esc(v.fenetres_source||"—")}</code>, relevées
@@ -731,12 +697,9 @@ function vueValorisation(D){
           <div style="font:11.5px var(--mono);color:var(--ink4);margin-top:2px">
             P/F ${num(s.pf,2)} · capture ${num(s.capture_pct,1)} % · FDV/mcap ${num(s.fdv_mcap,2)}</div>
           ${(s.suspect_why||[]).map(w=>`<div style="font-size:11.5px;color:var(--ink3);margin-top:3px">↳ ${esc(w)}</div>`).join("")}
-        </div>`).join(""):'<div class="empty">aucun signalement</div>'}
-        ${v.note_suspect?`<div class="warnbox" style="margin-top:9px"><b>Sur quel moteur tourne ce bloc</b> ${esc(v.note_suspect)}</div>`:""}</div></div>`,"valuation");
-  /* Le badge lisait `candidates` (la liste du BOARD) au-dessus d'un corps qui
-     affiche `candidats_recalcules`. Il annonçait 2 au-dessus de la liste vide. */
+        </div>`).join(""):'<div class="empty">aucun signalement</div>'}</div></div>`,"valuation");
   h+=guard(val,v=>`<div class="card">${head("Candidats de la règle",val,
-      `<span class="chip">${(v.candidats_recalcules||[]).length}</span>`)}
+      `<span class="chip">${(v.candidates||[]).length}</span>`)}
       <div class="bd">${(v.candidats_recalcules||[]).length?(v.candidats_recalcules||[]).map(c=>`
         <div style="margin-bottom:11px">
           <div style="font:650 12.5px var(--sans)">${esc(c.name||"?")}
@@ -762,7 +725,7 @@ function vueValorisation(D){
 }
 
 function vueMarche(D){
-  const B=blocsLus(D);
+  const B=D.blocks;
   let h=`<section id="marche"><div class="sec"><h2>État de la DeFi</h2>
     <p>0 LLM · fact_api + fundamentals_history · DefiLlama</p></div>`;
 
@@ -804,7 +767,7 @@ function vueMarche(D){
 }
 
 function vueFunding(D){
-  const B=blocsLus(D);
+  const B=D.blocks;
   return `<section id="funding"><div class="sec"><h2>Funding</h2>
     <p>0 LLM · le coût du basis perp — un fondamental, pas un signal</p></div>
     ${guard(B.funding,f=>{
@@ -853,17 +816,13 @@ function entete(D){
     <div style="font-size:11.5px;color:var(--ink4);max-width:620px">${esc(D.perimetre||"")}</div>
     ${f.length?`<span class="chip bad" style="margin-left:auto">${f.length} bloc(s) en échec :
       ${esc(f.join(", "))}</span>`:`<span class="chip good" style="margin-left:auto">${Object.keys(D.blocks||{}).length} blocs reçus, 0 en échec</span>`}
-    ${(()=>{const jetes=Object.keys(D.blocks||{}).filter(k=>!BLOCS_LUS.has(k));
-      return `<span class="chip" title="reçus dans le flux et jamais lus par la page : ${esc(jetes.join(", "))||"aucun"}">${jetes.length} non affichés</span>`;})()}
+    <span class="chip" title="reçus dans le flux mais volontairement non rendus">${["sessions","valuation_prose","wakes","curator"].filter(k=>(D.blocks||{})[k]).length} non affichés</span>
   </div></div>`;
 }
 
 function render(D){
-  /* Le CORPS est rendu d'abord : l'entête compte les blocs réellement lus,
-     et JS évalue une concaténation de gauche à droite — l'entête aurait donc
-     compté zéro lecture. L'ordre d'AFFICHAGE, lui, ne change pas. */
-  const corps=vueValorisation(D)+vueBrief(D)+vueMarche(D)+vueFunding(D);
-  document.getElementById("app").innerHTML = entete(D)+corps;
+  document.getElementById("app").innerHTML =
+    entete(D)+vueValorisation(D)+vueBrief(D)+vueMarche(D)+vueFunding(D);
   const cb=document.getElementById("onlyres");
   if(cb) cb.addEventListener("change",()=>{
     document.querySelectorAll("#valbody tr").forEach(tr=>{
