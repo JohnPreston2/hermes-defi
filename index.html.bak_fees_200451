@@ -487,13 +487,7 @@ function vueBrief(D){
               if(s.fragile) h+='<span class="disp" title="la capture annualise 24 h et dérive de ~12 % dans la journée : un verdict aussi près du seuil n\'en est pas un">verdict fragile</span>';
               if(u.verdict){const B2={TENUE:"ok",CASSEE:"nomap",NON_EVALUABLE:"partial"};
                 const det=has(u.baisses_consecutives)?`${u.baisses_consecutives}/${u.jours} j de baisse (${esc(u.base||"")})`:"non évaluable";
-                h+=`<span class="res ${B2[u.verdict]||"partial"}" title="${esc(u.source||u.pourquoi||"")}${u.au?" · série jusqu'au "+esc(u.au):""}">durée : ${det}</span>`;
-                /* Le taux de base A COTÉ du verdict, pas dans une note de bas de
-                   bloc : « 0/7 j de baisse » se lit comme un feu vert alors que le
-                   seuil est un évènement annuel. Mesuré sur 365 jours de séries
-                   quotidiennes DefiLlama, le 17/09. */
-                if(has(u.baisses_consecutives)&&u.jours>=7)
-                  h+=`<span class="disp" title="mesuré sur 365 jours : 7 baisses consécutives ne sont JAMAIS arrivées sur le volume d'Orca ni de Raydium (6 au maximum), ni sur la TVL de Maple (5) ; elles sont arrivées une seule fois sur la TVL de Spark (7) et de Lista DAO (8). Ce seuil est un évènement annuel : il ne se déclenchera quasiment jamais, et « tenue » n'en dit donc presque rien.">seuil ~1×/an</span>`;}
+                h+=`<span class="res ${B2[u.verdict]||"partial"}" title="${esc(u.source||u.pourquoi||"")}${u.au?" · série jusqu'au "+esc(u.au):""}">durée : ${det}</span>`;}
               if(!s.verdict&&!u.verdict) h+='<span class="res partial">non évaluable</span>';
               return h+"</div>";})()}
           </div>`:""}
@@ -782,15 +776,7 @@ function vueMarche(D){
         ["Protocoles suivis",has(m.n_protocols)?String(m.n_protocols):null,""]]
         .map(k=>`<div class="kpi"><div class="l">${esc(k[0])}</div>
           <div class="v">${k[1]||NA}</div>${k[2]?`<div class="s">${esc(k[2])}</div>`:""}</div>`).join("")}
-    </div>
-    <div class="warnbox" style="margin-top:9px"><b>Stables mcap ne se reproduit pas depuis la source</b>
-      Relevé le 17/09 : la somme des actifs <code>peggedUSD</code> de DefiLlama valait
-      <b>311,36 G$</b> contre <b>${usd(a.stable_mcap_b*1e9)}</b> affichés ici, soit
-      <b>−4,5 %</b>. La variation 7 j, elle, est bonne — la série officielle donnait
-      −0,30 % contre −0,24 % affichés. Ce chiffre vient du bloc <code>macro</code>
-      (<code>fact_api</code>), en amont de cette page : il n'est pas corrigé ici, il est
-      signalé. Les trois autres tuiles se reproduisent.</div>
-    </div></div>`;
+    </div></div></div>`;
   },"macro");
 
   h+=`<div class="grid g2">`;
