@@ -460,14 +460,21 @@ function vueBrief(D){
             title="${esc(v.d)} — ${esc(v.v)} : ${esc(v.texte||"")}">${esc(L[v.v]||"?")}</i>`).join("")}</div>
           ${e.kill?`<div class="killc"><b>condition d'invalidation posée le ${esc(e.kill_le||"?")}</b>
             ${esc(e.kill)}
-            ${(()=>{const ev=e.evaluation||{},s=ev.clause_seuil||{},u=ev.clause_duree||{};
+            ${(()=>{const ev=e.evaluation||{},s=ev.clause_seuil||{},u=ev.clause_duree||{},g=ev.verdict_global||{};
+              const GB={TENUE:"ok",TENUE_PARTIEL:"partial",DECLENCHEE:"nomap",NON_EVALUABLE:"partial"};
+              const GL={TENUE:"condition tenue",TENUE_PARTIEL:"tenue sur ce qu'on sait",
+                        DECLENCHEE:"CONDITION DÉCLENCHÉE",NON_EVALUABLE:"non évaluable"};
+              let tete=g.verdict?`<div style="margin-top:6px"><span class="res ${GB[g.verdict]||"partial"}"
+                title="${esc(g.pourquoi||"")} — ${esc(g.semantique||"")}">${esc(GL[g.verdict]||g.verdict)}</span></div>`:"";
               const B={TENUE:"ok",CASSEE:"nomap",NON_EVALUABLE:"partial"};
-              let h='<div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">';
+              let h=tete+'<div style="margin-top:5px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">';
               const LIB={TENUE:"tenue",CASSEE:"CASSÉE",NON_EVALUABLE:"non évaluable"};
               if(s.verdict) h+=`<span class="res ${B[s.verdict]||"partial"}" title="${esc(s.pourquoi||s.source||"")}">seuil : ${esc(LIB[s.verdict]||s.verdict)}</span>`;
               if(has(s.valeur)) h+=`<span style="font:10.5px var(--mono);color:var(--ink4)">capture ${nf(s.valeur,1)} % vs ${nf(s.seuil,1)} %</span>`;
               if(s.fragile) h+='<span class="disp" title="la capture annualise 24 h et dérive de ~12 % dans la journée : un verdict aussi près du seuil n\'en est pas un">verdict fragile</span>';
-              if(u.verdict) h+=`<span class="res partial" title="${esc(u.pourquoi||"")}">durée ${u.jours} j : non évaluable</span>`;
+              if(u.verdict){const B2={TENUE:"ok",CASSEE:"nomap",NON_EVALUABLE:"partial"};
+                const det=has(u.baisses_consecutives)?`${u.baisses_consecutives}/${u.jours} j de baisse (${esc(u.base||"")})`:"non évaluable";
+                h+=`<span class="res ${B2[u.verdict]||"partial"}" title="${esc(u.source||u.pourquoi||"")}${u.au?" · série jusqu'au "+esc(u.au):""}">durée : ${det}</span>`;}
               if(!s.verdict&&!u.verdict) h+='<span class="res partial">non évaluable</span>';
               return h+"</div>";})()}
           </div>`:""}
