@@ -385,24 +385,31 @@ function vueBrief(D){
   let h=`<section id="brief"><div class="sec"><h2>Value Watch</h2>
     <p>le brief du jour — ce qui a bougé, et à quoi ça engage</p></div>`;
 
-  h+=guard(B.value_watch,v=>{
-    const taux=v.n_briefs?Math.round(100*v.n_silent/v.n_briefs):null;
-    return `<div class="card">${head("Brief de valorisation",B.value_watch,
+  h+=guard(B.value_watch,v=>`<div class="card">${head("Brief de valorisation",B.value_watch,
       `<span class="chip">${esc(v.model||"?")}</span>
-       ${taux!==null?`<span class="chip good" title="briefs retenus par les gates déterministes avant publication">${v.n_silent}/${v.n_briefs} retenus par le gate</span>`:""}`)}
+       ${v.retenu_aujourdhui?'<span class="chip warn">run du jour retenu</span>':""}`)}
       <div class="bd">
-        <div class="dated">⏱ Écrit le ${esc(quand(v.as_of))}
-          — deux gates déterministes ont tourné avant publication : scan R2 sans-direction
-          <b>importé</b> de <code>brief_evaluator</code> (pas réécrit), et contrôle d'ancrage
-          exigeant qu'un mot de valorisation soit dans la même phrase qu'un chiffre.
-          ${taux!==null?`Sur ${v.n_briefs} briefs, <b>${v.n_silent} ont été retenus</b> (${taux} %) :
-          la garde n'est pas décorative.`:""}</div>
+        ${v.retenu_aujourdhui?`<div class="warnbox"><b>Le brief du jour a été retenu par un gate</b>
+          Ce qui suit est le <b>dernier brief effectivement rédigé</b>, pas celui d'aujourd'hui.
+          Sa date est ci-dessous. Le run du jour a été bloqué avant publication et son texte n'est
+          pas conservé : il est écrasé par un marqueur, donc il n'y a rien à montrer de plus récent.</div>`:""}
+        <div class="dated">⏱ Écrit le ${esc(quand(v.as_of))} — deux gates déterministes tournent
+          avant publication et <b>bloquent réellement</b> la diffusion (vérifié dans le code, pas
+          dans sa documentation).</div>
         <div class="prose">${md(v.brief)}</div>
+        <div class="warnbox" style="margin:12px 0 0"><b>Ce que ces gates couvrent — et ce qu'ils ne couvrent pas</b>
+          ${esc(v.portee_gates||"")}
+          <div style="margin-top:6px">${esc(v.collision_lexique||"")}</div>
+          <div style="margin-top:6px">C'est pourquoi <b>aucun taux de rétention n'est affiché ici
+          comme gage de confiance</b> : sur les ${v.n_briefs} briefs de l'historique, ${v.n_silent}
+          ont été retenus, mais la quasi-totalité de ces déclenchements vient de cette collision de
+          noms et non d'une indiscipline du modèle. Un ratio mesure ce qu'il compte, pas ce qu'on
+          voudrait qu'il prouve.</div>
+        </div>
         <div class="note">⚠️ Les multiples cités viennent du <b>board</b>, donc de la fenêtre mixte
         signalée plus bas. Les colonnes du tableau, elles, sont recalculées sur des fenêtres
         comparables — l'écart entre les deux est lisible.</div>
-      </div></div>`;
-  },"value_watch");
+      </div></div>`,"value_watch");
 
   /* les conditions d'invalidation : la seule chose falsifiable dans le temps */
   h+=guard(B.value_watch,v=>!has(v.kill_conditions)?"":`<div class="card">
@@ -588,6 +595,9 @@ function vueValorisation(D){
         <br><br>Fenêtres : <code>${esc(v.fenetres_source||"—")}</code>, relevées
         ${esc(ago(v.fenetres_as_of)||"?")} — sonde de calibration <b>${esc(v.fenetres_sonde||"?")}</b>
         témoins reproduits. ${v.fenetres_err?`<b style="color:var(--broken)">Fenêtres indisponibles : ${esc(v.fenetres_err)}</b>`:""}
+        ${(v.fenetres_alertes||[]).length?`<br><b style="color:var(--warn)">⚠ ${(v.fenetres_alertes||[]).map(a=>esc(a)).join(" · ")}</b>
+          — publié quand même. Contrat : ${esc(v.fenetres_contrat||"")}. Un seul témoin tombé
+          n'arrête pas l'écriture : c'est un choix discutable, écrit ici plutôt que caché.`:""}
         ${has(v.coverage_note)?"<br><br>"+esc(v.coverage_note):""}
       </div></div></div>`;
   },"valuation");
