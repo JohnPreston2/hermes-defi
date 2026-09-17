@@ -483,7 +483,6 @@ function vueBrief(D){
               const LIB={TENUE:"tenue",CASSEE:"CASSÉE",NON_EVALUABLE:"non évaluable"};
               if(s.verdict) h+=`<span class="res ${B[s.verdict]||"partial"}" title="${esc(s.pourquoi||s.source||"")}">seuil : ${esc(LIB[s.verdict]||s.verdict)}</span>`;
               if(has(s.valeur)) h+=`<span style="font:10.5px var(--mono);color:var(--ink4)">capture ${nf(s.valeur,1)} % vs ${nf(s.seuil,1)} %</span>`;
-              if(s.niveau_atteint) h+="<span class='res nomap' title='la capture est DEJA a la valeur qui declencherait la condition ; seule la persistance dans le temps reste non prouvable, faute d un historique de la capture'>NIVEAU DE DÉCLENCHEMENT ATTEINT</span>";
               if(s.fragile) h+='<span class="disp" title="la capture annualise 24 h et dérive de ~12 % dans la journée : un verdict aussi près du seuil n\'en est pas un">verdict fragile</span>';
               if(u.verdict){const B2={TENUE:"ok",CASSEE:"nomap",NON_EVALUABLE:"partial"};
                 const det=has(u.baisses_consecutives)?`${u.baisses_consecutives}/${u.jours} j de baisse (${esc(u.base||"")})`:"non évaluable";
