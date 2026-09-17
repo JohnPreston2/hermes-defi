@@ -441,6 +441,9 @@ function vueBrief(D){
     const badge={vivante:"good",dormante:"warn",retiree:"bad"};
     return `<div class="card">${head("Registre des thèses",B.theses,
       `<span class="chip good" title="dernier verdict il y a moins de ${T.dormance_jours} jours — le seuil est large, une « vivante » peut dater de 10 jours">${T.n_vivantes} vivantes <small>&lt;${T.dormance_jours}j</small></span>
+       ${T.n_cassees?`<span class="chip bad" title="la clause de seuil de leur condition d'invalidation est franchie">${T.n_cassees} condition(s) CASSÉE(S)</span>`:""}
+       <span class="chip good">${T.n_tenues} tenue(s)</span>
+       <span class="chip warn">${T.n_non_evaluables} non évaluable(s)</span>
        <span class="chip warn">${T.n_dormantes} dormantes</span>
        <span class="chip bad">${T.n_retirees} retirées</span>
        <span class="chip">${T.n_verdicts} verdicts</span>`)}
@@ -456,16 +459,28 @@ function vueBrief(D){
           <div class="seq">${(e.verdicts||[]).map(v=>`<i data-v="${esc(v.v)}"
             title="${esc(v.d)} — ${esc(v.v)} : ${esc(v.texte||"")}">${esc(L[v.v]||"?")}</i>`).join("")}</div>
           ${e.kill?`<div class="killc"><b>condition d'invalidation posée le ${esc(e.kill_le||"?")}</b>
-            ${esc(e.kill)}</div>`:""}
+            ${esc(e.kill)}
+            ${(()=>{const ev=e.evaluation||{},s=ev.clause_seuil||{},u=ev.clause_duree||{};
+              const B={TENUE:"ok",CASSEE:"nomap",NON_EVALUABLE:"partial"};
+              let h='<div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">';
+              const LIB={TENUE:"tenue",CASSEE:"CASSÉE",NON_EVALUABLE:"non évaluable"};
+              if(s.verdict) h+=`<span class="res ${B[s.verdict]||"partial"}" title="${esc(s.pourquoi||s.source||"")}">seuil : ${esc(LIB[s.verdict]||s.verdict)}</span>`;
+              if(has(s.valeur)) h+=`<span style="font:10.5px var(--mono);color:var(--ink4)">capture ${nf(s.valeur,1)} % vs ${nf(s.seuil,1)} %</span>`;
+              if(s.fragile) h+='<span class="disp" title="la capture annualise 24 h et dérive de ~12 % dans la journée : un verdict aussi près du seuil n\'en est pas un">verdict fragile</span>';
+              if(u.verdict) h+=`<span class="res partial" title="${esc(u.pourquoi||"")}">durée ${u.jours} j : non évaluable</span>`;
+              if(!s.verdict&&!u.verdict) h+='<span class="res partial">non évaluable</span>';
+              return h+"</div>";})()}
+          </div>`:""}
         </div>`).join("")}
         <div class="note">Une case par verdict, dans l'ordre :
           <b>N</b> ouverture · <b>R</b> révision · <b>C</b> confirmation · <b>X</b> retrait.
           Survolez une case pour lire le raisonnement de ce jour-là.
           <br><br>${esc(T.note||"")}
-          <br><br><b>Ce que ce registre ne fait PAS</b> : il n'indique pas si une condition
-          d'invalidation a été tenue ou cassée. La noter exigerait de traduire une phrase libre
-          en prédicat puis de la confronter à une série qu'on n'a pas toujours — un verdict
-          fabriqué serait pire qu'aucun verdict. On publie l'<b>engagement</b> avec sa date.
+          <br><br><b>Ce que la notation couvre — et ce qu'elle ne couvre pas</b>
+          ${esc(T.note_evaluation||"")}
+          <br>Seule la clause chiffrée sur la capture est notée, parce qu'on en a la valeur. La
+          clause de durée (« contracte N jours consécutifs ») reste <b>non évaluable</b> et le dit :
+          un verdict fabriqué vaudrait moins qu'aucun verdict.
         </div>
       </div></div>`;
   },"theses");
