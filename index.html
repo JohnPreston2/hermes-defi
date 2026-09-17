@@ -245,11 +245,9 @@ tr.weak td.k{color:var(--ink2)}
   <div class="hwrap">
     <div class="brand">Hermes&nbsp;DeFi <small>marché &amp; valorisation</small></div>
     <nav>
-      <a href="#brief">Value Watch</a>
       <a href="#valorisation">Valorisation</a>
+      <a href="#brief">Value Watch</a>
       <a href="#marche">Marché</a>
-      <a href="#trackers">Secteurs</a>
-      <a href="#lecture">Lecture</a>
       <a href="#funding">Funding</a>
     </nav>
     <button class="tg" id="theme" type="button">Thème</button>
@@ -419,7 +417,7 @@ function vueBrief(D){
           ${esc(v.portee_gates||"")}
           <div style="margin-top:6px">${esc(v.collision_lexique||"")}</div>
           <div style="margin-top:6px">C'est pourquoi <b>aucun taux de rétention n'est affiché ici
-          comme gage de confiance</b> : sur les ${v.n_briefs} briefs de l'historique, ${v.n_silent}
+          comme gage de confiance</b> : sur les ${v.n_briefs} runs de l'historique (dont ${v.n_briefs-v.n_silent} rédigés), ${v.n_silent}
           ont été retenus, mais la quasi-totalité de ces déclenchements vient de cette collision de
           noms et non d'une indiscipline du modèle. Un ratio mesure ce qu'il compte, pas ce qu'on
           voudrait qu'il prouve.</div>
@@ -442,7 +440,7 @@ function vueBrief(D){
     const L={NEW:"N",REVISE:"R",CONFIRM:"C",RETIRE:"X"};
     const badge={vivante:"good",dormante:"warn",retiree:"bad"};
     return `<div class="card">${head("Registre des thèses",B.theses,
-      `<span class="chip good">${T.n_vivantes} vivantes</span>
+      `<span class="chip good" title="dernier verdict il y a moins de ${T.dormance_jours} jours — le seuil est large, une « vivante » peut dater de 10 jours">${T.n_vivantes} vivantes <small>&lt;${T.dormance_jours}j</small></span>
        <span class="chip warn">${T.n_dormantes} dormantes</span>
        <span class="chip bad">${T.n_retirees} retirées</span>
        <span class="chip">${T.n_verdicts} verdicts</span>`)}
@@ -559,9 +557,15 @@ function vueValorisation(D){
         <td>${resBadge(r.fees)} ${covBadge(p.couverture)}
           <div style="font:9.5px var(--mono);color:var(--ink4);margin-top:3px;max-width:200px">${esc(comps)}</div></td>
         <td class="r">${cellPF}</td>
+        <td class="r">${(()=>{const c=p.classement||{};
+          return c.rang?`<span class="mult">${c.rang}/${c.n_secteur}</span>
+            <div class="fen">méd. ${has(c.mediane)?nf(c.mediane,2):"—"}${has(c.decote_vs_mediane)?` · ${c.decote_vs_mediane>0?"+":""}${nf(c.decote_vs_mediane,0)} %`:""}</div>`:NA;})()}</td>
         <td class="r">${has(H["1an"])?`<span class="mult">${nf(H["1an"],2)}</span>
           <div class="fen">7 j ${has(H["7j"])?nf(H["7j"],2):"—"}</div>`:NA}</td>
         <td class="r">${has(p.capture_pct)?num(p.capture_pct,1)+" %":NA}</td>
+        <td class="r">${has(p.base_chg_7d_pct)?`${p.base_chg_7d_pct>0?"+":""}${nf(p.base_chg_7d_pct,1)} %`:NA}</td>
+        <td class="r">${has(p.drawdown_ath_pct)?`<span class="${p.drawdown_ath_pct<-90?"mult weak":""}">${nf(p.drawdown_ath_pct,0)} %</span>
+          <div class="fen">${esc(String(p.ath_date||"").slice(0,7))}</div>`:NA}</td>
         <td class="r">${usd(p.mcap)||NA}</td>
         <td class="r">${has(p.fdv_mcap)?num(p.fdv_mcap,2)+"×":NA}</td>
         <td><span class="chip" title="base de valeur du secteur">${esc(String(p.base_note||"?").slice(0,34))}</span></td>
@@ -604,8 +608,11 @@ function vueValorisation(D){
       <div class="tw"><table>
         <thead><tr><th>Protocole</th><th>Provenance des fees</th>
           <th class="r" title="mcap ÷ fees annualisés, sur trois fenêtres">P/F <small>7 j · 30 j · 1 an</small></th>
+          <th class="r" title="rang recalculé sur les fees du parent, pas sur le pf du board">Rang <small>secteur</small></th>
           <th class="r" title="mcap ÷ revenu au porteur, ancré sur 1 an">PHR <small>1 an</small></th>
-          <th class="r" title="part du REVENU qui revient au porteur">Capture <small>du rev.</small></th>
+          <th class="r" title="part du REVENU qui revient au porteur, annualisée sur 24 h">Capture <small>du rev.</small></th>
+          <th class="r" title="variation 7 j de la base de valeur du secteur">Base <small>7 j</small></th>
+          <th class="r" title="écart au plus haut historique">Drawdown <small>ATH</small></th>
           <th class="r">Mcap</th><th class="r" title="dilution à venir">FDV/mc</th>
           <th>Yardstick</th></tr></thead>
         <tbody id="valbody">${rows}</tbody></table></div>
@@ -641,7 +648,8 @@ function vueValorisation(D){
         <br><br><b>PHR</b> = mcap ÷ revenu revenant au porteur, ancré sur 1 an parce que les
         distributions sont grumeleuses : un programme suspendu depuis trois semaines met le 7 j à zéro
         sans que le jeton ait changé de nature. <b>Capture</b> = part du <b>revenu</b> (et non des
-        fees) revenant au porteur — deux protocoles à « 100 % » peuvent avoir des take-rates très
+        fees) revenant au porteur, <b>annualisée sur 24 h</b> — mesuré le 17/09, l'écart avec la
+        source atteint 12 % en quelques heures sur Raydium : à lire comme un ordre de grandeur — deux protocoles à « 100 % » peuvent avoir des take-rates très
         différents sur ce que paie l'utilisateur. <b>FDV/mc</b> = dilution à venir : un P/F de 20× à
         FDV/mc 4× est un P/F de 80× sur le jeton pleinement dilué. <b>Yardstick</b> = la base de
         valeur licite du secteur.
@@ -670,16 +678,25 @@ function vueValorisation(D){
         </div>`).join(""):'<div class="empty">aucun signalement</div>'}</div></div>`,"valuation");
   h+=guard(val,v=>`<div class="card">${head("Candidats de la règle",val,
       `<span class="chip">${(v.candidates||[]).length}</span>`)}
-      <div class="bd">${(v.candidates||[]).length?(v.candidates||[]).map(c=>`
+      <div class="bd">${(v.candidats_recalcules||[]).length?(v.candidats_recalcules||[]).map(c=>`
         <div style="margin-bottom:11px">
           <div style="font:650 12.5px var(--sans)">${esc(c.name||"?")}
             <span class="chip">${esc(c.sector||"")}</span>
-            <span class="chip acc">rang ${esc(c.rank||"?")}</span></div>
-          <div style="font:11.5px var(--mono);color:var(--ink4);margin-top:2px">P/F ${num(c.pf,2)}</div>
+            <span class="chip acc">rang ${esc(c.rank||"?")}</span>
+            ${c.provenance_propre?'<span class="res ok">provenance propre</span>':'<span class="res unresolved">provenance douteuse</span>'}</div>
+          <div style="font:11.5px var(--mono);color:var(--ink4);margin-top:2px">P/F ${num(c.pf,2)} · médiane ${num(c.mediane,2)}</div>
           <div style="font-size:11.5px;color:var(--ink3);margin-top:3px">↳ ${esc(c.why||"")}</div>
-        </div>`).join(""):'<div class="empty">aucun candidat</div>'}
-        <div class="note">Sélection <b>déterministe</b> : un rang dans un secteur plus des drapeaux de
-        qualité. Ce n'est pas une recommandation, c'est une file d'attente de recherche.</div>
+        </div>`).join(""):`<div class="empty">aucun candidat ne survit au recalcul</div>`}
+        ${(v.candidats_perdus||[]).length?`<div class="warnbox"><b>Ce que le recalcul a retiré</b>
+          Le board proposait ${esc((v.candidats_perdus||[]).join(", "))}. Sur les fees du protocole
+          <b>parent</b>, ces lignes ne sont plus dans la moitié basse de leur secteur — elles sont
+          exactement à sa médiane. Le critère qui les avait sélectionnées ne tient plus.</div>`:""}
+        <div class="note">Sélection <b>déterministe</b>, recalculée ici sur les fees du protocole
+        parent — jamais sur le <code>pf</code> du board, qui ne somme que les modules qu'il a mappés.
+        ⚠️ Les drapeaux de qualité du board (<code>token_captures</code>, <code>fdv_clean</code>,
+        <code>base_not_collapsing</code>) <b>ne portent pas sur la résolution des fees</b> : « flags
+        pass » ne dit rien sur l'existence du dénominateur. D'où le second badge.
+        Ce n'est pas une recommandation, c'est une file d'attente de recherche.</div>
       </div></div>`,"valuation");
   h+=`</div></section>`;
   return h;
@@ -708,134 +725,23 @@ function vueMarche(D){
       lbl:(usd(s.tvl*1e9)||"—")+' <small>'+esc(s.yard||"")+"</small>"})))}
       <div class="note">Ne pas sommer : LST et restaking double-comptent l'ETH staké. Le yardstick
       change par secteur.</div></div></div>`,"macro");
-  h+=guard(B.macro,m=>`<div class="card">${head("Fee-yield annualisé",B.macro,'<span class="chip">7 j lissés</span>')}
-    <div class="bd">${bars((m.fee_yield||[]).map(f=>({n:f.name,v:f.fy,
-      lbl:num(f.fy,2)+'% <small>'+esc(f.sector||"")+"</small>"})))}
-      <div class="note">Fees du <b>PROTOCOLE</b> ≠ accrual du <b>TOKEN</b> : le fee-switch se vérifie
-      en gouvernance, pas dans cette barre. La colonne « capture » du tableau de valorisation dit
-      ce qui revient réellement au porteur.</div></div></div>`,"macro");
-  h+=guard(B.macro,m=>`<div class="card">${head("TVL par chaîne",B.macro,'<span class="chip">top 10</span>')}
-    <div class="bd">${bars((m.chains||[]).map(c=>({n:c.n,v:c.tvl_b,lbl:usd(c.tvl_b*1e9)||"—"})))}</div></div>`,"macro");
-  h+=guard(B.macro,m=>`<div class="card">${head("Flux stablecoins par chaîne",B.macro,'<span class="chip">Δ 7 j</span>')}
-    <div class="bd">${bars((m.flows||[]).map(f=>({n:f.chain,v:f.d7,
-      lbl:(f.d7>0?"+":"")+num(f.d7,1)+" M"})))}
-      <div class="note">Le signe est dans le libellé, pas dans la couleur : une hausse n'est pas
-      « bonne », c'est une direction — et ce terminal ne fait pas de direction.</div></div></div>`,"macro");
+  /* ⚰️ DÉMOLI le 2026-09-17, après audit externe (règle 9 : on enterre le jour
+     où on remplace). Sortaient d'ici : le fee-yield (une colonne DefiLlama sans
+     le token qui la capte), la TVL par chaîne et les flux stablecoins (DefiLlama
+     les sert mieux, avec l'historique), les mouvements de TVL 24 h (un top-30 sur
+     95 protocoles, amplitude ≤ 4 %, et sa colonne « Baisses » listait six hausses
+     sur huit), et le tableau des prix (tri non monotone parce que trié par Δ à
+     l'intérieur de groupes de catégories non étiquetés — le lecteur voyait un tri
+     cassé — et ADA/XRP sur un terminal DeFi).
+     Sortaient aussi, dans leurs propres sections : les deux synthèses GLM des
+     trackers, qui portaient des faussetés VÉRIFIÉES (le classement RWA de la prose
+     contredit `rwa.top` du même bloc ; la somme Robinhood fait 129 % d'un total
+     qu'elle annonce à 85 %), et le mur des réveils L4 — le périmètre déclaré en
+     haut de page dit « aucune machinerie d'agent », et c'en était.
+     Les blocs restent dans defi.json ; plus aucun rendu ne les lit. */
   h+=`</div>`;
-
-  h+=`<div class="grid g2">`;
-  h+=guard(B.movers,m=>`<div class="card">${head("Mouvements de TVL · 24 h",B.movers)}
-    <div class="bd"><div class="grid g2">
-      <div><div class="note" style="padding:0 0 6px"><b>Hausses</b></div>
-        ${bars((m.gainers||[]).map(p=>({n:p.name,v:Math.abs(p.chg_1d),
-          lbl:(p.chg_1d>0?"+":"")+num(p.chg_1d,1)+'% <small>'+esc(p.category||"")+"</small>"})))}</div>
-      <div><div class="note" style="padding:0 0 6px"><b>Baisses</b></div>
-        ${bars((m.losers||[]).map(p=>({n:p.name,v:Math.abs(p.chg_1d),
-          lbl:num(p.chg_1d,1)+'% <small>'+esc(p.category||"")+"</small>"})))}</div>
-    </div></div></div>`,"movers");
-  h+=guard(B.prices,p=>`<div class="card">${head("Prix",B.prices,
-      `<span class="chip">${(p.items||[]).length} actifs</span>`)}
-    <div class="tw"><table><thead><tr><th>Actif</th><th class="r">Prix</th>
-      <th class="r">Δ 24 h</th><th class="r">Volume</th></tr></thead><tbody>
-      ${(p.items||[]).map(i=>`<tr><td class="k">${esc(i.sym||"")}<small>${esc(i.name||"")}</small></td>
-        <td class="r">${has(i.p)?"$"+nf(i.p,i.p<1?4:2):NA}</td>
-        <td class="r">${has(i.d)?(i.d>0?"+":"")+num(i.d,2)+" %":NA}</td>
-        <td class="r">${usd(i.vol)||NA}</td></tr>`).join("")}
-    </tbody></table></div>
-    <div class="bd"><div class="note">${esc(p.note||"")}</div></div></div>`,"prices");
   h+=`</div></section>`;
   return h;
-}
-
-function vueTrackers(D){
-  const B=D.blocks;
-  const carte=(titre,bk,unite)=>guard(bk,v=>{
-    const hist=v.history||{};
-    const cassé=(hist.ruptures||[]).length>0;
-    /* Un delta qui enjambe une rupture ne mesure rien : on le montre barré et
-       on dit pourquoi, plutôt que de l'afficher comme s'il résumait la série. */
-    const dlt=(lbl,x)=>!has(x)?null:[lbl,
-      (cassé?`<span style="text-decoration:line-through;color:var(--ink4)">`:"")
-      +(x>0?"+":"")+num(x,2)+" %"+(cassé?"</span>":""),
-      cassé?"enjambe la rupture":""];
-    const kpis=[["TVL",has(v.tvl_b)?usd(v.tvl_b*1e9):(has(v.tvl_m)?usd(v.tvl_m*1e6):null),""],
-      dlt("Δ 7 j",v.chg_7d), dlt("Δ 24 h",v.chg_1d),
-      ["Protocoles",has(v.n_protocols)?String(v.n_protocols):null,""],
-      ["Part Morpho",has(v.morpho_share_pct)?num(v.morpho_share_pct,1)+" %":null,""]]
-      .filter(k=>k&&k[1]!==null&&k[1]!==undefined);
-    return `<div class="card">${head(titre,bk,cassé?'<span class="chip warn">série rompue</span>':"")}
-      <div class="bd">
-        <div class="kpis" style="margin-bottom:12px">${kpis.map(k=>`<div class="kpi">
-          <div class="l">${esc(k[0])}</div><div class="v">${k[1]}</div>
-          ${k[2]?`<div class="s" style="color:var(--warn)">${esc(k[2])}</div>`:""}</div>`).join("")}</div>
-        ${has(v.deltas_invalides)?`<div class="warnbox" style="margin-bottom:12px">
-          <b>Deltas non mesurants</b>${esc(v.deltas_invalides)}</div>`:""}
-        ${serie(hist)}
-        ${has(v.synth)?`<div style="margin-top:16px">
-          <div class="dated">⏱ Synthèse écrite le ${esc(quand(v.synth_ts))}
-            — ses chiffres sont ceux de CET instant. Ils ne sont pas vérifiés contre la série
-            ci-dessus et peuvent la contredire.</div>
-          <div class="prose">${md(v.synth)}</div></div>`:""}
-      </div></div>`;
-  },titre);
-  return `<section id="trackers"><div class="sec"><h2>Trackers sectoriels</h2>
-    <p>on-chain 0-LLM × digest × synthèse causale</p></div>
-    ${carte("RWA",B.rwa)}${carte("Robinhood Chain",B.robinhood)}</section>`;
-}
-
-function vueLecture(D){
-  const B=D.blocks;
-  let h=`<section id="lecture"><div class="sec"><h2>Lecture</h2>
-    <p>ce que l'agent a retenu — réveils L4, sélection éditoriale, fil jugé</p></div>`;
-
-  h+=guard(B.curator,c=>{
-    const refs=new Set((c.featured||[]).map(f=>f.ref));
-    const tag=r=>((c.featured||[]).find(f=>f.ref===r)||{}).tag;
-    return `<div class="card">${head("Mis en avant",B.curator,
-      `<span class="chip acc">${(c.featured||[]).length}</span>`)}
-      <div class="bd">${(c.wakes||[]).filter(w=>refs.has(w.ts)).map(w=>`
-        <div style="margin-bottom:13px">
-          <div style="display:flex;gap:7px;align-items:baseline;flex-wrap:wrap">
-            <span class="chip acc">${esc(tag(w.ts)||"")}</span>
-            <span class="chip">${esc(w.label||"")}</span>
-            <span style="font:10.5px var(--mono);color:var(--ink4)">${esc(ago(w.ts)||"")}</span></div>
-          <div style="font-size:13px;color:var(--ink2);margin-top:5px">${esc(w.summary||"")}</div>
-        </div>`).join("")||'<div class="empty">aucune mise en avant</div>'}
-        <div class="note">La sélection porte son <b>motif</b> — c'est une couche éditoriale, pas un tri
-        par date.</div></div></div>`;
-  },"curator");
-
-  h+=guard(B.wakes,w=>`<div class="card">${head("Réveils du brain · L4",B.wakes,
-      `<span class="chip">${w.n} lectures</span>`)}
-    <div class="tw"><table><thead><tr><th>Quand</th><th>Fenêtre</th><th>Lecture</th>
-      <th class="r">Veilles</th></tr></thead><tbody>
-      ${(w.items||[]).map(i=>`<tr>
-        <td class="r" style="color:var(--ink4);white-space:nowrap">${esc(ago(i.ts)||"?")}</td>
-        <td><span class="chip">${esc(i.label||"")}</span></td>
-        <td style="font-size:12.5px;color:var(--ink2);max-width:640px">${esc(i.summary||"")}</td>
-        <td class="r">${has(i.watches)?i.watches:NA}</td></tr>`).join("")}
-    </tbody></table></div>
-    <div class="bd"><div class="note">${esc(w.note||"")}</div></div></div>`,"wakes");
-
-  h+=guard(B.hot_news,n=>{
-    const t=n.tally||{};
-    const cls=i=>i==="adverse"?"bad":(i==="value-accretive"?"good":"");
-    return `<div class="card">${head("Fil jugé",B.hot_news,
-      `<span class="chip good">${t["value-accretive"]||0} accrétif</span>
-       <span class="chip bad">${t.adverse||0} adverse</span>
-       <span class="chip">${t.neutral||0} neutre</span>`)}
-      <div class="bd">${(n.news||[]).map(a=>`<div style="margin-bottom:11px">
-        <div style="display:flex;gap:7px;align-items:baseline;flex-wrap:wrap">
-          <span class="chip ${cls(a.impact)}">${esc(a.impact||"")}</span>
-          <span class="chip">${esc(a.sector||"")}</span>
-          <span style="font:10.5px var(--mono);color:var(--ink4)">${esc(a.source||"")}</span></div>
-        <div style="font-size:13px;margin-top:4px">${a.url?`<a href="${esc(a.url)}" target="_blank"
-          rel="noopener noreferrer">${esc(a.headline||"")}</a>`:esc(a.headline||"")}</div>
-      </div>`).join("")||'<div class="empty">aucune news</div>'}
-        <div class="note"><b>L'impact est un jugement de modèle</b>, pas une mesure. Il oriente la
-        lecture ; il ne tranche rien.</div></div></div>`;
-  },"hot_news");
-  return h+`</section>`;
 }
 
 function vueFunding(D){
@@ -854,6 +760,12 @@ function vueFunding(D){
           ${bars(rows.slice(0,18).map(r=>({n:r.sym.replace(/USDT$/,""),v:r.annualized,
             lbl:(r.annualized>0?"+":"")+num(r.annualized,2)+'% <small>mark '+
               (has(r.mark_price)?nf(r.mark_price,r.mark_price<1?4:2):"—")+"</small>"})))}
+          ${(()=>{const r=rows.filter(x=>Math.abs(x.annualized-10.95)<0.01).map(x=>esc(x.sym.replace(/USDT$/,"")));
+            return r.length?`<div class="warnbox"><b>Le haut de ce classement ne porte pas d'information</b>
+              ${r.length} symboles (${r.join(" · ")}) sont à <b>+10,95 %</b>, c'est-à-dire exactement
+              <code>0,0001 × 3 × 365</code> — le taux que ${esc(f.venue||"le venue")} applique <b>au repos</b>,
+              quand le premium index est nul. Ce ne sont pas les funding les plus chers du carnet :
+              c'est l'absence de signal, classée en tête. Vérifié contre Binance le 2026-09-17.</div>`:"";})()}
           <div class="note"><b>Ce sont des perps de CEX, pas de l'on-chain</b> — ${esc(f.venue||"?")}.
           Le fichier source s'appelle <code>onchain_signals.json</code>, ce qui est trompeur et
           l'était aussi ici avant le 16/09. Le <b>signe</b> dit qui paie qui : positif, les longs
@@ -861,8 +773,10 @@ function vueFunding(D){
           <b>fondamental</b> du marché des dérivés — pas une direction. Le positionnement long/short
           est volontairement absent de ce terminal.
           <br><br><b>Réserve</b> : l'annualisation suppose un règlement toutes les 8 h pour toutes
-          les paires. Une paire réglée en 4 h verrait son taux annualisé doublé à tort. Et plusieurs
-          symboles collés au plancher du venue ne portent pas d'information, seulement un classement.
+          les paires. Une paire réglée en 4 h verrait son taux annualisé doublé à tort.
+          <br>Et l'univers de ce bloc est majoritairement composé de jetons IA — la catégorie que le
+          tableau des prix écartait comme « hors DeFi ». Deux définitions d'univers dans la même page,
+          signalé plutôt que corrigé.
           ${(f.anomalies_funding||[]).length?`<br><br><b>${f.anomalies_funding.length} écart(s)
             notable(s)</b> : ${f.anomalies_funding.map(a=>esc(a.symbol)+" ("+num(a.value,1)+"%, z="
             +num(a.z_score_7d,1)+")").join(" · ")}`:""}
@@ -879,13 +793,14 @@ function entete(D){
       <div style="font:650 15px var(--mono)">${esc(ago(D.generated_at)||"?")}</div></div>
     <div style="font-size:11.5px;color:var(--ink4);max-width:620px">${esc(D.perimetre||"")}</div>
     ${f.length?`<span class="chip bad" style="margin-left:auto">${f.length} bloc(s) en échec :
-      ${esc(f.join(", "))}</span>`:`<span class="chip good" style="margin-left:auto">12 blocs, 0 échec</span>`}
+      ${esc(f.join(", "))}</span>`:`<span class="chip good" style="margin-left:auto">${Object.keys(D.blocks||{}).length} blocs reçus, 0 en échec</span>`}
+    <span class="chip" title="reçus dans le flux mais volontairement non rendus">${["sessions","valuation_prose","wakes","curator"].filter(k=>(D.blocks||{})[k]).length} non affichés</span>
   </div></div>`;
 }
 
 function render(D){
   document.getElementById("app").innerHTML =
-    entete(D)+vueBrief(D)+vueValorisation(D)+vueMarche(D)+vueTrackers(D)+vueLecture(D)+vueFunding(D);
+    entete(D)+vueValorisation(D)+vueBrief(D)+vueMarche(D)+vueFunding(D);
   const cb=document.getElementById("onlyres");
   if(cb) cb.addEventListener("change",()=>{
     document.querySelectorAll("#valbody tr").forEach(tr=>{
