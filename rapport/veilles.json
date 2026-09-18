@@ -1,0 +1,72 @@
+{
+ "schema_version": 1,
+ "regle": "Une veille porte une affirmation datee, la mesure exacte qui la testerait, un seuil et une echeance. La session du jour re-teste EN PREMIER les veilles echues ou mesurables, ajoute un point d'historique, et solde en CONFIRMEE / REVISEE / MORTE. Une veille soldee reste visible 3 mois, puis part dans veilles_archive.json. On n'ouvre pas plus de 2 veilles par jour : une veille qu'on ne re-teste pas est une decoration.",
+ "statuts": ["OUVERTE", "CONFIRMEE", "REVISEE", "MORTE"],
+ "veilles": [
+  {
+   "id": "v_20260918_01",
+   "ouverte": "2026-09-18",
+   "affirmation": "Les hooks de Robinhood Chain servent l'extraction (taxe sur le swap), pas la gestion de liquidite. Si l'ecosysteme murit, la part beforeAddLiquidity doit monter et celle d'afterSwapReturnsDelta baisser.",
+   "mesure": "Registre Uniswap/hooklist : part des hooks chain='robinhood' portant chaque flag. Reference 2026-09-18 : afterSwapReturnsDelta 72,4 % (839/1159), beforeAddLiquidity 25,3 % (293/1159). Comparaison Base le meme jour : 32,7 % et 61,7 %.",
+   "seuil": "Bascule si afterSwapReturnsDelta passe sous 60 % OU si beforeAddLiquidity depasse 40 %.",
+   "echeance": "2026-12-18",
+   "statut": "OUVERTE",
+   "historique": [
+    {"date": "2026-09-18", "valeur": "afterSwapReturnsDelta 72,4 % / beforeAddLiquidity 25,3 %", "note": "point de reference"}
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260918_02",
+   "ouverte": "2026-09-18",
+   "affirmation": "Le taux d'audit des hooks de Robinhood Chain est structurellement nul et le restera tant qu'aucun incident ne l'aura force.",
+   "mesure": "Registre Uniswap/hooklist : compter les entrees chain='robinhood' avec auditUrl non vide. Reference 2026-09-18 : 4 sur 1159 (0,34 %). Comparaison : Ethereum 17/1125, Base 10/1154.",
+   "seuil": "REVISEE si le taux depasse 1 % ; MORTE si un exploit public sur un hook non audite de la chaine survient avant l'echeance.",
+   "echeance": "2026-12-18",
+   "statut": "OUVERTE",
+   "historique": [
+    {"date": "2026-09-18", "valeur": "4 / 1159 (0,34 %)", "note": "point de reference"}
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260918_03",
+   "ouverte": "2026-09-18",
+   "affirmation": "La v3 sans hook reste le refuge d'une part significative du flux : la v4 ne prend pas toute la chaine.",
+   "mesure": "DefiLlama /overview/dexs/Robinhood%20Chain : total30d par protocole. Reference 2026-09-18 : Uniswap V4 17,44 Md$ (43,4 % du volume chaine de 40,19 Md$), Uniswap V3 12,94 Md$ (32,2 %).",
+   "seuil": "CONFIRMEE si V3 tient au-dessus de 20 % du volume chaine a l'echeance ; REVISEE si V3 passe sous 10 %.",
+   "echeance": "2026-12-18",
+   "statut": "OUVERTE",
+   "historique": [
+    {"date": "2026-09-18", "valeur": "v4 43,4 % / v3 32,2 % du volume 30 j", "note": "point de reference"}
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260918_04",
+   "ouverte": "2026-09-18",
+   "affirmation": "Robinhood Chain est une infrastructure de marche actions, pas une chaine a memecoins munie d'un ticker. La famille 'actions tokenisees' du registre doit croitre et un avis de TSV doit finir par etre depose.",
+   "mesure": "Deux mesures conjointes. (1) Registre hooklist : part des hooks robinhood dont la description mentionne stock|equity|RWA|tokenized share ; reference 2026-09-18 : 154 deploiements sur 1159 (13,4 %), 83 noms distincts. (2) Recherche web d'un avis public de Tokenized Securities Venue (l'ordre SEC impose une notice publique 30 jours avant d'operer, plus une notification ecrite a la Commission).",
+   "seuil": "MORTE si, a l'echeance, la famille actions tokenisees stagne sous 15 % ET qu'aucun avis de TSV n'a ete publie. CONFIRMEE si un avis de TSV est depose.",
+   "echeance": "2026-12-18",
+   "statut": "OUVERTE",
+   "historique": [
+    {"date": "2026-09-18", "valeur": "13,4 % du registre (154/1159) ; aucun avis de TSV connu", "note": "point de reference, condition de refutation du rapport du 18/09"}
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260918_05",
+   "ouverte": "2026-09-18",
+   "affirmation": "L'ordre SEC 34-106402 va paraitre au Federal Register et ouvrir la fenetre de commentaires ; les poids lourds du secteur deposeront alors, alors que les huit premieres lettres ne viennent que de particuliers.",
+   "mesure": "(1) API Federal Register, agences=securities-and-exchange-commission, terme=tokenized, depuis 2026-09-17. (2) Page des commentaires SEC 4-927 : nombre de lettres et qualite des signataires. Reference 2026-09-18 : non paru ; 8 lettres, toutes de particuliers ou tres petites structures, aucun cabinet, aucune bourse, aucun courtier, aucun emetteur.",
+   "seuil": "CONFIRMEE a la premiere lettre signee par une bourse, un courtier, un emetteur ou un cabinet d'avocats. REVISEE si l'ordre n'est toujours pas paru au 2026-10-31.",
+   "echeance": "2026-10-31",
+   "statut": "OUVERTE",
+   "historique": [
+    {"date": "2026-09-18", "valeur": "non paru au FR ; 8 lettres, 0 institution", "note": "point de reference"}
+   ],
+   "solde": null
+  }
+ ]
+}

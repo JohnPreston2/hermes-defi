@@ -1,26 +1,44 @@
 {
-  "schema_version": 1,
-  "points": [
-    {
-      "date": "2026-09-18",
-      "hooks_total": 4953,
-      "hooks_robinhood": 1159,
-      "hooks_audites_robinhood": 4,
-      "rh_chain_tvl_usd": 976635988,
-      "rh_v4_tvl_usd": 190657075,
-      "rh_v3_tvl_usd": 73226513,
-      "rh_v2_tvl_usd": 16513948,
-      "rh_vol_30d_v4": 17437026967,
-      "rh_vol_30d_v3": 12935320766,
-      "rh_vol_30d_chaine": 40194943600,
-      "rh_fees_30d_v4": 101495817,
-      "rh_fees_30d_v3": 25573879,
-      "docket_4927_lettres": 8,
-      "fr_publie": false,
-      "hooks_stock_vocab_pct": 23.6,
-      "hooks_meme_vocab_pct": 57.0,
-      "hooks_swapaccess_none_pct": 74.9,
-      "genere": "2026-09-18T21:40:00Z"
-    }
-  ]
+ "schema_version": 1,
+ "regle": "Une ligne par jour d'enquete. Un champ ajoute ne remplace jamais un champ existant : la serie doit rester comparable dans le temps. Un champ non mesure ce jour-la vaut null, jamais une valeur de repli.",
+ "sources": {
+  "hooks_*": "https://raw.githubusercontent.com/Uniswap/hooklist/main/hooklist.json (jeu complet, compte local)",
+  "rh_chain_tvl_usd": "https://api.llama.fi/v2/chains",
+  "rh_*_tvl_usd": "https://api.llama.fi/protocols, filtre chains contient 'Robinhood Chain', champ chainTvls",
+  "rh_vol_*": "https://api.llama.fi/overview/dexs/Robinhood%20Chain",
+  "rh_fees_*": "https://api.llama.fi/overview/fees/Robinhood%20Chain",
+  "docket_4927_lettres": "https://www.sec.gov/rules-regulations/public-comments/4-927",
+  "fr_publie": "https://www.federalregister.gov/api/v1/documents.json (agences=sec, terme=tokenized)"
+ },
+ "points": [
+  {
+   "date": "2026-09-18",
+   "releve_utc": "2026-09-18T20:25:00Z",
+   "hooks_total": 4953,
+   "hooks_robinhood": 1159,
+   "hooks_base": 1154,
+   "hooks_ethereum": 1125,
+   "hooks_audites_robinhood": 4,
+   "hooks_noms_distincts_robinhood": 610,
+   "hooks_rwa_deploiements_robinhood": 154,
+   "hooks_swapaccess_none_pct": 74.9,
+   "hooks_upgradeables_robinhood": 35,
+   "hooks_flag_after_swap_returns_delta_pct": 72.4,
+   "hooks_flag_before_add_liquidity_pct": 25.3,
+   "rh_chain_tvl_usd": 969523045,
+   "rh_v4_tvl_usd": 184678257,
+   "rh_v3_tvl_usd": 72657283,
+   "rh_morpho_tvl_usd": 537847756,
+   "rh_protocoles_defillama": 176,
+   "rh_vol_30d_v4": 17437026967,
+   "rh_vol_30d_v3": 12935320766,
+   "rh_vol_30d_chaine": 40194943601,
+   "rh_fees_30d_v4": 101495817,
+   "rh_fees_30d_chaine": 317688700,
+   "docket_4927_lettres": 8,
+   "docket_4927_lettres_institutionnelles": 0,
+   "fr_publie": false,
+   "note": "Point de reference, pose par l'enquete du 18/09/2026 sur les hooks Uniswap v4. Robinhood Chain est ce jour-la la 1re chaine du registre des hooks, devant Base et Ethereum."
+  }
+ ]
 }
