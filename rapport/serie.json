@@ -1,6 +1,15 @@
 {
  "schema_version": 1,
- "regle": "Une ligne par jour d'enquete. Un champ ajoute ne remplace jamais un champ existant : la serie doit rester comparable dans le temps. Un champ non mesure ce jour-la vaut null, jamais une valeur de repli.",
+ "regle": "Une ligne par jour. On FUSIONNE, on n'ecrase jamais : lire le fichier, trouver le point du jour s'il existe, ajouter les champs manquants sans toucher aux champs deja ecrits, et ne creer un nouveau point que si la date est absente. Un champ non mesure vaut null, jamais une valeur de repli. Un champ ajoute ne remplace jamais un champ existant : la serie doit rester comparable dans le temps.",
+ "definitions_figees": {
+  "commentaire": "Ces definitions sont FIGEES. Les changer casse la comparabilite de toute la serie, exactement comme la rupture de perimetre qui a rendu le -6 % du secteur RWA illisible le 15/09. Si une meilleure definition apparait, on ouvre un NOUVEAU champ, on ne redefinit pas l'ancien.",
+  "hooks_stock_vocab_pct": "part des hooks chain='robinhood' dont la description matche (insensible a la casse) : stock|equity|equit|RWA|tokenized (stock|share)|AAPL|NVDA|TSLA|ticker",
+  "hooks_rwa_deploiements_robinhood": "compte (pas pourcentage) sur le motif plus strict : stock|equity|RWA|tokenized share|AAPL|NVDA|TSLA",
+  "hooks_meme_vocab_pct": "part des hooks robinhood dont la description matche : launch|bonding curve|graduat|pump|presale|anti-snipe|antisnip",
+  "hooks_audites_robinhood": "entrees chain='robinhood' dont auditUrl est non vide apres strip",
+  "hooks_swapaccess_none_pct": "part des entrees robinhood dont properties.swapAccess == 'none'",
+  "hooks_upgradeables_impl_non_verifiee": "parmi les hooks upgradeable=true, ceux dont la description matche : not (source-)?verified|not available|unresolved|not resolved"
+ },
  "sources": {
   "hooks_*": "https://raw.githubusercontent.com/Uniswap/hooklist/main/hooklist.json (jeu complet, compte local)",
   "rh_chain_tvl_usd": "https://api.llama.fi/v2/chains",
@@ -13,32 +22,40 @@
  "points": [
   {
    "date": "2026-09-18",
-   "releve_utc": "2026-09-18T20:25:00Z",
+   "releve_utc": "2026-09-18T21:40:00Z",
    "hooks_total": 4953,
    "hooks_robinhood": 1159,
    "hooks_base": 1154,
    "hooks_ethereum": 1125,
    "hooks_audites_robinhood": 4,
+   "hooks_audites_base": 10,
+   "hooks_audites_ethereum": 17,
    "hooks_noms_distincts_robinhood": 610,
+   "hooks_stock_vocab_pct": 23.6,
+   "hooks_meme_vocab_pct": 57.0,
    "hooks_rwa_deploiements_robinhood": 154,
    "hooks_swapaccess_none_pct": 74.9,
    "hooks_upgradeables_robinhood": 35,
+   "hooks_upgradeables_impl_non_verifiee": 22,
+   "hooks_beacon_impl_partagee": 6,
    "hooks_flag_after_swap_returns_delta_pct": 72.4,
    "hooks_flag_before_add_liquidity_pct": 25.3,
-   "rh_chain_tvl_usd": 969523045,
-   "rh_v4_tvl_usd": 184678257,
-   "rh_v3_tvl_usd": 72657283,
+   "rh_chain_tvl_usd": 976635988,
+   "rh_v4_tvl_usd": 190657075,
+   "rh_v3_tvl_usd": 73226513,
+   "rh_v2_tvl_usd": 16513948,
    "rh_morpho_tvl_usd": 537847756,
    "rh_protocoles_defillama": 176,
    "rh_vol_30d_v4": 17437026967,
    "rh_vol_30d_v3": 12935320766,
-   "rh_vol_30d_chaine": 40194943601,
+   "rh_vol_30d_chaine": 40194943600,
    "rh_fees_30d_v4": 101495817,
+   "rh_fees_30d_v3": 25573879,
    "rh_fees_30d_chaine": 317688700,
    "docket_4927_lettres": 8,
    "docket_4927_lettres_institutionnelles": 0,
    "fr_publie": false,
-   "note": "Point de reference, pose par l'enquete du 18/09/2026 sur les hooks Uniswap v4. Robinhood Chain est ce jour-la la 1re chaine du registre des hooks, devant Base et Ethereum."
+   "note": "Point de reference. FUSION de deux releves du meme soir : l'enquete de la routine a 21:40 UTC (TVL, volumes, frais, vocabulaire) et une passe de verification a 20:25 puis 22:00 UTC (comparaisons Base/Ethereum, flags, proxys evolutifs). Les TVL portent l'instant 21:40 ; l'ecart avec 20:25 (969,5 M$ de TVL chaine) est un ecart de temps, pas une correction."
   }
  ]
 }
