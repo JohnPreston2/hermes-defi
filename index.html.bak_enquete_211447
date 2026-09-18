@@ -280,26 +280,20 @@ tr.weak td.k{color:var(--ink2)}
 </div>
 <script>
 (async()=>{
-  const get=async u=>{ try{ const r=await fetch(u+"?t="+Date.now(),{cache:"no-store"});
-                            return r.ok? await r.json() : null; }catch(e){ return null; } };
   try{
-    // L'ENQUETE du jour prime ; le transcript 0-LLM n'est qu'une annexe de donnees.
-    const enq=await get("rapport/enquetes.json");
-    const tra=await get("rapport/index.json");
-    const e=(enq&&enq.enquetes||[])[0], t=(tra&&tra.rapports||[])[0];
-    const principal = e||t;
-    if(!principal||!principal.fichier) return;
-    document.getElementById("raplink").href="rapport/"+principal.fichier;
-    document.getElementById("raptitre").textContent=
-      principal.titre || ("Rapport du "+principal.date);
-    document.querySelector("#rapportcard .tag").textContent = e? "Enquete du jour" : "Rapport quotidien";
-    const bouts=[];
-    if(e&&e.question) bouts.push(e.question);
-    if(principal.genere) bouts.push("genere "+principal.genere.replace("T"," ").slice(0,16)+" UTC");
-    if(e&&t&&t.fichier) bouts.push('<a href="rapport/'+t.fichier+'">annexe de donnees</a>');
-    document.getElementById("rapmeta").innerHTML=bouts.join("  ·  ");
+    const r=await fetch("rapport/index.json?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok) return;                       // pas de rapport publie : la carte reste cachee
+    const j=await r.json();
+    const d=(j.rapports||[])[0];
+    if(!d||!d.fichier) return;
+    document.getElementById("raplink").href="rapport/"+d.fichier;
+    document.getElementById("raptitre").textContent=d.titre||("Rapport du "+d.date);
+    const n=(j.rapports||[]).length;
+    document.getElementById("rapmeta").textContent=
+      (d.genere?("genere "+d.genere.replace("T"," ").slice(0,16)+" UTC"):"")+
+      (n>1?("  ·  "+n+" rapports archives"):"");
     document.getElementById("rapportcard").hidden=false;
-  }catch(e){ /* un feed absent ne doit jamais casser le dashboard */ }
+  }catch(e){ /* silence : un feed absent ne doit jamais casser le dashboard */ }
 })();
 </script>
 <main id="app"><div class="empty">chargement…</div></main>
