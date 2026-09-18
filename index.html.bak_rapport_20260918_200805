@@ -249,53 +249,10 @@ tr.weak td.k{color:var(--ink2)}
       <a href="#brief">Value Watch</a>
       <a href="#marche">Marché</a>
       <a href="#funding">Funding</a>
-      <a href="rapport/" id="navrapport">Rapport du jour</a>
     </nav>
     <button class="tg" id="theme" type="button">Thème</button>
   </div>
 </header>
-
-<!-- === Carte "Rapport du jour" (additif, 2026-09-18). Hors de #app : l'app
-     remplace tout le contenu de #app a chaque rendu. S'alimente seule depuis
-     rapport/index.json ; reste cachee si le fichier manque. === -->
-<style>
-.rapwrap{max-width:1080px;margin:18px auto 0;padding:0 20px}
-.rapcard{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
- background:var(--s1);border:1px solid var(--line);border-left:3px solid var(--acc);
- border-radius:var(--r2);padding:14px 18px;text-decoration:none;color:inherit;
- box-shadow:var(--e1)}
-.rapcard:hover{border-color:var(--line2);border-left-color:var(--acc2)}
-.rapcard .tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
- text-transform:uppercase;color:var(--ink3)}
-.rapcard b{font-family:var(--serif);font-size:19px;font-weight:600}
-.rapcard .meta{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-left:auto}
-@media (max-width:640px){.rapcard .meta{margin-left:0}}
-</style>
-<div class="rapwrap" id="rapportcard" hidden>
-  <a class="rapcard" id="raplink" href="rapport/">
-    <span class="tag">Rapport quotidien</span>
-    <b id="raptitre"></b>
-    <span class="meta" id="rapmeta"></span>
-  </a>
-</div>
-<script>
-(async()=>{
-  try{
-    const r=await fetch("rapport/index.json?t="+Date.now(),{cache:"no-store"});
-    if(!r.ok) return;                       // pas de rapport publie : la carte reste cachee
-    const j=await r.json();
-    const d=(j.rapports||[])[0];
-    if(!d||!d.fichier) return;
-    document.getElementById("raplink").href="rapport/"+d.fichier;
-    document.getElementById("raptitre").textContent=d.titre||("Rapport du "+d.date);
-    const n=(j.rapports||[]).length;
-    document.getElementById("rapmeta").textContent=
-      (d.genere?("genere "+d.genere.replace("T"," ").slice(0,16)+" UTC"):"")+
-      (n>1?("  ·  "+n+" rapports archives"):"");
-    document.getElementById("rapportcard").hidden=false;
-  }catch(e){ /* silence : un feed absent ne doit jamais casser le dashboard */ }
-})();
-</script>
 <main id="app"><div class="empty">chargement…</div></main>
 
 <script>
