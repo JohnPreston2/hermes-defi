@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain : la chaîne des actions tokenisées, ou la chaîne des memecoins ? — Hermes</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(28px,4.2vw,44px);line-height:1.14;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance b{color:var(--ink2);font-weight:600}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+    <nav><a href="../">accueil</a><a href="2026-09-18.html">rapport 0-LLM du jour (annexe)</a></nav>
+  </div>
+</header>
+<main>
+  <div class="tag source">registre hooks Uniswap v4</div>
+  <div class="tag data">DefiLlama</div>
+  <div class="tag source">SEC / Federal Register</div>
+  <div class="tag">1<sup>re</sup> entrée de série</div>
+
+  <h1>Robinhood Chain : la chaîne des actions tokenisées, ou la chaîne des memecoins ?</h1>
+
+  <p class="question">Question du jour : sur les 1&nbsp;159 hooks Uniswap v4 déployés sur Robinhood Chain, combien servent réellement à échanger des actions tokenisées — et le reste de l'écosystème est-il compatible avec ce que le régulateur vient d'exiger&nbsp;?</p>
+
+  <div class="provenance">
+    <div class="row"><span>Généré</span><span>2026-09-18 21:40 UTC</span></div>
+    <div class="row"><span class="src">Registre hooks Uniswap (GitHub raw, hooklist.json, 4&nbsp;953 entrées)</span><span class="age-fresh">relevé 2026-09-18 21:19 UTC</span></div>
+    <div class="row"><span class="src">DefiLlama — /v2/chains, /protocols, /overview/dexs, /overview/fees</span><span class="age-fresh">relevé 2026-09-18 21:20 UTC</span></div>
+    <div class="row"><span class="src">SEC — dossier public 4-927</span><span class="age-fresh">relevé 2026-09-18 21:30 UTC (8 lettres, 3 déposées le jour même)</span></div>
+    <div class="row"><span class="src">SEC — Fact Sheet + ordre 34-106402 (PDF primaire)</span><span class="age-fresh">signé 2026-09-17, lu en intégral le 2026-09-18</span></div>
+    <div class="row"><span class="src">Federal Register API (agence SEC, terme "tokenized")</span><span class="age-fresh">interrogé 2026-09-18 21:25 UTC — 0 document citant l'ordre depuis le 15/09</span></div>
+    <div class="row"><span class="src">Hermes 0-LLM — <code>~/hermes-defi/defi.json</code> bloc <code>robinhood</code> (annexe, delta VPS)</span><span class="age-fresh">généré 2026-09-18 20:53 UTC</span></div>
+    <div class="row"><span>Ne répond pas</span><span class="age-dead">robinhoodchain.blockscout.com/api/v2/* → HTTP 403, non insisté</span></div>
+  </div>
+
+  <h2>Ce qui a été mesuré</h2>
+  <p><strong>Méthode :</strong> téléchargement local du registre officiel des hooks Uniswap v4 (6,2&nbsp;Mo, 4&nbsp;953 entrées), décodage des permissions de chaque hook par calcul des 14 bits de poids faible de son adresse, et calibration de ce décodage contre le champ <code>flags</code> fourni par le registre lui-même sur les 4&nbsp;953 entrées avant toute lecture — <strong>0 écart</strong>. Croisement avec DefiLlama pour le TVL et les volumes, avec la SEC et le Federal Register pour l'état réglementaire.</p>
+
+  <div class="stat-row">
+    <div class="stat"><b>1&nbsp;159</b><span>hooks déployés sur Robinhood Chain (chainId 4663), sur 4&nbsp;953 au total dans le registre — 2<sup>e</sup> chaîne derrière Base (1&nbsp;154) et devant Ethereum (1&nbsp;125)</span></div>
+    <div class="stat"><b>4</b><span>hooks audités sur les 1&nbsp;159 (0,35&nbsp;%) — 2 partagent le même audit (Bonker), 1 audit OpenZeppelin, 1 lien Google Drive non vérifiable</span></div>
+    <div class="stat"><b>23,6&nbsp;%</b><span>des hooks mentionnent stock / equity / tokenisation dans leur nom ou description — <strong>76,4&nbsp;%</strong> n'en disent rien</span></div>
+    <div class="stat"><b>57,0&nbsp;%</b><span>des hooks mentionnent launch / meme / tax / bonding — infrastructure de lancement de jetons, pas de règlement d'actions</span></div>
+  </div>
+
+  <p>Le registre encode les permissions d'un hook directement dans les 14 derniers bits de son adresse — masque <code>0x3FFF</code> sur les 4 derniers hex, puis lecture bit à bit. J'ai recalculé ces permissions pour les 4&nbsp;953 entrées et comparé au champ <code>flags</code> officiel du même registre : correspondance parfaite, aucun écart. C'est la sonde calibrée avant usage — elle sert ensuite à lire les 1&nbsp;159 hooks de Robinhood Chain sans avoir à faire confiance au champ déclaratif seul.</p>
+
+  <p>Résultat de cette lecture : <strong>1&nbsp;016 des 1&nbsp;159 hooks</strong> (87,7&nbsp;%) interceptent chaque swap (<code>beforeSwap</code> ou <code>afterSwap</code>), et <strong>887</strong> peuvent réécrire les montants échangés via <code>ReturnsDelta</code> — c'est-à-dire prélever une commission personnalisée sur chaque transaction plutôt que d'appliquer le taux fixe 0,05&nbsp;%/0,30&nbsp;%/1&nbsp;% de v3. Seuls <strong>181</strong> déclarent <code>vanillaSwap=true</code> (pas de logique custom au-delà du fee).</p>
+
+  <h3 style="font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink)">Qui manque à l'appel</h3>
+  <p>Le hook le plus déployé toutes chaînes confondues dans le registre entier est <strong>EulerSwap</strong> (748 instances, sur Arbitrum, BNB, Ethereum, Unichain). Il est <strong>totalement absent de Robinhood Chain</strong> — 0 instance. Même constat pour <strong>Bunni</strong> (14 instances ailleurs, 0 sur Robinhood) et <strong>Angstrom</strong> (8 instances sur Base/Ethereum, 0 sur Robinhood). Les intégrateurs DeFi "sérieux" qui dominent les autres chaînes v4 n'ont, à ce jour, rien déployé sur Robinhood Chain.</p>
+  <p>À la place, le nom qui revient le plus souvent sur Robinhood Chain est <strong>SaturnOmnichainV4Hook</strong> (80 occurrences) — un hook d'infrastructure omnichain générique, sans rapport avec les actions tokenisées. Suivent <strong>LaunchpadHook</strong> (27), <strong>LaunchHook</strong> (25) et <strong>NasdankFeeHook</strong> (20) — de l'infrastructure de lancement de jetons.</p>
+
+  <h3 style="font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink)">La niche qui existe vraiment : les hooks horaires-marché</h3>
+  <p>Sur les 273 hooks à vocabulaire "stock", <strong>16</strong> implémentent une logique explicitement calée sur les horaires de la Bourse de New York : <code>MarketHoursFeeHook</code> (×3), <code>MarketSessionFeeHook</code>, <code>SessionHook</code> (×2), <code>FablesRWA</code> (×6), <code>StonkHookV3</code>. L'un d'eux, <code>MarketSessionFeeHook</code> (adresse <code>0x1463…fe0c4</code>), applique un fee LP dynamique de 4,5&nbsp;bps pendant les heures d'ouverture du marché contre 74,5&nbsp;bps quand la Bourse est fermée — soit un facteur 16,5 — logique absente de tout autre secteur DeFi et spécifique aux actifs qui répliquent un marché à horaires fixes.</p>
+
+  <h2>TVL, volume et frais — le recoupement DefiLlama</h2>
+  <table>
+    <tr><th>Grandeur</th><th class="num">Valeur</th><th>Relevé</th></tr>
+    <tr><td>TVL total Robinhood Chain</td><td class="num">976,6&nbsp;M$</td><td>/v2/chains, 18/09 21:20 UTC</td></tr>
+    <tr><td>TVL Uniswap V4 sur la chaîne</td><td class="num">190,7&nbsp;M$</td><td>/protocols → chainTvls</td></tr>
+    <tr><td>TVL Uniswap V3 sur la chaîne</td><td class="num">73,2&nbsp;M$</td><td>idem</td></tr>
+    <tr><td>TVL Uniswap V2 sur la chaîne</td><td class="num">16,5&nbsp;M$</td><td>idem</td></tr>
+    <tr><td>Volume v4, 30 jours</td><td class="num">17,44&nbsp;Md$</td><td>/overview/dexs, dépasse v3 (12,94&nbsp;Md$)</td></tr>
+    <tr><td>Volume total chaîne, 30 jours</td><td class="num">40,19&nbsp;Md$</td><td>idem</td></tr>
+    <tr><td>Volume total chaîne, 24h</td><td class="num">1,49&nbsp;Md$</td><td>en baisse de 19,96&nbsp;% sur 7 jours</td></tr>
+    <tr><td>Frais v4, 30 jours</td><td class="num">101,5&nbsp;M$</td><td>/overview/fees</td></tr>
+    <tr><td>Frais v3, 30 jours</td><td class="num">25,6&nbsp;M$</td><td>idem</td></tr>
+  </table>
+
+  <p>Le fait qui n'existe nulle part ailleurs dans cette liste : sur 30 jours, <strong>Uniswap V4 a dépassé Uniswap V3 en volume</strong> sur Robinhood Chain (17,44 contre 12,94&nbsp;Md$), alors que son TVL reste très inférieur au flottant historique v3 sur les autres chaînes. Un TVL modeste qui tourne vite — cohérent avec des hooks qui prélèvent une commission sur chaque swap plutôt que de rémunérer des teneurs de marché passifs.</p>
+
+  <p>Mais le générateur de frais le plus efficace de la chaîne n'est pas Uniswap : <strong>Pons V2</strong>, classé "Launchpad" par DefiLlama, encaisse 125,5&nbsp;M$ de frais sur 30 jours pour seulement 2,19&nbsp;Md$ de volume — un taux de prélèvement d'environ <strong>5,7&nbsp;%</strong>, contre <strong>0,58&nbsp;%</strong> pour Uniswap V4 (101,5&nbsp;M$ de frais pour 17,44&nbsp;Md$ de volume). Le produit le plus rentable de Robinhood Chain aujourd'hui est un launchpad de jetons, pas un DEX d'actions.</p>
+
+  <h2>Le delta contre la veille</h2>
+  <p>Aucun — <code>rapport/serie.json</code> et <code>rapport/enquetes.json</code> n'existaient pas encore sur ce dépôt avant aujourd'hui (404 sur les deux fichiers, vérifié avant d'écrire). Cette entrée pose le premier point de la série ; les prochaines enquêtes du fil tokenisation compareront leurs mesures à celle-ci.</p>
+
+  <h2>Ce qui contredit la thèse "chaîne pour les actions"</h2>
+  <ul>
+    <li><strong>76,4&nbsp;% des hooks n'ont rien à voir avec des actions</strong> par leur nom ou leur description, et 57,0&nbsp;% relèvent explicitement du vocabulaire memecoin/launchpad (anti-snipe, taxe de lancement, bonding curve). 168 hooks portent les deux vocabulaires à la fois — de l'infrastructure de lancement réutilisée pour des jetons-actions.</li>
+    <li><strong>EulerSwap, Bunni et Angstrom — absents.</strong> Les trois hooks les plus utilisés ailleurs dans l'écosystème v4 n'ont aucune présence sur Robinhood Chain, alors qu'ils totalisent 770 déploiements sur les autres chaînes.</li>
+    <li><strong>Seulement 4 hooks audités sur 1&nbsp;159</strong> (0,35&nbsp;%) — pour une infrastructure censée porter des titres réglementés, la proportion d'audits publics est proche de zéro.</li>
+    <li><strong>Le TVL "Steakhouse Financial" ($494,5&nbsp;M) double-compte celui de Morpho Blue</strong> qu'il curate — Steakhouse est un curateur de coffres Morpho, pas un protocole indépendant. Additionner les deux lignes du classement DefiLlama surestimerait la taille réelle de la chaîne d'environ 50&nbsp;%. La concentration réelle sur un seul protocole de prêt (Morpho Blue, 537,1&nbsp;M$, 55&nbsp;% du TVL chaîne) reste néanmoins confirmée indépendamment par l'annexe Hermes du jour (55,7&nbsp;%, relevé 8h plus tôt).</li>
+    <li><strong>Le chiffre de presse "~99&nbsp;% de dominance Uniswap" ne résiste pas au recalcul.</strong> Plusieurs articles (CryptoBriefing, KuCoin) citent une part de marché Uniswap proche de 99&nbsp;% du volume DEX de la chaîne une fois V2+V3+V4+UniswapX additionnés. En recalculant depuis le même jeu DefiLlama et en retirant les lignes d'agrégateurs qui routent vers ces mêmes pools sans y ajouter de volume propre (GMGN, Axiom, 0x — 139,1&nbsp;M$ sur 24h, déjà comptés dans les AMM sous-jacents), la part Uniswap (V2+V3+V4) sur le volume 24h "propre" tombe à <strong>89,8&nbsp;%</strong> (1&nbsp;216,9&nbsp;M$ / 1&nbsp;354,7&nbsp;M$), pas 99&nbsp;%. L'écart n'est pas anodin — il tient probablement à UniswapX, que la presse additionne et que je n'ai pas isolé séparément dans DefiLlama pour cette chaîne. Écart gardé, pas lissé.</li>
+    <li><strong>L'exemption SEC ne couvre aucune activité en cours sur la chaîne aujourd'hui.</strong> Le fact sheet (lu en primaire) est explicite : l'ordre 34-106402 a été signé le 17/09, doit encore être publié au Federal Register (vérifié : 0 document depuis le 15/09), et une TSV doit publier un avis public au moins 30 jours avant d'opérer sous ce régime, plus notifier la Commission. Le "1&nbsp;Md$+ de volume de jetons-actions" déjà cité par la presse concernant Robinhood Chain depuis juillet s'est donc déroulé <em>avant</em> et <em>en dehors</em> de ce nouveau cadre d'exemption — dans un vide réglementaire, pas sous une protection fraîchement accordée.</li>
+  </ul>
+
+  <blockquote>« The order facilitates the permissioned trading of tokenized NMS stock using innovative AMMs and liquidity pools […] on public, permissionless blockchain » — la blockchain doit rester publique et permissionless ; c'est la <em>venue</em> (le TSV) qui doit être permissionnée en fixant qui a le droit d'y trader, pas nécessairement chaque pool du réseau sous-jacent.
+    <cite>SEC, Fact Sheet — Order Granting Temporary Conditional Exemptive Relief…, sec.gov/files/34-106402-fact-sheet.pdf, p.1, lu le 18/09/2026</cite>
+  </blockquote>
+
+  <p>Cette nuance change la lecture du chiffre <code>swapAccess</code> : sur les 1&nbsp;159 hooks de Robinhood Chain, <strong>868 (74,9&nbsp;%) déclarent <code>swapAccess=none</code></strong> — totalement permissionless au niveau du smart contract — et seuls 291 (25,1&nbsp;%) filtrent l'accès (governance 101, other 85, temporal 84, allowlist 21). Ce n'est pas nécessairement une violation de l'exigence de permissionnement : l'ordre SEC permissionne la <em>venue</em> (l'accès côté utilisateur, potentiellement géré hors-chaîne par KYC), pas chaque pool déployé sur le réseau. Mais cela confirme que la quasi-totalité de ce qui tourne aujourd'hui sur Robinhood Chain — hooks memecoin compris — n'a pas été conçue avec cette contrainte réglementaire en tête, puisque rien n'y opère encore "pursuant to" l'exemption.</p>
+
+  <h2>Ce qu'on ne sait pas</h2>
+  <div class="unknown">
+    <ul>
+      <li>Combien des 1&nbsp;159 hooks correspondent à des pools réellement actifs avec un TVL&nbsp;>&nbsp;0 : le registre ne donne pas de TVL par hook, seulement par protocole agrégé sur DefiLlama. Impossible de dire quelle fraction des 1&nbsp;159 est morte à la déploiement.</li>
+      <li>Quelle entité opérera la ou les TSV pouvant réclamer l'exemption 34-106402 : l'ordre ne nomme personne, et aucun avis public de 30 jours n'a encore été identifié.</li>
+      <li>Le détail chiffré des "limits on the number of symbols and volume traded" imposées à une TSV — mentionné dans le fact sheet (2 pages) mais pas quantifié ; nécessiterait la lecture intégrale de l'ordre de 60 pages, non faite aujourd'hui.</li>
+      <li>Impossible de vérifier indépendamment le TVL ou le volume par contrat individuel sur Robinhood Chain : l'explorateur <code>robinhoodchain.blockscout.com</code> répond HTTP 403 sur son API — constaté, non contourné.</li>
+      <li>L'écart presse (~99&nbsp;%) vs recalcul (89,8&nbsp;%) sur la dominance Uniswap n'a pas été résolu — UniswapX n'a pas été isolé séparément dans le jeu DefiLlama utilisé aujourd'hui.</li>
+    </ul>
+  </div>
+
+  <h2>Sources</h2>
+  <p>
+    <span class="tag source">raw.githubusercontent.com/Uniswap/hooklist/main/hooklist.json</span>
+    <span class="tag source">api.llama.fi/v2/chains</span>
+    <span class="tag source">api.llama.fi/protocols</span>
+    <span class="tag source">api.llama.fi/overview/dexs/Robinhood Chain</span>
+    <span class="tag source">api.llama.fi/overview/fees/Robinhood Chain</span>
+    <span class="tag source">sec.gov/rules-regulations/public-comments/4-927</span>
+    <span class="tag source">sec.gov/files/34-106402-fact-sheet.pdf</span>
+    <span class="tag source">federalregister.gov/api/v1/documents.json</span>
+    <span class="tag data">hermes-defi/defi.json → bloc robinhood (annexe)</span>
+  </p>
+</main>
+<footer>Hermes DeFi · enquête générée le 2026-09-18 21:40 UTC · série : 1<sup>er</sup> point posé aujourd'hui</footer>
+</body>
+</html>

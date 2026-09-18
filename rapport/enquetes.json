@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "enquetes": [
+    {
+      "date": "2026-09-18",
+      "fichier": "2026-09-18-enquete.html",
+      "titre": "Robinhood Chain : la chaîne des actions tokenisées, ou la chaîne des memecoins ?",
+      "question": "Sur les 1 159 hooks Uniswap v4 déployés sur Robinhood Chain, combien servent réellement à échanger des actions tokenisées — et le reste de l'écosystème est-il compatible avec ce que le régulateur vient d'exiger ?",
+      "mesure_neuve": "1 159 hooks décodés un par un depuis le registre officiel (calibration 0 écart sur 4 953 entrées) : seulement 23,6 % évoquent des actions/tokenisation, 57,0 % du vocabulaire memecoin/launchpad, 4 audités, et EulerSwap/Bunni/Angstrom totalement absents alors qu'ils dominent les autres chaînes v4.",
+      "genere": "2026-09-18T21:40:00Z"
+    }
+  ]
+}

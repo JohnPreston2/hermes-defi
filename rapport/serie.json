@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "points": [
+    {
+      "date": "2026-09-18",
+      "hooks_total": 4953,
+      "hooks_robinhood": 1159,
+      "hooks_audites_robinhood": 4,
+      "rh_chain_tvl_usd": 976635988,
+      "rh_v4_tvl_usd": 190657075,
+      "rh_v3_tvl_usd": 73226513,
+      "rh_v2_tvl_usd": 16513948,
+      "rh_vol_30d_v4": 17437026967,
+      "rh_vol_30d_v3": 12935320766,
+      "rh_vol_30d_chaine": 40194943600,
+      "rh_fees_30d_v4": 101495817,
+      "rh_fees_30d_v3": 25573879,
+      "docket_4927_lettres": 8,
+      "fr_publie": false,
+      "hooks_stock_vocab_pct": 23.6,
+      "hooks_meme_vocab_pct": 57.0,
+      "hooks_swapaccess_none_pct": 74.9,
+      "genere": "2026-09-18T21:40:00Z"
+    }
+  ]
+}
