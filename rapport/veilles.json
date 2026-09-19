@@ -1,7 +1,12 @@
 {
  "schema_version": 1,
  "regle": "Une veille porte une affirmation datee, la mesure exacte qui la testerait, un seuil et une echeance. La session du jour re-teste EN PREMIER les veilles echues ou mesurables, ajoute un point d'historique, et solde en CONFIRMEE / REVISEE / MORTE. Une veille soldee reste visible 3 mois, puis part dans veilles_archive.json. On n'ouvre pas plus de 2 veilles par jour : une veille qu'on ne re-teste pas est une decoration.",
- "statuts": ["OUVERTE", "CONFIRMEE", "REVISEE", "MORTE"],
+ "statuts": [
+  "OUVERTE",
+  "CONFIRMEE",
+  "REVISEE",
+  "MORTE"
+ ],
  "veilles": [
   {
    "id": "v_20260918_01",
@@ -12,7 +17,16 @@
    "echeance": "2026-12-18",
    "statut": "OUVERTE",
    "historique": [
-    {"date": "2026-09-18", "valeur": "afterSwapReturnsDelta 72,4 % / beforeAddLiquidity 25,3 %", "note": "point de reference"}
+    {
+     "date": "2026-09-18",
+     "valeur": "afterSwapReturnsDelta 72,4 % / beforeAddLiquidity 25,3 %",
+     "note": "point de reference"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "afterSwapReturnsDelta 72,4 % (841/1161) / beforeAddLiquidity 25,2 % (293/1161)",
+     "note": "stable jour sur jour, sens inchange"
+    }
    ],
    "solde": null
   },
@@ -25,7 +39,16 @@
    "echeance": "2026-12-18",
    "statut": "OUVERTE",
    "historique": [
-    {"date": "2026-09-18", "valeur": "4 / 1159 (0,34 %)", "note": "point de reference"}
+    {
+     "date": "2026-09-18",
+     "valeur": "4 / 1159 (0,34 %)",
+     "note": "point de reference"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "4 / 1161 (0,34 %)",
+     "note": "identique a hier, aucun 5e audit"
+    }
    ],
    "solde": null
   },
@@ -38,7 +61,16 @@
    "echeance": "2026-12-18",
    "statut": "OUVERTE",
    "historique": [
-    {"date": "2026-09-18", "valeur": "v4 43,4 % / v3 32,2 % du volume 30 j", "note": "point de reference"}
+    {
+     "date": "2026-09-18",
+     "valeur": "v4 43,4 % / v3 32,2 % du volume 30 j",
+     "note": "point de reference"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "v4 42,9 % / v3 32,5 % du volume 30j (17,72/13,44/41,28 Md$)",
+     "note": "v3 gagne du terrain (+0,3pt), loin des deux seuils"
+    }
    ],
    "solde": null
   },
@@ -51,7 +83,16 @@
    "echeance": "2026-12-18",
    "statut": "OUVERTE",
    "historique": [
-    {"date": "2026-09-18", "valeur": "13,4 % du registre (154/1159) ; aucun avis de TSV connu", "note": "point de reference, condition de refutation du rapport du 18/09"}
+    {
+     "date": "2026-09-18",
+     "valeur": "13,4 % du registre (154/1159) ; aucun avis de TSV connu",
+     "note": "point de reference, condition de refutation du rapport du 18/09"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "154 deploiements sur 1161 (13,3 %) ; toujours aucun avis de TSV connu",
+     "note": "compte identique a hier (154), dilue par les 2 nouvelles entrees du registre"
+    }
    ],
    "solde": null
   },
@@ -64,7 +105,33 @@
    "echeance": "2026-10-31",
    "statut": "OUVERTE",
    "historique": [
-    {"date": "2026-09-18", "valeur": "non paru au FR ; 8 lettres, 0 institution", "note": "point de reference"}
+    {
+     "date": "2026-09-18",
+     "valeur": "non paru au FR ; 8 lettres, 0 institution",
+     "note": "point de reference"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "non paru au FR (verifie aussi via requete directe sur '106402', 0 resultat) ; 8 lettres, 0 institution",
+     "note": "ordre effectif depuis le 17/09 independamment de la parution FR (communique SEC primaire) ; le delai des 5 ans d'exemption, lui, part de la publication"
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260919_01",
+   "ouverte": "2026-09-19",
+   "affirmation": "L'investissement d'Uniswap Labs dans PONS (annonce debut septembre 2026) n'est pas un geste isole : le poids de PONS dans les frais totaux de Robinhood Chain se maintient ou croit, confirmant le memecoin/launchpad comme pilier assume de la strategie d'Uniswap sur cette chaine plutot qu'un bruit passager.",
+   "mesure": "DefiLlama /overview/fees/Robinhood%20Chain : part de Pons (V1+V2) dans total30d. Reference 2026-09-19 : 135 487 898 $ sur 322 641 481 $ = 42,0 %.",
+   "seuil": "MORTE si la part de Pons tombe sous 15 % du total avant l'echeance. CONFIRMEE si elle reste au-dessus de 30 % a l'echeance.",
+   "echeance": "2026-11-19",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "valeur": "42,0 % (135,5/322,6 M$)",
+     "note": "point de reference, ouverte suite a l'acquisition PONS par Uniswap Labs (annoncee 03-04/09/2026)"
+    }
    ],
    "solde": null
   }
