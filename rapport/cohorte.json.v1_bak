@@ -1,0 +1,100 @@
+{
+ "schema_version": 1,
+ "ouverte": "2026-09-19",
+ "objet": "Les projets de Robinhood Chain qui ont une equipe reelle et un mecanisme original. Selection du 19/09/2026 apres mesure des 176 protocoles de la chaine. Suivie chaque jour par l'enquete, dans le meme run : aucun telechargement supplementaire, les 10 sont deja dans le payload /protocols.",
+ "regle": "A chaque enquete : re-mesurer les champs de suivi de chaque membre, ajouter un point a son historique (date + valeurs), et signaler tout mouvement qui franchit un seuil de sortie. On FUSIONNE, on n'ecrase jamais. Un membre n'est PAS retire parce qu'il baisse : il est retire quand son critere de sortie est atteint, et le retrait s'ecrit avec sa date et sa raison.",
+ "contrainte_user": "projet > 5 jours ET market cap > 1 M$. Mesure du 19/09 : seuls 15 des 176 protocoles ont un mcap connu de DefiLlama et 7 passent les deux filtres. Pour les projets sans token, la taille est jugee sur TVL / volume 30 j / frais 30 j, et le champ `filtre` de chaque membre dit lequel s'applique.",
+ "champs_suivis": ["tvl_rh_usd", "mcap_usd", "vol_30d_usd", "fees_30d_usd", "hooks_registre", "audit_lien", "age_jours"],
+ "membres": [
+  {
+   "rang": 1, "nom_defillama": "Arcus Perps", "filtre": "sans token — taille jugee au TVL",
+   "equipe": "dYdX Labs en partenariat avec Robinhood Crypto (description DefiLlama + couverture The Block 25/08)",
+   "innovation": "pTokens : une position perp geree devient un ERC-20 transferable",
+   "reference_20260919": {"tvl_rh_usd": 24180000, "fees_30d_usd": 400000, "age_jours": 71, "mcap_usd": null, "audit_lien": null},
+   "sortie_si": "TVL sous 5 M$ pendant 14 jours consecutifs, ou abandon des pTokens"
+  },
+  {
+   "rang": 2, "nom_defillama": "Lighter Robinhood Perps", "filtre": "sans token indexe — taille jugee au TVL",
+   "equipe": "Lighter (perps zk), perps par defaut du portefeuille Robinhood",
+   "innovation": "hook HeavierHand : la direction autorisee du swap depend du desequilibre des reserves virtuelles (bande de 10 %, porte qui s'inverse au-dela)",
+   "reference_20260919": {"tvl_rh_usd": 101250000, "fees_30d_usd": 1400000, "mcap_usd": null, "audit_lien": null},
+   "sortie_si": "perd la place de 2e protocole de la chaine par TVL pendant 14 jours"
+  },
+  {
+   "rang": 3, "nom_defillama": "Fables", "filtre": "sans token (precurseur PROLOGUE) — taille jugee au volume",
+   "equipe": "pseudonyme (@0xcs361), projet Base anterieur, interviews publiques",
+   "innovation": "frais dynamique conscient de la seance boursiere : calendrier de marche, tarifs distincts en seance / hors seance / ferme",
+   "reference_20260919": {"tvl_rh_usd": 28180000, "vol_30d_usd": 901000000, "fees_30d_usd": 1400000, "age_jours": 24, "hooks_registre": 10, "audit_lien": null},
+   "alerte_ouverte": "DefiLlama affiche un niveau d'audit 3 SANS lien. Tant que le document n'est pas produit, l'audit est repute inexistant. A re-verifier a chaque passage.",
+   "sortie_si": "TGE (vise le 05/10) qui ne tient pas le ratio annonce, ou audit toujours sans lien au 31/10"
+  },
+  {
+   "rang": 4, "nom_defillama": "Ekubo", "aussi": "STONX", "filtre": "PASSE LES DEUX FILTRES (mcap 5,4 M$, 1107 j)",
+   "equipe": "equipe Ekubo (Starknet) : architecture singleton et 'extensions' anterieures aux hooks v4",
+   "innovation": "STONX, marche de liquidite ve(3,3) dedie aux actifs tokenises",
+   "reference_20260919": {"mcap_usd": 5400000, "tvl_rh_usd": 1730000, "vol_30d_usd": 66000000, "audit_lien": "https://docs.ekubo.org/integration-guides/reference/audits",
+                          "stonx_tvl_rh_usd": 1130000, "stonx_vol_30d_usd": 59000000},
+   "sortie_si": "mcap sous 1 M$, ou STONX sous 10 M$ de volume 30 j"
+  },
+  {
+   "rang": 5, "nom_defillama": "Longbow", "filtre": "PASSE LES DEUX FILTRES (mcap 7,2 M$, 12 j)",
+   "equipe": "publique (@giskandzc), interviews video",
+   "innovation": "42 marches de pret isoles sur Morpho Blue, un par collateral : emprunter contre actions tokenisees, RWA, NFT",
+   "reference_20260919": {"mcap_usd": 7200000, "tvl_rh_usd": 4470000, "age_jours": 12, "audit_lien": null},
+   "sortie_si": "aucun audit publie au 31/10, ou TVL sous 1 M$"
+  },
+  {
+   "rang": 6, "nom_defillama": "What The Hook", "filtre": "PASSE LES DEUX FILTRES (mcap 4,4 M$, 31 j)",
+   "equipe": "non identifiee",
+   "innovation": "recapture d'arbitrage rendue au trader et aux LP — 1 des 6 hooks LVR sur 1 161 de la chaine",
+   "reference_20260919": {"mcap_usd": 4400000, "tvl_rh_usd": 230000, "fees_30d_usd": 100000, "age_jours": 31, "audit_lien": null},
+   "alerte_ouverte": "capitalisation ~19x la liquidite du protocole. Le rapport mcap/TVL est le premier chiffre a regarder chaque jour.",
+   "sortie_si": "TVL toujours sous 1 M$ au 31/10 alors que le mcap depasse 3 M$"
+  },
+  {
+   "rang": 7, "nom_defillama": "up v3", "filtre": "sans token indexe — taille jugee au volume",
+   "equipe": "non identifiee ; se revendique bien public sans allocation aux fonds",
+   "innovation": "aucune sur le mecanisme (ve(3,3) classique) — retenu pour l'echelle : plus gros volume natif de la chaine apres Uniswap",
+   "reference_20260919": {"tvl_rh_usd": 8450000, "vol_30d_usd": 1174000000, "fees_30d_usd": 2300000, "age_jours": 62, "audit_lien": null},
+   "sortie_si": "volume 30 j sous 200 M$ — c'est l'echelle qui justifie sa presence, rien d'autre"
+  },
+  {
+   "rang": 8, "nom_defillama": "StonkBrokers", "filtre": "PASSE LES DEUX FILTRES (mcap 16,1 M$, 58 j)",
+   "equipe": "non identifiee ; ampleur de produit inhabituelle en 2 mois",
+   "innovation": "suite large : lancements, swaps, marketplace AMM de NFT, options covered-call",
+   "reference_20260919": {"mcap_usd": 16100000, "tvl_rh_usd": 1830000, "fees_30d_usd": 1700000, "age_jours": 58, "audit_lien": null},
+   "sortie_si": "frais 30 j sous 200 k$, ou disparition du volet options"
+  },
+  {
+   "rang": 9, "nom_defillama": "GIGA V3", "filtre": "sans token indexe — taille jugee au volume",
+   "equipe": "non identifiee",
+   "innovation": "DEX reserve aux bots (API / transaction directe, 'les humains regardent'), courbes de bonding libellees en TIA natif",
+   "reference_20260919": {"tvl_rh_usd": 1220000, "vol_30d_usd": 546000000, "fees_30d_usd": 600000, "age_jours": 60, "audit_lien": null},
+   "sortie_si": "ouverture d'une interface grand public (la these EST le choix bot-only), ou volume sous 50 M$"
+  },
+  {
+   "rang": 10, "nom_defillama": "TermMax", "filtre": "PASSE LES DEUX FILTRES (mcap 3,2 M$, 821 j)",
+   "equipe": "la plus verifiable du lot : 2 audits avec lien + depot GitHub public (term-structure)",
+   "innovation": "pret a taux fixe et echeance fixe via AMM — primitive absente de la chaine",
+   "reference_20260919": {"mcap_usd": 3200000, "tvl_rh_usd": 60000, "audit_lien": "https://github.com/term-structure/audits", "github": "term-structure"},
+   "alerte_ouverte": "equipe reelle, traction nulle sur cette chaine : 0,06 M$ de TVL. C'est le membre le plus fragile de la cohorte.",
+   "sortie_si": "TVL Robinhood Chain toujours sous 0,5 M$ au 31/10"
+  }
+ ],
+ "antichambre": {
+  "commentaire": "Rigoureux mais sous les seuils de l'user. Suivis en une ligne : ils entrent dans la cohorte si leur taille franchit le seuil, et ce jour-la c'est un evenement a ecrire.",
+  "membres": [
+   {"nom_defillama": "Twofold", "pourquoi": "le plus rigoureux de la chaine : audit OpenZeppelin AVEC lien, GitHub, pools actions+ETH contre USDG dont le cote USDG rend en coffre Steakhouse",
+    "reference_20260919": {"mcap_usd": 200000, "tvl_rh_usd": 100000}, "entre_si": "mcap > 1 M$ ou TVL > 1 M$"},
+   {"nom_defillama": "GlueHook", "pourquoi": "hook generaliste attachable par n'importe qui, sans cle d'admin, zero frais de protocole, audit avec lien",
+    "reference_20260919": {"tvl_rh_usd": 0}, "entre_si": "TVL > 1 M$"},
+   {"nom_defillama": "ARMSys", "pourquoi": "protection LVR sans oracle + routage de rendement Aave V3, depot GitHub",
+    "reference_20260919": {"tvl_rh_usd": 50000}, "entre_si": "TVL > 1 M$"}
+  ]
+ },
+ "contre_reference": {
+  "nom_defillama": "Pons V2",
+  "pourquoi": "Le premier generateur de revenus de la chaine n'innove sur rien : lanceur de memecoins, zero TVL, aucun audit, aucun depot public — et Uniswap Labs vient d'en prendre une part. C'est l'etalon economique contre lequel se lit la cohorte : tant que Pons domine les frais, 'la chaine murit vers les actions tokenisees' reste une these, pas un fait.",
+  "reference_20260919": {"fees_30d_usd": 128200000, "vol_30d_usd": 2236000000, "tvl_rh_usd": 0}
+ }
+}
