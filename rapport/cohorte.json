@@ -101,9 +101,9 @@
   {
    "nom_defillama": "Lighter Robinhood Perps",
    "lignee_declaree": "Lighter, perps zk — perps par defaut du portefeuille Robinhood (declare, non verifie)",
-   "mecanisme": "hook HeavierHand : direction du swap conditionnee par le desequilibre des reserves",
+   "mecanisme": "perps zk, carnet d'ordres verifiable — mecanisme NON documente au registre des hooks. Le hook HeavierHand ne lui appartient PAS.",
    "filtre_user": "sans token indexe — taille jugee au TVL (2e protocole de la chaine)",
-   "sortie_si": "perd la 2e place par TVL pendant 14 jours",
+   "sortie_si": "perd la 2e place par TVL pendant 14 jours, OU aucun mecanisme propre documente au 31/10 — il n'entre plus au titre de l'innovation, seulement de l'echelle",
    "historique": [
     {
      "date": "2026-09-19",
@@ -135,7 +135,8 @@
      }
     }
    ],
-   "alerte_ouverte": "L'attribution du hook HeavierHand a Lighter (posee le 19/09) n'a pas ete recorroboree ce jour : la description du hook au registre mentionne des frais reverses a 'Aeon protocol', pas a Lighter, et le protocole DefiLlama nomme 'AEON Protocol' est un DEX Avalanche quasi absent de Robinhood Chain (6,7 k$ de TVL) -- probable collision de nom sans rapport. A verifier manuellement, ne pas trancher sur un simple appariement textuel."
+   "alerte_ouverte": "L'attribution du hook HeavierHand a Lighter (posee le 19/09) n'a pas ete recorroboree ce jour : la description du hook au registre mentionne des frais reverses a 'Aeon protocol', pas a Lighter, et le protocole DefiLlama nomme 'AEON Protocol' est un DEX Avalanche quasi absent de Robinhood Chain (6,7 k$ de TVL) -- probable collision de nom sans rapport. A verifier manuellement, ne pas trancher sur un simple appariement textuel.",
+   "correction_20260920": "ERREUR CORRIGEE. Le 19/09 j'ai attribue le hook HeavierHand a Lighter sur une correspondance de MOT : la description dit « selling the lighter side », qui designe le cote le plus leger du pool, pas le protocole Lighter. Ce hook reverse 10 bps a « Aeon protocol ». Detectee par la routine du 20/09, verifiee a la main sur le registre. CONSEQUENCE : Lighter reste membre pour sa traction (2e TVL de la chaine), mais son argument « mecanisme original » tombe tant que rien n'est documente."
   },
   {
    "nom_defillama": "Fables",
@@ -588,5 +589,6 @@
     }
    }
   ]
- }
+ },
+ "piste_ouverte_20260920": "La suite AEON : au moins 6 hooks robinhood citent « Aeon protocol » (CrownClash, ExactInGate, HeavierHand, LegacyLedger, TailTwins, TotalizerTrap), plusieurs deployes par la meme adresse 0x0de98e661606ecfc448da7a8276dde4de45200c8. Jamais examinee, absente de la cohorte. A instruire : constructeur serieux de boite a outils, ou famille de percepteurs de frais ?"
 }
