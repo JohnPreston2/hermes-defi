@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "enquetes": [
+    {
+      "date": "2026-09-18",
+      "fichier": "2026-09-18-enquete.html",
+      "titre": "Robinhood Chain : la chaîne des actions tokenisées, ou la chaîne des memecoins ?",
+      "question": "Sur les 1 159 hooks Uniswap v4 déployés sur Robinhood Chain, combien servent réellement à échanger des actions tokenisées — et le reste de l'écosystème est-il compatible avec ce que le régulateur vient d'exiger ?",
+      "mesure_neuve": "1 159 hooks décodés un par un depuis le registre officiel (calibration 0 écart sur 4 953 entrées) : seulement 23,6 % évoquent des actions/tokenisation, 57,0 % du vocabulaire memecoin/launchpad, 4 audités, et EulerSwap/Bunni/Angstrom totalement absents alors qu'ils dominent les autres chaînes v4.",
+      "genere": "2026-09-18T21:40:00Z"
+    },
+    {
+      "date": "2026-09-19",
+      "fichier": "2026-09-19-enquete.html",
+      "titre": "Robinhood Chain, J+1 : la structure tient, mais Uniswap vient d'acheter le memecoin qui la domine",
+      "question": "Les proportions mesurees hier (hooks d'extraction, 0,34% d'audits, 43% de la chaine sur v4) ont-elles bouge en 24h, et l'actualite de la semaine explique-t-elle pourquoi la part memecoin ne recule pas ?",
+      "mesure_neuve": "5 veilles retestees (aucun seuil franchi) + decouverte d'un ecart interne non explique entre les definitions figees de serie.json et les valeurs enregistrees le 18/09 pour hooks_stock_vocab_pct (23,6% vs 13,4% recalcule) et hooks_meme_vocab_pct (57,0% vs 51,7%) ; part combinee Uniswap V2+V3+V4 calculee a 79,0% du volume total de la chaine et part de Pons a 42,0% des frais 30j, mises en regard de l'acquisition de PONS par Uniswap Labs (annoncee 03-04/09/2026).",
+      "genere": "2026-09-19T11:17:00Z"
+    }
+  ]
+}
