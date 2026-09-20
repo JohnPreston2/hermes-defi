@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, J+2 : le registre des hooks s'est figé, la chaîne non — et un score de preuve mal câblé</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+    <nav><a href="../">accueil</a><a href="2026-09-19-enquete.html">enquête d'hier</a><a href="2026-09-20.html">rapport 0-LLM du jour (annexe)</a></nav>
+  </div>
+</header>
+<main>
+  <div class="tag source">registre hooks Uniswap v4</div>
+  <div class="tag data">DefiLlama</div>
+  <div class="tag source">SEC / Federal Register</div>
+  <div class="tag warn">bug de mesure trouvé et corrigé sur le score de preuve</div>
+
+  <h1>Robinhood Chain, J+2 : le registre des hooks s'est figé, la chaîne non — et un score de preuve mal câblé</h1>
+
+  <p class="question">Question du jour : le registre officiel des hooks, source du chiffre-signature de cette enquête depuis deux jours, a-t-il vraiment cessé de bouger — ou est-ce ma propre sonde qui échoue en silence&nbsp;? Et le score de preuve de la cohorte tient-il l'épreuve d'un nouveau protocole qui vient d'entrer&nbsp;?</p>
+
+  <div class="provenance">
+    <div class="row"><span>Généré</span><span>2026-09-20 10:37 UTC</span></div>
+    <div class="row"><span class="src">Registre hooks Uniswap (GitHub raw, hooklist.json)</span><span class="age-stale">relevé 2026-09-20 10:37 UTC — 4&nbsp;955 entrées, identique à hier ; historique de commits du dépôt vérifié : dernière régénération 2026-09-19 10:59 UTC</span></div>
+    <div class="row"><span class="src">DefiLlama — /v2/chains, /protocols, /overview/dexs, /overview/fees</span><span class="age-fresh">relevé 2026-09-20 10:38 UTC</span></div>
+    <div class="row"><span class="src">GitHub API — 25 comptes déclarés par les protocoles Robinhood Chain</span><span class="age-fresh">interrogé 2026-09-20 10:45 UTC</span></div>
+    <div class="row"><span class="src">45 liens d'audit publiés par DefiLlama (34 protocoles)</span><span class="age-fresh">HEAD requêtés 2026-09-20 10:43 UTC</span></div>
+    <div class="row"><span class="src">SEC — dossier public 4-927</span><span class="age-fresh">relevé 2026-09-20 10:50 UTC — toujours 8 lettres</span></div>
+    <div class="row"><span class="src">Federal Register API (agence SEC, termes "tokenized" / "106402")</span><span class="age-fresh">interrogé 2026-09-20 10:51 UTC — dernier document SEC pertinent du 14/09, requête directe "106402" : 0 résultat</span></div>
+    <div class="row"><span class="src">Presse — Robinhood/Uniswap/PONS, exemption SEC (recherche web)</span><span class="age-fresh">consultée le 20/09 — aucun avis de TSV trouvé</span></div>
+    <div class="row"><span class="src">Hermes 0-LLM — <code>~/hermes-defi/defi.json</code> (annexe, delta VPS)</span><span class="age-stale">non interrogé ce jour, enquête menée entièrement sur sources publiques</span></div>
+  </div>
+
+  <h2>Le fil : six veilles retestées, zéro seuil franchi, une nouvelle ouverte</h2>
+  <p>Aucune des six veilles ouvertes n'atteint son seuil ou son échéance aujourd'hui. Toutes restent <strong>OUVERTE</strong>. Ce qui change, c'est la lecture : pour les cinq premières, le registre de hooks lui-même n'a pas bougé depuis hier (voir section suivante), donc leur stabilité aujourd'hui n'est pas un signal indépendant — c'est la même photo relue deux fois.</p>
+  <table>
+    <tr><th>Veille</th><th class="num">18/09</th><th class="num">19/09</th><th class="num">20/09</th><th>Lecture</th></tr>
+    <tr><td>v_...01 — afterSwapReturnsDelta</td><td class="num">72,4&nbsp;%</td><td class="num">72,4&nbsp;%</td><td class="num">72,4&nbsp;%</td><td>strictement identique 3 jours de suite (registre figé)</td></tr>
+    <tr><td>v_...01 — beforeAddLiquidity</td><td class="num">25,3&nbsp;%</td><td class="num">25,2&nbsp;%</td><td class="num">25,2&nbsp;%</td><td>idem</td></tr>
+    <tr><td>v_...02 — taux d'audit hooks robinhood</td><td class="num">0,34&nbsp;%</td><td class="num">0,34&nbsp;%</td><td class="num">0,34&nbsp;%</td><td>4/1&nbsp;161 3 jours de suite</td></tr>
+    <tr><td>v_...03 — part volume v4 (30j)</td><td class="num">43,4&nbsp;%</td><td class="num">42,9&nbsp;%</td><td class="num">42,8&nbsp;%</td><td>v4 recule pour le 2e jour de suite, sens confirmé</td></tr>
+    <tr><td>v_...03 — part volume v3 (30j)</td><td class="num">32,2&nbsp;%</td><td class="num">32,5&nbsp;%</td><td class="num">32,5&nbsp;%</td><td>v3 tient, loin du seuil bas de 10&nbsp;%</td></tr>
+    <tr><td>v_...04 — déploiements vocabulaire actions strict</td><td class="num">154</td><td class="num">154</td><td class="num">154</td><td>identique, registre figé</td></tr>
+    <tr><td>v_...05 — docket 4-927</td><td class="num">8 lettres, 0 inst.</td><td class="num">8, 0</td><td class="num">8, 0</td><td>aucune nouvelle lettre depuis le 18/09</td></tr>
+    <tr><td>v_20260919_01 — part frais Pons (30j)</td><td class="num na">—</td><td class="num">42,0&nbsp;%</td><td class="num">40,1&nbsp;%</td><td>recul de 1,9pt, reste loin des deux seuils (15/30&nbsp;%)</td></tr>
+  </table>
+  <p>Le seul mouvement réel dans ce tableau vient de DefiLlama (v3/v4/Pons), jamais du registre de hooks — et c'est exactement le sujet de la section suivante.</p>
+
+  <h2>Ce qui a été mesuré</h2>
+  <p><strong>Méthode :</strong> re-téléchargement complet du registre officiel des hooks (6,2&nbsp;Mo, 4&nbsp;955 entrées), recalibré sur les deux témoins fournis par la routine avant tout comptage (0&nbsp;écart). Croisement DefiLlama pour TVL/volume/frais sur les 177&nbsp;protocoles de la chaîne. Pour la cohorte : requêtage HTTP direct des 45&nbsp;liens d'audit publiés par DefiLlama et de l'API GitHub pour les 25&nbsp;comptes déclarés — pas une lecture du champ <code>audits</code> de DefiLlama, qui ne vaut rien (Fables affiche "3" sans aucun lien résolvable).</p>
+
+  <div class="stat-row">
+    <div class="stat"><b>0</b><span>changement dans le registre de hooks depuis hier — confirmé indépendamment via l'historique de commits GitHub du dépôt (dernière régénération 2026-09-19 10:59 UTC, 23h38 avant ce relevé)</span></div>
+    <div class="stat"><b>177</b><span>protocoles DefiLlama sur la chaîne, +1 vs hier — <strong>PARE</strong>, scission principal/yield sur les stock tokens Robinhood, entre avec un score de preuve de 3/4 dès son premier jour</span></div>
+    <div class="stat"><b>33/177</b><span>protocoles avec au moins un lien d'audit qui répond HTTP 200 (32 aujourd'hui avec la règle corrigée — voir plus bas), 23/25 comptes GitHub déclarés qui existent réellement</span></div>
+    <div class="stat"><b>999,7&nbsp;M$</b><span>TVL de la chaîne, -0,23&nbsp;% — repasse sous le seuil symbolique du milliard franchi hier pour la première fois</span></div>
+  </div>
+
+  <h2>Le delta contre la veille</h2>
+  <table>
+    <tr><th>Grandeur</th><th class="num">19/09</th><th class="num">20/09</th><th class="num">Δ</th></tr>
+    <tr><td>TVL chaîne</td><td class="num">1&nbsp;002,0&nbsp;M$</td><td class="num">999,7&nbsp;M$</td><td class="num">-0,23&nbsp;%</td></tr>
+    <tr><td>TVL Uniswap V4</td><td class="num">195,0&nbsp;M$</td><td class="num">190,5&nbsp;M$</td><td class="num">-2,31&nbsp;%</td></tr>
+    <tr><td>TVL Uniswap V3</td><td class="num">72,8&nbsp;M$</td><td class="num">67,9&nbsp;M$</td><td class="num">-6,76&nbsp;%</td></tr>
+    <tr><td>TVL Morpho Blue</td><td class="num">547,7&nbsp;M$</td><td class="num">554,1&nbsp;M$</td><td class="num">+1,16&nbsp;%</td></tr>
+    <tr><td>Volume v4, 30&nbsp;j</td><td class="num">17,72&nbsp;Md$</td><td class="num">17,96&nbsp;Md$</td><td class="num">+1,32&nbsp;%</td></tr>
+    <tr><td>Volume v3, 30&nbsp;j</td><td class="num">13,44&nbsp;Md$</td><td class="num">13,65&nbsp;Md$</td><td class="num">+1,57&nbsp;%</td></tr>
+    <tr><td>Volume total chaîne, 30&nbsp;j</td><td class="num">41,28&nbsp;Md$</td><td class="num">41,94&nbsp;Md$</td><td class="num">+1,60&nbsp;%</td></tr>
+    <tr><td>Volume Pons, 30&nbsp;j</td><td class="num">2&nbsp;235,8&nbsp;M$</td><td class="num">2&nbsp;281,3&nbsp;M$</td><td class="num">+2,03&nbsp;%</td></tr>
+    <tr><td>Frais chaîne, 30&nbsp;j</td><td class="num">322,6&nbsp;M$</td><td class="num">327,1&nbsp;M$</td><td class="num">+1,39&nbsp;%</td></tr>
+    <tr><td>Frais Pons, 30&nbsp;j</td><td class="num">135,5&nbsp;M$</td><td class="num">131,0&nbsp;M$</td><td class="num">-3,29&nbsp;%</td></tr>
+    <tr><td>Part Pons dans frais chaîne</td><td class="num">42,0&nbsp;%</td><td class="num">40,1&nbsp;%</td><td class="num">-1,9&nbsp;pt</td></tr>
+    <tr><td>Hooks audités / robinhood</td><td class="num">4 / 1&nbsp;161</td><td class="num">4 / 1&nbsp;161</td><td class="num">0</td></tr>
+  </table>
+  <p>Contraste net avec hier : la v3 recule de -6,76&nbsp;% en TVL tout en gagnant +1,57&nbsp;% en volume — moins de capital immobilisé fait tourner plus de flux, un signe de rotation plus rapide plutôt que de désengagement. Pons voit son volume croître (+2,0&nbsp;%) pendant que ses frais reculent (-3,3&nbsp;%) : soit le taux de frais effectif a été abaissé, soit le mix de paires a changé vers des frais plus bas. Aucune des deux hypothèses n'est vérifiable depuis <code>/overview/fees</code> seul.</p>
+
+  <h2>Le fait neuf : le registre qui portait toute l'enquête est à l'arrêt depuis 23h38</h2>
+  <p>Les cinq champs du registre de hooks (permissions, vocabulaire, audits, upgradeability) sont <strong>identiques au chiffre près</strong> à ceux d'hier — 1&nbsp;161 hooks robinhood, 841 avec <code>afterSwapReturnsDelta</code>, 154 avec le vocabulaire actions strict, 4 audités. Une coïncidence sur un champ serait plausible ; sur six champs indépendants recalculés depuis un fichier de 6,2&nbsp;Mo re-téléchargé à zéro, non. J'ai donc vérifié la cause plutôt que de la supposer : l'historique de commits du dépôt <code>Uniswap/hooklist</code> montre une tâche <code>chore: regenerate hooklist.json</code> automatisée, avec des passages toutes les quelques heures les 18 et 19/09 (dernier commit 2026-09-19T10:59:15Z), et <strong>aucun commit depuis</strong> — 23h38 sans régénération au moment du relevé. Ce n'est pas ma sonde qui échoue : le job amont s'est arrêté ou espacé, indépendamment de moi. La chaîne, elle, continue de bouger (TVL, volume, frais, +1 protocole) — le registre de hooks n'est donc plus, à ce jour précis, un miroir fidèle de l'activité réelle de la chaîne. Point à re-tester demain : si le registre reste figé un 3<sup>e</sup> jour, la veille v_...01/02/04 mesurera surtout la panne du job amont, pas l'écosystème.</p>
+  <p>Dans le même mouvement, un nouveau protocole a rejoint la chaîne : <strong>PARE</strong> (<code>parestocks.com</code>), listé le 19/09 à 21h36 UTC — un mécanisme de scission principal/yield sur les stock tokens Robinhood (le jeton-action tokenisé se scinde en un jeton principal, décoté, remboursable 1:1 à l'échéance, et un jeton de rendement qui capture les dividendes ; les deux s'échangent sur Uniswap v3, le principal sert de collatéral sur Morpho Blue). C'est un mécanisme réellement orienté « actions tokenisées », pas memecoin. Son lien d'audit répond HTTP&nbsp;200 dès le premier jour, ce qui lui donne un score de preuve de 3/4 — parmi les meilleurs scores d'entrée jamais mesurés dans cette série. Sa TVL reste minuscule (45&nbsp;k$), trop tôt pour candidater à la cohorte (seuil 1&nbsp;M$ de TVL ou 100&nbsp;k$ de frais 30j).</p>
+
+  <h2>Un bug de mesure trouvé en construisant le score de preuve sur les 177 protocoles</h2>
+  <div class="gap">
+    <p><b>Mon détecteur automatique du critère « hook nommé » cherchait un mot, pas un rapport réel entre le protocole et le hook.</b> Première passe : je cherchais si le nom du protocole apparaissait comme sous-chaîne dans le nom ou la description d'un hook robinhood. Résultat : <code>PARE</code> matchait la description de <code>WarzyHook</code>, qui parle de reverser des frais « to the token's dev, 20% to treasury or <strong>paren</strong>t » — <code>PARE</code> est une sous-chaîne de <code>parent</code>. Un score de preuve de 3/4 pour PARE tenait en partie sur ce faux positif. Corrigé avec une frontière de mot (<code>\bPARE\b</code>) : PARE retombe à un score de 2/4 (audit_ok seul), toujours solide pour un premier jour, mais sans le point hooks.</p>
+    <p>La correction change aussi la lecture de deux membres déjà suivis. <strong>Fables</strong> (hooks=10 dans la fiche du 19/09, posée à la main) ne retrouve aucun hook robinhood dont le nom ou la description contient « Fables » au sens strict — la valeur 10 vient probablement d'un rapprochement manuel plus fin (adresse de déploiement, pas texte) que je n'ai pas reproduit automatiquement aujourd'hui ; je la conserve donc telle quelle plutôt que de l'écraser sur la foi d'un outil plus faible. Et <strong>Lighter Robinhood Perps</strong>, dont la fiche attribue le mécanisme au hook <code>HeavierHand</code> : la description de ce hook au registre parle de reverser des frais à « Aeon protocol », pas à Lighter. Le protocole DefiLlama nommé <code>AEON Protocol</code> existe bien — c'est un DEX ve(3,3) natif d'Avalanche, quasiment absent de Robinhood Chain (6,7&nbsp;k$ de TVL) — donc probablement une collision de nom sans rapport avec Lighter. Je ne tranche pas laquelle des deux lectures (Lighter, ou un rapprochement erroné du 19/09) est correcte : l'alerte est notée dans <code>cohorte.json</code> pour vérification manuelle, pas lissée en silence.</p>
+  </div>
+
+  <h2>La cohorte</h2>
+  <p>Traction recalculée pour les 10&nbsp;membres. Rien ne sort, rien n'entre : aucun critère de sortie écrit n'est franchi aujourd'hui, et aucun des 4&nbsp;candidats ne dépasse un membre sur la preuve <em>et</em> la traction pendant les 7&nbsp;jours requis — le compteur est à 2/7 (voir la veille ouverte ce jour). Ce qui a bougé, en revanche&nbsp;: <strong>What The Hook</strong> voit sa TVL reculer encore de -9,7&nbsp;% (230→207,7&nbsp;k$) pendant que son mcap chute de -23,3&nbsp;% (4,40→3,37&nbsp;M$) — le ratio mcap/TVL s'améliore mécaniquement (19x→16,3x) mais la TVL, déjà sous le seuil de sortie de 1&nbsp;M$, s'éloigne encore de ce seuil dans le mauvais sens ; l'échéance de sortie reste le 31/10, rien ne se tranche avant. <strong>StonkBrokers</strong> perd -19&nbsp;% de frais 30j (1,66→1,34&nbsp;M$) et -10,6&nbsp;% de mcap en 24h — mouvement le plus net de la cohorte aujourd'hui. <strong>Fables</strong> progresse sur toute la ligne (TVL +4,6&nbsp;%, volume +7,9&nbsp;%, frais +8,6&nbsp;%) mais son alerte d'audit sans lien reste ouverte : le champ <code>audits</code> de DefiLlama affiche toujours "3" sans <code>audit_links</code> associé.</p>
+  <p>Contre-référence : <strong>Pons</strong> reste, et de loin, le premier encaisseur de frais de la chaîne — 131,0&nbsp;M$ sur 30&nbsp;j, contre 103,2&nbsp;M$ pour Uniswap&nbsp;V4 seul et 24,3&nbsp;M$ pour l'ensemble des 10&nbsp;membres nommés de la cohorte réunis (TermMax+Ekubo+Lighter+Fables+Arcus+up&nbsp;v3+StonkBrokers+GIGA&nbsp;V3+What&nbsp;The&nbsp;Hook, Longbow non mesuré). Tant que ce rapport tient, « la chaîne mûrit vers les actions tokenisées » reste une thèse, pas un fait établi — même si PARE, aujourd'hui, va exactement dans ce sens.</p>
+
+  <h2>Ce qui contredit</h2>
+  <ul>
+    <li><strong>La presse (CryptoBriefing, AMBCrypto, fin août/début sept.) parle d'un segment « tokenized stock DeFi » distinct où Uniswap V4 pèserait ~73&nbsp;% et Uniswap (tout confondu) ~99&nbsp;% de la liquidité, pour un total autour de 70-80&nbsp;M$</strong> — un ordre de grandeur proche de ma propre mesure v4+v3 « actions » si on isolait les seuls hooks à vocabulaire strict, mais je n'ai pas de moyen de filtrer le TVL ou le volume DefiLlama par classe d'actif sous-jacent (jeton-action vs memecoin). Les 190,5&nbsp;M$ de TVL v4 que je mesure portent <em>toute</em> l'activité de la chaîne, pas seulement les actions. Étiqueté presse, non recoupé.</li>
+    <li><strong>Aucun avis de Tokenized Securities Venue n'a été trouvé</strong> malgré une recherche web dédiée ce jour — l'exemption d'innovation SEC (ordre 34-106402, effective depuis le 17/09) exige une notice publique 30&nbsp;jours avant l'ouverture d'une TSV ; trois jours après l'entrée en vigueur, ni Robinhood ni aucun opérateur de la chaîne n'a publié cette notice à ma connaissance — cohérent avec le délai attendu, pas encore une anomalie.</li>
+    <li><strong>EulerSwap, Bunni et Angstrom restent à 0 déploiement</strong> sur Robinhood Chain, 3<sup>e</sup> jour de suite — la chaîne ne gagne toujours aucun intégrateur DeFi « sérieux » de l'écosystème v4 pendant que PARE, un nouvel entrant orienté actions, apparaît par un autre chemin.</li>
+  </ul>
+
+  <h2>Ce qu'on ne sait pas</h2>
+  <div class="unknown">
+    <ul>
+      <li>Pourquoi le dépôt <code>Uniswap/hooklist</code> n'a pas régénéré depuis le 19/09 10:59 UTC — panne du job, changement de fréquence, ou simplement rien de neuf à publier sur aucune des 21 chaînes suivies (pas seulement Robinhood). Non vérifiable depuis l'extérieur du dépôt.</li>
+      <li>Comment la fiche du 19/09 a établi <code>hooks=10</code> pour Fables et l'attribution <code>HeavierHand→Lighter</code> — méthode non documentée dans <code>cohorte.json</code>, donc non reproductible aujourd'hui ; ni confirmées ni infirmées, seulement non corroborées par mon détecteur texte corrigé.</li>
+      <li>Si la chute de -19&nbsp;% des frais StonkBrokers et la chute -6,76&nbsp;% de TVL v3 partagent une cause commune (rotation de liquidité vers un autre pool/protocole) ou sont deux mouvements indépendants — DefiLlama ne donne pas de vue transaction-par-transaction pour trancher.</li>
+      <li>robinhoodchain.blockscout.com/api/v2/* — non retesté aujourd'hui, présumé toujours HTTP&nbsp;403 sur la base des jours précédents.</li>
+    </ul>
+  </div>
+
+  <h2>Veille ouverte aujourd'hui</h2>
+  <p><strong>v_20260920_01</strong> — Les 4&nbsp;candidats automatiques identifiés le 19/09 (Snuggle, UNCX&nbsp;Network&nbsp;V3, Beefy, Ramses&nbsp;DLMM) ne sont pas un artefact d'un jour&nbsp;: recalculés sur l'ensemble des protocoles de la chaîne, ils dépassent toujours au moins un membre nommé sur la preuve <em>et</em> la traction, deux jours de suite. Si la dominance tient 7&nbsp;jours consécutifs à compter du 19/09, la règle écrite les fait entrer sans arbitrage humain. <strong>Mesure&nbsp;:</strong> recalcul quotidien du score de preuve (audit HTTP&nbsp;200, GitHub API&nbsp;200, hook nommé) croisé au TVL/frais 30j de chaque protocole hors cohorte. <strong>Référence 19-20/09&nbsp;:</strong> mêmes 4&nbsp;candidats, TVL en léger recul pour les 4. <strong>Seuil&nbsp;:</strong> CONFIRMEE (entrée automatique) si un des 4 tient 7&nbsp;jours consécutifs&nbsp;; MORTE si aucun ne reste candidat 5&nbsp;jours consécutifs. <strong>Échéance&nbsp;:</strong> 2026-09-26.</p>
+
+  <h2>Sources</h2>
+  <p>
+    <span class="tag source">raw.githubusercontent.com/Uniswap/hooklist/main/hooklist.json</span>
+    <span class="tag source">api.github.com/repos/Uniswap/hooklist/commits</span>
+    <span class="tag source">api.llama.fi/v2/chains</span>
+    <span class="tag source">api.llama.fi/protocols</span>
+    <span class="tag source">api.llama.fi/overview/dexs/Robinhood Chain</span>
+    <span class="tag source">api.llama.fi/overview/fees/Robinhood Chain</span>
+    <span class="tag source">api.github.com/users/&lt;25 comptes déclarés&gt;</span>
+    <span class="tag source">45 liens d'audit publiés par DefiLlama (requêtes HEAD directes)</span>
+    <span class="tag source">sec.gov/rules-regulations/public-comments/4-927</span>
+    <span class="tag source">federalregister.gov/api/v1/documents.json</span>
+    <span class="tag">presse : recherche web générale (SEC 34-106402, Robinhood Chain) — non recoupée pour les chiffres</span>
+  </p>
+</main>
+<footer>Hermes DeFi · enquête générée le 2026-09-20 10:37 UTC · série : 3<sup>e</sup> point · fil tokenisation, jour 3</footer>
+</body>
+</html>

@@ -26,6 +26,11 @@
      "date": "2026-09-19",
      "valeur": "afterSwapReturnsDelta 72,4 % (841/1161) / beforeAddLiquidity 25,2 % (293/1161)",
      "note": "stable jour sur jour, sens inchange"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "afterSwapReturnsDelta 72,4 % (841/1161) / beforeAddLiquidity 25,2 % (293/1161)",
+     "note": "identique bit pour bit a hier -- le registre lui-meme n'a pas bouge depuis le 19/09 10:59 UTC (verifie via commits GitHub), donc ce point n'est pas un signal independant aujourd'hui"
     }
    ],
    "solde": null
@@ -48,6 +53,11 @@
      "date": "2026-09-19",
      "valeur": "4 / 1161 (0,34 %)",
      "note": "identique a hier, aucun 5e audit"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "4 / 1161 (0,34 %)",
+     "note": "identique, memes causes -- registre fige"
     }
    ],
    "solde": null
@@ -70,6 +80,11 @@
      "date": "2026-09-19",
      "valeur": "v4 42,9 % / v3 32,5 % du volume 30j (17,72/13,44/41,28 Md$)",
      "note": "v3 gagne du terrain (+0,3pt), loin des deux seuils"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "v4 42,8 % / v3 32,5 % du volume 30j (17,96/13,65/41,94 Md$)",
+     "note": "v3 stable a 32,5 %, v4 recule encore (42,9->42,8), tendance de fond coherente avec la veille sur 3 points"
     }
    ],
    "solde": null
@@ -92,6 +107,11 @@
      "date": "2026-09-19",
      "valeur": "154 deploiements sur 1161 (13,3 %) ; toujours aucun avis de TSV connu",
      "note": "compte identique a hier (154), dilue par les 2 nouvelles entrees du registre"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "154 deploiements sur 1161 (13,3 %) ; toujours aucun avis de TSV -- confirme par recherche web ce jour (aucune annonce de notice TSV trouvee)",
+     "note": "3e jour consecutif a 154, registre fige"
     }
    ],
    "solde": null
@@ -114,6 +134,11 @@
      "date": "2026-09-19",
      "valeur": "non paru au FR (verifie aussi via requete directe sur '106402', 0 resultat) ; 8 lettres, 0 institution",
      "note": "ordre effectif depuis le 17/09 independamment de la parution FR (communique SEC primaire) ; le delai des 5 ans d'exemption, lui, part de la publication"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "non paru au FR (requete API agence SEC + terme tokenized : dernier document SEC pertinent du 14/09 ; requete directe '106402' : 0 resultat) ; 8 lettres, 0 institution stricte (Turnqey Labs et The Insumer Model LLC apparues le 17/09 mais ni bourse, ni courtier, ni emetteur, ni cabinet au sens du seuil)",
+     "note": "3e jour a 8 lettres identiques -- aucune nouvelle lettre depuis le 18/09"
     }
    ],
    "solde": null
@@ -131,6 +156,33 @@
      "date": "2026-09-19",
      "valeur": "42,0 % (135,5/322,6 M$)",
      "note": "point de reference, ouverte suite a l'acquisition PONS par Uniswap Labs (annoncee 03-04/09/2026)"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "40,1 % (131,0/327,1 M$)",
+     "note": "recul de 1,9pt vs 19/09 (42,0%) mais Pons reste tres au-dessus du seuil MORTE (15%) et proche du seuil CONFIRMEE (30%) -- le volume Pons croit (+2,0%) plus vite que ses frais (-3,3%), signe possible de fee compression plutot que de perte de part de marche"
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260920_01",
+   "ouverte": "2026-09-20",
+   "affirmation": "Les 4 candidats automatiques identifies le 19/09 (Snuggle, UNCX Network V3, Beefy, Ramses DLMM) ne sont pas un artefact d'un jour : recalcules sur l'ensemble des protocoles de la chaine avec la regle de score figee, ils depassent toujours au moins un membre nomme de la cohorte sur la preuve ET la traction, mesure deux jours de suite. Si la dominance tient 7 jours consecutifs, la regle ecrite du 19/09 les fait entrer sans arbitrage humain.",
+   "mesure": "cohorte.json > candidats_automatiques : recalcul quotidien du score de preuve (audit_links HTTP 200, compte GitHub API 200, hook nomme au registre) croise au TVL Robinhood Chain et aux frais 30j DefiLlama de chaque protocole hors cohorte.",
+   "seuil": "CONFIRMEE (entree automatique declenchee) si un des 4 depasse un membre nomme sur la preuve ET la traction pendant 7 jours consecutifs a compter du 19/09 (jour 1). MORTE si aucun des 4 ne reste candidat (score>=2 et traction au-dessus du plancher) pendant 5 jours consecutifs.",
+   "echeance": "2026-09-26",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "valeur": "4 candidats (Snuggle, UNCX Network V3, Beefy, Ramses DLMM) -- jour 1",
+     "note": "point d'ouverture, reconstitue a posteriori depuis cohorte.json (candidats deja identifies ce jour-la, veille formalisee le 20/09)"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "memes 4 candidats, jour 2 consecutif -- Snuggle TVL 7,54->7,33 M$, UNCX V3 TVL 9,05->8,56 M$, Beefy TVL 3,57->3,35 M$, Ramses DLMM TVL 0,83->0,80 M$ (les 4 en leger recul, aucun nouvel entrant, aucune sortie)",
+     "note": "compteur a 2/7, aucune entree declenchee"
     }
    ],
    "solde": null
