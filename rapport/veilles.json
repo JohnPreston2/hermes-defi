@@ -31,6 +31,11 @@
      "date": "2026-09-20",
      "valeur": "afterSwapReturnsDelta 72,4 % (841/1161) / beforeAddLiquidity 25,2 % (293/1161)",
      "note": "identique bit pour bit a hier -- le registre lui-meme n'a pas bouge depuis le 19/09 10:59 UTC (verifie via commits GitHub), donc ce point n'est pas un signal independant aujourd'hui"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "afterSwapReturnsDelta 72,4 % (843/1164) / beforeAddLiquidity 25,3 % (295/1164)",
+     "note": "identique en proportion a la reference du 18/09 malgre +5 hooks vs le 20/09 (le registre a regenere le 21/09 a 15:38 UTC apres 2j de gel) -- aucun trou de mesure le 21/09 lui-meme (pas de point depose ce jour-la), voir note serie.json"
     }
    ],
    "solde": null
@@ -58,6 +63,11 @@
      "date": "2026-09-20",
      "valeur": "4 / 1161 (0,34 %)",
      "note": "identique, memes causes -- registre fige"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "4 / 1164 (0,34 %)",
+     "note": "toujours 4, malgre la reprise des regenerations du registre le 21/09 -- aucun 5e audit en 4 jours mesures"
     }
    ],
    "solde": null
@@ -85,6 +95,11 @@
      "date": "2026-09-20",
      "valeur": "v4 42,8 % / v3 32,5 % du volume 30j (17,96/13,65/41,94 Md$)",
      "note": "v3 stable a 32,5 %, v4 recule encore (42,9->42,8), tendance de fond coherente avec la veille sur 3 points"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "v4 42,5 % / v3 32,7 % du volume 30j (18,51/14,24/43,57 Md$)",
+     "note": "v3 remonte a 32,7% (son plus haut niveau mesure), v4 recule encore a 42,5% -- tendance de fond confirmee sur 4 points malgre le trou du 21/09, loin des deux seuils"
     }
    ],
    "solde": null
@@ -112,6 +127,11 @@
      "date": "2026-09-20",
      "valeur": "154 deploiements sur 1161 (13,3 %) ; toujours aucun avis de TSV -- confirme par recherche web ce jour (aucune annonce de notice TSV trouvee)",
      "note": "3e jour consecutif a 154, registre fige"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "154 deploiements sur 1164 (13,2 %) ; toujours aucun avis de TSV connu (recherche web ce jour)",
+     "note": "4e mesure a 154 deploiements pile identiques -- le compte de hooks stock-vocab n'a plus bouge depuis le 18/09 alors que le registre lui-meme a grossi (+5 hooks le 21/09, aucun a vocabulaire actions)"
     }
    ],
    "solde": null
@@ -139,6 +159,11 @@
      "date": "2026-09-20",
      "valeur": "non paru au FR (requete API agence SEC + terme tokenized : dernier document SEC pertinent du 14/09 ; requete directe '106402' : 0 resultat) ; 8 lettres, 0 institution stricte (Turnqey Labs et The Insumer Model LLC apparues le 17/09 mais ni bourse, ni courtier, ni emetteur, ni cabinet au sens du seuil)",
      "note": "3e jour a 8 lettres identiques -- aucune nouvelle lettre depuis le 18/09"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "non paru au FR (dernier document SEC pertinent : 14/09, requete directe '106402' toujours 0 resultat) ; 8 lettres identiques, memes 8 signataires qu'au 17-18/09 (dont Turnkey Labs et The Insumer Model LLC, ni bourse ni courtier ni emetteur ni cabinet)",
+     "note": "4e jour mesure a 8 lettres -- silence total du docket depuis 4 jours"
     }
    ],
    "solde": null
@@ -161,6 +186,11 @@
      "date": "2026-09-20",
      "valeur": "40,1 % (131,0/327,1 M$)",
      "note": "recul de 1,9pt vs 19/09 (42,0%) mais Pons reste tres au-dessus du seuil MORTE (15%) et proche du seuil CONFIRMEE (30%) -- le volume Pons croit (+2,0%) plus vite que ses frais (-3,3%), signe possible de fee compression plutot que de perte de part de marche"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "40,4 % (135,8/336,4 M$)",
+     "note": "remonte legerement vs le 20/09 (40,1%), reste sous la reference du 19/09 (42,0%) et tres au-dessus du seuil MORTE (15%) -- mesure sur le total30d recalcule (336,4 M$, +2,8% vs 20/09) car le total de la chaine a lui-meme bouge"
     }
    ],
    "solde": null
@@ -183,6 +213,28 @@
      "date": "2026-09-20",
      "valeur": "memes 4 candidats, jour 2 consecutif -- Snuggle TVL 7,54->7,33 M$, UNCX V3 TVL 9,05->8,56 M$, Beefy TVL 3,57->3,35 M$, Ramses DLMM TVL 0,83->0,80 M$ (les 4 en leger recul, aucun nouvel entrant, aucune sortie)",
      "note": "compteur a 2/7, aucune entree declenchee"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "memes 4 candidats (Snuggle score 2 TVL 7,02M$ fees 2,25M$ ; UNCX V3 score 2 TVL 9,05M$ fees 0 ; Beefy score 3 TVL 2,82M$ mcap 6,02M$ ; Ramses DLMM score 2 TVL 0,84M$ fees 0,32M$) -- Snuggle bat toujours 6 membres sur preuve ET frais 30j, Ramses DLMM seulement 2",
+     "note": "TROU DE CONTINUITE : aucune mesure n'a ete deposee le 21/09, donc le compteur '7 jours consecutifs' ne peut pas etre tenu tel qu'ecrit -- 3 jours de donnees sur 4 calendaires (19,20,22), pas 4 consecutifs. Le compteur repart a 1 jour verifie sans interruption a partir d'aujourd'hui ; l'echeance du 26/09 est maintenue mais ne pourra etre jugee que si les jours restants sont mesures sans nouveau trou."
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260922_01",
+   "ouverte": "2026-09-22",
+   "affirmation": "L'activite de Robinhood Chain (volume, frais, TVL, nombre de swaps) est en bonne partie portee par la subvention de gas a 90 jours lancee le 2026-07-01 (plafond reduit de 5$ a 0,50$ mi-aout). Sa fin programmee le 2026-09-29 est un test de charge reel : si l'activite est motivee par le produit et non par le gas gratuit, le recul post-expiration doit rester limite.",
+   "mesure": "DefiLlama /overview/dexs et /overview/fees Robinhood Chain : total24h et total7d de volume et de frais, releves quotidiennement avant et apres le 29/09. Reference 2026-09-22 : volume 30j chaine 43,57 Md$ (total24h a mesurer au prochain releve), frais 30j chaine 336,4 M$. Contexte externe (presse, non recoupe par une source primaire) : TVL chaine deja retombee de 1,4 Md$ (fin aout, pic) a 738 M$ au 01/09, avant de remonter a 997,6 M$ mesure aujourd'hui -- donc pas une simple decrue monotone.",
+   "seuil": "MORTE (subvention non structurante) si le volume7j et les frais7j perdent moins de 20% dans les 14 jours suivant le 29/09. CONFIRMEE (dependance structurelle) si volume7j OU frais7j chutent de plus de 50% dans les 14 jours suivant le 29/09.",
+   "echeance": "2026-10-13",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-22",
+     "valeur": "point d'ouverture : volume 30j 43,57 Md$, frais 30j 336,4 M$, TVL chaine 997,6 M$",
+     "note": "ouverte suite a une recherche web (KuCoin, crypto.news, cryptonews.com, cryptoticker.io) -- aucune de ces sources n'est une source primaire Robinhood ; le calendrier (lancement 01/07, palier 5$->0,50$ mi-aout, fin 29/09) est repete de facon concordante par 4 sources independantes mais reste presse, non recoupe on-chain a ce stade"
     }
    ],
    "solde": null

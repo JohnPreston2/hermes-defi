@@ -24,6 +24,14 @@
       "question": "Le registre officiel des hooks, source du chiffre-signature de l'enquête depuis deux jours, a-t-il vraiment cessé de bouger — ou est-ce ma propre sonde qui échoue en silence ? Et le score de preuve de la cohorte tient-il l'épreuve d'un nouveau protocole qui vient d'entrer ?",
       "mesure_neuve": "Le registre Uniswap/hooklist n'a reçu aucune régénération depuis 2026-09-19T10:59:15Z (vérifié via l'historique de commits GitHub, pas seulement le compte local) : 6 champs indépendants identiques au chiffre près sur 2 jours. +1 protocole sur la chaîne (176->177) : PARE, scission principal/yield sur les stock tokens Robinhood, score de preuve 3/4 dès le premier jour. Bug trouvé et corrigé : le détecteur 'hook nommé' du score de preuve matchait par sous-chaîne sans frontière de mot (PARE matchait 'parent' dans WarzyHook) ; corrigé, ce qui retire aussi le point hooks de Fables et fait perdre à Lighter Robinhood Perps son attribution du hook HeavierHand (probable collision de nom avec un DEX Avalanche sans rapport nommé AEON Protocol).",
       "genere": "2026-09-20T10:37:00Z"
+    },
+    {
+      "date": "2026-09-22",
+      "fichier": "2026-09-22-enquete.html",
+      "titre": "Robinhood Chain : un jour de silence, un registre qui repart, et la deuxième TVL de la chaîne invisible du score de preuve",
+      "question": "Que s'est-il passe le 21/09, jour ou l'enquete a mesure des choses (visibles dans le memo technique) sans jamais les publier -- et le score de preuve de la cohorte, recalcule sur l'ensemble des 181 protocoles plutot que sur les seuls membres connus, tient-il quand on l'applique au plus gros protocole de la chaine ?",
+      "mesure_neuve": "Rescan complet des 181 protocoles de la chaine pour le score de preuve : Morpho Blue (2e TVL, 556,9 M$, plus que toute la cohorte reunie) score 0/4 -- lien d'audit DefiLlama mort (404, meme piege que Curve), aucun GitHub declare, seul hook approchant (MorphogenHook) est un faux positif de sous-chaine. Correction : le score de Lighter Robinhood Perps tombe de 1 a 0 (attribution HeavierHand jamais recorroboree en 3 controles) ; la famille de hooks Aeon compte 10 entrees, pas 'au moins 6' ; correction d'une confusion de population du memo du 21/09 (38 protocoles a capture non nulle sur 92, pas sur 177). Ouverture d'une veille sur la fin de la subvention de gas a 90 jours de Robinhood Chain, programmee le 29/09/2026 (source presse, non recoupee) -- premier test de charge reel de la chaine.",
+      "genere": "2026-09-22T08:15:00Z"
     }
   ]
 }
