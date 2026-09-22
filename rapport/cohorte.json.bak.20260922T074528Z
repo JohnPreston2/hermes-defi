@@ -1,0 +1,594 @@
+{
+ "schema_version": 2.1,
+ "ouverte": "2026-09-19",
+ "revision": "2026-09-19 — v2.1. Les champs dates (reference_/preuve_/traction_20260919) sont fusionnes dans UN SEUL tableau `historique` par membre, un point par jour. Motif : la meme mesure portait trois noms differents en une journee, ce qui a rendu illisible le test « la cohorte est-elle relevee aujourd'hui ? ». REGLE : un releve du jour = un objet {date, ...} ajoute a `historique`. Rien d'autre.",
+ "ce_qui_se_mesure": {
+  "score_preuve": "0 a 4, recalcule a chaque enquete sur LES 176 protocoles de la chaine, pas seulement sur les membres.",
+  "audit_lien_resolvable": "+2 — le lien d'audit publie par DefiLlama repond HTTP 200. ATTENTION : mesure la PREUVE PUBLIEE, pas la securite. Morpho Blue et Curve sont audites mais leur lien rend 404 : ils scorent 0 sur ce critere, et c'est une information sur la tracabilite, pas sur leur code.",
+  "github_existe": "+1 — le compte GitHub declare existe vraiment (API GitHub 200). Mesure du 19/09 : ARMSys declare `ARMSys26`, qui rend 404.",
+  "hooks_registre": "+1 — au moins un hook nomme au registre officiel Uniswap, avec une description de mecanisme.",
+  "traction": "TVL sur la chaine, frais 30 j, volume 30 j — deja mesures par l'enquete."
+ },
+ "ce_qui_se_declare": {
+  "regle": "La lignee d'equipe (dYdX, Ekubo, Lighter) est un CHAMP DECLARE avec sa source. Elle ne donne aucun point. Aucune equipe de cette chaine ne publie de noms ; croire une description d'agregateur n'est pas une mesure.",
+  "consequence_assumee": "Un projet peut etre excellent et scorer 0. Le score ne dit pas la qualite : il dit ce qu'on peut verifier depuis l'exterieur, aujourd'hui."
+ },
+ "correction_du_19_09": "Une erreur a corriger, tenue deux fois a l'oral : j'ai affirme « quatre audits avec lien sur 176 protocoles ». FAUX. Les 4 sont les hooks du registre Uniswap portant un auditUrl (4 sur 1 159 hooks). Au niveau des PROTOCOLES, 31 sur 176 publient un lien d'audit qui repond. Deux populations differentes, confondues. Le chiffre des hooks reste juste, celui des protocoles etait faux d'un facteur 8.",
+ "membres": [
+  {
+   "nom_defillama": "TermMax",
+   "lignee_declaree": "term-structure (GitHub public, 2 audits lies)",
+   "mecanisme": "pret a taux fixe et echeance fixe via AMM",
+   "filtre_user": "PASSE (mcap 3,2 M$, 821 j)",
+   "sortie_si": "TVL Robinhood Chain sous 0,5 M$ au 31/10 — l'equipe est la, la traction ici ne l'est pas",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 3,
+      "audit_ok": true,
+      "github_ok": true,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 60000,
+      "fees_30d_usd": 0,
+      "mcap_usd": 3200000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 3,
+      "audit_ok": true,
+      "github_ok": true,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 55109,
+      "fees_30d_usd": 0,
+      "mcap_usd": 3253768
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "Ekubo",
+   "aussi": "STONX",
+   "lignee_declaree": "equipe Ekubo (Starknet), architecture singleton et extensions anterieures aux hooks v4",
+   "mecanisme": "STONX, marche de liquidite ve(3,3) pour actifs tokenises",
+   "filtre_user": "PASSE (mcap 5,4 M$, 1107 j)",
+   "sortie_si": "mcap sous 1 M$, ou STONX sous 10 M$ de volume 30 j",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 2,
+      "audit_ok": true,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1730000,
+      "vol_30d_usd": 66000000,
+      "mcap_usd": 5400000,
+      "stonx_tvl_rh_usd": 1130000,
+      "stonx_vol_30d_usd": 59000000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 2,
+      "audit_ok": true,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1756675,
+      "vol_30d_usd": 64062788,
+      "mcap_usd": 5469597,
+      "stonx_tvl_rh_usd": 1167342,
+      "stonx_vol_30d_usd": null
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "Lighter Robinhood Perps",
+   "lignee_declaree": "Lighter, perps zk — perps par defaut du portefeuille Robinhood (declare, non verifie)",
+   "mecanisme": "perps zk, carnet d'ordres verifiable — mecanisme NON documente au registre des hooks. Le hook HeavierHand ne lui appartient PAS.",
+   "filtre_user": "sans token indexe — taille jugee au TVL (2e protocole de la chaine)",
+   "sortie_si": "perd la 2e place par TVL pendant 14 jours, OU aucun mecanisme propre documente au 31/10 — il n'entre plus au titre de l'innovation, seulement de l'echelle",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 1
+     },
+     "traction": {
+      "tvl_rh_usd": 101250000,
+      "fees_30d_usd": 1440000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 1,
+      "note_preuve": "attribution HeavierHand->Lighter non recorroboree ce jour, voir rapport"
+     },
+     "traction": {
+      "tvl_rh_usd": 101510721,
+      "fees_30d_usd": 1433295
+     }
+    }
+   ],
+   "alerte_ouverte": "L'attribution du hook HeavierHand a Lighter (posee le 19/09) n'a pas ete recorroboree ce jour : la description du hook au registre mentionne des frais reverses a 'Aeon protocol', pas a Lighter, et le protocole DefiLlama nomme 'AEON Protocol' est un DEX Avalanche quasi absent de Robinhood Chain (6,7 k$ de TVL) -- probable collision de nom sans rapport. A verifier manuellement, ne pas trancher sur un simple appariement textuel.",
+   "correction_20260920": "ERREUR CORRIGEE. Le 19/09 j'ai attribue le hook HeavierHand a Lighter sur une correspondance de MOT : la description dit « selling the lighter side », qui designe le cote le plus leger du pool, pas le protocole Lighter. Ce hook reverse 10 bps a « Aeon protocol ». Detectee par la routine du 20/09, verifiee a la main sur le registre. CONSEQUENCE : Lighter reste membre pour sa traction (2e TVL de la chaine), mais son argument « mecanisme original » tombe tant que rien n'est documente."
+  },
+  {
+   "nom_defillama": "Fables",
+   "lignee_declaree": "pseudonyme @0xcs361, projet Base anterieur (declare, non verifie)",
+   "mecanisme": "frais dynamique conscient de la seance boursiere",
+   "filtre_user": "sans token (precurseur PROLOGUE) — taille jugee au volume",
+   "alerte_ouverte": "DefiLlama affiche un code audit 3 SANS lien. Re-teste a chaque enquete : tant que le lien ne repond pas, l'audit est repute inexistant.",
+   "sortie_si": "audit toujours sans lien resolvable au 31/10, ou TGE qui ne tient pas le ratio annonce",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 10
+     },
+     "traction": {
+      "tvl_rh_usd": 28180000,
+      "vol_30d_usd": 901000000,
+      "fees_30d_usd": 1390000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 10
+     },
+     "traction": {
+      "tvl_rh_usd": 29489660,
+      "vol_30d_usd": 972852134,
+      "fees_30d_usd": 1509819
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "Arcus Perps",
+   "lignee_declaree": "dYdX Labs avec Robinhood Crypto — source : description DefiLlama + couverture The Block du 25/08. DECLARE, jamais verifie.",
+   "mecanisme": "pTokens : une position perp geree devient un ERC-20 transferable",
+   "filtre_user": "sans token — taille jugee au TVL",
+   "alerte_ouverte": "Etait mon rang 1 en v1 sur la seule foi d'une lignee declaree. Score de preuve 0. Si la lignee dYdX est le principal argument, elle doit etre corroboree par une source primaire (annonce dYdX ou Robinhood) — sinon le membre tombe.",
+   "sortie_si": "aucune preuve primaire de la lignee au 31/10, ou TVL sous 5 M$ pendant 14 jours",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 24180000,
+      "fees_30d_usd": 380000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 24337307,
+      "fees_30d_usd": 369760
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "up v3",
+   "lignee_declaree": "aucune",
+   "mecanisme": "ve(3,3) classique — retenu pour l'echelle seule",
+   "filtre_user": "sans token indexe — taille jugee au volume",
+   "sortie_si": "volume 30 j sous 200 M$ ; c'est l'echelle qui le justifie, rien d'autre",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 8450000,
+      "vol_30d_usd": 1174000000,
+      "fees_30d_usd": 2300000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 7772997,
+      "vol_30d_usd": 1178284878,
+      "fees_30d_usd": 2291142
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "StonkBrokers",
+   "lignee_declaree": "aucune",
+   "mecanisme": "suite large : lancements, swaps, marketplace AMM de NFT, options covered-call",
+   "filtre_user": "PASSE (mcap 16,1 M$, 58 j)",
+   "sortie_si": "frais 30 j sous 200 k$, ou disparition du volet options",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1830000,
+      "fees_30d_usd": 1660000,
+      "mcap_usd": 16100000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1768454,
+      "fees_30d_usd": 1342920,
+      "mcap_usd": 14391559
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "GIGA V3",
+   "lignee_declaree": "aucune",
+   "mecanisme": "DEX reserve aux bots (API / transaction directe)",
+   "filtre_user": "sans token indexe — taille jugee au volume",
+   "sortie_si": "ouverture d'une interface grand public, ou volume sous 50 M$",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1220000,
+      "vol_30d_usd": 546000000,
+      "fees_30d_usd": 610000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1169572,
+      "vol_30d_usd": 549005644,
+      "fees_30d_usd": 608195
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "Longbow",
+   "lignee_declaree": "@giskandzc, interviews publiques (declare)",
+   "mecanisme": "42 marches de pret isoles sur Morpho Blue",
+   "filtre_user": "PASSE (mcap 7,2 M$, 12 j)",
+   "sortie_si": "aucun audit publie au 31/10, ou TVL sous 1 M$",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 4470000,
+      "mcap_usd": 7200000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 3986604,
+      "mcap_usd": 6325823
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "What The Hook",
+   "lignee_declaree": "aucune",
+   "mecanisme": "recapture d'arbitrage rendue au trader et aux LP — 1 des 6 hooks LVR de la chaine",
+   "filtre_user": "PASSE (mcap 4,4 M$, 31 j)",
+   "alerte_ouverte": "mcap ~16.2x le TVL au 20/09 (3,37 M$ / 207,7 k$), contre ~19x le 19/09 -- ratio en baisse mais TVL elle-meme en recul de -9,7% en 24h, deja sous le seuil de sortie de 1 M$. Ratio a relever chaque jour.",
+   "sortie_si": "TVL sous 1 M$ au 31/10 alors que le mcap depasse 3 M$",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 230000,
+      "fees_30d_usd": 70000,
+      "mcap_usd": 4400000
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 207728,
+      "fees_30d_usd": 66386,
+      "mcap_usd": 3374962
+     }
+    }
+   ]
+  }
+ ],
+ "antichambre": [
+  {
+   "nom_defillama": "GlueHook",
+   "commentaire": "LE MEILLEUR SCORE DE PREUVE DE LA CHAINE, et zero TVL. Le score mesure ce qui est verifiable, pas ce qui est utilise.",
+   "entre_si": "TVL > 1 M$",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 4,
+      "audit_ok": true,
+      "github_ok": true,
+      "hooks": 2
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour",
+     "preuve": {
+      "score": 4,
+      "audit_ok": true,
+      "github_ok": true,
+      "hooks": 1
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "Twofold",
+   "commentaire": "audit OpenZeppelin cite au registre des HOOKS (lien resolvable), mais absent des audit_links du protocole cote DefiLlama — d'ou un score de 1. Ecart de source a signaler, pas a lisser.",
+   "entre_si": "mcap > 1 M$ ou TVL > 1 M$",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": true,
+      "hooks": 0
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": true,
+      "hooks": 0
+     }
+    }
+   ]
+  },
+  {
+   "nom_defillama": "ARMSys",
+   "commentaire": "Le compte GitHub declare (ARMSys26) rend 404. Je l'avais cite comme depot public : c'etait faux.",
+   "entre_si": "depot public qui existe ET TVL > 1 M$",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "origine": "point de reference, pose a la main",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     }
+    },
+    {
+     "date": "2026-09-20",
+     "origine": "recalcule ce jour",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     }
+    }
+   ]
+  }
+ ],
+ "candidats_automatiques": {
+  "regle": "A CHAQUE ENQUETE : recalculer le score de preuve sur les 176 protocoles. Tout protocole hors cohorte avec score >= 2 ET (TVL > 1 M$ OU frais 30 j > 100 k$) est liste ici. S'il depasse un membre sur la preuve ET la traction pendant 7 jours consecutifs, il PREND SA PLACE — sans arbitrage humain. C'est le mecanisme qui peut contredire la selection sans moi.",
+  "exclus_par_regle": "Uniswap V2/V3/V4 (infrastructure de la chaine, pas un projet a suivre) — exclusion ecrite, pas tacite.",
+  "historique": [
+   {
+    "date": "2026-09-19",
+    "candidats": [
+     {
+      "nom_defillama": "Snuggle",
+      "score": 2,
+      "tvl_rh_usd": 7540000,
+      "fees_30d_usd": 2220000,
+      "note": "Depasse 6 des 10 membres sur la preuve ET sur les frais 30 j. Premier candidat serieux. Reserve : gestionnaire de LP porte depuis Base, pas concu pour cette chaine."
+     },
+     {
+      "nom_defillama": "UNCX Network V3",
+      "score": 2,
+      "tvl_rh_usd": 9050000,
+      "fees_30d_usd": 0,
+      "note": "Audit OpenZeppelin resolvable, 9 M$ de TVL, aucun frais mesure."
+     },
+     {
+      "nom_defillama": "Beefy",
+      "score": 3,
+      "tvl_rh_usd": 3570000,
+      "fees_30d_usd": 0
+     },
+     {
+      "nom_defillama": "Ramses DLMM",
+      "score": 2,
+      "tvl_rh_usd": 830000,
+      "fees_30d_usd": 320000
+     }
+    ]
+   },
+   {
+    "date": "2026-09-20",
+    "candidats": [
+     {
+      "nom_defillama": "Snuggle",
+      "score": 2,
+      "tvl_rh_usd": 7331562,
+      "fees_30d_usd": 2226741,
+      "note": "2e jour consecutif candidat -- TVL en recul de -2,8% vs 19/09, frais toujours nettement > 100k$"
+     },
+     {
+      "nom_defillama": "UNCX Network V3",
+      "score": 2,
+      "tvl_rh_usd": 8562632,
+      "fees_30d_usd": 0,
+      "note": "2e jour consecutif -- audit OpenZeppelin resolvable confirme, toujours aucun frais mesure"
+     },
+     {
+      "nom_defillama": "Beefy",
+      "score": 3,
+      "tvl_rh_usd": 3352401,
+      "fees_30d_usd": 0,
+      "note": "2e jour consecutif, score le plus eleve des 4 candidats"
+     },
+     {
+      "nom_defillama": "Ramses DLMM",
+      "score": 2,
+      "tvl_rh_usd": 798993,
+      "fees_30d_usd": 318580,
+      "note": "2e jour consecutif, seul des 4 sous le plancher de 1 M$ de TVL mais qualifie via les frais 30j"
+     }
+    ]
+   }
+  ]
+ },
+ "contre_reference": {
+  "nom_defillama": "Pons V2",
+  "pourquoi": "Premier generateur de revenus de la chaine, score de preuve 0, zero TVL. Uniswap Labs vient d'en prendre une part. Tant qu'il domine les frais, « la chaine murit vers les actions tokenisees » reste une these.",
+  "historique": [
+   {
+    "date": "2026-09-19",
+    "origine": "point de reference, pose a la main",
+    "traction": {
+     "fees_30d_usd": 128200000,
+     "vol_30d_usd": 2236000000,
+     "tvl_rh_usd": 0,
+     "score_preuve": 0
+    }
+   },
+   {
+    "date": "2026-09-20",
+    "origine": "recalcule ce jour (DefiLlama /overview/fees, /overview/dexs)",
+    "traction": {
+     "fees_30d_usd": 131026316,
+     "vol_30d_usd": 2281339404,
+     "tvl_rh_usd": 0,
+     "score_preuve": 0
+    }
+   }
+  ]
+ },
+ "piste_ouverte_20260920": "La suite AEON : au moins 6 hooks robinhood citent « Aeon protocol » (CrownClash, ExactInGate, HeavierHand, LegacyLedger, TailTwins, TotalizerTrap), plusieurs deployes par la meme adresse 0x0de98e661606ecfc448da7a8276dde4de45200c8. Jamais examinee, absente de la cohorte. A instruire : constructeur serieux de boite a outils, ou famille de percepteurs de frais ?"
+}
