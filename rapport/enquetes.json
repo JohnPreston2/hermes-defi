@@ -39,7 +39,7 @@
       "titre": "Robinhood Chain, 23/09 : 8,8 milliards de volume passé réapparaissent — et ce ne sont pas des actions",
       "question": "Le volume Uniswap V3 de la chaîne a gagné 9,2 Md$ en un jour : activité nouvelle, ou histoire réécrite par l'agrégateur — et si c'est une réécriture, que contient le volume qui était invisible ?",
       "mesure_neuve": "Même fenêtre 23/08-21/09 : V3 passe de 14,24 à 23,04 Md$ (+62 %) après l'ajout par DefiLlama de 19 actifs de référence sur la chaîne (commit 39d5f5c4, 22/09 17:54 UTC), V4 inchangé au dollar près. Échantillon on-chain de 178 193 swaps (47 fenêtres sur 24 h) : sur 691,8 M$/24 h de volume Uniswap V3 officiel, 7,8 % touchent les 15 actions/ETF nouvellement pricés, 5,4 % PONS/CASHCAT, et 59,1 % passent par un seul pool WETH/USDG. Et l'ordre SEC 34-106402 a paru au Federal Register le 22/09 (91 FR 60168).",
-      "genere": "2026-09-23T11:30:00Z"
+      "genere": "2026-09-23T10:43:00Z"
     }
   ]
 }
