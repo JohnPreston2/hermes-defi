@@ -36,6 +36,11 @@
      "date": "2026-09-22",
      "valeur": "afterSwapReturnsDelta 72,4 % (843/1164) / beforeAddLiquidity 25,3 % (295/1164)",
      "note": "identique en proportion a la reference du 18/09 malgre +5 hooks vs le 20/09 (le registre a regenere le 21/09 a 15:38 UTC apres 2j de gel) -- aucun trou de mesure le 21/09 lui-meme (pas de point depose ce jour-la), voir note serie.json"
+    },
+    {
+     "date": "2026-09-23",
+     "valeur": "afterSwapReturnsDelta 72,4 % (843/1164) / beforeAddLiquidity 25,3 % (295/1164)",
+     "note": "identique au 22/09 : le registre n'a pas ete regenere depuis le 21/09 15:38 UTC (historique de commits verifie) -- point non independant, sens inchange"
     }
    ],
    "solde": null
@@ -68,6 +73,11 @@
      "date": "2026-09-22",
      "valeur": "4 / 1164 (0,34 %)",
      "note": "toujours 4, malgre la reprise des regenerations du registre le 21/09 -- aucun 5e audit en 4 jours mesures"
+    },
+    {
+     "date": "2026-09-23",
+     "valeur": "4 / 1164 (0,34 %)",
+     "note": "identique, registre fige depuis le 21/09 15:38 UTC ; aucun exploit public de hook de la chaine trouve en recherche web ce jour"
     }
    ],
    "solde": null
@@ -100,6 +110,11 @@
      "date": "2026-09-22",
      "valeur": "v4 42,5 % / v3 32,7 % du volume 30j (18,51/14,24/43,57 Md$)",
      "note": "v3 remonte a 32,7% (son plus haut niveau mesure), v4 recule encore a 42,5% -- tendance de fond confirmee sur 4 points malgre le trou du 21/09, loin des deux seuils"
+    },
+    {
+     "date": "2026-09-23",
+     "valeur": "v3 43,8 % / v4 35,4 % du volume 30j (23,42/18,90/53,45 Md$) -- RUPTURE DE PERIMETRE",
+     "note": "NON COMPARABLE aux 4 points precedents. DefiLlama a ajoute le 22/09 17:54 UTC 19 actifs de reference sur la chaine (commit 39d5f5c4, dimension-adapters) et recharge l'historique Uniswap : pour la meme fenetre 23/08-21/09, V3 passe de 14,24 a 23,04 Md$ (+62 %), V4 inchange (18,51). La v3 passe devant la v4. Sens de l'affirmation renforce (v3 bien au-dessus de 20 %), mais la serie repart de ce point ; les seuils restent lisibles car ils portent sur la part a l'echeance, mesuree desormais sous la nouvelle tarification. Temoin on-chain : echantillon de 47 fenetres sur 24 h (~11 % des blocs), volume V3 officiel extrapole 691,8 M$/24 h contre 616,9 M$ chez DefiLlama pour le 23/09 (ecart +12 %)."
     }
    ],
    "solde": null
@@ -132,6 +147,11 @@
      "date": "2026-09-22",
      "valeur": "154 deploiements sur 1164 (13,2 %) ; toujours aucun avis de TSV connu (recherche web ce jour)",
      "note": "4e mesure a 154 deploiements pile identiques -- le compte de hooks stock-vocab n'a plus bouge depuis le 18/09 alors que le registre lui-meme a grossi (+5 hooks le 21/09, aucun a vocabulaire actions)"
+    },
+    {
+     "date": "2026-09-23",
+     "valeur": "154 deploiements sur 1164 (13,2 %) ; aucun avis de TSV connu (recherche web ce jour : la presse attend les premiers avis 'dans les prochains mois')",
+     "note": "registre fige ; NB l'ordre publie au Federal Register le 22/09 confirme la notice publique 30 jours calendaires avant operation, et ajoute une notice ecrite a l'emetteur de l'action sous-jacente 30 jours avant cotation d'un jeton tokenise par un tiers (91 FR 60174)"
     }
    ],
    "solde": null
@@ -164,6 +184,11 @@
      "date": "2026-09-22",
      "valeur": "non paru au FR (dernier document SEC pertinent : 14/09, requete directe '106402' toujours 0 resultat) ; 8 lettres identiques, memes 8 signataires qu'au 17-18/09 (dont Turnkey Labs et The Insumer Model LLC, ni bourse ni courtier ni emetteur ni cabinet)",
      "note": "4e jour mesure a 8 lettres -- silence total du docket depuis 4 jours"
+    },
+    {
+     "date": "2026-09-23",
+     "valeur": "PARU au Federal Register le 2026-09-22 (doc 2026-19388, 91 FR 60168-60184, docket 'File No. 4-927') ; 14 lettres au dossier (8 au 22/09)",
+     "note": "La branche REVISEE (non paru au 31/10) est eteinte. +6 lettres, datees 18-22/09 : la SEC publie avec retard, donc le 'silence total du docket depuis 4 jours' ecrit le 22/09 etait FAUX -- des lettres existaient, elles n'etaient pas encore mises en ligne. Parmi elles, Bitcoin Bancorp Inc. (OTC: BCBC, 18/09) est un emetteur cote : le seuil 'emetteur' est franchi a la lettre, mais un micro-emetteur OTC ne teste pas l'affirmation ('les poids lourds du secteur deposeront'). Egalement MetaLeX (Gabriel Shapiro, ingenierie juridique -- pas un cabinet au sens strict), SecondaryDAO, NeuFin, CEOTNCDP. NON SOLDEE ce jour : la qualification d'une lettre de micro-emetteur est une decision user, pas une deduction. Detail du texte FR : les exemptions courent du 17/09/2026 au 17/09/2031 (section Duration), alors que le preambule dit 'five years after publication' -- ecart de 5 jours interne au texte."
     }
    ],
    "solde": null
@@ -191,6 +216,11 @@
      "date": "2026-09-22",
      "valeur": "40,4 % (135,8/336,4 M$)",
      "note": "remonte legerement vs le 20/09 (40,1%), reste sous la reference du 19/09 (42,0%) et tres au-dessus du seuil MORTE (15%) -- mesure sur le total30d recalcule (336,4 M$, +2,8% vs 20/09) car le total de la chaine a lui-meme bouge"
+    },
+    {
+     "date": "2026-09-23",
+     "valeur": "39,1 % (138,0/353,4 M$)",
+     "note": "recul de 1,3 pt vs 22/09 ; le denominateur a grossi de 17,0 M$ dont 11,3 M$ viennent de la revision V3 (frais V3 26,3 -> 37,7 M$) -- part Pons non strictement comparable. Tres au-dessus des deux seuils."
     }
    ],
    "solde": null
@@ -218,6 +248,11 @@
      "date": "2026-09-22",
      "valeur": "memes 4 candidats (Snuggle score 2 TVL 7,02M$ fees 2,25M$ ; UNCX V3 score 2 TVL 9,05M$ fees 0 ; Beefy score 3 TVL 2,82M$ mcap 6,02M$ ; Ramses DLMM score 2 TVL 0,84M$ fees 0,32M$) -- Snuggle bat toujours 6 membres sur preuve ET frais 30j, Ramses DLMM seulement 2",
      "note": "TROU DE CONTINUITE : aucune mesure n'a ete deposee le 21/09, donc le compteur '7 jours consecutifs' ne peut pas etre tenu tel qu'ecrit -- 3 jours de donnees sur 4 calendaires (19,20,22), pas 4 consecutifs. Le compteur repart a 1 jour verifie sans interruption a partir d'aujourd'hui ; l'echeance du 26/09 est maintenue mais ne pourra etre jugee que si les jours restants sont mesures sans nouveau trou."
+    },
+    {
+     "date": "2026-09-23",
+     "valeur": "Snuggle (score 2, TVL 7,43 M$, frais 2,26 M$), UNCX V3 (2 ; 8,91 M$ ; 0), Beefy (3 ; 2,95 M$ ; 0), Ramses DLMM (2 ; 0,80 M$ ; 0,32 M$) toujours candidats ; +2 NOUVEAUX : vfat.io (score 3, TVL 3,45 M$, frais 33 k$) et Saffron Vaults (score 2, TVL 1,09 M$)",
+     "note": "compteur de consecutivite : jour 2 sans trou (22 et 23/09). Echeance 26/09 : 7 jours consecutifs impossibles a atteindre d'ici la -- la branche CONFIRMEE ne peut plus etre declenchee avant l'echeance, la branche MORTE (5 jours sans candidat) non plus. La veille se soldera le 26/09 en REVISEE (le mecanisme a buté sur le trou du 21/09, pas sur la these)."
     }
    ],
    "solde": null
@@ -235,6 +270,11 @@
      "date": "2026-09-22",
      "valeur": "point d'ouverture : volume 30j 43,57 Md$, frais 30j 336,4 M$, TVL chaine 997,6 M$",
      "note": "ouverte suite a une recherche web (KuCoin, crypto.news, cryptonews.com, cryptoticker.io) -- aucune de ces sources n'est une source primaire Robinhood ; le calendrier (lancement 01/07, palier 5$->0,50$ mi-aout, fin 29/09) est repete de facon concordante par 4 sources independantes mais reste presse, non recoupe on-chain a ce stade"
+    },
+    {
+     "date": "2026-09-23",
+     "valeur": "pre-expiration J-6 : volume 24h 1,583 Md$, 7j 10,575 Md$ ; frais 24h 7,19 M$, 7j 48,35 M$ ; TVL chaine 1 008,9 M$",
+     "note": "reference 7 jours pour le test post-29/09. ATTENTION : volume7j inclut la revision V3 du 22/09 ; la comparaison apres le 29/09 n'est valide que si DefiLlama ne recharge pas encore l'historique. Deja avant l'echeance : frais 7j -18,9 % et revenu 7j -33,0 % d'une semaine sur l'autre (change_7d DefiLlama)."
     }
    ],
    "solde": null

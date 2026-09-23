@@ -66,6 +66,22 @@
       "fees_30d_usd": 0,
       "mcap_usd": 3155501
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 3,
+      "audit_ok": true,
+      "github_ok": true,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 11279,
+      "mcap_usd": 2965326
+     },
+     "note": "TVL 55,7 k$ -> 11,3 k$ (-80 %) ; toujours zero frais. Critere de sortie (TVL < 0,5 M$ au 31/10) en voie d'etre franchi a l'echeance -- alerte 'traction nulle' confirmee.",
+     "ratio_frais_vs_pons": 0.0
     }
    ]
   },
@@ -127,6 +143,26 @@
       "stonx_tvl_rh_usd": 1070338,
       "stonx_vol_30d_usd": 54989504
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 2,
+      "audit_ok": true,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1630535,
+      "fees_30d_usd": 49991,
+      "vol_30d_usd": 62291377,
+      "mcap_usd": 7203895,
+      "stonx_tvl_rh_usd": 1086683,
+      "stonx_vol_30d_usd": 54777540
+     },
+     "note": "STONX : TVL 1,09 M$, vol 30j 54,8 M$ (> 10 M$) ; mcap 7,2 M$ (> 1 M$). Critere non franchi.",
+     "ratio_frais_vs_pons": 0.0004
     }
    ]
   },
@@ -180,6 +216,22 @@
       "tvl_rh_usd": 97136646,
       "fees_30d_usd": 1508697
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 99157905,
+      "fees_30d_usd": 1561247
+     },
+     "note": "TVL 99,2 M$ : 4e TVL brute de la chaine (Morpho 562,0, Steakhouse Financial 511,3 -- curateur sur Morpho, double compte --, Uniswap V4 201,1), 2e hors double compte et hors infrastructure Uniswap. Critere 'perd la 2e place' : non franchi selon cette lecture, a trancher par l'user si Steakhouse doit compter.",
+     "ratio_frais_vs_pons": 0.0113
     }
    ],
    "alerte_ouverte": "RESOLUE (dans le sens negatif) : l'attribution du hook HeavierHand a Lighter n'a jamais ete recorroboree en 3 jours (20, 22/09 -- pas de mesure le 21/09). Le score de preuve de Lighter est corrige a 0/4 ce jour. Le membre reste dans la cohorte uniquement au titre de sa traction (2e TVL de la chaine, 97,1 M$), plus aucun argument de mecanisme original documente.",
@@ -238,6 +290,23 @@
       "vol_30d_usd": 1146017289
      },
      "note": "TVL en hausse de +33,8% vs le 20/09 (29,49 -> 39,45 M$), la plus forte variation de la cohorte ce jour. Recherche web (WEEX, 20-22/09) : le programme de points Fables se termine en octobre avant un TGE ; 9 marches actifs dont NVDA/SPY et SPY/or, deux paires qui ne fonctionnent que si la logique de frais calee sur le calendrier boursier gere deux actifs a horaires differents."
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 10
+     },
+     "traction": {
+      "tvl_rh_usd": 45133963,
+      "fees_30d_usd": 2126165,
+      "vol_30d_usd": 1250396430
+     },
+     "note": "Alerte re-verifiee : toujours aucun audit_links publie (code audits=3). TVL 39,4 -> 45,1 M$ (+14,4 %). Volume 30j 1,25 Md$ -- desormais au niveau d'up v3. Les 10 hooks comptes sont des noms 'Fables*' au registre (FablesRWA, FablesRamp...) : correspondance de nom, pas preuve d'adresse (P6).",
+     "ratio_frais_vs_pons": 0.0154
     }
    ]
   },
@@ -290,6 +359,22 @@
       "tvl_rh_usd": 24764682,
       "fees_30d_usd": 369199
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 20784078,
+      "fees_30d_usd": 388115
+     },
+     "note": "TVL 24,8 -> 20,8 M$ (-16,1 %), reste au-dessus du plancher de 5 M$. Lignee dYdX toujours sans source primaire trouvee.",
+     "ratio_frais_vs_pons": 0.0028
     }
    ]
   },
@@ -344,6 +429,23 @@
       "vol_30d_usd": 1227843217,
       "fees_30d_usd": 2336608
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 8086589,
+      "fees_30d_usd": 2372880,
+      "vol_30d_usd": 1256191303
+     },
+     "note": "vol 30j 1,256 Md$ (> 200 M$).",
+     "ratio_frais_vs_pons": 0.0172
     }
    ]
   },
@@ -399,6 +501,22 @@
       "mcap_usd": 20183796
      },
      "note": "TVL +138% vs le 20/09 (1,77 -> 4,21 M$) et mcap +40% (14,39 -> 20,18 M$) -- plus forte progression relative de toute la cohorte ce jour, cause non identifiee (aucune annonce trouvee en recherche web)."
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 3828681,
+      "fees_30d_usd": 2803726
+     },
+     "note": "RUPTURE DE PERIMETRE : DefiLlama a scinde 'StonkBrokers' en un parent (parent#stonkbrokers) et des fiches filles le 22/09 vers 15:57-16:23 UTC (Smart LP, Nightshades, Anvil, Broker Box, Safe Launch listees ce jour-la ; Safety Deposit Box existait). L'entree 'StonkBrokers' n'existe plus. Valeurs = somme des filles sur la chaine : TVL 3,83 M$ (dont Safety Deposit Box 3,12), frais 30j 2,80 M$ (dont Safety Deposit Box 1,37, Anvil 0,91) -- NON comparable au 1,34 M$ du 22/09. mcap non disponible sur les fiches filles. Critere de sortie (frais < 200 k$) non franchi ; le volet options n'est pas identifiable parmi les filles -- a verifier.",
+     "ratio_frais_vs_pons": 0.0203
     }
    ]
   },
@@ -453,6 +571,23 @@
       "vol_30d_usd": 553423552,
       "fees_30d_usd": 613113
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1125563,
+      "fees_30d_usd": 616946,
+      "vol_30d_usd": 556409242
+     },
+     "note": "vol 30j 556 M$ (> 50 M$).",
+     "ratio_frais_vs_pons": 0.0045
     }
    ]
   },
@@ -504,6 +639,22 @@
       "tvl_rh_usd": 4456410,
       "mcap_usd": 9173996
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 4377245,
+      "mcap_usd": 8562778
+     },
+     "note": "TVL 4,46 -> 4,38 M$ ; aucun audit publie.",
+     "ratio_frais_vs_pons": 0.0
     }
    ]
   },
@@ -559,6 +710,23 @@
       "fees_30d_usd": 65640,
       "mcap_usd": 3547076
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 237642,
+      "fees_30d_usd": 65866,
+      "mcap_usd": 3922332
+     },
+     "note": "Alerte re-verifiee : ratio mcap/TVL 16,5x (3,92 M$ / 237,6 k$), vs 16,1x au 22/09 -- la mcap monte (+10,6 %) plus vite que la TVL (+7,8 %).",
+     "ratio_frais_vs_pons": 0.0005
     }
    ]
   }
@@ -598,6 +766,20 @@
       "github_ok": true,
       "hooks": 2
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 4,
+      "audit_ok": true,
+      "github_ok": true,
+      "hooks": 2
+     },
+     "traction": {
+      "tvl_rh_usd": 4566
+     },
+     "note": "TVL 4,6 k$ (seuil 1 M$). Score 4 inchange."
     }
    ]
   },
@@ -635,6 +817,21 @@
       "github_ok": true,
       "hooks": 0
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": true,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 76871,
+      "mcap_usd": 156497
+     },
+     "note": "TVL 76,9 k$, mcap 156,5 k$ (seuil 1 M$)."
     }
    ]
   },
@@ -672,6 +869,21 @@
       "github_ok": false,
       "hooks": 0
      }
+    },
+    {
+     "date": "2026-09-23",
+     "origine": "recalcule ce jour (audit_links HTTP, GitHub API via gh, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 53648,
+      "fees_30d_usd": 804
+     },
+     "note": "GitHub ARMSys26 toujours 404 (verifie via gh api users/ARMSys26)."
     }
    ]
   }
@@ -777,6 +989,54 @@
      }
     ],
     "note_journee": "RESCAN COMPLET des 181 protocoles de la chaine (pas seulement les 4 candidats connus) : aucun 5e candidat trouve. Cas le plus notable ecarte : Morpho Blue, 2e TVL de la chaine (556,9 M$, plus que toute la cohorte combinee), score de preuve = 0/4 -- son lien d'audit publie par DefiLlama rend 404 (meme piege que Curve, P5), aucun compte GitHub declare, et son seul hook approchant par le nom (MorphogenHook) est un faux positif de sous-chaine (P6, 'Morphogen' != 'Morpho'). Un protocole peut donc etre le plus gros de la chaine et rester totalement invisible du mecanisme de preuve verifiable -- confirmation du principe ecrit dans ce_qui_se_declare : le score dit ce qui est verifiable, pas la qualite. TROU DE CONTINUITE : aucun releve le 21/09, voir la veille v_20260920_01."
+   },
+   {
+    "date": "2026-09-23",
+    "candidats": [
+     {
+      "nom_defillama": "Snuggle",
+      "score": 2,
+      "tvl_rh_usd": 7429403,
+      "fees_30d_usd": 2262889,
+      "note": "3e jour mesure, 2e consecutif ; bat toujours la majorite des membres sur preuve ET frais"
+     },
+     {
+      "nom_defillama": "UNCX Network V3",
+      "score": 2,
+      "tvl_rh_usd": 8906003,
+      "fees_30d_usd": 0,
+      "note": "frais toujours nuls"
+     },
+     {
+      "nom_defillama": "Beefy",
+      "score": 3,
+      "tvl_rh_usd": 2948674,
+      "fees_30d_usd": 0,
+      "note": "frais nuls"
+     },
+     {
+      "nom_defillama": "Ramses DLMM",
+      "score": 2,
+      "tvl_rh_usd": 800547,
+      "fees_30d_usd": 315712,
+      "note": "qualifie par les frais"
+     },
+     {
+      "nom_defillama": "vfat.io",
+      "score": 3,
+      "tvl_rh_usd": 3448254,
+      "fees_30d_usd": 32554,
+      "note": "NOUVEAU : score 3 (3 audits yAudit resolvables, GitHub vfat-io), TVL 3,45 M$ -- agregateur multi-chaines (38 chaines), pas concu pour celle-ci"
+     },
+     {
+      "nom_defillama": "Saffron Vaults",
+      "score": 2,
+      "tvl_rh_usd": 1086842,
+      "fees_30d_usd": 0,
+      "note": "NOUVEAU : score 2 (page d'audits resolvable), TVL 1,09 M$ a peine au-dessus du plancher, zero frais -- multi-chaines"
+     }
+    ],
+    "note_journee": "Rescan complet des 186 protocoles (181 au 22/09). Detecteur 'hook nomme' precise ce jour : frontiere de mot qui admet la CamelCase (FablesRWA compte pour Fables, 'parent' ne compte pas pour PARE, 'MorphogenHook' ne compte pas pour Morpho). Faux positifs residuels connus sur des noms-mots communs (Delta 139 hooks, Gate 20, EARN 3) : aucun n'atteint le statut de candidat. Liens d'audit : 36 protocoles sur 186 publient un lien qui repond HTTP 200 (46 liens sur 48). Morpho Blue reste a 0/4 (sa page d'audits echoue a la sonde)."
    }
   ]
  },
@@ -817,8 +1077,24 @@
      "holders_revenue_30d_v1_usd": 15018590,
      "reversement_pct": 10.5
     }
+   },
+   {
+    "date": "2026-09-23",
+    "origine": "recalcule ce jour (DefiLlama /overview/fees, /overview/dexs, dailyHoldersRevenue, /protocol/pons)",
+    "traction": {
+     "fees_30d_usd": 138032200,
+     "vol_30d_usd": 2412424434,
+     "tvl_rh_usd": 0,
+     "score_preuve": 0,
+     "fees_30d_v1_v2_combined_usd": 145135195,
+     "mcap_usd": 464376210,
+     "holders_revenue_30d_v1_usd": 15733430,
+     "reversement_pct": 10.8,
+     "part_frais_chaine_pct": 39.1
+    },
+    "note": "PONS figure desormais parmi les 19 actifs de reference ajoutes par DefiLlama le 22/09 : son volume sur Uniswap V3 devient visible. Echantillon on-chain du jour : 5,4 % du volume V3 officiel touche PONS ou CASHCAT, dont le pool WETH/PONS (23,7 M$/24 h extrapoles). mcap +14,5 % vs 22/09."
    }
   ]
  },
- "piste_ouverte_20260920": "MISE A JOUR 22/09 : la famille AEON compte en realite 10 hooks sur Robinhood Chain deployes par la meme adresse 0x0de98e661606ecfc448da7a8276dde4de45200c8 (CrownClash, ExactInGate, CapGate, HeavierHand, LegacyLedger, DynamicFee, NoOp, TailTwins, BlockEcho, TotalizerTrap) -- pas 'au moins 6' comme note le 20/09. Les descriptions relevees ce jour montrent un melange coherent : plusieurs gates de taille/direction de swap (CapGate, ExactInGate, TailTwins, BlockEcho), un skim de frais systematique via 'AeonFee' (LegacyLedger, CrownClash, NoOp a 10 bps), et un DynamicFee sensible au mouvement de prix. Aucun protocole DefiLlama nomme 'Aeon' ou similaire n'apparait sur la chaine avec une TVL ou des frais mesurables : la famille semble etre une boite a outils de hooks deployee par un seul acteur technique, sans produit-protocole visible cote DefiLlama a ce jour. Toujours absente de la cohorte et de candidats_automatiques (aucune traction mesurable a rattacher). A instruire : verifier sur la chaine si l'adresse deployeur est un contrat factory ou un EOA, ce qui trancherait entre 'atelier d'outils' et 'entite unique deguisee en plusieurs hooks'."
+ "piste_ouverte_20260920": "MISE A JOUR 22/09 : la famille AEON compte en realite 10 hooks sur Robinhood Chain deployes par la meme adresse 0x0de98e661606ecfc448da7a8276dde4de45200c8 (CrownClash, ExactInGate, CapGate, HeavierHand, LegacyLedger, DynamicFee, NoOp, TailTwins, BlockEcho, TotalizerTrap) -- pas 'au moins 6' comme note le 20/09. Les descriptions relevees ce jour montrent un melange coherent : plusieurs gates de taille/direction de swap (CapGate, ExactInGate, TailTwins, BlockEcho), un skim de frais systematique via 'AeonFee' (LegacyLedger, CrownClash, NoOp a 10 bps), et un DynamicFee sensible au mouvement de prix. Aucun protocole DefiLlama nomme 'Aeon' ou similaire n'apparait sur la chaine avec une TVL ou des frais mesurables : la famille semble etre une boite a outils de hooks deployee par un seul acteur technique, sans produit-protocole visible cote DefiLlama a ce jour. Toujours absente de la cohorte et de candidats_automatiques (aucune traction mesurable a rattacher). A instruire : verifier sur la chaine si l'adresse deployeur est un contrat factory ou un EOA, ce qui trancherait entre 'atelier d'outils' et 'entite unique deguisee en plusieurs hooks'. | MISE A JOUR 23/09 -- CORRECTION : une fiche DefiLlama 'AEON Protocol' (slug aeon-protocol) EXISTE sur Robinhood Chain, listee le 2026-06-30, categorie Dexs, TVL 6,9 k$, sans frais mesures ; sa description dit pourtant 've(3,3) DEX on Avalanche C-Chain'. L'affirmation du 22/09 ('aucun protocole DefiLlama nomme Aeon n'apparait sur la chaine') etait fausse ; la conclusion pratique (aucune traction mesurable) tient. Le detecteur rattache ce jour HeavierHand a AEON Protocol (1 hook) par le nom -- toujours pas une preuve d'adresse."
 }

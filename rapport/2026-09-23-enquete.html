@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 23/09 : 8,8 milliards de volume passé réapparaissent — et ce ne sont pas des actions</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+    <nav><a href="../">accueil</a><a href="2026-09-22-enquete.html">enquête du 22/09</a></nav>
+  </div>
+</header>
+<main>
+  <div class="tag source">chaîne en direct (RPC)</div>
+  <div class="tag data">DefiLlama</div>
+  <div class="tag source">SEC / Federal Register</div>
+  <div class="tag warn">rupture de périmètre DefiLlama du 22/09</div>
+  <div class="tag ok">ordre SEC paru au Federal Register</div>
+
+  <h1>Robinhood Chain, 23/09 : 8,8 milliards de volume passé réapparaissent — et ce ne sont pas des actions</h1>
+
+  <p class="question">Question du jour : le volume Uniswap V3 de la chaîne a gagné 9,2 Md$ en un jour. Est-ce de l'activité nouvelle, ou une histoire réécrite par l'agrégateur ? Et si c'est une réécriture, que contenait le volume qui était invisible ?</p>
+
+  <div class="provenance">
+    <div class="row"><span>Généré</span><span>2026-09-23 11:30 UTC</span></div>
+    <div class="row"><span class="src">DefiLlama — /v2/chains, /protocols, /overview/dexs, /overview/fees (+ dailyHoldersRevenue, dailyRevenue), /summary/dexs/uniswap-v3 et -v4, /protocol/pons</span><span class="age-fresh">relevé 2026-09-23 10:28 UTC</span></div>
+    <div class="row"><span class="src">RPC Robinhood Chain (3 nœuds publics en rotation) — logs Swap V3, factory()/token0()/token1() de 1 584 pools</span><span class="age-fresh">relevé 10:40-11:05 UTC, bloc 70 442 983 ; témoins : eth_chainId = 0x1237, eth_getCode(0x…dEaD) = 0x</span></div>
+    <div class="row"><span class="src">GitHub — DefiLlama/dimension-adapters (commits), Uniswap/sdks (adresses officielles), Uniswap/hooklist (commits)</span><span class="age-fresh">interrogé 10:30-10:50 UTC</span></div>
+    <div class="row"><span class="src">Registre des hooks Uniswap (hooklist.json)</span><span class="age-stale">téléchargé 10:28 UTC — mais dernière régénération le 21/09 15:38 UTC (~43 h) : figé</span></div>
+    <div class="row"><span class="src">Score de preuve : 48 liens d'audit (HTTP), 27 comptes GitHub (API), 186 protocoles</span><span class="age-fresh">10:55-11:00 UTC</span></div>
+    <div class="row"><span class="src">SEC — dossier 4-927 ; Federal Register (API + texte govinfo)</span><span class="age-fresh">11:05-11:15 UTC — témoin négatif : dossier 4-99999 rend 404</span></div>
+    <div class="row"><span class="src">Hermes (delta) — dépôt <code>~/hermes-defi</code></span><span class="age-fresh">joignable ; rapport 0-LLM publié 07:40 UTC ; utilisé seulement pour vérifier que l'état publié = l'état du dépôt</span></div>
+  </div>
+
+  <h2>Ce qui a été mesuré</h2>
+  <p>Méthode en une ligne : j'ai comparé le volume V3 de la <strong>même fenêtre de 30 jours</strong> (23/08-21/09) relevé hier et aujourd'hui, retrouvé dans le dépôt public de DefiLlama le commit qui explique l'écart, puis lu directement la chaîne pour savoir ce que ce volume échange.</p>
+
+  <div class="stat-row">
+    <div class="stat"><b>+8,80 Md$</b><span>volume Uniswap V3, même fenêtre 23/08-21/09 : 14,24 Md$ relevés le 22/09 → 23,04 Md$ aujourd'hui (+62 %)</span></div>
+    <div class="stat"><b>0 $</b><span>écart sur V4, même fenêtre : 18,51 Md$ les deux jours — témoin : la révision ne touche que V3</span></div>
+    <div class="stat"><b>7,8 %</b><span>part du volume Uniswap V3 des dernières 24 h qui touche les 15 actions/ETF nouvellement pricés (échantillon on-chain)</span></div>
+    <div class="stat"><b>59,1 %</b><span>du même volume passe par UN seul pool : WETH/USDG</span></div>
+  </div>
+
+  <h3>La cause : un commit, daté</h3>
+  <p>Le 22/09 à 17:54 UTC, DefiLlama fusionne le commit <code>39d5f5c4</code> (« add stock related core assets to robinhood ») : <strong>19 actifs de référence</strong> ajoutés sur la chaîne — 14 actions tokenisées (AAPL, AMD, AMZN, GOOGL, META, MRNA, MSTR, MU, NVDA, ON, SKHY, SNDK, SPCX, TSLA), l'ETF pétrole USO, WYFI, PONS, CASHCAT et ETH. Trois heures plus tôt, un commit désactivait la collecte horaire d'Uniswap « pour recharge » (<code>ba486657</code>), réactivée à 17:49. L'adaptateur V3 sur cette chaîne tire les montants bruts de Dune et les valorise aux prix DefiLlama ; un jeton non pricé est ignoré. Ajouter des jetons au référentiel rend donc visible, rétroactivement, du volume qui existait déjà.</p>
+
+  <h3>Ce que contient le volume V3 : la chaîne répond</h3>
+  <p>J'ai lu les événements Swap sur 47 fenêtres de 2 000 blocs réparties sur les dernières 24 h (96 000 blocs sur ~855 000, soit ~11 % ; une fenêtre perdue sur 48), soit 178 193 swaps, tous forks V3 confondus. Je n'ai gardé que les pools dont <code>factory()</code> est la factory officielle Uniswap V3 sur la chaîne (<code>0x1f7d…2efa</code>, source : Uniswap/sdks). Sur ces pools, 133 239 swaps sont valorisables, 854 ne le sont pas.</p>
+  <table>
+    <tr><th>Famille (selon les 19 actifs ajoutés le 22/09)</th><th class="num">M$/24 h extrapolés</th><th class="num">Part</th><th class="num">Swaps</th></tr>
+    <tr><td>Hors actifs ajoutés (surtout WETH/USDG)</td><td class="num">600,8</td><td class="num">86,9 %</td><td class="num">112 569</td></tr>
+    <tr><td>Actions / ETF tokenisés ajoutés</td><td class="num">53,8</td><td class="num">7,8 %</td><td class="num">14 682</td></tr>
+    <tr><td>PONS / CASHCAT</td><td class="num">37,1</td><td class="num">5,4 %</td><td class="num">5 980</td></tr>
+    <tr><td><strong>Total Uniswap V3</strong></td><td class="num"><strong>691,8</strong></td><td class="num">100 %</td><td class="num">133 239</td></tr>
+  </table>
+  <p><strong>Témoin</strong> : DefiLlama donne 616,9 M$ pour Uniswap V3 sur la chaîne le 23/09 ; mon extrapolation donne 691,8 M$ (+12 %). Même ordre de grandeur, donc la sonde est calibrée ; mais l'écart interdit de lire la 2<sup>e</sup> décimale. Les plus gros pools d'actions : USDG/NVDA (17,0 M$/24 h), SPCX/USDG (10,4 M$), WETH/NVDA (5,4 M$). Le pool WETH/PONS pèse 23,7 M$. Le seul pool WETH/USDG pèse 408,9 M$.</p>
+
+  <p><strong>Lecture</strong> : au rythme d'aujourd'hui, les actifs ajoutés représentent ~91 M$ par jour de volume V3, soit ~2,7 Md$ sur 30 jours <em>si la part était constante</em>. Cela explique au mieux un tiers de la révision de 8,80 Md$. Le reste vient soit d'un mois de septembre où ces jetons pesaient plus lourd (le volume V3 quotidien a culminé à 1,84 Md$ le 04/09), soit de la recharge elle-même. <strong>Je ne sais pas trancher ce jour.</strong></p>
+
+  <h2>Le fil : sept veilles re-testées</h2>
+  <table>
+    <tr><th>Veille</th><th class="num">22/09</th><th class="num">23/09</th><th>Lecture</th></tr>
+    <tr><td>Hooks d'extraction (afterSwapReturnsDelta)</td><td class="num">72,4 %</td><td class="num">72,4 % (843/1 164)</td><td>Registre figé depuis le 21/09 15:38 UTC : ce point n'est pas une mesure indépendante.</td></tr>
+    <tr><td>Hooks audités</td><td class="num">4/1 164</td><td class="num">4/1 164</td><td>Idem ; aucun exploit de hook de la chaîne trouvé.</td></tr>
+    <tr><td>V3 comme refuge (part du volume 30 j)</td><td class="num">32,7 %</td><td class="num">43,8 %</td><td><span class="tag warn">rupture</span> Non comparable. La V3 passe devant la V4 (35,4 %). La série repart d'ici.</td></tr>
+    <tr><td>Famille « actions » + avis de TSV</td><td class="num">154/1 164</td><td class="num">154/1 164</td><td>Aucun avis de TSV (plateforme agréée d'actions tokenisées) connu. La presse attend les premiers « dans les prochains mois ».</td></tr>
+    <tr><td>Parution FR + lettres institutionnelles</td><td class="num">non paru ; 8</td><td class="num"><strong>paru le 22/09</strong> ; 14</td><td>Voir ci-dessous. Non soldée : décision de qualification laissée à l'user.</td></tr>
+    <tr><td>Part de Pons dans les frais</td><td class="num">40,4 %</td><td class="num">39,1 %</td><td>Le dénominateur a gagné 17,0 M$, dont 11,3 M$ de frais V3 révisés : baisse en partie mécanique.</td></tr>
+    <tr><td>Candidats automatiques</td><td class="num">4</td><td class="num">6</td><td>+ vfat.io et Saffron Vaults. Consécutivité : jour 2. L'échéance du 26/09 ne permet plus d'atteindre 7 jours.</td></tr>
+    <tr><td>Fin de la subvention de gas (29/09)</td><td class="num">ouverture</td><td class="num">référence posée</td><td>Volume 7 j 10,57 Md$ ; frais 7 j 48,35 M$. Les frais 7 j reculent déjà de 18,9 % sur une semaine, le revenu de 33,0 %.</td></tr>
+  </table>
+
+  <h3>L'ordre SEC a paru — et deux choses que le texte dit</h3>
+  <p>Le Federal Register a publié l'ordre 34-106402 le <strong>22/09/2026</strong> (document 2026-19388, 91 FR 60168-60184, « File No. 4-927 »). La branche « non paru au 31/10 » de la veille est donc éteinte. Le texte officiel (govinfo) dit deux choses utiles :</p>
+  <ul>
+    <li>La section <em>Duration</em> fixe les exemptions <strong>du 17/09/2026 au 17/09/2031</strong>, alors que le préambule dit « cinq ans après publication » (ce qui donnerait le 22/09/2031). L'écart de 5 jours est interne au texte. L'enquête du 19/09 affirmait que le délai partait de la publication : c'était faux selon la section opérative.</li>
+    <li>Au-delà de l'avis public 30 jours avant d'opérer, une TSV doit prévenir <strong>par écrit l'émetteur de l'action</strong> 30 jours avant de coter un jeton émis par un tiers, et l'émetteur peut s'y opposer (91 FR 60174).</li>
+  </ul>
+  <p>Le dossier compte <strong>14 lettres</strong> (8 hier). Les six nouvelles sont datées du 18 au 22/09 : la SEC les met en ligne avec du retard. Parmi elles, Bitcoin Bancorp Inc. (coté OTC : BCBC) est un émetteur. Le seuil « émetteur » est donc franchi <em>à la lettre</em>. Mais la veille pariait sur « les poids lourds du secteur », et un micro-émetteur OTC ne teste pas ce pari. Je ne solde pas.</p>
+
+  <h2>Cohorte</h2>
+  <p>Contre-référence Pons V2 : <strong>138,0 M$</strong> de frais 30 j, capitalisation 464,4 M$ (+14,5 % en un jour), 10,8 % des frais des deux versions reversés aux détenteurs, soit un multiple de 2,43 sur ce reversement annualisé. <strong>Les dix membres réunis encaissent 9,98 M$, soit 7,2 % de Pons V2.</strong> La thèse « la chaîne mûrit vers les actions » reste une thèse.</p>
+  <table>
+    <tr><th>Membre</th><th class="num">Preuve</th><th class="num">TVL (M$)</th><th class="num">Frais 30 j (M$)</th><th class="num">÷ Pons</th><th>Ce qui bouge</th></tr>
+    <tr><td>Lighter Robinhood Perps</td><td class="num">0</td><td class="num">99,2</td><td class="num">1,56</td><td class="num">1,1 %</td><td>4<sup>e</sup> TVL brute, 2<sup>e</sup> hors double compte</td></tr>
+    <tr><td>Fables</td><td class="num">1</td><td class="num">45,1</td><td class="num">2,13</td><td class="num">1,5 %</td><td>TVL +14,4 % ; audit toujours sans lien</td></tr>
+    <tr><td>Arcus Perps</td><td class="num">0</td><td class="num">20,8</td><td class="num">0,39</td><td class="num">0,3 %</td><td>TVL −16,1 %</td></tr>
+    <tr><td>up v3</td><td class="num">0</td><td class="num">8,1</td><td class="num">2,37</td><td class="num">1,7 %</td><td>volume 1,26 Md$, stable</td></tr>
+    <tr><td>Longbow</td><td class="num">0</td><td class="num">4,4</td><td class="num">—</td><td class="num">0</td><td>stable</td></tr>
+    <tr><td>StonkBrokers (7 fiches)</td><td class="num">0</td><td class="num">3,8</td><td class="num">2,80</td><td class="num">2,0 %</td><td><span class="tag warn">rupture</span> fiche scindée par DefiLlama le 22/09</td></tr>
+    <tr><td>Ekubo / STONX</td><td class="num">2</td><td class="num">1,6</td><td class="num">0,05</td><td class="num">0,04 %</td><td>STONX 54,8 M$ de volume</td></tr>
+    <tr><td>GIGA V3</td><td class="num">0</td><td class="num">1,1</td><td class="num">0,62</td><td class="num">0,4 %</td><td>stable</td></tr>
+    <tr><td>What The Hook</td><td class="num">0</td><td class="num">0,24</td><td class="num">0,07</td><td class="num">0,05 %</td><td>capitalisation/TVL 16,5x (16,1x hier)</td></tr>
+    <tr><td>TermMax</td><td class="num">3</td><td class="num">0,011</td><td class="num">0</td><td class="num">0</td><td><strong>TVL −80 %</strong> (55,7 → 11,3 k$)</td></tr>
+  </table>
+  <p><strong>Ce qui devrait inquiéter</strong> : TermMax, le membre le mieux prouvé (3/4), a perdu 80 % de sa petite TVL en 24 h et n'a toujours aucun frais. Son critère de sortie (TVL sous 0,5 M$ au 31/10) est en voie d'être franchi. Fables fait l'inverse : c'est le membre qui croît le plus vite, et il ne publie toujours aucun lien d'audit. <strong>Aucune sortie n'est tranchée ce jour</strong> : aucun critère n'est à échéance. L'antichambre ne bouge pas (GlueHook 4,6 k$, Twofold 76,9 k$, ARMSys dont le GitHub rend toujours 404).</p>
+  <p>Score de preuve recalculé sur <strong>les 186 protocoles</strong> (181 hier) : 36 publient un lien d'audit qui répond. Nouveaux candidats automatiques : <strong>vfat.io</strong> (score 3, TVL 3,45 M$) et <strong>Saffron Vaults</strong> (score 2, TVL 1,09 M$). Ce sont deux agrégateurs multi-chaînes, ni l'un ni l'autre conçu pour cette chaîne.</p>
+
+  <h2>Ce qui contredit ma propre lecture</h2>
+  <div class="gap">
+    <p><b>Contre la lecture naïve du jour</b> : « DefiLlama ajoute les actions, 8,8 Md$ réapparaissent, donc la chaîne échangeait bien plus d'actions qu'on ne le voyait ». La chaîne dit autre chose. Aujourd'hui, 87 % du volume V3 ne touche aucun des actifs ajoutés, et PONS/CASHCAT pèsent presque autant que les 15 actions/ETF réunis (37,1 contre 53,8 M$). Le chiffre de presse du 23/09 (Uniswap détiendrait plus de 99 % des dépôts DeFi en actions tokenisées, dont ~53 M$ en V4) va dans le même sens : ce sont des dizaines de millions, pas des milliards (<em>presse, non recoupé</em>).</p>
+    <p><b>Contre mes propres enquêtes précédentes</b> : (1) le 22/09, j'ai écrit « silence total du docket depuis 4 jours ». C'était faux : des lettres datées du 18, 19 et 21/09 existaient, elles n'étaient pas encore en ligne. (2) Le 22/09, j'ai écrit qu'aucun protocole DefiLlama nommé « Aeon » n'existait sur la chaîne. C'était faux : la fiche <code>aeon-protocol</code> y est listée depuis le 30/06, avec 6,9 k$ de TVL et une description qui la situe… sur Avalanche. (3) La part de V3 « à son plus haut » le 22/09 (32,7 %) était mesurée sous une tarification qui n'existe plus.</p>
+  </div>
+
+  <h2>Ce qu'on ne sait pas</h2>
+  <div class="unknown"><ul>
+    <li>Quelle part des 8,80 Md$ révisés relève des actions, de PONS/CASHCAT ou de la recharge elle-même : il faudrait rejouer tout septembre on-chain, pas 24 h.</li>
+    <li>Si DefiLlama rechargera encore l'historique avant le 29/09. Si oui, la référence de la veille « subvention de gas » est à reposer.</li>
+    <li>Si les frais 7 j (−18,9 %) reculent déjà par anticipation de la fin de subvention, ou par simple décrue : rien ne permet de séparer les deux avant le 29/09.</li>
+    <li>Le contenu du volet options de StonkBrokers, que la scission en fiches filles ne permet plus d'identifier.</li>
+    <li>Si le registre des hooks reprendra ses régénérations : figé depuis ~43 h, il ne mesure plus la chaîne aujourd'hui.</li>
+  </ul></div>
+
+  <h2>Pièges du mémo re-vérifiés ce jour</h2>
+  <p><strong>P1</strong> (Pons absent du filtre par chaîne : toujours vrai, recollé via /overview/fees) · <strong>P2</strong> (le total des frais mélange chaîne, terminaux et infrastructure : le ratio Pons est donné avec ce dénominateur nommé) · <strong>P3</strong> (jointure par nom : 85 entrées de frais et 39 de volume sans fiche sur la chaîne) · <strong>P4</strong> (versions Pons recollées : reversement 10,8 %) · <strong>P5</strong> (Fables : code d'audit 3, zéro lien) · <strong>P6</strong> (frontière de mot : le détecteur admet désormais la CamelCase, FablesRWA oui, MorphogenHook non ; faux positifs résiduels sur des noms communs comme Delta ou Gate) · <strong>P7</strong> (chaque chiffre porte sa population). Témoins des bits de permission : 0x28cc → 6 permissions, 0x1000 → afterInitialize seul, conformes. Un piège nouveau à inscrire : <strong>une série DefiLlama peut être réécrite dans le passé par un commit de référentiel</strong> ; seule la comparaison d'une même fenêtre relevée deux jours de suite le détecte.</p>
+
+  <p>
+    <span class="tag source">api.llama.fi (chains, protocols, overview dexs/fees, summary dexs, protocol/pons)</span>
+    <span class="tag source">coins.llama.fi/prices</span>
+    <span class="tag source">rpc.mainnet.chain.robinhood.com · robinhood-rpc.publicnode.com · rpc.ordofi.network</span>
+    <span class="tag source">github.com/DefiLlama/dimension-adapters commits 39d5f5c4, ba486657, 5426bd24</span>
+    <span class="tag source">github.com/Uniswap/sdks sdk-core addresses.ts</span>
+    <span class="tag source">raw.githubusercontent.com/Uniswap/hooklist</span>
+    <span class="tag source">sec.gov 4-927</span>
+    <span class="tag source">federalregister.gov API · govinfo.gov FR-2026-09-22 2026-19388</span>
+    <span class="tag">presse : KuCoin, crypto.news, cryptonews.com, TechFlow — non recoupée</span>
+  </p>
+</main>
+<footer>Hermes DeFi · enquête générée le 2026-09-23 11:30 UTC · série : 5<sup>e</sup> point (21/09 manquant) · fil tokenisation, jour 6 calendaire</footer>
+</body>
+</html>

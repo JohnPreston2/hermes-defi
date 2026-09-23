@@ -32,6 +32,14 @@
       "question": "Que s'est-il passe le 21/09, jour ou l'enquete a mesure des choses (visibles dans le memo technique) sans jamais les publier -- et le score de preuve de la cohorte, recalcule sur l'ensemble des 181 protocoles plutot que sur les seuls membres connus, tient-il quand on l'applique au plus gros protocole de la chaine ?",
       "mesure_neuve": "Rescan complet des 181 protocoles de la chaine pour le score de preuve : Morpho Blue (2e TVL, 556,9 M$, plus que toute la cohorte reunie) score 0/4 -- lien d'audit DefiLlama mort (404, meme piege que Curve), aucun GitHub declare, seul hook approchant (MorphogenHook) est un faux positif de sous-chaine. Correction : le score de Lighter Robinhood Perps tombe de 1 a 0 (attribution HeavierHand jamais recorroboree en 3 controles) ; la famille de hooks Aeon compte 10 entrees, pas 'au moins 6' ; correction d'une confusion de population du memo du 21/09 (38 protocoles a capture non nulle sur 92, pas sur 177). Ouverture d'une veille sur la fin de la subvention de gas a 90 jours de Robinhood Chain, programmee le 29/09/2026 (source presse, non recoupee) -- premier test de charge reel de la chaine.",
       "genere": "2026-09-22T08:15:00Z"
+    },
+    {
+      "date": "2026-09-23",
+      "fichier": "2026-09-23-enquete.html",
+      "titre": "Robinhood Chain, 23/09 : 8,8 milliards de volume passé réapparaissent — et ce ne sont pas des actions",
+      "question": "Le volume Uniswap V3 de la chaîne a gagné 9,2 Md$ en un jour : activité nouvelle, ou histoire réécrite par l'agrégateur — et si c'est une réécriture, que contient le volume qui était invisible ?",
+      "mesure_neuve": "Même fenêtre 23/08-21/09 : V3 passe de 14,24 à 23,04 Md$ (+62 %) après l'ajout par DefiLlama de 19 actifs de référence sur la chaîne (commit 39d5f5c4, 22/09 17:54 UTC), V4 inchangé au dollar près. Échantillon on-chain de 178 193 swaps (47 fenêtres sur 24 h) : sur 691,8 M$/24 h de volume Uniswap V3 officiel, 7,8 % touchent les 15 actions/ETF nouvellement pricés, 5,4 % PONS/CASHCAT, et 59,1 % passent par un seul pool WETH/USDG. Et l'ordre SEC 34-106402 a paru au Federal Register le 22/09 (91 FR 60168).",
+      "genere": "2026-09-23T11:30:00Z"
     }
   ]
 }
