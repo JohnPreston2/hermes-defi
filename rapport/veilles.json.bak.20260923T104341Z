@@ -1,0 +1,243 @@
+{
+ "schema_version": 1,
+ "regle": "Une veille porte une affirmation datee, la mesure exacte qui la testerait, un seuil et une echeance. La session du jour re-teste EN PREMIER les veilles echues ou mesurables, ajoute un point d'historique, et solde en CONFIRMEE / REVISEE / MORTE. Une veille soldee reste visible 3 mois, puis part dans veilles_archive.json. On n'ouvre pas plus de 2 veilles par jour : une veille qu'on ne re-teste pas est une decoration.",
+ "statuts": [
+  "OUVERTE",
+  "CONFIRMEE",
+  "REVISEE",
+  "MORTE"
+ ],
+ "veilles": [
+  {
+   "id": "v_20260918_01",
+   "ouverte": "2026-09-18",
+   "affirmation": "Les hooks de Robinhood Chain servent l'extraction (taxe sur le swap), pas la gestion de liquidite. Si l'ecosysteme murit, la part beforeAddLiquidity doit monter et celle d'afterSwapReturnsDelta baisser.",
+   "mesure": "Registre Uniswap/hooklist : part des hooks chain='robinhood' portant chaque flag. Reference 2026-09-18 : afterSwapReturnsDelta 72,4 % (839/1159), beforeAddLiquidity 25,3 % (293/1159). Comparaison Base le meme jour : 32,7 % et 61,7 %.",
+   "seuil": "Bascule si afterSwapReturnsDelta passe sous 60 % OU si beforeAddLiquidity depasse 40 %.",
+   "echeance": "2026-12-18",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-18",
+     "valeur": "afterSwapReturnsDelta 72,4 % / beforeAddLiquidity 25,3 %",
+     "note": "point de reference"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "afterSwapReturnsDelta 72,4 % (841/1161) / beforeAddLiquidity 25,2 % (293/1161)",
+     "note": "stable jour sur jour, sens inchange"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "afterSwapReturnsDelta 72,4 % (841/1161) / beforeAddLiquidity 25,2 % (293/1161)",
+     "note": "identique bit pour bit a hier -- le registre lui-meme n'a pas bouge depuis le 19/09 10:59 UTC (verifie via commits GitHub), donc ce point n'est pas un signal independant aujourd'hui"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "afterSwapReturnsDelta 72,4 % (843/1164) / beforeAddLiquidity 25,3 % (295/1164)",
+     "note": "identique en proportion a la reference du 18/09 malgre +5 hooks vs le 20/09 (le registre a regenere le 21/09 a 15:38 UTC apres 2j de gel) -- aucun trou de mesure le 21/09 lui-meme (pas de point depose ce jour-la), voir note serie.json"
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260918_02",
+   "ouverte": "2026-09-18",
+   "affirmation": "Le taux d'audit des hooks de Robinhood Chain est structurellement nul et le restera tant qu'aucun incident ne l'aura force.",
+   "mesure": "Registre Uniswap/hooklist : compter les entrees chain='robinhood' avec auditUrl non vide. Reference 2026-09-18 : 4 sur 1159 (0,34 %). Comparaison : Ethereum 17/1125, Base 10/1154.",
+   "seuil": "REVISEE si le taux depasse 1 % ; MORTE si un exploit public sur un hook non audite de la chaine survient avant l'echeance.",
+   "echeance": "2026-12-18",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-18",
+     "valeur": "4 / 1159 (0,34 %)",
+     "note": "point de reference"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "4 / 1161 (0,34 %)",
+     "note": "identique a hier, aucun 5e audit"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "4 / 1161 (0,34 %)",
+     "note": "identique, memes causes -- registre fige"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "4 / 1164 (0,34 %)",
+     "note": "toujours 4, malgre la reprise des regenerations du registre le 21/09 -- aucun 5e audit en 4 jours mesures"
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260918_03",
+   "ouverte": "2026-09-18",
+   "affirmation": "La v3 sans hook reste le refuge d'une part significative du flux : la v4 ne prend pas toute la chaine.",
+   "mesure": "DefiLlama /overview/dexs/Robinhood%20Chain : total30d par protocole. Reference 2026-09-18 : Uniswap V4 17,44 Md$ (43,4 % du volume chaine de 40,19 Md$), Uniswap V3 12,94 Md$ (32,2 %).",
+   "seuil": "CONFIRMEE si V3 tient au-dessus de 20 % du volume chaine a l'echeance ; REVISEE si V3 passe sous 10 %.",
+   "echeance": "2026-12-18",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-18",
+     "valeur": "v4 43,4 % / v3 32,2 % du volume 30 j",
+     "note": "point de reference"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "v4 42,9 % / v3 32,5 % du volume 30j (17,72/13,44/41,28 Md$)",
+     "note": "v3 gagne du terrain (+0,3pt), loin des deux seuils"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "v4 42,8 % / v3 32,5 % du volume 30j (17,96/13,65/41,94 Md$)",
+     "note": "v3 stable a 32,5 %, v4 recule encore (42,9->42,8), tendance de fond coherente avec la veille sur 3 points"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "v4 42,5 % / v3 32,7 % du volume 30j (18,51/14,24/43,57 Md$)",
+     "note": "v3 remonte a 32,7% (son plus haut niveau mesure), v4 recule encore a 42,5% -- tendance de fond confirmee sur 4 points malgre le trou du 21/09, loin des deux seuils"
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260918_04",
+   "ouverte": "2026-09-18",
+   "affirmation": "Robinhood Chain est une infrastructure de marche actions, pas une chaine a memecoins munie d'un ticker. La famille 'actions tokenisees' du registre doit croitre et un avis de TSV doit finir par etre depose.",
+   "mesure": "Deux mesures conjointes. (1) Registre hooklist : part des hooks robinhood dont la description mentionne stock|equity|RWA|tokenized share ; reference 2026-09-18 : 154 deploiements sur 1159 (13,4 %), 83 noms distincts. (2) Recherche web d'un avis public de Tokenized Securities Venue (l'ordre SEC impose une notice publique 30 jours avant d'operer, plus une notification ecrite a la Commission).",
+   "seuil": "MORTE si, a l'echeance, la famille actions tokenisees stagne sous 15 % ET qu'aucun avis de TSV n'a ete publie. CONFIRMEE si un avis de TSV est depose.",
+   "echeance": "2026-12-18",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-18",
+     "valeur": "13,4 % du registre (154/1159) ; aucun avis de TSV connu",
+     "note": "point de reference, condition de refutation du rapport du 18/09"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "154 deploiements sur 1161 (13,3 %) ; toujours aucun avis de TSV connu",
+     "note": "compte identique a hier (154), dilue par les 2 nouvelles entrees du registre"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "154 deploiements sur 1161 (13,3 %) ; toujours aucun avis de TSV -- confirme par recherche web ce jour (aucune annonce de notice TSV trouvee)",
+     "note": "3e jour consecutif a 154, registre fige"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "154 deploiements sur 1164 (13,2 %) ; toujours aucun avis de TSV connu (recherche web ce jour)",
+     "note": "4e mesure a 154 deploiements pile identiques -- le compte de hooks stock-vocab n'a plus bouge depuis le 18/09 alors que le registre lui-meme a grossi (+5 hooks le 21/09, aucun a vocabulaire actions)"
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260918_05",
+   "ouverte": "2026-09-18",
+   "affirmation": "L'ordre SEC 34-106402 va paraitre au Federal Register et ouvrir la fenetre de commentaires ; les poids lourds du secteur deposeront alors, alors que les huit premieres lettres ne viennent que de particuliers.",
+   "mesure": "(1) API Federal Register, agences=securities-and-exchange-commission, terme=tokenized, depuis 2026-09-17. (2) Page des commentaires SEC 4-927 : nombre de lettres et qualite des signataires. Reference 2026-09-18 : non paru ; 8 lettres, toutes de particuliers ou tres petites structures, aucun cabinet, aucune bourse, aucun courtier, aucun emetteur.",
+   "seuil": "CONFIRMEE a la premiere lettre signee par une bourse, un courtier, un emetteur ou un cabinet d'avocats. REVISEE si l'ordre n'est toujours pas paru au 2026-10-31.",
+   "echeance": "2026-10-31",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-18",
+     "valeur": "non paru au FR ; 8 lettres, 0 institution",
+     "note": "point de reference"
+    },
+    {
+     "date": "2026-09-19",
+     "valeur": "non paru au FR (verifie aussi via requete directe sur '106402', 0 resultat) ; 8 lettres, 0 institution",
+     "note": "ordre effectif depuis le 17/09 independamment de la parution FR (communique SEC primaire) ; le delai des 5 ans d'exemption, lui, part de la publication"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "non paru au FR (requete API agence SEC + terme tokenized : dernier document SEC pertinent du 14/09 ; requete directe '106402' : 0 resultat) ; 8 lettres, 0 institution stricte (Turnqey Labs et The Insumer Model LLC apparues le 17/09 mais ni bourse, ni courtier, ni emetteur, ni cabinet au sens du seuil)",
+     "note": "3e jour a 8 lettres identiques -- aucune nouvelle lettre depuis le 18/09"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "non paru au FR (dernier document SEC pertinent : 14/09, requete directe '106402' toujours 0 resultat) ; 8 lettres identiques, memes 8 signataires qu'au 17-18/09 (dont Turnkey Labs et The Insumer Model LLC, ni bourse ni courtier ni emetteur ni cabinet)",
+     "note": "4e jour mesure a 8 lettres -- silence total du docket depuis 4 jours"
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260919_01",
+   "ouverte": "2026-09-19",
+   "affirmation": "L'investissement d'Uniswap Labs dans PONS (annonce debut septembre 2026) n'est pas un geste isole : le poids de PONS dans les frais totaux de Robinhood Chain se maintient ou croit, confirmant le memecoin/launchpad comme pilier assume de la strategie d'Uniswap sur cette chaine plutot qu'un bruit passager.",
+   "mesure": "DefiLlama /overview/fees/Robinhood%20Chain : part de Pons (V1+V2) dans total30d. Reference 2026-09-19 : 135 487 898 $ sur 322 641 481 $ = 42,0 %.",
+   "seuil": "MORTE si la part de Pons tombe sous 15 % du total avant l'echeance. CONFIRMEE si elle reste au-dessus de 30 % a l'echeance.",
+   "echeance": "2026-11-19",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "valeur": "42,0 % (135,5/322,6 M$)",
+     "note": "point de reference, ouverte suite a l'acquisition PONS par Uniswap Labs (annoncee 03-04/09/2026)"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "40,1 % (131,0/327,1 M$)",
+     "note": "recul de 1,9pt vs 19/09 (42,0%) mais Pons reste tres au-dessus du seuil MORTE (15%) et proche du seuil CONFIRMEE (30%) -- le volume Pons croit (+2,0%) plus vite que ses frais (-3,3%), signe possible de fee compression plutot que de perte de part de marche"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "40,4 % (135,8/336,4 M$)",
+     "note": "remonte legerement vs le 20/09 (40,1%), reste sous la reference du 19/09 (42,0%) et tres au-dessus du seuil MORTE (15%) -- mesure sur le total30d recalcule (336,4 M$, +2,8% vs 20/09) car le total de la chaine a lui-meme bouge"
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260920_01",
+   "ouverte": "2026-09-20",
+   "affirmation": "Les 4 candidats automatiques identifies le 19/09 (Snuggle, UNCX Network V3, Beefy, Ramses DLMM) ne sont pas un artefact d'un jour : recalcules sur l'ensemble des protocoles de la chaine avec la regle de score figee, ils depassent toujours au moins un membre nomme de la cohorte sur la preuve ET la traction, mesure deux jours de suite. Si la dominance tient 7 jours consecutifs, la regle ecrite du 19/09 les fait entrer sans arbitrage humain.",
+   "mesure": "cohorte.json > candidats_automatiques : recalcul quotidien du score de preuve (audit_links HTTP 200, compte GitHub API 200, hook nomme au registre) croise au TVL Robinhood Chain et aux frais 30j DefiLlama de chaque protocole hors cohorte.",
+   "seuil": "CONFIRMEE (entree automatique declenchee) si un des 4 depasse un membre nomme sur la preuve ET la traction pendant 7 jours consecutifs a compter du 19/09 (jour 1). MORTE si aucun des 4 ne reste candidat (score>=2 et traction au-dessus du plancher) pendant 5 jours consecutifs.",
+   "echeance": "2026-09-26",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-19",
+     "valeur": "4 candidats (Snuggle, UNCX Network V3, Beefy, Ramses DLMM) -- jour 1",
+     "note": "point d'ouverture, reconstitue a posteriori depuis cohorte.json (candidats deja identifies ce jour-la, veille formalisee le 20/09)"
+    },
+    {
+     "date": "2026-09-20",
+     "valeur": "memes 4 candidats, jour 2 consecutif -- Snuggle TVL 7,54->7,33 M$, UNCX V3 TVL 9,05->8,56 M$, Beefy TVL 3,57->3,35 M$, Ramses DLMM TVL 0,83->0,80 M$ (les 4 en leger recul, aucun nouvel entrant, aucune sortie)",
+     "note": "compteur a 2/7, aucune entree declenchee"
+    },
+    {
+     "date": "2026-09-22",
+     "valeur": "memes 4 candidats (Snuggle score 2 TVL 7,02M$ fees 2,25M$ ; UNCX V3 score 2 TVL 9,05M$ fees 0 ; Beefy score 3 TVL 2,82M$ mcap 6,02M$ ; Ramses DLMM score 2 TVL 0,84M$ fees 0,32M$) -- Snuggle bat toujours 6 membres sur preuve ET frais 30j, Ramses DLMM seulement 2",
+     "note": "TROU DE CONTINUITE : aucune mesure n'a ete deposee le 21/09, donc le compteur '7 jours consecutifs' ne peut pas etre tenu tel qu'ecrit -- 3 jours de donnees sur 4 calendaires (19,20,22), pas 4 consecutifs. Le compteur repart a 1 jour verifie sans interruption a partir d'aujourd'hui ; l'echeance du 26/09 est maintenue mais ne pourra etre jugee que si les jours restants sont mesures sans nouveau trou."
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260922_01",
+   "ouverte": "2026-09-22",
+   "affirmation": "L'activite de Robinhood Chain (volume, frais, TVL, nombre de swaps) est en bonne partie portee par la subvention de gas a 90 jours lancee le 2026-07-01 (plafond reduit de 5$ a 0,50$ mi-aout). Sa fin programmee le 2026-09-29 est un test de charge reel : si l'activite est motivee par le produit et non par le gas gratuit, le recul post-expiration doit rester limite.",
+   "mesure": "DefiLlama /overview/dexs et /overview/fees Robinhood Chain : total24h et total7d de volume et de frais, releves quotidiennement avant et apres le 29/09. Reference 2026-09-22 : volume 30j chaine 43,57 Md$ (total24h a mesurer au prochain releve), frais 30j chaine 336,4 M$. Contexte externe (presse, non recoupe par une source primaire) : TVL chaine deja retombee de 1,4 Md$ (fin aout, pic) a 738 M$ au 01/09, avant de remonter a 997,6 M$ mesure aujourd'hui -- donc pas une simple decrue monotone.",
+   "seuil": "MORTE (subvention non structurante) si le volume7j et les frais7j perdent moins de 20% dans les 14 jours suivant le 29/09. CONFIRMEE (dependance structurelle) si volume7j OU frais7j chutent de plus de 50% dans les 14 jours suivant le 29/09.",
+   "echeance": "2026-10-13",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-22",
+     "valeur": "point d'ouverture : volume 30j 43,57 Md$, frais 30j 336,4 M$, TVL chaine 997,6 M$",
+     "note": "ouverte suite a une recherche web (KuCoin, crypto.news, cryptonews.com, cryptoticker.io) -- aucune de ces sources n'est une source primaire Robinhood ; le calendrier (lancement 01/07, palier 5$->0,50$ mi-aout, fin 29/09) est repete de facon concordante par 4 sources independantes mais reste presse, non recoupe on-chain a ce stade"
+    }
+   ],
+   "solde": null
+  }
+ ]
+}
