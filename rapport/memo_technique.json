@@ -1,8 +1,7 @@
 {
  "schema_version": 1,
- "maj": "2026-09-21",
+ "maj": "2026-09-24",
  "role": "Memo TECHNIQUE de l'enquete Robinhood Chain. Il porte les FAITS : endpoints qui repondent, constantes, et pieges MESURES sur ces sources. Le prompt de la routine porte la METHODE et ne doit pas dupliquer ce fichier. A lire au debut de chaque enquete, AVANT la premiere mesure. Chaque piege ici a coute une erreur reelle, datee.",
-
  "sources": {
   "registre_hooks": {
    "jeu_complet": "https://raw.githubusercontent.com/Uniswap/hooklist/main/hooklist.json",
@@ -26,20 +25,56 @@
   },
   "chaine_en_direct": {
    "decouvert_le": "2026-09-19",
-   "rpc_verifies": ["https://rpc.mainnet.chain.robinhood.com", "https://robinhood-rpc.publicnode.com", "https://rpc.ordofi.network"],
+   "rpc_verifies": [
+    "https://rpc.mainnet.chain.robinhood.com",
+    "https://robinhood-rpc.publicnode.com",
+    "https://rpc.ordofi.network"
+   ],
    "rpc_mort": "https://rpc.arrowrpc.com (HTTP 530)",
    "temoin": "eth_chainId doit rendre 0x1237 (4663) ; eth_getCode sur une adresse bidon doit rendre 0x",
-   "explorateurs": ["robinscan.io", "robinhoodchain.blockscout.com (403 aux scripts)", "hoodscan.co", "stonkscan.io"],
+   "explorateurs": [
+    "robinscan.io",
+    "robinhoodchain.blockscout.com (403 aux scripts)",
+    "hoodscan.co",
+    "stonkscan.io"
+   ],
    "poolmanager_v4": "0x8366a39cc670b4001a1121b8f6a443a643e40951 — VERIFIE le 19/09 : 24 009 octets de bytecode",
-   "registre_des_chaines": "https://chainid.network/chains.json (chainId 4663) — c'est la qu'on trouve les RPC quand un explorateur bloque"
+   "registre_des_chaines": "https://chainid.network/chains.json (chainId 4663) — c'est la qu'on trouve les RPC quand un explorateur bloque",
+   "uniswap_frais_de_protocole": {
+    "verifie_le": "2026-09-24",
+    "firepit": "0x7A8F74C2585F84C781F951B7F2FF21337D5B630B (3 076 octets ; threshold 2 000 UNI ; evenement Released(uint256 indexed nonce, address indexed recipient, address[] assets))",
+    "token_jar": "0x2ac03e14cfe755426daaee0a4994184ce81482f8",
+    "uni_ponte": "0xf177d86a28b520e3e396e4f3b96cd8e72d7dabd8 (totalSupply 159 255 UNI le 24/09)",
+    "adaptateur_frais_v3": "0x05c420bc4823e039aa4da645edde743486daaa25 = owner() de la factory v3 0x1f7d7550b1b028f7571e69a784071f0205fd2efa",
+    "controleur_frais_v4": "0x6d0009504d129cf5002dba61d9ae8575aa79314c",
+    "gouvernance": "owner() de tous ces contrats = 0x2bad8182c09f50c8318d769245bea52c32be46cd = alias L1->L2 du Timelock Uniswap 0x1a9C8182C09F50C8318d769245beA52c32BE35BC (+0x1111000000000000000000000000000000001111), calcule et verifie",
+    "piege_rpc": "eth_getLogs ProtocolFeeUpdated sur la PoolManager v4 : 'logs matched by query exceeds limit of 10000' meme sur 20 000 blocs -- sonde non concluante le 24/09, a refaire autrement (explorateur ou fenetres plus petites)."
+   }
   }
  },
-
  "constantes": {
   "flags_hook_v4": {
    "regle": "Les 14 bits de poids faible de l'adresse SONT les permissions. Masquer les 4 derniers hex par 0x3FFF.",
-   "bits": {"1<<13": "beforeInitialize", "1<<12": "afterInitialize", "1<<11": "beforeAddLiquidity", "1<<10": "afterAddLiquidity", "1<<9": "beforeRemoveLiquidity", "1<<8": "afterRemoveLiquidity", "1<<7": "beforeSwap", "1<<6": "afterSwap", "1<<5": "beforeDonate", "1<<4": "afterDonate", "1<<3": "beforeSwapReturnsDelta", "1<<2": "afterSwapReturnsDelta", "1<<1": "afterAddLiquidityReturnsDelta", "1<<0": "afterRemoveLiquidityReturnsDelta"},
-   "temoins": {"0x013fc7c5f2430dee0102abce77c0de43dd7de8cc": "0x28cc -> 6 permissions", "0x01ace8bc990270fbb742b27892b149a7f0e71000": "0x1000 -> afterInitialize seul"}
+   "bits": {
+    "1<<13": "beforeInitialize",
+    "1<<12": "afterInitialize",
+    "1<<11": "beforeAddLiquidity",
+    "1<<10": "afterAddLiquidity",
+    "1<<9": "beforeRemoveLiquidity",
+    "1<<8": "afterRemoveLiquidity",
+    "1<<7": "beforeSwap",
+    "1<<6": "afterSwap",
+    "1<<5": "beforeDonate",
+    "1<<4": "afterDonate",
+    "1<<3": "beforeSwapReturnsDelta",
+    "1<<2": "afterSwapReturnsDelta",
+    "1<<1": "afterAddLiquidityReturnsDelta",
+    "1<<0": "afterRemoveLiquidityReturnsDelta"
+   },
+   "temoins": {
+    "0x013fc7c5f2430dee0102abce77c0de43dd7de8cc": "0x28cc -> 6 permissions",
+    "0x01ace8bc990270fbb742b27892b149a7f0e71000": "0x1000 -> afterInitialize seul"
+   }
   },
   "slots_erc1967": {
    "regle": "CALCULER, ne jamais reciter : keccak256(nom) - 1.",
@@ -49,37 +84,72 @@
    "piege": "Pour un proxy UUPS le slot admin est VIDE : l'autorite vit dans l'implementation. Appeler owner() SUR LE PROXY. Mesure du 19/09 : autorite lisible pour 24 des 28 proxys une fois la bonne sonde utilisee, contre 0 avec le seul slot admin."
   }
  },
-
  "pieges_mesures": [
-  {"id": "P1", "date": "2026-09-21", "source": "DefiLlama /protocols",
+  {
+   "id": "P1",
+   "date": "2026-09-21",
+   "source": "DefiLlama /protocols",
    "symptome": "Pons V1 et V2 ont un champ `chains` VIDE. Ils sont donc ABSENTS de tout filtre « protocoles de Robinhood Chain », alors qu'ils y produisent 138 M$ de frais sur 30 j — le premier encaisseur de la chaine.",
-   "parade": "Ne jamais deduire l'absence d'un protocole de son absence du filtre par chaine. Croiser avec /overview/fees, qui liste des entrees que /protocols ne rattache a aucune chaine."},
-
-  {"id": "P2", "date": "2026-09-21", "source": "DefiLlama /overview/fees",
+   "parade": "Ne jamais deduire l'absence d'un protocole de son absence du filtre par chaine. Croiser avec /overview/fees, qui liste des entrees que /protocols ne rattache a aucune chaine."
+  },
+  {
+   "id": "P2",
+   "date": "2026-09-21",
+   "source": "DefiLlama /overview/fees",
    "symptome": "Le total de 327 M$ melange des natures differentes : protocoles, la CHAINE elle-meme (38,7 M$ = sequenceur), des agregateurs et terminaux (GMGN 30,7 M$, Axiom 6,8 M$), l'infrastructure (Arbitrum Nitro 3,9 M$) et des places de marche (Seaport). 232 M$ sur 327 ne joignent a aucun protocole de la chaine.",
-   "parade": "Une « part des frais de la chaine » calculee sur ce total n'est PAS une part de marche. Soit on nomme ce que contient le denominateur, soit on ne publie pas le ratio."},
-
-  {"id": "P3", "date": "2026-09-21", "source": "DefiLlama, jointure par NOM",
+   "parade": "Une « part des frais de la chaine » calculee sur ce total n'est PAS une part de marche. Soit on nomme ce que contient le denominateur, soit on ne publie pas le ratio.",
+   "correction_20260924": "RE-VERIFIE LE 24/09, PARTIELLEMENT FAUX : le total30d DECLARE de /overview/fees n'inclut PAS la ligne 'Robinhood Chain' ni les lignes doublecounted=True (dont Arbitrum Nitro, Pons V1, Snuggle). Mesure : somme des lignes non doublecounted (397 723 508 $) moins la ligne de la chaine (39 560 921 $) = 358 162 587 $, le total declare au dollar pres. Il inclut en revanche GMGN et Axiom (non doublecounted cote frais). Meme regle pour dailyRevenue (112 445 598 - 35 587 294 = 76 858 304)."
+  },
+  {
+   "id": "P3",
+   "date": "2026-09-21",
+   "source": "DefiLlama, jointure par NOM",
    "symptome": "Joindre /protocols et /overview/fees par le nom echoue en silence : 79 entrees de frais sans correspondance. Le meme protocole porte des noms differents selon la table.",
-   "parade": "Toute jointure par nom doit imprimer le nombre de NON-joints avant usage. Un total qui ne colle pas avec le total declare par l'API est le signal."},
-
-  {"id": "P4", "date": "2026-09-21", "source": "DefiLlama, versions d'un meme protocole",
+   "parade": "Toute jointure par nom doit imprimer le nombre de NON-joints avant usage. Un total qui ne colle pas avec le total declare par l'API est le signal."
+  },
+  {
+   "id": "P4",
+   "date": "2026-09-21",
+   "source": "DefiLlama, versions d'un meme protocole",
    "symptome": "PONS : les frais sont encaisses par la fiche V2 (131 M$) tandis que le rachat-destruction du jeton est impute a la fiche V1 (14,8 M$) — d'ou un taux de reversement absurde de 203 % si on lit V1 seule. Et la capitalisation (405 M$) vit sur une TROISIEME fiche (`pons`), dont le champ chains est vide.",
-   "parade": "Recoller les versions d'un meme jeton avant tout ratio. Reversement reel PONS = 11 % des frais des deux versions."},
-
-  {"id": "P5", "date": "2026-09-19", "source": "DefiLlama, champ `audits`",
+   "parade": "Recoller les versions d'un meme jeton avant tout ratio. Reversement reel PONS = 11 % des frais des deux versions."
+  },
+  {
+   "id": "P5",
+   "date": "2026-09-19",
+   "source": "DefiLlama, champ `audits`",
    "symptome": "Le code `audits` vaut 3 pour Fables sans aucun `audit_links`. A l'inverse, Morpho Blue et Curve sont audites mais leur lien rend 404.",
-   "parade": "Ne compter que les liens qui repondent HTTP 200, et dire explicitement que la mesure porte sur la TRACABILITE PUBLIEE, jamais sur la securite."},
-
-  {"id": "P6", "date": "2026-09-20", "source": "registre des hooks, rapprochement texte",
+   "parade": "Ne compter que les liens qui repondent HTTP 200, et dire explicitement que la mesure porte sur la TRACABILITE PUBLIEE, jamais sur la securite."
+  },
+  {
+   "id": "P6",
+   "date": "2026-09-20",
+   "source": "registre des hooks, rapprochement texte",
    "symptome": "Rapprocher un protocole d'un hook par sous-chaine produit des faux positifs : PARE matchait le mot `parent` ; HeavierHand a ete attribue a Lighter parce que sa description dit « selling the lighter side » — le cote le plus LEGER du pool. Ce hook reverse en fait ses frais a « Aeon protocol ».",
-   "parade": "Frontiere de mot obligatoire, et un rapprochement TEXTE ne vaut jamais preuve d'appartenance : il faut l'adresse de deploiement."},
-
-  {"id": "P7", "date": "2026-09-18", "source": "populations confondues",
+   "parade": "Frontiere de mot obligatoire, et un rapprochement TEXTE ne vaut jamais preuve d'appartenance : il faut l'adresse de deploiement."
+  },
+  {
+   "id": "P7",
+   "date": "2026-09-18",
+   "source": "populations confondues",
    "symptome": "« 4 audits sur 176 protocoles » : FAUX. Les 4 sont des HOOKS (4 sur 1 161). Au niveau des protocoles, 31 sur 176 publient un lien qui repond. Erreur d'un facteur 8, tenue deux fois.",
-   "parade": "Tout chiffre publie transporte SA POPULATION : « 4 hooks sur 1 161 », jamais « 4 sur 176 »."}
+   "parade": "Tout chiffre publie transporte SA POPULATION : « 4 hooks sur 1 161 », jamais « 4 sur 176 »."
+  },
+  {
+   "id": "P8",
+   "date": "2026-09-24",
+   "source": "DefiLlama /overview/fees ...&dataType=dailyHoldersRevenue",
+   "symptome": "Le total declare (14,35 M$ sur 30 j) est PLUS PETIT que la seule ligne Pons V1 (15,82 M$) : le total exclut les lignes doublecounted=True, et Pons V1 en est une. La somme des lignes vaut 31,15 M$. Tout ratio 'part du revenu aux detenteurs de la chaine' qui prend un numerateur doublecounted sur le total declare depasse 100 %.",
+   "parade": "Avant tout ratio, verifier que le numerateur est dans le denominateur : filtrer doublecounted de la meme facon des deux cotes, et imprimer total declare ET somme des lignes."
+  },
+  {
+   "id": "P9",
+   "date": "2026-09-24",
+   "source": "DefiLlama, revenu aux detenteurs d'Uniswap V3 (adaptateur dexs/uniswap-v3.ts)",
+   "symptome": "Ce 'revenu' n'est pas un flux de frais : c'est le nombre d'evenements Released du contrat Firepit multiplie par le seuil (2 000 UNI sur Robinhood Chain) et par le cours UNI. Les valeurs journalieres sont donc quantifiees, et le nombre de rachats baisse mecaniquement quand le cours UNI monte (5,13 $ le 31/08 -> 10,22 $ le 23/09), a frais constants. La v4 vaut 0 sur toutes les chaines chez DefiLlama, meme la ou un frais de protocole v4 a ete vote.",
+   "parade": "Lire ce champ comme 'valeur d'UNI detruite', recoupable sur la chaine (Firepit 0x7A8F74C2585F84C781F951B7F2FF21337D5B630B, threshold()=2000e18, nonce()). Ne jamais en deduire une tendance des frais sans corriger du cours UNI."
+  }
  ],
-
  "mesure_ajoutee_20260921": {
   "nom": "capture_par_le_jeton",
   "definition": "part des frais 30 j d'un protocole qui revient aux detenteurs de son jeton (DefiLlama dataType=dailyHoldersRevenue / dailyFees).",
@@ -88,7 +158,12 @@
    "protocoles_de_la_chaine_avec_capture_non_nulle": 38,
    "sur_total": 177,
    "pons_les_deux_versions": "14,8 M$ reverses sur 138,3 M$ de frais = 11 %, mcap 405,2 M$, soit un multiple de 2,25 sur le rythme annualise",
-   "plus_gros_encaisseurs_sans_capture": ["Pons V2 (attribution, voir P4)", "Uniswap V4 103,2 M$", "Robinhood Chain 38,7 M$", "GMGN 30,7 M$"],
+   "plus_gros_encaisseurs_sans_capture": [
+    "Pons V2 (attribution, voir P4)",
+    "Uniswap V4 103,2 M$",
+    "Robinhood Chain 38,7 M$",
+    "GMGN 30,7 M$"
+   ],
    "plus_grosse_capitalisation_sans_capture": "Virtuals Protocol, 437,7 M$ de mcap pour 0,39 M$ de frais et 0 au jeton"
   },
   "statut_dans_la_cohorte": "MESURE AFFICHEE, pas critere de sortie automatique. Motif : un protocole jeune peut n'avoir aucun frais a reverser (TermMax) sans que ce soit un defaut. La conversion en critere de sortie est une decision user, pas une deduction."

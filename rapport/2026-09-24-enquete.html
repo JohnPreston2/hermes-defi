@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 24/09 : la chaîne qui brûle le plus d'UNI — et ce n'est pas la v4</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+    <nav><a href="../">accueil</a><a href="2026-09-23-enquete.html">enquête du 23/09</a></nav>
+  </div>
+</header>
+<main>
+  <p class="tag data">Enquête · 24 septembre 2026 · fil Uniswap v4 × Robinhood Chain, jour 7</p>
+  <h1>Robinhood Chain, 24/09 : la chaîne qui brûle le plus d'UNI — et ce n'est pas la v4</h1>
+  <p class="question">DefiLlama attribue 9,6 M$ sur 30 jours aux détenteurs d'UNI grâce à Uniswap V3 sur Robinhood Chain. Ce chiffre est-il réel, que mesure-t-il vraiment, et pourquoi la v4, qui encaisse trois fois plus de frais sur la même chaîne, n'y apporte rien ?</p>
+
+  <div class="provenance">
+    <div class="row"><span>Relevé principal</span><span>2026-09-24 08:49:55 UTC</span></div>
+    <div class="row"><span>DefiLlama /protocols, /v2/chains, /overview (frais, volumes, revenu, revenu aux détenteurs), /summary uniswap-v3 et v4</span><span class="age-fresh">relevé 08:49 UTC</span></div>
+    <div class="row"><span>Robinhood Chain en direct (RPC, eth_getLogs, eth_call) — bloc 71 241 753</span><span class="age-fresh">relevé 09:00–09:10 UTC</span></div>
+    <div class="row"><span>Registre Uniswap/hooklist — dernière régénération 2026-09-21 15:38 UTC (commit 1d2f09b1)</span><span class="age-dead">figé depuis ~65 h</span></div>
+    <div class="row"><span>SEC dossier 4-927 (témoin négatif 4-9999 → 404) · Federal Register API</span><span class="age-fresh">relevé 09:15 UTC</span></div>
+    <div class="row"><span>Delta (Hermes) : répond ; defi.json du 24/09 08:53 UTC — lu comme source d'appoint, aucun chiffre repris</span><span class="age-fresh">frais</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><b>1 187</b><span>rachats-destructions de 2 000 UNI comptés sur la chaîne depuis le 27/07</span></div>
+    <div class="stat"><b>59,5 %</b><span>part de Robinhood Chain dans le revenu aux détenteurs d'Uniswap V3, toutes chaînes, 30 j</span></div>
+    <div class="stat"><b>0 $</b><span>ce que la v4 reverse aux détenteurs selon DefiLlama, pour 108,4 M$ de frais 30 j sur la chaîne</span></div>
+  </div>
+
+  <h2>Ce que disent les veilles, en tête</h2>
+  <p>Huit veilles ouvertes, toutes re-testées ce matin. <strong>Aucun seuil franchi.</strong></p>
+  <ul>
+    <li><strong>Hooks (trois veilles)</strong> : 843 hooks sur 1 164 portent <code>afterSwapReturnsDelta</code> (72,4 %), 4 audités sur 1 164, 154 à vocabulaire « actions » sur 1 164. Valeurs identiques à hier, et ce ne sont pas des mesures indépendantes : le fichier téléchargé est identique octet pour octet à celui du 23/09. Le registre n'a pas été régénéré depuis 65 heures. C'est le troisième gel en six jours.</li>
+    <li><strong>v3 contre v4</strong> : v3 à 43,9 % et v4 à 35,1 % du volume 30 j de la chaîne (23,71 / 18,94 / 54,01 Md$). Ces chiffres sont comparables à hier, car la tarification est la même depuis le 22/09 : v3 +0,1 pt, v4 −0,3 pt.</li>
+    <li><strong>Pons</strong> : 39,1 % des frais 30 j déclarés de la chaîne (140,06 sur 358,16 M$), comme hier. Le dénominateur a été re-vérifié, voir plus bas.</li>
+    <li><strong>SEC 4-927</strong> : 14 lettres, les mêmes signataires qu'au relevé d'hier. Aucune nouvelle lettre <em>publiée</em> : la SEC met les lettres en ligne avec retard. La qualification de Bitcoin Bancorp (micro-émetteur coté hors bourse) attend toujours ta décision.</li>
+    <li><strong>Candidats automatiques</strong> : les mêmes six, troisième jour consécutif sans trou. La veille se soldera le 26/09 en REVISEE, comme écrit hier.</li>
+    <li><strong>Subvention de gas, J−5</strong> : volume 7 j de 10,499 Md$ (−0,7 % sur un jour), frais 7 j de 48,87 M$ (+1,1 %), TVL de la chaîne à 1 001,6 M$. Plateau avant le 29/09.</li>
+  </ul>
+
+  <h2>Ce qui a été mesuré</h2>
+  <p><em>Méthode en une ligne</em> : lecture du code de l'agrégateur, puis comptage direct, sur la chaîne, des événements du contrat qui détruit les UNI. Les deux comptes sont ensuite comparés jour par jour.</p>
+  <p><strong>Ce que mesure DefiLlama.</strong> Dans l'adaptateur <code>dexs/uniswap-v3.ts</code>, le « revenu aux détenteurs » n'est pas un flux de frais. C'est le nombre d'événements <code>Released</code> émis par un contrat appelé Firepit, multiplié par un seuil fixe en UNI, puis par le cours de l'UNI. Pour Robinhood Chain, le contrat est <code>0x7A8F…630B</code> et la date d'activation écrite est le 27/07/2026. Le mécanisme fonctionne ainsi : les frais de protocole de la v3 s'accumulent dans un coffre (TokenJar). N'importe qui peut les retirer, à condition de détruire 2 000 UNI. Des chercheurs d'arbitrage le font dès que le coffre vaut plus que ces 2 000 UNI.</p>
+  <p><strong>Ce que dit la chaîne.</strong> Sur la chaîne, <code>threshold()</code> rend exactement 2 000 UNI. On compte <strong>1 187 événements Released</strong> du 27/07 10:59 UTC au 24/09 05:13 UTC. Leurs nonces vont de 0 à 1186 sans aucun trou, et <code>nonce()</code> rend 1 187 : le compte est complet. Cela fait 2 374 000 UNI détruits en moins de deux mois. Sur la fenêtre de 30 jours du 25/08 au 23/09, on compte <strong>765 rachats, soit 1 530 000 UNI, valant 9,33 M$</strong> au cours journalier. DefiLlama affiche 9,59 M$ sur sa propre fenêtre : l'écart est de 2,8 %. Il s'explique par les bornes de journée et par le moment où le cours est pris. <strong>Le chiffre de l'agrégateur est donc confirmé à la source.</strong></p>
+  <svg viewBox="0 0 860 234" role="img" aria-label="Rachats UNI par jour sur Robinhood Chain, 27/07 au 23/09" style="width:100%;height:auto;display:block"><line x1="0" x2="860" y1="150.0" y2="150.0" stroke="var(--line)"/><text x="2" y="147.0" font-size="10" fill="var(--ink3)" font-family="var(--mono)">20</text><line x1="0" x2="860" y1="100.0" y2="100.0" stroke="var(--line)"/><text x="2" y="97.0" font-size="10" fill="var(--ink3)" font-family="var(--mono)">40</text><line x1="0" x2="860" y1="50.0" y2="50.0" stroke="var(--line)"/><text x="2" y="47.0" font-size="10" fill="var(--ink3)" font-family="var(--mono)">60</text><line x1="0" x2="860" y1="0.0" y2="0.0" stroke="var(--line)"/><text x="2" y="-3.0" font-size="10" fill="var(--ink3)" font-family="var(--mono)">80</text><rect x="1.0" y="172.5" width="12.6" height="27.5" fill="var(--data)"><title>2026-07-27 : 11 rachats</title></rect><rect x="15.6" y="140.0" width="12.6" height="60.0" fill="var(--data)"><title>2026-07-28 : 24 rachats</title></rect><rect x="30.2" y="122.5" width="12.6" height="77.5" fill="var(--data)"><title>2026-07-29 : 31 rachats</title></rect><rect x="44.7" y="160.0" width="12.6" height="40.0" fill="var(--data)"><title>2026-07-30 : 16 rachats</title></rect><rect x="59.3" y="167.5" width="12.6" height="32.5" fill="var(--data)"><title>2026-07-31 : 13 rachats</title></rect><rect x="73.9" y="177.5" width="12.6" height="22.5" fill="var(--data)"><title>2026-08-01 : 9 rachats</title></rect><rect x="88.5" y="180.0" width="12.6" height="20.0" fill="var(--data)"><title>2026-08-02 : 8 rachats</title></rect><rect x="103.0" y="162.5" width="12.6" height="37.5" fill="var(--data)"><title>2026-08-03 : 15 rachats</title></rect><rect x="117.6" y="162.5" width="12.6" height="37.5" fill="var(--data)"><title>2026-08-04 : 15 rachats</title></rect><rect x="132.2" y="145.0" width="12.6" height="55.0" fill="var(--data)"><title>2026-08-05 : 22 rachats</title></rect><rect x="146.8" y="127.5" width="12.6" height="72.5" fill="var(--data)"><title>2026-08-06 : 29 rachats</title></rect><rect x="161.3" y="160.0" width="12.6" height="40.0" fill="var(--data)"><title>2026-08-07 : 16 rachats</title></rect><rect x="175.9" y="172.5" width="12.6" height="27.5" fill="var(--data)"><title>2026-08-08 : 11 rachats</title></rect><rect x="190.5" y="162.5" width="12.6" height="37.5" fill="var(--data)"><title>2026-08-09 : 15 rachats</title></rect><rect x="205.1" y="165.0" width="12.6" height="35.0" fill="var(--data)"><title>2026-08-10 : 14 rachats</title></rect><rect x="219.6" y="170.0" width="12.6" height="30.0" fill="var(--data)"><title>2026-08-11 : 12 rachats</title></rect><rect x="234.2" y="147.5" width="12.6" height="52.5" fill="var(--data)"><title>2026-08-12 : 21 rachats</title></rect><rect x="248.8" y="160.0" width="12.6" height="40.0" fill="var(--data)"><title>2026-08-13 : 16 rachats</title></rect><rect x="263.4" y="152.5" width="12.6" height="47.5" fill="var(--data)"><title>2026-08-14 : 19 rachats</title></rect><rect x="277.9" y="172.5" width="12.6" height="27.5" fill="var(--data)"><title>2026-08-15 : 11 rachats</title></rect><rect x="292.5" y="175.0" width="12.6" height="25.0" fill="var(--data)"><title>2026-08-16 : 10 rachats</title></rect><rect x="307.1" y="172.5" width="12.6" height="27.5" fill="var(--data)"><title>2026-08-17 : 11 rachats</title></rect><rect x="321.7" y="177.5" width="12.6" height="22.5" fill="var(--data)"><title>2026-08-18 : 9 rachats</title></rect><rect x="336.3" y="175.0" width="12.6" height="25.0" fill="var(--data)"><title>2026-08-19 : 10 rachats</title></rect><rect x="350.8" y="177.5" width="12.6" height="22.5" fill="var(--data)"><title>2026-08-20 : 9 rachats</title></rect><rect x="365.4" y="172.5" width="12.6" height="27.5" fill="var(--data)"><title>2026-08-21 : 11 rachats</title></rect><rect x="380.0" y="182.5" width="12.6" height="17.5" fill="var(--data)"><title>2026-08-22 : 7 rachats</title></rect><rect x="394.6" y="177.5" width="12.6" height="22.5" fill="var(--data)"><title>2026-08-23 : 9 rachats</title></rect><rect x="409.1" y="160.0" width="12.6" height="40.0" fill="var(--data)"><title>2026-08-24 : 16 rachats</title></rect><rect x="423.7" y="160.0" width="12.6" height="40.0" fill="var(--data)"><title>2026-08-25 : 16 rachats</title></rect><rect x="438.3" y="140.0" width="12.6" height="60.0" fill="var(--data)"><title>2026-08-26 : 24 rachats</title></rect><rect x="452.9" y="145.0" width="12.6" height="55.0" fill="var(--data)"><title>2026-08-27 : 22 rachats</title></rect><rect x="467.4" y="137.5" width="12.6" height="62.5" fill="var(--data)"><title>2026-08-28 : 25 rachats</title></rect><rect x="482.0" y="137.5" width="12.6" height="62.5" fill="var(--data)"><title>2026-08-29 : 25 rachats</title></rect><rect x="496.6" y="120.0" width="12.6" height="80.0" fill="var(--data)"><title>2026-08-30 : 32 rachats</title></rect><rect x="511.2" y="107.5" width="12.6" height="92.5" fill="var(--data)"><title>2026-08-31 : 37 rachats</title></rect><rect x="525.7" y="112.5" width="12.6" height="87.5" fill="var(--data)"><title>2026-09-01 : 35 rachats</title></rect><rect x="540.3" y="125.0" width="12.6" height="75.0" fill="var(--data)"><title>2026-09-02 : 30 rachats</title></rect><rect x="554.9" y="125.0" width="12.6" height="75.0" fill="var(--data)"><title>2026-09-03 : 30 rachats</title></rect><rect x="569.5" y="7.5" width="12.6" height="192.5" fill="var(--acc)"><title>2026-09-04 : 77 rachats</title></rect><rect x="584.1" y="85.0" width="12.6" height="115.0" fill="var(--data)"><title>2026-09-05 : 46 rachats</title></rect><rect x="598.6" y="87.5" width="12.6" height="112.5" fill="var(--data)"><title>2026-09-06 : 45 rachats</title></rect><rect x="613.2" y="125.0" width="12.6" height="75.0" fill="var(--data)"><title>2026-09-07 : 30 rachats</title></rect><rect x="627.8" y="130.0" width="12.6" height="70.0" fill="var(--data)"><title>2026-09-08 : 28 rachats</title></rect><rect x="642.4" y="132.5" width="12.6" height="67.5" fill="var(--data)"><title>2026-09-09 : 27 rachats</title></rect><rect x="656.9" y="107.5" width="12.6" height="92.5" fill="var(--data)"><title>2026-09-10 : 37 rachats</title></rect><rect x="671.5" y="115.0" width="12.6" height="85.0" fill="var(--data)"><title>2026-09-11 : 34 rachats</title></rect><rect x="686.1" y="140.0" width="12.6" height="60.0" fill="var(--data)"><title>2026-09-12 : 24 rachats</title></rect><rect x="700.7" y="152.5" width="12.6" height="47.5" fill="var(--data)"><title>2026-09-13 : 19 rachats</title></rect><rect x="715.2" y="145.0" width="12.6" height="55.0" fill="var(--data)"><title>2026-09-14 : 22 rachats</title></rect><rect x="729.8" y="165.0" width="12.6" height="35.0" fill="var(--data)"><title>2026-09-15 : 14 rachats</title></rect><rect x="744.4" y="170.0" width="12.6" height="30.0" fill="var(--data)"><title>2026-09-16 : 12 rachats</title></rect><rect x="759.0" y="155.0" width="12.6" height="45.0" fill="var(--data)"><title>2026-09-17 : 18 rachats</title></rect><rect x="773.5" y="170.0" width="12.6" height="30.0" fill="var(--data)"><title>2026-09-18 : 12 rachats</title></rect><rect x="788.1" y="185.0" width="12.6" height="15.0" fill="var(--data)"><title>2026-09-19 : 6 rachats</title></rect><rect x="802.7" y="185.0" width="12.6" height="15.0" fill="var(--data)"><title>2026-09-20 : 6 rachats</title></rect><rect x="817.3" y="170.0" width="12.6" height="30.0" fill="var(--data)"><title>2026-09-21 : 12 rachats</title></rect><rect x="831.8" y="170.0" width="12.6" height="30.0" fill="var(--data)"><title>2026-09-22 : 12 rachats</title></rect><rect x="846.4" y="180.0" width="12.6" height="20.0" fill="var(--data)"><title>2026-09-23 : 8 rachats</title></rect><text x="7.3" y="216" font-size="10.5" fill="var(--ink3)" font-family="var(--mono)" text-anchor="start">27/07</text><text x="415.4" y="216" font-size="10.5" fill="var(--ink3)" font-family="var(--mono)" text-anchor="middle">24/08</text><text x="575.8" y="216" font-size="10.5" fill="var(--ink3)" font-family="var(--mono)" text-anchor="middle">04/09 : 77</text><text x="852.7" y="216" font-size="10.5" fill="var(--ink3)" font-family="var(--mono)" text-anchor="end">23/09</text></svg>
+  <p style="font-size:13px;color:var(--ink3)">Rachats-destructions de 2 000 UNI par jour, Firepit de Robinhood Chain, comptés sur la chaîne (27/07–23/09, jours complets). En accent : le 04/09, 77 rachats, au moment de l'annonce (03-04/09) de l'entrée d'Uniswap Labs au capital de PONS.</p>
+
+  <table>
+    <tr><th>Revenu aux détenteurs d'Uniswap V3, 30 j (DefiLlama)</th><th class="num">$</th><th class="num">part</th></tr>
+    <tr><td>Robinhood Chain</td><td class="num">9 576 989</td><td class="num">59,5 %</td></tr>
+    <tr><td>Ethereum</td><td class="num">3 063 728</td><td class="num">19,0 %</td></tr>
+    <tr><td>Base</td><td class="num">2 206 228</td><td class="num">13,7 %</td></tr>
+    <tr><td>Autres chaînes (Arbitrum, BSC, Polygon…)</td><td class="num">1 245 937</td><td class="num">7,7 %</td></tr>
+    <tr><td><strong>Toutes chaînes</strong></td><td class="num"><strong>16 092 882</strong></td><td class="num">100 %</td></tr>
+  </table>
+  <p>Une chaîne lancée le 1<sup>er</sup> juillet fournit donc trois cinquièmes de ce que la v3 d'Uniswap rend aux détenteurs d'UNI dans le monde. Sur ces 30 jours, elle en fournit plus du triple d'Ethereum.</p>
+
+  <h3>Qui contrôle ce robinet</h3>
+  <p>Toutes les réponses viennent de la chaîne. La fonction <code>owner()</code> rend la même adresse, <code>0x2bad…46cd</code>, pour cinq contrats : le Firepit, le coffre TokenJar, le contrat qui possède la factory v3, le PoolManager v4 et son contrôleur de frais. Cette adresse est l'<strong>alias L2 du Timelock de gouvernance d'Uniswap</strong> sur Ethereum (<code>0x1a9C…35BC</code> + <code>0x1111…1111</code>). Le calcul redonne l'adresse au caractère près. Le seuil, les frais et leur destination se règlent donc par vote des détenteurs d'UNI, et non par Robinhood. La recherche web date ce vote : scrutin sur la chaîne du 19 au 26/07 pour activer les frais v2 et v3 sur Robinhood Chain. L'activation écrite dans l'adaptateur (27/07) et le premier rachat compté (27/07 10:59 UTC) collent.</p>
+
+  <h2>Le delta contre la veille</h2>
+  <table>
+    <tr><th>Mesure</th><th class="num">23/09</th><th class="num">24/09</th></tr>
+    <tr><td>TVL de la chaîne (DefiLlama)</td><td class="num">1 008,9 M$</td><td class="num">1 001,6 M$</td></tr>
+    <tr><td>TVL Uniswap V4 sur la chaîne</td><td class="num">201,1 M$</td><td class="num">197,0 M$</td></tr>
+    <tr><td>Volume 30 j chaîne / v4</td><td class="num">53,45 / 18,90 Md$</td><td class="num">54,01 / 18,94 Md$</td></tr>
+    <tr><td>Frais 30 j déclarés de la chaîne</td><td class="num">353,4 M$</td><td class="num">358,2 M$</td></tr>
+    <tr><td>Revenu aux détenteurs, total déclaré de la chaîne</td><td class="num">14,31 M$</td><td class="num">14,35 M$</td></tr>
+    <tr><td>Rachats Firepit dans la journée (sur la chaîne)</td><td class="num">8</td><td class="num">2 (à 05:13 UTC)</td></tr>
+    <tr><td>Capitalisation PONS</td><td class="num">464,4 M$</td><td class="num">425,1 M$</td></tr>
+    <tr><td>Protocoles de la chaîne chez DefiLlama</td><td class="num">186</td><td class="num">191</td></tr>
+  </table>
+  <p>Le registre des hooks est figé, et les frais et volumes bougent de moins de 1,1 %. <strong>La journée ne se lit pas dans le delta mais dans le stock</strong> : ce qui existait déjà et que personne n'avait compté.</p>
+
+  <h2>Ce qui contredit</h2>
+  <div class="gap"><b>1. Le nombre de rachats n'est pas une mesure des frais.</b> Le seuil est fixé en UNI. Or le cours de l'UNI a doublé en trois semaines (5,13 $ le 31/08, 10,22 $ le 23/09, cours DefiLlama). Chaque rachat coûte donc deux fois plus cher en dollars, et il en faut deux fois moins pour vider le même coffre. La chute de 77 rachats (04/09) à 6–12 par jour (19–23/09) mélange deux effets. Le premier est réel : les frais v3 de la chaîne passent de 3,0 M$ à 0,5–0,75 M$ par jour. Le second est purement mécanique : c'est le cours. Ce qui reste utilisable, c'est la valeur détruite rapportée aux frais v3. Ce ratio est monté de 6,6 % la première semaine à 24 % ces dix derniers jours, et il se stabilise. C'est cohérent avec un frais de protocole d'environ un quart des frais des LP. Le taux exact voté n'a pas été lu, et ce n'est donc pas une mesure.</div>
+  <div class="gap"><b>2. Les 59,5 % sont une part de la v3, pas de tout Uniswap.</b> DefiLlama compte 0 $ pour la v4 sur toutes les chaînes. Pourtant, la presse rapporte que le même scrutin de juillet activait un frais v4 sur des pools sélectionnés, Robinhood Chain compris. La chaîne le confirme en partie : le PoolManager v4 a bien un contrôleur de frais installé (<code>0x6d00…314c</code>), détenu par la gouvernance, et il a accumulé 0,27 ETH de frais de protocole en devise native. La somme est minuscule, mais elle n'est pas nulle. La sonde qui devait compter les pools v4 soumis à un frais a échoué : le RPC refuse la requête (« plus de 10 000 journaux »). Ce trou est noté dans le mémo.</div>
+  <div class="gap"><b>3. Ce ne sont pas les actions tokenisées qui paient.</b> L'échantillon on-chain d'hier (178 193 swaps) montre que 59,1 % du volume v3 passe par un seul pool WETH/USDG, et que 7,8 % seulement touche les actions et ETF. Les UNI détruits sur Robinhood Chain sont surtout financés par du trading ETH/stablecoin, et non par la thèse « chaîne des actions ».</div>
+  <div class="gap"><b>4. Le robinet est tenu par peu de mains.</b> 23 adresses ont déclenché les 1 187 rachats. La première en a fait 466 (39,3 %), les trois premières 66,2 %. La destruction est ouverte à tous en théorie, mais très concentrée en pratique.</div>
+
+  <h3>Pièges du mémo re-vérifiés ce jour</h3>
+  <ul>
+    <li><strong>P2 est en partie faux et a été corrigé.</strong> Le mémo disait que le total des frais « mélange » la chaîne elle-même (le séquenceur) et Arbitrum Nitro. Mesure du jour : la somme des lignes non marquées « doublecounted », moins la ligne « Robinhood Chain », donne 358 162 587 $, soit le total déclaré au dollar près. La chaîne et Nitro sont donc <em>exclues</em>. GMGN et Axiom restent dedans. La même règle vaut pour le revenu (112,45 − 35,59 = 76,86 M$).</li>
+    <li><strong>Nouveau piège P8.</strong> Le total déclaré du revenu aux détenteurs de la chaîne (14,35 M$) est <em>inférieur</em> à la seule ligne Pons V1 (15,82 M$), parce que Pons V1 est marqué « doublecounted » et donc exclu. La somme des lignes vaut 31,15 M$. La série garde le total déclaré, dont la définition n'a pas changé, et ouvre un champ « somme des lignes ».</li>
+    <li><strong>Nouveau piège P9.</strong> Le « revenu aux détenteurs » d'Uniswap vaut un nombre de destructions × un seuil × un cours (voir le point 1 ci-dessus).</li>
+    <li><strong>P6 et P7 tiennent.</strong> Le détecteur de hook nommé a été re-testé sur quatre témoins : Fables 10, PARE 0, Morpho Blue 0, GlueHook 2. Chaque chiffre cite sa population.</li>
+  </ul>
+
+  <h2>Cohorte</h2>
+  <p>Score de preuve recalculé sur les <strong>191 protocoles</strong> de la chaîne : 37 publient un lien d'audit qui répond HTTP 200 (47 liens sur 49), et 27 des 29 comptes GitHub déclarés existent. Le témoin reste valide : ARMSys26 rend 404, vfat-io rend 200. <strong>Aucun critère de sortie franchi, aucune entrée.</strong></p>
+  <table>
+    <tr><th>Membre</th><th class="num">preuve</th><th class="num">TVL chaîne</th><th class="num">frais 30 j</th><th class="num">frais / Pons</th></tr>
+    <tr><td>Lighter Robinhood Perps</td><td class="num">0</td><td class="num">100,3 M$</td><td class="num">1,61 M$</td><td class="num">1,15 %</td></tr>
+    <tr><td>Fables</td><td class="num">1</td><td class="num">47,4 M$ (+5,0 %)</td><td class="num">2,38 M$ (+12 %)</td><td class="num">1,70 %</td></tr>
+    <tr><td>Arcus Perps</td><td class="num">0</td><td class="num">22,0 M$ (+5,8 %)</td><td class="num">0,39 M$</td><td class="num">0,28 %</td></tr>
+    <tr><td>up v3</td><td class="num">0</td><td class="num">7,32 M$ (−9,4 %)</td><td class="num">2,38 M$</td><td class="num">1,70 %</td></tr>
+    <tr><td>Longbow</td><td class="num">0</td><td class="num">4,30 M$</td><td class="num">—</td><td class="num">0</td></tr>
+    <tr><td>StonkBrokers (fiches filles)</td><td class="num">0</td><td class="num">3,52 M$ (−8 %)</td><td class="num">2,80 M$</td><td class="num">2,00 %</td></tr>
+    <tr><td>Ekubo (dont STONX 1,12 M$)</td><td class="num">2</td><td class="num">1,66 M$</td><td class="num">0,05 M$</td><td class="num">0,04 %</td></tr>
+    <tr><td>GIGA V3</td><td class="num">0</td><td class="num">1,21 M$</td><td class="num">0,62 M$</td><td class="num">0,44 %</td></tr>
+    <tr><td>What The Hook</td><td class="num">0</td><td class="num">233 k$</td><td class="num">61 k$</td><td class="num">0,04 %</td></tr>
+    <tr><td>TermMax</td><td class="num">3</td><td class="num">11 k$</td><td class="num">—</td><td class="num">0</td></tr>
+  </table>
+  <p><strong>Ce qui a bougé.</strong> Fables dépasse désormais up v3 en volume 30 j (1,35 contre 1,27 Md$). L'alerte sur son audit reste ouverte : le code affiche 3, mais aucun lien n'est publié. What The Hook redescend à 16,1× capitalisation/TVL (16,5× hier), par la baisse de sa capitalisation.</p>
+  <p><strong>Ce qui ne bouge pas et devrait inquiéter.</strong> TermMax reste à 11 k$ de TVL et zéro frais, avec le meilleur score de preuve des membres. Son critère de sortie (TVL sous 0,5 M$ au 31/10) sera franchi si rien ne change. Arcus n'a toujours aucune source primaire pour sa lignée dYdX.</p>
+  <p><strong>Contre-référence Pons.</strong> Pons encaisse 140,1 M$ de frais 30 j (fiche V2), reverse 10,8 % à ses détenteurs (V1+V2 recollées) et vaut 425,1 M$ (−8,5 %), soit 2,21 fois son reversement annualisé. Toute la cohorte réunie pèse moins de 9 % de ses frais. Nouveau point de comparaison : la v3 d'Uniswap rend 9,59 M$ aux détenteurs d'UNI sur la même chaîne. C'est 61 % de ce que Pons rend aux siens, avec 3,9 fois moins de frais.</p>
+  <p><strong>Candidats automatiques</strong> (inchangés, 3<sup>e</sup> jour) : Snuggle (preuve 2 ; 7,16 M$ ; 2,25 M$ de frais) bat encore cinq membres sur la preuve <em>et</em> les frais. Suivent UNCX V3, Beefy, vfat.io, Saffron Vaults (1,01 M$, au ras du plancher) et Ramses DLMM. STONX (preuve 2) est écarté, car c'est le produit d'Ekubo, déjà membre.</p>
+
+  <h2>Ce qu'on ne sait pas</h2>
+  <div class="unknown"><ul>
+    <li><strong>Le taux de frais de protocole voté</strong> pour la v2 et la v3 sur la chaîne. Le ratio de 24 % est cohérent avec un quart des frais des LP, mais la proposition elle-même n'a pas été lue.</li>
+    <li><strong>Combien de pools v4 paient un frais de protocole</strong> sur la chaîne, et combien cela rapporte. La sonde a échoué, et les 0,27 ETH ne couvrent que la devise native.</li>
+    <li><strong>Ce qui arrive après le 29/09</strong> : si la fin de la subvention de gas réduit le trading ETH/USDG, le robinet UNI de la chaîne baisse avec lui. Une veille est ouverte ce jour (v_20260924_01, échéance 24/11, seuils à 33 % et 50 %).</li>
+    <li><strong>Pourquoi le registre des hooks ne se régénère plus</strong> depuis le 21/09 15:38 UTC. Panne amont ou absence de soumissions : ce n'est pas tranché.</li>
+    <li><strong>Où finissent les 2,37 M d'UNI</strong> : l'offre d'UNI pontée sur la chaîne ne vaut aujourd'hui que 159 255 UNI (<code>totalSupply</code>). Le circuit exact pont → destruction n'a pas été suivi transaction par transaction.</li>
+  </ul></div>
+
+  <p style="margin-top:30px">
+    <span class="tag source">api.llama.fi · coins.llama.fi</span>
+    <span class="tag source">github.com/DefiLlama/dimension-adapters dexs/uniswap-v3.ts, uniswap-v4.ts</span>
+    <span class="tag source">rpc.mainnet.chain.robinhood.com · robinhood-rpc.publicnode.com · rpc.ordofi.network</span>
+    <span class="tag source">raw.githubusercontent.com/Uniswap/hooklist · api.github.com commits</span>
+    <span class="tag source">sec.gov 4-927 · federalregister.gov API</span>
+    <span class="tag">presse : crypto.news, The Block, TradingView (vote du 19-26/07) — non recoupée sur le texte du vote</span>
+  </p>
+</main>
+<footer>Hermes DeFi · enquête générée le 2026-09-24 09:23 UTC · série : 6<sup>e</sup> point (21/09 manquant) · fil tokenisation, jour 7 calendaire</footer>
+</body>
+</html>

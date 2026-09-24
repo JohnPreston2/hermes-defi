@@ -40,6 +40,14 @@
       "question": "Le volume Uniswap V3 de la chaîne a gagné 9,2 Md$ en un jour : activité nouvelle, ou histoire réécrite par l'agrégateur — et si c'est une réécriture, que contient le volume qui était invisible ?",
       "mesure_neuve": "Même fenêtre 23/08-21/09 : V3 passe de 14,24 à 23,04 Md$ (+62 %) après l'ajout par DefiLlama de 19 actifs de référence sur la chaîne (commit 39d5f5c4, 22/09 17:54 UTC), V4 inchangé au dollar près. Échantillon on-chain de 178 193 swaps (47 fenêtres sur 24 h) : sur 691,8 M$/24 h de volume Uniswap V3 officiel, 7,8 % touchent les 15 actions/ETF nouvellement pricés, 5,4 % PONS/CASHCAT, et 59,1 % passent par un seul pool WETH/USDG. Et l'ordre SEC 34-106402 a paru au Federal Register le 22/09 (91 FR 60168).",
       "genere": "2026-09-23T10:43:00Z"
+    },
+    {
+      "date": "2026-09-24",
+      "fichier": "2026-09-24-enquete.html",
+      "titre": "Robinhood Chain, 24/09 : la chaîne qui brûle le plus d'UNI — et ce n'est pas la v4",
+      "question": "Le revenu que DefiLlama attribue aux détenteurs d'UNI sur Robinhood Chain (9,6 M$ en 30 j) est-il réel, et que mesure-t-il exactement ?",
+      "mesure_neuve": "Compte sur la chaîne du contrat Firepit (0x7A8F…630B) : 1 187 rachats-destructions de 2 000 UNI chacun depuis le 27/07 (nonces 0-1186 sans trou), dont 765 sur 30 j = 9,33 M$ au cours du jour, contre 9,59 M$ chez DefiLlama (écart 2,8 %). Robinhood Chain porte 59,5 % du revenu aux détenteurs de la v3 d'Uniswap toutes chaînes ; la v4, premier encaisseur de la chaîne (108 M$), y reverse 0 selon DefiLlama. Contrôle : Firepit, TokenJar, adaptateur de frais v3 et PoolManager v4 appartiennent tous à l'alias L2 du Timelock de gouvernance Uniswap. Correction du piège P2 : le total déclaré des frais exclut la ligne de la chaîne et les lignes doublecounted.",
+      "genere": "2026-09-24T09:23:00Z"
     }
   ]
 }
