@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "maj": "2026-09-25",
+ "maj": "2026-09-24",
  "role": "Memo TECHNIQUE de l'enquete Robinhood Chain. Il porte les FAITS : endpoints qui repondent, constantes, et pieges MESURES sur ces sources. Le prompt de la routine porte la METHODE et ne doit pas dupliquer ce fichier. A lire au debut de chaque enquete, AVANT la premiere mesure. Chaque piege ici a coute une erreur reelle, datee.",
  "sources": {
   "registre_hooks": {
@@ -49,13 +49,6 @@
     "controleur_frais_v4": "0x6d0009504d129cf5002dba61d9ae8575aa79314c",
     "gouvernance": "owner() de tous ces contrats = 0x2bad8182c09f50c8318d769245bea52c32be46cd = alias L1->L2 du Timelock Uniswap 0x1a9C8182C09F50C8318d769245beA52c32BE35BC (+0x1111000000000000000000000000000000001111), calcule et verifie",
     "piege_rpc": "eth_getLogs ProtocolFeeUpdated sur la PoolManager v4 : 'logs matched by query exceeds limit of 10000' meme sur 20 000 blocs -- sonde non concluante le 24/09, a refaire autrement (explorateur ou fenetres plus petites)."
-   },
-   "recensement_pools_v4": {
-    "verifie_le": "2026-09-25",
-    "initialize_topic0": "0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438",
-    "premier_pool_bloc": 9505,
-    "cadence": "~9,9 blocs/s (bloc 20 000 000 = 26/07 16:04 UTC, 70 000 000 = 22/09 22:06 UTC)",
-    "gel_registre_bloc": 68910486
    }
   }
  },
@@ -155,20 +148,6 @@
    "source": "DefiLlama, revenu aux detenteurs d'Uniswap V3 (adaptateur dexs/uniswap-v3.ts)",
    "symptome": "Ce 'revenu' n'est pas un flux de frais : c'est le nombre d'evenements Released du contrat Firepit multiplie par le seuil (2 000 UNI sur Robinhood Chain) et par le cours UNI. Les valeurs journalieres sont donc quantifiees, et le nombre de rachats baisse mecaniquement quand le cours UNI monte (5,13 $ le 31/08 -> 10,22 $ le 23/09), a frais constants. La v4 vaut 0 sur toutes les chaines chez DefiLlama, meme la ou un frais de protocole v4 a ete vote.",
    "parade": "Lire ce champ comme 'valeur d'UNI detruite', recoupable sur la chaine (Firepit 0x7A8F74C2585F84C781F951B7F2FF21337D5B630B, threshold()=2000e18, nonce()). Ne jamais en deduire une tendance des frais sans corriger du cours UNI."
-  },
-  {
-   "id": "P10",
-   "date": "2026-09-25",
-   "source": "DefiLlama, adaptateurs qui changent la veille",
-   "symptome": "Frais 30 j de la chaine +18,2 M$ en un jour pour 5,4 M$ de frais journaliers : 17,55 M$ viennent de fomo Wallet, que DefiLlama attribue a Robinhood Chain depuis le commit b8bcfa33 (24/09 15:52 UTC), historique recharge depuis le 09/07. Le meme jour : retrait d'une voie de frais StonkBrokers (a20dcac2), correction de l'OI d'Arcus (13154779), 4 nouveaux adaptateurs sur la chaine (kicker, Fomotail, Hedge Fun, Gas).",
-   "parade": "Avant de lire un delta jour sur jour, lister les commits dimension-adapters des dernieres 24 h (api.github.com/repos/DefiLlama/dimension-adapters/commits?since=...) et identifier les lignes nouvelles. Publier le chiffre a perimetre constant a cote du chiffre declare."
-  },
-  {
-   "id": "P11",
-   "date": "2026-09-25",
-   "source": "registre des hooks vs chaine",
-   "symptome": "Le registre Uniswap/hooklist n'est PAS un recensement : 1 142 des 23 209 hooks utilises par un pool sur la chaine y figurent. Un taux calcule sur le registre (audits, flags, vocabulaire) porte sur 5 % des adresses, 87,5 % des pools. Le gel du registre du 21/09 est un gel de RELECTURE (PR ouvertes, 0 fusion), pas un arret des soumissions.",
-   "parade": "Nommer la population : 'hooks du registre', 'hooks utilises', ou 'pools'. Recensement : eth_getLogs topic0 Initialize 0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438 sur la PoolManager, fenetres de 250 k a 1 M blocs (plafond 10 000 logs), RPC officiel seul (ordofi plafonne ~10 k blocs par requete, publicnode rend 403), pause 1 s et reprise sur HTTP 429. Le RPC n'est pas archive : eth_getCode a un bloc ancien echoue ('historical state ... not available')."
   }
  ],
  "mesure_ajoutee_20260921": {

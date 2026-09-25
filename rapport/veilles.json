@@ -46,6 +46,11 @@
      "date": "2026-09-24",
      "valeur": "afterSwapReturnsDelta 72,4 % (843/1164) / beforeAddLiquidity 25,3 % (295/1164)",
      "note": "identique : registre fige depuis le 21/09 15:38 UTC, fichier telecharge identique octet pour octet a celui du 23/09 (3e jour sans regeneration) -- point non independant"
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "registre : afterSwapReturnsDelta 72,4 % (843/1164) / beforeAddLiquidity 25,3 % (295/1164) -- MESURE INDEPENDANTE sur la chaine : 43,4 % (10 065/23 209 hooks utilises par au moins un pool) / 50,0 % (11 606/23 209) ; ponderes par pools : 91,1 % / 18,7 % (305 078 pools a hook)",
+     "note": "Registre fige (4e jour). Le recensement on-chain des 887 322 pools v4 montre que le seuil ecrit ('afterSwapReturnsDelta sous 60 %') est DEJA franchi si l'on compte les hooks reels (43,4 %), et tres loin de l'etre si l'on compte les pools (91,1 %). La veille a ete ecrite sur la population du registre (1 164 entrees, dont 1 142 utilisees) ; les 22 067 hooks hors registre servent a 92 % un seul pool (lanceurs 'un jeton, un hook'), et leur beforeAddLiquidity accompagne souvent beforeInitialize+beforeSwap+afterSwap (combinaison 0x28c0, 5 544 hooks a un seul pool) -- un controle d'ajout de liquidite, pas forcement de la gestion de liquidite. NON SOLDEE : la mesure ecrite (registre) ne bouge pas ; basculer la veille sur la population on-chain est une decision user."
     }
    ],
    "solde": null
@@ -88,6 +93,11 @@
      "date": "2026-09-24",
      "valeur": "4 / 1164 (0,34 %)",
      "note": "identique, registre fige ; aucun exploit public de hook de la chaine trouve"
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "4 / 1164 (0,34 %)",
+     "note": "identique, registre fige ; aucun exploit public de hook de la chaine trouve (recherche web ce jour). Rappel du recensement : 22 067 hooks utilises sur la chaine n'ont AUCUNE fiche au registre, donc aucun auditUrl possible -- le taux mesure porte sur 1 164 adresses, pas sur 23 209."
     }
    ],
    "solde": null
@@ -130,6 +140,11 @@
      "date": "2026-09-24",
      "valeur": "v3 43,9 % / v4 35,1 % du volume 30j (23,71/18,94/54,01 Md$)",
      "note": "comparable au 23/09 (meme tarification post-22/09) : v3 +0,1 pt, v4 -0,3 pt. Loin des deux seuils."
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "v3 43,9 % / v4 35,0 % du volume 30j (24,03/19,18/54,78 Md$)",
+     "note": "comparable au 24/09 (meme tarification) : v3 stable, v4 -0,1 pt. Loin des deux seuils."
     }
    ],
    "solde": null
@@ -172,6 +187,11 @@
      "date": "2026-09-24",
      "valeur": "154 deploiements sur 1164 (13,2 %) ; aucun avis de TSV connu (recherche web ce jour)",
      "note": "registre fige, compte a 154 depuis le 18/09"
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "154 deploiements sur 1164 (13,2 %) ; aucun avis de TSV connu (recherche web ce jour)",
+     "note": "registre fige ; 5 PR 'robinhood' en attente de relecture chez Uniswap/hooklist."
     }
    ],
    "solde": null
@@ -214,6 +234,11 @@
      "date": "2026-09-24",
      "valeur": "14 lettres au dossier, memes signataires qu'au releve du 23/09 (derniere mise en ligne : lettre NeuFin datee du 22/09) ; ordre paru au FR le 22/09",
      "note": "aucune nouvelle lettre publiee en 24 h ; rappel du 23/09 : la SEC met en ligne avec retard, donc 'aucune nouvelle lettre' veut dire 'aucune nouvelle lettre PUBLIEE'. Qualification de Bitcoin Bancorp toujours en attente d'une decision user."
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "14 lettres au dossier (derniere : NeuFin, 22/09) ; FR publie le 22/09 ; aucun nouveau document SEC 'tokenized' au FR depuis",
+     "note": "aucune nouvelle lettre PUBLIEE en 48 h. Qualification de Bitcoin Bancorp toujours en attente d'une decision user."
     }
    ],
    "solde": null
@@ -251,6 +276,11 @@
      "date": "2026-09-24",
      "valeur": "39,1 % (140,06/358,16 M$)",
      "note": "stable vs 23/09 (39,1 %). Denominateur re-verifie ce jour : le total declare exclut la ligne 'Robinhood Chain' (39,6 M$) et les lignes doublecounted (dont Pons V1, 6,9 M$) -- Pons V2 y est bien inclus, donc le ratio est coherent (numerateur dans le denominateur). Voir P2 corrige au memo."
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "37,4 % (140,85/376,35 M$) sur le total declare ; 39,3 % (140,85/358,80) hors fomo Wallet",
+     "note": "La baisse apparente (-1,7 pt) est une RUPTURE DE DENOMINATEUR : DefiLlama ajoute depuis le 24/09 15:52 UTC 17,55 M$ de frais fomo Wallet (reattribution Relay, commit b8bcfa33). A perimetre constant, Pons passe de 39,1 a 39,3 %. Au-dessus des deux seuils. Mais frais 7j de Pons V2 : -45,4 % semaine sur semaine (17,77 contre 32,55 M$)."
     }
    ],
    "solde": null
@@ -288,6 +318,11 @@
      "date": "2026-09-24",
      "valeur": "memes 6 candidats : Snuggle (2 ; TVL 7,16 M$ ; frais 2,25 M$), UNCX V3 (2 ; 8,62 M$ ; 0), Beefy (3 ; 2,92 M$ ; 0), vfat.io (3 ; 3,33 M$ ; 33 k$), Saffron Vaults (2 ; 1,01 M$ ; 0), Ramses DLMM (2 ; 0,57 M$ ; 311 k$)",
      "note": "jour 3 consecutif sans trou (22, 23, 24/09). Snuggle bat toujours 5 membres sur preuve ET frais 30j (Lighter, Arcus, GIGA V3, Longbow, What The Hook). Saffron a 1,01 M$ frole le plancher. Solde prevu le 26/09 en REVISEE, comme ecrit le 23/09."
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "memes 6 candidats : Snuggle (2 ; TVL 7,14 M$ ; frais 2,23 M$), UNCX V3 (2 ; 8,27 M$ ; 0), Beefy (3 ; 2,92 M$ ; 0), vfat.io (3 ; 3,24 M$ ; 34 k$), Saffron Vaults (2 ; 1,005 M$ ; 0), Ramses DLMM (2 ; 0,60 M$ ; 307 k$)",
+     "note": "jour 4 consecutif sans trou (22-25/09). STONX (score 2) toujours exclu comme produit d'Ekubo. Solde prevu demain 26/09 en REVISEE."
     }
    ],
    "solde": null
@@ -315,6 +350,11 @@
      "date": "2026-09-24",
      "valeur": "pre-expiration J-5 : volume 24h 1,507 Md$, 7j 10,499 Md$ ; frais 24h 6,64 M$, 7j 48,87 M$ ; TVL chaine 1 001,6 M$",
      "note": "vs 23/09 : volume 7j -0,7 %, frais 7j +1,1 %, TVL -0,7 %. Plateau avant l'echeance du 29/09. Nouveau temoin disponible : le nombre de rachats UNI (Firepit) par jour sur la chaine, qui suit les frais de protocole de la v3 -- 6 a 18 par jour du 15 au 23/09."
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "pre-expiration J-4 : volume 24h 1,513 Md$, 7j 10,388 Md$ ; frais 24h 5,40 M$, 7j 47,57 M$ (dont fomo Wallet 1,64 M$, nouveau perimetre) ; TVL chaine 1 007,6 M$",
+     "note": "vs 24/09 : volume 7j -1,1 %, frais 7j -2,7 % (-6,0 % hors fomo : 45,93 M$). Semaine sur semaine (DefiLlama total7d vs total14dto7d) : frais -37,6 %, volume -19,3 %, Pons V2 frais -45,4 %, sequenceur -49,7 %. La decrue commence AVANT le 29/09 : le test post-subvention devra separer ce qui etait deja en cours. ATTENTION : la reference 7j du 23/09 (48,35 M$) n'incluait pas fomo ; comparer post-29/09 hors fomo."
     }
    ],
    "solde": null
@@ -332,6 +372,28 @@
      "date": "2026-09-24",
      "valeur": "59,5 % (9,58/16,09 M$) ; 765 rachats on-chain sur 30 j, 1 187 depuis le 27/07",
      "note": "point d'ouverture. Limite : DefiLlama compte 0 pour la v4 sur toutes les chaines, alors qu'un frais de protocole v4 a ete vote (19-26/07) pour des pools selectionnes, Robinhood compris -- la part mesuree est celle de la v3, pas celle de tout Uniswap."
+    },
+    {
+     "date": "2026-09-25",
+     "valeur": "59,6 % (9,59/16,11 M$) ; nonce Firepit 1195 (+8 rachats en ~24 h, 16 000 UNI)",
+     "note": "8 rachats x 2 000 UNI x 9,14 $ = 146,2 k$ contre 146,45 k$ chez DefiLlama pour la journee : temoin on-chain coherent a 0,2 %. Au-dessus du seuil CONFIRMEE (50 %)."
+    }
+   ],
+   "solde": null
+  },
+  {
+   "id": "v_20260925_01",
+   "ouverte": "2026-09-25",
+   "affirmation": "Le registre officiel Uniswap/hooklist decrit le FLUX des hooks de Robinhood Chain mais pas leur POPULATION : il couvre 1 142 des 23 209 hooks utilises par un pool (4,9 %) mais 87,5 % des pools a hook. Tant que la chaine reste une usine a lanceurs 'un jeton, un hook', la part des pools sur des hooks hors registre reste minoritaire.",
+   "mesure": "Recensement on-chain des evenements Initialize de la PoolManager v4 0x8366a39cc670b4001a1121b8f6a443a643e40951 (eth_getLogs, topic0 0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438), croise aux adresses chain='robinhood' du registre. Part des pools a hook crees sur les 30 derniers jours dont le hook est hors registre. Reference 25/09 : 14,5 % (21 384/147 372) ; tout l'historique 12,5 % (38 264/305 078).",
+   "seuil": "REVISEE si la part 30 j depasse 25 % (le registre ne decrit plus le flux) ; CONFIRMEE si elle reste sous 20 % a l'echeance.",
+   "echeance": "2026-11-25",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-09-25",
+     "valeur": "14,5 % sur 30 j (21 384/147 372 pools a hook) ; 12,5 % depuis l'origine ; 1 054 hooks apparus depuis le gel du registre (21/09 15:38 UTC), 0 au registre",
+     "note": "point d'ouverture. Limite : le recensement lit le champ hooks de Initialize ; un hook peut etre enregistre au registre sous une adresse differente de celle qui sert (proxy) -- 22 entrees du registre ne servent a aucun pool. Cout de la mesure : ~900 appels eth_getLogs, limite de debit (HTTP 429) sur le RPC officiel, ~45 min."
     }
    ],
    "solde": null

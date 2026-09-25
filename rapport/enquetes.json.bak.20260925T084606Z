@@ -48,14 +48,6 @@
       "question": "Le revenu que DefiLlama attribue aux détenteurs d'UNI sur Robinhood Chain (9,6 M$ en 30 j) est-il réel, et que mesure-t-il exactement ?",
       "mesure_neuve": "Compte sur la chaîne du contrat Firepit (0x7A8F…630B) : 1 187 rachats-destructions de 2 000 UNI chacun depuis le 27/07 (nonces 0-1186 sans trou), dont 765 sur 30 j = 9,33 M$ au cours du jour, contre 9,59 M$ chez DefiLlama (écart 2,8 %). Robinhood Chain porte 59,5 % du revenu aux détenteurs de la v3 d'Uniswap toutes chaînes ; la v4, premier encaisseur de la chaîne (108 M$), y reverse 0 selon DefiLlama. Contrôle : Firepit, TokenJar, adaptateur de frais v3 et PoolManager v4 appartiennent tous à l'alias L2 du Timelock de gouvernance Uniswap. Correction du piège P2 : le total déclaré des frais exclut la ligne de la chaîne et les lignes doublecounted.",
       "genere": "2026-09-24T09:23:00Z"
-    },
-    {
-      "date": "2026-09-25",
-      "fichier": "2026-09-25-enquete.html",
-      "titre": "Robinhood Chain, 25/09 : 23 209 hooks sur la chaîne, 1 142 au registre",
-      "question": "Le registre officiel des hooks, gelé depuis quatre jours et base de trois veilles, décrit-il vraiment ce qui tourne sur la chaîne ?",
-      "mesure_neuve": "Recensement de tous les pools v4 créés sur la chaîne (887 322 événements Initialize, blocs 0 à 72 076 000) : 305 078 pools à hook, 23 209 hooks distincts, dont 1 142 seulement au registre (4,9 %) — mais ces 1 142 portent 87,5 % des pools à hook, Doppler seul 58,1 %. Les 22 067 hooks hors registre servent à 92 % un seul pool. Le profil de permissions change avec la population : afterSwapReturnsDelta 72,4 % au registre, 43,4 % des hooks réels, 91,1 % des pools. Et une rupture de périmètre des frais : +17,55 M$ attribués à fomo Wallet par DefiLlama le 24/09.",
-      "genere": "2026-09-25T08:45:31Z"
     }
   ]
 }

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 25/09 : 23 209 hooks sur la chaîne, 1 142 au registre</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+    <nav><a href="../">accueil</a><a href="2026-09-24-enquete.html">enquête du 24/09</a></nav>
+  </div>
+</header>
+<main>
+  <p class="tag data">Enquête · 25 septembre 2026 · fil Uniswap v4 × Robinhood Chain, jour 8</p>
+  <h1>Robinhood Chain, 25/09 : 23 209 hooks sur la chaîne, 1 142 au registre</h1>
+  <p class="question">Depuis le 18/09, trois veilles et le chiffre-signature de cette enquête reposent sur le registre officiel des hooks Uniswap. Ce registre est gelé depuis quatre jours. Décrit-il vraiment ce qui tourne sur la chaîne, ou seulement ce que les équipes ont bien voulu y déclarer ?</p>
+
+  <div class="provenance">
+    <div class="row"><span>Relevé principal DefiLlama</span><span>2026-09-25 08:12:39 UTC</span></div>
+    <div class="row"><span>DefiLlama /protocols, /v2/chains, /overview (frais, volumes, revenu aux détenteurs), /summary uniswap-v3, /protocol/pons · commits dimension-adapters</span><span class="age-fresh">relevé 08:12 UTC</span></div>
+    <div class="row"><span>Robinhood Chain en direct — 887 322 événements Initialize de la PoolManager v4, blocs 0 à 72 076 000 (fin 25/09 08:14 UTC) · eth_getCode sur 4 100 hooks · Firepit nonce()</span><span class="age-fresh">relevé 08:15–08:40 UTC</span></div>
+    <div class="row"><span>Registre Uniswap/hooklist — dernière régénération 2026-09-21 15:38 UTC (commit 1d2f09b1) ; 8 PR ouvertes, 0 fusion depuis le 22/09</span><span class="age-dead">figé depuis ~89 h</span></div>
+    <div class="row"><span>SEC dossier 4-927 (témoin négatif 4-999999 → 404) · Federal Register API</span><span class="age-fresh">relevé 08:30 UTC</span></div>
+    <div class="row"><span>Delta (Hermes) : répond ; defi.json du 25/09 07:44 UTC — lu comme source d'appoint, aucun chiffre repris</span><span class="age-fresh">frais</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><b>23 209</b><span>hooks distincts branchés sur au moins un pool v4 de la chaîne, comptés sur 887 322 créations de pools</span></div>
+    <div class="stat"><b>1 142</b><span>d'entre eux figurent au registre officiel (4,9 %) — mais ils portent 87,5 % des 305 078 pools à hook</span></div>
+    <div class="stat"><b>43,4 %</b><span>des hooks réels portent le bit de prélèvement afterSwapReturnsDelta, contre 72,4 % au registre et 91,1 % pondéré par pool</span></div>
+  </div>
+
+  <h2>Les veilles, en tête</h2>
+  <p>Neuf veilles ouvertes, toutes re-testées ce matin. <strong>Aucun seuil franchi sur la mesure écrite</strong> — mais l'une d'elles est franchie sur une population qu'elle ne visait pas, voir plus bas.</p>
+  <ul>
+    <li><strong>Hooks (trois veilles)</strong> : 843 sur 1 164 portent <code>afterSwapReturnsDelta</code> (72,4 %), 4 audités sur 1 164, 154 à vocabulaire « actions » sur 1 164. Identiques depuis le 21/09 : ce ne sont pas des mesures indépendantes. Nouveau : le gel n'est pas un arrêt des soumissions. 8 demandes d'ajout attendent, dont 5 pour Robinhood Chain (dernière : HyperTaxHook, 24/09 10:00 UTC), et aucune n'a été fusionnée depuis le 22/09. C'est la relecture qui est à l'arrêt.</li>
+    <li><strong>v3 contre v4</strong> : v3 43,9 %, v4 35,0 % du volume 30 j de la chaîne (24,03 / 19,18 / 54,78 Md$). Stable.</li>
+    <li><strong>Pons</strong> : 37,4 % des frais 30 j déclarés (140,85 / 376,35 M$). La baisse de 1,7 point est un artefact, voir « delta ». À périmètre constant : 39,3 %, contre 39,1 % hier.</li>
+    <li><strong>SEC 4-927</strong> : 14 lettres, dernière mise en ligne datée du 22/09 (NeuFin). Aucun nouveau document SEC « tokenized » au <em>Federal Register</em> depuis l'ordre du 22/09. Aucun avis public de TSV trouvé. La qualification de Bitcoin Bancorp attend toujours ta décision.</li>
+    <li><strong>Candidats automatiques</strong> : les mêmes six, quatrième jour consécutif sans trou. La veille se solde demain en REVISEE, comme écrit le 23/09.</li>
+    <li><strong>Subvention de gas, J−4</strong> : volume 7 j 10,388 Md$, frais 7 j 47,57 M$, TVL 1 007,6 M$. Voir « ce qui contredit » : la décrue a commencé avant l'échéance.</li>
+    <li><strong>UNI détruits</strong> : Robinhood Chain porte 59,6 % du revenu aux détenteurs d'Uniswap V3 sur 30 j (9,59 / 16,11 M$). Sur la chaîne, le compteur du Firepit est passé de 1 187 à 1 195 : 8 rachats de 2 000 UNI en 24 h, soit 146,2 k$ au cours de 9,14 $, contre 146,45 k$ chez DefiLlama pour la journée. Écart de 0,2 %.</li>
+  </ul>
+
+  <h2>Ce qui a été mesuré</h2>
+  <p><em>Méthode en une ligne</em> : tous les événements <code>Initialize</code> émis par la PoolManager v4 (<code>0x8366…0951</code>) depuis le premier bloc, lus par <code>eth_getLogs</code>, puis le champ <code>hooks</code> de chaque pool croisé aux 1 164 adresses du registre, avec les permissions lues sur les 14 bits de poids faible de chaque adresse.</p>
+  <table>
+    <tr><th>Population</th><th class="num">Hooks</th><th class="num">Pools</th><th class="num">afterSwapReturnsDelta</th><th class="num">beforeAddLiquidity</th></tr>
+    <tr><td>Registre (entrées chain=robinhood)</td><td class="num">1 164</td><td class="num">—</td><td class="num">72,4 %</td><td class="num">25,3 %</td></tr>
+    <tr><td>Hooks utilisés, tous</td><td class="num">23 209</td><td class="num">305 078</td><td class="num">43,4 %</td><td class="num">50,0 %</td></tr>
+    <tr><td>… pondérés par pool</td><td class="num">—</td><td class="num">305 078</td><td class="num">91,1 %</td><td class="num">18,7 %</td></tr>
+    <tr><td>Hooks utilisés au registre</td><td class="num">1 142</td><td class="num">266 814</td><td class="num">96,7 % (pondéré)</td><td class="num">16,0 % (pondéré)</td></tr>
+    <tr><td>Hooks utilisés hors registre</td><td class="num">22 067</td><td class="num">38 264</td><td class="num">52,1 % (pondéré)</td><td class="num">37,2 % (pondéré)</td></tr>
+  </table>
+  <p><strong>887 322 pools v4</strong> ont été créés sur Robinhood Chain entre le bloc 9 505 et le 25/09 08:14 UTC. 582 244 n'ont aucun hook, 305 078 en ont un. Ces pools utilisent <strong>23 209 hooks distincts</strong>. Seuls 1 142 sont au registre, et 22 entrées du registre ne servent à aucun pool. Un seul hook, <strong>Doppler</strong> (<code>0x4e34…a544</code>), porte 177 205 pools, soit 58,1 % des pools à hook de la chaîne.</p>
+  <p>Les 22 067 hooks hors registre ont un point commun : <strong>20 401 d'entre eux (92 %) ne servent qu'un seul pool</strong>. C'est la signature d'usines de lancement qui déploient un hook par jeton. Sur 30 jours, 12 736 hooks sont apparus, dont 376 au registre. Depuis le gel du 21/09 15:38 UTC (bloc 68 910 486), 1 054 nouveaux hooks ont servi et 38 834 pools ont été créés, dont 15 550 avec un hook.</p>
+  <p><strong>Contrôle de la sonde.</strong> Une adresse « hook » peut ne pas être un contrat. Sur un échantillon de 4 100 adresses (triées par adresse, donc sans lien avec leur usage), 4 099 portent du bytecode. Les deux témoins de permissions du mémo redonnent 0x28cc et 0x1000. <code>eth_chainId</code> rend 0x1237 et une adresse bidon rend <code>0x</code>. Enfin, les 887 322 identifiants de pools sont tous distincts : aucun doublon de fenêtre.</p>
+
+  <h2>Le delta contre la veille</h2>
+  <table>
+    <tr><th>Mesure</th><th class="num">24/09</th><th class="num">25/09</th><th>Lecture</th></tr>
+    <tr><td>TVL chaîne (DefiLlama)</td><td class="num">1 001,6 M$</td><td class="num">1 007,6 M$</td><td>+0,6 %</td></tr>
+    <tr><td>TVL Uniswap V4</td><td class="num">197,0 M$</td><td class="num">199,2 M$</td><td>+1,1 %</td></tr>
+    <tr><td>Volume 30 j chaîne</td><td class="num">54,01 Md$</td><td class="num">54,78 Md$</td><td>+1,4 %, même tarification</td></tr>
+    <tr><td>Frais 30 j déclarés</td><td class="num">358,16 M$</td><td class="num">376,35 M$</td><td><strong>rupture</strong> : 358,80 hors fomo</td></tr>
+    <tr><td>Frais 7 j, semaine sur semaine</td><td class="num">—</td><td class="num">−37,6 %</td><td>47,57 contre 76,21 M$</td></tr>
+    <tr><td>Rachats UNI cumulés (on-chain)</td><td class="num">1 187</td><td class="num">1 195</td><td>+8 en 24 h</td></tr>
+    <tr><td>Protocoles DefiLlama sur la chaîne</td><td class="num">191</td><td class="num">194</td><td>+3</td></tr>
+  </table>
+  <p><strong>La rupture de périmètre des frais.</strong> Les frais 30 j de la chaîne gagnent 18,2 M$ en un jour, alors que la chaîne n'encaisse que 5,4 M$ sur 24 h. L'écart vient presque entièrement de <strong>fomo Wallet</strong>, une application de trading : 17,55 M$ sur 30 j, apparus parce que DefiLlama attribue depuis le 24/09 15:52 UTC (commit <code>b8bcfa33</code>) les frais Relay à la chaîne de règlement, avec un historique Robinhood rechargé depuis le 09/07. Le même jour, DefiLlama a retiré une voie de frais de StonkBrokers (<code>a20dcac2</code>), corrigé l'OI d'Arcus (<code>13154779</code>) et ajouté quatre adaptateurs sur la chaîne. Leçon consignée au mémo (P10) : un delta jour sur jour se lit après la liste des commits de l'agrégateur, jamais avant.</p>
+
+  <h2>Cohorte</h2>
+  <p>Rien de ce qui compte n'a franchi un critère. Ratios de frais 30 j contre Pons V2 (140,85 M$) : StonkBrokers 0,019, Fables 0,018, up v3 0,017, Lighter 0,011, GIGA V3 0,004, Arcus 0,003, What The Hook 0,0004, Ekubo 0,0004, TermMax et Longbow 0.</p>
+  <ul>
+    <li><strong>Ce qui bouge</strong> : Fables (TVL 47,4 → 48,6 M$, frais 30 j 2,38 → 2,60 M$) reste le seul membre en croissance nette. Ekubo : capitalisation 8,44 → 9,51 M$.</li>
+    <li><strong>Ce qui devrait inquiéter</strong> : StonkBrokers perd 40 % de TVL en un jour (3,52 → 2,13 M$), presque entièrement dans son coffre Safety Deposit Box (2,90 → 1,47 M$). What The Hook monte à 17,1× capitalisation/TVL (16,1× hier). TermMax a toujours 11,3 k$ de TVL et aucun frais, en route vers son critère de sortie du 31/10.</li>
+    <li><strong>Alertes re-vérifiées</strong> : Fables, code audit 3 et toujours aucun lien. Arcus, lignée dYdX toujours sans source primaire. ARMSys, GitHub toujours 404.</li>
+    <li><strong>Score de preuve recalculé sur 194 protocoles</strong> : 38 publient un lien d'audit qui répond (48 liens sur 50), 26 comptes GitHub sur 28 existent. Pas de nouveau candidat. Snuggle bat toujours cinq membres sur la preuve et les frais.</li>
+  </ul>
+
+  <h2>Ce qui contredit</h2>
+  <div class="gap"><b>Contre la veille « extraction » du 18/09.</b> Le seuil écrit (afterSwapReturnsDelta sous 60 %) est déjà franchi si l'on compte les hooks réels : 43,4 %. Il est à l'opposé si l'on compte les pools : 91,1 %. Et le bit beforeAddLiquidity, lu le 18/09 comme « gestion de liquidité », accompagne surtout des hooks de lancement à un seul pool (combinaison 0x28c0, 5 544 hooks). C'est plausiblement un verrou sur l'ajout de liquidité, pas une gestion. La veille reste ouverte sur sa mesure écrite. La rebaser sur la population réelle est ta décision.</div>
+  <p><strong>Contre ma propre lecture du jour.</strong> « Le registre ne couvre que 5 % des hooks » sonne comme un échec du registre. Pondéré par l'usage, c'est l'inverse : 87,5 % des pools à hook, et encore 85,5 % sur les 30 derniers jours, passent par un hook déclaré. La « longue traîne » hors registre n'est qu'un pool sur huit. D'où une veille ouverte ce jour : si cette part dépasse 25 % sur 30 j d'ici le 25/11, le registre ne décrit plus le flux.</p>
+  <p><strong>Contre la thèse de la subvention.</strong> La veille du 22/09 prévoit un test après le 29/09. Mais la décrue a déjà commencé. Sur une semaine, les frais baissent de 37,6 % et le volume de 19,3 %. Les frais de Pons V2 baissent de 45,4 % (17,77 contre 32,55 M$), ce qui confirme par la source primaire le « presque divisé par deux » de la presse. Ceux du séquenceur baissent de 49,7 %. Si la chute continue après le 29/09, on ne pourra pas l'attribuer à la seule fin de la subvention.</p>
+
+  <h2>Pièges du mémo re-vérifiés ce jour</h2>
+  <ul>
+    <li><strong>P2/P8</strong> (numérateur dans le dénominateur) : le total 30 j déclaré (376 347 742 $) est égal, au dollar près, à la somme des lignes non doublecounted moins la ligne de la chaîne. Pons V2 y est bien inclus.</li>
+    <li><strong>P3</strong> (jointure par nom) : la jointure frais/protocoles s'est faite par <code>slug</code>, avec le nom en secours.</li>
+    <li><strong>P5</strong> (liens d'audit) : Curve et Morpho rendent toujours 404.</li>
+    <li><strong>P6</strong> (frontière de mot) : témoins Fables 10, PARE 0, Morpho Blue 0, GlueHook 2.</li>
+    <li><strong>P7</strong> (populations) : ce rapport en a désormais trois, les hooks du registre, les hooks utilisés et les pools, toujours nommées.</li>
+    <li><strong>P9</strong> (UNI détruits) : le témoin sur la chaîne reste cohérent à 0,2 %.</li>
+  </ul>
+  <p>La sonde elle-même a failli ce matin. Le premier passage rendait 0 lien d'audit en 200 et 28 comptes GitHub en 404, y compris le témoin positif vfat-io. La cause : des fins de ligne Windows dans la liste locale. Le témoin a attrapé l'erreur avant tout usage.</p>
+
+  <h2>Ce qu'on ne sait pas</h2>
+  <div class="unknown"><ul>
+    <li><strong>Qui sont les 22 067 hooks hors registre.</strong> Aucun explorateur ne répond aux scripts (robinscan « not found », hoodscan renvoie vers son MCP, blockscout est derrière Cloudflare). Le plus utilisé, <code>0x8aa3…c0c4</code> (1 479 pools, 40 ko de bytecode), reste sans nom.</li>
+    <li><strong>Le volume par population.</strong> Ce recensement compte des pools, pas des échanges. Qu'un pool sur huit soit hors registre ne dit pas quelle part du volume v4 y passe.</li>
+    <li><strong>Pourquoi la relecture du registre est à l'arrêt.</strong> Rien de public côté Uniswap.</li>
+    <li><strong>Le coffre de StonkBrokers</strong> : retrait, fin de verrouillage ou changement de prix ? Non instruit.</li>
+  </ul></div>
+
+  <p style="margin-top:30px">
+    <span class="tag source">api.llama.fi · coins.llama.fi</span>
+    <span class="tag source">github.com/DefiLlama/dimension-adapters (b8bcfa33, a20dcac2, 13154779)</span>
+    <span class="tag source">rpc.mainnet.chain.robinhood.com (eth_getLogs, eth_getCode, eth_call)</span>
+    <span class="tag source">raw.githubusercontent.com/Uniswap/hooklist · api.github.com commits &amp; PR</span>
+    <span class="tag source">sec.gov 4-927 · federalregister.gov API</span>
+    <span class="tag">presse : KuCoin, cryptonews, crypto.news (calendrier de la subvention) — non recoupée</span>
+  </p>
+</main>
+<footer>Hermes DeFi · enquête générée le 2026-09-25 08:55 UTC · série : 7<sup>e</sup> point (21/09 manquant) · fil tokenisation, jour 8 calendaire</footer>
+</body>
+</html>
