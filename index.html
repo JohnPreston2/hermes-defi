@@ -580,14 +580,26 @@ function vueBrief(D){
   h+=guard(B.theses,T=>{
     const L={NEW:"N",REVISE:"R",CONFIRM:"C",RETIRE:"X"};
     const badge={vivante:"good",dormante:"warn",retiree:"bad"};
+    /* NOTATION EXTERNE (25/09, decision user) : les conditions sont notees sur
+       DefiLlama + CoinGecko par theses_externe.py. Si la mesure manque, on retombe
+       sur les compteurs internes — et l'en-tete le montre. */
+    const X=T.externe||{},XP=X.par_these||{},xok=has(X.as_of)&&!X.err;
+    const fx=(v,u)=>!has(v)?"—":u==="ratio"?nf(v,2)+"×":u==="%"?(v>0?"+":"")+nf(v,1)+" %":u==="jours"?v+" j":u==="$"?nf(v/1e6,1)+" M$":esc(v);
+    const chipsExt=`${XP.DECLENCHEE?`<span class="chip bad" title="au moins une clause est franchie, mesurée sur DefiLlama + CoinGecko">${XP.DECLENCHEE} condition(s) DÉCLENCHÉE(S)</span>`:""}
+       ${XP.EN_COURS?`<span class="chip warn" title="une exigence de durée court : le compteur de jours avance vers son échéance">${XP.EN_COURS} en compte à rebours</span>`:""}
+       <span class="chip good" title="toutes les clauses tiennent, mesurées sur DefiLlama + CoinGecko">${XP.TENUE||0} tenue(s)</span>
+       ${XP.TENUE_PARTIEL?`<span class="chip warn" title="les clauses mesurables tiennent ; une autre ne se traduit pas en données">${XP.TENUE_PARTIEL} tenue(s) partielle(s)</span>`:""}
+       ${XP.NON_EVALUABLE?`<span class="chip warn">${XP.NON_EVALUABLE} non évaluable(s)</span>`:""}
+       <span class="chip ${X.perime?"bad":""}" title="notation 0-LLM sur séries publiques — ${esc(Object.values(X.sources||{}).join(" · "))}">DefiLlama + CoinGecko${X.perime?" — PÉRIMÉ":""} · il y a ${nf(X.age_h,0)} h</span>`;
     return `<div class="card">${head("Registre des thèses",B.theses,
       `<span class="chip good" title="dernier verdict il y a moins de ${T.dormance_jours} jours — le seuil est large, une « vivante » peut dater de 10 jours">${T.n_vivantes} vivantes <small>&lt;${T.dormance_jours}j</small></span>
-       ${T.n_cassees?`<span class="chip bad" title="la clause de seuil de leur condition d'invalidation est franchie">${T.n_cassees} condition(s) CASSÉE(S)</span>`:""}
+       ${xok?chipsExt:`${T.n_cassees?`<span class="chip bad" title="la clause de seuil de leur condition d'invalidation est franchie">${T.n_cassees} condition(s) CASSÉE(S)</span>`:""}
        <span class="chip good" title="thèses VIVANTES dont toutes les clauses mesurables tiennent">${T.n_tenues} tenue(s)</span>
        ${T.n_tenues_partiel?`<span class="chip warn" title="une clause tient, une autre n'est pas mesurable — ce n'est pas une tenue, et c'était compté comme telle jusqu'au 17/09">${T.n_tenues_partiel} tenue(s) partielle(s)</span>`:""}
        <span class="chip warn" title="aucune clause mesurable">${T.n_non_evaluables} non évaluable(s)</span>
        ${T.n_clauses_non_evaluables?`<span class="chip warn" title="clauses individuelles non mesurables, tous verdicts confondus — le compteur qui manquait">${T.n_clauses_non_evaluables} clause(s) non mesurable(s)</span>`:""}
        ${T.n_niveau_atteint?`<span class="chip bad" title="la capture est AUJOURD'HUI à la valeur qui déclencherait la condition ; seule la persistance dans le temps n'est pas prouvable">${T.n_niveau_atteint} au niveau de déclenchement</span>`:""}
+       ${X.err?`<span class="chip bad" title="${esc(X.err)}">mesure externe absente</span>`:""}`}
        <span class="chip warn">${T.n_dormantes} dormantes</span>
        <span class="chip bad">${T.n_retirees} retirées</span>
        <span class="chip">${T.n_verdicts} verdicts</span>`)}
@@ -604,7 +616,8 @@ function vueBrief(D){
             title="${esc(v.d)} — ${esc(v.v)} : ${esc(v.texte||"")}">${esc(L[v.v]||"?")}</i>`).join("")}</div>
           ${e.kill?`<div class="killc"><b>condition d'invalidation posée le ${esc(e.kill_le||"?")}</b>
             ${esc(e.kill)}
-            ${(()=>{const ev=e.evaluation||{},s=ev.clause_seuil||{},u=ev.clause_duree||{},g=ev.verdict_global||{};
+            ${(()=>{const EX=e.evaluation_externe||{};
+              const interne=(()=>{const ev=e.evaluation||{},s=ev.clause_seuil||{},u=ev.clause_duree||{},g=ev.verdict_global||{};
               const GB={TENUE:"ok",TENUE_PARTIEL:"partial",DECLENCHEE:"nomap",NON_EVALUABLE:"partial"};
               const GL={TENUE:"condition tenue",TENUE_PARTIEL:"tenue sur ce qu'on sait",
                         DECLENCHEE:"CONDITION DÉCLENCHÉE",NON_EVALUABLE:"non évaluable"};
@@ -627,7 +640,38 @@ function vueBrief(D){
                 if(has(u.baisses_consecutives)&&u.jours>=7)
                   h+=`<span class="disp" title="mesuré sur 365 jours : 7 baisses consécutives ne sont JAMAIS arrivées sur le volume d'Orca ni de Raydium (6 au maximum), ni sur la TVL de Maple (5) ; elles sont arrivées une seule fois sur la TVL de Spark (7) et de Lista DAO (8). Ce seuil est un évènement annuel : il ne se déclenchera quasiment jamais, et « tenue » n'en dit donc presque rien.">seuil ~1×/an</span>`;}
               if(!s.verdict&&!u.verdict) h+='<span class="res partial">non évaluable</span>';
-              return h+"</div>";})()}
+              return h+"</div>";})();
+              if(!EX.clauses) return (EX.err?`<div style="margin-top:6px;font:10.5px var(--mono);color:var(--warn)">mesure externe : ${esc(EX.err)}</div>`:"")+interne;
+              const GBx={TENUE:"ok",TENUE_PARTIEL:"partial",EN_COURS:"partial",DECLENCHEE:"nomap",NON_EVALUABLE:"partial"};
+              const GLx={TENUE:"condition tenue",TENUE_PARTIEL:"tenue sur ce qu'on mesure",EN_COURS:"compte à rebours en cours",DECLENCHEE:"CONDITION DÉCLENCHÉE",NON_EVALUABLE:"non évaluable"};
+              const CB={TENUE:"ok",CASSEE:"nomap",EN_COURS:"partial",NON_EVALUABLE:"partial"};
+              const CL={TENUE:"tenue",CASSEE:"CASSÉE",EN_COURS:"en cours",NON_EVALUABLE:"non évaluable"};
+              let h=`<div style="margin-top:6px"><span class="res ${GBx[EX.global]||"partial"}" title="clauses combinées par « ou » : une seule franchie suffit">${esc(GLx[EX.global]||EX.global)}</span>
+                <span style="font:10px var(--mono);color:var(--ink4)">mesuré sur DefiLlama + CoinGecko</span></div>`;
+              for(const c of EX.clauses||[]){
+                let v;
+                if(c.verdict==="NON_EVALUABLE") v=esc(c.pourquoi||"");
+                else if(Array.isArray(c.semaines_pct)) v="semaines : "+c.semaines_pct.map(x=>fx(x,"%")).join(" puis ")+` <span style="color:var(--ink4)">· déclenche si toutes &lt; 0</span>`;
+                else if(has(c.echeance)) v=`jour ${c.valeur}/${c.seuil} depuis le ${esc(c.depuis||"?")} · échéance le ${esc(c.echeance)}`+(c.deja_avant_la_pose?` <span style="color:var(--ink4)">· à zéro depuis ${c.deja_avant_la_pose>=60?"au moins ":""}${c.deja_avant_la_pose} j au dernier jour connu</span>`:"");
+                else v=`${fx(c.valeur,c.unite)} <span style="color:var(--ink4)">seuil ${fx(c.seuil,c.unite)}</span>`+(has(c.a_la_pose)?` <span style="color:var(--ink4)">· à la pose ${fx(c.a_la_pose,c.unite)}</span>`:"");
+                h+=`<div style="margin-top:4px;display:flex;gap:6px;flex-wrap:wrap;align-items:baseline" title="${esc(c.definition||"")}">
+                  <span class="res ${CB[c.verdict]||"partial"}">${esc(CL[c.verdict]||c.verdict)}</span>
+                  <span style="font-size:11px">${esc(c.texte)}</span>
+                  <span style="font:10.5px var(--mono)">→ ${v}</span>
+                  ${c.limite?`<span class="disp" title="${esc(c.limite)}">zéro à recouper</span>`:""}</div>`;
+              }
+              const F=EX.faits||{},ecart=has(F.ecart_fees_pct)&&Math.abs(F.ecart_fees_pct)>10;
+              h+=`<div style="margin-top:6px;font:10.5px var(--mono);color:var(--ink3);line-height:1.6">
+                P/F ${fx(F.pf_externe,"ratio")} <span style="color:var(--ink4)">(Hermes ${fx(F.pf_hermes,"ratio")})</span>
+                · médiane ${esc(F.secteur_hermes||"")} ${fx(F.mediane_secteur_externe,"ratio")} <span style="color:var(--ink4)">(Hermes ${fx(F.mediane_secteur_hermes,"ratio")}, ${F.n_pairs||0} pairs)</span>
+                · FDV/capi ${fx(F.fdv_mcap_coingecko,"ratio")}
+                · fees 7 j ${fx(F.fees_7j_vs_7j_pct,"%")}
+                ${has(F.volume_7j_vs_7j_pct)&&["dex","perp"].includes(F.secteur_hermes)?`· volume 7 j ${fx(F.volume_7j_vs_7j_pct,"%")}`:""}
+                · capture 7 j ${has(F.capture_7j_pct)?nf(F.capture_7j_pct,1)+" %":"—"} <span style="color:var(--ink4)">(Hermes ${has(F.capture_hermes_pct)?nf(F.capture_hermes_pct,1)+" %":"—"})</span>
+                ${ecart?`<span class="disp" title="fees annualisées : Hermes ${nf(F.fees_ann_hermes/1e6,1)} M$ contre DefiLlama ${nf(F.fees_ann_externe/1e6,1)} M$ — le board ne compte pas le même périmètre, et son P/F en dépend">Hermes compte ${nf(Math.abs(F.ecart_fees_pct),0)} % de fees en ${F.ecart_fees_pct<0?"moins":"plus"}</span>`:""}</div>`;
+              const gi=((e.evaluation||{}).verdict_global||{}).verdict;
+              if(gi) h+=`<div style="margin-top:3px;font:10px var(--mono);color:var(--ink4)">notation interne Hermes (séries du board seules) : ${esc({TENUE:"tenue",TENUE_PARTIEL:"tenue partielle",DECLENCHEE:"déclenchée",NON_EVALUABLE:"non évaluable"}[gi]||gi)}</div>`;
+              return h;})()}
           </div>`:""}
         </div>`).join("")}
         <div class="note">Une case par verdict, dans l'ordre :
@@ -636,6 +680,11 @@ function vueBrief(D){
           <br><br>${esc(T.note||"")}
           <br><br><b>Ce que la notation couvre — et ce qu'elle ne couvre pas</b>
           ${esc(T.note_evaluation||"")}
+          ${(T.externe||{}).as_of?`<br><br><b>Notation externe (DefiLlama + CoinGecko)</b> — ${esc(T.externe.note||"")}
+          Survolez une clause pour lire la définition exacte utilisée. Une exigence de durée compte ses jours depuis
+          sa <b>première pose</b> : recopier la même condition d'un brief à l'autre ne remet pas le compteur à zéro,
+          un retrait si. <i>Zéro à recouper</i> : DefiLlama ne voit pas tous les rachats ni les staking payés hors de
+          ses adaptateurs — un zéro peut être un trou de mesure.`:""}
           <br>Les compteurs ci-dessus portent sur les thèses <b>vivantes</b> seulement : noter la
           tenue d'une thèse qu'on a retirée ne mesure rien.
         </div>
