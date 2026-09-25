@@ -385,6 +385,44 @@ tr.weak td.k{color:var(--ink2)}
   }catch(e){ /* un feed absent ne doit jamais casser le dashboard */ }
 })();
 </script>
+<!-- === Contexte WEB des theses (additif, 2026-09-25). Lit rapport/theses_web.json,
+     produit par la routine locale « Veille web des theses ». Du CONTEXTE date et source,
+     jamais un verdict : les verdicts viennent de DefiLlama + CoinGecko (theses_externe.py).
+     Reste muet si le fichier manque. === -->
+<style>
+.thweb{grid-column:1/-1;font-size:11px;color:var(--ink3);margin-top:6px;padding:7px 9px;
+ border-left:2px solid var(--acc);background:color-mix(in oklch,var(--acc) 6%,transparent);
+ border-radius:4px;line-height:1.55}
+.thweb b{font:600 9px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink4);
+ display:block;margin-bottom:3px}
+.thweb .tg{font:600 9px var(--mono);color:var(--ink4);border:1px solid var(--line2);border-radius:3px;padding:0 3px}
+.thweb .rc{color:var(--ink2);margin-bottom:3px}
+.thweb a{color:var(--acc2)}
+</style>
+<script>
+document.addEventListener("defi:data",async()=>{
+  try{
+    const r=await fetch("rapport/theses_web.json?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok) return;
+    const W=await r.json(), T=(W&&W.theses)||{};
+    const e2=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    document.querySelectorAll(".th[data-these]").forEach(el=>{
+      const w=T[el.dataset.these]; if(!w) return;
+      const faits=(w.faits||[]).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date))).slice(0,4);
+      let h=`<div class="thweb"><b>contexte web · relevé le ${e2(w.releve||"?")}</b>`;
+      if(w.recoupe) h+=`<div class="rc">${e2(w.recoupe)}</div>`;
+      if(!faits.length) h+=`<div>${w.rien?"rien de neuf côté web sur 14 jours":"aucun fait relevé"}</div>`;
+      for(const f of faits){
+        let host=""; try{ host=new URL(f.source).hostname.replace(/^www\./,""); }catch(_){}
+        h+=`<div>${e2(f.date||"?")} · ${e2(f.fait||"")}${f.touche?` <span class="tg">${e2(f.touche)}</span>`:""}`+
+           `${/^https?:\/\//.test(f.source||"")?` <a href="${e2(f.source)}" target="_blank" rel="noopener">${e2(host||"source")}</a>`:""}`+
+           `${f.recoupe===false?` <span class="tg">presse, non recoupé</span>`:""}</div>`;
+      }
+      el.insertAdjacentHTML("beforeend",h+"</div>");
+    });
+  }catch(e){ /* un fichier absent ou mal forme ne casse jamais le dashboard */ }
+});
+</script>
 <main id="app"><div class="empty">chargement…</div></main>
 
 <script>
@@ -604,7 +642,7 @@ function vueBrief(D){
        <span class="chip bad">${T.n_retirees} retirées</span>
        <span class="chip">${T.n_verdicts} verdicts</span>`)}
       <div class="bd">
-        ${(T.theses||[]).map(e=>`<div class="th">
+        ${(T.theses||[]).map(e=>`<div class="th" data-these="${esc(e.nom)}">
           <div>
             <div class="nm">${esc(e.nom)}
               <span class="chip ${badge[e.statut]||""}">${esc(e.statut)}</span></div>
