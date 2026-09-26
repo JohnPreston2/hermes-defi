@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "maj": "2026-09-25",
+ "maj": "2026-09-26",
  "role": "Memo TECHNIQUE de l'enquete Robinhood Chain. Il porte les FAITS : endpoints qui repondent, constantes, et pieges MESURES sur ces sources. Le prompt de la routine porte la METHODE et ne doit pas dupliquer ce fichier. A lire au debut de chaque enquete, AVANT la premiere mesure. Chaque piege ici a coute une erreur reelle, datee.",
  "sources": {
   "registre_hooks": {
@@ -169,6 +169,13 @@
    "source": "registre des hooks vs chaine",
    "symptome": "Le registre Uniswap/hooklist n'est PAS un recensement : 1 142 des 23 209 hooks utilises par un pool sur la chaine y figurent. Un taux calcule sur le registre (audits, flags, vocabulaire) porte sur 5 % des adresses, 87,5 % des pools. Le gel du registre du 21/09 est un gel de RELECTURE (PR ouvertes, 0 fusion), pas un arret des soumissions.",
    "parade": "Nommer la population : 'hooks du registre', 'hooks utilises', ou 'pools'. Recensement : eth_getLogs topic0 Initialize 0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438 sur la PoolManager, fenetres de 250 k a 1 M blocs (plafond 10 000 logs), RPC officiel seul (ordofi plafonne ~10 k blocs par requete, publicnode rend 403), pause 1 s et reprise sur HTTP 429. Le RPC n'est pas archive : eth_getCode a un bloc ancien echoue ('historical state ... not available')."
+  },
+  {
+   "id": "P12",
+   "date": "2026-09-26",
+   "source": "recensement on-chain des hooks",
+   "symptome": "Une population de 'hooks distincts' peut etre dominee par un seul acteur : le 15/09, entre ~10h et 12h UTC, l'EOA 0x3bcd53b331b6054b4c0e45a26ad58a142d910ade via le contrat 0xbe183de7bb93346a41769c44f47cb588d164df2d a cree 5 514 hooks (flags 0x28c0), un pool mmETH (0x4fc59c42653e052c7ab5c8381f839e2d70504131)/<jeton existant> chacun, frais 0, sans swap sur un echantillon de 20. Soit 24 % des 23 362 hooks utilises. Le 25/09, le taux asrd on-chain (43,4 %) a ete lu comme un fait d'ecosysteme : sans cette rafale il vaut 57,1 %.",
+   "parade": "Avant tout taux sur des hooks on-chain, compter les hooks par jour de premiere apparition et par (flags, devise appariee) : une rafale d'un jour se voit immediatement. Publier le taux avec ET sans les rafales d'un seul deployeur. Datation des blocs : interpolation entre horodatages releves tous les 500 000 blocs."
   }
  ],
  "mesure_ajoutee_20260921": {

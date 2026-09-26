@@ -51,6 +51,11 @@
      "date": "2026-09-25",
      "valeur": "registre : afterSwapReturnsDelta 72,4 % (843/1164) / beforeAddLiquidity 25,3 % (295/1164) -- MESURE INDEPENDANTE sur la chaine : 43,4 % (10 065/23 209 hooks utilises par au moins un pool) / 50,0 % (11 606/23 209) ; ponderes par pools : 91,1 % / 18,7 % (305 078 pools a hook)",
      "note": "Registre fige (4e jour). Le recensement on-chain des 887 322 pools v4 montre que le seuil ecrit ('afterSwapReturnsDelta sous 60 %') est DEJA franchi si l'on compte les hooks reels (43,4 %), et tres loin de l'etre si l'on compte les pools (91,1 %). La veille a ete ecrite sur la population du registre (1 164 entrees, dont 1 142 utilisees) ; les 22 067 hooks hors registre servent a 92 % un seul pool (lanceurs 'un jeton, un hook'), et leur beforeAddLiquidity accompagne souvent beforeInitialize+beforeSwap+afterSwap (combinaison 0x28c0, 5 544 hooks a un seul pool) -- un controle d'ajout de liquidite, pas forcement de la gestion de liquidite. NON SOLDEE : la mesure ecrite (registre) ne bouge pas ; basculer la veille sur la population on-chain est une decision user."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "registre : 72,4 % (843/1164) / 25,3 % (295/1164) -- chaine, 23 362 hooks utilises : 43,6 % / 49,8 % ; HORS la rafale mmETH du 15/09 (5 514 hooks d'un seul acteur) : 57,1 % / 34,3 % (17 848 hooks) ; ponderes par pools : 91,1 % / 18,6 %",
+     "note": "CORRECTION de la lecture du 25/09 : le 'seuil deja franchi sur la chaine' (asrd 43,4 %) tenait pour 13,5 points a UN deployeur (EOA 0x3bcd53b3...0ade, contrat 0xbe183de7...df2d) qui a cree en ~2 h le 15/09 5 514 hooks 0x28c0 (sans le bit asrd, avec beforeAddLiquidity), un pool mmETH/<jeton> chacun, sans swap sur un echantillon de 20. Sans lui : 57,1 % -- sous 60 % de 3 points seulement ; bal 34,3 %, sous 40 %. NON SOLDEE : la mesure ecrite (registre) ne bouge pas."
     }
    ],
    "solde": null
@@ -98,6 +103,11 @@
      "date": "2026-09-25",
      "valeur": "4 / 1164 (0,34 %)",
      "note": "identique, registre fige ; aucun exploit public de hook de la chaine trouve (recherche web ce jour). Rappel du recensement : 22 067 hooks utilises sur la chaine n'ont AUCUNE fiche au registre, donc aucun auditUrl possible -- le taux mesure porte sur 1 164 adresses, pas sur 23 209."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "4 / 1164 (0,34 %)",
+     "note": "registre fige (5e jour) ; aucun exploit public de hook de la chaine trouve (recherche web ce jour)."
     }
    ],
    "solde": null
@@ -145,6 +155,11 @@
      "date": "2026-09-25",
      "valeur": "v3 43,9 % / v4 35,0 % du volume 30j (24,03/19,18/54,78 Md$)",
      "note": "comparable au 24/09 (meme tarification) : v3 stable, v4 -0,1 pt. Loin des deux seuils."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "v3 43,8 % / v4 34,9 % du volume 30j (24,24/19,34/55,37 Md$)",
+     "note": "comparable au 25/09 : v3 -0,1 pt, v4 -0,1 pt. Loin des deux seuils."
     }
    ],
    "solde": null
@@ -192,6 +207,11 @@
      "date": "2026-09-25",
      "valeur": "154 deploiements sur 1164 (13,2 %) ; aucun avis de TSV connu (recherche web ce jour)",
      "note": "registre fige ; 5 PR 'robinhood' en attente de relecture chez Uniswap/hooklist."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "154 deploiements sur 1164 (13,2 %) ; aucun avis de TSV connu (recherche web ce jour : seules des analyses de cabinets -- Sullivan & Cromwell, Mayer Brown, Cooley, Dechert)",
+     "note": "registre fige."
     }
    ],
    "solde": null
@@ -239,6 +259,11 @@
      "date": "2026-09-25",
      "valeur": "14 lettres au dossier (derniere : NeuFin, 22/09) ; FR publie le 22/09 ; aucun nouveau document SEC 'tokenized' au FR depuis",
      "note": "aucune nouvelle lettre PUBLIEE en 48 h. Qualification de Bitcoin Bancorp toujours en attente d'une decision user."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "21 lettres au dossier (+7 publiees depuis le 25/09) ; FR publie le 22/09 ; aucun nouveau document SEC 'tokenized' au FR",
+     "note": "Nouvelles lettres des 24-25/09 : Vertalo Inc. (Dave Hendricks, CEO) -- agent de transfert ENREGISTRE aupres de la SEC, qui se declare non broker-dealer ; Omid Malekan (Columbia Business School, universitaire) ; MONARK, BostonTrading & Education, deux particuliers. Premiere lettre d'un intermediaire regule par la SEC, mais un agent de transfert n'est ni bourse, ni courtier, ni emetteur, ni cabinet : seuil NON franchi a la lettre. Decision user : un agent de transfert enregistre compte-t-il comme 'poids lourd' ?"
     }
    ],
    "solde": null
@@ -281,6 +306,11 @@
      "date": "2026-09-25",
      "valeur": "37,4 % (140,85/376,35 M$) sur le total declare ; 39,3 % (140,85/358,80) hors fomo Wallet",
      "note": "La baisse apparente (-1,7 pt) est une RUPTURE DE DENOMINATEUR : DefiLlama ajoute depuis le 24/09 15:52 UTC 17,55 M$ de frais fomo Wallet (reattribution Relay, commit b8bcfa33). A perimetre constant, Pons passe de 39,1 a 39,3 %. Au-dessus des deux seuils. Mais frais 7j de Pons V2 : -45,4 % semaine sur semaine (17,77 contre 32,55 M$)."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "37,5 % (141,18/376,67 M$) sur le total declare ; 39,3 % (141,18/358,89) hors fomo Wallet",
+     "note": "A perimetre constant, stable (39,3 %). Frais 7j Pons V2 16,44 M$ contre 29,21 M$ la semaine d'avant (-43,7 %). Au-dessus des deux seuils."
     }
    ],
    "solde": null
@@ -292,7 +322,7 @@
    "mesure": "cohorte.json > candidats_automatiques : recalcul quotidien du score de preuve (audit_links HTTP 200, compte GitHub API 200, hook nomme au registre) croise au TVL Robinhood Chain et aux frais 30j DefiLlama de chaque protocole hors cohorte.",
    "seuil": "CONFIRMEE (entree automatique declenchee) si un des 4 depasse un membre nomme sur la preuve ET la traction pendant 7 jours consecutifs a compter du 19/09 (jour 1). MORTE si aucun des 4 ne reste candidat (score>=2 et traction au-dessus du plancher) pendant 5 jours consecutifs.",
    "echeance": "2026-09-26",
-   "statut": "OUVERTE",
+   "statut": "REVISEE",
    "historique": [
     {
      "date": "2026-09-19",
@@ -323,9 +353,18 @@
      "date": "2026-09-25",
      "valeur": "memes 6 candidats : Snuggle (2 ; TVL 7,14 M$ ; frais 2,23 M$), UNCX V3 (2 ; 8,27 M$ ; 0), Beefy (3 ; 2,92 M$ ; 0), vfat.io (3 ; 3,24 M$ ; 34 k$), Saffron Vaults (2 ; 1,005 M$ ; 0), Ramses DLMM (2 ; 0,60 M$ ; 307 k$)",
      "note": "jour 4 consecutif sans trou (22-25/09). STONX (score 2) toujours exclu comme produit d'Ekubo. Solde prevu demain 26/09 en REVISEE."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "memes 6 candidats : Snuggle (2 ; TVL 7,31 M$ ; frais 2,21 M$), UNCX V3 (2 ; 8,12 M$ ; 0), Beefy (3 ; 3,00 M$ ; 0), vfat.io (3 ; 3,26 M$ ; 35 k$), Saffron Vaults (2 ; 1,010 M$ ; 0), Ramses DLMM (2 ; 0,50 M$ ; 300 k$)",
+     "note": "Echeance. Les 4 candidats du 19/09 le sont toujours 8 jours plus tard : l'artefact d'un jour est exclu. Mais la regle '7 jours consecutifs' n'est pas remplie : aucune mesure le 21/09, le compteur repart le 22/09 -> jour 5 aujourd'hui pour Snuggle, seul a battre des membres sur preuve ET frais (Lighter, Arcus, GIGA V3, Longbow, What The Hook)."
     }
    ],
-   "solde": null
+   "solde": {
+    "date": "2026-09-26",
+    "verdict": "REVISEE",
+    "raison": "Affirmation confirmee sur le fond (les 4 candidats persistent, 7 releves sur 8 jours), mais l'entree automatique n'est pas declenchee a l'echeance : le trou de mesure du 21/09 casse la consecutivite. Le compteur de la regle de cohorte continue hors veille : si Snuggle reste dominant les 27 et 28/09, il entre le 28/09 a la place du membre le plus faible qu'il domine."
+   }
   },
   {
    "id": "v_20260922_01",
@@ -355,6 +394,11 @@
      "date": "2026-09-25",
      "valeur": "pre-expiration J-4 : volume 24h 1,513 Md$, 7j 10,388 Md$ ; frais 24h 5,40 M$, 7j 47,57 M$ (dont fomo Wallet 1,64 M$, nouveau perimetre) ; TVL chaine 1 007,6 M$",
      "note": "vs 24/09 : volume 7j -1,1 %, frais 7j -2,7 % (-6,0 % hors fomo : 45,93 M$). Semaine sur semaine (DefiLlama total7d vs total14dto7d) : frais -37,6 %, volume -19,3 %, Pons V2 frais -45,4 %, sequenceur -49,7 %. La decrue commence AVANT le 29/09 : le test post-subvention devra separer ce qui etait deja en cours. ATTENTION : la reference 7j du 23/09 (48,35 M$) n'incluait pas fomo ; comparer post-29/09 hors fomo."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "pre-expiration J-3 : volume 24h 1,397 Md$, 7j 10,215 Md$ ; frais 24h 5,12 M$, 7j 45,50 M$ (43,77 M$ hors fomo) ; TVL chaine 1 026,3 M$ ; pools v4 crees sur 7 j : 70 196",
+     "note": "vs 25/09 : volume 7j -1,7 %, frais 7j -4,4 % (-4,7 % hors fomo). Semaine sur semaine : frais -34,1 %, volume -13,2 %, Pons V2 -43,7 %, sequenceur -45,2 %. NOUVEAU temoin sur la chaine : creation de pools v4 128 710 (29/08-04/09) -> 104 112 -> 98 338 (92 824 hors rafale mmETH) -> 70 196 (19-25/09), soit -45 % en trois semaines, AVANT la fin de subvention. La TVL, elle, monte (+1,9 % en 24 h)."
     }
    ],
    "solde": null
@@ -377,6 +421,11 @@
      "date": "2026-09-25",
      "valeur": "59,6 % (9,59/16,11 M$) ; nonce Firepit 1195 (+8 rachats en ~24 h, 16 000 UNI)",
      "note": "8 rachats x 2 000 UNI x 9,14 $ = 146,2 k$ contre 146,45 k$ chez DefiLlama pour la journee : temoin on-chain coherent a 0,2 %. Au-dessus du seuil CONFIRMEE (50 %)."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "58,9 % (9,44/16,02 M$ sur les 30 derniers points, dernier point 26/09 partiel) ; nonce Firepit 1203 (+8 rachats, 16 000 UNI)",
+     "note": "Au-dessus du seuil CONFIRMEE (50 %)."
     }
    ],
    "solde": null
@@ -394,9 +443,31 @@
      "date": "2026-09-25",
      "valeur": "14,5 % sur 30 j (21 384/147 372 pools a hook) ; 12,5 % depuis l'origine ; 1 054 hooks apparus depuis le gel du registre (21/09 15:38 UTC), 0 au registre",
      "note": "point d'ouverture. Limite : le recensement lit le champ hooks de Initialize ; un hook peut etre enregistre au registre sous une adresse differente de celle qui sert (proxy) -- 22 entrees du registre ne servent a aucun pool. Cout de la mesure : ~900 appels eth_getLogs, limite de debit (HTTP 429) sur le RPC officiel, ~45 min."
+    },
+    {
+     "date": "2026-09-26",
+     "valeur": "14,4 % sur 30 j (21 081/145 962 pools a hook) ; 12,6 % depuis l'origine (38 720/307 886) ; 1 207 hooks apparus depuis le gel du registre, 0 au registre",
+     "note": "ATTENTION : 5 514 des 21 081 pools 30 j hors registre sont la rafale mmETH du 15/09 (un seul acteur, sans swap sur echantillon). Hors rafale : 11,1 % (15 567/140 448). La rafale sort de la fenetre le 15/10 : attendre une baisse mecanique de ~3 points ce jour-la, sans changement de fond."
     }
    ],
    "solde": null
+  },
+  {
+   "id": "v_20260926_01",
+   "ouverte": "2026-09-26",
+   "affirmation": "La chaine est d'abord une usine a jetons, et c'est la subvention de gas qui la fait tourner : la creation de pools Uniswap v4 (un pool = un jeton lance ou apparie) baisse deja depuis fin aout et doit decrocher franchement apres le 29/09, plus vite que la TVL.",
+   "mesure": "Recensement on-chain des evenements Initialize de la PoolManager v4 0x8366a39cc670b4001a1121b8f6a443a643e40951 (topic0 0xdd466e67...6438), somme sur 7 jours UTC pleins. Reference 19-25/09 : 70 196 pools (10 028/j), dont 25 964 a hook ; pic 29/08-04/09 : 128 710. Exclure toute rafale d'un seul deployeur (cf. mmETH 15/09) et le signaler.",
+   "seuil": "CONFIRMEE si une semaine pleine entre le 30/09 et le 13/10 passe sous 35 098 pools (-50 % vs reference). MORTE si les deux semaines 30/09-06/10 et 07/10-13/10 restent au-dessus de 56 157 (-20 %).",
+   "echeance": "2026-10-13",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-09-26",
+     "valeur": "70 196 pools sur 19-25/09 ; 26/09 partiel (jusqu'a 11:46 UTC) : 5 600",
+     "note": "point d'ouverture ; complete v_20260922_01 (volume/frais) par une mesure qui ne depend d'aucun adaptateur DefiLlama."
+    }
+   ]
   }
  ]
 }

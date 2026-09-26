@@ -56,6 +56,14 @@
       "question": "Le registre officiel des hooks, gelé depuis quatre jours et base de trois veilles, décrit-il vraiment ce qui tourne sur la chaîne ?",
       "mesure_neuve": "Recensement de tous les pools v4 créés sur la chaîne (887 322 événements Initialize, blocs 0 à 72 076 000) : 305 078 pools à hook, 23 209 hooks distincts, dont 1 142 seulement au registre (4,9 %) — mais ces 1 142 portent 87,5 % des pools à hook, Doppler seul 58,1 %. Les 22 067 hooks hors registre servent à 92 % un seul pool. Le profil de permissions change avec la population : afterSwapReturnsDelta 72,4 % au registre, 43,4 % des hooks réels, 91,1 % des pools. Et une rupture de périmètre des frais : +17,55 M$ attribués à fomo Wallet par DefiLlama le 24/09.",
       "genere": "2026-09-25T08:45:31Z"
+    },
+    {
+      "date": "2026-09-26",
+      "fichier": "2026-09-26-enquete.html",
+      "titre": "Robinhood Chain, 26/09 : l'usine à jetons a ralenti de 45 % avant la fin du gaz gratuit",
+      "question": "À trois jours de la fin de la subvention de gas, la chaîne ralentit-elle déjà, et sur quoi : ses jetons, ses frais, ou son capital ?",
+      "mesure_neuve": "Création de pools Uniswap v4 comptée sur la chaîne semaine par semaine (899 658 événements Initialize) : 128 710 (29/08-04/09) -> 70 196 (19-25/09), -45 % avant le 29/09, alors que la TVL monte à 1 026 M$. Et 5 514 des 23 362 hooks de la chaîne (24 %) sont l'œuvre d'un seul déployeur en deux heures le 15/09, des pools mmETH sans swap : sans eux, le taux de hooks préleveurs passe de 43,6 % à 57,1 %.",
+      "genere": "2026-09-26T11:46:22Z"
     }
   ]
 }
