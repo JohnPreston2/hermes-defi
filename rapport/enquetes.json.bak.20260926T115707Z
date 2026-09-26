@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "enquetes": [
+    {
+      "date": "2026-09-18",
+      "fichier": "2026-09-18-enquete.html",
+      "titre": "Robinhood Chain : la chaîne des actions tokenisées, ou la chaîne des memecoins ?",
+      "question": "Sur les 1 159 hooks Uniswap v4 déployés sur Robinhood Chain, combien servent réellement à échanger des actions tokenisées — et le reste de l'écosystème est-il compatible avec ce que le régulateur vient d'exiger ?",
+      "mesure_neuve": "1 159 hooks décodés un par un depuis le registre officiel (calibration 0 écart sur 4 953 entrées) : seulement 23,6 % évoquent des actions/tokenisation, 57,0 % du vocabulaire memecoin/launchpad, 4 audités, et EulerSwap/Bunni/Angstrom totalement absents alors qu'ils dominent les autres chaînes v4.",
+      "genere": "2026-09-18T21:40:00Z"
+    },
+    {
+      "date": "2026-09-19",
+      "fichier": "2026-09-19-enquete.html",
+      "titre": "Robinhood Chain, J+1 : la structure tient, mais Uniswap vient d'acheter le memecoin qui la domine",
+      "question": "Les proportions mesurees hier (hooks d'extraction, 0,34% d'audits, 43% de la chaine sur v4) ont-elles bouge en 24h, et l'actualite de la semaine explique-t-elle pourquoi la part memecoin ne recule pas ?",
+      "mesure_neuve": "5 veilles retestees (aucun seuil franchi) + decouverte d'un ecart interne non explique entre les definitions figees de serie.json et les valeurs enregistrees le 18/09 pour hooks_stock_vocab_pct (23,6% vs 13,4% recalcule) et hooks_meme_vocab_pct (57,0% vs 51,7%) ; part combinee Uniswap V2+V3+V4 calculee a 79,0% du volume total de la chaine et part de Pons a 42,0% des frais 30j, mises en regard de l'acquisition de PONS par Uniswap Labs (annoncee 03-04/09/2026).",
+      "genere": "2026-09-19T11:17:00Z"
+    },
+    {
+      "date": "2026-09-20",
+      "fichier": "2026-09-20-enquete.html",
+      "titre": "Robinhood Chain, J+2 : le registre des hooks s'est figé, la chaîne non — et un score de preuve mal câblé",
+      "question": "Le registre officiel des hooks, source du chiffre-signature de l'enquête depuis deux jours, a-t-il vraiment cessé de bouger — ou est-ce ma propre sonde qui échoue en silence ? Et le score de preuve de la cohorte tient-il l'épreuve d'un nouveau protocole qui vient d'entrer ?",
+      "mesure_neuve": "Le registre Uniswap/hooklist n'a reçu aucune régénération depuis 2026-09-19T10:59:15Z (vérifié via l'historique de commits GitHub, pas seulement le compte local) : 6 champs indépendants identiques au chiffre près sur 2 jours. +1 protocole sur la chaîne (176->177) : PARE, scission principal/yield sur les stock tokens Robinhood, score de preuve 3/4 dès le premier jour. Bug trouvé et corrigé : le détecteur 'hook nommé' du score de preuve matchait par sous-chaîne sans frontière de mot (PARE matchait 'parent' dans WarzyHook) ; corrigé, ce qui retire aussi le point hooks de Fables et fait perdre à Lighter Robinhood Perps son attribution du hook HeavierHand (probable collision de nom avec un DEX Avalanche sans rapport nommé AEON Protocol).",
+      "genere": "2026-09-20T10:37:00Z"
+    },
+    {
+      "date": "2026-09-22",
+      "fichier": "2026-09-22-enquete.html",
+      "titre": "Robinhood Chain : un jour de silence, un registre qui repart, et la deuxième TVL de la chaîne invisible du score de preuve",
+      "question": "Que s'est-il passe le 21/09, jour ou l'enquete a mesure des choses (visibles dans le memo technique) sans jamais les publier -- et le score de preuve de la cohorte, recalcule sur l'ensemble des 181 protocoles plutot que sur les seuls membres connus, tient-il quand on l'applique au plus gros protocole de la chaine ?",
+      "mesure_neuve": "Rescan complet des 181 protocoles de la chaine pour le score de preuve : Morpho Blue (2e TVL, 556,9 M$, plus que toute la cohorte reunie) score 0/4 -- lien d'audit DefiLlama mort (404, meme piege que Curve), aucun GitHub declare, seul hook approchant (MorphogenHook) est un faux positif de sous-chaine. Correction : le score de Lighter Robinhood Perps tombe de 1 a 0 (attribution HeavierHand jamais recorroboree en 3 controles) ; la famille de hooks Aeon compte 10 entrees, pas 'au moins 6' ; correction d'une confusion de population du memo du 21/09 (38 protocoles a capture non nulle sur 92, pas sur 177). Ouverture d'une veille sur la fin de la subvention de gas a 90 jours de Robinhood Chain, programmee le 29/09/2026 (source presse, non recoupee) -- premier test de charge reel de la chaine.",
+      "genere": "2026-09-22T08:15:00Z"
+    },
+    {
+      "date": "2026-09-23",
+      "fichier": "2026-09-23-enquete.html",
+      "titre": "Robinhood Chain, 23/09 : 8,8 milliards de volume passé réapparaissent — et ce ne sont pas des actions",
+      "question": "Le volume Uniswap V3 de la chaîne a gagné 9,2 Md$ en un jour : activité nouvelle, ou histoire réécrite par l'agrégateur — et si c'est une réécriture, que contient le volume qui était invisible ?",
+      "mesure_neuve": "Même fenêtre 23/08-21/09 : V3 passe de 14,24 à 23,04 Md$ (+62 %) après l'ajout par DefiLlama de 19 actifs de référence sur la chaîne (commit 39d5f5c4, 22/09 17:54 UTC), V4 inchangé au dollar près. Échantillon on-chain de 178 193 swaps (47 fenêtres sur 24 h) : sur 691,8 M$/24 h de volume Uniswap V3 officiel, 7,8 % touchent les 15 actions/ETF nouvellement pricés, 5,4 % PONS/CASHCAT, et 59,1 % passent par un seul pool WETH/USDG. Et l'ordre SEC 34-106402 a paru au Federal Register le 22/09 (91 FR 60168).",
+      "genere": "2026-09-23T10:43:00Z"
+    },
+    {
+      "date": "2026-09-24",
+      "fichier": "2026-09-24-enquete.html",
+      "titre": "Robinhood Chain, 24/09 : la chaîne qui brûle le plus d'UNI — et ce n'est pas la v4",
+      "question": "Le revenu que DefiLlama attribue aux détenteurs d'UNI sur Robinhood Chain (9,6 M$ en 30 j) est-il réel, et que mesure-t-il exactement ?",
+      "mesure_neuve": "Compte sur la chaîne du contrat Firepit (0x7A8F…630B) : 1 187 rachats-destructions de 2 000 UNI chacun depuis le 27/07 (nonces 0-1186 sans trou), dont 765 sur 30 j = 9,33 M$ au cours du jour, contre 9,59 M$ chez DefiLlama (écart 2,8 %). Robinhood Chain porte 59,5 % du revenu aux détenteurs de la v3 d'Uniswap toutes chaînes ; la v4, premier encaisseur de la chaîne (108 M$), y reverse 0 selon DefiLlama. Contrôle : Firepit, TokenJar, adaptateur de frais v3 et PoolManager v4 appartiennent tous à l'alias L2 du Timelock de gouvernance Uniswap. Correction du piège P2 : le total déclaré des frais exclut la ligne de la chaîne et les lignes doublecounted.",
+      "genere": "2026-09-24T09:23:00Z"
+    },
+    {
+      "date": "2026-09-25",
+      "fichier": "2026-09-25-enquete.html",
+      "titre": "Robinhood Chain, 25/09 : 23 209 hooks sur la chaîne, 1 142 au registre",
+      "question": "Le registre officiel des hooks, gelé depuis quatre jours et base de trois veilles, décrit-il vraiment ce qui tourne sur la chaîne ?",
+      "mesure_neuve": "Recensement de tous les pools v4 créés sur la chaîne (887 322 événements Initialize, blocs 0 à 72 076 000) : 305 078 pools à hook, 23 209 hooks distincts, dont 1 142 seulement au registre (4,9 %) — mais ces 1 142 portent 87,5 % des pools à hook, Doppler seul 58,1 %. Les 22 067 hooks hors registre servent à 92 % un seul pool. Le profil de permissions change avec la population : afterSwapReturnsDelta 72,4 % au registre, 43,4 % des hooks réels, 91,1 % des pools. Et une rupture de périmètre des frais : +17,55 M$ attribués à fomo Wallet par DefiLlama le 24/09.",
+      "genere": "2026-09-25T08:45:31Z"
+    }
+  ]
+}
