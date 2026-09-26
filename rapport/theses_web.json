@@ -1,19 +1,11 @@
 {
- "genere": "2026-09-25T09:47:25Z",
+ "genere": "2026-09-26T11:46:23Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-09-25",
-   "recoupe": "Le FDV/capi de 1,85 suppose l'offre maximale de 800 M fixée par Tokenomics 2.0 ; tokenomist.ai compte encore 1 milliard, base sur laquelle le ratio serait d'environ 2,3, au-dessus du seuil de 2,0 : l'écart tient à la définition de l'offre.",
+   "releve": "2026-09-26",
    "rien": false,
    "faits": [
-    {
-     "date": "2026-09-20",
-     "fait": "Déblocage de LISTA le 20/09 ; 430 M de jetons sont désormais débloqués (43 % d'un milliard), prochain déblocage le 20/12/2026.",
-     "touche": "FDV",
-     "source": "https://tokenomist.ai/lista",
-     "recoupe": true
-    },
     {
      "date": "2026-09-17",
      "fait": "Rachat hebdomadaire annoncé : 345 932 LISTA rachetés sur la semaine du 17/09.",
@@ -22,25 +14,32 @@
      "recoupe": false
     },
     {
-     "date": "2026-04-02",
-     "fait": "Tokenomics 2.0 (vote LIP-024) : le revenu du protocole sert à racheter du LISTA au lieu de payer les stakers veLISTA ; offre maximale réduite de 1 milliard à 800 M.",
-     "touche": "capture",
-     "source": "https://www.bitget.com/news/detail/12560605330525",
+     "date": "2026-09-20",
+     "fait": "Déblocage de LISTA le 20/09 ; 430 M de jetons sont désormais débloqués (43 % d'un milliard), prochain déblocage le 20/12/2026.",
+     "touche": "FDV",
+     "source": "https://tokenomist.ai/lista",
+     "recoupe": true
+    },
+    {
+     "date": "2026-09-03",
+     "fait": "Lista branche son Yield Mode sur la plateforme de lancement Four.meme : les taxes de trading des nouveaux jetons alimentent ses produits de rendement.",
+     "touche": "fees",
+     "source": "https://coinmarketcap.com/cmc-ai/lista-dao/latest-updates/",
      "recoupe": true
     }
-   ]
+   ],
+   "recoupe": "Le FDV/capi de 1,85 suppose l'offre maximale de 800 M fixée par Tokenomics 2.0 ; tokenomist.ai compte encore 1 milliard, base sur laquelle le ratio serait d'environ 2,3, au-dessus du seuil de 2,0 : l'écart tient à la définition de l'offre."
   },
   "Solv Protocol": {
-   "releve": "2026-09-25",
-   "recoupe": "Aucun flux vers les détenteurs vérifié hors DefiLlama : tokenomist.ai n'enregistre ni rachat ni destruction de SOLV ; un guide Bitget affirme que les stakers touchent environ 30 % des revenus, sans source primaire (documentation Solv inaccessible).",
+   "releve": "2026-09-26",
    "rien": false,
    "faits": [
     {
-     "date": "2026-09-03",
-     "fait": "KuCoin a retiré la marge isolée sur SOLV le 03/09 (annonce du 28/08), ce qui réduit l'accès au levier sur cette place.",
-     "touche": "risque",
+     "date": "2026-09-17",
+     "fait": "Deblocage de 189,68 M de SOLV le 17/09 (2 % de l'offre totale).",
+     "touche": "FDV",
      "source": "https://coinmarketcap.com/cmc-ai/solv-protocol/latest-updates/",
-     "recoupe": true
+     "recoupe": false
     },
     {
      "date": "2026-10-17",
@@ -48,21 +47,21 @@
      "touche": "FDV",
      "source": "https://tokenomist.ai/solv-protocol",
      "recoupe": true
+    },
+    {
+     "date": "2026-09-03",
+     "fait": "KuCoin a retiré la marge isolée sur SOLV le 03/09 (annonce du 28/08), ce qui réduit l'accès au levier sur cette place.",
+     "touche": "risque",
+     "source": "https://coinmarketcap.com/cmc-ai/solv-protocol/latest-updates/",
+     "recoupe": true
     }
-   ]
+   ],
+   "recoupe": "Aucun flux vers les detenteurs verifie hors DefiLlama : pas de rachat de SOLV trouve ; le partage d'environ 30 % des revenus aux stakers vient toujours d'un guide Bitget sans source primaire (documentation Solv refusee, 403)."
   },
   "Orca": {
-   "releve": "2026-09-25",
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la part de 40 % des frais du protocole affectée aux rachats d'ORCA versés aux stakers xORCA.",
+   "releve": "2026-09-26",
    "rien": false,
    "faits": [
-    {
-     "date": "2026-01-13",
-     "fait": "Le conseil d'Orca a porté de 20 % à 40 % la part des frais du protocole servant à racheter de l'ORCA distribué aux stakers xORCA ; changement en service.",
-     "touche": "capture",
-     "source": "https://forums.orca.so/t/council-update-increased-xorca-buyback-rewards-fueled-by-protocol-fee-revenue-20-to-40-and-r-d-grant/1129",
-     "recoupe": true
-    },
     {
      "date": "2026-09-13",
      "fait": "Lancement de WPOOL, une plateforme de lancement de jetons qui verse ses jetons diplômés directement dans les pools Orca.",
@@ -76,24 +75,24 @@
      "touche": "autre",
      "source": "https://coinmarketcap.com/cmc-ai/orca/latest-updates/",
      "recoupe": true
+    },
+    {
+     "date": "2026-09-25",
+     "fait": "Bitget abaisse a 0,1 le ratio de collateral d'ORCA dans son compte unifie : l'ORCA deposee y garantit moins d'emprunt.",
+     "touche": "risque",
+     "source": "https://coinmarketcap.com/cmc-ai/orca/latest-updates/",
+     "recoupe": true
     }
-   ]
+   ],
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la part de 40 % des frais du protocole affectée aux rachats d'ORCA versés aux stakers xORCA."
   },
   "Meteora": {
-   "releve": "2026-09-25",
-   "recoupe": "Le zéro DefiLlama est contredit : depuis juillet 2026, le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (70 M MET engagés au 13/08), et Meteora a racheté 13,7 M$ de MET en cumulé ; DefiLlama ne compte pas ces flux.",
+   "releve": "2026-09-26",
    "rien": false,
    "faits": [
     {
      "date": "2026-08-13",
      "fait": "Referral Staking, lancé en juillet, paie aux stakers une part des frais DLMM en USDC : 70 M MET engagés par 2 442 stakers à l'appel du 13/08.",
-     "touche": "capture",
-     "source": "https://solanacompass.com/news/meteora-reports-140m-in-lp-fees-and-32b-in-h1-2026-trading-volume",
-     "recoupe": true
-    },
-    {
-     "date": "2026-03-31",
-     "fait": "Rachats de MET : 1 M$ au T1 2026, 13,7 M$ cumulés (3,97 % de l'offre) ; l'appel du S1 n'a donné aucun chiffre de rachat.",
      "touche": "capture",
      "source": "https://solanacompass.com/news/meteora-reports-140m-in-lp-fees-and-32b-in-h1-2026-trading-volume",
      "recoupe": true
@@ -106,41 +105,56 @@
      "recoupe": true
     },
     {
-     "date": "2026-09-23",
-     "fait": "Déblocage de 7,33 M MET le 23/09 (réserve d'écosystème et équipe).",
-     "touche": "FDV",
-     "source": "https://coinmarketcap.com/cmc-ai/meteora/latest-updates/",
-     "recoupe": false
-    },
-    {
      "date": "2026-10-23",
      "fait": "Prochain déblocage le 23/10/2026 (réserve d'écosystème) ; 55,7 % de l'offre est débloquée.",
      "touche": "FDV",
      "source": "https://tokenomist.ai/meteora",
      "recoupe": true
+    },
+    {
+     "date": "2026-09-23",
+     "fait": "Correctif d'un bogue critique sur les courbes de prix personnalisees a la creation de pools (SDK DBC v1.5.3).",
+     "touche": "risque",
+     "source": "https://coinmarketcap.com/cmc-ai/meteora/latest-updates/",
+     "recoupe": true
     }
-   ]
+   ],
+   "recoupe": "Le zéro DefiLlama est contredit : depuis juillet 2026, le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (70 M MET engagés au 13/08), et Meteora a racheté 13,7 M$ de MET en cumulé ; DefiLlama ne compte pas ces flux."
   },
-  "Jupiter": {
-   "releve": "2026-09-25",
-   "recoupe": "Le calendrier de déblocage est terminé (tokenomist.ai, 31/08) : le FDV/capi de 2,07 reflète des jetons hors circulation, pas des déblocages programmés ; la capture de 50 % concorde avec la part des frais envoyée aux rachats (Litterbox).",
+  "Maple Finance": {
+   "releve": "2026-09-26",
    "rien": false,
    "faits": [
     {
-     "date": "2026-08-31",
-     "fait": "Calendrier de déblocage de JUP terminé ; 3,32 Md de jetons en circulation sur 7 Md.",
-     "touche": "FDV",
-     "source": "https://tokenomist.ai/jupiter-exchange-solana/updates",
+     "date": "2026-07-31",
+     "fait": "Vote MIP-021 adopte (99,97 %) : rachats de SYRUP finances par 10 % du revenu mensuel sous 1,5 M$, 20 % de 1,5 a 2 M$, 30 % au-dela, pour six mois.",
+     "touche": "capture",
+     "source": "https://msbintel.com/articles/maple-finance-activates-rules-based-syrup-buyback-tied-to-protoc",
      "recoupe": true
     },
     {
-     "date": "2026-05-30",
-     "fait": "Proposition sur le forum de passer de 50 % à 70 % la part des frais consacrée aux rachats ; toujours au stade de discussion, sans vote.",
+     "date": "2026-08-14",
+     "fait": "Premier rachat sous la regle MIP-021 : 852 840 SYRUP achetes pour 136 768 USDT.",
      "touche": "capture",
-     "source": "https://discuss.jup.ag/t/increase-the-litterbox-buyback-allocation-from-50-to-70/40136",
+     "source": "https://coinmarketcap.com/cmc-ai/maple-finance/latest-updates/",
+     "recoupe": true
+    },
+    {
+     "date": "2026-09-02",
+     "fait": "Trois nouvelles strategies d'allocation (titrisation, basis trade, pret de titres notes), chacune plafonnee a 5 % des depots au lancement.",
+     "touche": "fees",
+     "source": "https://coinmarketcap.com/cmc-ai/maple-finance/latest-updates/",
+     "recoupe": true
+    },
+    {
+     "date": "2026-09-18",
+     "fait": "Binance ramene le ratio de collateral de SYRUP de 30 % a 10 %, deux semaines apres l'avoir releve.",
+     "touche": "risque",
+     "source": "https://coinmarketcap.com/cmc-ai/maple-finance/latest-updates/",
      "recoupe": true
     }
-   ]
+   ],
+   "recoupe": "La capture DefiLlama de 10 % concorde avec la regle MIP-021 : 10 % du revenu mensuel sous 1,5 M$ finance des rachats de SYRUP, et Maple est dans cette tranche (environ 1,22 M$ par mois)."
   }
  }
 }
