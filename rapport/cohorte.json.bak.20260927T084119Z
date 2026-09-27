@@ -130,22 +130,6 @@
      },
      "note": "TVL 11,3 k$ (stable) ; zero frais ; mcap 2,21 -> 1,76 M$ (-20 %). Critere de sortie (TVL < 0,5 M$ au 31/10) toujours en voie d'etre franchi.",
      "ratio_frais_vs_pons": 0.0
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 3,
-      "audit_ok": true,
-      "github_ok": true,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 11254,
-      "mcap_usd": 1738402
-     },
-     "note": "TVL 11,3 k$ (stable) ; zero frais ; mcap 1,76 -> 1,74 M$. Alerte traction nulle re-verifiee : inchangee. Critere de sortie (TVL < 0,5 M$ au 31/10) toujours en voie d'etre franchi.",
-     "ratio_frais_vs_pons": 0.0
     }
    ]
   },
@@ -287,26 +271,6 @@
      },
      "note": "STONX : TVL 1,14 M$, vol 30j 49,1 M$ (> 10 M$) ; mcap Ekubo 9,51 -> 11,47 M$ (+21 %). Critere non franchi.",
      "ratio_frais_vs_pons": 0.0004
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 2,
-      "audit_ok": true,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 1661729,
-      "fees_30d_usd": 49655,
-      "vol_30d_usd": 54018324,
-      "mcap_usd": 11703897,
-      "stonx_tvl_rh_usd": 1153435,
-      "stonx_vol_30d_usd": 46373478
-     },
-     "note": "STONX : TVL 1,15 M$, vol 30j 46,4 M$ (> 10 M$) ; mcap Ekubo 11,47 -> 11,70 M$. Critere non franchi.",
-     "ratio_frais_vs_pons": 0.0004
     }
    ]
   },
@@ -424,23 +388,6 @@
      },
      "note": "TVL 101,3 -> 105,1 M$ (+3,8 %). Critere non franchi.",
      "ratio_frais_vs_pons": 0.0117
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 0,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 106404848,
-      "fees_30d_usd": 1656812,
-      "fees_7d_usd": 521871
-     },
-     "note": "TVL 105,1 -> 106,4 M$ ; 2e hors double compte Morpho/Steakhouse et hors Uniswap (4e brut). Frais 7j +20,9 % semaine sur semaine. Critere non franchi.",
-     "ratio_frais_vs_pons": 0.0118
     }
    ],
    "alerte_ouverte": "RESOLUE (dans le sens negatif) : l'attribution du hook HeavierHand a Lighter n'a jamais ete recorroboree en 3 jours (20, 22/09 -- pas de mesure le 21/09). Le score de preuve de Lighter est corrige a 0/4 ce jour. Le membre reste dans la cohorte uniquement au titre de sa traction (2e TVL de la chaine, 97,1 M$), plus aucun argument de mecanisme original documente.",
@@ -451,7 +398,7 @@
    "lignee_declaree": "pseudonyme @0xcs361, projet Base anterieur (declare, non verifie)",
    "mecanisme": "frais dynamique conscient de la seance boursiere",
    "filtre_user": "sans token (precurseur PROLOGUE) — taille jugee au volume",
-   "alerte_ouverte": "DefiLlama affiche un code audit 3 SANS lien. Re-teste a chaque enquete : tant que le lien ne repond pas, l'audit est repute inexistant. (re-verifie le 27/09 : toujours sans lien)",
+   "alerte_ouverte": "DefiLlama affiche un code audit 3 SANS lien. Re-teste a chaque enquete : tant que le lien ne repond pas, l'audit est repute inexistant. (re-verifie le 26/09 : toujours sans lien)",
    "sortie_si": "audit toujours sans lien resolvable au 31/10, ou TGE qui ne tient pas le ratio annonce",
    "historique": [
     {
@@ -568,24 +515,6 @@
      },
      "note": "Alerte re-verifiee : toujours aucun audit_links (code audits=3). TVL 48,6 -> 50,4 M$ (+3,6 %), frais 30j 2,60 -> 2,84 M$ ; frais 7j 1,45 M$ contre 0,83 M$ la semaine d'avant (+75 %) -- seul membre en acceleration dans une semaine ou la chaine perd 34 % de frais.",
      "ratio_frais_vs_pons": 0.0201
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 1,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 10
-     },
-     "traction": {
-      "tvl_rh_usd": 50539548,
-      "fees_30d_usd": 2963952,
-      "vol_30d_usd": 1609163439,
-      "fees_7d_usd": 1457504
-     },
-     "note": "Alerte re-verifiee : toujours aucun audit_links (code audits=3). Frais 7j 1,46 M$ vs 0,89 M$ (+63,6 %), volume 7j +37,1 % : premier contributeur positif au volume 7j de la chaine (+173,6 M$) dans une semaine a -13,9 %.",
-     "ratio_frais_vs_pons": 0.0211
     }
    ]
   },
@@ -701,22 +630,6 @@
       "fees_30d_usd": 399365
      },
      "note": "TVL 22,5 -> 23,6 M$ (+5,1 %). Lignee dYdX toujours sans source primaire.",
-     "ratio_frais_vs_pons": 0.0028
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 0,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 24100986,
-      "fees_30d_usd": 400507
-     },
-     "note": "TVL 23,6 -> 24,1 M$. Lignee dYdX toujours sans source primaire.",
      "ratio_frais_vs_pons": 0.0028
     }
    ]
@@ -840,23 +753,6 @@
      },
      "note": "TVL 7,05 -> 7,22 M$ ; vol 30j 1,31 Md$ (> 200 M$). Critere non franchi.",
      "ratio_frais_vs_pons": 0.0167
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 0,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 7193124,
-      "fees_30d_usd": 2338655,
-      "vol_30d_usd": 1306965395
-     },
-     "note": "vol 30j 1,31 Md$ (> 200 M$). Critere non franchi.",
-     "ratio_frais_vs_pons": 0.0166
     }
    ]
   },
@@ -975,22 +871,6 @@
       "fees_30d_usd": 2671477
      },
      "note": "Somme des fiches filles : TVL 2,13 -> 2,22 M$ (Safety Deposit Box 1,51 M$) ; frais 30j 2,73 -> 2,67 M$. Critere (frais < 200 k$) non franchi ; volet options toujours non identifiable.",
-     "ratio_frais_vs_pons": 0.0189
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 0,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 2177426,
-      "fees_30d_usd": 2665664
-     },
-     "note": "Somme des 7 fiches filles : TVL 2,22 -> 2,18 M$ ; frais 30j 2,67 M$. Critere (frais < 200 k$) non franchi ; volet options toujours non identifiable.",
      "ratio_frais_vs_pons": 0.0189
     }
    ]
@@ -1114,23 +994,6 @@
      },
      "note": "vol 30j 543 M$ (> 50 M$).",
      "ratio_frais_vs_pons": 0.0043
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 0,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 1230528,
-      "fees_30d_usd": 605839,
-      "vol_30d_usd": 529794300
-     },
-     "note": "vol 30j 530 M$ (> 50 M$) ; frais 7j -47,3 %.",
-     "ratio_frais_vs_pons": 0.0043
     }
    ]
   },
@@ -1246,22 +1109,6 @@
      },
      "note": "TVL 4,40 -> 4,34 M$ ; aucun audit publie ; mcap 8,99 -> 7,23 M$ (-20 %).",
      "ratio_frais_vs_pons": 0.0
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 0,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 3848085,
-      "mcap_usd": 6734028
-     },
-     "note": "TVL 4,34 -> 3,85 M$ (-11,2 %) ; aucun audit publie ; mcap 7,23 -> 6,73 M$.",
-     "ratio_frais_vs_pons": 0.0
     }
    ]
   },
@@ -1270,7 +1117,7 @@
    "lignee_declaree": "aucune",
    "mecanisme": "recapture d'arbitrage rendue au trader et aux LP — 1 des 6 hooks LVR de la chaine",
    "filtre_user": "PASSE (mcap 4,4 M$, 31 j)",
-   "alerte_ouverte": "ratio mcap/TVL 16,0x au 27/09 (3,52 M$ / 219,7 k$), vs 16,7x le 26/09. TVL toujours sous le plancher de sortie de 1 M$ prevu au 31/10. Ratio a continuer de relever.",
+   "alerte_ouverte": "ratio mcap/TVL 16,7x au 26/09 (4,15 M$ / 248,7 k$), vs 17,1x le 25/09. TVL toujours sous le plancher de sortie de 1 M$ prevu au 31/10. Ratio a continuer de relever.",
    "sortie_si": "TVL sous 1 M$ au 31/10 alors que le mcap depasse 3 M$",
    "historique": [
     {
@@ -1385,23 +1232,6 @@
      },
      "note": "Alerte re-verifiee : ratio mcap/TVL 16,7x (4,15 M$ / 248,7 k$), vs 17,1x au 25/09 -- les deux baissent (mcap -10 %, TVL -8 %). TVL toujours sous le plancher de 1 M$ du 31/10.",
      "ratio_frais_vs_pons": 0.0005
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 0,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 219687,
-      "fees_30d_usd": 63649,
-      "mcap_usd": 3524778
-     },
-     "note": "Alerte re-verifiee : ratio mcap/TVL 16,0x (3,52 M$ / 219,7 k$), vs 16,7x au 26/09 -- mcap -15 %, TVL -12 %. TVL toujours sous le plancher de 1 M$ du 31/10.",
-     "ratio_frais_vs_pons": 0.0005
     }
    ]
   }
@@ -1495,20 +1325,6 @@
      },
      "traction": {
       "tvl_rh_usd": 4395
-     },
-     "note": "TVL 4,4 k$ (seuil 1 M$). Score 4 inchange."
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 4,
-      "audit_ok": true,
-      "github_ok": true,
-      "hooks": 2
-     },
-     "traction": {
-      "tvl_rh_usd": 4422
      },
      "note": "TVL 4,4 k$ (seuil 1 M$). Score 4 inchange."
     }
@@ -1608,21 +1424,6 @@
       "mcap_usd": 270040
      },
      "note": "TVL 92,3 k$, mcap 270,0 k$ -- seuil 1 M$ non atteint."
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 1,
-      "audit_ok": false,
-      "github_ok": true,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 91880,
-      "mcap_usd": 264316
-     },
-     "note": "TVL 91,9 k$, mcap 264,3 k$ -- seuil 1 M$ non atteint."
     }
    ]
   },
@@ -1720,21 +1521,6 @@
       "fees_30d_usd": 871
      },
      "note": "GitHub ARMSys26 toujours 404 (temoin vfat-io 200 avec la meme sonde). TVL 59,7 k$."
-    },
-    {
-     "date": "2026-09-27",
-     "origine": "recalcule ce jour (audit_links HTTP 200 sur 55 liens, GitHub API via gh sur 29 comptes, registre hooks fige depuis 21/09, DefiLlama chainTvls/fees/dexs 08:14 UTC)",
-     "preuve": {
-      "score": 0,
-      "audit_ok": false,
-      "github_ok": false,
-      "hooks": 0
-     },
-     "traction": {
-      "tvl_rh_usd": 53402,
-      "fees_30d_usd": 872
-     },
-     "note": "GitHub ARMSys26 toujours 404 (temoin vfat-io 200 avec la meme sonde). TVL 59,7 -> 53,4 k$."
     }
    ]
   }
@@ -2032,47 +1818,6 @@
      }
     ],
     "note_journee": "Rescan des 197 protocoles (194 au 25/09). Detecteur 'hook nomme' re-teste sur 4 temoins : Fables 10, PARE 0, Morpho Blue 0, GlueHook 2. Liens d'audit : 39 protocoles sur 197 publient un lien qui repond HTTP 200 (52 liens sur 55 ; 404 : Curve, Morpho, Hinkal/Secure3). GitHub : 27 comptes declares sur 29 existent (404 : ARMSys26, lunasupply ; temoins vfat-io 200, ARMSys26 404). Distribution des scores : 0:131, 1:26, 2:26, 3:13, 4:1. Aucun nouveau candidat ; STONX exclu (produit d'Ekubo)."
-   },
-   {
-    "date": "2026-09-27",
-    "candidats": [
-     {
-      "nom_defillama": "Snuggle",
-      "score": 2,
-      "tvl_rh_usd": 7129814,
-      "fees_30d_usd": 2153158,
-      "note": "jour 6 consecutif (22-27/09 ; 21/09 non mesure) ; bat toujours 5 membres sur preuve ET frais (Lighter 1,66 M$, Arcus 0,40, GIGA V3 0,61, Longbow 0, What The Hook 0,06). Entree automatique le 28/09 si la domination tient demain. RESERVE : ligne doublecounted=True cote frais (gestionnaire de LP : ses frais recoupent ceux des DEX)."
-     },
-     {
-      "nom_defillama": "UNCX Network V3",
-      "score": 2,
-      "tvl_rh_usd": 8197082,
-      "fees_30d_usd": 0,
-      "note": "frais toujours nuls"
-     },
-     {
-      "nom_defillama": "Beefy",
-      "score": 3,
-      "tvl_rh_usd": 2972069,
-      "fees_30d_usd": 0,
-      "note": "frais nuls"
-     },
-     {
-      "nom_defillama": "vfat.io",
-      "score": 3,
-      "tvl_rh_usd": 3479599,
-      "fees_30d_usd": 34614,
-      "note": "5e jour"
-     },
-     {
-      "nom_defillama": "Ramses DLMM",
-      "score": 2,
-      "tvl_rh_usd": 488737,
-      "fees_30d_usd": 293589,
-      "note": "qualifie par les frais"
-     }
-    ],
-    "note_journee": "Rescan des 197 protocoles (197 au 26/09). Detecteur 'hook nomme' re-teste sur temoins : Fables 10, GlueHook 2, Morpho Blue 0 (un premier passage a frontiere de mot stricte rendait Fables 0 : 'FablesRamp' n'a pas de frontiere apres 'Fables' ; corrige en frontiere CamelCase avant usage). Liens d'audit : 39 protocoles sur 197 publient un lien qui repond HTTP 200 (52 liens sur 55 ; 404 : Curve, Morpho, Hinkal/Secure3). GitHub : 27 comptes declares sur 29 existent (404 : ARMSys26, lunasupply ; temoin vfat-io 200). Distribution des scores : 0:131, 1:26, 2:26, 3:13, 4:1 -- identique au 26/09. SORTIE de liste : Saffron Vaults (TVL 0,97 M$, sous le plancher de 1 M$). STONX exclu (produit d'Ekubo)."
    }
   ]
  },
@@ -2183,26 +1928,6 @@
      "fees_7d_v2_wow_pct": -43.7
     },
     "note": "Frais 7j Pons V2 16,44 M$ contre 29,21 M$ (-43,7 %) : deuxieme semaine consecutive de chute pres de -45 %. mcap 419,8 -> 432,5 M$ (+3,0 %) ; multiple sur reversement annualise 2,20 -> 2,28. Le prix monte pendant que les frais baissent."
-   },
-   {
-    "date": "2026-09-27",
-    "origine": "recalcule ce jour (DefiLlama /overview/fees, /overview/dexs, dailyHoldersRevenue, /protocol/pons, 08:14 UTC)",
-    "traction": {
-     "fees_30d_usd": 140736639,
-     "vol_30d_usd": 2457209081,
-     "tvl_rh_usd": 0,
-     "score_preuve": 0,
-     "fees_30d_v1_v2_combined_usd": 146978715,
-     "mcap_usd": 421127379,
-     "holders_revenue_30d_v1v2_usd": 15940443,
-     "reversement_pct": 10.8,
-     "part_frais_chaine_pct": 37.5,
-     "part_frais_chaine_hors_fomo_pct": 39.4,
-     "fees_7d_v2_usd": 15064288,
-     "fees_7d_v2_wow_pct": -43.3,
-     "fees_24h_v2_usd": 1584866
-    },
-    "note": "Frais 7j Pons V2 15,06 M$ contre 26,55 M$ (-43,3 %) : troisieme semaine consecutive pres de -45 %. Pons V2 porte 57 % de la baisse des frais 7j de toute la chaine. mcap 432,5 -> 421,1 M$ (-2,6 %) ; multiple sur reversement annualise 2,28 -> 2,17."
    }
   ]
  },

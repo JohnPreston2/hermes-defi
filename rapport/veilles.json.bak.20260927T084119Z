@@ -56,11 +56,6 @@
      "date": "2026-09-26",
      "valeur": "registre : 72,4 % (843/1164) / 25,3 % (295/1164) -- chaine, 23 362 hooks utilises : 43,6 % / 49,8 % ; HORS la rafale mmETH du 15/09 (5 514 hooks d'un seul acteur) : 57,1 % / 34,3 % (17 848 hooks) ; ponderes par pools : 91,1 % / 18,6 %",
      "note": "CORRECTION de la lecture du 25/09 : le 'seuil deja franchi sur la chaine' (asrd 43,4 %) tenait pour 13,5 points a UN deployeur (EOA 0x3bcd53b3...0ade, contrat 0xbe183de7...df2d) qui a cree en ~2 h le 15/09 5 514 hooks 0x28c0 (sans le bit asrd, avec beforeAddLiquidity), un pool mmETH/<jeton> chacun, sans swap sur un echantillon de 20. Sans lui : 57,1 % -- sous 60 % de 3 points seulement ; bal 34,3 %, sous 40 %. NON SOLDEE : la mesure ecrite (registre) ne bouge pas."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "registre : 72,4 % (843/1164) / 25,3 % (295/1164) -- chaine, 23 484 hooks utilises : 43,7 % / 49,7 % ; hors rafale mmETH : 57,1 % / 34,2 % (17 970 hooks) ; ponderes par pools : 91,1 % / 18,5 %",
-     "note": "registre fige (6e jour). Hors rafale, asrd a 57,1 % reste sous 60 % de 2,9 points, stable vs 26/09 (57,1 %). NON SOLDEE : la mesure ecrite (registre) ne bouge pas."
     }
    ],
    "solde": null
@@ -113,11 +108,6 @@
      "date": "2026-09-26",
      "valeur": "4 / 1164 (0,34 %)",
      "note": "registre fige (5e jour) ; aucun exploit public de hook de la chaine trouve (recherche web ce jour)."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "4 / 1164 (0,34 %)",
-     "note": "registre fige (6e jour) ; aucun exploit public de hook de la chaine trouve (recherche web ce jour)."
     }
    ],
    "solde": null
@@ -170,11 +160,6 @@
      "date": "2026-09-26",
      "valeur": "v3 43,8 % / v4 34,9 % du volume 30j (24,24/19,34/55,37 Md$)",
      "note": "comparable au 25/09 : v3 -0,1 pt, v4 -0,1 pt. Loin des deux seuils."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "v3 43,6 % / v4 35,0 % du volume 30j (24,13/19,38/55,31 Md$)",
-     "note": "vs 26/09 : v3 -0,2 pt, v4 +0,1 pt. Loin des deux seuils."
     }
    ],
    "solde": null
@@ -226,11 +211,6 @@
     {
      "date": "2026-09-26",
      "valeur": "154 deploiements sur 1164 (13,2 %) ; aucun avis de TSV connu (recherche web ce jour : seules des analyses de cabinets -- Sullivan & Cromwell, Mayer Brown, Cooley, Dechert)",
-     "note": "registre fige."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "154 deploiements sur 1164 (13,2 %) ; aucun avis de TSV connu (recherche web ce jour : analyses de cabinets et communique SEC 2026-90 seulement)",
      "note": "registre fige."
     }
    ],
@@ -284,11 +264,6 @@
      "date": "2026-09-26",
      "valeur": "21 lettres au dossier (+7 publiees depuis le 25/09) ; FR publie le 22/09 ; aucun nouveau document SEC 'tokenized' au FR",
      "note": "Nouvelles lettres des 24-25/09 : Vertalo Inc. (Dave Hendricks, CEO) -- agent de transfert ENREGISTRE aupres de la SEC, qui se declare non broker-dealer ; Omid Malekan (Columbia Business School, universitaire) ; MONARK, BostonTrading & Education, deux particuliers. Premiere lettre d'un intermediaire regule par la SEC, mais un agent de transfert n'est ni bourse, ni courtier, ni emetteur, ni cabinet : seuil NON franchi a la lettre. Decision user : un agent de transfert enregistre compte-t-il comme 'poids lourd' ?"
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "21 lettres au dossier (inchange depuis le 26/09) ; FR publie le 22/09 ; aucun nouveau document SEC 'tokenized' au FR",
-     "note": "Week-end : aucune lettre publiee depuis le 25/09. Question user toujours ouverte : l'agent de transfert enregistre Vertalo compte-t-il comme 'poids lourd' ?"
     }
    ],
    "solde": null
@@ -336,11 +311,6 @@
      "date": "2026-09-26",
      "valeur": "37,5 % (141,18/376,67 M$) sur le total declare ; 39,3 % (141,18/358,89) hors fomo Wallet",
      "note": "A perimetre constant, stable (39,3 %). Frais 7j Pons V2 16,44 M$ contre 29,21 M$ la semaine d'avant (-43,7 %). Au-dessus des deux seuils."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "37,5 % (140,74/374,97 M$) sur le total declare ; 39,4 % (140,74/357,40) hors fomo Wallet",
-     "note": "Stable. Mais Pons V2 porte a lui seul 57 % de la baisse des frais 7j de la chaine (-11,48 M$ sur -20,11 M$). Au-dessus des deux seuils."
     }
    ],
    "solde": null
@@ -429,11 +399,6 @@
      "date": "2026-09-26",
      "valeur": "pre-expiration J-3 : volume 24h 1,397 Md$, 7j 10,215 Md$ ; frais 24h 5,12 M$, 7j 45,50 M$ (43,77 M$ hors fomo) ; TVL chaine 1 026,3 M$ ; pools v4 crees sur 7 j : 70 196",
      "note": "vs 25/09 : volume 7j -1,7 %, frais 7j -4,4 % (-4,7 % hors fomo). Semaine sur semaine : frais -34,1 %, volume -13,2 %, Pons V2 -43,7 %, sequenceur -45,2 %. NOUVEAU temoin sur la chaine : creation de pools v4 128 710 (29/08-04/09) -> 104 112 -> 98 338 (92 824 hors rafale mmETH) -> 70 196 (19-25/09), soit -45 % en trois semaines, AVANT la fin de subvention. La TVL, elle, monte (+1,9 % en 24 h)."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "pre-expiration J-2 : volume 24h 0,833 Md$, 7j 9,840 Md$ ; frais 24h 4,39 M$, 7j 42,52 M$ (41,07 M$ hors fomo) ; TVL chaine 1 031,9 M$",
-     "note": "vs 26/09 : volume 24h -40,3 % (journee du samedi 26/09), 7j -3,7 % ; frais 7j -6,6 %. Semaine sur semaine : frais -32,1 %, volume -13,9 %. Frais 7j Uniswap V4 -6,8 % seulement. NOTE DE PERIMETRE (presse, non recoupe par une source primaire Robinhood) : la subvention ne couvrirait que les swaps faits dans le Robinhood Wallet ; les creations de pools passent a 70-83 % par le PositionManager v4, hors de ce flux."
     }
    ],
    "solde": null
@@ -461,11 +426,6 @@
      "date": "2026-09-26",
      "valeur": "58,9 % (9,44/16,02 M$ sur les 30 derniers points, dernier point 26/09 partiel) ; nonce Firepit 1203 (+8 rachats, 16 000 UNI)",
      "note": "Au-dessus du seuil CONFIRMEE (50 %)."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "59,4 % (9,24/15,57 M$ sur les 30 derniers points, dernier point 27/09 partiel) ; nonce Firepit 1206 (+3 rachats, 6 000 UNI)",
-     "note": "Au-dessus du seuil CONFIRMEE (50 %). Rythme de rachat ralenti : +3 en ~20 h contre +8 la veille."
     }
    ],
    "solde": null
@@ -488,11 +448,6 @@
      "date": "2026-09-26",
      "valeur": "14,4 % sur 30 j (21 081/145 962 pools a hook) ; 12,6 % depuis l'origine (38 720/307 886) ; 1 207 hooks apparus depuis le gel du registre, 0 au registre",
      "note": "ATTENTION : 5 514 des 21 081 pools 30 j hors registre sont la rafale mmETH du 15/09 (un seul acteur, sans swap sur echantillon). Hors rafale : 11,1 % (15 567/140 448). La rafale sort de la fenetre le 15/10 : attendre une baisse mecanique de ~3 points ce jour-la, sans changement de fond."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "14,4 % sur 30 j (20 759/143 715 pools a hook) ; 12,6 % depuis l'origine ; 1 329 hooks apparus depuis le gel du registre, 0 au registre",
-     "note": "Hors rafale mmETH : 11,0 % (15 252/138 201). Stable."
     }
    ],
    "solde": null
@@ -511,28 +466,6 @@
      "date": "2026-09-26",
      "valeur": "70 196 pools sur 19-25/09 ; 26/09 partiel (jusqu'a 11:46 UTC) : 5 600",
      "note": "point d'ouverture ; complete v_20260922_01 (volume/frais) par une mesure qui ne depend d'aucun adaptateur DefiLlama."
-    },
-    {
-     "date": "2026-09-27",
-     "valeur": "72 103 pools sur 20-26/09 (semaine pleine la plus recente ; 70 196 sur 19-25/09) ; 26/09 : 11 720 pools dont 1 970 seulement a hook (plus bas journalier de la fenetre)",
-     "note": "Pas encore de fenetre post-29/09. Decomposition de la baisse depuis le pic : 64 % pools sans hook (83 623 -> 47 331), Doppler 24 503 -> 18 226, deux lanceurs quasi eteints (LaunchHook 5 325 -> 140, PairV4Hook 3 719 -> 19). Contre-lecture : si la subvention ne couvre que les swaps du Robinhood Wallet (presse), la creation de pools n'y est pas exposee directement."
-    }
-   ]
-  },
-  {
-   "id": "v_20260927_01",
-   "ouverte": "2026-09-27",
-   "affirmation": "Le recul de la creation de pools v4 depuis le pic du 29/08 est un retrait des createurs RECURRENTS (usines, bots, lanceurs), pas de la longue traine des createurs occasionnels : la part des emetteurs recurrents dans la creation sans hook continue de baisser meme si le total se stabilise.",
-   "mesure": "Recensement Initialize de la PoolManager v4 (pools hooks=0x0, semaine UTC pleine) ; echantillon aleatoire de 150 transactions de creation ; part des creations dont l'emetteur (from) apparait au moins deux fois dans l'echantillon. Reference : 56,7 % (29/08-04/09, 83 623 pools sans hook) -> 37,3 % (20-26/09, 47 331). Indice comparable uniquement a taille d'echantillon egale (150) ; IC ~+/-8 pts.",
-   "seuil": "CONFIRMEE si une semaine pleine entre le 30/09 et le 20/10 passe sous 30 %. MORTE si deux semaines consecutives repassent au-dessus de 50 % (retour des usines).",
-   "echeance": "2026-10-20",
-   "statut": "OUVERTE",
-   "solde": null,
-   "historique": [
-    {
-     "date": "2026-09-27",
-     "valeur": "37,3 % (20-26/09) vs 56,7 % au pic ; 108 emetteurs distincts sur 150 contre 82 ; PositionManager 70,0 % des creations sans hook contre 83,3 %",
-     "note": "point d'ouverture."
     }
    ]
   }
