@@ -1,9 +1,9 @@
 {
- "genere": "2026-09-26T11:46:23Z",
+ "genere": "2026-09-27T09:45:42Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-09-26",
+   "releve": "2026-09-27",
    "rien": false,
    "faits": [
     {
@@ -26,12 +26,19 @@
      "touche": "fees",
      "source": "https://coinmarketcap.com/cmc-ai/lista-dao/latest-updates/",
      "recoupe": true
+    },
+    {
+     "date": "2026-09-19",
+     "fait": "Lista DEX passe a StableSwap v3 a partir du 19/09 ; les echanges y sont suspendus pendant la mise a jour.",
+     "touche": "fees",
+     "source": "https://x.com/lista_dao",
+     "recoupe": false
     }
    ],
-   "recoupe": "Le FDV/capi de 1,85 suppose l'offre maximale de 800 M fixée par Tokenomics 2.0 ; tokenomist.ai compte encore 1 milliard, base sur laquelle le ratio serait d'environ 2,3, au-dessus du seuil de 2,0 : l'écart tient à la définition de l'offre."
+   "recoupe": "Le FDV/capi de 1,85 suppose l'offre maximale de 800 M fixée par Tokenomics 2.0 ; tokenomist.ai compte encore 1 milliard, base sur laquelle le ratio serait d'environ 2,3, au-dessus du seuil de 2,0 : l'écart tient à la définition de l'offre. Par ailleurs, la chute de 100 % du volume DefiLlama sur 7 jours coincide avec la suspension des echanges de Lista DEX pendant sa mise a jour du 19/09 (annonce non recoupee)."
   },
   "Solv Protocol": {
-   "releve": "2026-09-26",
+   "releve": "2026-09-27",
    "rien": false,
    "faits": [
     {
@@ -59,7 +66,7 @@
    "recoupe": "Aucun flux vers les detenteurs verifie hors DefiLlama : pas de rachat de SOLV trouve ; le partage d'environ 30 % des revenus aux stakers vient toujours d'un guide Bitget sans source primaire (documentation Solv refusee, 403)."
   },
   "Orca": {
-   "releve": "2026-09-26",
+   "releve": "2026-09-27",
    "rien": false,
    "faits": [
     {
@@ -87,7 +94,7 @@
    "recoupe": "La capture DefiLlama de 36,9 % concorde avec la part de 40 % des frais du protocole affectée aux rachats d'ORCA versés aux stakers xORCA."
   },
   "Meteora": {
-   "releve": "2026-09-26",
+   "releve": "2026-09-27",
    "rien": false,
    "faits": [
     {
@@ -122,7 +129,7 @@
    "recoupe": "Le zéro DefiLlama est contredit : depuis juillet 2026, le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (70 M MET engagés au 13/08), et Meteora a racheté 13,7 M$ de MET en cumulé ; DefiLlama ne compte pas ces flux."
   },
   "Maple Finance": {
-   "releve": "2026-09-26",
+   "releve": "2026-09-27",
    "rien": false,
    "faits": [
     {
