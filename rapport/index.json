@@ -2,6 +2,12 @@
  "schema_version": 1,
  "rapports": [
   {
+   "date": "2026-09-27",
+   "fichier": "2026-09-27.html",
+   "titre": "Rapport DeFi du 2026-09-27",
+   "genere": "2026-09-27T07:40:03+00:00"
+  },
+  {
    "date": "2026-09-26",
    "fichier": "2026-09-26.html",
    "titre": "Rapport DeFi du 2026-09-26",
