@@ -315,120 +315,402 @@ tr.weak td.k{color:var(--ink2)}
     <button class="tg" id="theme" type="button">Thème</button>
   </div>
 </header>
-<!-- ══ LA UNE — l'enquête du jour en tête de page (2026-09-30). Remplace la
-     carte « Rapport du jour » du 18/09, qui prenait enquetes[0] = la PLUS
-     ANCIENNE (le fichier est trié du plus vieux au plus récent) et affichait
-     donc le 18/09 depuis 12 jours. Ici : la plus récente PAR DATE.
-     Hors de #app (l'app remplace tout #app à chaque rendu). Aucun chiffre
-     n'est extrait de la prose : le gros chiffre n'apparaît que si la routine
-     a écrit `chiffre_cle` ; sinon la mesure neuve s'affiche telle quelle.
-     Une enquête qui n'est pas du jour le DIT (âge en jours), jamais maquillée. ══ -->
+<!-- ══ LA UNE v2 — « le plateau du direct » (2026-09-30, décision user : « le plus
+     visuel et excitant possible »). Remplace la Une v1 du même jour.
+     Sources, toutes publiques dans le dépôt, AUCUN chiffre en dur :
+       rapport/enquetes.json  l'enquête la plus récente PAR DATE (+ chiffre_cle, points_cles)
+       rapport/serie.json     les courbes (points_cles de l'enquête, sinon 4 séries par défaut)
+       rapport/veilles.json   les mèches (ouverture → re-tests → échéance)
+       rapport/cohorte.json   les pastilles de preuve (0-4)
+       une.json               les chiffres du jour (defi_une.py : Venice CHOISIT des ids,
+                              le code recopie les valeurs depuis defi.json)
+     Règles tenues : aucune valeur extraite d'une prose ; encre de donnée neutre, jamais de
+     vert/rouge pour une hausse/baisse (le signe vit dans le texte) ; chaque chiffre porte
+     sa source et son heure ; un trou se dit ; un seul mouvement orchestré au chargement
+     (faisceau + courbes + décompte), coupé par prefers-reduced-motion ; la valeur finale
+     d'un décompte est TOUJOURS la chaîne transcrite, octet pour octet. ══ -->
 <style>
-#une{max-width:1280px;margin:0 auto;padding:22px 20px 6px}
+#une{max-width:1280px;margin:0 auto;padding:20px 20px 4px;
+  --num:Bahnschrift,"DIN Alternate","Roboto Condensed","Arial Narrow",var(--sans);
+  --beam:color-mix(in oklch,var(--acc) 55%,var(--acc2))}
 #une[hidden]{display:none}
-.une-card{position:relative;background:var(--s1);border:1px solid var(--line);
-  border-radius:var(--r2);box-shadow:var(--e2);padding:22px 26px 20px;overflow:hidden}
-.une-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--acc)}
-.une-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-  font:600 10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink3)}
-.une-top .etat{border:1px solid var(--line2);border-radius:4px;padding:1px 6px;color:var(--ink2)}
-.une-top .etat.vieux{border-color:var(--warn);color:var(--warn)}
-.une-top .prov{margin-left:auto;font-weight:400;letter-spacing:.03em;text-transform:none;color:var(--ink4)}
-.une-titre{margin:12px 0 0;font:650 clamp(22px,3.1vw,34px)/1.18 var(--serif);letter-spacing:-.015em;
-  max-width:30em;text-wrap:balance}
-.une-titre a{color:inherit}
-.une-titre a:hover{text-decoration:none;color:var(--acc2)}
-.une-q{margin:10px 0 0;font:italic 15px/1.5 var(--serif);color:var(--ink2);max-width:52em}
-.une-q b{font:600 9.5px var(--mono);font-style:normal;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--ink4);margin-right:8px}
-.une-chiffre{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin:18px 0 0}
-.une-chiffre .v{font:650 clamp(40px,6vw,64px)/1 var(--serif);letter-spacing:-.02em;color:var(--ink)}
-.une-chiffre .l{font:15px/1.45 var(--sans);color:var(--ink2);max-width:34em}
-.une-chiffre .l small{display:block;font:11px var(--mono);color:var(--ink4);margin-top:3px}
-.une-mesure{margin:16px 0 0;padding:12px 14px;border-radius:var(--r1);
-  background:color-mix(in oklch,var(--acc) 7%,transparent);border:1px solid var(--line)}
-.une-mesure b{display:block;font:600 9.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;
-  color:var(--ink4);margin-bottom:5px}
-.une-mesure p{margin:0;font:15.5px/1.6 var(--sans);color:var(--ink);max-width:62em}
-.une-actions{display:flex;gap:10px 18px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
-.une-go{font:650 13px var(--sans);color:var(--on-semantic);background:var(--acc);
-  padding:8px 14px;border-radius:var(--r1)}
-.une-go:hover{text-decoration:none;filter:brightness(1.08)}
-.une-actions .sec2{font:12px var(--mono);color:var(--acc2)}
-.une-prev{margin:16px 0 0;padding-top:12px;border-top:1px solid var(--line);
-  display:grid;gap:4px;font:12.5px/1.45 var(--sans)}
-.une-prev b{font:600 9.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink4)}
-.une-prev a{color:var(--ink2)}
-.une-prev a:hover{color:var(--acc2)}
-.une-prev span{font:11px var(--mono);color:var(--ink4);margin-right:8px}
+.u-cols{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:26px 34px;align-items:start}
+.u-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);gap:16px;align-items:start;margin-top:16px}
+.u-panel{position:relative;background:var(--s1);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--e2);overflow:hidden}
+/* le plateau : une graticule d'instrument, très basse, pour que la Une se lise comme un écran de mesure */
+.u-stage{padding:22px 26px 20px;
+  background:
+    linear-gradient(180deg,color-mix(in oklch,var(--acc) 9%,transparent),transparent 42%),
+    repeating-linear-gradient(90deg,color-mix(in oklch,var(--ink) 4%,transparent) 0 1px,transparent 1px 48px),
+    var(--s1)}
+.u-beam{position:absolute;top:0;bottom:0;left:0;width:22%;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,transparent,color-mix(in oklch,var(--beam) 26%,transparent) 70%,
+    color-mix(in oklch,var(--beam) 60%,transparent) 97%,transparent);mix-blend-mode:screen}
+.go .u-beam{animation:u-sweep 1.5s cubic-bezier(.45,.05,.3,1) .1s 1 both}
+@keyframes u-sweep{0%{opacity:0;transform:translateX(-30%)}12%{opacity:1}88%{opacity:1}100%{opacity:0;transform:translateX(480%)}}
+
+.u-kicker{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font:600 12px var(--sans);color:var(--ink3)}
+.u-live{display:inline-flex;align-items:center;gap:7px;color:var(--ink)}
+.u-live i{width:8px;height:8px;border-radius:50%;background:var(--beam);box-shadow:0 0 0 4px color-mix(in oklch,var(--beam) 22%,transparent)}
+.u-etat{border:1px solid var(--line2);border-radius:999px;padding:2px 9px;font-weight:600;color:var(--ink2)}
+.u-etat.vieux{border-color:var(--warn);color:var(--warn)}
+.u-prov{margin:12px 0 0;font:12px var(--sans);color:var(--ink4)}
+.u-titre{margin:14px 0 0;font:650 clamp(24px,3.2vw,38px)/1.12 var(--serif);letter-spacing:-.018em;max-width:26em;text-wrap:balance}
+.u-titre a{color:inherit}
+.u-titre a:hover{text-decoration:none;color:var(--acc2)}
+.u-q{margin:10px 0 0;font:italic 16px/1.5 var(--serif);color:var(--ink2);max-width:46em}
+
+.u-hero{display:flex;gap:6px 22px;align-items:flex-end;flex-wrap:wrap;margin:22px 0 4px}
+.u-hero .v{font:600 clamp(58px,8.4vw,108px)/.88 var(--num);font-stretch:condensed;letter-spacing:-.025em;
+  color:var(--ink);text-shadow:0 0 34px color-mix(in oklch,var(--beam) 28%,transparent)}
+.u-hero .l{font:16px/1.4 var(--sans);color:var(--ink);max-width:22em;padding-bottom:6px}
+.u-hero .l small{display:block;font-size:12.5px;color:var(--ink3);margin-top:4px}
+.u-mesure{margin:14px 0 0;font:14.5px/1.62 var(--sans);color:var(--ink2);max-width:68em}
+.u-mesure summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none}
+.u-mesure summary::-webkit-details-marker{display:none}
+.u-mesure summary::after{content:" — la mesure neuve en entier";font-weight:400;color:var(--acc2)}
+.u-mesure[open] summary::after{content:""}
+.u-mesure p{margin:8px 0 0}
+
+/* les courbes de l'enquête : petits multiples, une échelle par cadre, la plage écrite dessous */
+.u-traces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px;align-self:stretch;
+  padding:4px 0 0 28px;border-left:1px solid var(--line)}
+.u-tr{min-width:0}
+.u-tr h3{margin:0;font:600 12.5px/1.35 var(--sans);color:var(--ink3);min-height:2.7em}
+.u-tr .val{display:flex;align-items:baseline;gap:8px;margin-top:3px;flex-wrap:wrap}
+.u-tr .val b{font:600 30px/1.05 var(--num);font-stretch:condensed;color:var(--ink)}
+.u-tr .val span{font:12px var(--sans);color:var(--ink2)}
+.u-tr .plot{height:64px;margin-top:8px}
+.u-tr svg{display:block;overflow:visible;cursor:crosshair}
+.u-tr svg:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.u-tr .ln{fill:none;stroke:var(--ink2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.u-tr .ar{fill:color-mix(in oklch,var(--ink2) 9%,transparent);stroke:none}
+.u-tr .pt{fill:var(--ink);stroke:var(--s1);stroke-width:2}
+.u-tr .hv{fill:var(--acc2);stroke:var(--s1);stroke-width:2}
+.u-tr .hl{stroke:var(--line2);stroke-width:1}
+.u-tr .hv,.u-tr .hl{visibility:hidden}
+.u-tr svg.survol .hv,.u-tr svg.survol .hl{visibility:visible}
+.u-tr figcaption{font:11px/1.4 var(--sans);color:var(--ink4);margin-top:4px;min-height:1.4em}
+.go .u-tr .ln{stroke-dasharray:1;stroke-dashoffset:1;animation:u-draw 1.3s cubic-bezier(.45,.05,.3,1) .25s forwards}
+.go .u-traces.fini .ln{animation:none;stroke-dashoffset:0}
+.go .u-traces.fini .ar,.go .u-traces.fini .pt{animation:none;opacity:1}
+.go .u-tr .ar,.go .u-tr .pt{opacity:0;animation:u-fade .5s ease-out 1.35s forwards}
+@keyframes u-draw{to{stroke-dashoffset:0}}
+@keyframes u-fade{to{opacity:1}}
+
+.u-act{display:flex;gap:10px 18px;align-items:center;flex-wrap:wrap;margin:18px 0 0}
+.u-go{font:650 14px var(--sans);color:var(--on-semantic);background:var(--acc);padding:9px 16px;border-radius:9px}
+.u-go:hover{text-decoration:none;filter:brightness(1.08)}
+.u-act a.sec2{font:13px var(--sans)}
+
+/* les chiffres du jour */
+.u-band{margin-top:18px}
+.u-bandhd{display:flex;align-items:baseline;gap:6px 16px;flex-wrap:wrap;padding:0 4px}
+.u-band h2,.u-low h2{margin:0;font:650 19px/1.25 var(--serif);letter-spacing:-.01em}
+.u-band .sub,.u-low .sub{margin:3px 0 0;font:12.5px/1.45 var(--sans);color:var(--ink4)}
+.u-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.u-tile{display:flex;flex-direction:column;color:inherit;padding:14px 15px 12px;border-radius:12px;background:var(--s1);
+  border:1px solid var(--line);box-shadow:var(--e1);position:relative;overflow:hidden}
+.u-tile::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--beam);opacity:.55}
+.u-tile:hover{text-decoration:none;border-color:var(--line2)}
+.u-tile .fam{font:600 11.5px var(--sans);color:var(--ink3)}
+.u-tile .v{display:block;margin-top:4px;font:600 38px/1.02 var(--num);font-stretch:condensed;letter-spacing:-.015em;color:var(--ink)}
+.u-tile .v.long{font-size:27px;line-height:1.12}
+.u-tile .l{display:block;margin-top:4px;font:13px/1.42 var(--sans);color:var(--ink)}
+.u-tile .c{display:block;margin-top:3px;font:12px/1.4 var(--sans);color:var(--ink3)}
+.u-tile .s{display:block;margin-top:auto;padding-top:8px;font:11px/1.4 var(--sans);color:var(--ink4)}
+.u-gauge{height:6px;border-radius:3px;margin-top:8px;background:color-mix(in oklch,var(--data) 22%,transparent);overflow:hidden}
+.u-gauge i{display:block;height:100%;border-radius:3px;background:var(--data);width:var(--w)}
+.go .u-gauge i{width:0;animation:u-fill 1.1s cubic-bezier(.45,.05,.3,1) .5s forwards}
+@keyframes u-fill{to{width:var(--w)}}
+.u-vide{margin-top:12px;padding:12px 14px;border-radius:11px;border:1px dashed var(--line2);font:13px/1.45 var(--sans);color:var(--ink3)}
+.go .u-tile{opacity:0;transform:translateY(6px);animation:u-in .5s ease-out forwards}
+@keyframes u-in{to{opacity:1;transform:none}}
+
+/* mèches des veilles + pastilles de la cohorte */
+.u-low{padding:18px 20px 16px}
+.u-fuses{margin-top:12px;display:grid;gap:7px}
+.u-fuse{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:4px 16px;align-items:center}
+.u-fuse .t{font:12.5px/1.38 var(--sans);color:var(--ink2);min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.u-fuse .t b{font-weight:600;color:var(--ink);margin-right:6px}
+.u-track{position:relative;height:18px}
+.u-track>i{position:absolute;display:block}
+.u-track .rail{top:8px;height:2px;border-radius:1px;background:var(--line2)}
+.u-track .burn{top:8px;height:2px;border-radius:1px;background:var(--data)}
+.u-track .tst{top:4px;width:2px;height:10px;margin-left:-1px;border-radius:1px;background:var(--ink2)}
+.u-track .end{top:4px;width:10px;height:10px;margin-left:-5px;border-radius:2px;border:1.5px solid var(--ink3);background:var(--s1)}
+.u-track .now{top:-2px;bottom:-2px;width:2px;margin-left:-1px;background:var(--beam)}
+.go .u-track .burn{transform-origin:left;transform:scaleX(0);animation:u-grow 1.2s cubic-bezier(.45,.05,.3,1) .6s forwards}
+@keyframes u-grow{to{transform:scaleX(1)}}
+.u-axis{display:flex;justify-content:space-between;font:11px var(--sans);color:var(--ink4);margin:2px 0 0}
+.u-axwrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px}
+.u-st{font:600 11px var(--sans);border-radius:999px;padding:1px 7px;border:1px solid currentColor;margin-right:6px;white-space:nowrap}
+.u-st.OUVERTE{color:var(--open)} .u-st.REVISEE{color:var(--warn)}
+.u-st.CONFIRMEE{color:var(--held)} .u-st.MORTE{color:var(--broken)}
+.u-coh{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;margin-top:12px}
+.u-m{display:flex;justify-content:space-between;gap:8px;align-items:center;font:13px var(--sans);min-width:0}
+.u-m span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.u-pips{display:inline-flex;gap:3px;flex:none}
+.u-pips i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--data)}
+.u-pips i.on{background:var(--ink2);border-color:var(--ink2)}
+.u-prev{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:grid;gap:4px;font:13px/1.45 var(--sans)}
+.u-prev a{color:var(--ink2)} .u-prev a:hover{color:var(--acc2)}
+.u-prev time{font-size:12px;color:var(--ink4);margin-right:9px}
+
+/* gabarit du jour (une.json) : réordonne les sections de #app, rien d'autre */
+main#app{display:flex;flex-direction:column}
+main#app>*{flex:none}
+body[data-gabarit="theses_d_abord"] main#app>#brief{order:-1}
+body[data-gabarit="marche_d_abord"] main#app>#marche{order:-1}
+body[data-gabarit] main#app>.card:first-child{order:-2}
+
+@media (max-width:980px){ .u-grid,.u-cols{grid-template-columns:minmax(0,1fr)} .u-traces{padding:18px 0 0;border-left:0;border-top:1px solid var(--line)} }
 @media (max-width:640px){
-  #une{padding:14px 14px 4px}
-  .une-card{padding:16px 16px 16px 18px}
-  .une-top .prov{margin-left:0;width:100%}
-  .une-mesure p{display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+  #une{padding:12px 12px 2px}
+  .u-stage{padding:16px 16px 16px}
+  .u-fuse,.u-axwrap{grid-template-columns:minmax(0,1fr)}
+  .u-axwrap>span:first-child{display:none}
+  .u-coh{grid-template-columns:minmax(0,1fr)}
+  .u-traces{gap:14px 14px}
+  .u-tr .val b{font-size:24px}
+  .u-tiles{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion: reduce){
+  #une *,#une *::before,#une *::after{animation:none!important;transition:none!important}
+  .go .u-tr .ln{stroke-dashoffset:0}
+  .go .u-track .burn{transform:none}
 }
 </style>
-<section id="une" hidden aria-label="L'enquête du jour">
-  <article class="une-card">
-    <div class="une-top"><span id="une-tag">Enquête</span><span class="etat" id="une-etat"></span><span class="prov" id="une-prov"></span></div>
-    <h1 class="une-titre"><a id="une-lien" href="rapport/"></a></h1>
-    <p class="une-q" id="une-q" hidden><b>La question</b><span></span></p>
-    <div class="une-chiffre" id="une-chiffre" hidden><span class="v"></span><span class="l"></span></div>
-    <div class="une-mesure" id="une-mesure" hidden><b>La mesure neuve — le chiffre qui n'existe nulle part ailleurs</b><p></p></div>
-    <div class="une-actions"><a class="une-go" id="une-go" href="rapport/">Lire l'enquête →</a><a class="sec2" id="une-annexe" hidden></a></div>
-    <div class="une-prev" id="une-prev" hidden></div>
+<section id="une" hidden aria-label="L'enquête du jour et les chiffres du jour">
+  <article class="u-panel u-stage" id="u-enq">
+    <div class="u-beam" aria-hidden="true"></div>
+    <div class="u-cols">
+      <div class="u-left">
+        <div class="u-kicker"><span class="u-live"><i></i><span id="u-tag">Enquête</span></span><span class="u-etat" id="u-etat"></span></div>
+        <h1 class="u-titre"><a id="u-lien" href="rapport/"></a></h1>
+        <p class="u-q" id="u-q" hidden></p>
+        <div class="u-hero" id="u-hero" hidden><span class="v"></span><span class="l"></span></div>
+        <details class="u-mesure" id="u-mesure" hidden><summary>Ce que l'enquête a mesuré</summary><p></p></details>
+        <div class="u-act"><a class="u-go" id="u-go" href="rapport/">Lire l'enquête</a><a class="sec2" id="u-annexe" hidden></a></div>
+        <p class="u-prov" id="u-prov"></p>
+      </div>
+      <div class="u-traces" id="u-traces" hidden></div>
+    </div>
   </article>
+  <section class="u-band" id="u-side" aria-labelledby="u-side-h">
+    <div class="u-bandhd"><h2 id="u-side-h">Les chiffres du jour</h2><p class="sub" id="u-side-sub">Choisis parmi les chiffres publiés sur cette page.</p></div>
+    <div class="u-tiles" id="u-tiles"></div>
+  </section>
+  <div class="u-grid" id="u-grid2" hidden>
+    <section class="u-panel u-low" id="u-veilles" hidden>
+      <h2>Les veilles de l'enquête</h2>
+      <p class="sub" id="u-v-sub"></p>
+      <div class="u-fuses" id="u-fuses"></div>
+    </section>
+    <section class="u-panel u-low" id="u-cohorte" hidden>
+      <h2>Les dix projets suivis</h2>
+      <p class="sub">Score de preuve de 0 à 4 : audit publié qui répond (2), GitHub qui existe (1), hook décrit au registre (1).</p>
+      <div class="u-coh" id="u-coh"></div>
+      <div class="u-prev" id="u-prev" hidden></div>
+    </section>
+  </div>
 </section>
 <script>
 (async()=>{
   const get=async u=>{ try{ const r=await fetch(u+"?t="+Date.now(),{cache:"no-store"});
                             return r.ok? await r.json() : null; }catch(e){ return null; } };
   const $=id=>document.getElementById(id);
+  const el=(tag,cls,txt)=>{ const n=document.createElement(tag); if(cls) n.className=cls; if(txt!=null) n.textContent=txt; return n; };
+  const SVG="http://www.w3.org/2000/svg";
+  const sv=(tag,attrs)=>{ const n=document.createElementNS(SVG,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); return n; };
   const jjmm=d=>String(d||"").slice(8,10)+"/"+String(d||"").slice(5,7);
-  // la plus récente d'abord : tri par date puis par heure de génération, JAMAIS par position
+  const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const nf=(x,d)=>x.toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d}).replace(/^-/,"\u2212");
+  const usd=x=>{ const a=Math.abs(x); return a>=1e9? nf(x/1e9,2)+" Md$" : a>=1e6? nf(x/1e6,1)+" M$" : a>=1e3? nf(x/1e3,1)+" k$" : nf(x,0)+" $"; };
+  const fmt=(champ,x)=>/_usd$|_tvl_usd$|_vol_|_fees_/.test(champ)&&!/_pct$/.test(champ)? usd(x) : /_pct$/.test(champ)? nf(x,1)+" %" : nf(x,Number.isInteger(x)?0:2);
   const recent=a=>(a||[]).filter(x=>x&&x.fichier&&x.date).slice()
     .sort((x,y)=>String(y.date).localeCompare(String(x.date))||String(y.genere||"").localeCompare(String(x.genere||"")));
+  // Décompte : seulement si la chaîne porte UN nombre ; la fin écrit la chaîne transcrite, telle quelle.
+  const decompte=(node,texte,dur)=>{
+    node.textContent=texte;
+    const m=[...String(texte).matchAll(/[−-]?\d[\d   ]*(?:,\d+)?/g)];
+    if(RM||m.length!==1) return;
+    const brut=m[0][0], neg=/^[−-]/.test(brut), dec=(brut.split(",")[1]||"").length;
+    const cible=parseFloat(brut.replace(/[−-]/,"").replace(/[   ]/g,"").replace(",","."));
+    if(!isFinite(cible)) return;
+    const t0=performance.now();
+    const pas=t=>{ const k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3);
+      if(k<1){ node.textContent=texte.replace(brut,(neg?"−":"")+nf(cible*e,dec)); requestAnimationFrame(pas); }
+      else node.textContent=texte; };
+    requestAnimationFrame(pas);
+  };
+  const DEFAUT=[
+    {champ:"rh_chain_tvl_usd",libelle:"TVL de la chaîne (l'argent déposé)"},
+    {champ:"rh_vol_30d_chaine",libelle:"Volume échangé sur 30 jours"},
+    {champ:"rh_fees_30d_chaine",libelle:"Frais sur 30 jours (ce que la chaîne encaisse)"},
+    {champ:"hooks_robinhood",libelle:"Hooks au registre (programmes greffés sur un pool)"}];
+  const FAMILLES={theses:"Engagement testé",valorisation:"Valorisation",angles_morts:"Angle mort",marche:"Contexte de marché",funding:"Financement des perps"};
   try{
-    const enq=await get("rapport/enquetes.json"), tra=await get("rapport/index.json");
+    const [enq,tra,serie,veil,coh,une]=await Promise.all(["rapport/enquetes.json","rapport/index.json",
+      "rapport/serie.json","rapport/veilles.json","rapport/cohorte.json","une.json"].map(get));
     const E=recent(enq&&enq.enquetes), T=recent(tra&&tra.rapports);
     const e=E[0], t=T[0], p=e||t;
-    if(!p) return;                                   // rien à montrer : la section reste cachée
-    // âge en jours calendaires, à l'heure de Paris (la routine publie le matin, heure de Paris)
+    if(!p) return;
     const auj=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Paris"}).format(new Date());
     const heure=+new Intl.DateTimeFormat("fr-FR",{timeZone:"Europe/Paris",hour:"2-digit",hourCycle:"h23"}).format(new Date());
     const age=Math.round((Date.parse(auj)-Date.parse(p.date))/864e5);
-    $("une-tag").textContent=(e?"Enquête":"Rapport quotidien")+" du "+jjmm(p.date);
-    const et=$("une-etat");
-    if(age<=0){ et.textContent="du jour"; }
-    else if(age===1&&heure<12){ et.textContent="celle du jour paraît vers 10 h"; }
+
+    /* ── 1. l'enquête ─────────────────────────────────────────── */
+    $("u-tag").textContent=(e?"Enquête":"Rapport quotidien")+" du "+jjmm(p.date);
+    const et=$("u-etat");
+    if(age<=0) et.textContent="publiée aujourd'hui";
+    else if(age===1&&heure<12) et.textContent="celle du jour paraît vers 10 h";
     else { et.textContent="aucune "+(e?"enquête":"publication")+" depuis "+age+" jour"+(age>1?"s":""); et.classList.add("vieux"); }
-    const prov=[];
-    if(p.genere) prov.push("générée "+String(p.genere).replace("T"," ").slice(0,16)+" UTC");
-    prov.push(e?"routine d'enquête Opus · rapport/enquetes.json":"transcript 0-LLM · rapport/index.json");
-    $("une-prov").textContent=prov.join(" · ");
-    $("une-lien").href=$("une-go").href="rapport/"+p.fichier;
-    $("une-lien").textContent=p.titre||("Rapport du "+p.date);
-    if(e&&e.question){ $("une-q").querySelector("span").textContent=e.question; $("une-q").hidden=false; }
-    // gros chiffre : UNIQUEMENT s'il a été écrit par la routine (jamais extrait de la prose)
-    const c=e&&e.chiffre_cle;
-    if(c&&c.valeur!=null&&String(c.valeur).trim()){
-      const w=$("une-chiffre");
-      w.querySelector(".v").textContent=c.valeur;
-      w.querySelector(".l").textContent=c.libelle||"";
-      if(c.population){ const s=document.createElement("small"); s.textContent=c.population; w.querySelector(".l").appendChild(s); }
-      w.hidden=false;
+    $("u-prov").textContent=p.genere? "générée le "+jjmm(p.date)+" à "+String(p.genere).slice(11,16)+" UTC par la routine d'enquête" : "";
+    $("u-lien").href=$("u-go").href="rapport/"+p.fichier;
+    $("u-lien").textContent=p.titre||("Rapport du "+p.date);
+    if(e&&e.question){ $("u-q").textContent=e.question; $("u-q").hidden=false; }
+    const c=e&&e.chiffre_cle, aHero=!!(c&&c.valeur!=null&&String(c.valeur).trim());
+    if(aHero){ const h=$("u-hero"); h.querySelector(".v").textContent=c.valeur; const l=h.querySelector(".l"); l.textContent=c.libelle||"";
+      if(c.population) l.appendChild(el("small",null,c.population)); h.hidden=false; }
+    if(e&&e.mesure_neuve){ const m=$("u-mesure"); m.querySelector("p").textContent=e.mesure_neuve; m.hidden=false; if(!aHero) m.open=true; }
+    if(e&&t){ const a=$("u-annexe"); a.href="rapport/"+t.fichier; a.textContent="annexe de données du "+jjmm(t.date); a.hidden=false; }
+
+    /* ── 2. les courbes de la série ───────────────────────────── */
+    const pts=((serie&&serie.points)||[]).filter(x=>x&&x.date).slice().sort((a,b)=>String(a.date).localeCompare(String(b.date)));
+    let choix=(e&&Array.isArray(e.points_cles)? e.points_cles : []).filter(k=>k&&k.champ&&pts.some(x=>typeof x[k.champ]==="number"));
+    const parEnquete=choix.length>0;
+    if(!parEnquete) choix=DEFAUT.filter(k=>pts.some(x=>typeof x[k.champ]==="number"));
+    const traces=$("u-traces"), dessins=[];
+    for(const k of choix.slice(0,4)){
+      const S=pts.filter(x=>typeof x[k.champ]==="number").map(x=>({d:x.date,v:x[k.champ]}));
+      if(S.length<2) continue;
+      const t0=Date.parse(S[0].d), t1=Date.parse(S[S.length-1].d);
+      const lo=Math.min(...S.map(s=>s.v)), hi=Math.max(...S.map(s=>s.v)), sp=(hi-lo)||1;
+      const fig=el("figure","u-tr"); fig.style.margin="0";
+      const der=S[S.length-1], avant=S[S.length-2];
+      fig.appendChild(el("h3",null,k.libelle||k.champ));
+      const val=el("div","val"); const b=el("b"); val.appendChild(b);
+      const dv=avant.v? (der.v-avant.v)/Math.abs(avant.v)*100 : null;
+      val.appendChild(el("span",null, dv==null? "" : (dv>0?"+":"")+nf(dv,1)+" % vs le "+jjmm(avant.d)));
+      fig.appendChild(val);
+      const plot=el("div","plot"); fig.appendChild(plot);
+      const cap=el("figcaption"); const repos="de "+fmt(k.champ,lo)+" à "+fmt(k.champ,hi)+" · "+S.length+" relevés du "+jjmm(S[0].d)+" au "+jjmm(der.d);
+      cap.textContent=repos; fig.appendChild(cap);
+      // dessin à la largeur RÉELLE (pas d'étirement : un point reste un disque)
+      dessins.push(()=>{
+        const W=Math.max(60,Math.round(plot.clientWidth)); plot.textContent=""; const H=64;
+        const X=s=>t1>t0? 4+(Date.parse(s.d)-t0)/(t1-t0)*(W-8) : W/2, Y=s=>H-4-(s.v-lo)/sp*(H-10);
+        const d=S.map((s,i)=>(i?"L":"M")+X(s).toFixed(1)+" "+Y(s).toFixed(1)).join(" ");
+        const svg=sv("svg",{width:W,height:H,viewBox:`0 0 ${W} ${H}`,tabindex:"0",role:"img",
+          "aria-label":(k.libelle||k.champ)+" : "+S.map(s=>jjmm(s.d)+" "+fmt(k.champ,s.v)).join(", ")});
+        svg.appendChild(sv("path",{class:"ar",d:d+` L${X(der).toFixed(1)} ${H} L${X(S[0]).toFixed(1)} ${H} Z`}));
+        svg.appendChild(sv("path",{class:"ln",d,pathLength:"1"}));
+        svg.appendChild(sv("circle",{class:"pt",cx:X(der),cy:Y(der),r:4}));
+        const hl=sv("line",{class:"hl",y1:0,y2:H,x1:-20,x2:-20}); svg.appendChild(hl);
+        const hv=sv("circle",{class:"hv",r:4,cx:-20,cy:-20}); svg.appendChild(hv);
+        plot.appendChild(svg);
+        const montrer=i=>{ svg.classList.add("survol"); const s=S[i]; hl.setAttribute("x1",X(s)); hl.setAttribute("x2",X(s)); hv.setAttribute("cx",X(s)); hv.setAttribute("cy",Y(s));
+          cap.textContent=jjmm(s.d)+" : "+fmt(k.champ,s.v); };
+        const cacher=()=>{ svg.classList.remove("survol"); hl.setAttribute("x1",-20); hl.setAttribute("x2",-20); hv.setAttribute("cx",-20); cap.textContent=repos; };
+        let cur=S.length-1;
+        svg.addEventListener("pointermove",ev=>{ const r=svg.getBoundingClientRect(), x=ev.clientX-r.left;
+          let bi=0; S.forEach((s,i)=>{ if(Math.abs(X(s)-x)<Math.abs(X(S[bi])-x)) bi=i; }); cur=bi; montrer(bi); });
+        svg.addEventListener("pointerleave",cacher); svg.addEventListener("blur",cacher);
+        svg.addEventListener("keydown",ev=>{ if(ev.key==="ArrowLeft"){cur=Math.max(0,cur-1);montrer(cur);ev.preventDefault();}
+          if(ev.key==="ArrowRight"){cur=Math.min(S.length-1,cur+1);montrer(cur);ev.preventDefault();} });
+      });
+      traces.appendChild(fig);
+      b.dataset.texte=fmt(k.champ,der.v); b.textContent=b.dataset.texte;
     }
-    if(e&&e.mesure_neuve){ $("une-mesure").querySelector("p").textContent=e.mesure_neuve; $("une-mesure").hidden=false; }
-    if(e&&t){ const a=$("une-annexe"); a.href="rapport/"+t.fichier; a.textContent="annexe de données du "+jjmm(t.date); a.hidden=false; }
+    if(traces.children.length){
+      const n=el("p",null,null); n.style.cssText="grid-column:1/-1;margin:0;font:11.5px var(--sans);color:var(--ink4)";
+      n.textContent=(parEnquete? "Séries choisies par l'enquête" : "Séries suivies par l'enquête")+" · rapport/serie.json · l'écart se lit contre le relevé précédent, daté";
+      traces.appendChild(n); traces.hidden=false; }
+
+    /* ── 3. les chiffres du jour (une.json) ───────────────────── */
+    const tiles=$("u-tiles");
+    const uneAge=une&&une.genere? (Date.now()-Date.parse(une.genere))/36e5 : null;
+    const ch=(une&&Array.isArray(une.chiffres))? une.chiffres : [];
+    if(!ch.length||uneAge==null||uneAge>26){
+      tiles.appendChild(el("div","u-vide", !une? "La sélection du jour n'est pas encore publiée. Elle paraît chaque matin vers 10 h 50."
+        : "Sélection périmée : dernière le "+jjmm(une.genere)+" à "+String(une.genere).slice(11,16)+" UTC. Les chiffres de la page restent à jour plus bas."));
+    } else {
+      $("u-side-sub").textContent="Choisis ce matin parmi "+(une.n_catalogue||"?")+" chiffres publiés sur cette page. Le modèle choisit, le code recopie la valeur.";
+      ch.forEach((x,i)=>{
+        const a=el("a","u-tile"); a.href=x.lien||"#"; a.style.animationDelay=(0.35+i*0.12)+"s";
+        a.appendChild(el("span","fam",FAMILLES[x.famille]||x.famille||""));
+        const v=el("span","v"+(String(x.valeur||"").length>9?" long":""),x.valeur); v.dataset.texte=x.valeur; a.appendChild(v);
+        a.appendChild(el("span","l",x.libelle||""));
+        if(x.contexte) a.appendChild(el("span","c",x.contexte));
+        const g=/^(\d+) \/ (\d+) j$/.exec(x.valeur||"");
+        if(g&&+g[2]>0){ const gg=el("div","u-gauge"); gg.setAttribute("role","img"); gg.setAttribute("aria-label",g[1]+" jours sur "+g[2]);
+          const f=el("i"); f.style.setProperty("--w",Math.min(100,+g[1]/+g[2]*100).toFixed(1)+"%"); gg.appendChild(f); a.appendChild(gg); }
+        a.appendChild(el("span","s",(x.source||"")+(x.as_of? " · relevé le "+jjmm(x.as_of)+" à "+String(x.as_of).slice(11,16)+" UTC":"")));
+        tiles.appendChild(a);
+      });
+      if(["theses_d_abord","marche_d_abord","valorisation_d_abord"].includes(une.gabarit)) document.body.dataset.gabarit=une.gabarit;
+    }
+
+    /* ── 4. les mèches des veilles ────────────────────────────── */
+    const V=((veil&&veil.veilles)||[]).filter(v=>v&&v.ouverte&&v.echeance);
+    if(V.length){
+      const d0=Math.min(...V.map(v=>Date.parse(v.ouverte))), d1=Math.max(...V.map(v=>Date.parse(v.echeance))), now=Date.parse(auj);
+      const XX=d=>Math.max(0,Math.min(1,(d-d0)/(d1-d0||1)))*100;
+      const ouv=V.filter(v=>v.statut==="OUVERTE").length;
+      const proch=V.filter(v=>v.statut==="OUVERTE").map(v=>v.echeance).sort()[0];
+      $("u-v-sub").textContent=V.length+" affirmations datées, re-testées à chaque enquête · "+ouv+" ouvertes"+(proch? " · prochaine échéance le "+jjmm(proch):"");
+      const box=$("u-fuses");
+      V.slice().sort((a,b)=>String(a.echeance).localeCompare(String(b.echeance))).forEach(v=>{
+        const row=el("div","u-fuse");
+        const tx=el("div","t"); const st=el("span","u-st "+(v.statut||""),(v.statut||"?").toLowerCase().replace("revisee","révisée").replace("confirmee","confirmée"));
+        const phr=String(v.affirmation||"").split(/(?<=[.!?])\s/)[0]; tx.appendChild(st);
+        tx.appendChild(document.createTextNode(phr.length>120? phr.slice(0,phr.lastIndexOf(" ",117))+"…" : phr));
+        tx.title=v.affirmation||""; row.appendChild(tx);
+        const tests=(v.historique||[]).map(h=>h&&h.date).filter(Boolean);
+        const s=el("div","u-track"); s.setAttribute("role","img");
+        s.setAttribute("aria-label","ouverte le "+jjmm(v.ouverte)+", "+tests.length+" relevés, échéance le "+jjmm(v.echeance));
+        const xa=XX(Date.parse(v.ouverte)), xe=XX(Date.parse(v.echeance)), xn=XX(now);
+        const bar=(cls,l,w)=>{ const i=el("i",cls); i.style.left=l+"%"; if(w!=null) i.style.width=Math.max(0,w)+"%"; s.appendChild(i); };
+        bar("rail",xa,xe-xa); bar("burn",xa,Math.min(xn,xe)-xa);
+        tests.forEach(d=>bar("tst",XX(Date.parse(d))));
+        bar("end",xe); bar("now",xn);
+        row.appendChild(s); box.appendChild(row);
+      });
+      const ax=el("div","u-axwrap"); ax.appendChild(el("span")); const ax2=el("div","u-axis");
+      ax2.append(el("span",null,jjmm(new Date(d0).toISOString())), el("span",null,"trait = relevés · carré = échéance · repère = aujourd'hui"), el("span",null,jjmm(new Date(d1).toISOString())));
+      ax.appendChild(ax2); box.appendChild(ax);
+      $("u-veilles").hidden=false; $("u-grid2").hidden=false;
+    }
+
+    /* ── 5. la cohorte ────────────────────────────────────────── */
+    const M=(coh&&coh.membres)||[];
+    if(M.length){
+      const g=$("u-coh");
+      M.forEach(m=>{ const h=(m.historique||[]).slice(-1)[0]||{}; const sc=h.preuve&&typeof h.preuve.score==="number"? h.preuve.score : null;
+        const r=el("div","u-m"); r.appendChild(el("span",null,m.nom_defillama||"?"));
+        const pp=el("span","u-pips"); pp.setAttribute("role","img"); pp.setAttribute("aria-label", sc==null? "score non relevé" : "score de preuve "+sc+" sur 4");
+        if(sc==null) pp.appendChild(el("small",null,"non relevé")); else for(let i=0;i<4;i++) pp.appendChild(el("i",i<sc?"on":""));
+        r.title=h.date? "relevé le "+jjmm(h.date) : ""; r.appendChild(pp); g.appendChild(r); });
+      $("u-cohorte").hidden=false; $("u-grid2").hidden=false;
+    }
     const prev=E.slice(1,4);
-    if(prev.length){
-      const box=$("une-prev"); const b=document.createElement("b"); b.textContent="Le fil — enquêtes précédentes"; box.appendChild(b);
-      for(const x of prev){ const d=document.createElement("div"); const s=document.createElement("span"); s.textContent=jjmm(x.date);
-        const a=document.createElement("a"); a.href="rapport/"+x.fichier; a.textContent=x.titre||x.date; d.append(s,a); box.appendChild(d); }
-      box.hidden=false;
-    }
+    if(prev.length){ const box=$("u-prev"); box.appendChild(el("h2",null,"Le fil des enquêtes"));
+      for(const x of prev){ const d=el("div"); const tm=el("time",null,jjmm(x.date)); const a=el("a",null,x.titre||x.date); a.href="rapport/"+x.fichier; d.append(tm,a); box.appendChild(d); }
+      box.hidden=false; }
+
+    /* ── 6. le moment orchestré : faisceau, courbes, décomptes ── */
     $("une").hidden=false;
-  }catch(err){ /* un feed absent ne doit jamais casser le dashboard */ }
+    dessins.forEach(f=>f());
+    let tRz=null, larg=traces.clientWidth;
+    if(window.ResizeObserver) new ResizeObserver(()=>{ if(traces.clientWidth===larg) return; larg=traces.clientWidth;
+      clearTimeout(tRz); tRz=setTimeout(()=>{ traces.classList.add("fini"); dessins.forEach(f=>f()); },120); }).observe(traces);
+    requestAnimationFrame(()=>{ $("une").classList.add("go");
+      if(aHero) decompte($("u-hero").querySelector(".v"),c.valeur,1400);
+      document.querySelectorAll("#u-traces .val b").forEach(b=>decompte(b,b.dataset.texte,1300));
+      document.querySelectorAll("#u-tiles .v").forEach((v,i)=>setTimeout(()=>decompte(v,v.dataset.texte,900),350+i*120)); });
+  }catch(err){ /* un fichier absent ne doit jamais casser le dashboard */ }
 })();
 </script>
 <!-- ══ OUVERTURE ANIMÉE « GLOBE » (2026-09-24). Hors de #app : l'app remplace

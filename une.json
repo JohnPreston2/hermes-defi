@@ -1,0 +1,68 @@
+{
+ "schema_version": 1,
+ "genere": "2026-09-30T21:02:31Z",
+ "feed_genere": "2026-09-30T20:53:02Z",
+ "modele": "zai-org-glm-4.7",
+ "gabarit": "theses_d_abord",
+ "gabarit_modele": "zai-org-glm-4.7",
+ "n_catalogue": 19,
+ "chiffres": [
+  {
+   "id": "these:Lista DAO",
+   "famille": "theses",
+   "valeur": "−17,5 % / −26,6 %",
+   "libelle": "Lista DAO — condition de sortie déclenchée : « Fee growth turns negative for 2 consecutive weeks »",
+   "contexte": "fees DefiLlama : 7 jours vs 7 precedents, 2 semaines de suite (au 2026-09-29)",
+   "source": "defi.json · theses (notation DefiLlama + CoinGecko)",
+   "as_of": "2026-09-30T20:46:03Z",
+   "lien": "#brief",
+   "tag": "engagement_teste"
+  },
+  {
+   "id": "angle:EigenCloud",
+   "famille": "angles_morts",
+   "valeur": "×23,2",
+   "libelle": "EigenCloud — le P/F passe de 178,92 (7 j) à 7,70 (1 an), et aucun réveil de l'agent n'en parle",
+   "contexte": "lst · 39 protocoles valorisés, 7 nommés par un réveil",
+   "source": "defi.json · croisements (valuation × réveils, 0-LLM)",
+   "as_of": "2026-09-30T20:53:02Z",
+   "lien": "#brief",
+   "tag": "angle_mort"
+  },
+  {
+   "id": "valo:maple-finance",
+   "famille": "valorisation",
+   "valeur": "2,29×",
+   "libelle": "Maple Finance — P/F 7 j, rang 1 sur 7 dans le secteur LENDING (1 = le multiple le plus bas)",
+   "contexte": "−56,2 % vs la médiane du secteur (5,23×)",
+   "source": "defi.json · valuation (fenetres.pf 7 j)",
+   "as_of": "2026-09-30T17:55:01Z",
+   "lien": "#valorisation",
+   "tag": "ecart"
+  },
+  {
+   "id": "valo:hyperliquid",
+   "famille": "valorisation",
+   "valeur": "19,52×",
+   "libelle": "Hyperliquid — P/F 7 j, rang 7 sur 8 dans le secteur PERP (1 = le multiple le plus bas)",
+   "contexte": "+195,8 % vs la médiane du secteur (6,60×)",
+   "source": "defi.json · valuation (fenetres.pf 7 j)",
+   "as_of": "2026-09-30T17:55:01Z",
+   "lien": "#valorisation",
+   "tag": "ecart"
+  },
+  {
+   "id": "marche:defi_tvl",
+   "famille": "marche",
+   "valeur": "95,00 G$",
+   "libelle": "TVL de la DeFi (l'argent déposé dans les protocoles)",
+   "contexte": "90 protocoles suivis",
+   "source": "defi.json · macro (DefiLlama)",
+   "as_of": "2026-09-30T20:18:01Z",
+   "lien": "#marche",
+   "tag": "contexte"
+  }
+ ],
+ "erreurs": [],
+ "regle": "Le modele choisit des identifiants dans un catalogue 0-LLM ; chaque valeur est recopiee par le code depuis defi.json, jamais ecrite par le modele."
+}
