@@ -315,6 +315,122 @@ tr.weak td.k{color:var(--ink2)}
     <button class="tg" id="theme" type="button">Thème</button>
   </div>
 </header>
+<!-- ══ LA UNE — l'enquête du jour en tête de page (2026-09-30). Remplace la
+     carte « Rapport du jour » du 18/09, qui prenait enquetes[0] = la PLUS
+     ANCIENNE (le fichier est trié du plus vieux au plus récent) et affichait
+     donc le 18/09 depuis 12 jours. Ici : la plus récente PAR DATE.
+     Hors de #app (l'app remplace tout #app à chaque rendu). Aucun chiffre
+     n'est extrait de la prose : le gros chiffre n'apparaît que si la routine
+     a écrit `chiffre_cle` ; sinon la mesure neuve s'affiche telle quelle.
+     Une enquête qui n'est pas du jour le DIT (âge en jours), jamais maquillée. ══ -->
+<style>
+#une{max-width:1280px;margin:0 auto;padding:22px 20px 6px}
+#une[hidden]{display:none}
+.une-card{position:relative;background:var(--s1);border:1px solid var(--line);
+  border-radius:var(--r2);box-shadow:var(--e2);padding:22px 26px 20px;overflow:hidden}
+.une-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--acc)}
+.une-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  font:600 10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink3)}
+.une-top .etat{border:1px solid var(--line2);border-radius:4px;padding:1px 6px;color:var(--ink2)}
+.une-top .etat.vieux{border-color:var(--warn);color:var(--warn)}
+.une-top .prov{margin-left:auto;font-weight:400;letter-spacing:.03em;text-transform:none;color:var(--ink4)}
+.une-titre{margin:12px 0 0;font:650 clamp(22px,3.1vw,34px)/1.18 var(--serif);letter-spacing:-.015em;
+  max-width:30em;text-wrap:balance}
+.une-titre a{color:inherit}
+.une-titre a:hover{text-decoration:none;color:var(--acc2)}
+.une-q{margin:10px 0 0;font:italic 15px/1.5 var(--serif);color:var(--ink2);max-width:52em}
+.une-q b{font:600 9.5px var(--mono);font-style:normal;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink4);margin-right:8px}
+.une-chiffre{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin:18px 0 0}
+.une-chiffre .v{font:650 clamp(40px,6vw,64px)/1 var(--serif);letter-spacing:-.02em;color:var(--ink)}
+.une-chiffre .l{font:15px/1.45 var(--sans);color:var(--ink2);max-width:34em}
+.une-chiffre .l small{display:block;font:11px var(--mono);color:var(--ink4);margin-top:3px}
+.une-mesure{margin:16px 0 0;padding:12px 14px;border-radius:var(--r1);
+  background:color-mix(in oklch,var(--acc) 7%,transparent);border:1px solid var(--line)}
+.une-mesure b{display:block;font:600 9.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink4);margin-bottom:5px}
+.une-mesure p{margin:0;font:15.5px/1.6 var(--sans);color:var(--ink);max-width:62em}
+.une-actions{display:flex;gap:10px 18px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
+.une-go{font:650 13px var(--sans);color:var(--on-semantic);background:var(--acc);
+  padding:8px 14px;border-radius:var(--r1)}
+.une-go:hover{text-decoration:none;filter:brightness(1.08)}
+.une-actions .sec2{font:12px var(--mono);color:var(--acc2)}
+.une-prev{margin:16px 0 0;padding-top:12px;border-top:1px solid var(--line);
+  display:grid;gap:4px;font:12.5px/1.45 var(--sans)}
+.une-prev b{font:600 9.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink4)}
+.une-prev a{color:var(--ink2)}
+.une-prev a:hover{color:var(--acc2)}
+.une-prev span{font:11px var(--mono);color:var(--ink4);margin-right:8px}
+@media (max-width:640px){
+  #une{padding:14px 14px 4px}
+  .une-card{padding:16px 16px 16px 18px}
+  .une-top .prov{margin-left:0;width:100%}
+  .une-mesure p{display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+}
+</style>
+<section id="une" hidden aria-label="L'enquête du jour">
+  <article class="une-card">
+    <div class="une-top"><span id="une-tag">Enquête</span><span class="etat" id="une-etat"></span><span class="prov" id="une-prov"></span></div>
+    <h1 class="une-titre"><a id="une-lien" href="rapport/"></a></h1>
+    <p class="une-q" id="une-q" hidden><b>La question</b><span></span></p>
+    <div class="une-chiffre" id="une-chiffre" hidden><span class="v"></span><span class="l"></span></div>
+    <div class="une-mesure" id="une-mesure" hidden><b>La mesure neuve — le chiffre qui n'existe nulle part ailleurs</b><p></p></div>
+    <div class="une-actions"><a class="une-go" id="une-go" href="rapport/">Lire l'enquête →</a><a class="sec2" id="une-annexe" hidden></a></div>
+    <div class="une-prev" id="une-prev" hidden></div>
+  </article>
+</section>
+<script>
+(async()=>{
+  const get=async u=>{ try{ const r=await fetch(u+"?t="+Date.now(),{cache:"no-store"});
+                            return r.ok? await r.json() : null; }catch(e){ return null; } };
+  const $=id=>document.getElementById(id);
+  const jjmm=d=>String(d||"").slice(8,10)+"/"+String(d||"").slice(5,7);
+  // la plus récente d'abord : tri par date puis par heure de génération, JAMAIS par position
+  const recent=a=>(a||[]).filter(x=>x&&x.fichier&&x.date).slice()
+    .sort((x,y)=>String(y.date).localeCompare(String(x.date))||String(y.genere||"").localeCompare(String(x.genere||"")));
+  try{
+    const enq=await get("rapport/enquetes.json"), tra=await get("rapport/index.json");
+    const E=recent(enq&&enq.enquetes), T=recent(tra&&tra.rapports);
+    const e=E[0], t=T[0], p=e||t;
+    if(!p) return;                                   // rien à montrer : la section reste cachée
+    // âge en jours calendaires, à l'heure de Paris (la routine publie le matin, heure de Paris)
+    const auj=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Paris"}).format(new Date());
+    const heure=+new Intl.DateTimeFormat("fr-FR",{timeZone:"Europe/Paris",hour:"2-digit",hourCycle:"h23"}).format(new Date());
+    const age=Math.round((Date.parse(auj)-Date.parse(p.date))/864e5);
+    $("une-tag").textContent=(e?"Enquête":"Rapport quotidien")+" du "+jjmm(p.date);
+    const et=$("une-etat");
+    if(age<=0){ et.textContent="du jour"; }
+    else if(age===1&&heure<12){ et.textContent="celle du jour paraît vers 10 h"; }
+    else { et.textContent="aucune "+(e?"enquête":"publication")+" depuis "+age+" jour"+(age>1?"s":""); et.classList.add("vieux"); }
+    const prov=[];
+    if(p.genere) prov.push("générée "+String(p.genere).replace("T"," ").slice(0,16)+" UTC");
+    prov.push(e?"routine d'enquête Opus · rapport/enquetes.json":"transcript 0-LLM · rapport/index.json");
+    $("une-prov").textContent=prov.join(" · ");
+    $("une-lien").href=$("une-go").href="rapport/"+p.fichier;
+    $("une-lien").textContent=p.titre||("Rapport du "+p.date);
+    if(e&&e.question){ $("une-q").querySelector("span").textContent=e.question; $("une-q").hidden=false; }
+    // gros chiffre : UNIQUEMENT s'il a été écrit par la routine (jamais extrait de la prose)
+    const c=e&&e.chiffre_cle;
+    if(c&&c.valeur!=null&&String(c.valeur).trim()){
+      const w=$("une-chiffre");
+      w.querySelector(".v").textContent=c.valeur;
+      w.querySelector(".l").textContent=c.libelle||"";
+      if(c.population){ const s=document.createElement("small"); s.textContent=c.population; w.querySelector(".l").appendChild(s); }
+      w.hidden=false;
+    }
+    if(e&&e.mesure_neuve){ $("une-mesure").querySelector("p").textContent=e.mesure_neuve; $("une-mesure").hidden=false; }
+    if(e&&t){ const a=$("une-annexe"); a.href="rapport/"+t.fichier; a.textContent="annexe de données du "+jjmm(t.date); a.hidden=false; }
+    const prev=E.slice(1,4);
+    if(prev.length){
+      const box=$("une-prev"); const b=document.createElement("b"); b.textContent="Le fil — enquêtes précédentes"; box.appendChild(b);
+      for(const x of prev){ const d=document.createElement("div"); const s=document.createElement("span"); s.textContent=jjmm(x.date);
+        const a=document.createElement("a"); a.href="rapport/"+x.fichier; a.textContent=x.titre||x.date; d.append(s,a); box.appendChild(d); }
+      box.hidden=false;
+    }
+    $("une").hidden=false;
+  }catch(err){ /* un feed absent ne doit jamais casser le dashboard */ }
+})();
+</script>
 <!-- ══ OUVERTURE ANIMÉE « GLOBE » (2026-09-24). Hors de #app : l'app remplace
      tout le contenu de #app à chaque rendu. Aucun chiffre en dur : tout vient
      de defi.json, reçu du script principal (un seul téléchargement). ══ -->
@@ -338,53 +454,6 @@ tr.weak td.k{color:var(--ink2)}
 </div>
 
 
-<!-- === Carte "Rapport du jour" (additif, 2026-09-18). Hors de #app : l'app
-     remplace tout le contenu de #app a chaque rendu. S'alimente seule depuis
-     rapport/index.json ; reste cachee si le fichier manque. === -->
-<style>
-.rapwrap{max-width:1080px;margin:18px auto 0;padding:0 20px}
-.rapcard{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
- background:var(--s1);border:1px solid var(--line);border-left:3px solid var(--acc);
- border-radius:var(--r2);padding:14px 18px;text-decoration:none;color:inherit;
- box-shadow:var(--e1)}
-.rapcard:hover{border-color:var(--line2);border-left-color:var(--acc2)}
-.rapcard .tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
- text-transform:uppercase;color:var(--ink3)}
-.rapcard b{font-family:var(--serif);font-size:19px;font-weight:600}
-.rapcard .meta{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-left:auto}
-@media (max-width:640px){.rapcard .meta{margin-left:0}}
-</style>
-<div class="rapwrap" id="rapportcard" hidden>
-  <a class="rapcard" id="raplink" href="rapport/">
-    <span class="tag">Rapport quotidien</span>
-    <b id="raptitre"></b>
-    <span class="meta" id="rapmeta"></span>
-  </a>
-</div>
-<script>
-(async()=>{
-  const get=async u=>{ try{ const r=await fetch(u+"?t="+Date.now(),{cache:"no-store"});
-                            return r.ok? await r.json() : null; }catch(e){ return null; } };
-  try{
-    // L'ENQUETE du jour prime ; le transcript 0-LLM n'est qu'une annexe de donnees.
-    const enq=await get("rapport/enquetes.json");
-    const tra=await get("rapport/index.json");
-    const e=(enq&&enq.enquetes||[])[0], t=(tra&&tra.rapports||[])[0];
-    const principal = e||t;
-    if(!principal||!principal.fichier) return;
-    document.getElementById("raplink").href="rapport/"+principal.fichier;
-    document.getElementById("raptitre").textContent=
-      principal.titre || ("Rapport du "+principal.date);
-    document.querySelector("#rapportcard .tag").textContent = e? "Enquete du jour" : "Rapport quotidien";
-    const bouts=[];
-    if(e&&e.question) bouts.push(e.question);
-    if(principal.genere) bouts.push("genere "+principal.genere.replace("T"," ").slice(0,16)+" UTC");
-    if(e&&t&&t.fichier) bouts.push('<a href="rapport/'+t.fichier+'">annexe de donnees</a>');
-    document.getElementById("rapmeta").innerHTML=bouts.join("  ·  ");
-    document.getElementById("rapportcard").hidden=false;
-  }catch(e){ /* un feed absent ne doit jamais casser le dashboard */ }
-})();
-</script>
 <!-- === Contexte WEB des theses (additif, 2026-09-25). Lit rapport/theses_web.json,
      produit par la routine locale « Veille web des theses ». Du CONTEXTE date et source,
      jamais un verdict : les verdicts viennent de DefiLlama + CoinGecko (theses_externe.py).
