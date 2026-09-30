@@ -1,9 +1,10 @@
 {
- "genere": "2026-09-28T11:11:24Z",
+ "genere": "2026-09-30T19:52:13Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-09-28",
+   "releve": "2026-09-30",
+   "recoupe": "La clause fees negatives 2 semaines de suite (-26,6 % puis -17,5 %, au 29/09) couvre exactement les semaines ou Lista DEX est suspendu pour son passage a StableSwap v3 (depuis le 19/09, annonce non recoupee) ; le volume DefiLlama a -100 % est coherent avec un DEX toujours a l'arret, aucune relance trouvee sur le web. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M de Tokenomics 2.0 ; sur le milliard que compte encore tokenomist.ai il serait d'environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -34,11 +35,11 @@
      "source": "https://x.com/lista_dao",
      "recoupe": false
     }
-   ],
-   "recoupe": "Le FDV/capi de 1,85 suppose l'offre maximale de 800 M fixée par Tokenomics 2.0 ; tokenomist.ai compte encore 1 milliard, base sur laquelle le ratio serait d'environ 2,3, au-dessus du seuil de 2,0 : l'écart tient à la définition de l'offre. Par ailleurs, la chute de 100 % du volume DefiLlama sur 7 jours coincide avec la suspension des echanges de Lista DEX pendant sa mise a jour du 19/09 (annonce non recoupee). La clause « fees négatives 2 semaines de suite » (-5,3 % puis -36,5 %) tombe sur les semaines de cette suspension ; aucune autre cause trouvée sur le web."
+   ]
   },
   "Solv Protocol": {
-   "releve": "2026-09-28",
+   "releve": "2026-09-30",
+   "recoupe": "Aucun flux vers les detenteurs verifie hors DefiLlama : pas de rachat de SOLV trouve ; le partage d'environ 30 % des revenus aux stakers vient toujours d'un guide Bitget sans source primaire (documentation Solv refusee, 403).",
    "rien": false,
    "faits": [
     {
@@ -62,11 +63,11 @@
      "source": "https://coinmarketcap.com/cmc-ai/solv-protocol/latest-updates/",
      "recoupe": true
     }
-   ],
-   "recoupe": "Aucun flux vers les detenteurs verifie hors DefiLlama : pas de rachat de SOLV trouve ; le partage d'environ 30 % des revenus aux stakers vient toujours d'un guide Bitget sans source primaire (documentation Solv refusee, 403)."
+   ]
   },
   "Orca": {
-   "releve": "2026-09-28",
+   "releve": "2026-09-30",
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la documentation Orca : 40 % des frais du protocole achetent de l'ORCA verse aux stakers xORCA (hausse de 20 % a 40 % votee par le conseil).",
    "rien": false,
    "faits": [
     {
@@ -77,24 +78,24 @@
      "recoupe": true
     },
     {
-     "date": "2026-09-24",
-     "fait": "Le jeton à rendement USDY d'Ondo est intégré à Orca comme actif d'échange.",
-     "touche": "autre",
-     "source": "https://coinmarketcap.com/cmc-ai/orca/latest-updates/",
-     "recoupe": true
-    },
-    {
      "date": "2026-09-25",
      "fait": "Bitget abaisse a 0,1 le ratio de collateral d'ORCA dans son compte unifie : l'ORCA deposee y garantit moins d'emprunt.",
      "touche": "risque",
      "source": "https://coinmarketcap.com/cmc-ai/orca/latest-updates/",
      "recoupe": true
+    },
+    {
+     "date": "2026-09-24",
+     "fait": "Le jeton à rendement USDY d'Ondo est intégré à Orca comme actif d'échange.",
+     "touche": "autre",
+     "source": "https://coinmarketcap.com/cmc-ai/orca/latest-updates/",
+     "recoupe": true
     }
-   ],
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la part de 40 % des frais du protocole affectée aux rachats d'ORCA versés aux stakers xORCA."
+   ]
   },
   "Meteora": {
-   "releve": "2026-09-28",
+   "releve": "2026-09-30",
+   "recoupe": "Le zero DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (187 000 USDC aux stakers au premier cycle, reclamables depuis le 10/09), flux que DefiLlama ne compte pas. Les rachats (13,7 M$ cumules a fin T1) n'ont plus de mise a jour publique depuis.",
    "rien": false,
    "faits": [
     {
@@ -102,6 +103,13 @@
      "fait": "Referral Staking, lancé en juillet, paie aux stakers une part des frais DLMM en USDC : 70 M MET engagés par 2 442 stakers à l'appel du 13/08 ; cet appel n'a donné aucune mise à jour sur les rachats.",
      "touche": "capture",
      "source": "https://solanacompass.com/news/meteora-reports-140m-in-lp-fees-and-32b-in-h1-2026-trading-volume",
+     "recoupe": true
+    },
+    {
+     "date": "2026-09-10",
+     "fait": "Premier cycle du Referral Staking (21/07-21/08) rendu reclamable le 10/09 : 262 000 USDC verses a 3 977 portefeuilles, dont 187 000 aux stakers MET, tout finance par les frais DLMM.",
+     "touche": "capture",
+     "source": "https://solanacompass.com/news/meteora-posts-54b-in-august-volume-biggest-monthly-jump-since-january",
      "recoupe": true
     },
     {
@@ -125,11 +133,11 @@
      "source": "https://coinmarketcap.com/cmc-ai/meteora/latest-updates/",
      "recoupe": true
     }
-   ],
-   "recoupe": "Le zéro DefiLlama est contredit : depuis juillet 2026, le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (70 M MET engagés au 13/08), flux que DefiLlama ne compte pas. Les rachats (13,7 M$ cumulés à fin T1) n'ont en revanche plus de mise à jour publique depuis."
+   ]
   },
   "Maple Finance": {
-   "releve": "2026-09-28",
+   "releve": "2026-09-30",
+   "recoupe": "La capture DefiLlama de 10 % concorde avec la regle MIP-021 : 10 % du revenu mensuel sous 1,5 M$ finance des rachats de SYRUP, et Maple est dans cette tranche (environ 1,22 M$ par mois).",
    "rien": false,
    "faits": [
     {
@@ -159,9 +167,15 @@
      "touche": "risque",
      "source": "https://coinmarketcap.com/cmc-ai/maple-finance/latest-updates/",
      "recoupe": true
+    },
+    {
+     "date": "2026-09-28",
+     "fait": "Chainlink lance CCIP 2.0 le 28/09 ; Maple fait partie des premiers a en adopter certaines fonctions (passerelle des jetons syrup).",
+     "touche": "autre",
+     "source": "https://www.coindesk.com/business/2026/09/28/chainlink-updates-its-crypto-bridge-tech-months-after-a-usd292-million-hack-shook-the-industry",
+     "recoupe": true
     }
-   ],
-   "recoupe": "La capture DefiLlama de 10 % concorde avec la regle MIP-021 : 10 % du revenu mensuel sous 1,5 M$ finance des rachats de SYRUP, et Maple est dans cette tranche (environ 1,22 M$ par mois)."
+   ]
   }
  }
 }
