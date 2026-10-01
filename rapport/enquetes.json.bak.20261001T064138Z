@@ -72,37 +72,6 @@
    "question": "Deux jours avant la fin du gaz gratuit, qui a cesse de creer des pools sur Uniswap v4 : quelques usines a jetons, ou la foule ?",
    "mesure_neuve": "Decomposition des 908 119 pools v4 comptes sur la chaine : sur 56 607 pools de baisse hebdomadaire depuis le pic (128 710 -> 72 103), 64 % sont des pools SANS hook (83 623 -> 47 331), creees a 70-83 % via le PositionManager officiel ; sur 150 creations tirees au hasard, la part des emetteurs recurrents tombe de 56,7 % a 37,3 %. Deux lanceurs sont quasi eteints (LaunchHook 5 325 -> 140, PairV4Hook 3 719 -> 19). Cote frais, Pons V2 porte 57 % de la baisse 7j de la chaine ; Uniswap V4 ne perd que 6,8 %.",
    "genere": "2026-09-27T09:30:00Z"
-  },
-  {
-   "date": "2026-10-01",
-   "fichier": "2026-10-01-enquete.html",
-   "titre": "Robinhood Chain, 01/10 : le gaz n'est plus gratuit, et la chaîne n'a pas décroché",
-   "question": "Deux jours après la fin de la subvention de gaz (29/09), l'activité de la chaîne a-t-elle chuté, et la subvention passait-elle par les mécanismes visibles sur la chaîne ?",
-   "mesure_neuve": "Transactions comptées sur la chaîne par blocs tirés au hasard (2 tirages indépendants) : 8,73 M par jour les 29-30/09 contre 7,21 M sur 22-28/09 (+21 %, marge ~10 %), base fee divisée par 2,4 depuis le 22/09. Seules ~5 % des « UserOperations » (ERC-4337) sont sponsorisées par un paymaster, avant comme après : la subvention ne transitait pas par ce canal. Création de pools v4 : 9 681 et 9 266 les 29-30/09, −15 % contre les mêmes jours de la semaine précédente, dans une pente déjà en cours. Les frais du séquenceur avaient déjà perdu 58 % en 7 jours avant l'échéance.",
-   "chiffre_cle": {
-    "valeur": "+21 %",
-    "libelle": "de transactions par jour sur la chaîne après la fin du gaz gratuit, au lieu de la chute annoncée",
-    "population": "8,73 M tx/jour les 29-30/09 contre 7,21 M sur 22-28/09, estimées sur 300 à 600 blocs tirés par jour (~859 000 blocs/jour), marge ~10 %"
-   },
-   "points_cles": [
-    {
-     "champ": "rh_vol_7d_chaine",
-     "libelle": "Volume 7 jours (les échanges de la semaine)"
-    },
-    {
-     "champ": "rh_fees_7d_chaine",
-     "libelle": "Frais 7 jours (ce que la chaîne encaisse)"
-    },
-    {
-     "champ": "rh_v4_pools_crees_7j_onchain",
-     "libelle": "Pools créés en 7 jours (nouveaux marchés ouverts)"
-    },
-    {
-     "champ": "rh_chain_tvl_usd",
-     "libelle": "TVL de la chaîne (l'argent déposé)"
-    }
-   ],
-   "genere": "2026-10-01T09:30:00Z"
   }
  ]
 }

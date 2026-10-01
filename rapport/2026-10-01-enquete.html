@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 01/10 : la fin du gaz gratuit</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+</style>
+</head>
+<body>
+<header>
+<div class="hwrap">
+<div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+<nav><a href="../">accueil</a><a href="2026-09-27-enquete.html">enquête du 27/09</a></nav>
+</div>
+</header>
+<main>
+<p class="tag data">Enquête · 1er octobre 2026 · fil Uniswap v4 × Robinhood Chain, jour 11</p>
+<h1>Robinhood Chain, 01/10 : le gaz n'est plus gratuit, et la chaîne n'a pas décroché</h1>
+<p class="question">Deux jours après la fin de la subvention de gaz (29/09), l'activité de la chaîne a-t-elle chuté ? Et cette subvention passait-elle par un mécanisme qu'on peut voir sur la chaîne ?</p>
+
+<div class="provenance">
+<div class="row"><span>Relevé DefiLlama : /v2/chains, /protocols, /overview (frais, volumes, revenu aux détenteurs), séries journalières, /summary (robinhood-chain, pons-v2, fables, gmgn, snuggle, what-the-hook, giga-v3, uniswap-v3), /protocol/pons. 87 commits dimension-adapters depuis le 27/09 08:31 UTC, 13 touchent la chaîne ou ses protocoles (voir plus bas).</span><span class="age-fresh">2026-10-01 06:22 UTC</span></div>
+<div class="row"><span>Robinhood Chain en direct (RPC officiel, publicnode, ordofi ; témoins eth_chainId = 0x1237, eth_getCode d'une adresse bidon = 0x) : 449 526 événements Initialize de la PoolManager v4 (blocs 48 750 000 → 77 157 261), 2 400 + 1 200 blocs tirés au hasard, 80 fenêtres de 5 000 blocs d'événements UserOperation, Firepit nonce(), UNI ponté totalSupply()</span><span class="age-fresh">06:23 → 07:40 UTC</span></div>
+<div class="row"><span>Registre Uniswap/hooklist : <strong>régénéré le 30/09 à 16:30 UTC</strong> (commit 65ef4121), après 9 jours de gel ; dédoublonnage de 37 paires d'adresses en collision de casse</span><span class="age-fresh">~14 h</span></div>
+<div class="row"><span>Dossier SEC 4-927 (témoin négatif 4-99999 : 404) · API Federal Register · 63 liens d'audit · 31 comptes GitHub (témoins vfat-io 200, ARMSys26 404)</span><span class="age-fresh">~07:00 UTC</span></div>
+<div class="row"><span>Trou dans le fil : aucune enquête les 28, 29 et 30/09 (routine figée). Ces trois jours sont reconstitués depuis les séries journalières, jamais inventés. Delta (Hermes) répond ; aucun chiffre repris de l'agent.</span><span class="age-stale">3 jours manquants</span></div>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>+21 %</b><span>transactions par jour sur la chaîne les 29-30/09 (8,73 M) contre 22-28/09 (7,21 M) — estimées sur blocs tirés au hasard, marge ~10 %</span></div>
+<div class="stat"><b>~5 %</b><span>des UserOperations ERC-4337 sont payées par un paymaster, avant comme après le 29/09 (4,9 % → 5,6 %)</span></div>
+<div class="stat"><b>−15 %</b><span>pools v4 créés les 29-30/09 (9 681 et 9 266) contre les mêmes jours une semaine plus tôt (11 438 et 10 766)</span></div>
+</div>
+
+<h2>Les veilles re-testées</h2>
+<p>Les onze veilles ouvertes ont été re-mesurées. Aucune ne franchit son seuil. Une seule ne peut pas l'être : 27_01 attend une semaine pleine après le 30/09. Une nouvelle veille est ouverte.</p>
+<table>
+<tr><th>Veille</th><th>Mesure du 01/10</th><th>État</th></tr>
+<tr><td>18_01 · hooks d'extraction</td><td>registre régénéré : 72,4 % / 25,4 % (sur 1 172 hooks)</td><td>ouverte, loin des seuils</td></tr>
+<tr><td>18_02 · audits des hooks</td><td>4 hooks audités sur 1 172 (0,34 %)</td><td>ouverte (voir « ce qui contredit »)</td></tr>
+<tr><td>18_03 · la v3 comme refuge</td><td>v3 43,1 % / v4 34,9 % du volume sur 30 j (55,97 Md$)</td><td>ouverte</td></tr>
+<tr><td>18_04 · infrastructure actions</td><td>155 déploiements sur 1 172 (13,2 %) ; aucun avis de TSV trouvé</td><td>ouverte</td></tr>
+<tr><td>18_05 · dossier 4-927</td><td>26 lettres (+5) ; aucune bourse, courtier, émetteur ni cabinet</td><td>ouverte (volet « non paru » caduc)</td></tr>
+<tr><td>19_01 · poids de Pons</td><td>37,6 % des frais 30 j déclarés (132,28 / 351,78 M$)</td><td>ouverte</td></tr>
+<tr><td>22_01 · test de la subvention</td><td>volume/jour 29-30/09 : +16,6 % vs 22-28/09 ; frais/jour : +5,0 %</td><td>ouverte, J+2 sur 14</td></tr>
+<tr><td>24_01 · UNI brûlé</td><td>55,7 % du revenu UNI v3 toutes chaînes ; nonce Firepit 1 234 (+28)</td><td>ouverte, au-dessus de 50 %</td></tr>
+<tr><td>25_01 · registre vs chaîne</td><td>15,6 % des pools à hook sur 30 j sont hors registre (21 113 / 134 988)</td><td>ouverte</td></tr>
+<tr><td>26_01 · usine à jetons</td><td>semaine 24-30/09 : 64 743 pools ; seuil MORTE à 56 157</td><td>ouverte, pas de semaine pleine</td></tr>
+<tr><td>27_01 · émetteurs récurrents</td><td>non re-mesurée : aucune semaine pleine dans la fenêtre</td><td>ouverte</td></tr>
+</table>
+
+<h2>La question</h2>
+<p>La subvention de gaz de Robinhood Chain (remboursement des frais de transaction pour les utilisateurs du Robinhood Wallet, lancée avec la chaîne le 1er juillet) a pris fin le 29/09. Depuis une semaine, la veille 22_01 et la veille 26_01 attendaient ce jour comme un test de charge. La presse a tranché dès le 30/09 : « <em>Robinhood Chain Volume Halves as Free Gas Ends</em> » (ETHNews). Ce rapport vérifie ce titre contre la chaîne elle-même.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p><strong>Méthode en une ligne :</strong> trois mesures sur la chaîne (transactions par bloc, paymasters ERC-4337, création de pools v4), croisées aux séries journalières de DefiLlama, en comparant les deux premiers jours sans subvention aux mêmes jours de la semaine précédente.</p>
+
+<h3>1. Les transactions ne baissent pas</h3>
+<p>Le nombre de transactions par jour est estimé en tirant au hasard 300 blocs par jour UTC (environ 859 000 blocs par jour), en retirant la transaction interne ArbOS de type <code>0x6a</code> présente dans chaque bloc, puis en multipliant la moyenne par le nombre de blocs. Un second tirage indépendant (graine différente) a été refait pour les 23, 26, 29 et 30/09 : les deux tirages diffèrent de 4 à 17 %. La marge est donc d'environ ±10 %, et seul un écart plus grand se lit.</p>
+<table>
+<tr><th>Jour (UTC)</th><th class="num">Tx/jour estimées</th><th class="num">Base fee médiane</th><th class="num">Pools v4 créés</th></tr>
+<tr><td>mar. 22/09</td><td class="num">7,93 M</td><td class="num">0,053 gwei</td><td class="num">11 438</td></tr>
+<tr><td>mer. 23/09</td><td class="num">7,09 M</td><td class="num">0,053 gwei</td><td class="num">10 766</td></tr>
+<tr><td>sam. 26/09</td><td class="num">5,82 M</td><td class="num">0,028 gwei</td><td class="num">11 719</td></tr>
+<tr><td>lun. 28/09</td><td class="num">9,63 M</td><td class="num">0,020 gwei</td><td class="num">8 451</td></tr>
+<tr><td><strong>mar. 29/09</strong></td><td class="num"><strong>9,08 M</strong></td><td class="num">0,021 gwei</td><td class="num">9 681</td></tr>
+<tr><td><strong>mer. 30/09</strong></td><td class="num"><strong>8,37 M</strong></td><td class="num">0,022 gwei</td><td class="num">9 266</td></tr>
+</table>
+<p>Sur 22-28/09, la moyenne est de 7,21 M de transactions par jour ; sur 29-30/09, 8,73 M (+21 %, +16 % contre le seul mardi-mercredi précédent). Le prix du gaz de base, lui, est divisé par 2,4 depuis le 22/09 et colle au plancher : la chaîne n'est pas encombrée, et rien ne montre une hausse de prix au 29/09.</p>
+
+<h3>2. La subvention ne passait pas par les paymasters visibles</h3>
+<p>Un « paymaster » est le contrat qui paie le gaz d'un compte ERC-4337 (portefeuille intelligent) à sa place. Si la subvention passait par là, la part des opérations sponsorisées devait s'effondrer le 29/09. Sur 8 fenêtres de 5 000 blocs par jour (événement <code>UserOperationEvent</code>, topic0 vérifié par keccak), entre 5 831 et 8 697 opérations par jour échantillonnées : la part payée par un paymaster est de <strong>4,9 % en moyenne sur 22-28/09 et 5,6 % sur 29-30/09</strong>. Le premier paymaster (<code>0x0000…7ebb4</code>) a même légèrement augmenté. 95 % des opérations sont payées par le compte lui-même. Le nombre d'expéditeurs distincts dans l'échantillon du 29/09 (6 204) est le plus haut de la période.</p>
+<p>Conclusion bornée : le remboursement Robinhood ne transitait pas par un paymaster lisible. Un remboursement hors chaîne, ou un approvisionnement des comptes en ETH, reste possible et ne se voit pas avec ces sondes.</p>
+
+<h3>3. La création de pools continue sa pente, sans falaise</h3>
+<p>Le recensement des événements <code>Initialize</code> de la PoolManager v4 donne 942 957 pools depuis l'origine (908 119 au 27/09 + 34 838). Les semaines pleines : 127 979 (29/08-04/09) → 87 938 (13-19/09) → 72 103 (20-26/09) → <strong>64 743 (24-30/09)</strong>. Témoin de non-régression : les semaines 13-19/09 et 20-26/09 sont retrouvées à l'unité près contre le relevé du 27/09. Les 29 et 30/09 font −15 % contre les mêmes jours de la semaine précédente, à peine plus que la pente des semaines d'avant (−10 %).</p>
+
+<h2>Le delta contre le dernier point (27/09)</h2>
+<table>
+<tr><th>Mesure</th><th class="num">27/09</th><th class="num">01/10</th><th>Lecture</th></tr>
+<tr><td>TVL de la chaîne</td><td class="num">1 031,9 M$</td><td class="num">1 033,3 M$</td><td>stable : le capital ne bouge pas</td></tr>
+<tr><td>Volume 7 j (DEX)</td><td class="num">9,84 Md$</td><td class="num">9,42 Md$</td><td>−10,9 % semaine sur semaine</td></tr>
+<tr><td>Frais 7 j (chaîne)</td><td class="num">42,52 M$</td><td class="num">35,14 M$</td><td>−31,1 % s/s, porté par Pons</td></tr>
+<tr><td>Frais 7 j, Pons V2</td><td class="num">15,06 M$</td><td class="num">10,81 M$</td><td>−43,0 % s/s, 4e semaine</td></tr>
+<tr><td>Frais 7 j, Uniswap V4</td><td class="num">−6,8 % s/s</td><td class="num">13,16 M$</td><td>−2,8 % s/s seulement</td></tr>
+<tr><td>Frais 7 j du séquenceur</td><td class="num">—</td><td class="num">0,85 M$</td><td>−58 % s/s, avant le 29/09</td></tr>
+<tr><td>Protocoles sur la chaîne</td><td class="num">197</td><td class="num">216</td><td>+19 fiches en 4 jours</td></tr>
+<tr><td>Hooks au registre (robinhood)</td><td class="num">1 164</td><td class="num">1 172</td><td>registre régénéré le 30/09</td></tr>
+<tr><td>UNI détruit (Firepit)</td><td class="num">1 206 rachats</td><td class="num">1 234</td><td>+56 000 UNI ; UNI ponté 166 939 → 185 435</td></tr>
+<tr><td>Capitalisation Pons</td><td class="num">421,1 M$</td><td class="num">369,8 M$</td><td>−12,2 % ; multiple 2,17 → 1,84</td></tr>
+</table>
+<p>Les frais journaliers de la ligne « Robinhood Chain » (le séquenceur) chez DefiLlama sont passés de 356 k$ le 22/09 à 68 k$ le 27/09, puis 166 k$ le 29/09 et 97 k$ le 30/09. La chute a précédé l'échéance de sept jours ; elle suit la baisse du prix du gaz de base, pas la fin du remboursement.</p>
+<p><strong>Pièges du mémo re-vérifiés ce jour :</strong> P2 (le total des frais déclaré = somme des lignes non doublecounted moins la ligne de la chaîne : 351 782 158 $ des deux côtés, au dollar) ; P8 (le revenu aux détenteurs déclaré, 13,28 M$, reste inférieur à la somme des lignes, 30,75 M$) ; P10 (13 commits d'adaptateurs touchent la chaîne depuis le 27/09, dont <code>93e99bdd</code> du 29/09 qui modifie les adaptateurs Uniswap — aucune rupture visible sur le volume v4 de la chaîne, 19,38 → 19,53 Md$ sur 30 j) ; P11 et P12 (la part hors registre est publiée avec et sans la rafale mmETH : 15,6 % et 12,1 %).</p>
+
+<h2>Cohorte</h2>
+<p><strong>Un événement :</strong> Snuggle entre dans la cohorte et What The Hook en sort, par la règle des candidats automatiques, sans arbitrage. Snuggle dépassait What The Hook sur la preuve (score 2 contre 0) et sur la traction (TVL 6,76 M$ contre 0,21 M$ ; frais 30 j 1,90 M$ contre 0,07 M$) depuis le 22/09. Les 28-30/09 n'ont pas été mesurés : la domination y est reconstituée depuis les séries journalières DefiLlama, et le score de preuve des deux est identique le 27/09 et le 01/10. Réserve inchangée : la ligne de frais de Snuggle est marquée doublecounted (gestionnaire de liquidité).</p>
+<table>
+<tr><th>Membre</th><th class="num">Preuve</th><th>Ce qui a bougé</th><th class="num">Frais 30 j / Pons V2</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="num">0</td><td>TVL 107,1 M$, stable ; frais 7 j −6,1 %</td><td class="num">1,37 %</td></tr>
+<tr><td>Fables</td><td class="num">1</td><td>frais 7 j +19,4 % ; TVL −10 % (45,5 M$) ; toujours aucun lien d'audit</td><td class="num">2,94 %</td></tr>
+<tr><td>Arcus Perps</td><td class="num">0</td><td>TVL +22 % (29,5 M$), frais 7 j ×2,6 ; lignée dYdX toujours sans source primaire</td><td class="num">0,48 %</td></tr>
+<tr><td>up v3</td><td class="num">0</td><td>volume 30 j 1,29 Md$</td><td class="num">1,61 %</td></tr>
+<tr><td>StonkBrokers</td><td class="num">0</td><td>4 fiches rattachées (7 au 27/09) ; frais 30 j 1,68 M$</td><td class="num">1,27 %</td></tr>
+<tr><td>Snuggle (entrée)</td><td class="num">2</td><td>TVL 6,76 M$ ; frais 7 j −23,5 %</td><td class="num">1,43 %</td></tr>
+<tr><td>GIGA V3</td><td class="num">0</td><td>volume 30 j 473 M$ ; frais 7 j −31 %</td><td class="num">0,45 %</td></tr>
+<tr><td>Ekubo / STONX</td><td class="num">2</td><td>STONX 42,1 M$ de volume 30 j ; mcap Ekubo 11,7 → 9,9 M$</td><td class="num">0,04 %</td></tr>
+<tr><td>Longbow</td><td class="num">0</td><td>TVL 3,93 M$ ; aucun audit publié</td><td class="num">—</td></tr>
+<tr><td>TermMax</td><td class="num">3</td><td>TVL 11,3 k$ ; mcap −22 %</td><td class="num">0</td></tr>
+</table>
+<p><strong>Ce qui n'a pas bougé et devrait inquiéter :</strong> TermMax reste à 11 k$ de TVL (critère de sortie au 31/10 : 0,5 M$) et Fables, le membre qui grandit le plus vite, n'a toujours aucun lien d'audit derrière son code « audits 3 ». Antichambre : GlueHook 4,4 k$, Twofold 84 k$, ARMSys 53 k$ — aucun seuil franchi. Nouveaux candidats : HoodLock (2,2 M$) et Mellow Core (1,003 M$). Score de preuve sur 216 protocoles : 0 → 141, 1 → 30, 2 → 32, 3 → 12, 4 → 1. Contre-référence : Pons V2 pèse encore 37,6 % des frais 30 j déclarés ; la plus grosse cohorte (Fables) en fait 2,9 %.</p>
+
+<h2>Ce qui contredit</h2>
+<ul>
+<li><strong>Le titre de la presse ne tient pas.</strong> Le « volume divisé par deux » d'ETHNews compare 1,88 Md$ le 13/09 à 947 M$ le « 28/09 ». Ce dernier chiffre est le point DefiLlama horodaté du dimanche 27/09, un creux de week-end. Les deux premiers jours sans subvention font 1,64 et 1,49 Md$, autant que les mêmes jours une semaine plus tôt (1,59 et 1,52 Md$).</li>
+<li><strong>Contre ma propre lecture :</strong> les frais journaliers des mardi-mercredi ont baissé de 20,5 % (5,71 contre 7,19 M$). Si les utilisateurs du Wallet ne paient plus « zéro », ils peuvent faire moins de petits échanges spéculatifs sans que le nombre de transactions baisse, parce que les robots dominent ce compte. Deux jours ne départagent pas ces deux lectures : la veille 22_01 a besoin de ses 14 jours.</li>
+<li><strong>Une extraction à qualifier.</strong> Selon la presse (TechFlow/KuCoin, 28/09, non recoupé), un groupe aurait retiré 18,43 M$ de 53 lancements Pons V2 grâce à des exemptions de taxe anti-snipe. Ce n'est pas une faille de code d'un hook, mais l'usage d'une fonction prévue : la veille 18_02 n'est pas soldée pour autant.</li>
+<li><strong>Le registre régénéré n'a pas rattrapé la chaîne.</strong> Sur les 1 958 hooks apparus sur la chaîne depuis le 22/09, 10 figurent dans le registre du 30/09. La baisse de 4 961 à 4 938 hooks toutes chaînes vient d'un dédoublonnage, pas d'un recul.</li>
+</ul>
+
+<h2>Ce qu'on ne sait pas</h2>
+<div class="unknown"><ul>
+<li>Le canal réel de la subvention : ni paymaster, ni changement de prix du gaz visible. Robinhood n'a publié aucune donnée primaire sur son coût.</li>
+<li>Les champs globaux du recensement (hooks distincts, taux de permissions sur la chaîne) ne sont pas recalculés ce jour : le recensement ne couvre que depuis le 29/08.</li>
+<li>L'effet exact du commit <code>93e99bdd</code> (liste noire de jetons Dune appliquée à Uniswap) sur cette chaîne : le diff ne la nomme pas.</li>
+<li>Les 28, 29 et 30/09 n'ont pas eu d'enquête : aucune mesure de score de preuve ces jours-là.</li>
+</ul></div>
+<p>Nouvelle veille <code>v_20261001_01</code> : la semaine 06-12/10 garde plus de 5,77 M de transactions par jour (−20 % au plus contre 22-28/09), échéance 13/10.</p>
+</main>
+<footer>Généré le 2026-10-01 vers 09:30 UTC · sources : DefiLlama, RPC Robinhood Chain (chainId 4663), Uniswap/hooklist, SEC, Federal Register, presse étiquetée · aucun chiffre repris d'un agent</footer>
+</body>
+</html>
