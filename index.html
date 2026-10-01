@@ -952,12 +952,12 @@ main#app .bd{font-size:14px}
     const nPts=all.length, nTot=S.reduce((a,x)=>a+x.n,0);
     // le calcul des fenêtres tourne 2 fois par jour : au-delà de 26 h, les P/F affichés sont périmés et on le DIT
     const ageH=V.fenetres_as_of? (Date.now()-Date.parse(V.fenetres_as_of))/36e5 : null;
-    const retard=(ageH!=null&&ageH>26)? `<div class="x-foot" style="color:var(--warn)"><b style="color:var(--warn)">Calcul en retard</b> : les P/F sur 7 jours datent du ${e2(jjmm(V.fenetres_as_of))}, il y a ${Math.floor(ageH/24)} jour${ageH>=48?"s":""} ; ils devraient être recalculés deux fois par jour. Le tableau complet porte la même date.</div>` : "";
+    const retard=(ageH!=null&&ageH>26)? `<div class="x-foot" style="color:var(--warn)"><b style="color:var(--warn)">Fees en retard</b> : le dénominateur des P/F date du ${e2(jjmm(V.fenetres_as_of))}, il y a ${Math.floor(ageH/24)} jour${ageH>=48?"s":""} (il devrait être relevé deux fois par jour), alors que la capitalisation est du jour. Le tableau complet est dans le même cas.</div>` : "";
     const box=apres(sec,`<div class="x-sum" id="x-valo"><div class="x-head"><h3>Où se situe chaque protocole dans son secteur</h3>
       <p>P/F sur 7 jours (capitalisation ÷ fees annualisées), échelle logarithmique · ${nPts} protocoles sur ${nTot} ont un P/F 7 j · trait = médiane du secteur</p></div>
       <div class="x-strip"></div><div class="x-cap" aria-live="polite">Survolez un point pour lire le protocole.</div>
       <div class="x-leg"><span><span class="x-sym R"></span>${ETATL.R}</span><span><span class="x-sym A"></span>${ETATL.A}</span><span><span class="x-sym"></span>${ETATL.U} — multiple fragile</span>
-      <span>P/F calculés le ${e2(jjmm(V.fenetres_as_of||V.as_of))} à ${e2(String(V.fenetres_as_of||V.as_of).slice(11,16))} UTC.</span></div>${retard}</div>`);
+      <span>P/F = capitalisation du jour ÷ fees relevées le ${e2(jjmm(V.fenetres_as_of||V.as_of))} à ${e2(String(V.fenetres_as_of||V.as_of).slice(11,16))} UTC.</span></div>${retard}</div>`);
     const wrap=box.querySelector(".x-strip"), cap=box.querySelector(".x-cap"), repos=cap.textContent;
     const ticks=[0.2,0.5,1,2,5,10,20,50,100,200,500].filter(t=>t>=lo/1.6&&t<=hi*1.6);
     const dessiner=()=>{
