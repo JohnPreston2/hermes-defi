@@ -774,6 +774,259 @@ document.addEventListener("defi:data",async()=>{
   }catch(e){ /* un fichier absent ou mal forme ne casse jamais le dashboard */ }
 });
 </script>
+<!-- ══ SECTIONS v2 — résumé visuel en tête, détail replié (2026-10-01, décision user :
+     « résumé visuel + détail repliable »). Couche ADDITIVE : le rendu de #app
+     (vueBrief, vueValorisation, vueFunding) n'est PAS modifié. Ce bloc attend
+     l'événement defi:data, insère un résumé en tête de chaque section et range les
+     cartes lourdes dans des <details> fermés — rien n'est supprimé, tout reste lisible.
+     Une carte introuvable est laissée telle quelle (jamais d'exception visible).
+     Règles tenues : chaque valeur vient de defi.json, lue avec les règles de la page
+     (P/F 7 j = fenetres.pf, amputation = même règle que le tableau) ; aucune couleur
+     de direction ; les couleurs d'ÉTAT (déclenchée / compte à rebours / tenue) portent
+     toujours leur libellé. Retrait : supprimer ce bloc. ══ -->
+<style>
+/* lisibilité : plus aucun texte de #app sous 10,5 px */
+main#app .chip{font-size:11px}
+main#app .res{font-size:10.5px}
+main#app .fen,main#app .scap{font-size:11px}
+main#app .killc b,main#app .thweb b,main#app .thweb .tg{font-size:10.5px}
+main#app [style*="font:10px"],main#app [style*="font: 10px"]{font-size:11px!important}
+main#app .bd{font-size:14px}
+
+.x-sum{background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);box-shadow:var(--e1);
+  padding:18px 20px 16px;margin:0 0 14px}
+.x-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;margin-bottom:12px}
+.x-head h3{margin:0;font:650 17px/1.3 var(--serif);letter-spacing:-.01em}
+.x-head p{margin:0;font:13px/1.45 var(--sans);color:var(--ink3)}
+.x-foot{margin-top:12px;font:12.5px/1.5 var(--sans);color:var(--ink3)}
+.x-foot b{font-weight:600;color:var(--ink2)}
+
+/* détail replié */
+.x-det{margin:0 0 14px;border:1px solid var(--line);border-radius:var(--r2);background:var(--bg2)}
+.x-det>summary{cursor:pointer;list-style:none;padding:12px 16px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;
+  font:600 14px var(--sans);color:var(--ink)}
+.x-det>summary::-webkit-details-marker{display:none}
+.x-det>summary::before{content:"";width:0;height:0;border-left:6px solid var(--acc2);border-top:5px solid transparent;
+  border-bottom:5px solid transparent;align-self:center;transition:transform .15s}
+.x-det[open]>summary::before{transform:rotate(90deg)}
+.x-det>summary small{font:400 12.5px var(--sans);color:var(--ink4)}
+.x-det>summary:hover{color:var(--acc2)}
+.x-det>.x-in{padding:2px 12px 2px}
+.x-det>.x-in>.card,.x-det>.x-in>.grid{margin-bottom:12px}
+
+/* thèses : une ligne par thèse vivante */
+.x-th{display:grid;grid-template-columns:minmax(120px,170px) minmax(0,190px) minmax(150px,auto) minmax(0,1fr);
+  gap:6px 16px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.x-th:first-of-type{border-top:0}
+.x-th .n{font:600 15px var(--sans);color:var(--ink)}
+.x-th .n small{display:block;font:400 11.5px var(--sans);color:var(--ink4);margin-top:1px}
+.x-vd{display:flex;gap:3px;flex-wrap:wrap}
+.x-vd i{width:17px;height:17px;border-radius:4px;display:grid;place-items:center;font:650 10.5px var(--mono);
+  font-style:normal;color:var(--ink2);border:1px solid var(--line2)}
+.x-vd i.N{border-color:var(--ink3);color:var(--ink)}
+.x-vd i.X{background:var(--ink3);color:var(--bg);border-color:var(--ink3)}
+.x-et{font:600 12px var(--sans);border:1.5px solid currentColor;border-radius:999px;padding:2px 10px;white-space:nowrap;justify-self:start}
+.x-et.DECLENCHEE{color:var(--broken)} .x-et.EN_COURS{color:var(--warn)} .x-et.TENUE{color:var(--held)}
+.x-et.NON_EVALUABLE,.x-et.AUCUNE{color:var(--ink3)}
+.x-cl{font:13px/1.45 var(--sans);color:var(--ink2);min-width:0}
+.x-cl b{font:650 16px var(--sans);color:var(--ink);margin-right:6px}
+.x-cl q{color:var(--ink3);font-style:italic}
+.x-gauge{display:flex;align-items:center;gap:9px;margin-top:4px}
+.x-gauge span{flex:1;max-width:220px;height:7px;border-radius:4px;background:color-mix(in oklch,var(--data) 22%,transparent);overflow:hidden}
+.x-gauge span i{display:block;height:100%;border-radius:4px;background:var(--data)}
+.x-gauge small{font:12px var(--sans);color:var(--ink3)}
+.x-leg{display:flex;flex-wrap:wrap;gap:4px 14px;font:12px var(--sans);color:var(--ink4);margin-top:10px}
+.x-leg i{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:3px;border:1px solid var(--line2);
+  font:650 10.5px var(--mono);font-style:normal;margin-right:5px;vertical-align:-2px}
+
+/* nuage P/F */
+.x-strip{position:relative}
+.x-strip svg{display:block;overflow:visible}
+.x-strip .gr{stroke:var(--line);stroke-width:1}
+.x-strip .tk{font:11px var(--sans);fill:var(--ink4)}
+.x-strip .sl{font:600 12.5px var(--sans);fill:var(--ink2)}
+.x-strip .sl tspan{font-weight:400;fill:var(--ink4)}
+.x-strip .md{stroke:var(--ink2);stroke-width:2}
+.x-strip .mdl{font:10.5px var(--sans);fill:var(--ink3)}
+.x-strip .pt{stroke:var(--data);stroke-width:2;fill:var(--s1)}
+.x-strip .pt.R{fill:var(--data)}
+.x-strip .pt.A{fill:var(--s1);stroke-width:3.5}
+.x-strip .pt.on{stroke:var(--acc2);fill:var(--acc2)}
+.x-strip .hit{fill:transparent;cursor:pointer}
+.x-strip .lb{font:11.5px var(--sans);fill:var(--ink)}
+.x-cap{min-height:1.5em;margin-top:6px;font:13px var(--sans);color:var(--ink2)}
+.x-cap b{color:var(--ink)}
+.x-sym{display:inline-block;width:11px;height:11px;border-radius:50%;border:2px solid var(--data);vertical-align:-1px;margin-right:5px}
+.x-sym.R{background:var(--data)} .x-sym.A{border-width:3.5px}
+
+/* funding hors repos */
+.x-fd{display:grid;grid-template-columns:90px minmax(0,1fr) 90px;gap:6px 12px;align-items:center;font:13px var(--sans)}
+.x-fd b{font-weight:600;color:var(--ink)}
+.x-fd .bar{position:relative;height:12px}
+.x-fd .bar::before{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--line2)}
+.x-fd .bar i{position:absolute;top:2px;height:8px;border-radius:2px;background:var(--data)}
+.x-fd .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+
+@media (max-width:760px){
+  .x-th{grid-template-columns:minmax(0,1fr) auto}
+  .x-th .x-vd{grid-column:1/-1}
+  .x-th .x-cl{grid-column:1/-1}
+  .x-sum{padding:14px 14px 12px}
+}
+</style>
+<script>
+(()=>{
+  "use strict";
+  const e2=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const nf=(x,d)=>Number(x).toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d}).replace(/^-/,"−");
+  const pc=(x,d=1)=>(x>0?"+":"")+nf(x,d)+" %";
+  const jjmm=d=>d? String(d).slice(8,10)+"/"+String(d).slice(5,7) : "?";
+  const SVG="http://www.w3.org/2000/svg";
+  const sv=(t,a)=>{const n=document.createElementNS(SVG,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+  const titreCarte=c=>((c.querySelector(".hd")||c).textContent||"").trim();
+  const carte=(sec,debut)=>[...sec.children].find(c=>c.classList.contains("card")&&titreCarte(c).startsWith(debut));
+  const grille=(sec,debut)=>[...sec.children].find(c=>c.classList.contains("grid")&&titreCarte(c.querySelector(".card")||c).startsWith(debut));
+  // range des noeuds existants dans un <details> fermé, posé à la place du premier
+  const plier=(noeuds,titre,sous)=>{
+    noeuds=noeuds.filter(Boolean); if(!noeuds.length) return null;
+    const d=document.createElement("details"); d.className="x-det";
+    d.innerHTML=`<summary>${e2(titre)}${sous?` <small>${e2(sous)}</small>`:""}</summary><div class="x-in"></div>`;
+    noeuds[0].before(d); const box=d.querySelector(".x-in"); noeuds.forEach(n=>box.appendChild(n));
+    return d;
+  };
+  const apres=(sec,html)=>{ const h=sec.querySelector(":scope>.sec"); const w=document.createElement("div"); w.innerHTML=html;
+    const n=w.firstElementChild; (h? h.after(n) : sec.prepend(n)); return n; };
+
+  /* ── 1. THÈSES ─────────────────────────────────────────────── */
+  const LETTRE={NEW:"N",CONFIRM:"C",REVISE:"R",RETIRE:"X"};
+  const ETAT={DECLENCHEE:"condition déclenchée",EN_COURS:"compte à rebours",TENUE:"condition tenue",NON_EVALUABLE:"non mesurable",AUCUNE:"pas de notation"};
+  const RANG={DECLENCHEE:0,EN_COURS:1,NON_EVALUABLE:2,TENUE:3,AUCUNE:4};
+  function theses(D){
+    const sec=document.getElementById("brief"); const T=((D.blocks||{}).theses||{}).v; if(!sec||!T||!T.theses) return;
+    const viv=T.theses.filter(t=>t.statut==="vivante").map(t=>({t,g:((t.evaluation_externe||{}).global)||"AUCUNE"}))
+      .sort((a,b)=>(RANG[a.g]??9)-(RANG[b.g]??9)||(b.t.n||0)-(a.t.n||0));
+    let h=`<div class="x-sum" id="x-theses"><div class="x-head"><h3>Les thèses de l'agent, et ce que la mesure en dit</h3>
+      <p>${T.n_vivantes} vivantes · ${T.n_dormantes} dormantes · ${T.n_retirees} retirées · ${T.n_verdicts} verdicts depuis le ${jjmm((T.periode||[])[0])}</p></div>`;
+    for(const {t,g} of viv){
+      const ev=t.evaluation_externe||{}, cls=ev.clauses||[];
+      const cl=cls.find(c=>c.verdict==="CASSEE")||cls.find(c=>c.verdict==="EN_COURS")||cls.find(c=>c.verdict==="TENUE")||cls[0];
+      const vd=(t.verdicts||[]).slice(-12).map(v=>`<i class="${LETTRE[v.v]||""}" title="${e2(jjmm(v.d))} · ${e2(v.v)}">${LETTRE[v.v]||"?"}</i>`).join("");
+      let det="";
+      if(cl){
+        const q=cl.texte? ` <q>${e2(cl.texte)}</q>`:"";
+        const def=cl.definition? `<div style="color:var(--ink4);font-size:12px;margin-top:2px">mesure : ${e2(cl.definition)}</div>`:"";
+        if(cl.semaines_pct&&cl.semaines_pct.length) det=`<b>${cl.semaines_pct.slice(-2).map(x=>pc(x)).join(" puis ")}</b>${q}${def}`;
+        else if(cl.unite==="jours"&&cl.valeur!=null&&cl.seuil){ const w=Math.min(100,cl.valeur/cl.seuil*100);
+          det=`<b>${cl.valeur} jours sur ${cl.seuil}</b>échéance le ${e2(jjmm(cl.echeance))}${q}${def}<div class="x-gauge" role="img" aria-label="${cl.valeur} jours sur ${cl.seuil}"><span><i style="width:${w.toFixed(1)}%"></i></span><small>${Math.round(w)} %</small></div>`; }
+        else if(cl.valeur!=null) det=`<b>${cl.unite==="%"? nf(cl.valeur,1)+" %" : nf(cl.valeur,2)}</b>${cl.seuil!=null? "seuil "+(cl.unite==="%"? nf(cl.seuil,1)+" %" : nf(cl.seuil,2)) : ""}${q}${def}`;
+        else det=`<span>${e2(cl.pourquoi||cl.definition||"")}</span>`;
+      } else det=`<span>${e2(t.kill||"aucune condition de sortie écrite")}</span>`;
+      h+=`<div class="x-th"><div class="n">${e2(t.nom)}<small>${t.n} verdicts · dernier le ${e2(jjmm(t.dernier))}</small></div>
+        <div class="x-vd" aria-label="12 derniers verdicts">${vd}</div>
+        <span class="x-et ${g}">${ETAT[g]||e2(g)}</span><div class="x-cl">${det}</div></div>`;
+    }
+    const dorm=T.theses.filter(t=>t.statut==="dormante").map(t=>t.nom), ret=T.theses.filter(t=>t.statut==="retiree").map(t=>t.nom);
+    h+=`<div class="x-foot">${dorm.length?`<b>Dormantes</b> (aucun brief depuis ${T.dormance_jours||14} j) : ${e2(dorm.join(", "))}. `:""}${ret.length?`<b>Retirées</b> : ${e2(ret.join(", "))}.`:""}</div>
+      <div class="x-leg"><span><i>N</i>ouverture</span><span><i>C</i>confirmation</span><span><i>R</i>révision</span><span><i style="background:var(--ink3);color:var(--bg)">X</i>retrait</span>
+      <span>La condition de sortie est notée sur DefiLlama + CoinGecko${T.externe&&T.externe.as_of?`, relevé le ${e2(jjmm(T.externe.as_of))} à ${e2(String(T.externe.as_of).slice(11,16))} UTC`:""}.</span></div></div>`;
+    apres(sec,h);
+    const reg=carte(sec,"Registre des thèses"), cond=carte(sec,"Conditions d'invalidation"), brief=carte(sec,"Brief de valorisation");
+    plier([reg],"Le registre complet",`${T.n} thèses, ${T.n_verdicts} verdicts, avec le contexte web de chacune`);
+    plier([brief,cond],"Le brief du jour de l'agent",(D.blocks.value_watch&&D.blocks.value_watch.v&&D.blocks.value_watch.v.as_of? "écrit le "+jjmm(D.blocks.value_watch.v.as_of)+" à "+String(D.blocks.value_watch.v.as_of).slice(11,16)+" UTC, en anglais, avec ses conditions d'invalidation":"en anglais, avec ses conditions d'invalidation"));
+  }
+
+  /* ── 2. VALORISATION : nuage P/F 7 j par secteur ─────────────── */
+  const ampute=c=>{ if(!c) return null; const b=c.modules_board||[], q=c.modules_parent||[]; if(!b.length) return null;
+    if(b.length===q.length&&b.every(x=>q.includes(x))) return false; return (c.part_captee!=null)? c.part_captee<0.95 : null; };
+  const etat=p=>((p.resolution||{}).fees==="OK")? (ampute(p.couverture)===true?"A":"R") : "U";
+  const ETATL={R:"fees trouvées, périmètre complet",A:"fees trouvées, périmètre amputé",U:"fees non trouvées"};
+  function valo(D){
+    const sec=document.getElementById("valorisation"); const V=((D.blocks||{}).valuation||{}).v; if(!sec||!V||!V.sectors) return;
+    const S=Object.entries(V.sectors).map(([s,rows])=>{
+      const pts=(rows||[]).map(p=>({p,pf:((p.fenetres||{}).pf||{})["7j"]})).filter(x=>typeof x.pf==="number"&&x.pf>0);
+      const med=((rows||[]).find(p=>p.classement&&p.classement.mediane!=null)||{}).classement;
+      return {s,pts,n:(rows||[]).length,med:med? med.mediane:null};
+    }).filter(x=>x.pts.length);
+    if(!S.length) return;
+    const all=S.flatMap(x=>x.pts.map(q=>q.pf)), lo=Math.min(...all), hi=Math.max(...all);
+    const nPts=all.length, nTot=S.reduce((a,x)=>a+x.n,0);
+    // le calcul des fenêtres tourne 2 fois par jour : au-delà de 26 h, les P/F affichés sont périmés et on le DIT
+    const ageH=V.fenetres_as_of? (Date.now()-Date.parse(V.fenetres_as_of))/36e5 : null;
+    const retard=(ageH!=null&&ageH>26)? `<div class="x-foot" style="color:var(--warn)"><b style="color:var(--warn)">Calcul en retard</b> : les P/F sur 7 jours datent du ${e2(jjmm(V.fenetres_as_of))}, il y a ${Math.floor(ageH/24)} jour${ageH>=48?"s":""} ; ils devraient être recalculés deux fois par jour. Le tableau complet porte la même date.</div>` : "";
+    const box=apres(sec,`<div class="x-sum" id="x-valo"><div class="x-head"><h3>Où se situe chaque protocole dans son secteur</h3>
+      <p>P/F sur 7 jours (capitalisation ÷ fees annualisées), échelle logarithmique · ${nPts} protocoles sur ${nTot} ont un P/F 7 j · trait = médiane du secteur</p></div>
+      <div class="x-strip"></div><div class="x-cap" aria-live="polite">Survolez un point pour lire le protocole.</div>
+      <div class="x-leg"><span><span class="x-sym R"></span>${ETATL.R}</span><span><span class="x-sym A"></span>${ETATL.A}</span><span><span class="x-sym"></span>${ETATL.U} — multiple fragile</span>
+      <span>P/F calculés le ${e2(jjmm(V.fenetres_as_of||V.as_of))} à ${e2(String(V.fenetres_as_of||V.as_of).slice(11,16))} UTC.</span></div>${retard}</div>`);
+    const wrap=box.querySelector(".x-strip"), cap=box.querySelector(".x-cap"), repos=cap.textContent;
+    const ticks=[0.2,0.5,1,2,5,10,20,50,100,200,500].filter(t=>t>=lo/1.6&&t<=hi*1.6);
+    const dessiner=()=>{
+      const W=Math.max(320,Math.round(wrap.clientWidth)), L=W<560?78:110, R=24, RH=50, top=14, H=top+S.length*RH+24;
+      const a=Math.log(lo/1.4), b=Math.log(hi*1.4), X=v=>L+(Math.log(v)-a)/(b-a)*(W-L-R);
+      wrap.textContent=""; const g=sv("svg",{width:W,height:H,viewBox:`0 0 ${W} ${H}`,role:"img",
+        "aria-label":"P/F 7 jours par secteur : "+S.map(x=>x.s+" "+x.pts.map(q=>q.p.name+" "+nf(q.pf,2)).join(", ")).join(" ; ")});
+      ticks.forEach(t=>{ g.appendChild(sv("line",{class:"gr",x1:X(t),x2:X(t),y1:top,y2:H-20}));
+        const tx=sv("text",{class:"tk",x:X(t),y:H-5,"text-anchor":"middle"}); tx.textContent=nf(t,t<1?1:0)+"×"; g.appendChild(tx); });
+      S.forEach((x,i)=>{
+        const y=top+i*RH+RH/2;
+        const sl=sv("text",{class:"sl",x:0,y:y+4}); sl.textContent=x.s.toUpperCase(); const ts=sv("tspan",{dx:6}); ts.textContent=x.pts.length+"/"+x.n; sl.appendChild(ts); g.appendChild(sl);
+        if(x.med){ g.appendChild(sv("line",{class:"md",x1:X(x.med),x2:X(x.med),y1:y-12,y2:y+12})); }
+        const tri=x.pts.slice().sort((p,q)=>p.pf-q.pf);
+        tri.forEach(q=>{
+          const st=etat(q.p), cx=X(q.pf);
+          const c=sv("circle",{class:"pt "+st,cx,cy:y,r:6}); g.appendChild(c);
+          const hit=sv("circle",{class:"hit",cx,cy:y,r:11}); const ti=sv("title",{}); ti.textContent=`${q.p.name} — P/F 7 j ${nf(q.pf,2)}×`; hit.appendChild(ti);
+          const k=q.p.classement||{};
+          const dire=()=>{ g.querySelectorAll(".pt.on").forEach(n=>n.classList.remove("on")); c.classList.add("on");
+            cap.innerHTML=`<b>${e2(q.p.name)}</b> · ${e2(x.s)} · P/F 7 j <b>${nf(q.pf,2)}×</b>${k.rang?` · rang ${k.rang} sur ${k.n_secteur} (1 = le plus bas)`:""}${x.med?` · médiane ${nf(x.med,2)}×`:""} · ${ETATL[st]}`; };
+          hit.addEventListener("pointerenter",dire); hit.addEventListener("click",dire);
+          g.appendChild(hit);
+        });
+        // noms des deux extrêmes du secteur, dessus/dessous pour ne pas se chevaucher
+        const ex=[tri[0],tri[tri.length-1]].filter((q,j,arr)=>arr.indexOf(q)===j);
+        ex.forEach((q,j)=>{ const t=sv("text",{class:"lb",x:X(q.pf),y:j===0? y-11 : y+20,"text-anchor":j===0?"start":"end"}); t.textContent=q.p.name; g.appendChild(t); });
+      });
+      g.addEventListener("pointerleave",()=>{ g.querySelectorAll(".pt.on").forEach(n=>n.classList.remove("on")); cap.textContent=repos; });
+      wrap.appendChild(g);
+    };
+    dessiner();
+    let larg=wrap.clientWidth, tm=null;
+    if(window.ResizeObserver) new ResizeObserver(()=>{ if(wrap.clientWidth===larg) return; larg=wrap.clientWidth; clearTimeout(tm); tm=setTimeout(dessiner,120); }).observe(wrap);
+    const tab=carte(sec,"Les "), sig=grille(sec,"Signalés");
+    plier([tab],"Le tableau complet",`${nTot} protocoles : les 3 fenêtres de P/F, P/S, capture, provenance des fees, drawdown`);
+    plier([sig],"Signalés et candidats de la règle","calculés par le board");
+  }
+
+  /* ── 3. FUNDING : seulement ce qui s'écarte du taux de repos ─── */
+  const REPOS=10.95;
+  function funding(D){
+    const sec=document.getElementById("funding"); const F=(((D.blocks||{}).funding||{}).v||{}).funding; if(!sec||!F) return;
+    const rows=Object.entries(F).map(([s,f])=>({s:s.replace(/USDT$/,""),a:(f||{}).annualized})).filter(r=>typeof r.a==="number");
+    const nuls=rows.filter(r=>r.a===0);
+    const hors=rows.filter(r=>r.a!==0&&Math.abs(r.a-REPOS)>=0.5).sort((x,y)=>Math.abs(y.a)-Math.abs(x.a));
+    const nRepos=rows.length-hors.length-nuls.length, m=Math.max(1,...hors.map(r=>Math.abs(r.a)));
+    let h=`<div class="x-sum" id="x-funding"><div class="x-head"><h3>Ce qui s'écarte du taux de repos</h3>
+      <p>${nRepos} contrats sur ${rows.length} sont au taux de repos de Binance (+10,95 % par an) : ils ne disent rien. ${hors.length} s'en écartent${nuls.length?`, ${nuls.length} affichent un taux nul`:""}.</p></div>`;
+    for(const r of hors){ const w=Math.abs(r.a)/m*50, l=r.a<0? 50-w : 50;
+      h+=`<div class="x-fd"><b>${e2(r.s)}</b><div class="bar" role="img" aria-label="${e2(r.s)} ${pc(r.a)}"><i style="left:${l.toFixed(1)}%;width:${w.toFixed(1)}%"></i></div><span class="v">${pc(r.a)}</span></div>`; }
+    if(!hors.length) h+=`<div class="x-foot">Aucun contrat hors du taux de repos aujourd'hui.</div>`;
+    if(nuls.length) h+=`<div class="x-foot"><b>Taux exactement nul</b> : ${e2(nuls.map(r=>r.s).join(", "))}. Un taux de 0 avec un prix figé est la signature habituelle d'un contrat qui ne cote plus (fusion, migration) — non vérifié ici, donc ni compté comme un écart ni comme un taux de repos.</div>`;
+    h+=`<div class="x-foot">Financement annualisé des perps (le coût de tenir la position), Binance USDT-M. Barre vers la gauche : négatif ; vers la droite : positif. Le signe est écrit.</div></div>`;
+    apres(sec,h);
+    plier([carte(sec,"Taux de financement")],"Les "+rows.length+" contrats","taux, prix de marque, à l'unité");
+  }
+
+  /* ── 4. la plomberie descend en bas ─────────────────────────── */
+  function plomberie(){ const app=document.getElementById("app"); const f=app&&app.firstElementChild;
+    if(f&&f.classList.contains("card")&&/FLUX/i.test(titreCarte(f))) app.appendChild(f); }
+
+  let fait=false;
+  const lancer=D=>{ if(fait||!D) return; fait=true;
+    for(const f of [theses,valo,funding,plomberie]){ try{ f(D); }catch(err){ try{console.warn("sections v2 :",f.name,err);}catch(_){} } } };
+  document.addEventListener("defi:data",ev=>lancer(ev.detail));
+  if(window.__defiData) lancer(window.__defiData);
+})();
+</script>
 <main id="app"><div class="empty">chargement…</div></main>
 
 <script>

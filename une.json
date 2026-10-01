@@ -1,33 +1,22 @@
 {
  "schema_version": 1,
- "genere": "2026-10-01T08:47:02Z",
- "feed_genere": "2026-10-01T07:40:02Z",
- "modele": "zai-org-glm-4.7",
+ "genere": "2026-10-01T12:30:48Z",
+ "feed_genere": "2026-10-01T10:53:01Z",
+ "modele": "deepseek-v4-pro",
  "gabarit": "theses_d_abord",
- "gabarit_modele": "zai-org-glm-4.7",
+ "gabarit_modele": "deepseek-v4-pro",
  "n_catalogue": 17,
  "chiffres": [
   {
    "id": "these:Lista DAO",
    "famille": "theses",
-   "valeur": "−17,5 % / −26,6 %",
+   "valeur": "−20,9 % / −21,2 %",
    "libelle": "Lista DAO — condition de sortie déclenchée : « Fee growth turns negative for 2 consecutive weeks »",
-   "contexte": "fees DefiLlama : 7 jours vs 7 precedents, 2 semaines de suite (au 2026-09-29)",
+   "contexte": "fees DefiLlama : 7 jours vs 7 precedents, 2 semaines de suite (au 2026-09-30)",
    "source": "defi.json · theses (notation DefiLlama + CoinGecko)",
-   "as_of": "2026-09-30T20:46:03Z",
+   "as_of": "2026-10-01T08:46:06Z",
    "lien": "#brief",
    "tag": "engagement_teste"
-  },
-  {
-   "id": "valo:maple-finance",
-   "famille": "valorisation",
-   "valeur": "2,29×",
-   "libelle": "Maple Finance — P/F 7 j, rang 1 sur 7 dans le secteur LENDING (1 = le multiple le plus bas)",
-   "contexte": "−58,1 % vs la médiane du secteur (5,46×)",
-   "source": "defi.json · valuation (fenetres.pf 7 j)",
-   "as_of": "2026-10-01T05:55:01Z",
-   "lien": "#valorisation",
-   "tag": "ecart"
   },
   {
    "id": "angle:EigenCloud",
@@ -36,18 +25,40 @@
    "libelle": "EigenCloud — le P/F passe de 183,01 (7 j) à 7,87 (1 an), et aucun réveil de l'agent n'en parle",
    "contexte": "lst · 38 protocoles valorisés, 7 nommés par un réveil",
    "source": "defi.json · croisements (valuation × réveils, 0-LLM)",
-   "as_of": "2026-10-01T07:40:02Z",
+   "as_of": "2026-10-01T10:53:01Z",
    "lien": "#brief",
    "tag": "angle_mort"
   },
   {
+   "id": "valo:meteora",
+   "famille": "valorisation",
+   "valeur": "0,40×",
+   "libelle": "Meteora — P/F 7 j, rang 1 sur 8 dans le secteur DEX (1 = le multiple le plus bas)",
+   "contexte": "−81,7 % vs la médiane du secteur (2,19×)",
+   "source": "defi.json · valuation (fenetres.pf 7 j)",
+   "as_of": "2026-09-28T18:27:04Z",
+   "lien": "#valorisation",
+   "tag": "ecart"
+  },
+  {
+   "id": "funding:NMRUSDT",
+   "famille": "funding",
+   "valeur": "−37,1 %",
+   "libelle": "NMR — financement annualisé du perp (le coût de tenir la position)",
+   "contexte": "taux au repos Binance : +10,95 %",
+   "source": "defi.json · funding (Binance perp USDT-M)",
+   "as_of": "2026-10-01T09:13:40Z",
+   "lien": "#funding",
+   "tag": "rupture"
+  },
+  {
    "id": "marche:defi_tvl",
    "famille": "marche",
-   "valeur": "95,50 G$",
+   "valeur": "94,80 G$",
    "libelle": "TVL de la DeFi (l'argent déposé dans les protocoles)",
    "contexte": "90 protocoles suivis",
    "source": "defi.json · macro (DefiLlama)",
-   "as_of": "2026-10-01T06:18:01Z",
+   "as_of": "2026-10-01T10:18:02Z",
    "lien": "#marche",
    "tag": "contexte"
   }
