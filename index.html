@@ -634,7 +634,7 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
     const uneAge=une&&une.genere? (Date.now()-Date.parse(une.genere))/36e5 : null;
     const ch=(une&&Array.isArray(une.chiffres))? une.chiffres : [];
     if(!ch.length||uneAge==null||uneAge>26){
-      tiles.appendChild(el("div","u-vide", !une? "La sélection du jour n'est pas encore publiée. Elle paraît chaque matin vers 10 h 50."
+      tiles.appendChild(el("div","u-vide", !une? "La sélection du jour n'est pas encore publiée. Elle est choisie chaque jour à 8 h 57 UTC et publiée à 10 h 53 UTC."
         : "Sélection périmée : dernière le "+jjmm(une.genere)+" à "+String(une.genere).slice(11,16)+" UTC. Les chiffres de la page restent à jour plus bas."));
     } else {
       $("u-side-sub").textContent="Choisis le "+jjmm(une.genere)+" à "+String(une.genere).slice(11,16)+" UTC parmi "+(une.n_catalogue||"?")+" chiffres publiés sur cette page. Le modèle choisit, le code recopie la valeur.";
