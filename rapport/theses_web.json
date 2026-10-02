@@ -1,10 +1,10 @@
 {
- "genere": "2026-10-01T10:20:30Z",
+ "genere": "2026-10-02T09:45:15Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-10-01",
-   "recoupe": "La clause fees négatives 2 semaines de suite (-21,2 % puis -20,9 %, au 30/09) couvre les semaines où Lista DEX est suspendu pour son passage à StableSwap v3 (depuis le 19/09, annonce non recoupée) ; le volume DefiLlama à -100 % reste cohérent avec un DEX toujours à l'arrêt, aucune relance trouvée sur le web au 01/10. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M de Tokenomics 2.0 ; sur le milliard que compte encore tokenomist.ai il serait d'environ 2,3, au-dessus du seuil de 2,0.",
+   "releve": "2026-10-02",
+   "recoupe": "Au 01/10 la clause fees n'enchaine plus deux semaines negatives (-16,8 % puis +1,0 %) ; le volume DefiLlama reste a -100 %, coherent avec Lista DEX toujours suspendu pour StableSwap v3 (annonce du 19/09 non recoupee, aucune relance trouvee sur le web au 02/10). Le FDV/capi de 1,85 suppose l'offre maximale de 800 M de Tokenomics 2.0 ; sur le milliard que compte encore tokenomist.ai il serait d'environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -37,43 +37,8 @@
     }
    ]
   },
-  "Solv Protocol": {
-   "releve": "2026-10-01",
-   "recoupe": "Aucun flux vers les detenteurs verifie hors DefiLlama : pas de rachat de SOLV trouve ; le partage d'environ 30 % des revenus aux stakers vient toujours d'un guide Bitget sans source primaire (documentation Solv refusee, 403).",
-   "rien": false,
-   "faits": [
-    {
-     "date": "2026-09-17",
-     "fait": "Deblocage de 189,68 M de SOLV le 17/09 (2 % de l'offre totale).",
-     "touche": "FDV",
-     "source": "https://coinmarketcap.com/cmc-ai/solv-protocol/latest-updates/",
-     "recoupe": false
-    },
-    {
-     "date": "2026-10-17",
-     "fait": "Prochain déblocage de SOLV le 17/10/2026 (allocation développement commercial) ; 57,2 % des 9,66 Md de jetons sont débloqués.",
-     "touche": "FDV",
-     "source": "https://tokenomist.ai/solv-protocol",
-     "recoupe": true
-    },
-    {
-     "date": "2026-09-03",
-     "fait": "KuCoin a retiré la marge isolée sur SOLV le 03/09 (annonce du 28/08), ce qui réduit l'accès au levier sur cette place.",
-     "touche": "risque",
-     "source": "https://coinmarketcap.com/cmc-ai/solv-protocol/latest-updates/",
-     "recoupe": true
-    },
-    {
-     "date": "2026-09-30",
-     "fait": "Un détenteur dit ne pas pouvoir retirer environ 50 BTC déposés dans BTC+ depuis juillet ; Solv répond le 30/09 que les retraits fonctionnent et qu'il s'agit d'un cas isolé bloqué par un contrôle de risque, sans dire quand il se termine.",
-     "touche": "risque",
-     "source": "https://www.cryptotimes.io/2026/09/30/solv-says-btc-is-redeeming-normally-after-one-address-hit-a-risk-review/",
-     "recoupe": true
-    }
-   ]
-  },
   "Orca": {
-   "releve": "2026-10-01",
+   "releve": "2026-10-02",
    "recoupe": "La capture DefiLlama de 36,9 % concorde avec la documentation Orca : 40 % des frais du protocole achetent de l'ORCA verse aux stakers xORCA (hausse de 20 % a 40 % votee par le conseil).",
    "rien": false,
    "faits": [
@@ -108,7 +73,7 @@
    ]
   },
   "Meteora": {
-   "releve": "2026-10-01",
+   "releve": "2026-10-02",
    "recoupe": "Le zéro DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (187 000 USDC aux stakers au 1er cycle ; plus de 700 000 USDC de récompenses au 2e cycle clos le 21/09), flux que DefiLlama ne compte pas. Les rachats (13,7 M$ cumulés à fin T1) n'ont plus de mise à jour publique depuis.",
    "rien": false,
    "faits": [
@@ -148,16 +113,16 @@
      "recoupe": true
     },
     {
-     "date": "2026-09-23",
-     "fait": "Correctif d'un bogue critique sur les courbes de prix personnalisees a la creation de pools (SDK DBC v1.5.3).",
+     "date": "2026-09-29",
+     "fait": "Un juge federal de New York rejette definitivement (with prejudice) l'action collective LIBRA/M3M3 : Meteora n'est pas une entite qu'on peut poursuivre telle que la plainte est redigee ; les faits eux-memes n'ont pas ete juges.",
      "touche": "risque",
-     "source": "https://coinmarketcap.com/cmc-ai/meteora/latest-updates/",
+     "source": "https://solanacompass.com/news/judge-dismisses-libra-and-m3m3-memecoin-class-action-against-meteora-and-ben-chow",
      "recoupe": true
     }
    ]
   },
   "Maple Finance": {
-   "releve": "2026-10-01",
+   "releve": "2026-10-02",
    "recoupe": "La capture DefiLlama de 10 % concorde avec la regle MIP-021 : 10 % du revenu mensuel sous 1,5 M$ finance des rachats de SYRUP, et Maple est dans cette tranche (environ 1,22 M$ par mois).",
    "rien": false,
    "faits": [
