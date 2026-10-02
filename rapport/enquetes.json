@@ -103,6 +103,37 @@
     }
    ],
    "genere": "2026-10-01T06:45:00Z"
+  },
+  {
+   "date": "2026-10-02",
+   "fichier": "2026-10-02-enquete.html",
+   "titre": "Robinhood Chain, 02/10 : 586 M$ de prêt, et presque aucune action derrière",
+   "question": "Morpho porte 56 % de la TVL de la chaîne : qu'est-ce qui garantit cet argent prêté — des actions tokenisées, ou autre chose — et qui le prête, qui l'emprunte ?",
+   "mesure_neuve": "Les 304 marchés Morpho de la chaîne lus un par un (API Morpho recoupée sur le contrat au bloc 78 080 551, écart < 0,001 %) : 529,7 M$ de collatéral, dont 98,9 % en dollars synthétiques à rendement (USDe 65,0 %, syrupUSDG, mGLO, spUSDG) et 2,98 M$ d'actions tokenisées (0,56 %, 125 marchés dont 5 au-dessus de 1 000 $). Un seul coffre prête 99,9 % de l'USDG des quatre grands marchés (Steakhouse USDG, 519,3 M$, 68 161 positions) ; 169 emprunteurs, dont un portefeuille sans code qui emprunte à lui seul 29,9 %. Facteur de santé médian des positions de plus de 100 k$ : 1,023.",
+   "chiffre_cle": {
+    "valeur": "0,56 %",
+    "libelle": "de ce qui garantit les prêts sur la chaîne est fait d'actions tokenisées ; le reste, ce sont des dollars synthétiques",
+    "population": "2,98 M$ sur 529,7 M$ de collatéral, 304 marchés Morpho de Robinhood Chain (dont 125 adossés à une action), relevé du 02/10 08:20 UTC recoupé sur la chaîne"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_morpho_tvl_usd",
+     "libelle": "TVL de Morpho (l'argent déposé pour prêter)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais 7 jours (ce que la chaîne encaisse)"
+    },
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés en 7 jours (nouveaux marchés ouverts)"
+    }
+   ],
+   "genere": "2026-10-02T09:00:00Z"
   }
  ]
 }

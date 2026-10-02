@@ -66,6 +66,11 @@
      "date": "2026-10-01",
      "valeur": "registre regenere le 30/09 : 72,4 % (849/1172) / 25,4 % (298/1172) ; chaine : non recalcule ce jour (recensement partiel depuis le 29/08)",
      "note": "Premier point depuis la fin du gel du registre (9 jours). La mesure ecrite ne bouge pas : loin des deux seuils. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "registre regenere le 01/10 21:08 : 72,5 % (850/1173) / 25,4 % (298/1173)",
+     "note": "+1 hook (SHREDDER). Loin des deux seuils. NON SOLDEE."
     }
    ],
    "solde": null
@@ -128,6 +133,11 @@
      "date": "2026-10-01",
      "valeur": "4 / 1172 (0,34 %)",
      "note": "Registre regenere : aucun audit ajoute. Presse 28/09 (TechFlow/KuCoin, analyste Wazz, non recoupe) : 18,43 M$ extraits sur 53 lancements Pons V2 via des exemptions de taxe anti-snipe. A qualifier : usage d'une fonction prevue par le lanceur, pas une faille de code d'un hook -- ne vaut pas 'exploit public' au sens du seuil. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "4 / 1173 (0,34 %)",
+     "note": "Aucun audit ajoute ; aucun exploit public de hook connu ce jour. NON SOLDEE."
     }
    ],
    "solde": null
@@ -190,6 +200,11 @@
      "date": "2026-10-01",
      "valeur": "v3 43,1 % / v4 34,9 % du volume 30j (24,14/19,53/55,97 Md$)",
      "note": "vs 27/09 : v3 -0,5 pt, v4 -0,1 pt. Loin des deux seuils."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "v3 42,9 % / v4 35,1 % du volume 30j (23,70/19,40/55,27 Md$)",
+     "note": "vs 01/10 : v3 -0,2 pt, v4 +0,2 pt. Loin des deux seuils."
     }
    ],
    "solde": null
@@ -252,6 +267,11 @@
      "date": "2026-10-01",
      "valeur": "155 deploiements sur 1172 (13,2 %) ; aucun avis de TSV connu (recherche web ce jour : analyses de cabinets uniquement)",
      "note": "registre regenere : +1 deploiement 'actions'."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "155 deploiements sur 1173 (13,2 %) ; aucun avis de TSV connu",
+     "note": "The Block 02/10 (presse) : J. Kerbrat (Robinhood) dit que l'exemption SEC plafonne le volume et le type d'actifs tokenisables et que le volume des stock tokens Robinhood 'atteindra certaines limites' -- aucun avis de TSV. Mesure du jour : 2,98 M$ d'actions tokenisees en collateral Morpho sur 529,7 M$ (0,56 %)."
     }
    ],
    "solde": null
@@ -314,6 +334,11 @@
      "date": "2026-10-01",
      "valeur": "26 lettres au dossier (+5 depuis le 27/09 : Aethon Credit Intelligence et Stove Finance le 30/09, deux particuliers le 28/09, un le 27/09) ; FR publie le 22/09",
      "note": "Aucune bourse, courtier, emetteur ni cabinet d'avocats. Le volet 'REVISEE si non paru au 31/10' est caduc (paru le 22/09) ; reste le volet CONFIRMEE. Question user toujours ouverte sur Vertalo."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "27 lettres (+1 : Takahiro Morita, particulier, 01/10) ; aucun nouveau document FR",
+     "note": "Aucune bourse, courtier, emetteur ni cabinet. NON SOLDEE."
     }
    ],
    "solde": null
@@ -371,6 +396,11 @@
      "date": "2026-10-01",
      "valeur": "37,6 % (132,28/351,78 M$) sur le total declare ; 39,4 % hors fomo Wallet",
      "note": "Stable a 30 j, mais Pons V2 7j -43,0 % semaine sur semaine (10,81 contre 18,95 M$) : quatrieme semaine pres de -45 %. Au-dessus des deux seuils sur 30 j."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "38,2 % (129,39/338,56 M$) sur le total declare",
+     "note": "Pons V2 7j -41,7 % s/s (10,37 contre 17,77 M$). Au-dessus des deux seuils sur 30 j."
     }
    ],
    "solde": null
@@ -469,6 +499,11 @@
      "date": "2026-10-01",
      "valeur": "post-expiration J+2 : volume journalier moyen 29-30/09 1,565 Md$ contre 1,342 Md$ sur 22-28/09 (+16,6 %), +0,8 % contre les memes jours (mar.-mer. 22-23/09) ; frais journaliers 5,71 contre 5,44 M$ (+5,0 %), -20,5 % contre mar.-mer. ; volume 7j 9,42 Md$ (-10,9 % s/s), frais 7j 35,14 M$ (-31,1 % s/s)",
      "note": "Pas encore de fenetre de 14 jours. Aucune falaise au 29/09 : la baisse des frais precede l'expiration (Pons V2). Transactions on-chain estimees +16 a +21 % (echantillon, marge ~10 %)."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "post-expiration J+3 : volume journalier moyen 29/09-01/10 1,555 Md$ contre 1,342 Md$ sur 22-28/09 (+15,8 %), +0,9 % contre les memes jours 22-24/09 ; frais journaliers 5,46 contre 5,44 M$ (+0,4 %), -16,9 % contre 22-24/09 ; volume 7j 9,44 Md$ (-9,8 % s/s), frais 7j 34,76 M$ (-27,3 % s/s)",
+     "note": "Fenetre de 14 jours non close. Aucune chute > 20 % du volume ; la baisse des frais 7j reste portee par Pons V2 et le sequenceur (-59,9 % s/s)."
     }
    ],
    "solde": null
@@ -506,6 +541,11 @@
      "date": "2026-10-01",
      "valeur": "55,7 % (8,47/15,22 M$ sur les 30 derniers points, 02/09 -> 01/10, dernier point partiel) ; nonce Firepit 1234 (+28 rachats depuis le 27/09 08h, 56 000 UNI)",
      "note": "Au-dessus du seuil CONFIRMEE (50 %) apres la fin de la subvention ; recul de 3,7 pts vs 27/09."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "54,7 % (8,21/15,01 M$, 03/09 -> 02/10) ; nonce Firepit 1241 (+7 rachats en 24 h, 14 000 UNI)",
+     "note": "Au-dessus du seuil CONFIRMEE (50 %) ; -1,0 pt vs 01/10."
     }
    ],
    "solde": null
@@ -538,6 +578,11 @@
      "date": "2026-10-01",
      "valeur": "15,6 % sur 30 j (21 113/134 988 pools a hook, 01-30/09) ; 12,1 % hors rafale mmETH ; registre regenere le 30/09 : 10 des 1 958 hooks apparus depuis le 22/09 y figurent",
      "note": "+1,2 pt vs 27/09 ; sous les 20 % du seuil CONFIRMEE. La regeneration n'a pas rattrape le flux."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "16,1 % sur 30 j (21 143/131 297 pools a hook, 02/09-01/10) ; 12,4 % hors rafale mmETH ; registre regenere le 01/10 : 12 des 2 185 hooks apparus depuis le 22/09 y figurent",
+     "note": "+0,5 pt vs 01/10 ; sous les 20 % du seuil CONFIRMEE."
     }
    ],
    "solde": null
@@ -566,6 +611,11 @@
      "date": "2026-10-01",
      "valeur": "semaine 24-30/09 : 64 743 pools (-7,8 % vs reference 19-25/09) ; jours post-expiration 29/09 9 681 et 30/09 9 266, contre 11 438 et 10 766 les memes jours une semaine plus tot (-15 %)",
      "note": "Aucune semaine pleine dans la fenetre du seuil (30/09-06/10 se termine le 06/10). Au rythme de 29-30/09 (~9 500/j), la semaine finirait vers 66 000, au-dessus du seuil MORTE de 56 157."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "semaine 30/09-06/10 en cours : 30/09 9 266 + 01/10 7 099 = 16 365 en 2 jours ; 01/10 = plus bas jour plein depuis le 21/09, -15,1 % contre jeudi 24/09 (8 362)",
+     "note": "Pour rester au-dessus du seuil MORTE (56 157), il faut 7 958 pools/jour du 02 au 06/10 ; le seuil CONFIRMEE (35 098) demande moins de 3 747/jour. Ni l'un ni l'autre n'est atteint ou exclu a ce stade."
     }
    ]
   },
@@ -588,6 +638,11 @@
      "date": "2026-10-01",
      "valeur": "non re-mesure : aucune semaine pleine entre le 30/09 et le 20/10 n'est encore close",
      "note": "echantillon de 150 transactions reporte a la premiere semaine pleine (30/09-06/10)."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "non re-mesure : premiere semaine pleine (30/09-06/10) close le 06/10",
+     "note": "echantillon reporte."
     }
    ]
   },
@@ -604,6 +659,28 @@
     {
      "date": "2026-10-01",
      "valeur": "29-30/09 : 8,73 M tx/jour estimees (+21 % vs 22-28/09, +16 % vs memes jours) ; UserOps sponsorisees 5,6 % ; base fee mediane 0,022 gwei (0,053 le 22/09)",
+     "note": "point d'ouverture."
+    },
+    {
+     "date": "2026-10-02",
+     "valeur": "01/10 : 7,39 M tx estimees (300 blocs, tirage unique) ; base fee mediane 0,0207 gwei",
+     "note": "Au-dessus du seuil CONFIRMEE (5,77 M) mais sous les 8,73 M de 29-30/09 ; la mesure du seuil porte sur 06-12/10."
+    }
+   ]
+  },
+  {
+   "id": "v_20261002_01",
+   "ouverte": "2026-10-02",
+   "affirmation": "Le capital prete sur Robinhood Chain n'est pas adosse aux actions tokenisees : c'est un portage de dollars synthetiques (USDe, syrupUSDG, mGLO, spUSDG) finance par un seul coffre (Steakhouse USDG, ~68 000 positions). Tant que les actions restent sous 2 % du collateral Morpho, la lecture 'chaine de pret' ne dit rien de la these 'actions tokenisees'.",
+   "mesure": "API Morpho (blue-api.morpho.org, markets chainId 4663) recoupee sur la chaine (Morpho 0x9D53d5E3bd5E8d4Cbfa6DB1ca238AEA02E651010, balanceOf des collateraux) : part du collateralAssetsUsd dont le collateral est une action/ETF Robinhood. Reference 02/10 : 2,98 M$ sur 529,7 M$ (0,56 %), 125 marches d'actions dont 5 au-dessus de 1 000 $.",
+   "seuil": "REVISEE si la part des actions depasse 5 % du collateral Morpho avant l'echeance ; CONFIRMEE si elle reste sous 2 % a l'echeance.",
+   "echeance": "2026-12-02",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-10-02",
+     "valeur": "0,56 % (2,98/529,7 M$) ; stables a rendement 98,9 % ; USDe 65,0 %",
      "note": "point d'ouverture."
     }
    ]
