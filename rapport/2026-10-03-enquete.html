@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 03/10 : le gaz moins cher</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+.chart{margin:14px 0 22px}.chart svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<header>
+<div class="hwrap">
+<div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+<nav><a href="../">accueil</a><a href="2026-10-02-enquete.html">enquête du 02/10</a></nav>
+</div>
+</header>
+<main>
+<p class="tag data">Enquête · 3 octobre 2026 · fil Uniswap v4 × Robinhood Chain, jour 13</p>
+<h1>Robinhood Chain, 03/10 : autant de transactions qu'avant, trois fois moins chères</h1>
+<p class="question">Quatre jours après la fin du gaz gratuit, les frais du séquenceur ont perdu 58 % en une semaine. Les utilisateurs sont-ils partis, ou est-ce autre chose ?</p>
+
+<div class="provenance">
+<div class="row"><span>Page générée</span><span>2026-10-03 ~09:30 UTC</span></div>
+<div class="row"><span class="src">DefiLlama</span><span>/v2/chains, /protocols, /overview/dexs, /overview/fees (+ dailyHoldersRevenue), /summary/fees/robinhood-chain : relevé 08:13 UTC <span class="age-fresh">● 1 h</span></span></div>
+<div class="row"><span class="src">RPC Robinhood Chain</span><span>recensement Initialize jusqu'au bloc 78 934 438 (03/10 08:13 UTC) <span class="age-fresh">● 1 h</span> · échantillon de blocs 15/09 → 02/10 (journées UTC pleines)</span></div>
+<div class="row"><span class="src">Uniswap/hooklist</span><span>dernier commit 01/10 21:08 UTC <span class="age-stale">● 35 h, aucune régénération depuis</span></span></div>
+<div class="row"><span class="src">API Morpho · CoinGecko · coins.llama.fi</span><span>08:20–08:45 UTC <span class="age-fresh">● 1 h</span></span></div>
+<div class="row"><span class="src">SEC 4-927 · Federal Register</span><span>08:13 UTC <span class="age-fresh">● 1 h</span> · témoin négatif SEC en 503 (non concluant)</span></div>
+<div class="row"><span class="src">Hermes (delta)</span><span>joignable ; annexe 0-LLM du 03/10 07:40 présente, non utilisée comme source</span></div>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>−67 %</b><span>coût moyen d'une transaction (13,5 → 4,4 micro-ETH), 15-23/09 contre 29/09-02/10</span></div>
+<div class="stat"><b>8,55 M</b><span>transactions/jour après le 29/09, contre 8,49 M sur 15-23/09 (marge ±10 %)</span></div>
+<div class="stat"><b>0,98</b><span>ratio médian entre ma mesure de la chaîne et la ligne séquenceur de DefiLlama, sur 18 jours</span></div>
+<div class="stat"><b>5 990</b><span>pools v4 créés le 02/10, le plus bas jour depuis le 29/08 (sur 955 878 recensés)</span></div>
+</div>
+
+<h2>Les veilles re-testées</h2>
+<p>Treize veilles ouvertes, toutes re-testées ce matin. <strong>Aucune n'est soldée</strong>. Deux s'approchent d'un seuil.</p>
+<table>
+<tr><th>Veille</th><th>Mesure du 03/10</th><th>Lecture</th></tr>
+<tr><td>Création de pools v4 après le gaz gratuit (v_20260926_01)</td><td class="num">22 355 sur 30/09-02/10</td><td>Pour la clore MORTE, il faudrait 8 450 pools par jour du 03 au 06/10, un rythme qu'on n'a vu aucun jour depuis le 30/09. CONFIRMEE demande moins de 3 186 par jour, et la journée partielle du 03/10 tourne autour de 3 800. <strong>C'est la plus proche d'un seuil.</strong></td></tr>
+<tr><td>Transactions après la subvention (v_20261001_01)</td><td class="num">8,03 M le 02/10</td><td>Au-dessus du seuil CONFIRMEE (5,77 M). J'ai retiré le 01/10 avec une autre graine : 8,06 M ici contre 7,39 M hier, soit 9 % d'écart. C'est dans la marge.</td></tr>
+<tr><td>Fin de subvention, volume et frais (v_20260922_01)</td><td class="num">vol. 7 j −8,1 %, frais 7 j −25,1 %</td><td>Le volume journalier de 29/09-02/10 est à −0,2 % des mêmes jours une semaine plus tôt. La fenêtre de 14 jours n'est pas close.</td></tr>
+<tr><td>Robinhood Chain, 1<sup>re</sup> source du rachat d'UNI par la v3 (v_20260924_01)</td><td class="num">53,8 %</td><td>−0,9 pt. Firepit au nonce 1 246, soit +5 rachats de 2 000 UNI en 24 h (+7 la veille). Le seuil de 50 % tient, de moins en moins large.</td></tr>
+<tr><td>Poids de Pons dans les frais (v_20260919_01)</td><td class="num">39,0 %</td><td>Au-dessus des deux seuils sur 30 j. Les frais 7 j de Pons V2 font −37,9 % semaine sur semaine.</td></tr>
+<tr><td>Pools sur des hooks hors registre (v_20260925_01)</td><td class="num">16,6 % (12,8 % hors mmETH)</td><td>+0,5 pt. Sur les 2 508 hooks apparus depuis le 22/09, 12 sont au registre.</td></tr>
+<tr><td>Actions en collatéral Morpho (v_20261002_01)</td><td class="num">0,68 %</td><td>3,65 M$ sur 532,4 M$, soit +0,12 pt. Toujours sous le seuil de 2 %.</td></tr>
+<tr><td>Flags, audits, famille « actions » (v_20260918_01/02/04)</td><td class="num">72,5 % · 4/1 173 · 155</td><td>Valeurs inchangées : le registre n'a pas été régénéré depuis 35 h, la chaîne n'est donc pas forcément figée. Aucun avis de TSV.</td></tr>
+<tr><td>v3 refuge (v_20260918_03)</td><td class="num">v3 42,5 % · v4 35,2 %</td><td>Loin des deux seuils.</td></tr>
+<tr><td>Dossier SEC 4-927 (v_20260918_05)</td><td class="num">27 lettres</td><td>Inchangé, et toujours aucune institution. Le seul nouveau document SEC qui répond au terme « tokenized » est le 2026-20360, sur les fonds d'intervalle : il est hors dossier.</td></tr>
+<tr><td>Émetteurs récurrents (v_20260927_01)</td><td class="na">reportée</td><td>La première semaine pleine se termine le 06/10.</td></tr>
+</table>
+
+<h2>La question : qui a cessé de payer le gaz ?</h2>
+<p>Hier, la ligne « Robinhood Chain » de DefiLlama, c'est-à-dire le gaz payé à la chaîne, affichait −59,9 % sur sept jours. Aujourd'hui elle affiche −58,2 % (714 k$ contre 1,71 M$). Le récit qui vient tout seul : la subvention a pris fin le 29/09, les utilisateurs paient désormais, donc ils partent. Pour le tester, il faut séparer trois choses que le chiffre de DefiLlama mélange : le <strong>nombre</strong> de transactions, la <strong>quantité de gaz</strong> qu'elles consomment, et le <strong>prix</strong> de ce gaz.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p><strong>Méthode, en une ligne :</strong> j'ai tiré 300 blocs au hasard par journée UTC, du 15/09 au 02/10, soit 5 400 blocs lus par RPC. Pour chaque bloc, j'ai compté les transactions (hors transaction interne ArbOS de type 0x6a) et lu <code>gasUsed</code> et <code>baseFeePerGas</code>, puis j'ai multiplié par le nombre de blocs du jour. Les témoins ont été vérifiés avant usage : <code>eth_chainId</code> = 0x1237, une adresse bidon rend <code>0x</code>, la PoolManager v4 fait 24 009 octets.</p>
+
+<div class="chart"><svg viewBox="0 0 860 220" role="img" aria-label="ETH brulé en base fee par jour et transactions par jour"><rect x="43.0" y="30.0" width="37.3" height="160.0" fill="var(--acc)" opacity=".75"><title>2026-09-15 : 193.5 ETH, 11.71 M tx</title></rect><text x="61.7" y="208" font-size="10" text-anchor="middle" fill="var(--ink3)" font-family="ui-monospace,monospace">15/09</text><rect x="86.3" y="102.5" width="37.3" height="87.5" fill="var(--acc)" opacity=".75"><title>2026-09-16 : 105.8 ETH, 9.58 M tx</title></rect><rect x="129.7" y="72.5" width="37.3" height="117.5" fill="var(--acc)" opacity=".75"><title>2026-09-17 : 142.1 ETH, 9.03 M tx</title></rect><rect x="173.0" y="95.4" width="37.3" height="94.6" fill="var(--acc)" opacity=".75"><title>2026-09-18 : 114.4 ETH, 8.37 M tx</title></rect><text x="191.7" y="208" font-size="10" text-anchor="middle" fill="var(--ink3)" font-family="ui-monospace,monospace">18/09</text><rect x="216.3" y="100.2" width="37.3" height="89.8" fill="var(--acc)" opacity=".75"><title>2026-09-19 : 108.6 ETH, 7.38 M tx</title></rect><rect x="259.7" y="124.4" width="37.3" height="65.6" fill="var(--acc)" opacity=".75"><title>2026-09-20 : 79.4 ETH, 6.45 M tx</title></rect><rect x="303.0" y="113.7" width="37.3" height="76.3" fill="var(--acc)" opacity=".75"><title>2026-09-21 : 92.3 ETH, 8.42 M tx</title></rect><text x="321.7" y="208" font-size="10" text-anchor="middle" fill="var(--ink3)" font-family="ui-monospace,monospace">21/09</text><rect x="346.3" y="103.2" width="37.3" height="86.8" fill="var(--acc)" opacity=".75"><title>2026-09-22 : 104.9 ETH, 7.55 M tx</title></rect><rect x="389.7" y="113.1" width="37.3" height="76.9" fill="var(--acc)" opacity=".75"><title>2026-09-23 : 93.1 ETH, 7.93 M tx</title></rect><rect x="433.0" y="142.9" width="37.3" height="47.1" fill="var(--acc)" opacity=".75"><title>2026-09-24 : 57.0 ETH, 6.61 M tx</title></rect><text x="451.7" y="208" font-size="10" text-anchor="middle" fill="var(--ink3)" font-family="ui-monospace,monospace">24/09</text><rect x="476.3" y="149.2" width="37.3" height="40.8" fill="var(--acc)" opacity=".75"><title>2026-09-25 : 49.4 ETH, 6.52 M tx</title></rect><rect x="519.7" y="161.0" width="37.3" height="29.0" fill="var(--acc)" opacity=".75"><title>2026-09-26 : 35.1 ETH, 6.82 M tx</title></rect><rect x="563.0" y="168.7" width="37.3" height="21.3" fill="var(--acc)" opacity=".75"><title>2026-09-27 : 25.8 ETH, 5.64 M tx</title></rect><text x="581.7" y="208" font-size="10" text-anchor="middle" fill="var(--ink3)" font-family="ui-monospace,monospace">27/09</text><rect x="606.3" y="160.1" width="37.3" height="29.9" fill="var(--acc)" opacity=".75"><title>2026-09-28 : 36.1 ETH, 10.83 M tx</title></rect><rect x="649.7" y="155.8" width="37.3" height="34.2" fill="var(--acc2)" opacity=".75"><title>2026-09-29 : 41.4 ETH, 10.53 M tx</title></rect><rect x="693.0" y="157.0" width="37.3" height="33.0" fill="var(--acc2)" opacity=".75"><title>2026-09-30 : 39.9 ETH, 7.57 M tx</title></rect><text x="711.7" y="208" font-size="10" text-anchor="middle" fill="var(--ink3)" font-family="ui-monospace,monospace">30/09</text><rect x="736.3" y="161.9" width="37.3" height="28.1" fill="var(--acc2)" opacity=".75"><title>2026-10-01 : 33.9 ETH, 8.06 M tx</title></rect><rect x="779.7" y="159.6" width="37.3" height="30.4" fill="var(--acc2)" opacity=".75"><title>2026-10-02 : 36.8 ETH, 8.03 M tx</title></rect><polyline points="61.7,33.9 105.0,62.2 148.3,69.6 191.7,78.3 235.0,91.6 278.3,104.0 321.7,77.7 365.0,89.4 408.3,84.2 451.7,101.8 495.0,103.1 538.3,99.0 581.7,114.9 625.0,45.6 668.3,49.5 711.7,89.1 755.0,82.6 798.3,82.9" fill="none" stroke="var(--held)" stroke-width="2"/><line x1="646.7" x2="646.7" y1="14" y2="190" stroke="var(--warn)" stroke-dasharray="4 3"/><text x="650.7" y="24" font-size="11" fill="var(--warn)" font-family="ui-monospace,monospace">fin du gaz gratuit (29/09)</text><text x="40" y="12" font-size="11" fill="var(--ink3)" font-family="ui-monospace,monospace">barres : ETH brûlé/jour (max 194) · ligne verte : transactions/jour (échelle 0-12 M)</text></svg></div>
+
+<table>
+<tr><th>Période</th><th class="num">tx/jour</th><th class="num">gaz/jour</th><th class="num">ETH brûlé/jour</th><th class="num">coût moyen/tx</th></tr>
+<tr><td>15-23/09 (subvention active)</td><td class="num">8,49 M</td><td class="num">1,79 Tgas</td><td class="num">114,9</td><td class="num">13,5 µETH</td></tr>
+<tr><td>24-28/09 (subvention active)</td><td class="num">7,28 M</td><td class="num">1,34 Tgas</td><td class="num">40,7</td><td class="num">5,6 µETH</td></tr>
+<tr><td>29/09-02/10 (après)</td><td class="num">8,55 M</td><td class="num">1,48 Tgas</td><td class="num">38,0</td><td class="num">4,4 µETH</td></tr>
+</table>
+
+<p><strong>La chute du séquenceur date des 24-27/09, avant la fin de la subvention.</strong> Sur ces jours, le gaz consommé recule d'un quart et le prix du gaz suit. La base fee médiane passe de 0,052 gwei le 22/09 à 0,020 le 27/09. Depuis le 29/09, le nombre de transactions est revenu au niveau de mi-septembre, mais chacune coûte trois fois moins. Le 02/10, une transaction consomme en moyenne 138 000 unités de gaz, contre 233 000 le 22/09 : <strong>les transactions restent, elles s'allègent.</strong></p>
+<p><strong>Recoupement :</strong> convertie au cours ETH du jour, ma mesure reproduit la ligne séquenceur de DefiLlama avec un ratio médian de 0,98 sur 18 jours. Les extrêmes sont 0,67 le 29/09 et 1,13 le 23/09 : l'échantillon rate parfois les pics de base fee. Deux sources indépendantes, la chaîne lue en direct et l'adaptateur DefiLlama, racontent donc la même chose. La baisse des frais est une <strong>baisse du prix</strong> bien plus qu'une baisse de l'usage.</p>
+<p>Côté jetons, le recensement des événements Initialize, prolongé de 5 790 pools cette nuit (955 878 au total, dont 327 163 avec un hook), donne <strong>5 990 pools créés le 02/10</strong>. C'est le plus bas jour plein depuis le 29/08 ; le plus haut est de 20 765, le 02/09. Sur la semaine du 26/09 au 02/10, on compte 60 510 pools, contre 70 196 la semaine précédente (−13,8 %). Les créations de pools et les lancements de jetons sont les transactions les plus lourdes de la chaîne, et ce sont elles qui reculent. Le prix du gaz baisse avec elles.</p>
+
+<h2>Le delta contre la veille</h2>
+<table>
+<tr><th>Champ (serie.json)</th><th class="num">02/10</th><th class="num">03/10</th><th class="num">Δ</th></tr>
+<tr><td>TVL de la chaîne</td><td class="num">1 045,7 M$</td><td class="num">1 047,7 M$</td><td class="num">+0,2 %</td></tr>
+<tr><td>TVL Morpho Blue · Uniswap V4</td><td class="num">586,2 · 188,1</td><td class="num">594,3 · 179,6</td><td class="num">+1,4 % · −4,5 %</td></tr>
+<tr><td>Volume 30 j chaîne</td><td class="num">55,27 Md$</td><td class="num">53,91 Md$</td><td class="num">−2,5 %</td></tr>
+<tr><td>Frais 30 j chaîne (total déclaré)</td><td class="num">338,56 M$</td><td class="num">321,06 M$</td><td class="num">−5,2 %</td></tr>
+<tr><td>Frais 30 j Uniswap V4</td><td class="num">99,77 M$</td><td class="num">93,11 M$</td><td class="num">−6,7 %</td></tr>
+<tr><td>Frais 7 j séquenceur</td><td class="num">753,9 k$</td><td class="num">714,1 k$</td><td class="num">−5,3 %</td></tr>
+<tr><td>Capitalisation PONS (DefiLlama)</td><td class="num">360,4 M$</td><td class="num">286,2 M$</td><td class="num">−20,6 %</td></tr>
+<tr><td>Pools v4 créés sur 7 j</td><td class="num">63 480</td><td class="num">60 510</td><td class="num">−4,7 %</td></tr>
+<tr><td>Hooks au registre (robinhood)</td><td class="num">1 173</td><td class="num">1 173</td><td class="num">non régénéré</td></tr>
+</table>
+<p>Avant de lire ce delta, j'ai listé les 23 commits <code>dimension-adapters</code> des 24 dernières heures (piège P10). Trois lignes nouvelles apparaissent sur la chaîne (TRNCH, Latch Protocol, Story.fun), toutes à 0 $ de frais sur 30 j : le périmètre est constant. La baisse de 17,5 M$ des frais 30 j vient de jours forts de début septembre qui sortent de la fenêtre. Uniswap V4 (−6,7 M$), le séquenceur (−4,4 M$) et Pons V2 (−4,3 M$) en portent l'essentiel.</p>
+<p><strong>PONS perd 21,7 % en 24 h</strong>, à 0,417 $. J'ai recoupé deux sources : CoinGecko donne 284,3 M$ de capitalisation, DefiLlama 286,2 M$, soit 0,7 % d'écart. Le multiple « capitalisation / revenu reversé annualisé » descend de 1,78 à 1,41. Le jeton baisse beaucoup plus vite que ses frais sur 30 j (−3,4 %). Aucune source primaire n'explique ce mouvement ce matin.</p>
+
+<h2>Cohorte</h2>
+<p>Aucune entrée, aucune sortie, aucun critère franchi. J'ai recalculé le score de preuve sur les 223 protocoles de la chaîne : 44 publient un lien d'audit qui répond 200, et la distribution est 0:148, 1:30, 2:32, 3:12, 4:1. Contrairement à hier, GitHub n'a rendu aucune erreur 503, si bien que la reconduction du 02/10 n'est plus nécessaire : GlueHook garde son 4 sur la mesure du jour.</p>
+<table>
+<tr><th>Membre</th><th class="num">Preuve</th><th>Ce qui a bougé</th><th class="num">Frais 30 j / Pons V2</th></tr>
+<tr><td>Fables</td><td class="num">1</td><td>Frais 7 j +6,5 %. Volume 30 j 2,21 Md$, la plus forte hausse de la chaîne ce jour (+104 M$). Toujours aucun lien d'audit.</td><td class="num">0,0346</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="num">0</td><td>TVL 108,1 → 112,5 M$. Reste 2<sup>e</sup> hors double compte Morpho/Steakhouse et hors Uniswap.</td><td class="num">0,0154</td></tr>
+<tr><td>up v3</td><td class="num">0</td><td>Volume 30 j 1,19 Md$ ; TVL −6 %.</td><td class="num">0,0149</td></tr>
+<tr><td>Snuggle</td><td class="num">2</td><td>Stable (TVL 7,09 M$).</td><td class="num">0,0139</td></tr>
+<tr><td>StonkBrokers</td><td class="num">0</td><td>Frais 30 j 1,65 M$ ; le volet options reste introuvable.</td><td class="num">0,0132</td></tr>
+<tr><td>Arcus Perps</td><td class="num">0</td><td>Frais 7 j ×3,7 semaine sur semaine, sous réserve de la refonte de l'adaptateur du 01/10 (P10).</td><td class="num">0,0062</td></tr>
+<tr><td>GIGA V3</td><td class="num">0</td><td>Frais 7 j −23 %.</td><td class="num">0,0045</td></tr>
+<tr><td>Ekubo / STONX</td><td class="num">2</td><td>La TVL de STONX passe sous 1 M$ (0,98) ; son volume 30 j reste à 41,4 M$, au-dessus du critère de 10 M$.</td><td class="num">0,0004</td></tr>
+<tr><td>Longbow</td><td class="num">0</td><td><strong>TVL 3,06 → 2,53 M$ (−17 %)</strong>, deuxième chute de plus de 15 % en deux jours.</td><td class="num">0</td></tr>
+<tr><td>TermMax</td><td class="num">3</td><td>Toujours 11 k$ de TVL : l'alerte « traction nulle » tient.</td><td class="num">0</td></tr>
+</table>
+<p><strong>Ce qui devrait inquiéter : Longbow.</strong> vfat.io le domine pour le 2<sup>e</sup> jour sur 7 (preuve 2 contre 0, TVL 3,14 contre 2,53 M$, et 32 k$ de frais contre aucun). Beefy le domine pour la première fois (preuve 3, TVL 2,91 M$). La règle écrite (« dépasse sur la preuve <em>et</em> la traction ») laisse aussi une ambiguïté que je signale sans la trancher. UNCX Network V3 (preuve 2, TVL 7,17 M$, frais non mesurés) dépasse Longbow sur la preuve et la TVL depuis au moins le 22/09. Il n'a jamais été compté, parce que les enquêtes précédentes lisaient la traction comme « TVL et frais ». <strong>À trancher par l'user</strong> : si la traction d'un prêteur se lit au TVL seul, comme le veut la règle « un prêteur se juge au TVL », UNCX aurait déjà dû prendre la place de Longbow.</p>
+<p>Antichambre : GlueHook a 4,3 k$ de TVL, Twofold 79 k$, ARMSys 53 k$. Aucun n'approche le seuil d'entrée de 1 M$. Pour la contre-référence Pons, la part des frais de la chaîne monte à 39,0 % alors que le jeton chute. Tant que c'est le cas, la thèse « actions tokenisées » reste une thèse : les actions pèsent 0,68 % du collatéral Morpho.</p>
+
+<h2>Ce qui contredit</h2>
+<ul>
+<li><strong>Le pic des 28-29/09 gonfle ma moyenne « après ».</strong> J'ai compté 10,83 M de transactions le 28/09 et 10,53 M le 29/09, sans doute une ruée avant l'échéance. Sans le 29/09, la moyenne 30/09-02/10 tombe à 7,89 M par jour, soit −7 % contre 15-23/09. Ce n'est pas une falaise, mais ce n'est pas « autant » non plus.</li>
+<li><strong>La subvention était un remboursement</strong> (presse : rebate de 90 jours sur les transactions du portefeuille Robinhood, non recoupé). La base fee a donc toujours été payée et brûlée sur la chaîne, même pendant la subvention. Ma mesure ne voit pas qui la payait au final. Elle montre que le prix du gaz s'est effondré avant le 29/09, pas que la subvention n'a eu aucun effet sur les comportements.</li>
+<li><strong>Un chiffre de presse ne se recoupe pas.</strong> AMBCrypto, repris par Pluang le 28/09 (presse, non recoupé), parle de lancements quotidiens tombés « de 36 000 à 6 000 ». Le bas correspond à mon 5 990 du 02/10. Le haut, lui, ne correspond à rien dans mon recensement v4 : le maximum journalier depuis le 29/08 est de 20 765 pools. Soit la presse compte autre chose que des pools v4, soit elle compte une période antérieure à ma fenêtre.</li>
+<li>TechFlow/0xResearch (03/10, presse, non recoupé) écrit que le revenu quotidien « est revenu au niveau d'avant la période de hype ». C'est cohérent avec ma mesure, mais ce n'est pas indépendant : la source est probablement la même ligne DefiLlama.</li>
+</ul>
+<p><strong>Pièges du mémo re-vérifiés ce jour :</strong></p>
+<ul>
+<li>P2 : le total déclaré égale la somme des lignes non doublecounted moins la ligne de la chaîne, au dollar près (321 056 473 $).</li>
+<li>P8 : le total déclaré du revenu aux détenteurs (12,45 M$) reste inférieur aux seules lignes Pons (16,65 M$), et la somme des lignes vaut 30,13 M$.</li>
+<li>P10 : 23 commits lus.</li>
+<li>P5 : seuls les liens d'audit qui répondent 200 sont comptés.</li>
+<li>P11 et P12 : les populations sont nommées, et le taux hors rafale mmETH est publié à côté du taux brut.</li>
+<li>Santé du registre : aucune régénération depuis 35 h.</li>
+<li>Nouveau mode d'échec : le témoin négatif SEC rend 503 et non 404. Il est déclaré non concluant ; le témoin positif, lui, est cohérent.</li>
+</ul>
+
+<h2>Ce qu'on ne sait pas</h2>
+<div class="unknown"><ul>
+<li>Quelles transactions se sont allégées. Je n'ai pas classé les transactions par contrat appelé. Le lien entre le recul des créations de pools et la baisse du gaz par transaction est plausible, mais il n'est pas mesuré.</li>
+<li>Pourquoi PONS perd 21,7 % en 24 h : aucune annonce primaire trouvée ce matin.</li>
+<li>Comment lire la règle de traction pour UNCX contre Longbow : c'est une décision user, pas une déduction.</li>
+<li>La part de frais L1 (données postées sur Ethereum) dans le gaz facturé : elle est incluse dans <code>gasUsed</code> sur Arbitrum Nitro, et je ne l'ai pas isolée.</li>
+<li>Le nombre de marchés d'actions sur Morpho publié hier (125) : ma liste reproduit au dollar le montant d'hier, mais pas ce comptage, que je ne republie donc pas.</li>
+</ul></div>
+<p>Nouvelle veille ouverte : <strong>v_20261003_01</strong>. Elle teste si le coût moyen d'une transaction reste sous 6,8 µETH sur la semaine 07-13/10 (CONFIRMEE) ou s'il remonte au-dessus de 10 µETH (REVISEE). La mesure devra être recoupée contre DefiLlama, comme aujourd'hui.</p>
+</main>
+<footer>Généré le 2026-10-03 vers 09:30 UTC · sources : RPC Robinhood Chain (chainId 4663, rpc.mainnet.chain.robinhood.com et publicnode), DefiLlama, coins.llama.fi, CoinGecko, API Morpho, Uniswap/hooklist, SEC, Federal Register, presse étiquetée (Pluang/AMBCrypto 28/09, TechFlow 03/10, KuCoin) · aucun chiffre repris d'un agent</footer>
+</body>
+</html>

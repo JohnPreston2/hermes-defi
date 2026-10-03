@@ -134,6 +134,37 @@
     }
    ],
    "genere": "2026-10-02T09:00:00Z"
+  },
+  {
+   "date": "2026-10-03",
+   "fichier": "2026-10-03-enquete.html",
+   "titre": "Robinhood Chain, 03/10 : autant de transactions qu'avant, trois fois moins cheres",
+   "question": "Quatre jours apres la fin du gaz gratuit, pourquoi les frais du sequenceur se sont-ils effondres alors que le nombre de transactions tient ?",
+   "mesure_neuve": "5 400 blocs tires au hasard (300 par jour, 15/09 -> 02/10) : 8,55 M transactions/jour apres l'expiration du 29/09 contre 8,49 M sur 15-23/09, mais 38,0 ETH de base fee brules par jour contre 114,9 -- le cout moyen d'une transaction passe de 13,5 a 4,4 micro-ETH (-67 %). La chute date des 24-27/09, AVANT l'expiration : le gaz consomme a baisse (1,79 -> 1,34 Tgas/j) et le prix du gaz a suivi (0,052 -> 0,020 gwei). Recoupement : convertie en dollars, la mesure reproduit la ligne sequenceur de DefiLlama a un ratio median de 0,98. Le meme jour, 5 990 pools v4 crees le 02/10, plus bas jour depuis le 29/08, et PONS -21,7 % en 24 h.",
+   "chiffre_cle": {
+    "valeur": "-67 %",
+    "libelle": "de cout moyen par transaction depuis mi-septembre, a nombre de transactions egal",
+    "population": "5 400 blocs tires au hasard (300 par jour, 15/09-02/10) ; 8,49 M puis 8,55 M transactions/jour"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_fees_7d_sequenceur_usd",
+     "libelle": "Frais du sequenceur sur 7 jours (le gaz paye a la chaine)"
+    },
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools Uniswap v4 crees en 7 jours (jetons lances)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 jours de la chaine (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_pons_mcap_usd",
+     "libelle": "Capitalisation de PONS (valeur du jeton)"
+    }
+   ],
+   "genere": "2026-10-03T09:30:00Z"
   }
  ]
 }
