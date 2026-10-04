@@ -165,6 +165,37 @@
     }
    ],
    "genere": "2026-10-03T09:30:00Z"
+  },
+  {
+   "date": "2026-10-04",
+   "fichier": "2026-10-04-enquete.html",
+   "titre": "Robinhood Chain, 04/10 : les actions tokenisées ferment le week-end, et rétrécissent en semaine",
+   "question": "Une chaîne d'actions devrait ralentir le samedi, quand la Bourse est fermée ; une chaîne de memecoins, non. Que dit le calendrier de Robinhood Chain sur ce qu'on y échange vraiment ?",
+   "mesure_neuve": "Événements Transfer des 50 actions tokenisées Robinhood comptés sur la chaîne (12 fenêtres de 200 blocs par jour, 2 tirages indépendants, 06/09-04/10) : les transactions qui touchent une action passent de 1,24 M par jour ouvré (07-11/09) à 0,41 M (28/09-02/10), −67 %, et tombent à 29 % de leur niveau de semaine le samedi 03/10 (57 % mi-septembre). Le volume total de la chaîne, lui, ne descend qu'à 77 % le week-end (DefiLlama, 4 semaines) : plus proche de Solana (0,83) et BSC (0,80) que d'Ethereum (0,61).",
+   "chiffre_cle": {
+    "valeur": "−67 %",
+    "libelle": "de transactions touchant une action tokenisée en trois semaines, alors que la chaîne garde 8 à 9 M de transactions par jour",
+    "population": "1 241 000 → 414 000 transactions par jour ouvré (07-11/09 contre 28/09-02/10), 50 jetons d'actions Robinhood, 12 fenêtres de 200 blocs par jour, 2 tirages indépendants"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_stock_tx_jour_ouvre_moy_28sept_02oct",
+     "libelle": "Transactions sur actions par jour ouvré (achats et ventes de jetons d'actions)"
+    },
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools Uniswap v4 créés en 7 jours (jetons lancés)"
+    },
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume 7 jours (les échanges de la semaine)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    }
+   ],
+   "genere": "2026-10-04T12:30:00Z"
   }
  ]
 }

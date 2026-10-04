@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 04/10 : le calendrier</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+.chart{margin:14px 0 22px}.chart svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<header>
+<div class="hwrap">
+<div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+<nav><a href="../">accueil</a><a href="2026-10-03-enquete.html">enquête du 03/10</a></nav>
+</div>
+</header>
+<main>
+<p class="tag data">Enquête · 4 octobre 2026 · fil Uniswap v4 × Robinhood Chain, jour 14</p>
+<h1>Robinhood Chain, 04/10 : les actions tokenisées ferment le week-end, et rétrécissent en semaine</h1>
+<p class="question">Une chaîne d'actions devrait ralentir le samedi, quand la Bourse est fermée. Une chaîne de memecoins, non. Que dit le calendrier de Robinhood Chain sur ce qu'on y échange vraiment ?</p>
+
+<div class="provenance">
+<div class="row"><span>Page générée</span><span>2026-10-04 ~12:30 UTC (dimanche)</span></div>
+<div class="row"><span class="src">DefiLlama</span><span>/v2/chains, /protocols, /overview/dexs et /overview/fees (Robinhood Chain + 5 chaînes témoins, séries journalières), dailyHoldersRevenue : relevé 11:36 UTC <span class="age-fresh">● 1 h</span></span></div>
+<div class="row"><span class="src">RPC Robinhood Chain</span><span>Transfer des 50 actions tokenisées, 06/09 → 04/10 (2 tirages) · recensement Initialize jusqu'au bloc 79 904 341 (04/10 11:35 UTC) · 600 blocs tirés le 03/10 <span class="age-fresh">● 1 h</span></span></div>
+<div class="row"><span class="src">Uniswap/hooklist</span><span>dernier commit 01/10 21:08 UTC <span class="age-stale">● 62 h, aucune régénération depuis</span></span></div>
+<div class="row"><span class="src">API Morpho · CoinGecko</span><span>11:40–11:50 UTC <span class="age-fresh">● 1 h</span></span></div>
+<div class="row"><span class="src">SEC 4-927 · Federal Register</span><span>11:36 UTC <span class="age-fresh">● 1 h</span> · témoin négatif SEC en 404 (sonde calibrée)</span></div>
+<div class="row"><span class="src">Hermes (delta)</span><span>joignable ; annexe 0-LLM du 04/10 07:40 présente, non utilisée comme source</span></div>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>−67 %</b><span>transactions touchant une action tokenisée, par jour ouvré : 1,24 M (07-11/09) → 0,41 M (28/09-02/10)</span></div>
+<div class="stat"><b>0,29</b><span>samedi 03/10 rapporté à la semaine qui précède, pour ces mêmes transactions (0,57 mi-septembre)</span></div>
+<div class="stat"><b>0,77</b><span>même ratio pour le volume total de la chaîne sur 4 semaines : moins creusé qu'Ethereum (0,61)</span></div>
+<div class="stat"><b>4,6 %</b><span>part des transactions de la chaîne qui touchent une action, 28/09-02/10 (7,5 % les 15-18/09)</span></div>
+</div>
+
+<h2>Les veilles re-testées</h2>
+<p>Quatorze veilles ouvertes, toutes re-testées ce matin. <strong>Aucune n'est soldée.</strong> Une perd définitivement une de ses deux issues, une autre se rapproche de son seuil.</p>
+<table>
+<tr><th>Veille</th><th>Mesure du 04/10</th><th>Lecture</th></tr>
+<tr><td>Création de pools v4 après le gaz gratuit (v_20260926_01)</td><td class="num">27 126 sur 30/09-03/10</td><td>Le 03/10 compte 4 771 pools, plus bas jour depuis le 29/08. <strong>L'issue MORTE est désormais exclue</strong> : il faudrait 29 031 pools en trois jours. CONFIRMEE demande moins de 2 657 par jour du 04 au 06/10 ; dimanche tourne vers 3 900.</td></tr>
+<tr><td>Rachat d'UNI par la v3, 1<sup>re</sup> source (v_20260924_01)</td><td class="num">51,5 %</td><td>6,99 M$ sur 13,56 M$ (30 j). Toujours au-dessus des 50 % de CONFIRMEE, mais −2,3 pts en un jour et en baisse continue depuis le 24/09. Nonce Firepit 1 249 : +3 rachats en 27 h, contre +7 puis +5.</td></tr>
+<tr><td>Transactions après la subvention (v_20261001_01)</td><td class="num">4,78 M le 03/10</td><td>Deux tirages indépendants : 4,97 et 4,59 M. C'est le plus bas jour depuis le 15/09, sous le niveau du seuil (5,77 M). Mais c'est un samedi, et le seuil porte sur la moyenne 06-12/10.</td></tr>
+<tr><td>Fin de subvention, volume et frais (v_20260922_01)</td><td class="num">vol. 7 j −5,5 %, frais 7 j −22,9 %</td><td>Volume journalier 29/09-03/10 : 1,350 Md$, +0,6 % contre 22-28/09. Frais journaliers −11,2 %. Fenêtre non close.</td></tr>
+<tr><td>Coût d'une transaction (v_20261003_01)</td><td class="num">4,60 µETH</td><td>43,95 ETH de base fee pour 9,56 M de transactions tirées. Sous le seuil CONFIRMEE (6,8).</td></tr>
+<tr><td>Hooks hors registre (v_20260925_01)</td><td class="num">16,8 %</td><td>20 378 pools sur 121 317 pools à hook (30 j). 13 des 2 661 hooks apparus depuis le 22/09 sont au registre.</td></tr>
+<tr><td>Poids de Pons (v_20260919_01)</td><td class="num">39,0 %</td><td>120,0 M$ sur 307,4 M$ de frais 30 j. Frais 7 j de Pons V2 −36,2 %.</td></tr>
+<tr><td>Part de la v3 (v_20260918_03)</td><td class="num">41,9 %</td><td>v4 35,6 %, sur 52,0 Md$ de volume 30 j.</td></tr>
+<tr><td>Collatéral Morpho en actions (v_20261002_01)</td><td class="num">0,68 %</td><td>3,65 M$ sur 538,0 M$, inchangé.</td></tr>
+<tr><td>Flags, audits, famille « actions » du registre (v_20260918_01, 02, 04)</td><td class="num">72,5 % · 4/1 173 · 13,2 %</td><td>Valeurs gelées : le registre n'a pas été régénéré depuis 62 h. Aucun exploit de hook public sur la chaîne, aucun avis de TSV.</td></tr>
+<tr><td>Dossier SEC 4-927 (v_20260918_05)</td><td class="num">27 lettres</td><td>Inchangé, aucun signataire institutionnel. Pas de nouveau document au <em>Federal Register</em>.</td></tr>
+<tr><td>Émetteurs récurrents (v_20260927_01)</td><td class="num">—</td><td>Mesure reportée au 06/10, fin de la première semaine pleine.</td></tr>
+</table>
+<p>Pièges du mémo re-vérifiés ce jour : <strong>P2</strong> (le total déclaré des frais égale au dollar la somme des lignes non doublecounted moins la ligne de la chaîne : 307 416 826 $), <strong>P8</strong> (revenu aux détenteurs : total déclaré 12,15 M$, somme des lignes 30,01 M$, Pons V1 seul 16,96 M$), <strong>P10</strong> (quatre commits DefiLlama touchant la chaîne depuis hier, quatre lignes de frais nouvelles, aucune parmi les vingt premières) et <strong>P11</strong> (fenêtres de 250 000 blocs, RPC officiel seul).</p>
+
+<h2>La question, et la méthode</h2>
+<p>Depuis le 18/09, ce fil hésite entre deux lectures : une infrastructure de marché actions, ou une chaîne de memecoins avec un ticker. Le calendrier tranche mieux que les frais ou le TVL (l'argent déposé). Les jetons d'actions Robinhood se négocient dans l'application <strong>du lundi 2 h au samedi 2 h (heure de Paris)</strong>, selon les guides publics des Stock Tokens de Robinhood Europe (24 h sur 24, 5 jours sur 7 ; non vérifié sur la page Robinhood elle-même). Un flux adossé aux actions doit donc se creuser le week-end. La crypto, elle, tourne sept jours sur sept.</p>
+<p>Méthode, en une ligne : deux mesures indépendantes. <strong>(1)</strong> Le volume journalier DefiLlama, ramené au ratio <em>moyenne du week-end / moyenne du lundi au vendredi</em>, pour la chaîne et cinq chaînes témoins. <strong>(2)</strong> Sur la chaîne elle-même, les événements <code>Transfer</code> des 50 jetons d'actions et d'ETF Robinhood. La liste est celle des collatéraux Morpho ; elle reproduit au dollar le montant d'actions du 03/10 (3 645 675 $). Douze fenêtres de 200 blocs par jour, deux tirages indépendants. J'ai compté les transactions distinctes qui touchent au moins une action.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<div class="chart">
+<svg viewBox="0 0 880 260" role="img" aria-label="Transactions par jour touchant une action tokenisee, 06/09 au 03/10">
+<line x1="46" x2="870" y1="220.0" y2="220.0" stroke="var(--line)"/><text x="40" y="224.0" text-anchor="end" font-size="10" fill="var(--ink3)" font-family="var(--mono)">0.0 M</text>
+<line x1="46" x2="870" y1="168.5" y2="168.5" stroke="var(--line)"/><text x="40" y="172.5" text-anchor="end" font-size="10" fill="var(--ink3)" font-family="var(--mono)">0.4 M</text>
+<line x1="46" x2="870" y1="117.0" y2="117.0" stroke="var(--line)"/><text x="40" y="121.0" text-anchor="end" font-size="10" fill="var(--ink3)" font-family="var(--mono)">0.8 M</text>
+<line x1="46" x2="870" y1="65.5" y2="65.5" stroke="var(--line)"/><text x="40" y="69.5" text-anchor="end" font-size="10" fill="var(--ink3)" font-family="var(--mono)">1.2 M</text>
+<line x1="46" x2="870" y1="14.0" y2="14.0" stroke="var(--line)"/><text x="40" y="18.0" text-anchor="end" font-size="10" fill="var(--ink3)" font-family="var(--mono)">1.6 M</text>
+<rect x="47.5" y="99.2" width="26.4" height="120.8" rx="2" fill="var(--warn)"><title>06/09 : 938 k tx</title></rect>
+<rect x="76.9" y="63.8" width="26.4" height="156.2" rx="2" fill="var(--acc)"><title>07/09 : 1213 k tx</title></rect>
+<text x="90.1" y="235" text-anchor="middle" font-size="10" fill="var(--ink3)" font-family="var(--mono)">07/09</text>
+<rect x="106.4" y="83.9" width="26.4" height="136.1" rx="2" fill="var(--acc)"><title>08/09 : 1057 k tx</title></rect>
+<rect x="135.8" y="65.4" width="26.4" height="154.6" rx="2" fill="var(--acc)"><title>09/09 : 1200 k tx</title></rect>
+<rect x="165.2" y="71.5" width="26.4" height="148.5" rx="2" fill="var(--acc)"><title>10/09 : 1153 k tx</title></rect>
+<rect x="194.6" y="16.4" width="26.4" height="203.6" rx="2" fill="var(--acc)"><title>11/09 : 1581 k tx</title></rect>
+<rect x="224.1" y="131.4" width="26.4" height="88.6" rx="2" fill="var(--warn)"><title>12/09 : 688 k tx</title></rect>
+<rect x="253.5" y="127.9" width="26.4" height="92.1" rx="2" fill="var(--warn)"><title>13/09 : 715 k tx</title></rect>
+<rect x="282.9" y="105.0" width="26.4" height="115.0" rx="2" fill="var(--acc)"><title>14/09 : 893 k tx</title></rect>
+<text x="296.1" y="235" text-anchor="middle" font-size="10" fill="var(--ink3)" font-family="var(--mono)">14/09</text>
+<rect x="312.4" y="129.5" width="26.4" height="90.5" rx="2" fill="var(--acc)"><title>15/09 : 703 k tx</title></rect>
+<rect x="341.8" y="150.4" width="26.4" height="69.6" rx="2" fill="var(--acc)"><title>16/09 : 540 k tx</title></rect>
+<rect x="371.2" y="102.0" width="26.4" height="118.0" rx="2" fill="var(--acc)"><title>17/09 : 916 k tx</title></rect>
+<rect x="400.6" y="126.9" width="26.4" height="93.1" rx="2" fill="var(--acc)"><title>18/09 : 723 k tx</title></rect>
+<rect x="430.1" y="169.3" width="26.4" height="50.7" rx="2" fill="var(--warn)"><title>19/09 : 393 k tx</title></rect>
+<rect x="459.5" y="173.9" width="26.4" height="46.1" rx="2" fill="var(--warn)"><title>20/09 : 358 k tx</title></rect>
+<rect x="488.9" y="130.7" width="26.4" height="89.3" rx="2" fill="var(--acc)"><title>21/09 : 693 k tx</title></rect>
+<text x="502.1" y="235" text-anchor="middle" font-size="10" fill="var(--ink3)" font-family="var(--mono)">21/09</text>
+<rect x="518.4" y="149.6" width="26.4" height="70.4" rx="2" fill="var(--acc)"><title>22/09 : 547 k tx</title></rect>
+<rect x="547.8" y="132.1" width="26.4" height="87.9" rx="2" fill="var(--acc)"><title>23/09 : 683 k tx</title></rect>
+<rect x="577.2" y="162.0" width="26.4" height="58.0" rx="2" fill="var(--acc)"><title>24/09 : 451 k tx</title></rect>
+<rect x="606.6" y="172.8" width="26.4" height="47.2" rx="2" fill="var(--acc)"><title>25/09 : 367 k tx</title></rect>
+<rect x="636.1" y="198.5" width="26.4" height="21.5" rx="2" fill="var(--warn)"><title>26/09 : 167 k tx</title></rect>
+<rect x="665.5" y="196.3" width="26.4" height="23.7" rx="2" fill="var(--warn)"><title>27/09 : 184 k tx</title></rect>
+<rect x="694.9" y="139.1" width="26.4" height="80.9" rx="2" fill="var(--acc)"><title>28/09 : 628 k tx</title></rect>
+<text x="708.1" y="235" text-anchor="middle" font-size="10" fill="var(--ink3)" font-family="var(--mono)">28/09</text>
+<rect x="724.4" y="162.9" width="26.4" height="57.1" rx="2" fill="var(--acc)"><title>29/09 : 443 k tx</title></rect>
+<rect x="753.8" y="169.3" width="26.4" height="50.7" rx="2" fill="var(--acc)"><title>30/09 : 394 k tx</title></rect>
+<rect x="783.2" y="175.3" width="26.4" height="44.7" rx="2" fill="var(--acc)"><title>01/10 : 347 k tx</title></rect>
+<rect x="812.6" y="187.0" width="26.4" height="33.0" rx="2" fill="var(--acc)"><title>02/10 : 256 k tx</title></rect>
+<rect x="842.1" y="204.7" width="26.4" height="15.3" rx="2" fill="var(--warn)"><title>03/10 : 119 k tx</title></rect>
+<text x="855.3" y="235" text-anchor="middle" font-size="10" fill="var(--ink3)" font-family="var(--mono)">03/10</text>
+<rect x="46" y="248" width="10" height="10" fill="var(--acc)"/><text x="60" y="257" font-size="11" fill="var(--ink2)">lundi-vendredi</text><rect x="166" y="248" width="10" height="10" fill="var(--warn)"/><text x="180" y="257" font-size="11" fill="var(--ink2)">samedi-dimanche</text></svg>
+</div>
+<p>Le graphique montre deux faits. <strong>Le premier, c'est le week-end.</strong> Les transactions sur actions tombent à 57 % de leur niveau de semaine le week-end du 12-13/09, puis 50 %, puis 32 % le 26-27/09. Le samedi 03/10 est à 29 %. Le volume total de la chaîne, lui, ne descend qu'à 77 % le week-end sur les quatre dernières semaines. Ce ratio est plus proche de Solana (0,83) et de BSC (0,80) que d'Ethereum (0,61), d'Arbitrum (0,51) ou de Base (0,63). La sonde a donc trouvé l'effet calendrier là où on l'attendait. C'est son témoin positif. Pris en bloc, le volume de la chaîne ne suit pas la Bourse.</p>
+<p><strong>Le second, c'est la pente.</strong> En jour ouvré, les transactions sur actions passent de 1 241 000 par jour (07-11/09) à 755 000, puis 548 000, puis 414 000 (28/09-02/10). Cela fait −66,6 % en trois semaines. Les deux tirages donnent −66,1 % et −67,2 %. Sur la même période, la chaîne garde 8 à 9 millions de transactions par jour. La part des actions dans les transactions de la chaîne recule de 7,5 % (15-18/09) à 4,6 % (28/09-02/10).</p>
+<table>
+<tr><th>Semaine</th><th class="num">Tx actions / jour ouvré</th><th class="num">Week-end / semaine</th><th class="num">Volume chaîne (DefiLlama), week-end / semaine</th></tr>
+<tr><td>07-13/09</td><td class="num">1 241 000</td><td class="num">0,57</td><td class="num">0,74</td></tr>
+<tr><td>14-20/09</td><td class="num">755 000</td><td class="num">0,50</td><td class="num">0,67</td></tr>
+<tr><td>21-27/09</td><td class="num">548 000</td><td class="num">0,32</td><td class="num">0,56</td></tr>
+<tr><td>28/09-03/10</td><td class="num">414 000</td><td class="num">0,29 (samedi seul)</td><td class="num">0,47 (samedi seul)</td></tr>
+</table>
+<p>Les actions creusent bien plus que le reste de la chaîne le samedi, mais le reste ralentit aussi. Le volume total de la chaîne glisse dans le même sens : son ratio de week-end passe de 1,57 (semaine du 24/08) à 0,47 le samedi 03/10. Ce samedi, la chaîne fait 711 M$ de volume, 13,6 % de moins que le samedi précédent.</p>
+
+<h2>Le delta contre la veille</h2>
+<ul>
+<li><strong>TVL de la chaîne</strong> (l'argent déposé) : 1 054,4 M$, contre 1 047,7 M$ (+0,6 %). Morpho : 599,1 M$ (+0,8 %). Uniswap v4 : 180,2 M$ (+0,3 %).</li>
+<li><strong>Volume 30 j</strong> : 52,00 Md$ (−3,5 %). <strong>Frais 30 j</strong> : 307,4 M$ (−4,2 %), dont fomo Wallet 13,9 M$.</li>
+<li><strong>Pools v4 créés</strong> sur 27/09-03/10 : 53 562, contre 72 103 la semaine précédente (−25,7 %). Le stock recensé atteint 961 205 pools, dont 328 501 avec hook.</li>
+<li><strong>PONS</strong> : 282,9 M$ de capitalisation (−1,2 %). Le multiple sur le reversement annualisé passe de 1,41 à 1,37.</li>
+<li><strong>Revenu aux détenteurs d'UNI par la v3</strong> : 51,5 % vient de la chaîne (53,8 % hier).</li>
+</ul>
+
+<h2>Cohorte</h2>
+<p>Peu de mouvement chez les dix. <strong>Longbow</strong> rebondit (TVL 2,53 → 3,04 M$, +20 %) après deux baisses de plus de 15 %. <strong>Fables</strong> perd 3,9 % de TVL (43,9 M$) mais ses frais 7 j montent de 6,0 %. Son audit n'a toujours aucun lien. <strong>Arcus</strong> gagne 4,6 % (37,3 M$). Sa lignée dYdX reste sans source primaire. <strong>TermMax</strong> reste à 11,3 k$ de TVL : c'est l'inquiétude du groupe, et son critère (TVL &lt; 0,5 M$ au 31/10) est en voie d'être franchi. Aucun critère de sortie n'est atteint ce jour.</p>
+<table>
+<tr><th>Membre</th><th class="num">Frais 30 j</th><th class="num">Ratio vs Pons V2</th><th>Note</th></tr>
+<tr><td>Fables</td><td class="num">4,41 M$</td><td class="num">0,037</td><td>score 1, audit sans lien</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="num">1,92 M$</td><td class="num">0,016</td><td>TVL 112,3 M$</td></tr>
+<tr><td>up v3</td><td class="num">1,75 M$</td><td class="num">0,015</td><td>volume 30 j 1,13 Md$</td></tr>
+<tr><td>Snuggle</td><td class="num">1,64 M$</td><td class="num">0,014</td><td>audit 200, score 2</td></tr>
+<tr><td>StonkBrokers (4 fiches)</td><td class="num">1,64 M$</td><td class="num">0,014</td><td>volet options non identifiable</td></tr>
+<tr><td>Arcus Perps</td><td class="num">0,80 M$</td><td class="num">0,007</td><td>réserve P10</td></tr>
+<tr><td>GIGA V3</td><td class="num">0,54 M$</td><td class="num">0,004</td><td>frais 7 j −26,8 %</td></tr>
+<tr><td>Ekubo (+ STONX)</td><td class="num">0,05 M$</td><td class="num">0,0004</td><td>STONX : 39,6 M$ de volume 30 j</td></tr>
+<tr><td>Longbow · TermMax</td><td class="num">—</td><td class="num">0</td><td>aucun frais mesuré</td></tr>
+</table>
+<p>Score de preuve recalculé sur les 225 protocoles : 44 publient un lien d'audit qui répond 200, et 29 comptes GitHub sur 31 existent. Distribution : 150 à 0, 30 à 1, 32 à 2, 12 à 3, 1 à 4 (GlueHook, TVL 4,3 k$). Candidats automatiques : <strong>vfat.io domine Longbow pour le 3<sup>e</sup> jour sur 7</strong> (TVL 3,21 contre 3,04 M$, score 2 contre 0), mais l'écart fond. Beefy repasse sous Longbow et sa série s'arrête. Pendle V2 entre dans la liste (score 2, TVL 1,07 M$). L'ambiguïté UNCX (la traction se lit-elle au TVL seul ?) reste une décision user. Contre-référence : Pons V2 pèse toujours 39,0 % des frais de la chaîne. La thèse « la chaîne mûrit vers les actions » reste une thèse, et la mesure du jour va contre elle.</p>
+
+<h2>Ce qui contredit</h2>
+<p><strong>Ma propre lecture, d'abord.</strong> « Le flux actions s'effondre » ne tient qu'en <em>nombre</em> de transactions. En <em>valeur</em> transférée, au cours du 04/10, la baisse n'est que de 42 % : 851 M$ par jour ouvré (07-11/09) contre 490 M$ (28/09-02/10). Cette mesure est bruitée par des transferts géants, comme 882 M$ d'AMC le 06/09 ou 861 M$ de DJT le 25/09. Moins de transactions, plus grosses : cela ressemble autant au départ des robots qu'au départ des gens. Je ne sais pas les distinguer.</p>
+<p><strong>Ensuite, le week-end n'a pas toujours été creux.</strong> Le dimanche 06/09, en plein week-end du Labor Day, compte 938 000 transactions sur actions, autant qu'un jour ouvré. La presse (The Defiant, non recoupé) cite 572,8 M$ d'actions tokenisées échangées ce week-end-là sur la chaîne. Le creux du samedi est donc récent. Il peut venir du reflux spéculatif plutôt que d'une nature « boursière » du flux.</p>
+<p><strong>Enfin, Robinhood dit vouloir le 24/7</strong> une fois l'acheminement du week-end en place sur la chaîne. Si c'est fait, l'effet calendrier disparaît sans que la nature du flux change. C'est l'objet de la veille v_20261004_02.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<div class="unknown"><ul>
+<li>Combien de ces transactions sont des achats de particuliers et combien sont des robots d'arbitrage ou de tenue de marché. Je n'ai pas classé les émetteurs.</li>
+<li>Si les ordres de l'application Robinhood se règlent sur cette chaîne, ou ailleurs (Arbitrum One à l'origine). La documentation consultée ne le dit pas pour octobre 2026.</li>
+<li>La valeur échangée réelle des actions : un transfert n'est pas un échange, et les routeurs comptent deux fois. La série en dollars est indicative.</li>
+<li>Pourquoi la v3 creuse plus le week-end (0,62) que la v4 (0,92) et Pons V2 (1,03) : c'est cohérent avec des paires d'actions logées en v3, mais je ne l'ai pas mesuré pool par pool.</li>
+<li>Delta (Hermes) a répondu, mais son flux n'a pas servi de source : tous les chiffres ci-dessus sont recomptés.</li>
+</ul></div>
+<p>Deux veilles ouvertes : <strong>v_20261004_01</strong> (le flux actions continue de baisser : CONFIRMEE si la moyenne des jours ouvrés 12-16/10 passe sous 331 000 transactions, MORTE au-dessus de 497 000) et <strong>v_20261004_02</strong> (le calendrier boursier tient : CONFIRMEE si les week-ends des 10-11, 17-18 et 24-25/10 restent sous 0,5, MORTE si l'un dépasse 0,8).</p>
+</main>
+<footer>Généré le 2026-10-04 vers 12:30 UTC · sources : RPC Robinhood Chain (chainId 4663, rpc.mainnet.chain.robinhood.com et publicnode), DefiLlama, CoinGecko, API Morpho, Uniswap/hooklist, SEC, Federal Register, guides publics des Stock Tokens Robinhood Europe (horaires), presse étiquetée (The Defiant, week-end du Labor Day) · aucun chiffre repris d'un agent</footer>
+</body>
+</html>

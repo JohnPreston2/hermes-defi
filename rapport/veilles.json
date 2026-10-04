@@ -76,6 +76,11 @@
      "date": "2026-10-03",
      "valeur": "registre non regenere depuis le 01/10 21:08 : 72,5 % (850/1173) / 25,4 % (298/1173)",
      "note": "Valeur inchangee faute de regeneration (aucun commit au registre depuis 35 h). Loin des deux seuils. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "registre non regenere depuis le 01/10 21:08 (62 h) : 72,5 % (850/1173) / 25,4 % (298/1173)",
+     "note": "Valeur inchangee faute de regeneration. Loin des deux seuils. NON SOLDEE."
     }
    ],
    "solde": null
@@ -148,6 +153,11 @@
      "date": "2026-10-03",
      "valeur": "4 / 1173 (0,34 %)",
      "note": "Aucun audit ajoute ; aucun exploit public de hook connu ce jour (recherche web). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "4 / 1173 (0,34 %)",
+     "note": "Aucun audit ajoute (registre non regenere) ; recherche web : aucun exploit public de hook sur Robinhood Chain (seuls les cas Cork et Bunni de 2025 remontent). NON SOLDEE."
     }
    ],
    "solde": null
@@ -220,6 +230,11 @@
      "date": "2026-10-03",
      "valeur": "v3 42,5 % / v4 35,2 % du volume 30j (22,93/18,98/53,91 Md$)",
      "note": "vs 02/10 : v3 -0,4 pt, v4 +0,1 pt. Loin des deux seuils."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "v3 41,9 % / v4 35,6 % du volume 30j (21,80/18,52/52,00 Md$)",
+     "note": "vs 03/10 : v3 -0,6 pt, v4 +0,4 pt. Loin des deux seuils."
     }
    ],
    "solde": null
@@ -292,6 +307,11 @@
      "date": "2026-10-03",
      "valeur": "155 deploiements sur 1173 (13,2 %) ; aucun avis de TSV connu",
      "note": "Collateral Morpho en actions tokenisees 3,65 M$ sur 532,4 M$ (0,68 %, +0,12 pt). Presse 03/10 (TechFlow/0xResearch, non recoupe) : correlation 0,86 entre volume du jeton LONG et TVL des stock tokens, -0,03 quand le volume plafonne -- lecture 'speculation, pas adoption RWA'."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "155 deploiements sur 1173 (13,2 %) ; aucun avis de TSV connu",
+     "note": "Mesure neuve du jour, contre la these : les transactions qui touchent l'une des 50 actions tokenisees sont passees de 1,24 M par jour ouvre (07-11/09) a 0,41 M (28/09-02/10), -67 % (2 tirages independants), et tombent a ~30 % de leur niveau de semaine le week-end. Collateral Morpho en actions 0,68 %. NON SOLDEE."
     }
    ],
    "solde": null
@@ -364,6 +384,11 @@
      "date": "2026-10-03",
      "valeur": "27 lettres (inchange) ; nouveau document FR 'tokenized' 2026-20360 hors dossier (fonds d'intervalle)",
      "note": "Aucune bourse, courtier, emetteur ni cabinet. Temoin negatif SEC (dossier 4-999999) en HTTP 503 ce jour, pas 404 : sonde negative non concluante ; la page positive repond 200 et liste les memes 27 lettres qu'hier. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "27 lettres (inchange) ; aucun nouveau document FR depuis 2026-20360 (hors dossier)",
+     "note": "Aucune bourse, courtier, emetteur ni cabinet. Temoin negatif SEC (dossier 4-999999) en HTTP 404 ce jour : sonde calibree. NON SOLDEE."
     }
    ],
    "solde": null
@@ -431,6 +456,11 @@
      "date": "2026-10-03",
      "valeur": "39,0 % (125,05/321,06 M$) sur le total declare",
      "note": "Pons V2 7j -37,9 % s/s. PONS -21,7 % en 24 h (CoinGecko 284,3 M$ de mcap ; DefiLlama 286,2 M$, ecart 0,7 %). Au-dessus des deux seuils sur 30 j."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "39,0 % (120,01/307,42 M$) sur le total declare",
+     "note": "Pons V2 frais 7j -36,2 % s/s ; PONS 0,414 $ (CoinGecko, -3,4 % en 24 h), mcap 282,9 M$ (DefiLlama ; CoinGecko 282,0 M$). Au-dessus des deux seuils sur 30 j."
     }
    ],
    "solde": null
@@ -539,6 +569,11 @@
      "date": "2026-10-03",
      "valeur": "post-expiration J+4 : volume journalier moyen 29/09-02/10 1,502 Md$ contre 1,342 Md$ sur 22-28/09 (+11,9 %), -0,2 % contre les memes jours 22-25/09 ; frais journaliers 5,21 contre 5,44 M$ (-4,3 %), -16,2 % contre 22-25/09 ; volume 7j 9,38 Md$ (-8,1 % s/s), frais 7j 34,06 M$ (-25,1 % s/s)",
      "note": "Fenetre de 14 jours non close. Mesure on-chain neuve : la chute du sequenceur (ETH brule en base fee : 114,9 ETH/j sur 15-23/09 -> 40,7 sur 24-28/09) PRECEDE l'expiration ; apres, 38,0 ETH/j a nombre de transactions egal (8,55 contre 8,49 M/j)."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "post-expiration J+5 : volume journalier moyen 29/09-03/10 1,350 Md$ contre 1,342 Md$ sur 22-28/09 (+0,6 %), -1,3 % contre 22-26/09 ; frais journaliers 4,90 contre 5,52 M$ (-11,2 %), -17,6 % contre 22-26/09 ; volume 7j 9,30 Md$ (-5,5 % s/s), frais 7j 33,41 M$ (-22,9 % s/s)",
+     "note": "Fenetre de 14 jours non close. Samedi 03/10 : 711 M$ de volume (-13,6 % contre samedi 26/09). La moyenne 22-28/09 des frais est relue a 5,52 M$ (5,44 hier) : serie DefiLlama revisee en amont."
     }
    ],
    "solde": null
@@ -586,6 +621,11 @@
      "date": "2026-10-03",
      "valeur": "53,8 % (7,94/14,75 M$, 30 derniers points, 04/09 -> 03/10 partiel) ; nonce Firepit 1246 (+5 rachats en 24 h, 10 000 UNI)",
      "note": "Au-dessus du seuil CONFIRMEE (50 %) ; -0,9 pt vs 02/10. Rythme des rachats : +7 puis +5 par jour."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "51,5 % (6,99/13,56 M$, 30 derniers points, 05/09 -> 04/10 partiel) ; nonce Firepit 1249 (+3 rachats en ~27 h, 6 000 UNI)",
+     "note": "Au-dessus du seuil CONFIRMEE (50 %) mais -2,3 pts vs 03/10, baisse continue depuis le 24/09 ; 2e chaine Ethereum 3,17 M$. Rythme des rachats : +7, +5, puis +3."
     }
    ],
    "solde": null
@@ -628,6 +668,11 @@
      "date": "2026-10-03",
      "valeur": "16,6 % sur 30 j (20 938/126 235 pools a hook, 03/09-02/10) ; 12,8 % hors rafale mmETH ; registre non regenere : 12 des 2 508 hooks apparus depuis le 22/09 y figurent",
      "note": "+0,5 pt vs 02/10 ; sous les 20 % du seuil CONFIRMEE."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "16,8 % sur 30 j (20 378/121 317 pools a hook, 04/09-03/10) ; 12,8 % hors rafale mmETH ; registre non regenere : 13 des 2 661 hooks apparus depuis le 22/09 y figurent",
+     "note": "+0,2 pt vs 03/10 ; sous les 20 % du seuil CONFIRMEE."
     }
    ],
    "solde": null
@@ -666,6 +711,11 @@
      "date": "2026-10-03",
      "valeur": "semaine 30/09-06/10 en cours : 9 266 + 7 099 + 5 990 = 22 355 en 3 jours ; 02/10 = 5 990, plus bas jour plein depuis le 29/08 (max 20 765 le 02/09) ; 03/10 partiel : 1 309 a 08:13 UTC",
      "note": "MORTE exige desormais 8 450 pools/jour du 03 au 06/10 (aucun jour a ce niveau depuis le 30/09) ; CONFIRMEE exige moins de 3 186/jour. Le rythme partiel du 03/10 (~3 800/jour sur 8 h) est proche de ce seuil."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "semaine 30/09-06/10 en cours : 9 266 + 7 099 + 5 990 + 4 771 = 27 126 en 4 jours ; 03/10 = 4 771, nouveau plus bas jour plein depuis le 29/08 ; 04/10 partiel : 1 865 a 11:35 UTC (~3 900/jour au rythme)",
+     "note": "MORTE est desormais arithmetiquement exclue (il faudrait 29 031 pools en 3 jours). CONFIRMEE exige moins de 7 972 pools du 04 au 06/10 (< 2 657/jour) : le rythme du dimanche ne l'atteint pas encore. Semaine glissante 27/09-03/10 : 53 562 (-25,7 % vs 20-26/09)."
     }
    ]
   },
@@ -698,6 +748,11 @@
      "date": "2026-10-03",
      "valeur": "non re-mesure : premiere semaine pleine (30/09-06/10) close le 06/10",
      "note": "echantillon reporte."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "non re-mesure : premiere semaine pleine (30/09-06/10) close le 06/10",
+     "note": "echantillon reporte."
     }
    ]
   },
@@ -725,6 +780,11 @@
      "date": "2026-10-03",
      "valeur": "02/10 : 8,03 M tx estimees ; 01/10 re-tire : 8,06 M (7,39 M hier, ecart 9 %) ; moyenne 29/09-02/10 8,55 M contre 8,49 M sur 15-23/09",
      "note": "Au-dessus du seuil CONFIRMEE (5,77 M) ; mesure du seuil sur 06-12/10. Le gaz consomme baisse (1,11 Tgas le 02/10, plus bas de la fenetre) : les transactions restent, elles s'allegent (138 k gas/tx contre 233 k le 22/09)."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "03/10 (samedi) : 4,78 M tx estimees (deux tirages : 4,97 et 4,59 M) ; plus bas jour de la serie depuis le 15/09 (samedis precedents : 7,38 M le 19/09, 6,82 M le 26/09)",
+     "note": "Sous le niveau du seuil CONFIRMEE (5,77 M) sur un jour, mais la mesure du seuil porte sur la moyenne 06-12/10. A surveiller : le week-end pese."
     }
    ]
   },
@@ -747,6 +807,11 @@
      "date": "2026-10-03",
      "valeur": "0,68 % (3,65/532,4 M$) ; stables a rendement 98,8 % ; USDe 64,9 %",
      "note": "+0,12 pt ; sous le seuil CONFIRMEE (2 %)."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "0,68 % (3,65/538,0 M$) ; stables a rendement 98,8 % ; USDe 65,2 %",
+     "note": "inchange ; sous le seuil CONFIRMEE (2 %)."
     }
    ]
   },
@@ -763,6 +828,43 @@
     {
      "date": "2026-10-03",
      "valeur": "4,4 micro-ETH/tx (29/09-02/10) contre 13,5 (15-23/09) et 5,6 (24-28/09) ; base fee mediane 0,0323 gwei le 02/10",
+     "note": "point d'ouverture."
+    },
+    {
+     "date": "2026-10-04",
+     "valeur": "03/10 : 4,60 micro-ETH/tx (43,95 ETH de base fee sur 9,56 M tx, deux tirages) ; base fee mediane 0,0249 gwei",
+     "note": "sous les 6,8 du seuil CONFIRMEE ; mesure du seuil sur 07-13/10."
+    }
+   ]
+  },
+  {
+   "id": "v_20261004_01",
+   "ouverte": "2026-10-04",
+   "affirmation": "Le flux des actions tokenisees sur Robinhood Chain se contracte et ne s'est pas stabilise : le nombre de transactions qui touchent une action tokenisee, deja -67 % en trois semaines, continue de baisser alors que l'activite totale de la chaine tient.",
+   "mesure": "RPC Robinhood Chain : evenements Transfer des 50 jetons d'actions/ETF Robinhood (liste = collateraux Morpho chainId 4663), 12 fenetres de 200 blocs par jour UTC, deux tirages independants moyennes ; transactions distinctes par jour, moyenne lun-ven. Reference 28/09-02/10 : 414 000 tx/jour ouvre (07-11/09 : 1 241 000).",
+   "seuil": "CONFIRMEE si la moyenne des jours ouvres 12-16/10 passe sous 331 000 (-20 %). MORTE si elle remonte au-dessus de 497 000 (+20 %).",
+   "echeance": "2026-10-17",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-10-04",
+     "valeur": "414 000 tx/jour ouvre (28/09-02/10) ; samedi 03/10 119 000",
+     "note": "point d'ouverture."
+    }
+   ]
+  },
+  {
+   "id": "v_20261004_02",
+   "ouverte": "2026-10-04",
+   "affirmation": "Les actions tokenisees de la chaine suivent le calendrier boursier, pas celui de la crypto : leur activite s'effondre le week-end (quand l'app Robinhood ne cote pas), alors que le reste de la chaine tourne 7 j/7. Tant que Robinhood n'ouvre pas le 24/7 annonce, le ratio week-end/semaine reste sous 0,5.",
+   "mesure": "Meme sonde que v_20261004_01 : moyenne(sam, dim) / moyenne(lun-ven de la semaine qui precede). Reference : 0,57 (12-13/09), 0,50 (19-20/09), 0,32 (26-27/09), 0,29 (samedi 03/10 seul). Temoin : volume total de la chaine (DefiLlama) 0,77 sur 4 semaines.",
+   "seuil": "CONFIRMEE si les trois week-ends 10-11/10, 17-18/10 et 24-25/10 restent sous 0,5. MORTE si l'un d'eux depasse 0,8 (bascule vers une activite 7 j/7).",
+   "echeance": "2026-10-26",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-10-04",
+     "valeur": "0,29 (samedi 03/10 / lun-ven 28/09-02/10) ; dimanche 04/10 partiel ~0,16 tx/bloc",
      "note": "point d'ouverture."
     }
    ]
