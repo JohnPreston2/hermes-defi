@@ -1,10 +1,10 @@
 {
- "genere": "2026-10-02T09:45:15Z",
+ "genere": "2026-10-04T11:35:18Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-10-02",
-   "recoupe": "Au 01/10 la clause fees n'enchaine plus deux semaines negatives (-16,8 % puis +1,0 %) ; le volume DefiLlama reste a -100 %, coherent avec Lista DEX toujours suspendu pour StableSwap v3 (annonce du 19/09 non recoupee, aucune relance trouvee sur le web au 02/10). Le FDV/capi de 1,85 suppose l'offre maximale de 800 M de Tokenomics 2.0 ; sur le milliard que compte encore tokenomist.ai il serait d'environ 2,3, au-dessus du seuil de 2,0.",
+   "releve": "2026-10-04",
+   "recoupe": "Au 03/10 la clause fees enchaine deux semaines negatives (-10,9 % puis -2,7 %) ; aucun fait web des 14 derniers jours ne l'explique (aucune relance publique de Lista DEX apres la migration StableSwap v3 trouvee au 04/10). Le FDV/capi de 1,85 suppose l'offre maximale de 800 M annoncee avec la destruction de 200 M de LISTA (26/05) ; sur le milliard que compte encore tokenomist.ai il serait d'environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -38,8 +38,8 @@
    ]
   },
   "Orca": {
-   "releve": "2026-10-02",
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la documentation Orca : 40 % des frais du protocole achetent de l'ORCA verse aux stakers xORCA (hausse de 20 % a 40 % votee par le conseil).",
+   "releve": "2026-10-04",
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la documentation Orca : 40 % des frais du protocole achetent de l'ORCA verse aux stakers xORCA. Aucun fait web ne contredit la baisse de volume mesuree (-1,7 %).",
    "rien": false,
    "faits": [
     {
@@ -73,8 +73,8 @@
    ]
   },
   "Meteora": {
-   "releve": "2026-10-02",
-   "recoupe": "Le zéro DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (187 000 USDC aux stakers au 1er cycle ; plus de 700 000 USDC de récompenses au 2e cycle clos le 21/09), flux que DefiLlama ne compte pas. Les rachats (13,7 M$ cumulés à fin T1) n'ont plus de mise à jour publique depuis.",
+   "releve": "2026-10-04",
+   "recoupe": "Le zero DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle clos le 21/09), flux que DefiLlama ne compte pas. Aucun resultat du 3e cycle ni nouvelle mise a jour des rachats trouves au 04/10.",
    "rien": false,
    "faits": [
     {
@@ -122,8 +122,8 @@
    ]
   },
   "Maple Finance": {
-   "releve": "2026-10-02",
-   "recoupe": "La capture DefiLlama de 10 % concorde avec la regle MIP-021 : 10 % du revenu mensuel sous 1,5 M$ finance des rachats de SYRUP, et Maple est dans cette tranche (environ 1,22 M$ par mois).",
+   "releve": "2026-10-04",
+   "recoupe": "La capture DefiLlama de 10 % concorde avec la regle MIP-021 : 10 % du revenu mensuel sous 1,5 M$ finance des rachats de SYRUP, et Maple est dans cette tranche.",
    "rien": false,
    "faits": [
     {
