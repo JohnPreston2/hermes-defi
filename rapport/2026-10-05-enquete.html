@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 05/10 : le prix du swap</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+.chart{margin:14px 0 22px}.chart svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<header>
+<div class="hwrap">
+<div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+<nav><a href="../">accueil</a><a href="2026-10-04-enquete.html">enquête du 04/10</a></nav>
+</div>
+</header>
+
+<main>
+<p class="tag data">Enquête · 5 octobre 2026 · fil Uniswap v4 × Robinhood Chain, jour 15</p>
+<h1>Robinhood Chain, 05/10 : la chaîne ne perd pas surtout des échanges, elle perd des échanges chers</h1>
+<p class="question">Les frais d'Uniswap sur la chaîne ont fondu de 74 % en un mois, le volume de 44 % seulement. Qu'est-ce qui a disparu : des échanges, ou le prix qu'on payait pour échanger ?</p>
+
+<div class="provenance">
+<div class="row"><span>Page générée</span><span>2026-10-05 ~10:45 UTC (lundi)</span></div>
+<div class="row"><span class="src">DefiLlama</span><span>/v2/chains, /protocols, /overview/dexs et /overview/fees (+ séries journalières), dailyHoldersRevenue, /summary/fees et /summary/dexs uniswap-v3 et uniswap-v4 : relevé 08:14 UTC <span class="age-fresh">● 2 h</span></span></div>
+<div class="row"><span class="src">RPC Robinhood Chain</span><span>Swap v3 et v4 : 96 fenêtres de 100 blocs sur 4 jours (2 tirages) · recensement Initialize jusqu'au bloc 80 636 673 (05/10 08:14 UTC) · 600 blocs tirés le 04/10 · Transfer des 50 actions tokenisées 03-04/10 (2 tirages) · Firepit <span class="age-fresh">● 2 h</span></span></div>
+<div class="row"><span class="src">Uniswap/hooklist</span><span>dernier commit 01/10 21:08 UTC <span class="age-stale">● 83 h, aucune régénération depuis</span></span></div>
+<div class="row"><span class="src">API Morpho · CoinGecko · coins.llama.fi</span><span>08:20–08:40 UTC <span class="age-fresh">● 2 h</span></span></div>
+<div class="row"><span class="src">SEC 4-927 · Federal Register</span><span>08:14 UTC <span class="age-fresh">● 2 h</span> · témoin négatif SEC (dossier 4-999999) en 404 : sonde calibrée</span></div>
+<div class="row"><span class="src">Hermes (delta)</span><span>joignable ; rapport 0-LLM du 05/10 07:40 présent, non utilisé comme source</span></div>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>56 % → 7 %</b><span>part du volume Uniswap v4 qui payait plus de 1 % de frais visibles : 04/09 contre 04/10 (échantillon sur la chaîne, 2 tirages)</span></div>
+<div class="stat"><b>58 %</b><span>de la baisse des frais hebdomadaires v3+v4 (59,5 → 15,4 M$) s'explique par le prix d'un swap, 42 % par le volume</span></div>
+<div class="stat"><b>6,9 pb</b><span>ce que la v3 encaisse par dollar échangé (28/09-04/10), contre 46 pb fin juillet et ~10 pb sur Ethereum</span></div>
+<div class="stat"><b>49,6 %</b><span>part de la chaîne dans le revenu que la v3 reverse aux détenteurs d'UNI : premier passage sous 50 %</span></div>
+</div>
+
+<h2>Les veilles re-testées</h2>
+<p>Seize veilles ouvertes, toutes re-testées ce matin. <strong>Aucune n'est soldée.</strong> Une franchit pour la première fois une ligne qui compte, une autre se tranchera mercredi.</p>
+<table>
+<tr><th>Veille</th><th>Mesure du 05/10</th><th>Lecture</th></tr>
+<tr><td>Rachat d'UNI par la v3, 1<sup>re</sup> source (v_20260924_01)</td><td class="num">49,6 %</td><td>6,39 M$ sur 12,89 M$ (30 derniers points, DefiLlama 08:14). <strong>Premier passage sous 50 %</strong>, −1,9 pt en un jour. Le seuil CONFIRMEE se juge le 24/11 ; MORTE à 33 %. Firepit : nonce 1 252, +3 rachats de 2 000 UNI. La cause est mesurée plus bas : la v3 de la chaîne encaisse trois fois moins par dollar qu'il y a un mois.</td></tr>
+<tr><td>Création de pools v4 (v_20260926_01)</td><td class="num">32 442 en 5 jours</td><td>30/09-04/10 ; dimanche 04/10 : 5 316. CONFIRMEE exige moins de 2 656 pools sur lundi et mardi réunis ; à 08:14 lundi on en compte 1 100, rythme ~3 200 par jour. Probable non-franchissement, tranché le 07/10.</td></tr>
+<tr><td>Transactions après la subvention (v_20261001_01)</td><td class="num">4,91 M le 04/10</td><td>Deux tirages de 300 blocs : 4,77 et 5,05 M. Deuxième jour sous 5,77 M, mais le seuil porte sur la moyenne 06-12/10.</td></tr>
+<tr><td>Coût d'une transaction (v_20261003_01)</td><td class="num">3,51 µETH</td><td>Plus bas de la série (34,5 ETH de frais de base sur 9,82 M de transactions échantillonnées). Sous les 6,8 de CONFIRMEE.</td></tr>
+<tr><td>Calendrier boursier des actions (v_20261004_02)</td><td class="num">0,36</td><td>Week-end 03-04/10 : 118 800 puis 176 500 transactions touchant une action, contre 414 000 par jour ouvré. Le dimanche remonte, porté par NVDA (70 à 77 % de la valeur échangée ce jour-là).</td></tr>
+<tr><td>Fin du gaz gratuit, 14 jours (v_20260922_01)</td><td class="num">J+6</td><td>Volume journalier 29/09-04/10 : 1,278 Md$, −4,8 % contre 22-28/09. Frais : 4,60 M$, −16,6 %. L'écart entre les deux est le sujet du jour.</td></tr>
+<tr><td>Part de Pons dans les frais (v_20260919_01)</td><td class="num">40,2 %</td><td>112,1 M$ sur 279,1 M$. Elle monte parce que le total baisse plus vite que Pons (frais 7 j de Pons V2 : −35,8 %).</td></tr>
+<tr><td>Hooks hors registre (v_20260925_01)</td><td class="num">17,3 %</td><td>20 021 pools sur 115 838 pools à hook (30 j). +0,5 pt ; hausse régulière vers le seuil de 20 %.</td></tr>
+<tr><td>v3 refuge (v_20260918_03)</td><td class="num">41,1 % / 35,9 %</td><td>Parts v3 / v4 du volume 30 j de la chaîne (49,25 Md$). Loin des seuils.</td></tr>
+<tr><td>Prêt sans actions (v_20261002_01)</td><td class="num">0,76 %</td><td>4,13 M$ d'actions sur 541,7 M$ de collatéral Morpho.</td></tr>
+<tr><td>Registre : extraction, audits, actions (v_20260918_01, _02, _04)</td><td class="num">72,5 % · 4/1 173 · 13,2 %</td><td>Registre non régénéré depuis 83 h : valeurs inchangées par construction. L'affaire des 53 lancements Pons V2 (18,43 M$, analyste Wazz, presse du 28/09, non recoupé) est un soupçon de retrait de liquidité, pas un exploit de hook.</td></tr>
+<tr><td>Dossier SEC 4-927 (v_20260918_05)</td><td class="num">27 lettres</td><td>Inchangé, dernière lettre datée du 01/10. Aucune bourse, courtier, émetteur ni cabinet.</td></tr>
+<tr><td>Usines de pools, flux actions (v_20260927_01, v_20261004_01)</td><td class="num">—</td><td>Mesures prévues sur la semaine pleine close le 06/10 et sur les jours ouvrés 12-16/10.</td></tr>
+</table>
+
+<h2>La question, et la méthode</h2>
+<p>Depuis dix jours, ce fil lit la chaîne par ses volumes, ses frais et ses transactions. Il a traité le prix du gaz (03/10), pas le prix d'un échange. Or les frais d'Uniswap v3+v4 sur la chaîne passent de 59,5 M$ la semaine du 29/08 à 15,4 M$ celle du 28/09 (−74 %), quand le volume ne perd que 44 % (12,59 → 7,10 Md$, DefiLlama, ventilation Robinhood Chain). Le reste de l'écart est un prix.</p>
+<p><strong>Méthode en une ligne :</strong> le taux de frais (frais ÷ volume, en points de base, 1 pb = 0,01 %) se lit de deux façons indépendantes : la série DefiLlama par protocole et par jour, et un échantillon recompté sur la chaîne. Pour l'échantillon, 12 fenêtres de 100 blocs par jour UTC, deux tirages, sur quatre jours (04/09, 17/09, 01/10, 04/10). Chaque Swap de la PoolManager v4 porte son frais visible ; chaque Swap v3 est rattaché à la v3 officielle par <code>factory.getPool</code>, les copies (forks) sont comptées à part. Le volume est valorisé par la jambe ETH, WETH ou USDG.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<div class="chart">
+<svg viewBox="0 0 640 260" role="img" aria-label="Taux de frais hebdomadaire Uniswap v4 et v3 sur Robinhood Chain" style="width:100%;height:auto">
+<line x1="44" x2="624" y1="220.0" y2="220.0" stroke="var(--line)"/><text x="36" y="224.0" text-anchor="end" font-size="11" fill="var(--ink3)" font-family="var(--mono)">0</text>
+<line x1="44" x2="624" y1="174.7" y2="174.7" stroke="var(--line)"/><text x="36" y="178.7" text-anchor="end" font-size="11" fill="var(--ink3)" font-family="var(--mono)">20</text>
+<line x1="44" x2="624" y1="129.3" y2="129.3" stroke="var(--line)"/><text x="36" y="133.3" text-anchor="end" font-size="11" fill="var(--ink3)" font-family="var(--mono)">40</text>
+<line x1="44" x2="624" y1="84.0" y2="84.0" stroke="var(--line)"/><text x="36" y="88.0" text-anchor="end" font-size="11" fill="var(--ink3)" font-family="var(--mono)">60</text>
+<line x1="44" x2="624" y1="38.7" y2="38.7" stroke="var(--line)"/><text x="36" y="42.7" text-anchor="end" font-size="11" fill="var(--ink3)" font-family="var(--mono)">80</text>
+<text x="108.4" y="238" text-anchor="middle" font-size="11" fill="var(--ink3)" font-family="var(--mono)">03/08</text>
+<text x="237.3" y="238" text-anchor="middle" font-size="11" fill="var(--ink3)" font-family="var(--mono)">17/08</text>
+<text x="366.2" y="238" text-anchor="middle" font-size="11" fill="var(--ink3)" font-family="var(--mono)">31/08</text>
+<text x="495.1" y="238" text-anchor="middle" font-size="11" fill="var(--ink3)" font-family="var(--mono)">14/09</text>
+<text x="624.0" y="238" text-anchor="middle" font-size="11" fill="var(--ink3)" font-family="var(--mono)">28/09</text>
+<polyline points="44.0,90.8 108.4,99.2 172.9,95.6 237.3,136.1 301.8,102.6 366.2,30.5 430.7,111.4 495.1,137.0 559.6,132.3 624.0,137.3" fill="none" stroke="var(--acc)" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="44.0" cy="90.8" r="3" fill="var(--acc)"/>
+<circle cx="108.4" cy="99.2" r="3" fill="var(--acc)"/>
+<circle cx="172.9" cy="95.6" r="3" fill="var(--acc)"/>
+<circle cx="237.3" cy="136.1" r="3" fill="var(--acc)"/>
+<circle cx="301.8" cy="102.6" r="3" fill="var(--acc)"/>
+<circle cx="366.2" cy="30.5" r="3" fill="var(--acc)"/>
+<circle cx="430.7" cy="111.4" r="3" fill="var(--acc)"/>
+<circle cx="495.1" cy="137.0" r="3" fill="var(--acc)"/>
+<circle cx="559.6" cy="132.3" r="3" fill="var(--acc)"/>
+<circle cx="624.0" cy="137.3" r="3" fill="var(--acc)"/>
+<text x="624.0" y="128.3" text-anchor="end" font-size="12" fill="var(--acc)" font-family="var(--mono)">v4 36,5 pb</text>
+<polyline points="44.0,115.7 108.4,121.2 172.9,145.2 237.3,174.0 301.8,159.0 366.2,178.7 430.7,189.2 495.1,195.5 559.6,199.6 624.0,204.4" fill="none" stroke="var(--acc2)" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="44.0" cy="115.7" r="3" fill="var(--acc2)"/>
+<circle cx="108.4" cy="121.2" r="3" fill="var(--acc2)"/>
+<circle cx="172.9" cy="145.2" r="3" fill="var(--acc2)"/>
+<circle cx="237.3" cy="174.0" r="3" fill="var(--acc2)"/>
+<circle cx="301.8" cy="159.0" r="3" fill="var(--acc2)"/>
+<circle cx="366.2" cy="178.7" r="3" fill="var(--acc2)"/>
+<circle cx="430.7" cy="189.2" r="3" fill="var(--acc2)"/>
+<circle cx="495.1" cy="195.5" r="3" fill="var(--acc2)"/>
+<circle cx="559.6" cy="199.6" r="3" fill="var(--acc2)"/>
+<circle cx="624.0" cy="204.4" r="3" fill="var(--acc2)"/>
+<text x="624.0" y="195.4" text-anchor="end" font-size="12" fill="var(--acc2)" font-family="var(--mono)">v3 6,9 pb</text>
+<text x="366.2" y="21.5" text-anchor="middle" font-size="11" fill="var(--ink2)" font-family="var(--mono)">83,6</text>
+<text x="44" y="256" font-size="10.5" fill="var(--ink3)" font-family="var(--mono)">semaine commençant le · points de base (pb) de frais par dollar échangé · DefiLlama, ventilation Robinhood Chain</text>
+</svg>
+</div>
+<p><strong>La v4 a perdu son étage cher.</strong> Le 04/09, 56,2 % du volume v4 valorisé passait par des swaps facturés plus de 1 %. Le 04/10, 7,4 %. Le taux moyen visible tombe de 139,3 à 41,2 pb sur la chaîne (2 758 swaps valorisés le 04/10, 9 384 le 04/09). DefiLlama donne le même sens, à un niveau plus bas : 100,3 pb le 04/09, 33,5 pb le 04/10. L'écart vient sans doute des swaps non valorisables, exclus de l'échantillon. Je le garde tel quel. Ce prix s'est stabilisé à la mi-septembre : 36,6, 38,7, puis 36,5 pb sur les trois dernières semaines. Il est aujourd'hui sous son niveau de juillet (53 à 57 pb).</p>
+<p><strong>La v3 n'a pas fini de baisser.</strong> 46 pb fin juillet, 18,2 pb la semaine du 31/08, 6,9 pb celle du 28/09, et chaque semaine plus bas que la précédente. Sur la chaîne, la part du volume v3 qui passe par des pools à 0,05 % ou moins monte de 73,7 % (04/09) à 94,4 % (01/10) et 89,9 % (04/10). La v3 de Robinhood Chain est devenue moins chère que celle d'Ethereum (environ 10 pb sur la même période). À volume presque égal sur 7 jours (3,55 Md$ en v3, 3,54 Md$ en v4), la v4 encaisse 12,9 M$ et la v3 2,5 M$.</p>
+<p><strong>Décomposition.</strong> Entre la semaine du 29/08 et celle du 28/09, le volume v3+v4 baisse de 43,7 % et le taux moyen de 54,1 % (47,2 → 21,7 pb). En logarithme, 57,6 % de la chute des frais vient du prix, 42,4 % du volume. Au prix du 29/08, le volume de la dernière semaine aurait rapporté 33,5 M$, pas 15,4.</p>
+<p><strong>Conséquence directe sur le rachat d'UNI.</strong> Le revenu que la v3 reverse aux détenteurs d'UNI est un prélèvement sur ses frais. Quand la v3 encaisse trois fois moins par dollar, la chaîne pèse moins dans ce revenu : 59,5 % le 24/09, 49,6 % ce matin.</p>
+
+<h2>Le delta contre la veille</h2>
+<table>
+<tr><th>Mesure (DefiLlama 08:14, RPC)</th><th>04/10</th><th>05/10</th><th>Écart</th></tr>
+<tr><td>TVL de la chaîne</td><td class="num">1 054,4 M$</td><td class="num">1 048,9 M$</td><td class="num">−0,5 %</td></tr>
+<tr><td>TVL Uniswap V4</td><td class="num">180,2 M$</td><td class="num">174,0 M$</td><td class="num">−3,4 %</td></tr>
+<tr><td>Volume 7 j de la chaîne</td><td class="num">9,30 Md$</td><td class="num">9,27 Md$</td><td class="num">−0,3 %</td></tr>
+<tr><td>Frais 30 j de la chaîne (total déclaré)</td><td class="num">307,4 M$</td><td class="num">279,1 M$</td><td class="num">−9,2 %</td></tr>
+<tr><td>Frais 30 j Uniswap V4</td><td class="num">88,4 M$</td><td class="num">76,8 M$</td><td class="num">−13,1 %</td></tr>
+<tr><td>Pools v4 créés sur 7 j glissants</td><td class="num">53 562</td><td class="num">50 574</td><td class="num">−5,6 %</td></tr>
+<tr><td>Transactions estimées, dernier jour plein</td><td class="num">4,78 M (sam.)</td><td class="num">4,91 M (dim.)</td><td class="num">+2,7 %</td></tr>
+</table>
+<p>Le −9,2 % des frais 30 j en un jour est un effet de fenêtre : une journée de début septembre (plus de 20 M$ de frais) sort du calcul, une journée d'octobre (3 à 5 M$) y entre. Aucun adaptateur nouveau ne l'explique : sur les 13 commits DefiLlama des dernières 24 h, un seul touche la chaîne (Bankr, revenu lu sur la chaîne, 2,41 M$ sur 30 j), et ses frais apparaissaient déjà hier. Le total déclaré se recalcule au dollar près (piège P2 re-vérifié : 279 076 266 $ des deux côtés).</p>
+
+<h2>Cohorte</h2>
+<p><strong>Rien n'est sorti, rien n'est entré.</strong> Le seul mouvement de règle avance : <strong>vfat.io domine Longbow pour le 4<sup>e</sup> jour</strong> sur la preuve (score 2 contre 0) et la TVL (3,07 contre 2,38 M$). Si la série tient jusqu'au 08/10, vfat.io prend sa place sans arbitrage. Longbow perd 21,8 % de TVL en un jour (3,04 → 2,38 M$), sa troisième baisse de plus de 15 % en une semaine. Beefy repasse au-dessus de lui (2,90 M$, score 3) : jour 1. Pendle V2 quitte la liste des candidats (TVL 0,88 M$).</p>
+<p><strong>Fables</strong> est le fait du jour côté cohorte. Un hook nommé FablesRamp au registre est le premier hook de l'échantillon v4 du 04/10 par volume valorisé (10,7 %, tirage 2). C'est un rattachement par le nom, pas par une adresse de déploiement : il ne vaut pas preuve. L'alerte d'audit reste ouverte : toujours aucun lien publié. TVL 42,4 M$ (−3,4 %), frais 7 j 1,50 M$ (+1,1 %).</p>
+<p><strong>Ce qui ne bouge pas et devrait inquiéter :</strong> TermMax reste à 11,3 k$ de TVL, critère de sortie au 31/10 en voie d'être atteint. La lignée dYdX d'Arcus n'a toujours aucune source primaire.</p>
+<table>
+<tr><th>Membre</th><th>Score</th><th>Traction (05/10)</th><th>Frais 30 j ÷ Pons V2</th></tr>
+<tr><td>Fables</td><td class="num">1</td><td>TVL 42,4 M$ · frais 30 j 4,50 M$</td><td class="num">0,040</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="num">0</td><td>TVL 111,7 M$ · frais 1,90 M$</td><td class="num">0,017</td></tr>
+<tr><td>up v3</td><td class="num">0</td><td>vol 30 j 1,06 Md$ · frais 1,61 M$</td><td class="num">0,014</td></tr>
+<tr><td>StonkBrokers</td><td class="num">0</td><td>TVL 1,81 M$ · frais 1,62 M$</td><td class="num">0,014</td></tr>
+<tr><td>Snuggle</td><td class="num">2</td><td>TVL 7,00 M$ · frais 1,54 M$</td><td class="num">0,014</td></tr>
+<tr><td>Arcus Perps</td><td class="num">0</td><td>TVL 38,7 M$ · frais 0,83 M$</td><td class="num">0,007</td></tr>
+<tr><td>GIGA V3</td><td class="num">0</td><td>vol 30 j 369 M$ · frais 0,52 M$</td><td class="num">0,005</td></tr>
+<tr><td>Ekubo (STONX)</td><td class="num">2</td><td>STONX : TVL 0,95 M$ · vol 38,2 M$</td><td class="num">0,0004</td></tr>
+<tr><td>Longbow · TermMax</td><td class="num">0 · 3</td><td>TVL 2,38 M$ · 11,3 k$</td><td class="num">0</td></tr>
+</table>
+<p>Contre-référence Pons V2 : 112,1 M$ de frais sur 30 j, 40,2 % du total déclaré, capitalisation 274,8 M$ (DefiLlama ; CoinGecko 279,8 M$), soit 1,42 fois le reversement annualisé aux détenteurs. Tant que Pons garde 40 % des frais, la thèse « la chaîne mûrit vers les actions » reste une thèse. Score de preuve recalculé sur les 225 protocoles de la chaîne : 44 publient un lien d'audit qui répond (58 liens sur 63) ; distribution 0:150, 1:30, 2:32, 3:12, 4:1.</p>
+
+<h2>Ce qui contredit</h2>
+<p><strong>Un prix invisible peut remplacer un prix visible.</strong> Une enquête Bitquery (source tierce), menée sur la chaîne du 4 au 8/09, montre que le plus gros hook v4 affiche un frais nul. Il prélève environ 1 % (médiane) après le swap, par un mécanisme que le champ « frais » n'enregistre pas (non recoupé au dollar). Si le flux avait migré vers ce type de hook, ma baisse de prix serait un artefact de mesure.</p>
+<p>Je l'ai testé. Ce hook est <code>0xe5e7…e044</code>, nommé V2MemeHook au registre (« singleton partagé par les memecoins diplômés d'un launchpad v2 », rattachement à Pons non prouvé). Il portait 19,2 % du volume v4 valorisé le 04/09 et 5,4 % le 04/10. La part de tous les hooks qui prélèvent ainsi (bit afterSwapReturnsDelta) passe de 24,8 % à 11,8 % (tirage 2 seul). <strong>Le prélèvement invisible recule, il ne prend pas le relais.</strong> Les pools à hook, eux, montent de 16,2 % à 61,4 % du volume v4, mais ils facturent désormais à découvert : 11 pb visibles le 04/09, 34 pb le 04/10.</p>
+<p><strong>Deuxième objection : la composition de l'échantillon.</strong> Le 04/09, la moitié des swaps v4 (50,4 %) n'ont pas pu être valorisés (paires sans ETH ni USDG, ou pool absent du recensement). Le 04/10, 7,4 %. L'échantillon de septembre voit donc moins bien les paires entre memecoins. DefiLlama, qui valorise tout, donne pourtant la même baisse. La conclusion tient, son ampleur exacte non.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<div class="unknown"><ul>
+<li>Quelles paires portent la v3 à 0,05 % : des stables (USDe, USDG, la boucle de prêt Morpho du 02/10) ou de l'ETH contre dollar ? Je n'ai pas mesuré pool par pool.</li>
+<li>Le montant réel prélevé par les hooks qui retiennent une part après le swap. Il faudrait comparer, transaction par transaction, ce que le pool donne et ce que l'utilisateur reçoit.</li>
+<li>La v4 ne reverse rien aux détenteurs d'UNI chez DefiLlama (piège P9), alors que la proposition 99 (v2 et v3 sur la chaîne, exécutée le 27/07 selon Tally) renvoie la v4 de la chaîne au vote d'activation v4 de juillet. Je n'ai vérifié ni son exécution ni ce flux sur la chaîne.</li>
+<li>Le registre des hooks n'est pas régénéré depuis 83 h : toutes les mesures de registre sont figées par la source, pas par l'écosystème.</li>
+</ul></div>
+<p>Pièges du mémo re-vérifiés ce jour : <strong>P2</strong> (total déclaré recalculé au dollar), <strong>P8</strong> (11,15 M$ déclarés contre 27,88 M$ de lignes, Pons V1 seul 15,94 M$), <strong>P9</strong> (le revenu v3 aux détenteurs suit des rachats de 2 000 UNI, nonce Firepit relu), <strong>P10</strong> (commits DefiLlama des dernières 24 h listés), <strong>P11</strong> (recensement sur le RPC officiel, fenêtres de 250 000 blocs, témoins de non-régression identiques à l'unité), et la règle de jointure (pools v3 prouvés par la factory, pas par le nom).</p>
+<p>Deux veilles ouvertes : <strong>v_20261005_01</strong> (le prix v4 ne remonte pas : CONFIRMEE si les semaines 05-11, 12-18 et 19-25/10 restent sous 50 pb, REVISEE si l'une dépasse 60 pb) et <strong>v_20261005_02</strong> (le prélèvement invisible reste minoritaire : REVISEE si la part afterSwapReturnsDelta dépasse 25 % un jour mesuré, CONFIRMEE au 05/11 si elle reste sous 20 % avec des pools à hook au-dessus de 50 %).</p>
+</main>
+<footer>Généré le 2026-10-05 vers 10:45 UTC · sources : RPC Robinhood Chain (chainId 4663, rpc.mainnet.chain.robinhood.com et publicnode), DefiLlama, coins.llama.fi, CoinGecko, API Morpho, Uniswap/hooklist, SEC, Federal Register, Tally (proposition 99), presse étiquetée (Bitquery 4-8/09, The Block 18/07, The Coin Republic 28/09) · aucun chiffre repris d'un agent</footer>
+</body>
+</html>

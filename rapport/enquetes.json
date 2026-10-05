@@ -196,6 +196,37 @@
     }
    ],
    "genere": "2026-10-04T12:30:00Z"
+  },
+  {
+   "date": "2026-10-05",
+   "fichier": "2026-10-05-enquete.html",
+   "titre": "Robinhood Chain, 05/10 : la chaîne ne perd pas surtout des échanges, elle perd des échanges chers",
+   "question": "Les frais d'Uniswap sur la chaîne ont fondu de 74 % en un mois, le volume de 44 % seulement. Qu'est-ce qui a disparu : des échanges, ou le prix qu'on payait pour échanger ?",
+   "mesure_neuve": "Taux de frais d'un swap recompté sur la chaîne (Swap v3 prouvés par la factory et Swap v4 de la PoolManager, 96 fenêtres de 100 blocs, 2 tirages, 4 jours) et recoupé avec DefiLlama : la part du volume v4 facturée plus de 1 % passe de 56 % (04/09) à 7 % (04/10), le taux v4 de 139 à 41 pb (DefiLlama 100 → 34) ; la v3 tombe à 6,9 pb par semaine (46 fin juillet), 90 % de son volume dans des pools à 0,05 % ou moins. 58 % de la chute des frais v3+v4 (59,5 → 15,4 M$ par semaine) vient du prix, 42 % du volume. Le prélèvement invisible des hooks (afterSwapReturnsDelta) ne prend pas le relais : 24,8 % → 11,8 % du volume v4.",
+   "chiffre_cle": {
+    "valeur": "56 % → 7 %",
+    "libelle": "du volume Uniswap v4 payait plus de 1 % de frais visibles le 4 septembre ; un mois plus tard, presque plus personne",
+    "population": "swaps v4 valorisés en ETH/WETH/USDG, 12 fenêtres de 100 blocs par jour, 2 tirages : 9 384 swaps le 04/09, 2 758 le 04/10"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v4_take_rate_bps_defillama_7j",
+     "libelle": "Prix d'un swap v4 (frais par dollar échangé, en pb)"
+    },
+    {
+     "champ": "rh_fees_30d_v4",
+     "libelle": "Frais 30 jours Uniswap v4 (ce que les pools encaissent)"
+    },
+    {
+     "champ": "rh_vol_30d_v4",
+     "libelle": "Volume 30 jours Uniswap v4 (les échanges du mois)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 jours de la chaîne (ce qu'elle encaisse)"
+    }
+   ],
+   "genere": "2026-10-05T10:45:00Z"
   }
  ]
 }
