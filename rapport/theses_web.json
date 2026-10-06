@@ -1,10 +1,10 @@
 {
- "genere": "2026-10-05T08:00:00Z",
+ "genere": "2026-10-06T08:00:00Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-10-05",
-   "recoupe": "Au 04/10 la clause fees enchaine deux semaines negatives (-7,2 % puis -5,3 %) ; aucun fait web des 14 derniers jours ne l'explique (aucune relance publique de Lista DEX apres la migration StableSwap v3). Le FDV/capi de 1,85 suppose l'offre maximale de 800 M annoncee avec la destruction de 200 M de LISTA (26/05) ; sur le milliard que compte encore tokenomist.ai il serait d'environ 2,3, au-dessus du seuil de 2,0.",
+   "releve": "2026-10-06",
+   "recoupe": "Au 05/10 la clause fees enchaine deux semaines negatives (-8,9 % puis -8,1 %) ; aucun fait web posterieur au 20/09 ne l'explique. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M apres la destruction de 200 M de LISTA ; sur le milliard que compte encore tokenomist.ai il serait d'environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -38,8 +38,8 @@
    ]
   },
   "Orca": {
-   "releve": "2026-10-05",
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la documentation Orca : 40 % des frais du protocole achetent de l'ORCA verse aux stakers xORCA. Aucun fait web ne contredit la baisse de volume mesuree (-5,4 % sur 7 jours au 04/10).",
+   "releve": "2026-10-06",
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la documentation Orca : 40 % des frais achetent de l'ORCA verse aux stakers xORCA. Aucun fait web ne contredit la baisse de volume mesuree (-9,0 % sur 7 jours au 05/10).",
    "rien": false,
    "faits": [
     {
@@ -73,8 +73,8 @@
    ]
   },
   "Meteora": {
-   "releve": "2026-10-05",
-   "recoupe": "Le zero DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle clos le 21/09), flux que DefiLlama ne compte pas. Aucun resultat du 3e cycle ni nouvelle mise a jour des rachats trouves au 04/10.",
+   "releve": "2026-10-06",
+   "recoupe": "Le zero DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle clos le 21/09), flux que DefiLlama ne compte pas. Aucun resultat du 3e cycle ni mise a jour des rachats (13,7 M$ cumules au T1) trouves au 06/10.",
    "rien": false,
    "faits": [
     {
@@ -117,27 +117,6 @@
      "fait": "Un juge federal de New York rejette definitivement (with prejudice) l'action collective LIBRA/M3M3 : Meteora n'est pas une entite qu'on peut poursuivre telle que la plainte est redigee ; les faits eux-memes n'ont pas ete juges.",
      "touche": "risque",
      "source": "https://solanacompass.com/news/judge-dismisses-libra-and-m3m3-memecoin-class-action-against-meteora-and-ben-chow",
-     "recoupe": true
-    }
-   ]
-  },
-  "Spark": {
-   "releve": "2026-10-05",
-   "recoupe": "Aucun fait web ne contredit la clause TVL. Les rachats de SPK existent hors du calcul de capture : ils sont finances par 10 % du surplus mensuel (SAEP-09), alors que la capture DefiLlama est de 32 % ; les deux chiffres ne mesurent pas la meme chose.",
-   "rien": false,
-   "faits": [
-    {
-     "date": "2026-08-19",
-     "fait": "Plus de 100 M de SPK rachetes avec environ 2 M$ de revenu du protocole depuis mars ; programme cadre par la proposition SAEP-09 (10 % du surplus mensuel pendant un an). Offre totale 10 milliards, environ 1,7 milliard en circulation.",
-     "touche": "capture",
-     "source": "https://www.valuethemarkets.com/cryptocurrency/news/spark-uses-protocol-revenue-to-buy-back-more-than-100-million-spk-tokens",
-     "recoupe": true
-    },
-    {
-     "date": "2026-04-23",
-     "fait": "Premier mois du programme : 26,66 M de SPK rachetes pour 571 957 USDS, soit environ 1 % de l'offre en circulation.",
-     "touche": "capture",
-     "source": "https://www.cryptometer.io/news/spark-token-jumps-as-buyback-program-and-defi-growth-push-spk-higher/",
      "recoupe": true
     }
    ]
