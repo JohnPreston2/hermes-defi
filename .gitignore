@@ -1,2 +1,4 @@
 # sauvegardes de la routine d enquete : jamais publiees (01/10)
 rapport/*.bak*
+# fichier temporaire du releve des planches 3D (planches_feed.py, 06/10)
+planches/*.tmp

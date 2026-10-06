@@ -311,6 +311,7 @@ tr.weak td.k{color:var(--ink2)}
       <a href="#marche">Marché</a>
       <a href="#funding">Funding</a>
       <a href="rapport/" id="navrapport">Rapport du jour</a>
+      <a href="planches/" id="navplanches">Planches 3D</a>
     </nav>
     <button class="tg" id="theme" type="button">Thème</button>
   </div>
@@ -716,6 +717,34 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
 <!-- ══ OUVERTURE ANIMÉE « GLOBE » (2026-09-24). Hors de #app : l'app remplace
      tout le contenu de #app à chaque rendu. Aucun chiffre en dur : tout vient
      de defi.json, reçu du script principal (un seul téléchargement). ══ -->
+<!-- PLANCHES-3D -->
+<!-- Acces aux planches 3D (2026-10-06, decision user). Lien seulement : la page planches/
+     charge son propre moteur et ses propres donnees (planches/planches.json, planches_feed.py). -->
+<style>
+.pl3d{max-width:1280px;margin:20px auto 0;padding:0 20px}
+.pl3d-in{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;padding:14px 18px;border:1px solid var(--line);
+  border-radius:var(--r2);background:linear-gradient(100deg,var(--s1),var(--bg2));color:var(--ink);text-decoration:none}
+.pl3d-in:hover{border-color:var(--line2);text-decoration:none}
+.pl3d-in svg{flex:0 0 auto;color:var(--acc2)}
+.pl3d-t{display:block;font:650 17px/1.2 var(--serif);letter-spacing:-.01em}
+.pl3d-s{display:block;margin-top:3px;font:11.5px var(--mono);color:var(--ink4)}
+.pl3d-l{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.pl3d-l span{font:600 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);
+  border:1px solid var(--line);border-radius:999px;padding:4px 9px}
+.pl3d-go{font:600 12px var(--sans);color:var(--acc2)}
+@media (max-width:640px){.pl3d-l{margin-left:0}}
+</style>
+<div class="pl3d">
+  <a class="pl3d-in" href="planches/">
+    <svg width="46" height="30" viewBox="0 0 46 30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+      <circle cx="13" cy="15" r="11"/><path d="M13 4a11 11 0 0 1 10.5 14.3" stroke-width="3" stroke-linecap="round"/>
+      <rect x="30" y="12" width="5" height="16" rx="1.5"/><rect x="38" y="6" width="5" height="22" rx="1.5"/>
+    </svg>
+    <span><span class="pl3d-t">Planches 3D</span><span class="pl3d-s">Les cinq classements en relief · relevés deux fois par jour</span></span>
+    <span class="pl3d-l"><span>Crypto</span><span>DeFi</span><span>Prêt</span><span>Actifs réels</span><span>Solana</span></span>
+    <span class="pl3d-go">Ouvrir →</span>
+  </a>
+</div>
 <div id="hx">
   <div class="hx-frame">
     <div class="stage" aria-label="Ouverture animée : le fait du jour">
