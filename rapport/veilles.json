@@ -86,6 +86,11 @@
      "date": "2026-10-05",
      "valeur": "registre non regenere depuis le 01/10 21:08 (83 h) : 72,5 % (850/1173) / 25,4 % (298/1173)",
      "note": "Valeur inchangee faute de regeneration. Loin des deux seuils. NON SOLDEE. Mesure voisine du jour : le hook V2MemeHook (afterSwapReturnsDelta) porte 5,4 % du volume v4 valorise le 04/10 contre 19,2 % le 04/09 (echantillon, tirage unique)."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "registre non regenere depuis le 01/10 21:08 (~113 h) : 72,5 % (850/1173) / 25,4 % (298/1173)",
+     "note": "Valeur inchangee faute de regeneration (commit c6ada11a toujours le dernier). Loin des seuils 60 % / 40 %. NON SOLDEE. Lecture indirecte : le hook Doppler (flags 0x2544, afterSwapReturnsDelta present) porte 70,6 % des pools a hook crees le 05/10 : le drapeau 'prelevement' du registre decrit en grande part un lanceur a courbe de bonding, pas forcement un prelevement."
     }
    ],
    "solde": null
@@ -168,6 +173,11 @@
      "date": "2026-10-05",
      "valeur": "4 / 1173 (0,34 %)",
      "note": "Aucun audit ajoute (registre non regenere). Recherche web : l'affaire des 53 lancements Pons V2 (18,43 M$, analyste Wazz, presse du 28/09) est un soupcon de retrait de liquidite coordonne, pas un exploit de hook ; aucun exploit public de hook sur la chaine. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "4 / 1173 (0,34 %)",
+     "note": "Registre non regenere : aucun audit ajoute. Aucun exploit public de hook trouve en recherche web du jour. NON SOLDEE."
     }
    ],
    "solde": null
@@ -250,6 +260,11 @@
      "date": "2026-10-05",
      "valeur": "v3 41,1 % / v4 35,9 % du volume 30j (20,24/17,66/49,25 Md$)",
      "note": "vs 04/10 : v3 -0,8 pt, v4 +0,3 pt. Loin des deux seuils. Nuance du jour : a volume egal sur 7 j (3,56 Md$ v3, 3,54 Md$ v4), la v3 encaisse 6,9 pb et la v4 36,5 pb."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "v3 40,9 % / v4 35,6 % du volume 30j (19,61 / 17,07 / 47,91 Md$)",
+     "note": "vs 05/10 : v3 -0,2 pt, v4 -0,3 pt. Loin des deux seuils (20 % / 10 %). A 7 j : taux v3 6,7 pb, v4 36,9 pb."
     }
    ],
    "solde": null
@@ -332,6 +347,11 @@
      "date": "2026-10-05",
      "valeur": "155 deploiements sur 1173 (13,2 %) ; aucun avis de TSV connu",
      "note": "Week-end 03-04/10 : 118 800 puis 176 500 transactions touchant une action tokenisee (2 tirages), soit 0,36 du niveau des jours ouvres 28/09-02/10. Collateral Morpho en actions 0,76 %. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "registre non regenere : 155 deploiements sur 1173 (13,2 %) ; aucun avis de TSV connu",
+     "note": "Aucune nouvelle de l'ordre 34-106402 cote avis de venue. Mesure des transferts d'actions non refaite ce jour (seuil 12-16/10). Collateral Morpho en actions : 0,79 %. NON SOLDEE."
     }
    ],
    "solde": null
@@ -414,6 +434,11 @@
      "date": "2026-10-05",
      "valeur": "27 lettres (inchange, derniere datee du 01/10) ; seul nouveau document FR 'tokenized' : 2026-20360 (fonds d'intervalle, paru le 05/10, hors dossier)",
      "note": "Aucune bourse, courtier, emetteur ni cabinet. Temoin negatif SEC (dossier 4-999999) en HTTP 404 ce jour : sonde calibree. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "30 lettres au dossier 4-927 (27 le 05/10) ; temoin negatif 4-999999 en HTTP 404 : sonde calibree",
+     "note": "Nouveau : lettre du 02/10 signee par Computershare (President Global Capital Markets ; CEO Issuer Services) = agent de transfert, acteur d'infrastructure titres ; lettre du 05/10 d'un developpeur. Computershare n'est NI une bourse, NI un courtier, NI un emetteur, NI un cabinet d'avocats : seuil de la lettre NON franchi a la lettre ; le PDF n'a pas pu etre lu (tool), contenu non verifie. A trancher par l'user si 'infrastructure titres' vaut seuil. Federal Register : 2026-19388 (22/09) reste le seul document de l'ordre ; 2026-20466 (06/10, regles de garde crypto des fonds) hors dossier. NON SOLDEE."
     }
    ],
    "solde": null
@@ -491,6 +516,11 @@
      "date": "2026-10-05",
      "valeur": "40,2 % (112,11/279,08 M$) sur le total declare",
      "note": "Pons V2 frais 7j -35,8 % s/s ; mcap PONS 274,8 M$ (DefiLlama ; CoinGecko 279,8 M$, 0,411 $, -2,3 % en 24 h). La part monte parce que le denominateur baisse plus vite. Au-dessus des deux seuils."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "39,5 % (101,93/258,20 M$) Pons V2 sur le total declare ; 40,8 % avec V1 (105,27 M$)",
+     "note": "Pons V2 frais 7j -30,3 % s/s ; PONS 0,408 $ (+6,7 % en 24 h, CoinGecko), mcap 277,3 M$ (DefiLlama) / 277,1 M$ (CoinGecko). Au-dessus des deux seuils. NON SOLDEE."
     }
    ],
    "solde": null
@@ -609,6 +639,11 @@
      "date": "2026-10-05",
      "valeur": "post-expiration J+6 : volume journalier moyen 29/09-04/10 1,278 Md$ contre 1,342 Md$ sur 22-28/09 (-4,8 %) ; frais journaliers 4,60 contre 5,52 M$ (-16,6 %) ; volume 7j 9,27 Md$ (-3,9 % s/s), frais 7j 32,55 M$ (-22,7 % s/s)",
      "note": "Fenetre de 14 jours non close (13/10). Dimanche 04/10 : 916 M$ de volume (-3,3 % contre dimanche 27/09). Mesure du jour : la baisse des frais est surtout une baisse du PRIX d'un swap, deja acquise avant le 29/09 (taux v4 36-39 pb depuis la mi-septembre)."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "volume 7j 8,89 Md$ (-5,4 % s/s) ; frais 7j 31,27 M$ (-19,1 % s/s) ; 05/10 (lundi) : volume 1,18 Md$ (+22,8 % sur 24 h), frais 3,54 M$",
+     "note": "Les deux baisses 7j sont sous 20 % pour la premiere fois (frais -22,7 % hier, -19,1 % aujourd'hui) : cote MORTE du seuil, mais a 0,9 pt de la frontiere et la fenetre de 14 jours se ferme le 13/10. Rebond du lundi a ne pas surinterpreter. NON SOLDEE."
     }
    ],
    "solde": null
@@ -666,6 +701,11 @@
      "date": "2026-10-05",
      "valeur": "49,6 % (6,39/12,89 M$, 30 derniers points, 06/09 -> 05/10 partiel) ; nonce Firepit 1252 (+3 rachats, 6 000 UNI)",
      "note": "PREMIER passage sous 50 % (-1,9 pt vs 04/10), baisse continue depuis le 24/09. Le seuil CONFIRMEE se juge a l'echeance (24/11) ; MORTE a 33 %, encore loin. 2e chaine Ethereum 3,11 M$. Lecture : la v3 de la chaine encaisse 6,9 pb par dollar echange, contre 19,9 il y a un mois."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "47,6 % (5,83/12,24 M$, 30 derniers points, 07/09 -> 06/10 partiel) ; nonce Firepit 1257 (+5 rachats, 10 000 UNI)",
+     "note": "-2,0 pts vs 05/10, baisse continue. Seuil MORTE 33 % loin. Firepit : bytecode 3 076 octets, threshold 2 000 UNI relus (sonde calibree). A la bascule : 2e chaine Ethereum 3,13 M$."
     }
    ],
    "solde": null
@@ -718,6 +758,11 @@
      "date": "2026-10-05",
      "valeur": "17,3 % sur 30 j (20 021/115 838 pools a hook, 05/09-04/10) ; 13,2 % hors rafale mmETH ; registre non regenere : 13 des 2 797 hooks apparus depuis le 22/09 y figurent",
      "note": "+0,5 pt vs 04/10 ; sous les 20 % du seuil CONFIRMEE, mais la hausse est reguliere (+0,2 a +0,5 pt par jour)."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "recensement refait du bloc 79 494 001 au 81 708 450 : pools a hook 05/10 = 1 626 sur 5 565 (29,2 %) ; 212 hooks distincts crees ce jour, 16 au registre (7,5 %), 320 pools sur hooks hors registre",
+     "note": "Part 30 j non recalculee ce jour (pas de recensement complet des 30 jours) ; la part de la journee (29,2 %) monte parce que les pools sans hook s'effondrent plus vite que Doppler. Registre non regenere. Aucune rafale d'un seul deployeur hors Doppler visible dans le top 3 des hooks du jour. OUVERTE."
     }
    ],
    "solde": null
@@ -766,6 +811,11 @@
      "date": "2026-10-05",
      "valeur": "semaine 30/09-06/10 en cours : 9 266 + 7 099 + 5 990 + 4 771 + 5 316 = 32 442 en 5 jours ; 05/10 partiel : 1 100 a 08:14 UTC",
      "note": "MORTE exclue. CONFIRMEE exige moins de 2 656 pools sur 05 et 06/10 reunis : au rythme du matin (~3 200 par jour) ce ne sera pas atteint. Semaine glissante 28/09-04/10 : 50 574 (-29,0 % vs 21-27/09). A trancher le 07/10 ; seconde semaine 07-13/10 encore ouverte."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "semaine 30/09-06/10 : 9 266 + 7 099 + 5 990 + 4 771 + 5 316 + 5 565 = 38 007 en 6 jours ; 06/10 partiel : 2 413 a 14:41 UTC (jours glissants 29/09-05/10 : 47 688)",
+     "note": "La semaine 30/09-06/10 ne peut plus passer sous 35 098 (deja 38 007) : ce chemin vers CONFIRMEE est ferme. Reste la semaine 07-13/10. MORTE aussi exclue : elle exige deux semaines au-dessus de 56 157, et la premiere n'y arrivera pas. Fait contraire : 05/10 (5 565) est au-dessus de 04/10 (5 313), et les jours glissants 29/09-05/10 (47 688) restent a -32 % de la reference 19-25/09 (70 196), donc encore loin des -50 %."
     }
    ]
   },
@@ -808,6 +858,11 @@
      "date": "2026-10-05",
      "valeur": "non re-mesure : premiere semaine pleine (30/09-06/10) close le 06/10",
      "note": "echantillon reporte au 07/10."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "non re-mesure : echantillon de 150 transactions reporte au 07/10",
+     "note": "Semaine pleine 30/09-06/10 close seulement a minuit UTC : le test se fait demain."
     }
    ]
   },
@@ -845,6 +900,11 @@
      "date": "2026-10-05",
      "valeur": "04/10 (dimanche) : 4,91 M tx estimees (deux tirages : 4,77 et 5,05 M) ; samedi 03/10 : 4,78 M",
      "note": "Deuxieme jour sous le niveau du seuil CONFIRMEE (5,77 M), mais le seuil porte sur la moyenne 06-12/10. Le week-end pese."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "05/10 (lundi) : 6,57 M tx estimees (deux tirages : 6,50 et 6,64 M) ; 06/10 partiel (00:00-14:41 UTC) extrapole : 5,27 M",
+     "note": "Lundi remonte au-dessus du seuil CONFIRMEE (5,77 M) ; le seuil porte sur la moyenne 06-12/10, journee du 06/10 incomplete. Marge ~10 %. Part des UserOperations a paymaster non mesuree ce jour."
     }
    ]
   },
@@ -877,6 +937,11 @@
      "date": "2026-10-05",
      "valeur": "0,76 % (4,13/541,7 M$) ; stables a rendement 98,8 % ; USDe 65,4 %",
      "note": "+0,08 pt ; sous le seuil CONFIRMEE (2 %)."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "0,79 % (4,30/545,4 M$) ; stables a rendement 98,7 % ; USDe 65,2 % ; 323 marches renvoyes par l'API",
+     "note": "+0,03 pt vs 05/10 ; sous le seuil CONFIRMEE (2 %) ; loin du seuil REVISEE (5 %). Offre 531,8 M$, emprunts 480,1 M$. Le nombre de marches (323) differe du releve d'hier (305) : definition de comptage possiblement differente, a ne pas lire comme +18 marches."
     }
    ]
   },
@@ -904,6 +969,11 @@
      "date": "2026-10-05",
      "valeur": "04/10 : 3,51 micro-ETH/tx (34,5 ETH de base fee sur 9,82 M tx, deux tirages) ; base fee mediane 0,0201 gwei",
      "note": "plus bas de la serie ; sous les 6,8 du seuil CONFIRMEE ; mesure du seuil sur 07-13/10."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "05/10 : 3,45 micro-ETH/tx (3,64 et 3,26 ; 22,6 ETH de base fee sur 6,57 M tx) ; 06/10 partiel : 3,30 ; base fee mediane 0,0201 gwei",
+     "note": "Stable sous le seuil CONFIRMEE (6,8). Recoupement avec la ligne 'Robinhood Chain' de DefiLlama non refait ce jour. Mesure du seuil sur 07-13/10."
     }
    ]
   },
@@ -925,6 +995,11 @@
      "date": "2026-10-05",
      "valeur": "week-end : samedi 03/10 118 800, dimanche 04/10 176 500 tx (2 tirages)",
      "note": "Pas de jour ouvre mesure depuis l'ouverture ; le seuil porte sur 12-16/10."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "non mesure ce jour (echantillon de Transfer d'actions non refait)",
+     "note": "Seuil sur 12-16/10 ; mesure repoussee faute de budget de tirage, a faire un jour ouvre avant le 12/10."
     }
    ]
   },
@@ -946,6 +1021,11 @@
      "date": "2026-10-05",
      "valeur": "0,36 (moyenne 03-04/10 = 147 650 / 414 000) ; samedi 0,29, dimanche 0,43",
      "note": "Sous 0,5, mais le seuil se juge sur les week-ends 10-11/10, 17-18/10 et 24-25/10. Le dimanche remonte : NVDA porte 70 a 77 % de la valeur echangee ce jour-la (2 tirages)."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "non mesure ce jour",
+     "note": "Seuil sur les week-ends 10-11, 17-18 et 24-25/10. Rien a mesurer un mardi."
     }
    ]
   },
@@ -962,6 +1042,11 @@
      "date": "2026-10-05",
      "valeur": "36,5 pb (28/09-04/10) ; 38,7 (21-27/09) ; 36,6 (14-20/09) ; 85,3 (29/08-04/09)",
      "note": "point d'ouverture."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "36,9 pb (somme frais 7j / somme volume 7j v4, ventilation chaine DefiLlama) ; v3 6,7 pb",
+     "note": "vs 36,5 pb hier : stable, sous le seuil 50 pb. Frais v4 7j 12,73 M$ pour 3,45 Md$ de volume."
     }
    ]
   },
@@ -978,6 +1063,28 @@
      "date": "2026-10-05",
      "valeur": "04/10 : hooks 61,4 %, asrd 11,8 %, V2MemeHook 5,4 % ; 01/10 : 57,3 / 16,0 ; 17/09 : 55,7 / 44,6 ; 04/09 : 16,2 / 24,8",
      "note": "point d'ouverture ; asrd sur tirage 22 seul."
+    },
+    {
+     "date": "2026-10-06",
+     "valeur": "non re-mesure (echantillon de swaps non refait). Indice indirect : creations de pools, Doppler (bit asrd) = 1 148 des 1 626 pools a hook du 05/10",
+     "note": "Un seul acteur, Doppler, porte la plupart des pools a hook crees : le bit afterSwapReturnsDelta ne distingue pas un prelevement de frais d'une courbe de bonding. Verdict de la veille inchange, OUVERTE."
+    }
+   ]
+  },
+  {
+   "id": "v_20261006_01",
+   "ouverte": "2026-10-06",
+   "affirmation": "La creation de pools sur la chaine se reduit a un noyau : Doppler (lanceur a courbe de bonding, hook 0x4e3468951d49f2eea976ed0d6e75ffcb44a9a544) cree environ un pool v4 sur cinq et plus des deux tiers des pools a hook, de facon stable, pendant que les autres usines a hook s'eteignent.",
+   "mesure": "Recensement Initialize de la PoolManager v4 0x8366a39cc670b4001a1121b8f6a443a643e40951 (topic0 0xdd466e67...6438) : par semaine UTC pleine, part de Doppler (champ hooks de l'evenement = 0x4e34...a544) dans (a) tous les pools crees, (b) les pools a hook. Reference 04/10 : 19,9 % et 76,7 % (1 056 / 5 313 / 1 377) ; 05/10 : 20,6 % et 70,6 % (1 148 / 5 565 / 1 626). Fenetres de 200 000 blocs a heure fixe (00:00 UTC) : part Doppler dans les pools a hook 51,0 % (04/09), 57,4 % (11/09), 63,3 % (18/09), 74,7 % (25/09), 80,2 % (02/10) ; dans tous les pools 18,7 / 17,6 / 21,9 / 25,5 / 23,0 %.",
+   "seuil": "CONFIRMEE si les semaines 07-13/10 et 14-20/10 gardent Doppler au-dessus de 60 % des pools a hook ET au-dessus de 15 % de tous les pools. REVISEE si la part Doppler dans les pools a hook passe sous 50 % (retour d'une diversite d'usines) ou si son nombre de pools par jour passe sous 500 trois jours de suite.",
+   "echeance": "2026-10-20",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-10-06",
+     "valeur": "05/10 : 1 148 pools Doppler sur 1 626 pools a hook (70,6 %) et 5 565 pools (20,6 %) ; 04/10 : 76,7 % / 19,9 %",
+     "note": "point d'ouverture. Fenetres a heure fixe : un seul tirage par date, variation intra-journaliere forte (fenetre 00:00-05:40 du 05/10 : 14,4 % de tous les pools contre 20,6 % sur la journee). Tendance lue en part des pools a hook, plus stable que la part de tous les pools."
     }
    ]
   }

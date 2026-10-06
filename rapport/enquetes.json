@@ -227,6 +227,37 @@
     }
    ],
    "genere": "2026-10-05T08:40:00Z"
+  },
+  {
+   "date": "2026-10-06",
+   "fichier": "2026-10-06-enquete.html",
+   "titre": "Robinhood Chain, 06/10 : quand les usines à jetons s'éteignent, un seul lanceur tient debout",
+   "question": "La création de pools Uniswap v4 a reculé d'un tiers en une semaine. Qui crée encore des pools sur la chaîne, et lesquels ont disparu ?",
+   "mesure_neuve": "Recensement des pools v4 du 04/10 au 06/10 (13 291 événements Initialize) lus hook par hook : le hook Doppler crée 1 148 des 5 565 pools du 05/10 (20,6 %) et 70,6 % des 1 626 pools à hook, avec une régularité de 1 000 à 1 150 par jour, pendant que la création totale perd un tiers ; sa part dans les pools à hook passe de 51 % (04/09) à 70-80 %. Le registre officiel ne nomme que 16 des 212 hooks créés ce jour, et le drapeau afterSwapReturnsDelta, lu comme prélèvement, décrit surtout ce lanceur.",
+   "chiffre_cle": {
+    "valeur": "71 %",
+    "libelle": "des pools à hook créés le 05/10 viennent d'un seul lanceur de jetons, Doppler",
+    "population": "1 148 pools Doppler sur 1 626 pools à hook, parmi 5 565 pools v4 créés le 05/10 (recensement complet des événements Initialize, blocs 80 345 978 à 81 192 820)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés sur 7 jours (le rythme des lancements)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 jours de la chaîne (ce qu'elle encaisse)"
+    },
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "Volume 30 jours de la chaîne (les échanges du mois)"
+    }
+   ],
+   "genere": "2026-10-06T15:10:00Z"
   }
  ]
 }
