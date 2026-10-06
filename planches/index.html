@@ -19,6 +19,7 @@
   --champ: #dcc9a3;
   --mint: #8ff0d8;
   --amber: #f2b45e;
+  --hz: #a68cff;
   --up: #93d8b1;
   --down: #f2977d;
   --display: 'Didot', 'Bodoni 72', 'Bodoni MT', ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
@@ -113,6 +114,47 @@ h1 em { font-style: italic; color: var(--champ); }
 .veil.gone { opacity: 0; pointer-events: none; }
 .fallback { max-width: 40ch; text-align: center; letter-spacing: .02em; text-transform: none; font: 400 13px/1.5 var(--ui); color: var(--ink2); }
 
+/* lecture Hermes */
+.filrow { margin: 16px 0 0; pointer-events: auto; }
+.filbtn { display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px 9px 11px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--hz) 45%, transparent); background: color-mix(in srgb, var(--hz) 12%, var(--glass)); backdrop-filter: blur(12px); cursor: pointer; font: 500 12px/1 var(--ui); color: var(--ink); }
+.filbtn:hover { background: color-mix(in srgb, var(--hz) 22%, var(--glass)); }
+.filbtn i { width: 8px; height: 8px; border-radius: 50%; background: var(--hz); box-shadow: 0 0 10px var(--hz); }
+.filbtn small { font: 400 11px/1 var(--mono); color: var(--ink2); }
+.fil { position: fixed; z-index: 6; left: var(--gut); top: clamp(76px, 12vh, 120px); bottom: calc(150px + env(safe-area-inset-bottom, 0px)); width: min(390px, calc(100vw - 2 * var(--gut))); display: flex; flex-direction: column; border-radius: 18px; background: var(--glass); border: 1px solid color-mix(in srgb, var(--hz) 30%, var(--line)); backdrop-filter: blur(20px) saturate(1.15); opacity: 0; transform: translate(-16px, 0); pointer-events: none; transition: opacity .35s ease, transform .45s cubic-bezier(.2,.7,.2,1); }
+.fil.on { opacity: 1; transform: none; pointer-events: auto; }
+.fil header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 18px 18px 12px; border-bottom: 1px solid var(--line); }
+.fil h2 { margin: 0; font: 400 26px/1.05 var(--display); }
+.fil h2 em { font-style: italic; color: var(--hz); }
+.fil .sub { grid-column: 1 / -1; margin: 0; font: 400 11px/1.45 var(--mono); color: var(--muted); }
+.tally { grid-column: 1 / -1; display: flex; gap: 14px; margin: 6px 0 0; font: 500 11.5px/1 var(--mono); color: var(--ink2); }
+.tally span { display: inline-flex; align-items: center; gap: 6px; }
+.imp { display: inline-block; width: 9px; height: 9px; border-radius: 2px; flex: 0 0 auto; }
+.imp-f { background: var(--ink); } .imp-d { border: 1.5px solid var(--ink); } .imp-n { height: 2px; background: var(--muted); border-radius: 1px; }
+.fil ol { list-style: none; margin: 0; padding: 6px 8px 10px; overflow: auto; scrollbar-width: thin; }
+.fil li { display: grid; grid-template-columns: minmax(0, 1fr) 28px; gap: 4px 10px; padding: 11px 10px; border-radius: 12px; cursor: default; }
+.fil li:hover, .fil li:focus-within, .fil li.hot { background: color-mix(in srgb, var(--hz) 10%, transparent); }
+.fil li .w { grid-column: 1; display: flex; align-items: center; gap: 7px; font: 500 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink2); }
+.fil li a { grid-column: 1; font: 500 14px/1.35 var(--ui); color: var(--ink); text-decoration: none; text-wrap: pretty; }
+.fil li a:hover { text-decoration: underline; text-decoration-color: var(--hz); text-underline-offset: 3px; }
+.fil li .m { grid-column: 1; font: 400 11px/1.3 var(--mono); color: var(--muted); }
+.fil li img { grid-column: 2; grid-row: 1 / span 3; align-self: center; width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+.fil .note { margin: 0; padding: 10px 18px 16px; font: 400 10.5px/1.45 var(--mono); color: var(--muted); border-top: 1px solid var(--line); }
+.hz { margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid color-mix(in srgb, var(--hz) 35%, var(--line)); }
+.hz h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--hz); }
+.hz h3 i { width: 8px; height: 8px; border-radius: 50%; background: var(--hz); box-shadow: 0 0 8px var(--hz); }
+.hz dl { margin: 0; display: flex; flex-direction: column; gap: 9px; }
+.hz dt { font: 400 10px/1.2 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.hz dd { margin: 3px 0 0; font: 400 12.5px/1.45 var(--ui); color: var(--ink); }
+.hz q { display: block; margin-top: 4px; font: italic 400 12px/1.45 var(--ui); color: var(--ink2); quotes: none; }
+.hz-k { margin: 12px 0 6px; font: 400 10px/1.2 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.hz ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.hz li a { font: 500 12.5px/1.35 var(--ui); color: var(--ink); text-decoration: none; }
+.hz li a:hover { text-decoration: underline; text-decoration-color: var(--hz); text-underline-offset: 3px; }
+.hz li span { display: block; font: 400 10.5px/1.3 var(--mono); color: var(--muted); }
+.hz-src { margin: 12px 0 0; font: 400 10.5px/1.45 var(--mono); color: var(--muted); }
+.hz-src a { color: var(--hz); text-decoration: none; }
+.chip .k i.hzd { display: inline-block; width: 6px; height: 6px; margin-left: 6px; border-radius: 50%; background: var(--hz); vertical-align: 1px; }
+.legend i.hz { width: 10px; height: 10px; border-radius: 50%; background: none; border: 2px solid var(--hz); }
 .up, .down { color: inherit; }
 @media (max-width: 1100px) { .hint { display: none; } }
 @media (max-width: 760px) {
@@ -129,6 +171,9 @@ h1 em { font-style: italic; color: var(--champ); }
   .card { top: auto; bottom: calc(78px + env(safe-area-inset-bottom, 0px)); transform: translate(0, 16px); max-height: 62vh; }
   .card.on { transform: translate(0, 0); }
   .big { font-size: 36px; margin-top: 12px; }
+  .fil { top: auto; bottom: calc(78px + env(safe-area-inset-bottom, 0px)); max-height: 66vh; transform: translate(0, 16px); }
+  .fil.on { transform: none; }
+  .filrow { margin-top: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .card, .head, .tag, .chip { transition: none; } }
 </style>
@@ -147,7 +192,9 @@ h1 em { font-style: italic; color: var(--champ); }
   <p class="eyebrow" id="eyebrow"></p>
   <h1 id="title"></h1>
   <p class="insight" id="insight"></p>
+  <p class="filrow" id="filrow" hidden><button type="button" class="filbtn" id="filbtn" aria-expanded="false" aria-controls="fil"></button></p>
 </section>
+<aside class="fil" id="fil" aria-label="Le fil Hermes"></aside>
 
 <nav class="rail" id="rail" aria-label="Les dix du classement"></nav>
 <div class="tag" id="tag" aria-hidden="true"></div>
@@ -165,6 +212,10 @@ if (!DATA) {
   catch (e) { $('veil').innerHTML = '<p class="fallback">Les données des planches sont indisponibles pour le moment.</p>'; throw e; }
 }
 const LOGOS = /*__LOGOS__*/null || new Proxy({}, { get: (_, k) => typeof k === 'string' ? 'logos/' + k : undefined });
+// Lecture de l'agent Hermes : le fichier du tableau de bord (déjà publié) ; absent = les planches s'en passent.
+const IN_DASH = location.pathname.includes('/planches/');
+let HZRAW = /*__HERMES__*/null;
+if (!HZRAW && IN_DASH) { try { const r = await fetch('../defi.json', { cache: 'no-cache' }); if (r.ok) HZRAW = await r.json(); } catch (e) { console.warn('lecture Hermes indisponible', e); } }
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------------------------------------------------------------- formats */
@@ -286,6 +337,97 @@ const PL = {
 };
 const ORDER = ['crypto', 'defi', 'lending', 'rwa', 'solana'];
 
+/* ---------------------------------------------------------------- lecture Hermes */
+function hermesSubset(d) {
+  if (!d || !d.blocks) return null;
+  const b = d.blocks, V = (b.valuation || {}).v || {}, T = (b.theses || {}).v || {}, W = (b.wakes || {}).v || {};
+  const valo = [];
+  Object.entries(V.sectors || {}).forEach(([sec, rows]) => (rows || []).forEach((r) => valo.push({ name: r.name, sec,
+    pf7: r.fenetres && r.fenetres.pf ? r.fenetres.pf['7j'] : null, rang: r.classement ? r.classement.rang : null,
+    n: r.classement ? r.classement.n_secteur : null, med: r.classement ? r.classement.mediane : null })));
+  return { news: (b.hot_news || {}).v || null, valo, valoAsof: V.fenetres_as_of || V.as_of || null, theses: T.theses || [], dormance: T.dormance_jours, wakes: W.items || [] };
+}
+const HZ = hermesSubset(HZRAW);
+const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const HZ_ALIAS = { rwa: { tether: ['tethergold'], maple: ['maplefinance'], ondo: ['ondofinance'] }, defi: { spark: ['sparklend'] }, lending: { spark: ['sparklend'] } };
+function hzFor(pl, it) {
+  if (!HZ) return null;
+  const k = norm(it.name), keys = new Set([k, ...((HZ_ALIAS[pl] || {})[k] || [])]);
+  const valo = pl === 'crypto' ? null : HZ.valo.find((r) => keys.has(norm(r.name))) || null;
+  const these = pl === 'crypto' ? null : HZ.theses.find((x) => keys.has(norm(x.nom))) || null;
+  const words = [it.name].concat(pl === 'crypto' && it.sym ? [it.sym] : []);
+  const re = new RegExp('(^|[^A-Za-z0-9])(' + words.map(escRe).join('|') + ')(?![A-Za-z0-9])', 'i');
+  const wake = HZ.wakes.find((w) => re.test(w.summary || '')) || null;
+  if (!valo && !these && !wake) return null;
+  return { valo, these, wake, followed: !!valo || !!(these && these.statut !== 'retiree') };
+}
+ORDER.forEach((k) => (DATA[k] || []).forEach((it) => { it._hz = hzFor(k, it); it._hzF = !!(it._hz && it._hz.followed); }));
+const SEC = { lending: 'prêt', dex: 'échanges', perp: 'perpétuels', rwa: 'actifs réels', lst: 'staking liquide' };
+const VERD = { NEW: 'ouverture', CONFIRM: 'confirmation', REVISE: 'révision', RETIRE: 'retrait' };
+const ord = (r) => r === 1 ? '1er' : r + 'e';
+const dayFR = (s) => { if (!s) return '—'; const iso = s.length === 10 ? s + 'T12:00:00Z' : /T/.test(s) ? s : s.replace(' ', 'T') + 'Z'; return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', timeZone: 'Europe/Paris' }); };
+const escA = (s) => esc(s).replace(/"/g, '&quot;');
+const trunc = (s, n) => s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s;
+function theseTxt(x) {
+  const head = x.statut === 'retiree' ? `retirée le ${dayFR(x.dernier)}, après ${x.n} verdicts`
+    : x.statut === 'dormante' ? `en sommeil : dernier verdict le ${dayFR(x.dernier)} (${VERD[x.dernier_verdict] || x.dernier_verdict})`
+    : `en cours depuis le ${dayFR(x.premier)} · ${x.n} verdicts · dernier : ${VERD[x.dernier_verdict] || x.dernier_verdict}, le ${dayFR(x.dernier)}`;
+  return head + (x.kill ? `<q>Condition de sortie, texte de l’agent : « ${esc(x.kill)} »</q>` : '');
+}
+function hzHTML(pl, it) {
+  const h = it._hz, arts = it.articles || [];
+  if (!h && !arts.length) return '';
+  const rows = [];
+  if (h && h.valo && h.valo.pf7 != null) rows.push(['Valorisation', `${nf(h.valo.pf7, 1)}× prix / frais sur 7 jours` + (h.valo.rang ? ` · ${ord(h.valo.rang)} sur ${h.valo.n} en ${SEC[h.valo.sec] || h.valo.sec}` + (h.valo.med != null ? ` (médiane ${nf(h.valo.med, 1)}×)` : '') : '')]);
+  if (h && h.these) rows.push(['Thèse de l’agent', theseTxt(h.these)]);
+  if (h && h.wake) rows.push(['Dernière lecture', `${dayFR(h.wake.ts)}, ${esc(h.wake.label)} : « ${esc(trunc(h.wake.summary || '', 210))} »`]);
+  const al = arts.map((a) => `<li><a href="${escA(a.u)}" target="_blank" rel="noopener">${esc(a.t)}</a><span>${esc(a.s)} · ${dayFR(a.d)}</span></li>`).join('');
+  const src = ['Agent Hermes'];
+  if (h && h.valo && HZ.valoAsof) src.push('valorisation du ' + dayFR(HZ.valoAsof));
+  if (IN_DASH) src.push('<a href="../#valorisation">tableau de bord →</a>');
+  return `<section class="hz"><h3><i></i>Ce qu’en dit Hermes</h3>` + (rows.length ? `<dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>` : '') +
+    (al ? `<p class="hz-k">Articles de sa veille · 14 derniers jours</p><ul>${al}</ul>` : '') + `<p class="hz-src">${src.join(' · ')}</p></section>`;
+}
+
+/* ---------------------------------------------------------------- le fil Hermes (planche Crypto) */
+const IMPACT = { 'value-accretive': ['favorable', 'f'], adverse: ['défavorable', 'd'], neutral: ['neutre', 'n'] };
+const SECN = { macro: 'macro', dex: 'échanges', stablecoin: 'stablecoins', rwa: 'actifs réels', lending: 'prêt', perp: 'perpétuels', lst: 'staking liquide', governance: 'régulation' };
+const COIN_RE = [['bitcoin', /\b[Bb]itcoin\b|\bBTC\b/], ['ethereum', /\b[Ee]ther(eum)?\b|\bETH\b/], ['tether', /\b[Tt]ether\b|\bUSDT\b/], ['binancecoin', /\bBNB\b|\b[Bb]inance\b/],
+  ['ripple', /\bXRP\b|\b[Rr]ipple\b/], ['usd-coin', /\bUSDC\b|\bCircle\b/], ['solana', /\b[Ss]olana\b|\bSOL\b/], ['tron', /\b[Tt]ron\b|\bTRX\b/], ['figure-heloc', /\bFigure\b/], ['zcash', /\b[Zz]cash\b|\bZEC\b/]];
+function coinOf(h) {
+  let best = -1, pos = 1e9;
+  COIN_RE.forEach(([id, re]) => { const m = h.match(re); if (m && m.index < pos) { const i = C.findIndex((c) => c.id === id); if (i >= 0) { pos = m.index; best = i; } } });
+  return best;
+}
+const NEWS = HZ && HZ.news && Array.isArray(HZ.news.news) ? HZ.news : null;
+function renderFil() {
+  const fil = $('fil'), btn = $('filbtn'), row = $('filrow');
+  const on = state.pl === 'crypto' && !!NEWS;
+  row.hidden = !on; if (!on) { closeFil(); return; }
+  const items = NEWS.news, ts = NEWS.ts, age = (Date.now() - Date.parse(ts)) / 36e5;
+  const hhmm = new Date(ts).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris' }).replace(':', ' h ');
+  btn.innerHTML = `<i></i>Le fil Hermes <small>${items.length} actualités · ${hhmm}</small>`;
+  const tl = NEWS.tally || {};
+  const tally = Object.entries(IMPACT).filter(([k]) => tl[k]).map(([k, [w, c]]) => `<span><i class="imp imp-${c}"></i>${tl[k]} ${w}${tl[k] > 1 && c !== 'n' ? 's' : ''}</span>`).join('');
+  fil.innerHTML = `<header><h2>Le fil <em>Hermes</em></h2><button type="button" class="close" id="filclose" aria-label="Fermer le fil">×</button>
+      <p class="sub">Actualités classées par l’agent (${esc(NEWS.model || 'GLM')}) · passage du ${dayFR(ts)} à ${hhmm}${age > 18 ? ` · <span class="stale">ancien de ${Math.round(age)} heures</span>` : ''}</p>
+      <p class="tally">${tally}</p></header>
+    <ol>${items.map((x) => { const [w, c] = IMPACT[x.impact] || [x.impact || '—', 'n']; const ci = coinOf(x.headline || ''); const s = SECN[x.sector] || (x.sector && x.sector !== 'none' ? x.sector : '');
+      return `<li data-c="${ci}"><span class="w"><i class="imp imp-${c}"></i>${esc(w)}</span><a href="${escA(x.url)}" target="_blank" rel="noopener">${esc(x.headline)}</a><span class="m">${esc(x.source || '')}${s ? ' · ' + esc(s) : ''}</span>${ci >= 0 ? `<img src="${LOGOS[C[ci].logo]}" alt="${esc(C[ci].sym)}">` : ''}</li>`; }).join('')}</ol>
+    <p class="note">Le classement juge l’effet probable sur la valeur des protocoles, pas sur un cours. Survoler une actualité éclaire la pièce dont elle parle.</p>`;
+  $('filclose').addEventListener('click', closeFil);
+  fil.querySelectorAll('li').forEach((li) => {
+    const ci = +li.dataset.c;
+    const on = () => { li.classList.add('hot'); if (ci >= 0) setHover(ci); }, off = () => { li.classList.remove('hot'); setHover(-1); };
+    li.addEventListener('pointerenter', on); li.addEventListener('pointerleave', off);
+    li.addEventListener('focusin', on); li.addEventListener('focusout', off);
+  });
+}
+function openFil() { $('fil').classList.add('on'); $('filbtn').setAttribute('aria-expanded', 'true'); $('head').classList.add('hide'); }
+function closeFil() { $('fil').classList.remove('on'); $('filbtn').setAttribute('aria-expanded', 'false'); if (state.sel < 0) $('head').classList.remove('hide'); }
+$('filbtn').addEventListener('click', () => ($('fil').classList.contains('on') ? closeFil() : openFil()));
+
 /* ---------------------------------------------------------------- interface */
 const hash = location.hash.slice(1);
 const state = { pl: ORDER.includes(hash) ? hash : 'crypto', sel: -1, hover: -1 };
@@ -302,7 +444,8 @@ function renderHead() {
     $('eyebrow').textContent = p.eyebrow; $('title').innerHTML = p.title; $('insight').textContent = p.insight;
     const age = (Date.now() - Date.parse(p.asof)) / 864e5, lim = state.pl === 'rwa' ? 7 : 1.5;
     const old = age > lim ? ` · relevé ancien de ${age < 2 ? Math.round(age * 24) + ' heures' : Math.floor(age) + ' jours'}` : '';
-    $('legend').innerHTML = p.legend; $('foot').innerHTML = esc(p.foot) + (old ? `<span class="stale">${old}</span>` : '');
+    const hzl = p.items.some((it) => it._hzF) ? '<span><i class="hz"></i>bague violette : suivi par l’agent Hermes</span>' : '';
+    $('legend').innerHTML = p.legend + hzl; $('foot').innerHTML = esc(p.foot) + (old ? `<span class="stale">${old}</span>` : '');
     $('asof').innerHTML = 'Relevé du ' + esc(when(p.asof)) + (old ? `<span class="stale">${old}</span>` : '');
     head.classList.remove('out');
   }, REDUCED ? 0 : 260);
@@ -318,7 +461,7 @@ function renderRail() {
     b.type = 'button'; b.className = 'chip'; b.dataset.i = i;
     b.setAttribute('aria-pressed', 'false');
     b.setAttribute('aria-label', `${two(it.rank)}, ${it.name}, ${p.value(it)}`);
-    b.innerHTML = `<img src="${LOGOS[it.logo]}" alt=""><span class="k">${two(it.rank)} · ${esc(p.label(it))}</span><span class="v">${p.value(it)}</span>`;
+    b.innerHTML = `<img src="${LOGOS[it.logo]}" alt=""><span class="k">${two(it.rank)} · ${esc(p.label(it))}${it._hzF ? '<i class="hzd" title="suivi par l’agent Hermes"></i>' : ''}</span><span class="v">${p.value(it)}</span>`;
     b.addEventListener('click', () => select(state.sel === i ? -1 : i));
     b.addEventListener('pointerenter', () => setHover(i));
     b.addEventListener('pointerleave', () => setHover(-1));
@@ -332,7 +475,7 @@ function renderCard() {
   const card = $('card'), i = state.sel;
   if (i < 0) { card.classList.remove('on'); return; }
   const p = PL[state.pl], it = p.items[i];
-  card.innerHTML = `<header><img src="${LOGOS[it.logo]}" alt=""><div><h2>${esc(it.name)}</h2><p class="kind">${two(it.rank)} · ${esc(p.kind(it))}</p></div><button type="button" class="close" aria-label="Fermer la fiche">×</button></header>${p.card(it)}`;
+  card.innerHTML = `<header><img src="${LOGOS[it.logo]}" alt=""><div><h2>${esc(it.name)}</h2><p class="kind">${two(it.rank)} · ${esc(p.kind(it))}</p></div><button type="button" class="close" aria-label="Fermer la fiche">×</button></header>${p.card(it)}${hzHTML(state.pl, it)}`;
   card.querySelector('.close').addEventListener('click', () => select(-1));
   card.scrollTop = 0; card.classList.add('on');
 }
@@ -348,14 +491,15 @@ function syncRail() {
 function setHover(i) { if (state.hover === i) return; state.hover = i; syncRail(); }
 function select(i) {
   state.sel = i; renderCard(); syncRail();
-  $('head').classList.toggle('hide', i >= 0);
+  if (i >= 0 && innerWidth < 760) closeFil();
+  $('head').classList.toggle('hide', i >= 0 || $('fil').classList.contains('on'));
   if (i >= 0) { const b = $('rail').children[i]; b && b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); }
 }
 function setPlanche(pl) {
   if (pl === state.pl) return;
   state.pl = pl; state.sel = -1; state.hover = -1; $('head').classList.remove('hide');
   try { history.replaceState(null, '', '#' + pl); } catch (e) { /* adresse figée */ }
-  renderHead(); renderRail(); renderCard(); syncRail();
+  renderHead(); renderRail(); renderCard(); syncRail(); renderFil();
   if (ui.onSwitch) ui.onSwitch(pl);
 }
 addEventListener('keydown', (e) => {
@@ -364,7 +508,7 @@ addEventListener('keydown', (e) => {
   else if (e.key === 'ArrowLeft') { select(state.sel <= 0 ? n - 1 : state.sel - 1); e.preventDefault(); }
   else if (e.key === 'Escape') select(-1);
 });
-renderHead(); renderRail(); syncRail();
+renderHead(); renderRail(); syncRail(); renderFil();
 
 const ui = window.__ui = { DATA, LOGOS, REDUCED, PL, ORDER, state, select, setHover, setPlanche, two, esc, onSwitch: null, ready: false };
 dispatchEvent(new Event('ui:ready'));
@@ -591,6 +735,7 @@ async function start3D() {
   await Promise.all(keys.map(async (k) => { imgs[k] = await loadImg(LOGOS[k]).catch(() => { console.warn('logo absent', k); return blank; }); }));
 
   const metalBase = new THREE.MeshPhysicalMaterial({ color: 0xd8d0c0, metalness: 1, roughness: .26, anisotropy: .55, clearcoat: .35, clearcoatRoughness: .2 });
+  const hzMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xa68cff).multiplyScalar(1.3) });
   function makeCoin(item, R, thick) {
     const { g, faceR, faceZ } = coinGeometry(R, thick);
     const metal = metalBase.clone();
@@ -603,6 +748,7 @@ async function start3D() {
     const f1 = new THREE.Mesh(fg, face); f1.position.z = faceZ + lift; grp.add(f1);
     const f2 = new THREE.Mesh(fg, face); f2.rotation.y = Math.PI; f2.position.z = -faceZ - lift; grp.add(f2);
     grp.userData.mats = { metal, face };
+    if (item._hzF) grp.add(new THREE.Mesh(new THREE.TorusGeometry(R * 1.2, Math.max(.009, R * .04), 12, 128), hzMat));
     return grp;
   }
   /* médaille flottante au-dessus d'un objet : arrive après lui, puis flotte */
