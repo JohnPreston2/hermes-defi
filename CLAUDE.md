@@ -19,7 +19,7 @@ Un serveur de recherche (l'agent Hermes, hors d'atteinte depuis le cloud) produi
 toutes les 2 heures (à :53 UTC les heures paires). Avant chaque publication, il récupère ce qui a été fusionné sur GitHub.
 
 **Fichiers produits par le serveur — ne jamais les modifier :**
-- `defi.json` (les 15 blocs de données du tableau de bord) et `une.json`
+- `defi.json` (les blocs de données du tableau de bord) et `une.json`
 - `planches/planches.json` et `planches/logos/`
 - tout le dossier `rapport/` (rapports quotidiens, enquêtes, séries, veille des thèses)
 
@@ -27,6 +27,9 @@ toutes les 2 heures (à :53 UTC les heures paires). Avant chaque publication, il
 - `index.html` : la page d'accueil, écrite à la main (aucun script ne la régénère).
 - `planches/_src/top10.html` : la source des planches 3D. Après modification, lance
   `python3 planches/_src/build.py` : il régénère `planches/index.html`. **N'édite jamais `planches/index.html` à la main.**
+  Cette source garde volontairement les liens externes de sa version d'origine (polices web, three.js sur un CDN) :
+  `build.py` les remplace par les fichiers du site et refuse de produire une page qui en contiendrait encore.
+  Ne les retire pas de la source.
 - Un nouveau fichier ou dossier pour une nouvelle page, si l'ajout le justifie.
 
 ## Les règles du site (elles s'appliquent à tout ajout)
@@ -44,12 +47,24 @@ toutes les 2 heures (à :53 UTC les heures paires). Avant chaque publication, il
 - **Lisible partout** : thème clair et sombre (jetons de couleur dans `:root`), téléphone 375 px sans défilement
   horizontal, `prefers-reduced-motion` respecté, aucun texte visible sous 10,5 px.
 
+**Deux exceptions existent déjà ; ce ne sont pas des défauts à corriger :**
+- L'accueil contient des étiquettes de 9 à 10 px (19 réglages dans `index.html`). Ne les retouche pas sans demande ;
+  la limite de 10,5 px vaut pour ce que tu ajoutes.
+- La page des planches 3D est sombre seulement, par choix (un studio noir). Un ajout sur cette page suit son thème sombre.
+
 ## Livrer
 
 1. Une branche, une demande de fusion petite et ciblée. Jamais de push direct sur `main`, jamais de `--force`.
 2. Vérifie avant de livrer : sers le dépôt en local (`python3 -m http.server 8000` à la racine), ouvre
    `http://localhost:8000/` et `http://localhost:8000/planches/`, contrôle la console (zéro erreur) et le téléphone.
 3. Dans la description : ce qui change à l'écran, ce qui n'a pas changé, comment c'est vérifié, comment le retirer.
+
+**Vérifier dans un navigateur depuis le cloud.** Installe Playwright et Chromium :
+`pip install playwright` puis `python3 -m playwright install --with-deps chromium`.
+Les planches 3D ont besoin de WebGL : lance Chromium avec `--use-angle=swiftshader --enable-unsafe-swiftshader`,
+charge la page avec `wait_until="commit"` (la boucle d'animation empêche l'évènement `load` d'arriver à temps),
+et n'ouvre qu'une page 3D à la fois. Si l'installation échoue, arrête-toi et dis-le :
+n'annonce jamais une vérification que tu n'as pas pu faire.
 
 Après la fusion, GitHub Pages met environ une minute ; le serveur récupère la fusion à sa publication suivante.
 Pour revenir en arrière : une nouvelle demande de fusion qui annule la précédente (`git revert`).

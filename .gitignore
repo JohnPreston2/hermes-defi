@@ -2,3 +2,6 @@
 rapport/*.bak*
 # fichier temporaire du releve des planches 3D (planches_feed.py, 06/10)
 planches/*.tmp
+# toute sauvegarde, a la racine comme dans les dossiers : jamais publiee (06/10)
+*.bak*
+*_bak
