@@ -255,6 +255,7 @@ const byYield = Df.filter((p) => p.fees30 != null).sort((a, b) => yieldOf(b) - y
 const hiY = byYield[0], loY = byYield[byYield.length - 1];
 const dep10 = sum(Ln, (p) => p.deposits), bor10 = sum(Ln, (p) => p.borrowed);
 const byUtil = Ln.filter((p) => p.util != null).sort((a, b) => b.util - a.util), hiU = byUtil[0], loU = byUtil[byUtil.length - 1];
+const RM = DATA.rwaMeta && DATA.rwaMeta.mode === 'chaine' ? DATA.rwaMeta : null;   // actifs reels lus sur les blockchains (07/10)
 const rwa10 = sum(Rw, (p) => p.tvl), gold = Rw.filter((p) => p.metal === 'or'), goldV = sum(gold, (p) => p.tvl);
 const byDefi = [...Rw].sort((a, b) => b.defi / b.tvl - a.defi / a.tvl), topDefi = byDefi[0];
 const sol10 = sum(So, (p) => p.tvl);
@@ -322,16 +323,23 @@ const PL = {
     },
   },
   rwa: {
-    tab: 'Actifs réels', items: Rw, asof: DATA.asof.rwa, eyebrow: 'Top 10 actifs réels · encours actif',
-    title: `<em>${nf(rwa10 / 1e9, 1)}${NB}Md$</em> d’actifs réels sur dix plateformes.`,
-    insight: `L’or en pèse ${usd(goldV)}, chez ${gold.map((p) => p.name).join(' et ')}. ${topDefi.name} fait travailler ${share(topDefi.defi / topDefi.tvl)} de ses actifs dans la DeFi.`,
+    tab: 'Actifs réels', items: Rw, asof: DATA.asof.rwa, eyebrow: RM ? 'Top 10 actifs réels · valeur sur la chaîne' : 'Top 10 actifs réels · encours actif',
+    title: RM ? `<em>${nf(rwa10 / 1e9, 1)}${NB}Md$</em> d’actifs réels lus sur les blockchains, dix plateformes.` : `<em>${nf(rwa10 / 1e9, 1)}${NB}Md$</em> d’actifs réels sur dix plateformes.`,
+    insight: `L’or en pèse ${usd(goldV)}, chez ${gold.map((p) => p.name).join(' et ')}. ${topDefi.name} fait travailler ${share(topDefi.defi / topDefi.tvl)} de ses actifs dans la DeFi${RM ? ' (relevé DefiLlama de référence)' : ''}.`,
     legend: '<span><i class="sq or"></i>or</span><span><i class="sq argent"></i>fonds monétaires et obligations</span><span><i class="sq cuivre"></i>crédit privé</span><span>un lingot : 200' + NB + 'M$</span><span><i class="sq mint"></i>lingots éclairés : part dans la DeFi</span>',
-    foot: `DefiLlama, tableau RWA · ${when(DATA.asof.rwa)} · hors stablecoins, jetons de gouvernance et contrats perpétuels`,
+    foot: RM ? `Lecture directe de ${RM.chaines_lues.length} blockchains · ${when(DATA.asof.rwa)} · fonds principaux de chaque plateforme, ${share(RM.couverture)} de leur valeur sur la chaîne selon DefiLlama (relevé du ${when(RM.ref_asof)})${RM.manquants.length ? ` · ${RM.manquants.length} lectures manquantes` : ''}`
+      : `DefiLlama, tableau RWA · ${when(DATA.asof.rwa)} · hors stablecoins, jetons de gouvernance et contrats perpétuels`,
     value: (p) => usd(p.tvl), label: (p) => p.name, kind: (p) => p.cat,
-    card: (it) => `<p class="big">${usd(it.tvl)}</p><p class="bigsub">d’actifs actifs · ${it.n} jeton${it.n > 1 ? 's' : ''} · ${it.chains} chaîne${it.chains > 1 ? 's' : ''}</p>` +
-      facts([['7 jours', pct(it.ch7), cls(it.ch7)], ['30 jours', pct(it.ch30), cls(it.ch30)], ['Dans la DeFi', usd(it.defi)], ['Part DeFi', share(it.defi / it.tvl, 1)],
-        ['Encours total', usd(it.onchain)], ['Classe', esc(it.cat)]]) +
-      `<ul class="assets">${it.assets.map((a) => `<li><span><b>${esc(a.ticker)}</b> ${esc(a.name)}</span><em>${usd(a.v)}</em></li>`).join('')}</ul>`,
+    card: (it) => RM
+      ? `<p class="big">${usd(it.tvl)}</p><p class="bigsub">sur la chaîne · ${it.n} fonds lu${it.n > 1 ? 's' : ''} · ${it.chains} chaîne${it.chains > 1 ? 's' : ''}</p>` +
+        facts([['7 jours', pct(it.ch7), cls(it.ch7)], ['30 jours', pct(it.ch30), cls(it.ch30)], ['Dans la DeFi *', it.defi != null ? usd(it.defi) : '—'], ['Part DeFi *', it.defi != null ? share(it.defi / it.tvl, 1) : '—'],
+          ['Couverture', share(it.cov)], ['Classe', esc(it.cat)]]) +
+        `<ul class="assets">${it.assets.map((a) => `<li><span><b>${esc(a.ticker)}</b> ${esc(a.name)}</span><em>${usd(a.v)}</em></li>`).join('')}</ul>` +
+        `<p class="members">Parts lues sur les blockchains, multipliées par un prix : or et euro lus sur la chaîne, autres prix CoinGecko ou relevé de référence. Couverture : part de la valeur de la plateforme sur la chaîne selon DefiLlama. Variations : calculées sur nos relevés horaires, affichées après 7 et 30 jours. * relevé DefiLlama de référence.</p>`
+      : `<p class="big">${usd(it.tvl)}</p><p class="bigsub">d’actifs actifs · ${it.n} jeton${it.n > 1 ? 's' : ''} · ${it.chains} chaîne${it.chains > 1 ? 's' : ''}</p>` +
+        facts([['7 jours', pct(it.ch7), cls(it.ch7)], ['30 jours', pct(it.ch30), cls(it.ch30)], ['Dans la DeFi', usd(it.defi)], ['Part DeFi', share(it.defi / it.tvl, 1)],
+          ['Encours total', usd(it.onchain)], ['Classe', esc(it.cat)]]) +
+        `<ul class="assets">${it.assets.map((a) => `<li><span><b>${esc(a.ticker)}</b> ${esc(a.name)}</span><em>${usd(a.v)}</em></li>`).join('')}</ul>`,
   },
   solana: {
     tab: 'Solana', items: So, asof: DATA.asof.solana, eyebrow: 'Top 10 DeFi · Solana',
@@ -491,7 +499,7 @@ function renderHead() {
   head.classList.add('out');
   setTimeout(() => {
     $('eyebrow').textContent = p.eyebrow; $('title').innerHTML = p.title; $('insight').textContent = p.insight;
-    const age = (Date.now() - Date.parse(p.asof)) / 864e5, lim = state.pl === 'rwa' ? 7 : 3 / 24;   // releve horaire depuis le 07/10 : signale apres 3 h ; actifs reels = releve manuel, 7 j
+    const age = (Date.now() - Date.parse(p.asof)) / 864e5, lim = state.pl === 'rwa' && !RM ? 7 : 3 / 24;   // releve horaire depuis le 07/10 : signale apres 3 h (actifs reels aussi quand ils sont lus sur la chaine)
     const old = age > lim ? ` · relevé ancien de ${age < 2 ? Math.round(age * 24) + ' heures' : Math.floor(age) + ' jours'}` : '';
     const hzl = p.items.some((it) => it._hzF) ? '<span><i class="hz"></i>bague violette : suivi par l’agent Hermes</span>' : '';
     $('legend').innerHTML = p.legend + hzl; $('foot').innerHTML = esc(p.foot) + (old ? `<span class="stale">${old}</span>` : '');
