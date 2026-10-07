@@ -258,6 +258,37 @@
     }
    ],
    "genere": "2026-10-06T15:10:00Z"
+  },
+  {
+   "date": "2026-10-07",
+   "fichier": "2026-10-07-enquete.html",
+   "titre": "Robinhood Chain, 07/10 : les usines à pools n'ont pas quitté la chaîne",
+   "question": "Une semaine pleine après la fin du gaz gratuit : qui crée encore des pools Uniswap v4 sans hook, et l'indice qui disait que les créateurs récurrents partaient mesurait-il ce qu'il prétendait ?",
+   "mesure_neuve": "Les 43 493 pools v4 créés du 30/09 au 06/10 recensés, et l'émetteur des 40 482 transactions de création lu une par une : 71,0 % des 28 639 pools sans hook viennent d'émetteurs qui en créent au moins deux, 48,4 % d'émetteurs qui en créent au moins dix ; 8 103 (28,3 %) sont réglés à un frais de swap d'au moins 50 %. L'indice à 150 tirages (27,3 %) mesurait la concentration du sommet, pas la récurrence : la veille du 27/09 est révisée.",
+   "chiffre_cle": {
+    "valeur": "71 %",
+    "libelle": "des pools sans hook de la semaine viennent d'émetteurs qui en créent plusieurs",
+    "population": "20 324 pools sur 28 639 pools v4 sans hook créés du 30/09 au 06/10 (10 350 émetteurs, toutes les transactions de création lues)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés sur 7 jours (le rythme des lancements)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 jours de la chaîne (ce qu'elle encaisse)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "Volume 30 jours (les échanges réalisés)"
+    }
+   ],
+   "genere": "2026-10-07T17:30:00Z"
   }
  ]
 }
