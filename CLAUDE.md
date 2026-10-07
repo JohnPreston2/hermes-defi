@@ -16,7 +16,8 @@ Une session ici AJOUTE de la valeur au tableau de bord. Elle ne remplace pas ce 
 ## Qui écrit quoi
 
 Un serveur de recherche (l'agent Hermes, hors d'atteinte depuis le cloud) produit les données et publie dans ce dépôt
-toutes les 2 heures (à :53 UTC les heures paires). Avant chaque publication, il récupère ce qui a été fusionné sur GitHub.
+toutes les 2 heures (à :53 UTC les heures paires). Les chiffres des planches (`planches/planches.json`) sont relevés
+chaque heure et publiés aussi à :53 les heures impaires. Avant chaque publication, il récupère ce qui a été fusionné sur GitHub.
 
 **Fichiers produits par le serveur — ne jamais les modifier :**
 - `defi.json` (les blocs de données du tableau de bord) et `une.json`

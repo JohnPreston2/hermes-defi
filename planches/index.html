@@ -490,7 +490,7 @@ function renderHead() {
   head.classList.add('out');
   setTimeout(() => {
     $('eyebrow').textContent = p.eyebrow; $('title').innerHTML = p.title; $('insight').textContent = p.insight;
-    const age = (Date.now() - Date.parse(p.asof)) / 864e5, lim = state.pl === 'rwa' ? 7 : 1.5;
+    const age = (Date.now() - Date.parse(p.asof)) / 864e5, lim = state.pl === 'rwa' ? 7 : 3 / 24;   // releve horaire depuis le 07/10 : signale apres 3 h ; actifs reels = releve manuel, 7 j
     const old = age > lim ? ` · relevé ancien de ${age < 2 ? Math.round(age * 24) + ' heures' : Math.floor(age) + ' jours'}` : '';
     const hzl = p.items.some((it) => it._hzF) ? '<span><i class="hz"></i>bague violette : suivi par l’agent Hermes</span>' : '';
     $('legend').innerHTML = p.legend + hzl; $('foot').innerHTML = esc(p.foot) + (old ? `<span class="stale">${old}</span>` : '');
