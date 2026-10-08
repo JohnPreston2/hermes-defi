@@ -167,7 +167,8 @@ h1 em { font-style: italic; color: var(--champ); }
 .hz-src { margin: 12px 0 0; font: 400 10.5px/1.45 var(--mono); color: var(--muted); }
 .hz-src a { color: var(--hz); text-decoration: none; }
 .chip .k i.hzd { display: inline-block; width: 6px; height: 6px; margin-left: 6px; border-radius: 50%; background: var(--hz); vertical-align: 1px; }
-.legend i.hz { width: 10px; height: 10px; border-radius: 50%; background: none; border: 2px solid var(--hz); }
+.legend i.hz { flex: none; box-sizing: border-box; margin: 0; padding: 0; width: 10px; height: 10px; border-radius: 50%; background: none; border: 2px solid var(--hz); }
+.foot { transition: opacity .45s ease; } .foot.hide { opacity: 0; }
 @media (max-width: 1100px) { .hint { display: none; } }
 @media (max-width: 760px) {
   .brand { display: none; }
@@ -190,6 +191,7 @@ h1 em { font-style: italic; color: var(--champ); }
 .switch .sep { flex: 0 0 auto; align-self: center; margin: 0 4px 0 10px; font: 500 10.5px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--hz); }
 .switch button.h::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--hz); margin-right: 7px; vertical-align: 1px; }
 .rail.many { justify-content: flex-start; }
+.rail { justify-content: flex-start; } .rail > .chip:first-child { margin-inline-start: auto; } .rail > .chip:last-child { margin-inline-end: auto; }
 @media (prefers-reduced-motion: reduce) { .card, .head, .tag, .chip { transition: none; } }
 </style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
@@ -538,8 +540,8 @@ if (VB && VB.sectors) {
     eyebrow: 'Recherche Hermes · valorisation',
     title: `Le prix des <em>frais</em> : ${items.length} protocoles, cinq secteurs.`,
     insight: `Médianes du multiple prix / frais sur 7 jours : ${SECO.filter((s) => MED[s] != null).map((s) => SECL[s].toLowerCase() + ' ' + xf(MED[s])).join(', ')}. Les extrêmes vont de ${xf(low.pf7)} (${low.name}) à ${xf(top.pf7)} (${top.name}). ${ncap} protocoles sur ${items.length} reversent une part de leurs revenus aux détenteurs.`,
-    legend: '<span><i class="sq mint"></i>cœur teinté : une part des revenus revient aux détenteurs</span><span><i class="disc"></i>anneau : multiple sur 1 an</span><span>plan lumineux : médiane du secteur</span><span>hauteur : échelle logarithmique</span>',
-    foot: `Agent Hermes, tableau de valorisation · ${when(VB.as_of)} · multiple = capitalisation / frais annualisés de la fenêtre ; rang et médiane : classement de l’agent`,
+    legend: '<span><i class="sq mint"></i>cœur teinté : revenus reversés aux détenteurs</span><span><i class="disc"></i>anneau : multiple sur 1 an</span><span>ligne : médiane du secteur</span>',
+    foot: `Agent Hermes · valorisation du ${when(VB.as_of)} · multiple = capitalisation / frais annualisés`,
     value: (p) => xf(p.pf7), label: (p) => p.name, kind: (p) => SECL[p.sec] + (p.symbol ? ' · ' + p.symbol : ''),
     card: (it) => `<p class="big">${xf(it.pf7)}</p><p class="bigsub">prix / frais sur 7 jours${it.classement && it.classement.rang ? ` · ${ord(it.classement.rang)} sur ${it.classement.n_secteur} en ${SEC[it.sec] || it.sec}` : ''} · médiane du secteur ${xf(MED[it.sec])}</p>` +
       facts([['30 jours', xf(it.pf30)], ['1 an', xf(it.pf1y)],
@@ -559,24 +561,26 @@ if (CR && VB && VB.sectors) {
   named.forEach((n) => items.push(Object.assign({}, byName[n] || {}, { name: n, kindA: 'nomme' })));
   (CR.trous || []).forEach((x) => items.push({ name: x.nom, kindA: 'trou', etat: x.etat, motif: x.motif }));
   (CR.muets_bruyants || []).forEach((x) => items.push(Object.assign({}, byName[x.nom] || {}, { name: x.nom, sec: x.secteur, kindA: 'disp', dispersion: x.dispersion, pf_7j: x.pf_7j, pf_1an: x.pf_1an })));
+  const seen = new Set(items.map((x) => x.name));
+  stars.filter((s) => !seen.has(s.name)).sort((a, b) => (b.fees_ann || 0) - (a.fees_ann || 0)).forEach((s) => items.push(Object.assign({}, s, { kindA: 'muet' })));
   items.forEach((it, i) => { it.rank = i + 1; it.logo = lkey(it.name); });
   const trous = items.filter((it) => it.kindA === 'trou'), disp = items.filter((it) => it.kindA === 'disp');
   const dmax = disp.reduce((a, b) => (b.dispersion > (a ? a.dispersion : 0) ? b : a), null);
-  const KA = { nomme: 'nommé cette semaine', trou: 'suivi, jamais valorisé', disp: 'multiple instable selon la fenêtre' };
+  const KA = { nomme: 'nommé cette semaine', trou: 'suivi, jamais valorisé', disp: 'multiple instable selon la fenêtre', muet: 'valorisé, non nommé' };
   if (items.length) PLH.attention = {
     tab: 'Attention', items, asof: CRk.as_of, staleH: 6, meta: { stars, named, SECL },
     eyebrow: 'Recherche Hermes · où l’agent regarde',
     title: `Sur ${CR.n_valorises} protocoles valorisés, l’agent en a <em>nommé ${CR.n_nommes}</em> cette semaine.`,
     insight: `${named.length ? 'Nommés : ' + named.join(' et ') + '. ' : ''}${trous.length} suivis sans jamais être valorisés : ${trous.map((x) => x.name).join(', ')}.${dmax ? ` Le multiple le plus instable : ${dmax.name}, ${xf(dmax.pf_7j)} sur 7 jours contre ${xf(dmax.pf_1an)} sur 1 an.` : ''}`,
-    legend: '<span>étoile : un protocole valorisé (taille : frais annualisés)</span><span><i class="hz"></i>faisceau : nommé par un réveil de l’agent</span><span><i class="disc"></i>jumelle pâle : multiple instable entre 7 jours et 1 an</span><span>trou noir : suivi, jamais valorisé</span>',
-    foot: `Agent Hermes, croisement valorisation × réveils (0 LLM) · ${when(CRk.as_of)} · ${esc(CR.note || '')}`,
-    value: (p) => p.kindA === 'nomme' ? 'nommé' : p.kindA === 'trou' ? 'jamais valorisé' : 'dispersion ' + nf(p.dispersion, 1),
+    legend: '<span>taille : frais annualisés</span><span><i class="hz"></i>faisceau : nommé par l’agent</span><span><i class="disc"></i>jumelle : multiple instable</span><span>trou noir : suivi, jamais valorisé</span>',
+    foot: `Agent Hermes · croisement valorisation × réveils, sans LLM · ${when(CRk.as_of)}`,
+    value: (p) => p.kindA === 'nomme' ? 'nommé' : p.kindA === 'trou' ? 'jamais valorisé' : p.kindA === 'disp' ? 'dispersion ' + nf(p.dispersion, 1) : xf(p.pf7),
     label: (p) => p.name, kind: (p) => KA[p.kindA] + (p.sec ? ' · ' + (SECL[p.sec] || p.sec) : ''),
     card: (it) => it.kindA === 'trou'
       ? `<p class="big">jamais valorisé</p><p class="bigsub">${esc(it.etat || '')}</p>` + (it.motif ? `<p class="members">Motif relevé par l’agent : ${esc(it.motif)}</p>` : '') +
         '<p class="members">L’agent suit ce protocole, mais il n’apparaît pas dans son tableau de valorisation : aucun multiple n’existe pour lui.</p>'
-      : it.kindA === 'nomme'
-        ? `<p class="big">nommé</p><p class="bigsub">par un réveil de l’agent cette semaine · ${esc(SECL[it.sec] || '')}</p>` +
+      : it.kindA === 'nomme' || it.kindA === 'muet'
+        ? `<p class="big">${it.kindA === 'nomme' ? 'nommé' : 'non nommé'}</p><p class="bigsub">${it.kindA === 'nomme' ? 'par un réveil de l’agent cette semaine' : 'valorisé par l’agent, absent de ses réveils cette semaine'} · ${esc(SECL[it.sec] || '')}</p>` +
           facts([['Prix / frais 7 j', xf(it.pf7)], ['1 an', xf(it.pf1y)], ['Frais annualisés', it.fees_ann != null ? usd(it.fees_ann) : '—'], ['Part aux détenteurs', it.capture_pct != null ? nf(it.capture_pct, 1) + NB + '%' : 'non mesurée']])
         : `<p class="big">${nf(it.dispersion, 1)}</p><p class="bigsub">dispersion du multiple entre les fenêtres de l’agent</p>` +
           facts([['Prix / frais 7 j', xf(it.pf_7j)], ['Prix / frais 1 an', xf(it.pf_1an)], ['Frais annualisés', it.fees_ann != null ? usd(it.fees_ann) : '—'], ['Nommé cette semaine', 'non']]) +
@@ -602,8 +606,8 @@ if (COH && COH.membres) {
     eyebrow: 'Recherche Hermes · enquête Robinhood Chain',
     title: `La cohorte de <em>Robinhood Chain</em> : ${mem.length} projets, la preuve d’abord.`,
     insight: `${n0} projets sur ${mem.length} ont un score de preuve nul. ${best ? `${best.name}${best.role === 'antichambre' ? ', en antichambre,' : ''} a le meilleur score (${best.score} sur 4)${best.tvl != null ? ` pour ${best.tvl < 1e6 ? nf(best.tvl, 0) + NB + '$' : usd(best.tvl)} déposés` : ''}. ` : ''}${pons && pons.fees30 ? `${pons.name}, sans score, encaisse ${usd(pons.fees30)} de frais sur 30 jours.` : ''}`,
-    legend: '<span>quatre points : audit publié (2), compte GitHub (1), hook nommé (1)</span><span>hauteur : valeur déposée sur la chaîne (échelle logarithmique)</span><span>socles de verre : antichambre</span><span>monolithe : contre-référence</span>',
-    foot: `Enquête quotidienne de l’agent (rapport/cohorte.json) · relevé du ${dayFR(d)} · score de preuve : liens d’audit qui répondent, comptes GitHub qui existent, hooks au registre Uniswap`,
+    legend: '<span>points : audit (2), GitHub (1), hook (1)</span><span>hauteur : valeur déposée</span><span>verre : antichambre</span><span>monolithe : contre-référence</span>',
+    foot: `Enquête quotidienne de l’agent · relevé du ${dayFR(d)} · preuve vérifiée : liens d’audit, comptes GitHub, registre des hooks`,
     value: (p) => 'preuve ' + p.score + '/4', label: (p) => p.name, kind: (p) => ROLE[p.role],
     card: (it) => `<p class="big">${it.score} / 4</p><p class="bigsub">score de preuve · relevé du ${dayFR(it.date)}</p>` +
       facts([['Audit publié (2)', yes(it.audit)], ['GitHub existant (1)', yes(it.github)], ['Hooks nommés (1)', it.hooks ? nf(it.hooks, 0) : 'aucun'],
@@ -618,15 +622,15 @@ if (COH && COH.membres) {
 /* ---- 6. où va l'argent stable ---- */
 const STB = IN_DASH && DATA.stables && (DATA.stables.chains || []).length ? DATA.stables : null;
 if (STB) {
-  const items = STB.chains.map((c) => Object.assign({}, c, { logo: c.logo || lkey(c.name) }));
+  const items = STB.chains.map((c) => Object.assign({}, c, { logo: c.logo || lkey(c.name), lab7: smoney(c.f7) }));
   const ins = [...items].sort((a, b) => b.f7 - a.f7), mx = ins[0], mn = ins[ins.length - 1];
   PLH.stables = {
     tab: 'Argent stable', items, asof: DATA.asof && DATA.asof.stables, staleH: 3, meta: { total: STB.total, top: STB.top || [] },
     eyebrow: 'Recherche Hermes · stablecoins',
     title: `<em>${usd(STB.total)}</em> de stablecoins. Où va l’argent frais ?`,
     insight: `Sur 7 jours, ${mx.name} reçoit le plus (${smoney(mx.f7)}) et ${mn.name} ${mn.f7 < 0 ? 'perd le plus' : 'reçoit le moins'} (${smoney(mn.f7)}). Au total, le stock varie de ${smoney(STB.f7)} sur 7 jours et ${smoney(STB.f30)} sur 30 jours.`,
-    legend: '<span>réservoir : tous les stablecoins, par émetteur</span><span>bassins : stock par chaîne</span><span>particules : flux net sur 7 jours, dans le sens du mouvement</span>',
-    foot: `DefiLlama stablecoins · ${when(DATA.asof && DATA.asof.stables)} · stock relevé chaque heure ; flux calculés sur les séries quotidiennes`,
+    legend: '<span>réservoir : stablecoins par émetteur</span><span>bassin : stock par chaîne</span><span>particules : flux net sur 7 jours</span>',
+    foot: `DefiLlama stablecoins · ${when(DATA.asof && DATA.asof.stables)} · flux calculés sur les séries quotidiennes`,
     value: (p) => smoney(p.f7) + ' / 7 j', label: (p) => p.name, kind: (p) => 'stock ' + usd(p.total),
     card: (it) => `<p class="big">${usd(it.total)}</p><p class="bigsub">de stablecoins sur ${esc(it.name)} · ${share(it.total / STB.total, 1)} du total</p>` +
       facts([['Flux 1 jour', smoney(it.f1)], ['Flux 7 jours', smoney(it.f7)], ['Variation 7 jours', pct(it.p7, 2)], ['Flux 30 jours', smoney(it.f30)],
@@ -652,7 +656,8 @@ function renderHead() {
   const p = PL[state.pl], head = $('head');
   head.classList.add('out');
   setTimeout(() => {
-    $('eyebrow').textContent = p.eyebrow; $('title').innerHTML = p.title; $('insight').textContent = p.insight;
+    const frT = (s) => String(s).replace(/ ([:;?!»])/g, '\u202f$1').replace(/« /g, '«\u202f');
+    $('eyebrow').textContent = p.eyebrow; $('title').innerHTML = frT(p.title); $('insight').textContent = frT(p.insight);
     const age = (Date.now() - Date.parse(p.asof)) / 864e5, lim = p.staleH ? p.staleH / 24 : state.pl === 'rwa' && !RM ? 7 : 3 / 24;   // releve horaire depuis le 07/10 : signale apres 3 h (actifs reels aussi quand ils sont lus sur la chaine)
     const old = age > lim ? ` · relevé ancien de ${age < 2 ? Math.round(age * 24) + ' heures' : Math.floor(age) + ' jours'}` : '';
     const hzl = p.items.some((it) => it._hzF) ? '<span><i class="hz"></i>bague violette : suivi par l’agent Hermes</span>' : '';
@@ -704,11 +709,12 @@ function select(i) {
   state.sel = i; renderCard(); syncRail();
   if (i >= 0 && innerWidth < 760) closeFil();
   $('head').classList.toggle('hide', i >= 0 || $('fil').classList.contains('on'));
+  $('legend').parentNode.classList.toggle('hide', i >= 0);
   if (i >= 0) { const b = $('rail').children[i]; b && b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); }
 }
 function setPlanche(pl) {
   if (pl === state.pl) return;
-  state.pl = pl; state.sel = -1; state.hover = -1; $('head').classList.remove('hide');
+  state.pl = pl; state.sel = -1; state.hover = -1; $('head').classList.remove('hide'); $('legend').parentNode.classList.remove('hide');
   try { history.replaceState(null, '', '#' + pl); } catch (e) { /* adresse figée */ }
   renderHead(); renderRail(); renderCard(); syncRail(); renderFil();
   if (ui.onSwitch) ui.onSwitch(pl);
@@ -1283,9 +1289,9 @@ async function start3D() {
 
   /* ================= planche : le prix des frais (valorisation) ================= */
   function buildValo(items, meta) {
-    const group = new THREE.Group(), objs = [], rows = [];
-    const hOf = (pf) => .28 + (Math.log10(Math.max(pf, .1)) + 1) * .8;   // échelle log : 0,1× au sol, 1 000× vers 3,5
-    const ROWZ = 2.35, gap = .7, glass = glassThin();
+    const group = new THREE.Group(), objs = [], rows = [], PORT = innerWidth < innerHeight;
+    const hOf = (pf) => .28 + (Math.log10(Math.max(pf, .1)) + 1) * .66;   // échelle log : 0,1× au sol, 1 000× vers 2,9
+    const ROWZ = 2.6, gap = .7, glass = glassThin();
     const tubeGeo = new THREE.CylinderGeometry(.12, .12, 1, 48, 1, true); tubeGeo.translate(0, .5, 0);
     const domeGeo = new THREE.SphereGeometry(.12, 32, 12, 0, Math.PI * 2, 0, Math.PI / 2);
     const coreGeo = new THREE.CylinderGeometry(.078, .078, 1, 32); coreGeo.translate(0, .5, 0);
@@ -1293,14 +1299,20 @@ async function start3D() {
     const secs = [...new Set(items.map((it) => it.sec))];
     secs.forEach((s, k) => {
       const row = items.filter((it) => it.sec === s), z = 3.4 - k * ROWZ, n = row.length, wRow = (n - 1) * gap + .8;
-      const lab = textPlane(meta.SECL[s], { size: .34 }); lab.rotation.x = -.62;
-      lab.position.set(-wRow / 2 - .25 - lab.userData.w / 2, .15, z + .15); group.add(lab);
-      const m = meta.MED[s];
-      let sheet = null, ml = null;
+      // nom du secteur et médiane collés à la ligne de médiane, au bout gauche de la rangée
+      const m = meta.MED[s], ym = m != null ? hOf(m) : .5, xl = -wRow / 2 - .3;
+      let sheet = null, ml = null, lab;
+      if (PORT) {
+        lab = textPlane((meta.SECL[s] || s) + (m != null ? ' · médiane ' + meta.xf(m) : ''), { size: .25, color: '#efe2c4', font: MONO });
+        lab.position.set(-wRow / 2 - .1 + lab.userData.w / 2, ym + .2, z);
+      } else {
+        lab = textPlane(meta.SECL[s] || s, { size: .34 + k * .035, color: '#e6e0d4' }); lab.position.set(xl - lab.userData.w / 2, ym + .2, z);
+        if (m != null) { ml = textPlane('médiane ' + meta.xf(m), { size: .21 + k * .02, color: '#efe2c4', font: MONO }); ml.position.set(xl - ml.userData.w / 2, ym - .17, z); }
+      }
+      [lab, ml].forEach((q) => { if (!q) return; q.rotation.x = -.62; q.material.depthTest = false; q.renderOrder = 10; group.add(q); });
       if (m != null) {
-        sheet = new THREE.Mesh(new THREE.BoxGeometry(wRow, .014, .014), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf3e6c8).multiplyScalar(1.3), transparent: true, opacity: 0, depthWrite: false }));
-        sheet.position.set(0, hOf(m), z); group.add(sheet);
-        ml = textPlane('médiane ' + meta.xf(m), { size: .2, color: '#efe2c4', font: MONO }); ml.rotation.x = -.62; ml.position.set(wRow / 2 + .05 + ml.userData.w / 2, hOf(m) + .05, z); group.add(ml);
+        sheet = new THREE.Mesh(new THREE.BoxGeometry(wRow + .3, .014, .014), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf3e6c8).multiplyScalar(1.3), transparent: true, opacity: 0, depthWrite: false }));
+        sheet.position.set(-.15, ym, z); group.add(sheet);
       }
       rows.push({ sheet, ml, lab, k });
       row.forEach((it, j) => {
@@ -1318,14 +1330,24 @@ async function start3D() {
         objs.push({ i: it.rank - 1, item: it, grp, tube, dome, core, coreMat, ring, capt, h, pivot, coin, x, z, f: 0, phase: Math.random() * 6.28, pick: [tube, core, coin], delay: .3 + k * .24 + j * .05 });
       });
     });
+    { // règle logarithmique, contre la rangée de devant
+      const nF = items.filter((it) => it.sec === secs[0]).length, xr = ((nF - 1) * gap + .8) / 2 + .45, zr = 3.4;
+      const line = new THREE.Mesh(new THREE.BoxGeometry(.012, hOf(1000) - hOf(.3), .012), new THREE.MeshBasicMaterial({ color: 0xc8c3b9, transparent: true, opacity: .55 }));
+      line.position.set(xr, (hOf(1000) + hOf(.3)) / 2, zr); group.add(line); rows.push({ lab: line, k: 0, rule: true });
+      [1, 10, 100, 1000].forEach((v) => {
+        const tick = new THREE.Mesh(new THREE.BoxGeometry(.16, .012, .012), line.material); tick.position.set(xr - .08, hOf(v), zr); group.add(tick);
+        const tl = textPlane(meta.xf(v, 0), { size: .2, color: '#c8c3b9', font: MONO }); tl.rotation.x = -.62; tl.position.set(xr + .14 + tl.userData.w / 2, hOf(v), zr); group.add(tl); rows.push({ lab: tl, k: 0 });
+      });
+    }
     objs.sort((a, b) => a.i - b.i);
     return {
-      group, objs, view: { pos: new THREE.Vector3(.4, 19.6, 25.6), tgt: new THREE.Vector3(.4, 2.1, .9), fov: 18.5, glow: new THREE.Color(0x1d1830), pool: new THREE.Color(0x0d0b14), poolZ: -1, off: -.12, lift: 2.6, refl: .3 },
-      focus: (o) => ({ tgt: new THREE.Vector3(o.x, Math.max(1, o.h * .55), o.z), dist: 15 }),
+      group, objs, view: { pos: new THREE.Vector3(.4, 19.85, 25.6), tgt: new THREE.Vector3(.4, 2.35, .9), fov: 19.5, glow: new THREE.Color(0x1d1830), pool: new THREE.Color(0x0d0b14), poolZ: -1, off: -.12, lift: 2.6, refl: .3,
+        tel: { pos: new THREE.Vector3(.65, 40.6, 46.4), tgt: new THREE.Vector3(.65, 3.0, -1.8), fov: 18.5 } },
+      focus: (o) => ({ tgt: new THREE.Vector3(o.x * .8 + .08, 2.2, o.z * .35 - 1), dist: 27 }),   // recentre sans perdre les rangées du fond
       update(ti, t, dt, anyFocus) {
         rows.forEach((r) => { const e = clamp01((ti - 1.1 - r.k * .24) / .8);
           if (r.sheet) r.sheet.material.opacity = .75 * e * (anyFocus ? .4 : 1);
-          if (r.ml) r.ml.material.opacity = r.ml.userData.op * e; r.lab.material.opacity = r.lab.userData.op * clamp01((ti - .2 - r.k * .24) / .6); });
+          if (r.ml) r.ml.material.opacity = r.ml.userData.op * e; r.lab.material.opacity = (r.lab.userData.op || .55) * clamp01((ti - .2 - r.k * .24) / .6); });
         objs.forEach((o) => {
           const on = o.i === state.sel || o.i === state.hover;
           o.f += ((on ? 1 : 0) - o.f) * damp(dt, 6);
@@ -1356,16 +1378,18 @@ async function start3D() {
     const fmax = Math.max(...meta.stars.map((s) => s.fees_ann || 0)) || 1;
     const starGeo = new THREE.SphereGeometry(1, 32, 16);
     const halo = new THREE.SpriteMaterial({ map: radialTexture(), color: new THREE.Color(0xa68cff), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
-    const DX = 1.65, EYE = new THREE.Vector3(DX, 4.9, 1.8);
+    const PORT = innerWidth < innerHeight, DX = 1.65, EYE = PORT ? new THREE.Vector3(DX, 7.1, .6) : new THREE.Vector3(DX, 4.9, 1.8);
     const eye = new THREE.Mesh(new THREE.SphereGeometry(.13, 32, 16), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xa68cff).multiplyScalar(2.2) }));
     eye.position.copy(EYE); group.add(eye);
     const eyeHalo = new THREE.Sprite(halo.clone()); eyeHalo.scale.setScalar(1.1); eyeHalo.position.copy(EYE); group.add(eyeHalo);
-    const eyeLab = textPlane('l’agent Hermes', { size: .2, color: '#cbbcff' }); eyeLab.position.copy(EYE).add(new THREE.Vector3(0, .38, 0)); group.add(eyeLab);
+    const eyeLab = textPlane('l’agent Hermes', { size: PORT ? .28 : .2, color: '#cbbcff' }); eyeLab.position.copy(EYE).add(new THREE.Vector3(0, .38, 0)); group.add(eyeLab);
     const pos = {};
     secs.forEach((s, k) => {
       const list = meta.stars.filter((x) => x.sec === s), n = list.length;
-      const c = new THREE.Vector3(DX + (k - (secs.length - 1) / 2) * 1.95, 2.25, -1.6 - Math.abs(k - (secs.length - 1) / 2) * .5);
-      const lab = textPlane(meta.SECL[s] || s, { size: .26 }); lab.rotation.x = -Math.PI / 2; lab.position.set(c.x, .012, c.z + 1.25); group.add(lab); decor.push({ lab, k });
+      const nS = secs.length, nA = Math.ceil(nS / 2), mid = (nS - 1) / 2;
+      const c = !PORT ? new THREE.Vector3(DX + (k - mid) * 1.95, 2.25, -1.6 - Math.abs(k - mid) * .5)
+        : k < nA ? new THREE.Vector3(DX + (k - (nA - 1) / 2) * 2.1, 4.9, -2) : new THREE.Vector3(DX + (k - nA - (nS - nA - 1) / 2) * 2.1, 2.55, -1);
+      const lab = textPlane(meta.SECL[s] || s, { size: PORT ? .32 : .24, color: '#d8d2c6' }); lab.position.set(c.x, c.y - 1.32, c.z + .3); group.add(lab); decor.push({ lab, k });
       list.forEach((st, j) => {
         const y = 1 - 2 * (j + .5) / n, rr = Math.sqrt(1 - y * y), th = j * 2.39996;
         const p = c.clone().add(new THREE.Vector3(Math.cos(th) * rr, y, Math.sin(th) * rr).multiplyScalar(.95));
@@ -1386,20 +1410,20 @@ async function start3D() {
       let p, r, mesh, extra = {};
       if (it.kindA === 'trou' || !q) {
         const j = tr.indexOf(it), nT = tr.length;
-        p = new THREE.Vector3(DX + (j - (nT - 1) / 2) * 1.35, .8, 2.3); r = .19;
+        p = new THREE.Vector3(DX + (j - (nT - 1) / 2) * 1.35, PORT ? .55 : .8, 2.3); r = .19;
         mesh = new THREE.Mesh(starGeo, new THREE.MeshBasicMaterial({ color: 0x000000 })); mesh.position.copy(p); group.add(mesh);
         const disk = new THREE.Mesh(new THREE.PlaneGeometry(1.05, 1.05), new THREE.ShaderMaterial({ ...diskShader, uniforms: { uT: { value: 0 }, uA: { value: 0 }, uCol: { value: new THREE.Color(0xa68cff) } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide }));
         disk.position.copy(p); disk.rotation.x = -Math.PI / 2 + .35; group.add(disk);
         extra = { disk };
       } else {
         p = q.p; r = q.r;
-        mesh = new THREE.Mesh(starGeo, starMat(it.kindA === 'nomme' ? 1.6 : .55)); mesh.position.copy(p); group.add(mesh);
+        mesh = new THREE.Mesh(starGeo, starMat(it.kindA === 'nomme' ? 1.6 : it.kindA === 'disp' ? .55 : .3)); mesh.position.copy(p); group.add(mesh);
         if (it.kindA === 'nomme') {
           const h = new THREE.Sprite(halo.clone()); h.scale.setScalar(r * 7); h.position.copy(p); group.add(h);
           const len = EYE.distanceTo(p), beam = new THREE.Mesh(new THREE.CylinderGeometry(.012, .03, len, 12, 1, true), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xa68cff).multiplyScalar(1.6), transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false }));
           beam.position.copy(EYE).lerp(p, .5); beam.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), p.clone().sub(EYE).normalize()); group.add(beam);
           extra = { halo: h, beam };
-        } else {
+        } else if (it.kindA === 'disp') {
           const lift = .25 + Math.log2(Math.max(1.1, it.dispersion || 1)) * .28;
           const ghost = new THREE.Mesh(starGeo, new THREE.MeshBasicMaterial({ color: 0xd9e2ff, transparent: true, opacity: 0, wireframe: true }));
           ghost.position.copy(p).add(new THREE.Vector3(0, lift, 0)); group.add(ghost);
@@ -1409,13 +1433,14 @@ async function start3D() {
         }
       }
       let pivot = null, coin = null;
-      if (it.kindA !== 'disp') { coin = makeCoin(it, .2, .04); pivot = new THREE.Group(); pivot.add(coin); pivot.position.copy(p).add(new THREE.Vector3(0, r + .42, 0)); group.add(pivot); }
-      objs[i] = Object.assign({ i, item: it, mesh, r, x: p.x, z: p.z, y0: p.y, pivot, coin, f: 0, phase: Math.random() * 6.28, pick: coin ? [mesh, coin] : [mesh],
-        delay: it.kindA === 'nomme' ? 1.6 : it.kindA === 'trou' ? 1.2 : .6 + (q ? q.k * .15 : 0) }, extra);
+      if (it.kindA === 'nomme' || it.kindA === 'trou') { coin = makeCoin(it, .2, .04); pivot = new THREE.Group(); pivot.add(coin); pivot.position.copy(p).add(new THREE.Vector3(0, r + .42, 0)); group.add(pivot); }
+      objs[i] = Object.assign({ i, item: it, mesh, r, x: p.x, z: p.z, y0: p.y, tagY: p.y - r - (it.kindA === 'trou' ? .45 : .12), pivot, coin, f: 0, phase: Math.random() * 6.28, pick: coin ? [mesh, coin] : [mesh],
+        delay: it.kindA === 'nomme' ? 1.6 : it.kindA === 'trou' ? 1.2 : .45 + (q ? q.k * .15 : 0) }, extra);
     });
     return {
-      group, objs, view: { pos: new THREE.Vector3(0, 5.3, 14.8), tgt: new THREE.Vector3(0, 2, -.8), glow: new THREE.Color(0x191433), pool: new THREE.Color(0x0c0a15), poolZ: 0, off: -.12, lift: 2.2, refl: .45 },
-      focus: (o) => ({ tgt: new THREE.Vector3(o.x, o.y0, o.z), dist: 7.5 }),
+      group, objs, view: { pos: new THREE.Vector3(0, 5.3, 14.8), tgt: new THREE.Vector3(0, 2, -.8), glow: new THREE.Color(0x191433), pool: new THREE.Color(0x0c0a15), poolZ: 0, off: -.09, lift: 2.2, refl: .1,
+        tel: { pos: new THREE.Vector3(DX, 10.15, 29.2), tgt: new THREE.Vector3(DX, 4.9, -.5) } },
+      focus: (o) => ({ tgt: new THREE.Vector3(o.x, o.y0 + (o.item.kindA === 'trou' ? .3 : 1), o.z), dist: 13 }),   // les trous noirs de devant sortent du cadre
       update(ti, t, dt, anyFocus) {
         eye.scale.setScalar(clamp01(ti / .8) * (1 + (REDUCED ? 0 : .12 * Math.sin(t * 2.2))));
         eyeHalo.material.opacity = clamp01(ti / 1.2) * .9; eyeLab.material.opacity = clamp01((ti - .6) / .8) * .9;
@@ -1431,7 +1456,7 @@ async function start3D() {
           const e = ease.back(clamp01((ti - o.delay) / .9)), dim = anyFocus && !on ? .3 : 1;
           o.mesh.scale.setScalar(Math.max(.001, o.r * e * (1 + o.f * .25)));
           o.mesh.position.y = o.y0 + (REDUCED ? 0 : Math.sin(t * .6 + o.phase) * .03);
-          if (o.mesh.material.emissiveIntensity != null) o.mesh.material.emissiveIntensity = (o.item.kindA === 'nomme' ? 1.6 : .6) * dim + o.f * .6;
+          if (o.mesh.material.emissiveIntensity != null) o.mesh.material.emissiveIntensity = (o.item.kindA === 'nomme' ? 1.6 : o.item.kindA === 'disp' ? .6 : .3) * dim + o.f * .9;
           if (o.halo) o.halo.material.opacity = e * dim * (.75 + (REDUCED ? 0 : .25 * Math.sin(t * 2 + o.phase)));
           if (o.beam) o.beam.material.opacity = clamp01((ti - o.delay - .4) / .8) * .55 * dim * (.8 + (REDUCED ? 0 : .2 * Math.sin(t * 3)));
           if (o.disk) { o.disk.material.uniforms.uT.value = t; o.disk.material.uniforms.uA.value = e * dim; o.disk.rotation.z = REDUCED ? 0 : t * .25; }
@@ -1452,13 +1477,16 @@ async function start3D() {
     const ON = new THREE.MeshStandardMaterial({ color: 0xfff3dc, emissive: 0xffe2b0, emissiveIntensity: 2.3 }), OFF = new THREE.MeshStandardMaterial({ color: 0x14151a, emissive: 0x000000, roughness: .3 });
     const hOf = (tvl) => .28 + Math.log10(Math.max(1, tvl || 1)) * .2;
     const mem = items.filter((x) => x.role === 'membre'), anti = items.filter((x) => x.role === 'antichambre');
-    const xs = bellX(mem.length, .9).map((v) => v + 1.55), slots = bellSlots(mem.length), maxSlot = Math.max(...slots.map(Math.abs));
+    const PORT = innerWidth < innerHeight, XC = PORT ? 1.55 : 1.2;
+    const nF = Math.ceil(mem.length / 2), xF = bellX(nF, 1), xB = bellX(mem.length - nF, 1);
+    const xs = bellX(mem.length, .9).map((v) => v + XC), slots = bellSlots(mem.length), maxSlot = Math.max(...slots.map(Math.abs));
     items.forEach((it, i) => {
       let x, z, h, w = 1, mat = stone(), delay;
-      if (it.role === 'membre') { const k = mem.indexOf(it); x = xs[k]; z = -Math.pow(Math.abs((x - 1.55) / .9), 1.7) * .14; h = hOf(it.tvl); delay = .25 + (maxSlot - Math.abs(slots[k])) * .18; }
-      else if (it.role === 'antichambre') { const k = anti.indexOf(it); x = 4.9 + k * .75; z = -2.9 - k * .25; h = hOf(it.tvl); w = .78; delay = 1.5 + k * .15;
+      if (it.role === 'membre') { const k = mem.indexOf(it);
+        if (PORT) { x = XC + (k < nF ? xF[k] : xB[k - nF] + .5); z = k < nF ? 1 : -.85; } else { x = xs[k]; z = -Math.pow(Math.abs((x - XC) / .9), 1.7) * .14; } h = hOf(it.tvl); delay = .25 + (maxSlot - Math.abs(slots[k])) * .18; }
+      else if (it.role === 'antichambre') { const k = anti.indexOf(it); if (PORT) { x = XC - 2.1 + k * .8; z = -2.6; } else { x = 6.4 + k * .8; z = -2 - k * .35; } h = hOf(it.tvl); w = .78; delay = 1.5 + k * .15;
         mat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0, roughness: .08, transmission: 1, thickness: .5, ior: 1.3, clearcoat: 1, envMapIntensity: 1.2, attenuationColor: new THREE.Color(0xd8dcef), attenuationDistance: 1.2 }); }
-      else { x = 1.55; z = -4.3; h = 2.8; w = 1.4; delay = .1;
+      else { x = PORT ? XC + 1.5 : XC; z = PORT ? -3.3 : -4.3; h = 2.8; w = 1.4; delay = .1;
         mat = new THREE.MeshPhysicalMaterial({ color: 0x08090b, metalness: .3, roughness: .12, clearcoat: 1, clearcoatRoughness: .05, envMapIntensity: 1.6 }); }
       const grp = new THREE.Group(); grp.position.set(x, 0, z);
       const plinth = new THREE.Mesh(plGeo, mat); plinth.scale.set(w, h, it.role === 'reference' ? .5 : w); grp.add(plinth);
@@ -1466,15 +1494,16 @@ async function start3D() {
       const fz = (it.role === 'reference' ? .5 : w) * .32 + .021, dy = Math.min(h - .14, .9);
       slotsLit.forEach((lit, k) => { const d = new THREE.Mesh(dotGeo, lit ? ON : OFF); d.position.set((k - 1.5) * .135 * w, dy, fz); grp.add(d); dots.push(d); });
       const coin = makeCoin(it, it.role === 'reference' ? .34 : .26, .05); const pivot = new THREE.Group(); pivot.add(coin); pivot.position.y = h + .5; grp.add(pivot);
+      const sl = textPlane(it.score + ' / 4', { size: .22, color: it.score ? '#f3e2bf' : '#8d9098', font: MONO }); sl.rotation.x = -.8; sl.position.set(0, .09, (it.role === 'reference' ? .5 : w) * .32 + .32); grp.add(sl);
       const sh = shadow(1.4 * w, 1.4 * w); sh.position.set(x, .004, z); group.add(sh);
       group.add(grp);
       objs.push({ i, item: it, grp, plinth, dots, h, w, pivot, coin, x, z, f: 0, phase: Math.random() * 6.28, pick: [plinth, coin], delay });
     });
-    const rl = textPlane('antichambre', { size: .2 }); rl.rotation.x = -Math.PI / 2; rl.position.set(5.65, .012, -2.15); group.add(rl);
-    const pl = textPlane('contre-référence', { size: .2 }); pl.rotation.x = -Math.PI / 2; pl.position.set(1.55, .012, -3.55); group.add(pl);
+    const rl = textPlane('antichambre', { size: .26 }); if (PORT) { rl.rotation.x = -.4; rl.position.set(XC - 1.3, 2.05, -2.6); } else { rl.rotation.x = -1; rl.position.set(7.2, .13, -1.1); } group.add(rl);
+    const pl = textPlane('contre-référence', { size: .26 }); pl.rotation.x = -.3; pl.position.set(PORT ? XC + 1.5 : XC, 3.95, PORT ? -3.3 : -4.3); group.add(pl);
     return {
-      group, objs, view: { pos: new THREE.Vector3(1.6, 4.2, 12.6), tgt: new THREE.Vector3(1.6, 1.05, -1.4), glow: new THREE.Color(0x2e2416), pool: new THREE.Color(0x15110b), poolZ: -1, off: -.1, lift: 2, refl: .5 },
-      focus: (o) => ({ tgt: new THREE.Vector3(o.x, Math.min(o.h, 2) * .55 + .3, o.z), dist: 8.6 }),
+      group, objs, view: { pos: new THREE.Vector3(PORT ? 1.6 : 2.6, 4.5, PORT ? 12.6 : 14.6), tgt: new THREE.Vector3(PORT ? 1.6 : 2.6, 1.05, -1.4), tel: PORT ? { pos: new THREE.Vector3(XC + .25, 16.25, 18.5), tgt: new THREE.Vector3(XC + .25, 2.5, -1.2) } : null, glow: new THREE.Color(0x2e2416), pool: new THREE.Color(0x15110b), poolZ: -1, off: PORT ? -.1 : -.15, lift: 2, refl: .2 },
+      focus: (o) => ({ tgt: new THREE.Vector3(o.x, Math.min(o.h, 2) * .55 + .3, o.z), dist: 12.5 }),
       update(ti, t, dt, anyFocus) {
         rl.material.opacity = rl.userData.op * clamp01((ti - 1.6) / .6); pl.material.opacity = pl.userData.op * clamp01((ti - .4) / .6);
         objs.forEach((o) => {
@@ -1493,7 +1522,7 @@ async function start3D() {
 
   /* ================= planche : où va l'argent stable ================= */
   function buildStables(items, meta) {
-    const group = new THREE.Group(), objs = [];
+    const group = new THREE.Group(), objs = [], PORT = innerWidth < innerHeight;
     const RES = new THREE.Vector3(0, 0, -3.6), RR = 1.15, RH = 3.6, glass = glassThin();
     const rTube = new THREE.Mesh(new THREE.CylinderGeometry(RR, RR, RH, 96, 1, true), glass); rTube.position.set(RES.x, RH / 2, RES.z); group.add(rTube);
     const PAL = [0x8ff0d8, 0x8cb6ff, 0xf2c879, 0xc9b6ff, 0xefe2b6, 0xa9d8cc, 0x8d9098];
@@ -1504,24 +1533,32 @@ async function start3D() {
       const hb = (RH - .1) * b.v / meta.total;
       const m = new THREE.Mesh(new THREE.CylinderGeometry(RR - .05, RR - .05, 1, 96), new THREE.MeshStandardMaterial({ color: b.col, emissive: b.col, emissiveIntensity: .3, roughness: .35 }));
       m.position.set(RES.x, y0 + hb / 2, RES.z); m.scale.y = .001; m.userData = { y: y0, hb }; group.add(m); bandMeshes.push(m);
-      if (hb > .18) { const l = textPlane(b.name + ' ' + usd(b.v), { size: .19, color: '#efe9dc', font: MONO }); l.position.set(RES.x + RR + .18 + l.userData.w / 2, y0 + hb / 2, RES.z); group.add(l); m.userData.lab = l; }
+      if (hb > .18) { const l = textPlane(b.name + ' ' + usd(b.v), { size: PORT ? .25 : .19, color: '#efe9dc', font: MONO }); l.position.set(RES.x + RR + .18 + l.userData.w / 2, y0 + hb / 2, RES.z); group.add(l); m.userData.lab = l; }
       y0 += hb;
     });
-    const tl = textPlane('tous les stablecoins · ' + usd(meta.total), { size: .22, color: '#f1ede4' }); tl.position.set(RES.x, RH + .35, RES.z); group.add(tl);
+    const tl = textPlane('tous les stablecoins · ' + usd(meta.total), { size: PORT ? .3 : .22, color: '#f1ede4' }); tl.position.set(RES.x, RH + .35, RES.z); group.add(tl);
     const tmax = Math.max(...items.map((c) => c.total)), fmax = Math.max(...items.map((c) => Math.abs(c.f7 || 0))) || 1;
-    const xs = bellX(items.length, 1.22), slots = bellSlots(items.length), maxSlot = Math.max(...slots.map(Math.abs));
+    const rbs = items.map((c) => .2 + .5 * Math.sqrt(c.total / tmax));
+    const pack = (idx, gap) => { // ordre en cloche (le plus gros au centre), bord à bord avec un écart fixe
+      const bx = bellX(idx.length, 1), ord = idx.map((i, k) => [i, bx[k]]).sort((a, b) => a[1] - b[1]).map((a) => a[0]), out = {};
+      let x = 0; ord.forEach((i, k) => { if (k) x += rbs[ord[k - 1]] + rbs[i] + gap; out[i] = x; });
+      const a = ord[0], b = ord[ord.length - 1], mid = (out[a] - rbs[a] + out[b] + rbs[b]) / 2; ord.forEach((i) => { out[i] -= mid; }); return out; };
+    const all = items.map((c, i) => i), nA = Math.ceil(items.length / 2);
+    const XS = PORT ? Object.assign(pack(all.slice(0, nA), .26), pack(all.slice(nA), .62)) : pack(all, .22);
+    const slots = bellSlots(items.length), maxSlot = Math.max(...slots.map(Math.abs));
     const cupGeo = new THREE.CylinderGeometry(1, 1, 1, 64, 1, true); cupGeo.translate(0, .5, 0);
     const SRC = new THREE.Vector3(RES.x, RH * .82, RES.z + RR * .6);
     const pGeo = new THREE.BufferGeometry(), streams = [];
     let NP = 0;
     items.forEach((c, i) => {
-      const x = xs[i], z = 1.3 - Math.pow(Math.abs(x / 1.22), 1.6) * .2, rb = .2 + .5 * Math.sqrt(c.total / tmax);
+      const x = XS[i], z = !PORT ? 1.3 - Math.pow(Math.abs(x / 1.05), 1.6) * .2 : i < nA ? 2.4 : .75, rb = rbs[i];
       const grp = new THREE.Group(); grp.position.set(x, 0, z);
       const cup = new THREE.Mesh(cupGeo, glass); cup.scale.set(rb, .46, rb); grp.add(cup);
       const liq = new THREE.Mesh(new THREE.CylinderGeometry(rb - .03, rb - .03, 1, 64), new THREE.MeshStandardMaterial({ color: 0x8ff0d8, emissive: 0x2fbf98, emissiveIntensity: .45, roughness: .3 }));
       liq.position.y = .2; liq.scale.y = .001; grp.add(liq);
       const coin = makeCoin(c, .24, .045); const pivot = new THREE.Group(); pivot.add(coin); pivot.position.y = .95; grp.add(pivot);
       const sh = shadow(rb * 3.2, rb * 3.2); sh.position.set(x, .004, z); group.add(sh);
+      const fl = textPlane(c.lab7, { size: PORT ? .27 : .19, color: '#e9e4d8', font: MONO }); fl.rotation.x = -.5; fl.position.set(0, .06, rb + .32); grp.add(fl);
       group.add(grp);
       const end = new THREE.Vector3(x, .5, z), mid = SRC.clone().lerp(end, .5).add(new THREE.Vector3(0, 1.4, 0));
       const curve = new THREE.QuadraticBezierCurve3(SRC.clone(), mid, end);
@@ -1541,8 +1578,8 @@ async function start3D() {
     parts.frustumCulled = false; group.add(parts);
     const P = new THREE.Vector3();
     return {
-      group, objs, view: { pos: new THREE.Vector3(0, 4.8, 12.8), tgt: new THREE.Vector3(0, 1.6, -1.4), glow: new THREE.Color(0x10221d), pool: new THREE.Color(0x09130f), poolZ: -1, off: -.09, lift: 2.4, refl: .5 },
-      focus: (o) => ({ tgt: new THREE.Vector3(o.x, .7, o.z), dist: 5.2 }),
+      group, objs, view: { pos: new THREE.Vector3(0, 5.2, 14.4), tgt: new THREE.Vector3(0, 1.6, -1.4), tel: { pos: new THREE.Vector3(.25, 16.4, 22.7), tgt: new THREE.Vector3(.25, 2.9, -.7) }, glow: new THREE.Color(0x10221d), pool: new THREE.Color(0x09130f), poolZ: -1, off: -.145, lift: 2.4, refl: .32 },
+      focus: (o) => ({ tgt: new THREE.Vector3(o.x, .7, o.z), dist: 9 }),
       update(ti, t, dt, anyFocus) {
         bandMeshes.forEach((m, k) => { const e = ease.inOut(clamp01((ti - .3 - k * .18) / 1.1)); m.scale.y = Math.max(.001, m.userData.hb * e); m.position.y = m.userData.y + m.userData.hb * e / 2;
           if (m.userData.lab) m.userData.lab.material.opacity = m.userData.lab.userData.op * clamp01((ti - 1.2 - k * .18) / .6); });
@@ -1667,7 +1704,8 @@ async function start3D() {
     finish.uniforms.uFade.value = fade; finish.uniforms.uT.value = t;
 
     const S = SETS[active], V = S.view, ti = REDUCED ? 99 : t - tAct;
-    const fov = V.fov || 34; if (camera.fov !== fov) { camera.fov = fov; camera.updateProjectionMatrix(); }
+    const VT = innerWidth < innerHeight && V.tel ? V.tel : null;   // cadrage propre au téléphone (portrait)
+    const fov = (VT && VT.fov) || V.fov || 34; if (camera.fov !== fov) { camera.fov = fov; camera.updateProjectionMatrix(); }
     const lightUp = ease.inOut(clamp01(ti / 2.4));
     scene.environmentIntensity = .95 * lightUp;
     key.intensity = 1.35 * lightUp; const sweep = ease.inOut(clamp01(ti / 3.2));
@@ -1683,24 +1721,26 @@ async function start3D() {
 
     // caméra : légère parallaxe, approche de l'objet choisi
     const sel = !pending && state.sel >= 0 ? S.objs[state.sel] : null, ft = sel ? S.focus(sel) : null;
-    const asp = innerWidth / innerHeight, kz = asp < 1.3 ? 1.3 / asp : 1;
-    const baseT = tmp2.copy(V.tgt); if (asp < 1) baseT.y += V.lift * (1 / asp - 1) * .55;
+    const asp = innerWidth / innerHeight, kzF = asp < 1.3 ? 1.3 / asp : 1, kz = VT ? Math.max(.8, .46 / asp) : kzF;
+    const vP = VT ? VT.pos : V.pos, vT = VT ? VT.tgt : V.tgt;
+    const baseT = tmp2.copy(vT); if (asp < 1 && !VT) baseT.y += V.lift * (1 / asp - 1) * .55;
     const goT = ft ? ft.tgt : baseT;
-    const goP = ft ? tmp.copy(V.pos).sub(V.tgt).normalize().multiplyScalar(ft.dist * Math.sqrt(kz)).add(ft.tgt) : tmp.copy(V.pos).sub(V.tgt).multiplyScalar(kz).add(baseT);
+    const goP = ft ? tmp.copy(vP).sub(vT).normalize().multiplyScalar(ft.dist * Math.sqrt(kzF)).add(ft.tgt) : tmp.copy(vP).sub(vT).multiplyScalar(kz).add(baseT);
     if (!REDUCED) { goP.x += par.x * .55 + Math.sin(t * .07) * .35; goP.y += -par.y * .28; }
     const k = damp(dt, V.intro && ti < 3.2 ? .9 + ti * .35 : 2.1);
     cur.pos.lerp(goP, k); cur.tgt.lerp(goT, k);
     camera.position.copy(cur.pos); camera.lookAt(cur.tgt);
     // décalage de cadre : la scène laisse la place au titre (à gauche) ou à la fiche (à droite)
-    const wide = innerWidth >= 900, offGoal = !wide ? 0 : sel ? .1 : V.off;
-    cur.off += (offGoal - cur.off) * k;
-    if (Math.abs(cur.off) > .001) camera.setViewOffset(innerWidth, innerHeight, cur.off * innerWidth, 0, innerWidth, innerHeight); else camera.clearViewOffset();
+    // sur écran étroit, la fiche couvre le bas : l'objet choisi remonte au-dessus d'elle
+    const wide = innerWidth >= 900, offGoal = !wide ? 0 : sel ? .1 : V.off, offYGoal = !wide && sel ? .26 : 0;
+    cur.off += (offGoal - cur.off) * k; cur.offY = (cur.offY || 0) + (offYGoal - (cur.offY || 0)) * k;
+    if (Math.abs(cur.off) > .001 || Math.abs(cur.offY) > .001) camera.setViewOffset(innerWidth, innerHeight, cur.off * innerWidth, cur.offY * innerHeight, innerWidth, innerHeight); else camera.clearViewOffset();
 
     // étiquette de survol, posée sous l'objet
     const hv = !pending && state.hover >= 0 && state.hover !== state.sel ? state.hover : -1;
     if (hv >= 0 && S.objs[hv]) {
       const o = S.objs[hv], p = PL[active];
-      tmp.set(o.x, 0, o.z).project(camera);
+      tmp.set(o.x, o.tagY || 0, o.z).project(camera);
       tag.style.transform = `translate(${(tmp.x * .5 + .5) * innerWidth}px, ${(-tmp.y * .5 + .5) * innerHeight + 10}px) translate(-50%, 0)`;
       tag.innerHTML = `<small>${two(o.item.rank)}</small>${esc(o.item.name)} · ${p.value(o.item)}`;
       tag.classList.add('on');
