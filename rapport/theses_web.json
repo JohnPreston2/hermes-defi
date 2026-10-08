@@ -1,10 +1,10 @@
 {
- "genere": "2026-10-06T08:00:00Z",
+ "genere": "2026-10-08T11:09:44Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-10-06",
-   "recoupe": "Au 05/10 la clause fees enchaine deux semaines negatives (-8,9 % puis -8,1 %) ; aucun fait web posterieur au 20/09 ne l'explique. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M apres la destruction de 200 M de LISTA ; sur le milliard que compte encore tokenomist.ai il serait d'environ 2,3, au-dessus du seuil de 2,0.",
+   "releve": "2026-10-08",
+   "recoupe": "Au 07/10 la clause fees n'enchaine plus deux semaines negatives (+0,4 % puis -20,9 %) ; aucun fait web posterieur au 20/09 trouve. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M apres la destruction de 200 M de LISTA ; sur le milliard que compte encore tokenomist.ai au 08/10, il serait d'environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -38,10 +38,24 @@
    ]
   },
   "Orca": {
-   "releve": "2026-10-06",
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la documentation Orca : 40 % des frais achetent de l'ORCA verse aux stakers xORCA. Aucun fait web ne contredit la baisse de volume mesuree (-9,0 % sur 7 jours au 05/10).",
+   "releve": "2026-10-08",
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la regle en vigueur (40 % des frais vers les stakers xORCA). Si la proposition votee du 11 au 16/10 passe, cette part tomberait a 10 %, plus 10 % de rachats geres par l'equipe : la mesure devra etre relue apres le vote. Aucun fait web n'explique la baisse de volume (-20,8 % sur 7 jours au 07/10).",
    "rien": false,
    "faits": [
+    {
+     "date": "2026-10-08",
+     "fait": "Le conseil de gouvernance annule le vote en cours et le relance du 11 au 16/10 : la proposition ferait passer la part des frais versee aux stakers xORCA de 40 % a 10 %, et donnerait a l'equipe 14,2 M d'ORCA et environ 70 000 SOL du tresor.",
+     "touche": "capture",
+     "source": "https://forums.orca.so/t/tokenholder-proposal-resourcing-orca-for-its-next-phase/1281",
+     "recoupe": true
+    },
+    {
+     "date": "2026-10-07",
+     "fait": "Orca fusionne avec le protocole de pret Loopscale dans une nouvelle societe, Formation ; ORCA devient le jeton de l'ensemble, les termes financiers ne sont pas publies.",
+     "touche": "gouvernance",
+     "source": "https://solanacompass.com/news/orca-and-loopscale-merge-to-form-formation-as-orcas-council-moves-to-re-run-the-orca-tokenholder-vote",
+     "recoupe": true
+    },
     {
      "date": "2026-09-13",
      "fait": "Lancement de WPOOL, une plateforme de lancement de jetons qui verse ses jetons diplômés directement dans les pools Orca.",
@@ -73,8 +87,8 @@
    ]
   },
   "Meteora": {
-   "releve": "2026-10-06",
-   "recoupe": "Le zero DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle clos le 21/09), flux que DefiLlama ne compte pas. Aucun resultat du 3e cycle ni mise a jour des rachats (13,7 M$ cumules au T1) trouves au 06/10.",
+   "releve": "2026-10-08",
+   "recoupe": "Le zero DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle clos le 21/09), flux que DefiLlama ne compte pas. Aucun resultat du 3e cycle ni mise a jour des rachats (13,7 M$ cumules au T1) trouves au 08/10.",
    "rien": false,
    "faits": [
     {
@@ -118,6 +132,34 @@
      "touche": "risque",
      "source": "https://solanacompass.com/news/judge-dismisses-libra-and-m3m3-memecoin-class-action-against-meteora-and-ben-chow",
      "recoupe": true
+    }
+   ]
+  },
+  "Maple Finance": {
+   "releve": "2026-10-08",
+   "recoupe": "La capture DefiLlama de 10 % concorde avec la regle de rachat en vigueur (10 % du revenu mensuel vers des rachats de SYRUP) ; aucun flux vers les detenteurs hors DefiLlama trouve. Aucun fait web n'explique l'ecart des fees (+178,6 % puis -61,4 % sur deux semaines).",
+   "rien": false,
+   "faits": [
+    {
+     "date": "2026-09-17",
+     "fait": "Maple a rachete 676 294 SYRUP en aout 2026, finances par 10 % du revenu du mois, selon la regle de rachat MIP-021.",
+     "touche": "capture",
+     "source": "https://maple.finance/insights/maple-memo-september-2026",
+     "recoupe": true
+    },
+    {
+     "date": "2026-08-31",
+     "fait": "La page de transparence liste 136 768 $ de rachats en juillet et 147 098 $ en aout ; aucun montant pour septembre au 08/10.",
+     "touche": "capture",
+     "source": "https://maple.finance/transparency",
+     "recoupe": true
+    },
+    {
+     "date": "2026-07-13",
+     "fait": "La regle MIP-021 entre en vigueur pour six mois : rachats de 10 % du revenu mensuel sous 1,5 M$, 20 % jusqu'a 2 M$, 30 % au-dela.",
+     "touche": "capture",
+     "source": "https://community.maple.finance/t/mip-021-a-rules-based-buyback-that-scales-with-revenue/1153",
+     "recoupe": false
     }
    ]
   }
