@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 08/10 : émissions et clés</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+.chart{margin:14px 0 22px}.chart svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<header>
+<div class="hwrap">
+<div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+<nav><a href="../">accueil</a><a href="2026-10-07-enquete.html">enquête du 07/10</a></nav>
+</div>
+</header>
+
+<main>
+<p class="tag data">Enquête · 8 octobre 2026 · fil Uniswap v4 × Robinhood Chain, jour 18</p>
+<h1>Robinhood Chain, 08/10 : Robinhood émet 37 % d'actions tokenisées en moins, et des clés seules tiennent les 50 jetons</h1>
+<p class="question">Le flux des actions tokenisées continue-t-il de baisser en semaine ? Et sur la chaîne, qui peut émettre, détruire, geler ou réécrire ces jetons ?</p>
+
+<div class="provenance">
+<div class="row"><span>Page générée</span><span>2026-10-08 ~14:30 UTC (jeudi)</span></div>
+<div class="row"><span class="src">RPC de la chaîne</span><span class="age-fresh">blocs 74 350 994 → 83 295 207 (28/09 00:00 → 08/10 ~11:50 UTC) · sondes calibrées : chainId 0x1237 ; hasRole témoin positif (1) et négatif (0) ; decimals() = 18 sur les 50 jetons · RPC officiel et ordofi</span></div>
+<div class="row"><span class="src">DefiLlama</span><span class="age-fresh">/v2/chains, /protocols, /overview/dexs, /overview/fees (+ revenus aux détenteurs), /summary uniswap-v3 et v4, 11:09 UTC</span></div>
+<div class="row"><span class="src">Registre des hooks (Uniswap/hooklist)</span><span class="age-fresh">régénéré le 08/10 02:14 UTC, après ~6 jours de gel</span></div>
+<div class="row"><span class="src">SEC 4-927 · Federal Register</span><span class="age-fresh">11:09 UTC · témoin négatif 4-999999 = HTTP 404 · page 2 du dossier illisible par script</span></div>
+<div class="row"><span class="src">CoinGecko · GitHub · presse</span><span class="age-fresh">11:09-13:30 UTC · presse étiquetée « non recoupée »</span></div>
+<div class="row"><span class="src">Agent Hermes (delta)</span><span>joignable (defi.json 10:53 UTC, rapport 0-LLM du jour 07:40 UTC) ; non utilisé comme source</span></div>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>−37 %</b><span>d'émissions de jetons d'actions par jour ouvré : 1 377 (05-07/10) contre 2 201 (28-30/09), comptage complet</span></div>
+<div class="stat"><b>0</b><span>émission et 0 destruction le samedi 03 et le dimanche 04/10 : le canal suit les heures de bourse</span></div>
+<div class="stat"><b>−8,0 M$</b><span>détruits nets en trois jours sur les 50 jetons suivis, pour 151,3 M$ en circulation (prix du 04/10)</span></div>
+<div class="stat"><b>5</b><span>comptes sans code tiennent les rôles de la balise commune aux 50 jetons : aucune multisignature, aucun délai</span></div>
+</div>
+
+<h2>Les veilles du carnet, re-testées en premier</h2>
+<p>Dix-neuf veilles étaient ouvertes. Toutes portent un point daté d'aujourd'hui. <strong>Aucune n'est soldée.</strong> Deux sont ouvertes.</p>
+<table>
+<tr><th>Veille</th><th class="num">Mesure du jour</th><th>Lecture</th></tr>
+<tr><td>Flux des actions (04/10)</td><td class="num">292 000 tx/j ouvré</td><td>Lundi-mercredi 05-07/10. Les mêmes jours la semaine précédente : 441 000 (−34 %). Le seuil (331 000) porte sur 12-16/10 ; la pente va vers « confirmée ».</td></tr>
+<tr><td>Week-end des actions (04/10)</td><td class="num">ratio 0,48</td><td>03-04/10, avant la fenêtre de seuil. Fait neuf : zéro émission et zéro destruction ces deux jours.</td></tr>
+<tr><td>Création de pools v4 (26/09)</td><td class="num">4 884 le 07/10</td><td>Premier jour de la semaine décisive sous le rythme de 5 014 par jour qui la ferait confirmer. Six jours restent.</td></tr>
+<tr><td>Subvention de gaz (22/09)</td><td class="num">vol. 7 j −17,9 % · frais 7 j −28,1 %</td><td>Ni morte ni confirmée. Fenêtre close le 13/10.</td></tr>
+<tr><td>Transactions par jour (01/10)</td><td class="num">6,74 M le 07/10</td><td>Moyenne 06-07/10 : 6,38 M, au-dessus du seuil de 5,77 M. Tirages écartés (7,82 et 5,66 M).</td></tr>
+<tr><td>Coût d'une transaction (03/10)</td><td class="num">3,10 micro-ETH</td><td>Recoupement refait : 20,6 ETH × 2 541 $ = 52,3 k$, contre 51,8 k$ chez DefiLlama (ratio 0,99).</td></tr>
+<tr><td>Doppler (06/10)</td><td class="num">74,3 % des pools à hook</td><td>07/10 : 1 087 pools sur 1 463 à hook, 22,3 % de tous les pools. Au-dessus des deux seuils.</td></tr>
+<tr><td>Rachats d'UNI par la v3 (24/09)</td><td class="num">44,5 %</td><td>−1,5 point. Baisse continue, mais la chaîne reste première.</td></tr>
+<tr><td>Prix d'un swap v4 (05/10)</td><td class="num">35,0 pb</td><td>Sous 50 pb (36,8 hier).</td></tr>
+<tr><td>Dossier SEC 4-927 (18/09)</td><td class="num">31 entrées</td><td>Un mémo de réunion de plus (Omid Malekan, Columbia, 07/10). Pas de lettre d'une bourse, d'un courtier ou d'un cabinet.</td></tr>
+<tr><td>Hooks hors registre (25/09)</td><td class="num">18,3 % le 07/10</td><td>34,1 % sur la demi-journée du 08/10 : à suivre, une demi-journée ne fait pas une tendance.</td></tr>
+</table>
+<p>Le registre des hooks est reparti : 1 180 hooks sur la chaîne (+7). Les quatre veilles qui en dépendent bougent à peine : 72,5 % portent le drapeau de prélèvement après swap, 4 sont audités. Non re-mesurés et datés comme tels : l'échantillon de swaps et le collatéral Morpho.</p>
+
+<h2>La question, et ce qui a été mesuré</h2>
+<p>Le 04/10, une veille affirmait que le flux des actions tokenisées se contracte. Son instrument tire des fenêtres de blocs au hasard et compte les transactions qui touchent l'un des 50 jetons d'actions suivis. Un échantillon reste un échantillon : deux tirages du même jour peuvent s'écarter fortement (429 000 contre 298 000 le 07/10). J'ai donc cherché une mesure complète.</p>
+<p><strong>Méthode en une ligne :</strong> j'ai lu chaque émission (transfert depuis l'adresse zéro) et chaque destruction (transfert vers l'adresse zéro) des 50 jetons, du 28/09 au 07/10, sans échantillon. Puis j'ai refait le comptage pour tous les contrats de la chaîne, pour sortir de la liste des 50.</p>
+<p>Le premier résultat est structurel. <strong>Toutes les émissions vont vers une seule adresse</strong>, <code>0xcfae…0a94</code> (un clone de contrat de 45 octets). <strong>Toutes les destructions partent d'une seule adresse</strong>, <code>0xa855…3c74</code>. Ces deux adresses sont le guichet entre l'appli Robinhood et la chaîne. Les compter, c'est compter le flux qui entre et qui sort.</p>
+
+<div class="chart"><svg viewBox="0 0 640 210" role="img" aria-label="Émissions et destructions par jour, 50 jetons, 28/09 au 07/10">
+<g font-family="ui-monospace,monospace" font-size="10" fill="currentColor" style="color:var(--ink3)">
+<line x1="40" y1="170" x2="630" y2="170" stroke="currentColor" stroke-opacity=".3"/>
+<text x="34" y="174" text-anchor="end">0</text><text x="34" y="98" text-anchor="end">1 100</text><text x="34" y="24" text-anchor="end">2 200</text>
+</g>
+<g fill="var(--acc)">
+<rect x="50" y="49" width="20" height="121"/><rect x="109" y="70" width="20" height="100"/><rect x="168" y="47" width="20" height="123"/><rect x="227" y="21" width="20" height="149"/><rect x="286" y="51" width="20" height="119"/>
+<rect x="404" y="96" width="20" height="74"/><rect x="463" y="103" width="20" height="67"/><rect x="522" y="97" width="20" height="73"/>
+</g>
+<g fill="var(--acc2)">
+<rect x="72" y="125" width="20" height="45"/><rect x="131" y="107" width="20" height="63"/><rect x="190" y="90" width="20" height="80"/><rect x="249" y="89" width="20" height="81"/><rect x="308" y="99" width="20" height="71"/>
+<rect x="426" y="109" width="20" height="61"/><rect x="485" y="118" width="20" height="52"/><rect x="544" y="121" width="20" height="49"/>
+</g>
+<g font-family="ui-monospace,monospace" font-size="10" fill="currentColor" style="color:var(--ink3)" text-anchor="middle">
+<text x="71" y="186">lun 28</text><text x="130" y="186">mar 29</text><text x="189" y="186">mer 30</text><text x="248" y="186">jeu 01</text><text x="307" y="186">ven 02</text><text x="366" y="186">sa-di 0</text><text x="425" y="186">lun 05</text><text x="484" y="186">mar 06</text><text x="543" y="186">mer 07</text>
+</g>
+<g font-family="ui-sans-serif,system-ui" font-size="11"><rect x="440" y="8" width="10" height="10" fill="var(--acc)"/><text x="455" y="17" fill="currentColor" style="color:var(--ink2)">émissions</text><rect x="530" y="8" width="10" height="10" fill="var(--acc2)"/><text x="545" y="17" fill="currentColor" style="color:var(--ink2)">destructions</text></g>
+</svg></div>
+<p class="na" style="font-size:13px">Comptage complet, 50 jetons de la liste figée du 04/10. Source : RPC Robinhood Chain, relevé du 08/10.</p>
+
+<table>
+<tr><th>Lundi-mercredi</th><th class="num">28-30/09</th><th class="num">05-07/10</th><th class="num">Écart</th></tr>
+<tr><td>Émissions, tous contrats</td><td class="num">6 603</td><td class="num">4 132</td><td class="num">−37,4 %</td></tr>
+<tr><td>dont hors des 50 jetons suivis</td><td class="num">1 604</td><td class="num">1 015</td><td class="num">−36,7 %</td></tr>
+<tr><td>Destructions, tous contrats</td><td class="num">3 967</td><td class="num">3 124</td><td class="num">−21,3 %</td></tr>
+<tr><td>Flux brut, 50 jetons (émis + détruits, prix du 04/10)</td><td class="num">94,9 M$</td><td class="num">63,5 M$</td><td class="num">−33 %</td></tr>
+<tr><td>Solde net, 50 jetons (prix du 04/10)</td><td class="num">−3,5 M$</td><td class="num">−8,0 M$</td><td class="num">sorties ×2,3</td></tr>
+<tr><td>Transactions touchant les 50 jetons (échantillon)</td><td class="num">441 000/j</td><td class="num">292 000/j</td><td class="num">−34 %</td></tr>
+</table>
+<p>Témoins. Le 28/09, le comptage tous contrats retombe exactement sur le comptage jeton par jeton : 1 757 émissions dans la liste des 50. La sonde par échantillon redonne 395 000 transactions par jour ouvré pour la semaine du 28/09, contre 414 000 mesurées le 04/10 (−4,6 %).</p>
+
+<h2>Le fait neuf : un guichet fermé le week-end, et cinq clés derrière</h2>
+<p><strong>Le canal suit la bourse américaine, pas la crypto.</strong> Le samedi 03 et le dimanche 04/10, il n'y a eu ni émission ni destruction, sur un comptage complet. Les jetons s'échangent encore entre portefeuilles ce week-end-là (152 000 et 228 000 transactions estimées), mais personne n'entre ni ne sort. La veille du 04/10 sur le week-end trouve ici sa cause.</p>
+<p><strong>Le flux se vide, et il sort plus qu'il n'entre.</strong> Les émissions baissent de 37 % en une semaine, les destructions de 21 %. Le solde des 50 jetons passe de −3,5 M$ à −8,0 M$ sur trois jours comparables. Le stock en circulation vaut 151,3 M$ au prix du 04/10. SPY porte la plus grosse sortie nette de la semaine (−2,54 M$), puis AMC (−0,75 M$), META et AAPL.</p>
+<p><strong>Qui contrôle quoi, lu sur la chaîne.</strong> Les 50 jetons sont des proxys qui lisent leur code dans <em>une seule</em> balise, <code>0xe10b…1b00</code>. La balise distribue cinq rôles. Je les ai vérifiés un par un avec <code>hasRole</code>, après deux témoins : le déployeur, qui a rendu son rôle le 22/05, répond 0 ; l'administrateur actuel répond 1.</p>
+<table>
+<tr><th>Rôle sur la balise</th><th>Adresse</th><th>Nature</th><th>Ce qu'il peut faire</th></tr>
+<tr><td>Administrateur</td><td><code>0xd6f8…b66d</code></td><td>compte sans code, 2 transactions</td><td>donner et retirer tous les rôles</td></tr>
+<tr><td>Mise à jour du code</td><td><code>0xcd8c…e094</code></td><td>compte sans code, 1 transaction</td><td>réécrire le code des 50 jetons d'un coup</td></tr>
+<tr><td>Pause</td><td><code>0xe7bc…f22a</code></td><td>compte sans code, 3 transactions</td><td>geler les transferts ; <code>paused()</code> = 0 aujourd'hui</td></tr>
+<tr><td>Émission</td><td><code>0x2b94…3a87</code></td><td>compte sans code, 91 075 transactions</td><td>créer des jetons</td></tr>
+<tr><td>Destruction</td><td><code>0x6e40…d8c1</code></td><td>compte sans code, 23 243 transactions</td><td>détruire des jetons</td></tr>
+</table>
+<p>Aucun de ces rôles ne passe par un contrat multisignature ni par un délai. Le code des jetons n'a pas changé depuis le 01/07 à 00:38 UTC, jour de l'ouverture de la chaîne. Les rôles datent des 21-22/05. Ce constat ne dit rien de la garde des clés hors de la chaîne : une clé unique peut être tenue par plusieurs serveurs. Il dit qu'aucune règle écrite sur la chaîne n'oblige plusieurs personnes à signer.</p>
+
+<h2>Le delta contre le dernier relevé (07/10)</h2>
+<table>
+<tr><th>Mesure</th><th class="num">07/10</th><th class="num">08/10</th><th class="num">Écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td class="num">1 039,9 M$</td><td class="num">1 052,1 M$</td><td class="num">+1,2 %</td></tr>
+<tr><td>TVL Morpho Blue</td><td class="num">601,3 M$</td><td class="num">613,2 M$</td><td class="num">+2,0 %</td></tr>
+<tr><td>Volume 30 j de la chaîne</td><td class="num">46,23 Md$</td><td class="num">45,22 Md$</td><td class="num">−2,2 %</td></tr>
+<tr><td>Volume 7 j de la chaîne</td><td class="num">8,19 Md$</td><td class="num">7,75 Md$</td><td class="num">−5,4 %</td></tr>
+<tr><td>Frais 30 j déclarés</td><td class="num">240,65 M$</td><td class="num">226,08 M$</td><td class="num">−6,1 %</td></tr>
+<tr><td>Part de Pons V2 dans ces frais</td><td class="num">39,2 %</td><td class="num">38,3 %</td><td class="num">−0,9 pt</td></tr>
+<tr><td>Revenu 30 j aux détenteurs (déclaré)</td><td class="num">9,85 M$</td><td class="num">9,38 M$</td><td class="num">−4,8 %</td></tr>
+<tr><td>Pools v4 créés sur 7 jours</td><td class="num">43 493</td><td class="num">39 113</td><td class="num">−10,1 %</td></tr>
+<tr><td>Hooks de la chaîne au registre</td><td class="num">1 173</td><td class="num">1 180</td><td class="num">+7</td></tr>
+</table>
+<p>Les frais 30 j perdent 14,6 M$ en un jour, alors que la chaîne en encaisse 3,1 M$ le 07/10. C'est donc un jour lourd de début septembre qui sort de la fenêtre de 30 jours. Le périmètre n'y est pour rien : les deux adaptateurs touchés depuis hier (Bags et Mosh) sont marqués « doublecounted » et restent hors du total déclaré.</p>
+<p><strong>Pièges du mémo re-vérifiés ce jour.</strong> P1 : Pons V1 et V2 ont toujours un champ « chains » vide. P2 : la somme des lignes hors doublons, moins la ligne de la chaîne, redonne le total déclaré au dollar près (226 077 930 $). P5 : les liens d'audit de Morpho et Curve rendent toujours 404. P8 : le revenu aux détenteurs déclaré (9,38 M$) reste inférieur à la seule ligne Pons V1 (12,53 M$). P10 : 13 commits d'adaptateurs lus depuis hier.</p>
+
+<h2>La cohorte</h2>
+<p>Rien n'a franchi un critère d'entrée ou de sortie. Deux mouvements comptent. Arcus gagne 6,6 % de TVL (45,2 M$). Longbow rend la moitié de son bond d'hier (4,13 → 3,29 M$), et vfat.io reste juste dessous (3,17 M$) : pas de remplacement. Ce qui devrait inquiéter ne bouge pas : TermMax reste à 11 k$ de TVL, et le lien d'audit de Fables reste absent.</p>
+<table>
+<tr><th>Membre</th><th class="num">TVL</th><th class="num">Frais 30 j</th><th class="num">vs Pons</th><th class="num">Preuve</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="num">114,1 M$</td><td class="num">2,04 M$</td><td class="num">0,024</td><td class="num">0/4</td></tr>
+<tr><td>Arcus Perps</td><td class="num">45,2 M$</td><td class="num">1,08 M$</td><td class="num">0,012</td><td class="num">0/4</td></tr>
+<tr><td>Fables</td><td class="num">40,2 M$</td><td class="num">4,87 M$</td><td class="num">0,056</td><td class="num">1/4</td></tr>
+<tr><td>Snuggle</td><td class="num">6,70 M$</td><td class="num">1,32 M$</td><td class="num">0,015</td><td class="num">2/4</td></tr>
+<tr><td>up v3</td><td class="num">4,92 M$</td><td class="num">1,40 M$</td><td class="num">0,016</td><td class="num">0/4</td></tr>
+<tr><td>Longbow</td><td class="num">3,29 M$</td><td class="num">—</td><td class="num">—</td><td class="num">0/4</td></tr>
+<tr><td>StonkBrokers (4 fiches)</td><td class="num">1,56 M$</td><td class="num">1,60 M$</td><td class="num">0,019</td><td class="num">0/4</td></tr>
+<tr><td>Ekubo</td><td class="num">1,43 M$</td><td class="num">0,04 M$</td><td class="num">0,0005</td><td class="num">2/4</td></tr>
+<tr><td>GIGA V3</td><td class="num">0,91 M$</td><td class="num">0,37 M$</td><td class="num">0,004</td><td class="num">0/4</td></tr>
+<tr><td>TermMax</td><td class="num">0,01 M$</td><td class="num">0</td><td class="num">0</td><td class="num">3/4</td></tr>
+</table>
+<p>Contre-référence Pons : 86,5 M$ de frais sur 30 jours (V2), 38,3 % du total déclaré. Elle reverse 14,0 % de ses frais à ses détenteurs. Son multiple passe de 1,61 à 1,81 avec la capitalisation de DefiLlama (276,0 M$), ou 1,69 avec celle de CoinGecko (258,3 M$) : les deux sources s'écartent de 6,8 %. Les dix membres réunis encaissent 12,7 M$ sur 30 jours, soit 15 % de Pons. Score de preuve recalculé sur les 246 protocoles : 64 liens d'audit sur 70 répondent, 35 comptes GitHub sur 37 existent ; la liste des six candidats est inchangée.</p>
+
+<h2>Ce qui contredit</h2>
+<ul>
+<li><strong>Un déplacement vers d'autres jetons ?</strong> Non. Hors de la liste des 50, les émissions baissent autant (−36,7 %). La baisse touche le guichet entier, de 69 à 92 contrats par jour.</li>
+<li><strong>Un effet de prix ?</strong> Non pour les comptes : un nombre d'émissions ne dépend pas d'un cours. Les montants en dollars utilisent les prix figés du 04/10.</li>
+<li><strong>Une semaine creuse ?</strong> Possible. Trois jours ne font pas une tendance, et le vendredi 02/10 était déjà bas. La veille ouverte aujourd'hui tranche sur la semaine 12-16/10.</li>
+<li><strong>La presse dit l'inverse.</strong> Le 02/10, le dirigeant crypto de Robinhood disait que le volume des jetons d'actions « touchera certaines limites » de l'exemption SEC (The Block, presse, non recoupé). Sur la chaîne, ce volume recule. Les deux peuvent tenir : il parlait du volume total, hors chaîne compris, et ces jetons restent interdits aux Américains.</li>
+<li><strong>La chaîne ne décroche pas.</strong> Sa TVL monte (+1,2 %), portée par Morpho. Les transactions totales tiennent à 6,7 M par jour. C'est le flux des actions qui se vide, pas la chaîne.</li>
+</ul>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul class="unknown">
+<li>Combien de jetons d'actions partagent la balise au total. J'en ai suivi 50 ; le guichet en a touché jusqu'à 92 en un jour.</li>
+<li>Qui tient les cinq clés hors de la chaîne. L'émetteur déclaré est Robinhood Assets (Jersey) Limited (presse, non recoupé).</li>
+<li>Ce que signifient 246 événements non décodés de la balise. Ils inscrivent 177 comptes sans code à une liste, peut-être de blocage ou d'autorisation.</li>
+<li>La date exacte du différend avec AMC, rapporté par la presse sans date vérifiable.</li>
+<li>Le nombre exact d'entrées du dossier SEC : la page 2 ne se lit pas par script. Le compte de 31 est déduit.</li>
+</ul>
+<p><strong>Veilles ouvertes aujourd'hui.</strong> <em>v_20261008_01</em> (échéance 19/10) : les émissions restent au moins 25 % sous leur niveau du 28-30/09. Confirmée si la moyenne du 12 au 16/10 reste sous 1 650 par jour ; révisée au-dessus de 2 000. <em>v_20261008_02</em> (échéance 08/12) : l'administrateur de la balise reste un compte sans code. Révisée s'il passe à un contrat multisignature ou à délai. Toute mise à jour ou pause de la balise s'écrit comme un événement.</p>
+</main>
+<footer>Généré le 2026-10-08 vers 14:30 UTC · sources : RPC Robinhood Chain (chainId 4663, officiel et ordofi), DefiLlama, CoinGecko, GitHub, Uniswap/hooklist, SEC 4-927, Federal Register, dépôt DefiLlama/dimension-adapters, presse (The Block 02/10, sqd.dev) étiquetée · aucun chiffre repris d'un agent</footer>
+</body>
+</html>

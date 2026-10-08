@@ -289,6 +289,37 @@
     }
    ],
    "genere": "2026-10-07T17:30:00Z"
+  },
+  {
+   "date": "2026-10-08",
+   "fichier": "2026-10-08-enquete.html",
+   "titre": "Robinhood Chain, 08/10 : Robinhood émet 37 % d'actions tokenisées en moins, et des clés seules tiennent les 50 jetons",
+   "question": "Le flux des actions tokenisées continue-t-il de baisser en semaine, et qui, sur la chaîne, peut émettre, détruire, geler ou réécrire ces jetons ?",
+   "mesure_neuve": "Comptage complet des émissions de jetons d'actions (Transfer depuis 0x0 vers l'adresse de réception unique 0xcfae…0a94, tous contrats) : 1 377 par jour ouvré du 05 au 07/10 contre 2 201 du 28 au 30/09 (−37,4 %), même baisse hors de la liste des 50 jetons (−36,7 %), zéro émission et zéro destruction le week-end des 03-04/10 ; sur les 50 jetons, 8,04 M$ détruits nets en trois jours (prix du 04/10), pour 151,3 M$ en circulation. Les 50 jetons partagent une seule balise de proxy, dont l'administrateur, le gestionnaire de mise à jour, l'émetteur, le destructeur et le pauseur sont cinq comptes sans code, sans multisignature ni délai sur la chaîne.",
+   "chiffre_cle": {
+    "valeur": "−37 %",
+    "libelle": "d'émissions d'actions tokenisées par jour ouvré en une semaine",
+    "population": "4 132 émissions du lun-mer 05-07/10 contre 6 603 du lun-mer 28-30/09, comptage complet de tous les jetons émis vers l'adresse de réception unique 0xcfae…0a94 (69 à 92 contrats par jour)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume 7 jours de la chaîne (les échanges de la semaine)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 jours de la chaîne (ce qu'elle encaisse)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés sur 7 jours (le rythme des lancements)"
+    }
+   ],
+   "genere": "2026-10-08T14:30:00Z"
   }
  ]
 }
