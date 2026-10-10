@@ -320,6 +320,37 @@
     }
    ],
    "genere": "2026-10-08T14:30:00Z"
+  },
+  {
+   "date": "2026-10-10",
+   "fichier": "2026-10-10-enquete.html",
+   "titre": "Robinhood Chain, 10/10 : un compte, 645 pools, 3 128 échanges vides",
+   "question": "Le 09/10, la part des pools Uniswap v4 créés sur des hooks absents du registre officiel bondit à 58 %. Qui les crée, et que mesurent encore nos compteurs de pools ?",
+   "mesure_neuve": "Recensement complet des créations de pools v4 sur 30 jours (293 910 pools) puis lecture de tous les échanges des pools du hook hors registre 0xfcd1…15c7 : 645 pools créés du 08/10 au 10/10 par un seul compte (délégation EIP-7702, 63 756 transactions), qui passe aussi 40 des 40 échanges tirés au hasard ; 3 128 des 3 212 échanges sont vides (montants nuls), 1 119 $ de volume valorisable. Il fait 556 des 1 295 pools hors registre du 09/10 ; sans lui la part hors registre passe quand même de 18 % (07/10) à 44 % (09/10), portée par 390 hooks à pool unique. Sur 30 jours : 19,9 % (15,5 % sans la rafale du 15/09). Dossier SEC 4-927 : première lettre d'un cabinet d'avocats (Hunton Andrews Kurth, 08/10), qui conteste le consentement tacite des émetteurs.",
+   "chiffre_cle": {
+    "valeur": "97 %",
+    "libelle": "des échanges sur les pools du nouveau hook 0xfcd1 sont vides : zéro jeton échangé",
+    "population": "3 128 échanges sur 3 212, dans 645 pools v4 créés du 08/10 au 10/10 08:15 UTC par un seul compte (comptage complet des événements Swap de la PoolManager)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés sur 7 jours (le rythme des lancements)"
+    },
+    {
+     "champ": "rh_actions_emissions_moy_jour_ouvre",
+     "libelle": "Émissions d'actions par jour ouvré (jetons créés par Robinhood)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 jours de la chaîne (ce qu'elle encaisse)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    }
+   ],
+   "genere": "2026-10-10T09:30:00Z"
   }
  ]
 }
