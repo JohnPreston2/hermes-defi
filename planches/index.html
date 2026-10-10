@@ -192,6 +192,56 @@ h1 em { font-style: italic; color: var(--champ); }
 .rail.many { justify-content: flex-start; }
 .rail { justify-content: flex-start; } .rail > .chip:first-child { margin-inline-start: auto; } .rail > .chip:last-child { margin-inline-end: auto; }
 @media (prefers-reduced-motion: reduce) { .card, .head, .tag, .chip { transition: none; } }
+/* défilement (09/10) : la page ne défile pas ; quatre zones défilent (rangée du bas, barre des onglets, fiche, fil).
+   Fondus et trait suivent la position de défilement, rien ne bouge seul. Sans prise en charge ou en mouvement réduit :
+   ni fondu ni trait, le contenu reste tel quel. */
+.hint { transition: opacity .45s ease; } .hint.hide { opacity: 0; }
+@media (max-width: 760px) { body.filon .foot { opacity: 0; } }
+.fil li.sep, .fil li.sep:hover { position: sticky; top: -6px; z-index: 1; margin: 0 -8px; padding: 14px 18px 6px; border-radius: 0; background: rgb(12, 13, 16); }
+.card header { position: sticky; top: -20px; z-index: 2; margin-top: -20px; padding: 20px 0 12px; margin-bottom: -12px; }
+.card header::before { content: ''; position: absolute; inset: 0 -20px; z-index: -1; background: rgb(13, 14, 17); border-bottom: 1px solid var(--line); }
+.railbar { display: none; }
+@keyframes pl-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pl-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes pl-bar { from { transform: scaleX(var(--v0, .3)); } to { transform: scaleX(1); } }
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    body { timeline-scope: --rail-x; }
+    .rail { scroll-timeline: --rail-x inline; }
+    .switch { scroll-timeline: --tabs-x inline; }
+    .card { scroll-timeline: --card-y block; }
+    .fil ol { scroll-timeline: --fil-y block; }
+    .rail::before, .rail::after, .switch::before, .switch::after { content: ''; position: sticky; z-index: 2; flex: 0 0 auto; align-self: stretch; pointer-events: none; opacity: 0; }
+    .rail::before, .rail::after { width: 56px; }
+    .rail::before { left: calc(-1 * var(--gut)); margin-right: -58px; background: linear-gradient(90deg, rgba(7, 8, 10, .92), rgba(7, 8, 10, 0)); animation: pl-in linear both; animation-timeline: --rail-x; animation-range: 0 32px; }
+    .rail::after { right: calc(-1 * var(--gut)); margin-left: -58px; background: linear-gradient(270deg, rgba(7, 8, 10, .92), rgba(7, 8, 10, 0)); animation: pl-out linear both; animation-timeline: --rail-x; animation-range: calc(100% - 32px) 100%; }
+    .switch::before, .switch::after { width: 30px; }
+    .switch::before { left: -3px; margin-right: -32px; border-radius: 999px 0 0 999px; background: linear-gradient(90deg, rgba(14, 15, 18, .97), rgba(14, 15, 18, 0)); animation: pl-in linear both; animation-timeline: --tabs-x; animation-range: 0 24px; }
+    .switch::after { right: -3px; margin-left: -32px; border-radius: 0 999px 999px 0; background: linear-gradient(270deg, rgba(14, 15, 18, .97), rgba(14, 15, 18, 0)); animation: pl-out linear both; animation-timeline: --tabs-x; animation-range: calc(100% - 24px) 100%; }
+    .card::after { content: ''; display: block; position: sticky; bottom: -18px; height: 44px; margin: -44px -20px 0; pointer-events: none; background: linear-gradient(rgba(13, 14, 17, 0), rgba(13, 14, 17, .94)); opacity: 0; animation: pl-out linear both; animation-timeline: --card-y; animation-range: calc(100% - 24px) 100%; }
+    .card header::before { opacity: 0; animation: pl-in linear both; animation-timeline: --card-y; animation-range: 0 14px; }
+    .fil ol::after { content: ''; display: block; position: sticky; bottom: -10px; height: 44px; margin: -44px -8px 0; pointer-events: none; background: linear-gradient(rgba(12, 13, 16, 0), rgba(12, 13, 16, .94)); opacity: 0; animation: pl-out linear both; animation-timeline: --fil-y; animation-range: calc(100% - 24px) 100%; }
+    .railbar.on { display: block; position: fixed; z-index: 5; left: var(--gut); right: var(--gut); bottom: calc(4px + env(safe-area-inset-bottom, 0px)); height: 2px; border-radius: 1px; background: rgba(241, 237, 228, .10); pointer-events: none; }
+    .railbar i { display: block; height: 100%; border-radius: inherit; background: var(--ink2); transform-origin: 0 50%; animation: pl-bar linear both; animation-timeline: --rail-x; }
+  }
+}
+@media (pointer: coarse) and (prefers-reduced-motion: no-preference) {
+  .rail, .switch { scroll-snap-type: x proximity; }
+  .rail { scroll-padding-inline: var(--gut); } .switch { scroll-padding-inline: 3px; }
+  .rail > .chip, .switch > button { scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) { .hint, .foot { transition: none; } }
+/* entrée de planche (10/10) : objets de la rangée l'un après l'autre (0,3 s au plus), titre ligne par ligne,
+   puis la phrase clé. Mouvement réduit : rien, le contenu s'affiche d'un coup. */
+@media (prefers-reduced-motion: no-preference) {
+  .rail .chip { animation: pl-chip .42s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: calc(var(--i, 0) * 24ms); }
+  #title .w { display: inline-block; animation: pl-line .7s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: calc(80ms + var(--l, 0) * 110ms); }
+  #eyebrow.rv { animation: pl-fade .5s ease backwards; }
+  #insight.rv, #filrow.rv { animation: pl-line .6s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: var(--d, 300ms); }
+}
+@keyframes pl-chip { from { opacity: 0; transform: translateY(10px); } }
+@keyframes pl-line { from { opacity: 0; transform: translateY(.5em); } }
+@keyframes pl-fade { from { opacity: 0; } }
 </style>
 <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.min.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
 </head>
@@ -213,10 +263,11 @@ h1 em { font-style: italic; color: var(--champ); }
 <aside class="fil" id="fil" aria-label="Le fil Hermes"></aside>
 
 <nav class="rail" id="rail" aria-label="Les dix du classement"></nav>
+<div class="railbar" id="railbar" aria-hidden="true"><i></i></div>
 <div class="tag" id="tag" aria-hidden="true"></div>
 <aside class="card" id="card" aria-live="polite"></aside>
 <div class="foot"><p class="legend" id="legend"></p><p id="foot"></p></div>
-<p class="hint">Survoler ou cliquer un objet · ← → pour parcourir · Échap pour revenir</p>
+<p class="hint" id="hint">Survoler ou cliquer un objet · ← → pour parcourir · Échap pour revenir</p>
 <div class="veil" id="veil">Mise en lumière</div>
 
 <script type="module">
@@ -493,8 +544,8 @@ function renderFil() {
     li.addEventListener('focusin', on); li.addEventListener('focusout', off);
   });
 }
-function openFil() { $('fil').classList.add('on'); $('filbtn').setAttribute('aria-expanded', 'true'); $('head').classList.add('hide'); }
-function closeFil() { $('fil').classList.remove('on'); $('filbtn').setAttribute('aria-expanded', 'false'); if (state.sel < 0) $('head').classList.remove('hide'); }
+function openFil() { document.body.classList.add('filon'); $('fil').classList.add('on'); $('filbtn').setAttribute('aria-expanded', 'true'); $('head').classList.add('hide'); }
+function closeFil() { document.body.classList.remove('filon'); $('fil').classList.remove('on'); $('filbtn').setAttribute('aria-expanded', 'false'); if (state.sel < 0) $('head').classList.remove('hide'); }
 $('filbtn').addEventListener('click', () => ($('fil').classList.contains('on') ? closeFil() : openFil()));
 
 /* ================================================================ Recherche Hermes (08/10) : quatre planches tirées du travail de l'agent */
@@ -651,6 +702,24 @@ ALLK.forEach((k) => {
   b.addEventListener('click', () => setPlanche(k)); $('switch').append(b);
 });
 
+// titre ligne par ligne (10/10) : mots enveloppés (l'italique est gardé), lignes repérées à la mise en page ; mouvement réduit : rien
+function reveal() {
+  const h1 = $('title'), side = [$('eyebrow'), $('insight'), $('filrow')];
+  side.forEach((e) => e.classList.remove('rv'));
+  if (REDUCED) return;
+  const walk = (node) => [...node.childNodes].forEach((c) => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/( +)/).forEach((s) => { if (!s) return; if (/^ +$/.test(s)) f.append(s); else { const w = document.createElement('span'); w.className = 'w'; w.textContent = s; f.append(w); } });
+      c.replaceWith(f);
+    } else if (c.nodeType === 1) walk(c);
+  });
+  walk(h1);
+  let top = null, l = -1;
+  h1.querySelectorAll('.w').forEach((w) => { const y = w.offsetTop; if (top === null || Math.abs(y - top) > 4) { l++; top = y; } w.style.setProperty('--l', l); });
+  const d = 80 + (l + 1) * 110 + 40;
+  side.forEach((e) => { e.style.setProperty('--d', d + 'ms'); void e.offsetWidth; e.classList.add('rv'); });
+}
 function renderHead() {
   const p = PL[state.pl], head = $('head');
   head.classList.add('out');
@@ -662,6 +731,7 @@ function renderHead() {
     const hzl = p.items.some((it) => it._hzF) ? '<span><i class="hz"></i>bague violette : suivi par l’agent Hermes</span>' : '';
     $('legend').innerHTML = p.legend + hzl; $('foot').innerHTML = esc(p.foot) + (old ? `<span class="stale">${old}</span>` : '');
     $('asof').innerHTML = 'Relevé du ' + esc(when(p.asof)) + (old ? `<span class="stale">${old}</span>` : '');
+    reveal();
     head.classList.remove('out');
   }, REDUCED ? 0 : 260);
   $('switch').querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pl === state.pl)));
@@ -673,7 +743,7 @@ function renderRail() {
   rail.innerHTML = ''; rail.classList.toggle('many', p.items.length > 12);
   p.items.forEach((it, i) => {
     const b = document.createElement('button');
-    b.type = 'button'; b.className = 'chip'; b.dataset.i = i;
+    b.type = 'button'; b.className = 'chip'; b.dataset.i = i; b.style.setProperty('--i', Math.min(i, 12));
     b.setAttribute('aria-pressed', 'false');
     b.setAttribute('aria-label', `${two(it.rank)}, ${it.name}, ${p.value(it)}`);
     b.innerHTML = `<img src="${LOGOS[it.logo]}" alt=""><span class="k">${two(it.rank)} · ${esc(p.label(it))}${it._hzF ? '<i class="hzd" title="suivi par l’agent Hermes"></i>' : ''}</span><span class="v">${p.value(it)}</span>`;
@@ -684,7 +754,19 @@ function renderRail() {
     b.addEventListener('blur', () => setHover(-1));
     rail.append(b);
   });
+  syncBar();
 }
+function syncBar() {   // trait sous la rangée : part de la liste déjà visible, seulement au-delà de 12 objets qui débordent
+  const r = $('rail'), bar = $('railbar'), on = r.classList.contains('many') && r.scrollWidth > r.clientWidth + 1;
+  bar.classList.toggle('on', on); if (on) bar.style.setProperty('--v0', (r.clientWidth / r.scrollWidth).toFixed(3));
+}
+function wheelX(el) {   // molette verticale : la rangée défile sur le côté quand elle déborde (souris sans pavé tactile)
+  el.addEventListener('wheel', (e) => {
+    if (e.ctrlKey || el.scrollWidth <= el.clientWidth + 1 || Math.abs(e.deltaX) >= Math.abs(e.deltaY)) return;
+    el.scrollLeft += e.deltaY * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? el.clientWidth : 1); e.preventDefault();
+  }, { passive: false });
+}
+wheelX($('rail')); wheelX($('switch')); addEventListener('resize', syncBar);
 
 function renderCard() {
   const card = $('card'), i = state.sel;
@@ -708,12 +790,12 @@ function select(i) {
   state.sel = i; renderCard(); syncRail();
   if (i >= 0 && innerWidth < 760) closeFil();
   $('head').classList.toggle('hide', i >= 0 || $('fil').classList.contains('on'));
-  $('legend').parentNode.classList.toggle('hide', i >= 0);
+  $('legend').parentNode.classList.toggle('hide', i >= 0); $('hint').classList.toggle('hide', i >= 0);
   if (i >= 0) { const b = $('rail').children[i]; b && b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); }
 }
 function setPlanche(pl) {
   if (pl === state.pl) return;
-  state.pl = pl; state.sel = -1; state.hover = -1; $('head').classList.remove('hide'); $('legend').parentNode.classList.remove('hide');
+  state.pl = pl; state.sel = -1; state.hover = -1; $('head').classList.remove('hide'); $('legend').parentNode.classList.remove('hide'); $('hint').classList.remove('hide');
   try { history.replaceState(null, '', '#' + pl); } catch (e) { /* adresse figée */ }
   renderHead(); renderRail(); renderCard(); syncRail(); renderFil();
   if (ui.onSwitch) ui.onSwitch(pl);
