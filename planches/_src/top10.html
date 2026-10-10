@@ -236,7 +236,8 @@ h1 em { font-style: italic; color: var(--champ); }
    puis la phrase clé. Mouvement réduit : rien, le contenu s'affiche d'un coup. */
 @media (prefers-reduced-motion: no-preference) {
   .rail .chip { animation: pl-chip .42s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: calc(var(--i, 0) * 24ms); }
-  #title .w { display: inline-block; animation: pl-line .7s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: calc(80ms + var(--l, 0) * 110ms); }
+  /* les mots restent du texte en ligne : en bloc, le navigateur coupait avant « : » malgré l'espace insécable (vu en ligne le 10/10) */
+  #title .w { animation: pl-fade .7s ease backwards; animation-delay: calc(80ms + var(--l, 0) * 110ms); }
   #eyebrow.rv { animation: pl-fade .5s ease backwards; }
   #insight.rv, #filrow.rv { animation: pl-line .6s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: var(--d, 300ms); }
 }
