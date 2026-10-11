@@ -1,10 +1,10 @@
 {
- "genere": "2026-10-10T09:46:14Z",
+ "genere": "2026-10-11T09:45:18Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-10-10",
-   "recoupe": "La clause fees est cassée au 09/10 (-2,8 % puis -6,3 %) ; aucun fait web ne l'explique, et aucune annonce de Lista après le 14/09 n'a été trouvée. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M après la destruction de 200 M de LISTA ; tokenomist.ai compte encore 1 milliard au 10/10, ce qui donnerait environ 2,3, au-dessus du seuil de 2,0.",
+   "releve": "2026-10-11",
+   "recoupe": "Aucune annonce de Lista après le 14/09 trouvée au 11/10, ni rachat hebdomadaire d'octobre. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M après la destruction de 200 M de LISTA ; tokenomist.ai compte encore 1 milliard, ce qui donnerait environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -44,100 +44,9 @@
     }
    ]
   },
-  "Maple Finance": {
-   "releve": "2026-10-10",
-   "recoupe": "La capture DefiLlama de 10 % sous-estime peut-être le flux : le rachat annoncé le 09/10 porte sur 20 % du revenu de septembre, palier supérieur de la règle MIP-021. Aucun fait web n'explique la baisse des fees (-29,5 % sur 7 jours au 09/10).",
-   "rien": false,
-   "faits": [
-    {
-     "date": "2026-10-09",
-     "fait": "Maple rachète 1 371 166 SYRUP pour 314 116 $ (prix moyen 0,229 $), soit 20 % du revenu de septembre, selon la règle MIP-021.",
-     "touche": "capture",
-     "source": "https://tokenpost.com/news/business/29283",
-     "recoupe": true
-    },
-    {
-     "date": "2026-09-17",
-     "fait": "Maple a rachete 676 294 SYRUP en aout 2026, finances par 10 % du revenu du mois, selon la regle de rachat MIP-021.",
-     "touche": "capture",
-     "source": "https://maple.finance/insights/maple-memo-september-2026",
-     "recoupe": true
-    },
-    {
-     "date": "2026-08-31",
-     "fait": "La page de transparence liste 136 768 $ de rachats en juillet et 147 098 $ en aout ; aucun montant pour septembre au 08/10.",
-     "touche": "capture",
-     "source": "https://maple.finance/transparency",
-     "recoupe": true
-    },
-    {
-     "date": "2026-07-13",
-     "fait": "La regle MIP-021 entre en vigueur pour six mois : rachats de 10 % du revenu mensuel sous 1,5 M$, 20 % jusqu'a 2 M$, 30 % au-dela.",
-     "touche": "capture",
-     "source": "https://community.maple.finance/t/mip-021-a-rules-based-buyback-that-scales-with-revenue/1153",
-     "recoupe": false
-    },
-    {
-     "date": "2026-10-07",
-     "fait": "Aave accepte le syrupUSDC de Maple comme garantie d'emprunt sur Aave V4 ; les plafonds ne sont pas publiés.",
-     "touche": "autre",
-     "source": "https://coinfomania.com/0-syrupusdc-now-available-as-collateral-on-aave-v4",
-     "recoupe": true
-    }
-   ]
-  },
-  "Meteora": {
-   "releve": "2026-10-10",
-   "recoupe": "Le zéro DefiLlama est contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle clos le 21/09), flux que DefiLlama ne compte pas. Aucun résultat du 3e cycle ni mise à jour des rachats (13,7 M$ cumulés au T1) trouvés au 10/10.",
-   "rien": false,
-   "faits": [
-    {
-     "date": "2026-10-23",
-     "fait": "Prochain déblocage le 23/10/2026 (réserve d'écosystème) ; 55,7 % de l'offre est débloquée.",
-     "touche": "FDV",
-     "source": "https://tokenomist.ai/meteora",
-     "recoupe": true
-    },
-    {
-     "date": "2026-10-06",
-     "fait": "Meteora annonce DLMM Pro, un pool de lancement de jetons aux frais réglables ; ouverture par liste d'attente, sans date de lancement public.",
-     "touche": "fees",
-     "source": "https://cryptobriefing.com/meteora-dlmm-pro-customizable-amm-solana/",
-     "recoupe": true
-    },
-    {
-     "date": "2026-09-23",
-     "fait": "Fin du 2e cycle du Referral Staking le 21/09 : plus de 700 000 USDC de récompenses confirmées le 23/09, financées par les frais DLMM, avec plus de 89 M de MET engagés.",
-     "touche": "capture",
-     "source": "https://solanacompass.com/projects/meteora",
-     "recoupe": true
-    },
-    {
-     "date": "2026-09-15",
-     "fait": "Rapport mensuel d'août publié le 15/09 ; les compteurs de rachats de l'espace investisseurs restent vides.",
-     "touche": "capture",
-     "source": "https://ir.meteora.ag/",
-     "recoupe": true
-    },
-    {
-     "date": "2026-09-10",
-     "fait": "Premier cycle du Referral Staking (21/07-21/08) rendu reclamable le 10/09 : 262 000 USDC verses a 3 977 portefeuilles, dont 187 000 aux stakers MET, tout finance par les frais DLMM.",
-     "touche": "capture",
-     "source": "https://solanacompass.com/news/meteora-posts-54b-in-august-volume-biggest-monthly-jump-since-january",
-     "recoupe": true
-    },
-    {
-     "date": "2026-08-13",
-     "fait": "Referral Staking, lancé en juillet, paie aux stakers une part des frais DLMM en USDC : 70 M MET engagés par 2 442 stakers à l'appel du 13/08 ; cet appel n'a donné aucune mise à jour sur les rachats.",
-     "touche": "capture",
-     "source": "https://solanacompass.com/news/meteora-reports-140m-in-lp-fees-and-32b-in-h1-2026-trading-volume",
-     "recoupe": true
-    }
-   ]
-  },
   "Orca": {
-   "releve": "2026-10-10",
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la règle en vigueur (40 % des frais vers les stakers xORCA). Si le vote du 11 au 16/10 passe, cette part tomberait à 10 %, plus 10 % de rachats gérés par l'équipe : la mesure devra être relue après le vote. Aucun fait web n'explique la baisse de volume (-27,9 % sur 7 jours au 09/10).",
+   "releve": "2026-10-11",
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la règle en vigueur (40 % des frais vers les stakers xORCA). Le vote ouvert du 11 au 16/10 ferait tomber cette part à 10 %, plus 10 % de rachats : la mesure devra être relue après le vote. Aucun fait web n'explique la baisse de volume (-24,5 % sur 7 jours au 10/10).",
    "rien": false,
    "faits": [
     {
@@ -180,6 +89,97 @@
      "fait": "Bitget abaisse a 0,1 le ratio de collateral d'ORCA dans son compte unifie : l'ORCA deposee y garantit moins d'emprunt.",
      "touche": "risque",
      "source": "https://coinmarketcap.com/cmc-ai/orca/latest-updates/",
+     "recoupe": true
+    }
+   ]
+  },
+  "Meteora": {
+   "releve": "2026-10-11",
+   "recoupe": "Le zéro DefiLlama reste contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle, environ 983 000 USDC estimés au 3e cycle en cours), flux que DefiLlama ne compte pas. Aucune mise à jour des rachats trouvée au 11/10.",
+   "rien": false,
+   "faits": [
+    {
+     "date": "2026-10-23",
+     "fait": "Prochain déblocage le 23/10/2026 (réserve d'écosystème) ; 55,7 % de l'offre est débloquée.",
+     "touche": "FDV",
+     "source": "https://tokenomist.ai/meteora",
+     "recoupe": true
+    },
+    {
+     "date": "2026-10-06",
+     "fait": "Meteora annonce DLMM Pro, un pool de lancement de jetons aux frais réglables ; ouverture par liste d'attente, sans date de lancement public.",
+     "touche": "fees",
+     "source": "https://cryptobriefing.com/meteora-dlmm-pro-customizable-amm-solana/",
+     "recoupe": true
+    },
+    {
+     "date": "2026-09-23",
+     "fait": "Fin du 2e cycle du Referral Staking le 21/09 : plus de 700 000 USDC de récompenses confirmées le 23/09, financées par les frais DLMM, avec plus de 89 M de MET engagés.",
+     "touche": "capture",
+     "source": "https://solanacompass.com/projects/meteora",
+     "recoupe": true
+    },
+    {
+     "date": "2026-09-21",
+     "fait": "Le 3e cycle du Referral Staking est en cours (fin vers le 21/10) : la page du programme affichait environ 983 000 USDC de récompenses estimées pour 104,9 M de MET engagés.",
+     "touche": "capture",
+     "source": "https://www.meteora.ag/referral",
+     "recoupe": false
+    },
+    {
+     "date": "2026-09-15",
+     "fait": "Rapport mensuel d'août publié le 15/09 ; les compteurs de rachats de l'espace investisseurs restent vides.",
+     "touche": "capture",
+     "source": "https://ir.meteora.ag/",
+     "recoupe": true
+    },
+    {
+     "date": "2026-09-10",
+     "fait": "Premier cycle du Referral Staking (21/07-21/08) rendu reclamable le 10/09 : 262 000 USDC verses a 3 977 portefeuilles, dont 187 000 aux stakers MET, tout finance par les frais DLMM.",
+     "touche": "capture",
+     "source": "https://solanacompass.com/news/meteora-posts-54b-in-august-volume-biggest-monthly-jump-since-january",
+     "recoupe": true
+    }
+   ]
+  },
+  "Maple Finance": {
+   "releve": "2026-10-11",
+   "recoupe": "La capture DefiLlama de 10 % sous-estime peut-être le flux : le rachat annoncé le 09/10 porte sur 20 % du revenu de septembre, palier supérieur de la règle MIP-021. Aucun fait web n'explique la baisse des fees (-26,2 % sur 7 jours au 10/10).",
+   "rien": false,
+   "faits": [
+    {
+     "date": "2026-10-09",
+     "fait": "Maple rachète 1 371 166 SYRUP pour 314 116 $ (prix moyen 0,229 $), soit 20 % du revenu de septembre, selon la règle MIP-021.",
+     "touche": "capture",
+     "source": "https://tokenpost.com/news/business/29283",
+     "recoupe": true
+    },
+    {
+     "date": "2026-09-17",
+     "fait": "Maple a rachete 676 294 SYRUP en aout 2026, finances par 10 % du revenu du mois, selon la regle de rachat MIP-021.",
+     "touche": "capture",
+     "source": "https://maple.finance/insights/maple-memo-september-2026",
+     "recoupe": true
+    },
+    {
+     "date": "2026-08-31",
+     "fait": "La page de transparence liste 136 768 $ de rachats en juillet et 147 098 $ en aout ; aucun montant pour septembre au 08/10.",
+     "touche": "capture",
+     "source": "https://maple.finance/transparency",
+     "recoupe": true
+    },
+    {
+     "date": "2026-07-13",
+     "fait": "La regle MIP-021 entre en vigueur pour six mois : rachats de 10 % du revenu mensuel sous 1,5 M$, 20 % jusqu'a 2 M$, 30 % au-dela.",
+     "touche": "capture",
+     "source": "https://community.maple.finance/t/mip-021-a-rules-based-buyback-that-scales-with-revenue/1153",
+     "recoupe": false
+    },
+    {
+     "date": "2026-10-07",
+     "fait": "Aave accepte le syrupUSDC de Maple comme garantie d'emprunt sur Aave V4 ; les plafonds ne sont pas publiés.",
+     "touche": "autre",
+     "source": "https://coinfomania.com/0-syrupusdc-now-available-as-collateral-on-aave-v4",
      "recoupe": true
     }
    ]
