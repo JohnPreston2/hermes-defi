@@ -351,6 +351,37 @@
     }
    ],
    "genere": "2026-10-10T09:30:00Z"
+  },
+  {
+   "date": "2026-10-11",
+   "fichier": "2026-10-11-enquete.html",
+   "titre": "Robinhood Chain, 11/10 : le samedi, les actions dorment et les lanceurs de jetons se réveillent",
+   "question": "Le samedi 10/10, la bourse américaine est fermée. Que reste-t-il de l'activité de la chaîne, et qui la porte ?",
+   "mesure_neuve": "Premier samedi complet lu sur trois compteurs : les transactions sur les 50 jetons d'actions tombent à 0,29 fois la moyenne lun-ven 05-09/10 (76 442 contre 267 844, sonde à deux tirages), la chaîne entière à 0,58 (3,89 M contre 6,65 M), mais la création de pools Uniswap v4 monte à 1,09 (6 015 contre 5 502, comptage complet). Le surplus vient de la longue traîne : 2 836 créateurs de pools sans hook le samedi contre 1 808 le vendredi, part des comptes à 10 pools ou plus 27,7 % contre 41,6 % (toutes les 7 296 transactions lues). La seule émission d'action du samedi est un jeton de test, PEACH_DEFI_1, posé sur la même balise de proxy que les 50 actions, émis puis détruit deux fois.",
+   "chiffre_cle": {
+    "valeur": "0,29",
+    "libelle": "l'activité des actions tokenisées le samedi, rapportée à un jour de semaine, quand la création de pools monte à 1,09",
+    "population": "76 442 transactions estimées le samedi 10/10 contre 267 844 en moyenne lun-ven 05-09/10, sur les 50 jetons d'actions de la liste figée (deux tirages de 12 fenêtres de 200 blocs par jour)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés sur 7 jours (le rythme des lancements)"
+    },
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume 7 jours de la chaîne (les échanges de la semaine)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 jours de la chaîne (ce qu'elle encaisse)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    }
+   ],
+   "genere": "2026-10-11T09:30:00Z"
   }
  ]
 }

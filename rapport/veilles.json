@@ -106,6 +106,11 @@
      "date": "2026-10-10",
      "valeur": "72,5 % (855/1180) / 25,6 % (302/1180)",
      "note": "Registre NON regenere depuis le 08/10 02:14 UTC (commit a15ee379) : point identique, pas un signal independant. Coherence adresse/drapeaux verifiee sur les 1180 entrees (0 ecart). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "72,5 % (855/1180) / 25,6 % (302/1180)",
+     "note": "Registre NON regenere depuis le 08/10 02:14 UTC (~78 h) : point identique, pas un signal independant. Coherence adresse/drapeaux verifiee sur les 1180 entrees (0 ecart). NON SOLDEE."
     }
    ],
    "solde": null
@@ -208,6 +213,11 @@
      "date": "2026-10-10",
      "valeur": "4 / 1180 (0,34 %)",
      "note": "Registre inchange. Aucun exploit public de hook sur la chaine trouve en recherche web. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "4 / 1180 (0,34 %)",
+     "note": "Registre inchange. Aucun exploit public de hook sur la chaine trouve en recherche web ce jour. NON SOLDEE."
     }
    ],
    "solde": null
@@ -310,6 +320,11 @@
      "date": "2026-10-10",
      "valeur": "v3 39,9 % / v4 36,6 % du volume 30j (17,26 / 15,83 / 43,29 Md$)",
      "note": "vs 08/10 : v3 -0,6 pt, v4 +0,7 pt. Loin des seuils. A 7 j : v3 6,4 pb, v4 34,0 pb."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "v3 39,3 % / v4 37,2 % du volume 30j (16,49 / 15,58 / 41,92 Md$)",
+     "note": "vs 10/10 : v3 -0,6 pt, v4 +0,6 pt. Loin des seuils. A 7 j : v3 6,3 pb, v4 32,9 pb. Nouvel adaptateur Ouro DEX V3 (commit 5d9cf115, 10/10) : 36 k$ de volume, sans effet sur les parts."
     }
    ],
    "solde": null
@@ -412,6 +427,11 @@
      "date": "2026-10-10",
      "valeur": "155 sur 1180 (13,1 %) ; aucun avis de TSV connu",
      "note": "La lettre Hunton Andrews Kurth (08/10) porte justement sur la notification d'une TSV aux emetteurs : le mecanisme est discute, aucun avis public de TSV trouve. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "155 sur 1180 (13,1 %) ; aucun avis de TSV connu",
+     "note": "Aucun avis public de TSV trouve en recherche web ce jour. NON SOLDEE."
     }
    ],
    "solde": null
@@ -613,6 +633,11 @@
      "date": "2026-10-10",
      "valeur": "36,0 % (72,81/202,32 M$) Pons V2 sur le total declare ; 37,2 % avec V1 (75,18 M$)",
      "note": "PONS 0,352 $ (CoinGecko, -2,2 % 24 h) ; mcap 238,6 M$ (DefiLlama et CoinGecko concordent a 0,01 %). Au-dessus des deux seuils (15 % / 30 %). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "35,4 % (67,62/190,95 M$) Pons V2 sur le total declare ; 36,5 % avec V1 (69,79 M$)",
+     "note": "PONS 0,355 $ (CoinGecko, +1,2 % 24 h) ; mcap 241,1 M$ (DefiLlama) / 240,8 M$ (CoinGecko). Frais 30j V2 -7,1 % en un jour. Au-dessus des deux seuils (15 % / 30 %). NON SOLDEE."
     }
    ],
    "solde": null
@@ -751,6 +776,11 @@
      "date": "2026-10-10",
      "valeur": "volume 7j 6,92 Md$ (-26,5 % s/s) ; frais 7j 22,56 M$ (-35,3 % s/s)",
      "note": "Ni MORTE (exige les deux sous -20 %) ni CONFIRMEE (exige plus de -50 %). Fenetre close le 13/10 : au rythme actuel, la veille finira en zone intermediaire, ce qui devra s'ecrire comme tel. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "volume 7j 6,80 Md$ (-26,95 % s/s) ; frais 7j 21,38 M$ (-36,76 % s/s)",
+     "note": "Ni MORTE (exige les deux au-dessus de -20 %) ni CONFIRMEE (exige plus de -50 %). Fenetre close le 13/10 : sauf chute de moitie en deux jours, la veille se soldera en zone intermediaire, ce qui s'ecrira comme tel. NON SOLDEE."
     }
    ],
    "solde": null
@@ -828,6 +858,11 @@
      "date": "2026-10-10",
      "valeur": "41,2 % (4,53/10,99 M$, 30 derniers points 11/09 -> 10/10 partiel)",
      "note": "-3,3 pt vs 08/10, baisse continue ; Robinhood Chain reste 1re (Ethereum 3,18 M$, Base 2,06 M$). UNI 7,44 $. Seuil MORTE 33 % : 8 pt de marge. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "40,3 % (4,13/10,25 M$, 30 points 12/09 -> 11/10 partiel)",
+     "note": "-0,9 pt vs 10/10 ; Robinhood Chain reste 1re (Ethereum 3,02 M$). UNI 7,51 $. Seuil MORTE 33 % : 7,3 pt de marge. NON SOLDEE."
     }
    ],
    "solde": null
@@ -900,6 +935,11 @@
      "date": "2026-10-10",
      "valeur": "PART 30 J (mesure du seuil, premiere fois depuis le 25/09) : 19,9 % (20 335 / 102 369 pools a hook, 10/09 -> 09/10) ; 15,5 % sans la journee du 15/09 (rafale mmETH) ; jour 09/10 : 57,7 % (1 295/2 243), 43,8 % sans le hook 0xfcd1",
      "note": "Sous le seuil REVISEE (25 %), juste sous la ligne CONFIRMEE (20 %). Attention : la rafale du 15/09 sort de la fenetre le 16/10 (baisse mecanique d'environ 4 pt) pendant que les jours recents montent (32,3 % le 08/10, 57,7 % le 09/10). Les deux mouvements se compensent : a relire a perimetre constant. OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "part 30 j non recalculee ce jour ; jour 10/10 : 40,5 % (660/1 631 pools a hook), 39,2 % sans le hook 0xfcd1 ; 11/10 partiel (00:00-08:14 UTC) : 34,0 % (144/424)",
+     "note": "Troisieme jour de suite au-dessus de 30 % hors 0xfcd1 (29,9 / 43,8 / 39,2 %) : la part 30 j monte mecaniquement. La rafale du 15/09 sort de la fenetre le 16/10 : recalcul complet prevu a cette date. OUVERTE."
     }
    ],
    "solde": null
@@ -968,6 +1008,11 @@
      "date": "2026-10-10",
      "valeur": "07-09/10 : 4 879 + 5 624 + 5 949 = 16 452 pools en 3 jours (15 828 sans le hook 0xfcd1, un seul deployeur) ; 10/10 partiel 1 425 a 08:15 UTC",
      "note": "Pour passer sous 35 098 (CONFIRMEE), les 4 jours restants doivent rester sous 4 662/jour (4 818 sans 0xfcd1). Le 10/10 tourne a ~4 150/jour. Issue indecise, veille close le 13/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "07-10/10 : 4 884 + 5 624 + 5 949 + 6 015 = 22 472 pools en 4 jours (21 815 sans le hook 0xfcd1) ; 11/10 partiel 1 627 a 08:14 UTC (34 % du jour, rythme ~4 790/jour)",
+     "note": "MORTE est desormais impossible (la semaine 30/09-06/10, 43 493, est deja sous 56 157). CONFIRMEE exige moins de 12 626 pools sur 11-13/10, soit 4 209/jour ; le dimanche tourne a ~4 790. Issue probable : zone intermediaire, a ecrire comme telle le 14/10. OUVERTE."
     }
    ]
   },
@@ -1081,6 +1126,11 @@
      "date": "2026-10-10",
      "valeur": "08/10 : 8,55 M tx (tirages 8,16 et 8,94) ; 09/10 : 5,38 M (5,54 et 5,21)",
      "note": "Moyenne 06-09/10 : 6,67 M, au-dessus du seuil CONFIRMEE (5,77 M). Le jeudi 08/10 est le plus haut releve depuis le 22/09. RPC officiel, chainId 0x1237 verifie. OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "10/10 (samedi) : 3,89 M tx (tirages 3,68 et 4,10)",
+     "note": "Moyenne 06-10/10 : 6,12 M, au-dessus du seuil CONFIRMEE (5,77 M) mais la marge fond : si le dimanche 11/10 ressemble au samedi (~3,9 M), la moyenne 06-11 tombe a ~5,75 M, sous le seuil ; le lundi 12/10 tranchera. Samedi 10/10 = 0,58 x la moyenne des jours ouvres 05-09/10 (6,65 M) ; samedi 03/10 : 4,78 M. OUVERTE."
     }
    ]
   },
@@ -1133,6 +1183,11 @@
      "date": "2026-10-10",
      "valeur": "non re-mesure ce jour",
      "note": "Morpho Blue TVL chaine 615,1 M$ (DefiLlama). Emissions d'actions toujours en baisse (-34,8 % semaine pleine) : rien ne pousse vers 5 % de collateral en actions. OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "non re-mesure ce jour",
+     "note": "Morpho Blue TVL chaine 622,4 M$ (DefiLlama, +7,4 M$). Transactions sur les 50 jetons d'actions en baisse (267 844/jour ouvre 05-09/10, echantillon) : rien ne pousse vers 5 % de collateral en actions. OUVERTE."
     }
    ]
   },
@@ -1180,6 +1235,11 @@
      "date": "2026-10-10",
      "valeur": "08/10 : 3,47 micro-ETH/tx (3,82 et 3,12) ; 09/10 : 3,09 (3,18 et 3,00) ; base fee 29,6 et 16,6 ETH",
      "note": "Moyenne 07-09/10 : 3,22, sous 6,8. Recoupement 09/10 : 16,6 ETH x 2 494 $ = 41,4 k$ contre 46,3 k$ pour la ligne 'Robinhood Chain' de DefiLlama (total24h), ratio 0,89 (0,99 le 08/10). OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "10/10 : 3,29 micro-ETH/tx (3,37 et 3,21) ; base fee 12,8 ETH",
+     "note": "Moyenne 07-10/10 : 3,24, sous 6,8. Recoupement : 12,8 ETH x 2 500 $ = 32,0 k$ contre 33,9 k$ pour la ligne 'Robinhood Chain' de DefiLlama (total24h), ratio 0,94. OUVERTE."
     }
    ]
   },
@@ -1221,6 +1281,11 @@
      "date": "2026-10-10",
      "valeur": "non re-mesure par echantillon ce jour (RPC en limitation HTTP 429 pendant le recensement)",
      "note": "Recoupement par comptage COMPLET des emissions : semaine 05-09/10 1 511/jour ouvre contre 2 316 le 28/09-02/10 (-34,8 %). Seuil sur 12-16/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "moyenne lun-ven 05-09/10 : 267 844 tx/jour (05 : 243 k, 06 : 318 k, 07 : 278 k, 08 : 279 k, 09 : 220 k ; deux tirages)",
+     "note": "Deja 19 % sous le seuil CONFIRMEE (331 000) une semaine avant la fenetre de mesure (12-16/10), et -35 % vs la reference 414 000. Bruit de sonde eleve : 06/10 a 226 k et 411 k selon le tirage. OUVERTE."
     }
    ]
   },
@@ -1262,6 +1327,11 @@
      "date": "2026-10-10",
      "valeur": "samedi 10/10 partiel (00:00-08:15 UTC) : 0 emission, 2 destructions",
      "note": "Premier week-end de la fenetre. Le ratio transactions sam-dim / semaine se mesurera le 12/10. Les 2 destructions de samedi sont un fait nouveau (zero les 03-04/10). OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "samedi 10/10 complet : 76 442 tx sur les 50 jetons (tirages 79 415 et 73 468), soit 0,285 x la moyenne lun-ven 05-09/10 ; 1 emission et 3 destructions sur la journee, dont 1 emission et 2 destructions d'un jeton de TEST (PEACH_DEFI_1)",
+     "note": "Sous 0,5 pour le samedi. Le dimanche se mesurera le 12/10. Le samedi 03/10 re-tire ce jour : 140 728 tx (0,34 x la semaine du 28/09) : le samedi 10/10 est 46 % plus bas. OUVERTE."
     }
    ]
   },
@@ -1298,6 +1368,11 @@
      "date": "2026-10-10",
      "valeur": "34,0 pb (frais 7j / volume 7j v4, ventilation chaine DefiLlama ; 9,95 M$ / 2,93 Md$)",
      "note": "Sous 50 pb. Semaine 05-11/10 non close. OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "32,9 pb (frais 7j / volume 7j v4, ventilation chaine DefiLlama ; 9,75 M$ / 2,96 Md$)",
+     "note": "Sous 50 pb, en baisse (34,0 le 10/10). Semaine 05-11/10 close ce soir. OUVERTE."
     }
    ]
   },
@@ -1334,6 +1409,11 @@
      "date": "2026-10-10",
      "valeur": "non re-mesure (echantillon de swaps non refait)",
      "note": "Fait connexe : 3 128 des 3 212 swaps des pools du hook 0xfcd1 sont vides (montants nuls) ; un echantillon de swaps qui ne filtre pas les montants nuls compterait ces evenements. OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "non re-mesure (echantillon de swaps non refait)",
+     "note": "Rappel : les 3 185 swaps vides du hook 0xfcd1 doivent etre filtres de tout echantillon. OUVERTE."
     }
    ]
   },
@@ -1366,6 +1446,11 @@
      "date": "2026-10-10",
      "valeur": "08/10 : Doppler 1 181 / 1 950 pools a hook / 5 624 pools (60,6 % / 21,0 %) ; 09/10 : 802 / 2 243 / 5 949 (35,8 % / 13,5 %) ; 09/10 sans le hook 0xfcd1 : 47,5 % / 14,9 % ; semaine 07-09/10 : 54,3 % / 18,7 %",
      "note": "Le 09/10 passe sous 50 % des pools a hook, meme sans 0xfcd1 : la diversite d'usines revient (438 hooks distincts ce jour contre 214 le 07/10). La semaine en cours est a 54,3 %, sous le seuil CONFIRMEE de 60 %. Doppler reste au-dessus de 500 pools/jour. OUVERTE, en voie de REVISION."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "10/10 : Doppler 899 / 1 631 pools a hook / 6 015 pools (55,1 % / 14,9 %) ; semaine 07-10/10 : 3 969 / 7 287 / 22 472 (54,5 % / 17,7 %) ; 11/10 partiel 257 / 424 / 1 627 (60,6 % / 15,8 %)",
+     "note": "Semaine sous 60 % : la branche CONFIRMEE est quasi perdue pour 07-13/10. Pas de REVISION : pas sous 50 % sur la semaine, et Doppler reste au-dessus de 500 pools/jour. OUVERTE."
     }
    ]
   },
@@ -1392,6 +1477,11 @@
      "date": "2026-10-10",
      "valeur": "non re-mesure (emetteurs non relus)",
      "note": "Pools sans hook a frais >= 50 % : 08/10 698/3 674 (19,0 %), 09/10 771/3 706 (20,8 %). OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "base jour (non comparable au seuil hebdomadaire) : 09/10 41,6 % des 3 706 pools sans hook viennent d emetteurs a >= 10 pools ce jour-la (1 808 emetteurs) ; samedi 10/10 27,7 % des 4 384 (2 836 emetteurs). Toutes les transactions de creation lues (0 manquante).",
+     "note": "Pools sans hook a frais >= 50 % : 10/10 940/4 384 (21,4 %), en hausse depuis le 08/10 (19,0 % puis 20,8 %). Le samedi est le jour le plus fort de la semaine pour les pools sans hook (4 384 contre 3 421 a 3 706 en semaine).  Le samedi gonfle la longue traine : +1 028 emetteurs, et la part industrielle recule de 14 pts sur un jour. La semaine 07-13/10 se mesurera le 14/10. OUVERTE."
     }
    ]
   },
@@ -1413,6 +1503,11 @@
      "date": "2026-10-10",
      "valeur": "semaine pleine 05-09/10 : 1 408 / 1 307 / 1 417 / 2 151 / 1 271 emissions, 1 511/jour (-34,8 % vs 2 316/jour le 28/09-02/10) ; destructions 1 152/jour contre 1 418 (-18,8 %)",
      "note": "Temoins : 05, 06 et 07/10 retombent exactement sur les comptes publies le 08/10. Le jeudi 08/10 (2 151) est un rebond isole. Seuil sur 12-16/10 (1 650/jour). OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "samedi 10/10 : 1 emission, et c'est un jeton de test (PEACH_DEFI_1) ; dimanche 11/10 00:00-08:14 UTC : 0",
+     "note": "Rien a mesurer avant lundi 12/10. Le comptage 'tous contrats' inclut des jetons de test : 1 emission sur 7 554 dans la semaine du 05/10 (05/10 13:11, meme jeton), effet negligeable mais a nommer. OUVERTE."
     }
    ]
   },
@@ -1434,6 +1529,11 @@
      "date": "2026-10-10",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code, nonce 2 ; implementation 0xb354...5ae2 inchangee ; paused() = 0 ; 0 evenement sur la balise depuis le 07/10",
      "note": "Aucun changement. Le jeton PLTR (0x894e...2f8a) vu dans les pools du hook 0xfcd1 pointe bien sur cette balise. OUVERTE."
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code, nonce 2 ; implementation 0xb354...5ae2 inchangee ; paused() = 0 sur AMZN ; 0 evenement sur la balise depuis le 10/10",
+     "note": "Aucun changement de controle. Fait neuf : un jeton 'PEACH_DEFI_1 - Robinhood Token' (0xbbb6...b373) pointe sur la MEME balise que les 50 actions ; il a fait deux allers-retours emission-destruction le samedi 10/10 (06:37-06:50 et 18:23-18:35 UTC), offre nulle depuis. OUVERTE."
     }
    ]
   },
@@ -1450,6 +1550,11 @@
      "date": "2026-10-10",
      "valeur": "645 pools ; 3 128 / 3 212 swaps vides (97,4 %) ; 1 119 $ valorisables ; 40/40 swaps du proprietaire",
      "note": "point d'ouverture"
+    },
+    {
+     "date": "2026-10-11",
+     "valeur": "657 pools (+12) ; 3 185 / 3 269 swaps vides (97,4 %) ; 1 120 $ valorisables",
+     "note": "Aucun pool ni swap depuis le 10/10 14:49 UTC (dernier pool 14:25) : le hook s'est arrete. Les 57 swaps ajoutes depuis le 10/10 08:15 sont tous vides. OUVERTE."
     }
    ]
   }
