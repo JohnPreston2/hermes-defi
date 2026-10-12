@@ -108,7 +108,7 @@ h1 em { font-style: italic; color: var(--champ); }
 .assets li em { font-style: normal; color: var(--ink); font-variant-numeric: tabular-nums; }
 
 .foot p { margin: 0; }
-.foot { position: fixed; z-index: 4; left: var(--gut); bottom: calc(78px + env(safe-area-inset-bottom, 0px)); max-width: 58ch; font: 400 10.5px/1.45 var(--mono); color: var(--muted); pointer-events: none; }
+.foot { position: fixed; z-index: 4; left: var(--gut); bottom: calc(78px + env(safe-area-inset-bottom, 0px)); max-width: 58ch; font: 400 11px/1.45 var(--mono); color: var(--muted); pointer-events: none; }
 .hint { position: fixed; z-index: 4; right: var(--gut); bottom: calc(78px + env(safe-area-inset-bottom, 0px)); font: 400 10.5px/1.45 var(--mono); color: var(--muted); pointer-events: none; text-align: right; }
 .veil { position: fixed; inset: 0; z-index: 8; display: grid; place-items: center; background: var(--bg); font: 500 11px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); transition: opacity .8s ease; }
 .veil.gone { opacity: 0; pointer-events: none; }
@@ -251,7 +251,7 @@ h1 em { font-style: italic; color: var(--champ); }
 .lb { position: absolute; left: 0; top: 0; white-space: nowrap; opacity: 0; text-align: center; font: 500 13px/1.2 var(--mono); font-variant-numeric: tabular-nums; color: var(--ink);
   text-shadow: 0 0 10px rgba(0, 0, 0, .95), 0 0 4px rgba(0, 0, 0, .9), 0 1px 2px #000; }
 .lb b { font-weight: 600; }
-.lb.v { padding: 2px 6px; border-radius: 6px; background: rgba(8, 9, 11, .82); }
+.lb.v { padding: 2px 6px; border-radius: 6px; background: rgba(8, 9, 11, .9); }
 .lb.v.big { padding: 2px 8px 4px; }
 .lb.v.row { background: none; padding: 0; }
 .lb small { display: block; margin-top: 3px; font: 400 11px/1.25 var(--ui); color: var(--ink2); }
@@ -264,7 +264,7 @@ h1 em { font-style: italic; color: var(--champ); }
 .lb.n.hi { font-weight: 600; font-size: 12.5px; color: var(--ink); }
 .lb.n.seg b { margin-left: 5px; font: 600 12.5px/1.2 var(--mono); color: var(--ink); }
 .lb.z.c, .lb.n.c { text-align: center; }
-.lb.n.w { white-space: normal; width: max-content; max-width: 72px; line-height: 1.15; }
+.lb.n.w { white-space: normal; width: max-content; max-width: 70px; line-height: 1.15; }
 .lb.in { font: 600 11px/1.2 var(--ui); padding: 2px 6px; border-radius: 5px; background: rgba(8, 9, 11, .62); color: var(--ink); }
 .lb.z small { display: block; margin-top: 3px; font: 400 10.5px/1.2 var(--mono); letter-spacing: .04em; text-transform: none; color: var(--muted); }
 .lb.z { font: 500 10.5px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--champ); }
@@ -311,6 +311,27 @@ h1 em { font-style: italic; color: var(--champ); }
 .lb.n.pill { padding: 1px 5px; border-radius: 5px; background: rgba(8, 9, 11, .66); }
 .lb.z small.nm { margin-top: 2px; font: 500 11px/1.25 var(--ui); color: var(--ink2); letter-spacing: 0; }
 @media (max-width: 760px) { .lb.z small.nm { font-size: 10.5px; } }
+.hz details.q { margin-top: 4px; }
+.hz details.q summary { cursor: pointer; font: 400 11px/1.4 var(--mono); color: var(--ink2); }
+.hz details.q summary:hover { color: var(--ink); }
+.rail .railsep { flex: 0 0 auto; align-self: center; margin: 0 6px 0 14px; font: 500 10.5px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--champ); }
+.rail .railsep:first-child { margin-left: 0; }
+.lb.n.li { white-space: nowrap; max-width: none; width: auto; display: flex; align-items: baseline; gap: 6px; font-size: 11.5px; padding: 1px 5px; border-radius: 5px; background: rgba(8, 9, 11, .62); }
+.lb.n.li i { font: 600 11px/1.2 var(--mono); font-style: normal; color: var(--ink); }
+.lb.n.r { text-align: right; }
+@media (pointer: coarse) and (prefers-reduced-motion: no-preference) { .rail > .railsep { scroll-snap-align: start; } }
+.rail.hzr:not(.many) .chip .k { max-width: 24ch; }   /* pas « .hz » : nom déjà pris par la section « Ce qu'en dit Hermes » */
+.legend i.lav { background: #b9a6ee; } .legend i.svc { background: #3f8f7d; }
+.bars span.t b.l { background: #b9a6ee; } .bars span.t b.s { background: #3f8f7d; }
+.lb.z small.nms { display: block; max-width: 100px; margin: 3px auto 0; font: 500 11px/1.3 var(--ui); letter-spacing: 0; text-transform: none; color: var(--ink2); white-space: normal; }
+.lb sup { font-size: 9px; color: var(--champ); margin-left: 1px; }
+.lb.v.l1 small.he { display: inline; margin-left: 6px; font: 400 10.5px/1 var(--ui); color: var(--ink2); }
+.lb.z .sub { letter-spacing: .04em; text-transform: none; color: var(--ink2); font-weight: 400; }
+.lb.v.gold { background: rgba(30, 22, 6, .88); color: #ffe3a6; box-shadow: 0 0 0 1px rgba(240, 201, 110, .45); }
+.lb.z.grp { font-size: 11px; letter-spacing: .1em; color: var(--ink2); }
+.lb.z.grp b { color: var(--ink); }
+.lb.n.axis { font-size: 11.5px; text-align: center; }
+.lb.in b.bl { display: block; font: 600 11px/1.2 var(--mono); color: var(--ink); }
 </style>
 <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.min.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
 </head>
@@ -372,7 +393,13 @@ function glyphURL(g) {   // pastille d'un secteur (11/10) : un signe dessiné, j
   x.stroke();
   return c.toDataURL('image/png');
 }
-const LOGOS = /*__LOGOS__*/null || new Proxy({}, { get: (_, k) => typeof k !== 'string' ? undefined : k.startsWith('mono:') ? (MONOS[k] || (MONOS[k] = monoURL(k.slice(5)))) : k.startsWith('glyph:') ? (MONOS[k] || (MONOS[k] = glyphURL(k.slice(6)))) : 'logos/' + k });
+function symURL(s) {   // pastille d'un sigle (11/10) : le sigle entier, lisible même petit
+  const c = document.createElement('canvas'); c.width = c.height = 128; const x = c.getContext('2d');
+  x.fillStyle = '#e9e4da'; x.beginPath(); x.arc(64, 64, 64, 0, Math.PI * 2); x.fill();
+  x.fillStyle = '#15171b'; x.font = '700 ' + (s.length > 3 ? 36 : 46) + 'px system-ui, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(s.slice(0, 4), 64, 68);
+  return c.toDataURL('image/png');
+}
+const LOGOS = /*__LOGOS__*/null || new Proxy({}, { get: (_, k) => typeof k !== 'string' ? undefined : k.startsWith('mono:') ? (MONOS[k] || (MONOS[k] = monoURL(k.slice(5)))) : k.startsWith('glyph:') ? (MONOS[k] || (MONOS[k] = glyphURL(k.slice(6)))) : k.startsWith('sym:') ? (MONOS[k] || (MONOS[k] = symURL(k.slice(4)))) : 'logos/' + k });
 // Lecture de l'agent Hermes : le fichier du tableau de bord (déjà publié) ; absent = les planches s'en passent.
 const IN_DASH = location.pathname.includes('/planches/');
 let HZRAW = /*__HERMES__*/null;
@@ -540,9 +567,9 @@ const escA = (s) => esc(s).replace(/"/g, '&quot;');
 const trunc = (s, n) => s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s;
 function theseTxt(x) {
   const head = x.statut === 'retiree' ? `retirée le ${dayFR(x.dernier)}, après ${x.n} verdicts`
-    : x.statut === 'dormante' ? `en sommeil : dernier verdict le ${dayFR(x.dernier)} (${VERD[x.dernier_verdict] || x.dernier_verdict})`
+    : x.statut === 'dormante' ? `en sommeil : aucun verdict depuis le ${dayFR(x.dernier)} (le dernier : ${VERD[x.dernier_verdict] || x.dernier_verdict})`
     : `en cours depuis le ${dayFR(x.premier)} · ${x.n} verdicts · dernier : ${VERD[x.dernier_verdict] || x.dernier_verdict}, le ${dayFR(x.dernier)}`;
-  return head + (x.kill ? `<q>Condition de sortie, texte de l’agent : « ${esc(x.kill)} »</q>` : '');
+  return head + (x.kill ? `<details class="q"><summary>Lire la condition de sortie de la thèse (texte brut de l’agent)</summary><q>${esc(x.kill)}</q></details>` : '');
 }
 function hzHTML(pl, it) {
   const h = it._hz, arts = it.articles || [];
@@ -550,7 +577,7 @@ function hzHTML(pl, it) {
   const rows = [];
   if (h && h.valo && h.valo.pf7 != null) rows.push(['Valorisation', `${nf(h.valo.pf7, 1)}× prix / frais sur 7 jours` + (h.valo.rang ? ` · ${ord(h.valo.rang)} sur ${h.valo.n} en ${SEC[h.valo.sec] || h.valo.sec}` + (h.valo.med != null ? ` (médiane ${nf(h.valo.med, 1)}×)` : '') : '')]);
   if (h && h.these) rows.push(['Thèse de l’agent', theseTxt(h.these)]);
-  if (h && h.wake) rows.push(['Dernière analyse qui le cite', `${dayFR(h.wake.ts)}, ${esc(h.wake.label)} : « ${esc(trunc(h.wake.summary || '', 210))} »` + (/\b(the|and|is|of|with)\b/i.test(h.wake.summary || '') ? ' <span class="lang">(texte de l’agent, en anglais)</span>' : '')]);
+  if (h && h.wake) rows.push(['Dernière analyse qui le cite', `${dayFR(h.wake.ts)}, ${esc(h.wake.label)}<details class="q"><summary>Lire le passage (texte brut de l’agent${/\b(the|and|is|of|with)\b/i.test(h.wake.summary || '') ? ', en anglais' : ''})</summary><q>${esc(trunc(h.wake.summary || '', 260))}</q></details>`]);
   const al = arts.map((a) => `<li><a href="${escA(a.u)}" target="_blank" rel="noopener">${esc(a.t)}</a><span>${esc(a.s)} · ${dayFR(a.d)}</span></li>`).join('');
   const src = ['Agent Hermes'];
   if (h && h.valo && HZ.valoAsof) src.push('valorisation du ' + dayFR(HZ.valoAsof));
@@ -658,7 +685,7 @@ const BASE = { VOLUME: 'volume échangé', TVL: 'valeur déposée', OI: 'positio
 const baseOf = (s) => { const k = String(s || '').split(' ')[0].toUpperCase(); return BASE[k] || (s ? esc(s) : '—'); };
 // années de frais : la capitalisation divisée par les frais d'une année (au rythme des 7 derniers jours)
 const sp = (s) => String(s).replace(/\u202f/g, NB);
-const yrs = (v) => v == null ? 'manquant' : v < .95 ? Math.max(1, Math.round(v * 12)) + NB + 'mois' : sp(nf(v, v >= 100 ? 0 : 1)) + NB + (v < 2 ? 'an' : 'ans');
+const yrs = (v) => v == null ? 'non mesuré' : v < .95 ? Math.max(1, Math.round(v * 12)) + NB + 'mois' : sp(nf(v, v >= 100 ? 0 : 1)) + NB + (v < 2 ? 'an' : 'ans');
 const d100 = (f) => f == null ? '—' : (f * 100 >= 1 ? nf(f * 100, 0) : f * 100 >= .1 ? nf(f * 100, 1) : f > 0 ? nf(f * 100, 2) : '0') + NB + '$';
 function hzRow(name) {   // ce que l'agent dit de ce protocole (thèse, dernier réveil)
   if (!HZ || !name) return null;
@@ -674,7 +701,7 @@ function sparkTVL(h) {   // valeur déposée relevée par l'enquête, un point p
   const X = (i) => 4 + i / (arr.length - 1) * (W - 8), Y = (v) => 8 + (1 - (v - lo) / span) * (H - 16);
   const line = arr.map((v, i) => X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' ');
   return `<div class="viz"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Valeur déposée jour par jour"><polyline points="${line}" fill="none" stroke="#8ff0d8" stroke-width="1.6" stroke-linejoin="round"/><circle cx="${X(arr.length - 1).toFixed(1)}" cy="${Y(arr[arr.length - 1]).toFixed(1)}" r="3.2" fill="#f1ede4"/></svg>` +
-    `<p>valeur déposée du ${dayFR(pts[0][0])} au ${dayFR(pts[pts.length - 1][0])} · ${pts.length} relevés · bas ${kusd(lo)} · haut ${kusd(hi)}</p></div>`;
+    `<p>valeur déposée : ${kusd(arr[0])} le ${dayFR(pts[0][0])} → ${kusd(arr[arr.length - 1])} le ${dayFR(pts[pts.length - 1][0])} · ${pts.length} relevés · bas ${kusd(lo)} · haut ${kusd(hi)}</p></div>`;
 }
 const PLH = {};
 
@@ -683,6 +710,12 @@ const VBk = blk('valuation'), VB = VBk && VBk.v;
 const pfw = (r, w) => r.fenetres && r.fenetres.pf ? r.fenetres.pf[w] : null;
 const mw = (r, m, w) => r.fenetres && r.fenetres[m] ? r.fenetres[m][w] : null;   // multiples de l'agent : pf (frais), ps (revenus), phr (revenus reversés)
 const sym = (p) => p.symbol && p.symbol !== '-' ? ' · ' + p.symbol : '';
+// part des frais reçue par les détenteurs du jeton (0 à 1) : multiple prix/frais ÷ multiple prix/revenus reversés, 7 jours.
+// null = non mesuré ; 0 quand le tableau de l'agent ne compte aucun reversement.
+const holdOf = (r) => { const pf = mw(r, 'pf', '7j'), phr = mw(r, 'phr', '7j'), ps = mw(r, 'ps', '7j');
+  if (pf && phr) return Math.min(1, ps ? Math.min(pf / ps, pf / phr) : pf / phr);
+  return pf && ps && (r.holders_rev_ann === 0 || r.capture_pct === 0) ? 0 : null; };
+const holdTxt = (r) => { const h = holdOf(r); return h == null ? 'non mesuré' : d100(h) + ' compté' + (h > 0 ? 's' : ''); };
 const VALO = {};
 if (VB && VB.sectors) SECO.forEach((s) => {
   const all = VB.sectors[s] || [], rows = all.filter((r) => pfw(r, '7j') != null).sort((a, b) => pfw(a, '7j') - pfw(b, '7j'));
@@ -694,15 +727,16 @@ const VASOF = VB ? (VB.fenetres_as_of || VB.as_of) : null;
 const VFOOT = VB ? `Agent Hermes · valorisation du ${VASOF ? when(VASOF) : '—'} · années de frais = capitalisation ÷ frais d’une année, au rythme des 7 derniers jours, protocole entier` : '';
 const VLEG = '<span><i class="sq or"></i>une pièce : une année de frais</span>';
 const READ = 'Moins d’années : plus de frais pour chaque dollar de capitalisation.';   // le sens de lecture, dit une fois par vue
-const GLOSS = '<p class="members">Capitalisation : valeur de tous les jetons en circulation, au prix du jour. Base de valeur : ce qui produit les frais dans ce secteur.</p>';
+const GLOSS_B = { dex: 'le volume échangé', lending: 'la valeur déposée', perp: 'les positions ouvertes (montant des contrats en cours) et le volume', rwa: 'la valeur déposée', lst: 'la valeur déposée' };
+const gloss = (s) => `<p class="members">Capitalisation : valeur de tous les jetons en circulation, au prix du jour. Base de valeur : ce qui produit les frais${s && GLOSS_B[s] ? ', ici ' + GLOSS_B[s] : ''}. Secteurs : classement de l’agent.</p>`;
 if (VSEC.length) {
   const items = VSEC.map((s) => { const V = VALO[s];
-    return { name: SECL[s], sec: s, med: V.med, n: V.rows.length, lo: V.rows[0], hi: V.rows[V.rows.length - 1], miss: V.miss, base: baseOf(V.rows[0].base_note), logo: 'glyph:' + SECG[s], go: 'valo-' + s }; })
+    return { name: SECL[s], sec: s, med: V.med, n: V.rows.length, nAll: V.rows.length + V.miss.length, lo: V.rows[0], hi: V.rows[V.rows.length - 1], miss: V.miss, base: baseOf(V.rows[0].base_note), logo: 'glyph:' + SECG[s], go: 'valo-' + s }; })
     .sort((a, b) => (b.med == null ? -1 : b.med) - (a.med == null ? -1 : a.med));
   items.forEach((it, i) => { it.rank = i + 1; });
   const withMed = items.filter((x) => x.med != null), hiS = withMed[0], loS = withMed[withMed.length - 1], nAll = items.reduce((a, b) => a + b.n, 0);
   if (withMed.length) PLH.valo = {
-    tab: 'Prix des frais', group: 'valo', view: 'Vue d’ensemble', items, asof: VASOF, staleH: 18, b3: 'valoAll',
+    tab: 'Prix des frais', group: 'valo', view: 'Ensemble', items, asof: VASOF, staleH: 18, b3: 'valoAll',
     eyebrow: 'Recherche Hermes · prix des frais',
     title: `Selon le secteur, le protocole médian vaut de <em>${yrs(loS.med)}</em> à <em>${yrs(hiS.med)}</em> de ses frais.`,
     insight: `On divise la capitalisation par les frais d’une année : on obtient le nombre d’années de frais que vaut le protocole. ${READ} Une pile par secteur, à la hauteur de son protocole médian ; ${nAll + VSEC.reduce((a, s) => a + VALO[s].miss.length, 0)} protocoles valorisés, dont ${nAll} avec des frais sur 7 jours.`,
@@ -710,35 +744,35 @@ if (VSEC.length) {
     foot: VFOOT,
     value: (p) => yrs(p.med), label: (p) => p.name, kind: (p) => `${p.n} protocoles · base de valeur : ${p.base}`,
     card: (it) => `<p class="big">${yrs(it.med)}</p><p class="bigsub">de frais pour le protocole médian ${SECW[it.sec]}</p>` +
-      facts([['Protocoles', nf(it.n, 0)], ['Base de valeur', it.base], ['Le plus bas', `${esc(it.lo.name)}<br>${yrs(pfw(it.lo, '7j'))}`], ['Le plus haut', `${esc(it.hi.name)}<br>${yrs(pfw(it.hi, '7j'))}`]]) +
-      (it.miss.length ? `<p class="members">Sans multiple sur 7 jours : ${it.miss.map((r) => esc(r.name)).join(', ')}.</p>` : '') + GLOSS +
-      `<p class="gorow"><button type="button" class="go" data-go="${it.go}">Voir les ${it.n} protocoles ${SECW[it.sec]} →</button></p>`,
+      facts([['Protocoles', it.nAll > it.n ? `${it.n} chiffrés sur ${it.nAll}` : nf(it.n, 0)], ['Base de valeur', it.base], ['Le plus bas', `${esc(it.lo.name)}<br>${yrs(pfw(it.lo, '7j'))}`], ['Le plus haut', `${esc(it.hi.name)}<br>${yrs(pfw(it.hi, '7j'))}`]]) +
+      (it.miss.length ? `<p class="members">Sans frais mesurés sur 7 jours : ${it.miss.map((r) => esc(r.name)).join(', ')}.</p>` : '') + gloss(it.sec) +
+      `<p class="gorow"><button type="button" class="go" data-go="${it.go}">Voir le détail ${SECW[it.sec]} →</button></p>`,
   };
 }
 VSEC.forEach((s) => {
   const V = VALO[s], items = V.rows.map((r) => Object.assign({}, r, { sec: s, pf7: pfw(r, '7j'), pf30: pfw(r, '30j'), pf1y: pfw(r, '1an'), logo: lkey(r.name) }));
   V.miss.forEach((r) => items.push(Object.assign({}, r, { sec: s, pf7: null, pf30: pfw(r, '30j'), pf1y: pfw(r, '1an'), logo: lkey(r.name), missing: true })));
   items.forEach((it, i) => { it.rank = i + 1; it._hz = hzRow(it.name); });
-  const n7 = V.rows.length, lo = items[0], hi = items[n7 - 1], ncap = items.filter((it) => it.capture_pct > 0).length, nmes = items.filter((it) => it.capture_pct != null).length;
+  const n7 = V.rows.length, lo = items[0], hi = items[n7 - 1], ncap = items.filter((it) => holdOf(it) > 0).length, nmes = items.filter((it) => holdOf(it) != null).length;
   const vals = V.rows.map((r) => pfw(r, '7j')).sort((a, b) => b - a), broken = vals.length > 2 && vals[0] > 3 * vals[1];   // même règle que la scène
   PLH['valo-' + s] = {
     tab: 'Prix des frais', group: 'valo', view: SECL[s], items, asof: VASOF, staleH: 18, b3: 'valoSec', meta: { med: V.med, sec: s },
     eyebrow: 'Prix des frais · ' + SECL[s].toLowerCase(),
     title: V.med != null ? `${SECL[s]} : le protocole médian vaut <em>${yrs(V.med)}</em> de frais.` : `${SECL[s]} : <em>${yrs(lo.pf7)}</em> de frais.`,
-    insight: `${READ} ` + (n7 > 1 ? `Le plus bas : ${lo.name}, ${yrs(lo.pf7)}. Le plus haut : ${hi.name}, ${yrs(hi.pf7)}${broken ? ' (très peu de frais pour sa capitalisation)' : ''}. ` : '') +
-      (nmes === items.length ? `${ncap} sur ${items.length} ${ncap > 1 ? 'reversent' : 'reverse'} une part de leurs revenus aux détenteurs du jeton.`
-        : nmes ? `Sur les ${nmes} où l’agent mesure ce partage, ${ncap > 1 ? ncap + ' reversent une part de leurs' : ncap ? 'un seul reverse une part de ses' : 'aucun ne reverse une part de ses'} revenus aux détenteurs du jeton.` : 'L’agent ne mesure pas ce que reçoivent les détenteurs du jeton dans ce secteur.'),
-    legend: VLEG + '<span><i></i>trait : médiane du secteur</span>' + (broken ? '<span>pièces détachées : pile coupée, la valeur dépasse trois fois la suivante</span>' : ''),
-    foot: VFOOT + ' · base de valeur du secteur : ' + baseOf(lo.base_note) + (V.miss.length ? ` · sans multiple sur 7 jours : ${V.miss.map((r) => r.name).join(', ')}` : ''),
+    insight: `${READ} ` + (n7 > 1 ? `Le plus bas : ${lo.name}, ${yrs(lo.pf7)}. Le plus haut : ${hi.name}, ${yrs(hi.pf7)}${hi.pf7 > 100 ? ', des frais quasi nuls pour sa capitalisation' : ''}. ` : '') +
+      (nmes === items.length ? `Les détenteurs du jeton reçoivent une part des frais chez ${ncap} sur ${items.length}.`
+        : nmes ? `La part reçue par les détenteurs du jeton est mesurée pour ${nmes} protocoles sur ${items.length} : ${ncap > 1 ? ncap + ' en reçoivent une' : ncap ? 'un seul en reçoit une' : 'aucun n’en reçoit'}.` : 'Ce que reçoivent les détenteurs du jeton n’est pas mesuré dans ce secteur.'),
+    legend: VLEG.replace('année de frais', 'année de frais (épaisseur propre à chaque secteur)') + '<span><i></i>trait : médiane du secteur</span>' + (broken ? '<span>pièces détachées : pile coupée, la valeur dépasse trois fois la suivante</span>' : ''),
+    foot: VFOOT + ' · base de valeur du secteur : ' + baseOf(lo.base_note) + (V.miss.length ? ` · sans frais mesurés sur 7 jours : ${V.miss.map((r) => r.name).join(', ')}` : ''),
     value: (p) => yrs(p.pf7), label: (p) => p.name, kind: (p) => SECL[p.sec] + sym(p),
     card: (it) => (it.missing
-      ? `<p class="big">manquant</p><p class="bigsub">pas de multiple sur 7 jours dans la valorisation de l’agent</p>`
-      : `<p class="big">${yrs(it.pf7)}</p><p class="bigsub">de frais${it.classement && it.classement.rang ? ` · ${ord(it.classement.rang)} sur ${it.classement.n_secteur}` : ''} · médiane du secteur ${yrs(V.med)}</p>`) +
+      ? `<p class="big">non mesuré</p><p class="bigsub">pas de frais mesurés sur 7 jours dans la valorisation de l’agent</p>`
+      : `<p class="big">${yrs(it.pf7)}</p><p class="bigsub">de frais${it.classement && it.classement.rang ? ` · ${ord(it.classement.rang)} sur ${it.classement.n_secteur} du secteur, en partant du moins d’années` : ''} · médiane ${yrs(V.med)}</p>`) +
       facts([['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], ['Frais d’un an, rythme 7 j', it.mcap != null && it.pf7 ? '≈' + NB + usd(it.mcap / it.pf7) : '—'],
         ['Au rythme de 30 jours', yrs(it.pf30)], ['Au rythme d’un an', yrs(it.pf1y)],
-        ['Part des revenus reversée', it.capture_pct != null ? nf(it.capture_pct, 1) + NB + '%' : 'non mesurée'], ['Base de valeur', baseOf(it.base_note)]]) +
+        ['Aux détenteurs, sur 100 $ de frais', holdTxt(it)], ['Base de valeur', baseOf(it.base_note)]]) +
       '<p class="members">Le même calcul refait avec les frais des 30 derniers jours, puis de la dernière année, dit si le rythme récent est habituel.</p>' +
-      (it.flags ? `<p class="members">Contrôles de l’agent · le jeton reçoit des revenus : ${yes(it.flags.token_captures)} · jetons encore à émettre : ${it.flags.fdv_clean ? 'peu' : 'beaucoup'} · base de valeur : ${it.flags.base_not_collapsing ? 'stable' : 'en recul'}</p>` : '') + GLOSS,
+      (it.flags ? `<details class="notes"><summary>Lire les contrôles de l’agent</summary><p class="members">Le jeton reçoit des revenus : ${yes(it.flags.token_captures)}. ${it.flags.fdv_clean ? 'Presque tous les jetons circulent déjà' : 'Beaucoup de jetons ne circulent pas encore'}${it.fdv_mcap ? ` : tous réunis, ils vaudraient ${nf(it.fdv_mcap, 1)} fois la capitalisation` : ''}. Ce qui produit les frais ${it.flags.base_not_collapsing ? 'se tient' : 'recule'}.</p></details>` : '') + gloss(it.sec),
   };
 });
 
@@ -764,17 +798,18 @@ if (VB && VB.sectors) {
     tab: 'Partage des frais', group: 'partage', items, asof: VASOF, staleH: 18, b3: 'partage', meta: { fmax: Math.max(...items.map((x) => x.fees7)) },
     eyebrow: 'Recherche Hermes · où vont les frais',
     title: `Sur 100${NB}$ de frais, les détenteurs du jeton reçoivent de <em>${d100(items[items.length - 1].hold)}</em> à <em>${d100(items[0].hold)}</em>.`,
-    insight: (top3.length ? top3.map((x, k) => `${x.name}${k ? '' : ' leur reverse'} ${d100(x.hold)}`).join(', ') + '. ' : '') + (tiny.length ? `Presque rien chez ${listFR(tiny.map((x) => `${x.name} (${d100(x.hold)})`))}. ` : '') + (zero.length ? `Rien chez ${listFR(zero.map((x) => x.name))}. ` : '') +
+    insight: (top3.length ? top3.map((x, k) => `${x.name}${k ? '' : ' leur reverse'} ${d100(x.hold)}`).join(', ') + '. ' : '') + (tiny.length ? `Presque rien chez ${listFR(tiny.map((x) => `${x.name} (${d100(x.hold)})`))}. ` : '') + (zero.length ? `DefiLlama ne compte aucun reversement chez ${listFR(zero.map((x) => x.name))}. ` : '') +
       'Le reste paie ceux qui rendent le service (liquidité, prêts, validation) ou reste dans le protocole.',
-    legend: '<span><i class="sq or"></i>aux détenteurs du jeton</span><span><i class="sq argent"></i>gardé par le protocole</span><span><i class="sq mint"></i>à ceux qui rendent le service</span><span>épaisseur : frais d’une année</span>',
-    foot: `Agent Hermes · valorisation du ${VASOF ? when(VASOF) : '—'} · les dix plus gros encaisseurs de frais dont l’agent mesure le partage, au rythme des 7 derniers jours` + (omis.length ? ` (partage non mesuré : ${omis.map((r) => r.name).join(', ')})` : '') + ' · « aux détenteurs » : ce que DefiLlama compte comme revenus des détenteurs (versements, rachats suivis) ; un mécanisme qu’il ne suit pas n’y figure pas',
-    value: (p) => d100(p.hold) + ' / 100' + NB + '$', label: (p) => p.name, kind: (p) => SECL[p.sec] + sym(p),
+    legend: '<span><i class="sq or"></i>aux détenteurs du jeton</span><span><i class="sq lav"></i>gardé par le protocole</span><span><i class="sq svc"></i>service : payé à ceux qui fournissent liquidité, prêts ou validation</span><span>sous chaque bocal : frais d’une année</span>',
+    legendTel: '<span><i class="sq or"></i>aux détenteurs du jeton</span><span><i class="sq lav"></i>gardé par le protocole</span><span><i class="sq svc"></i>service : liquidité, prêts, validation</span>',
+    foot: `Agent Hermes · ${VASOF ? when(VASOF) : '—'} · les dix plus gros encaisseurs de frais parmi les ${all.length} protocoles où le partage est mesuré` + (omis.length ? ` (non mesuré : ${omis.map((r) => r.name).join(', ')})` : '') + ' · « aux détenteurs » : ce que DefiLlama compte comme reversé (versements, rachats de jetons) ; ce qu’il ne suit pas n’apparaît pas',
+    value: (p) => d100(p.hold), label: (p) => p.name, kind: (p) => SECL[p.sec] + sym(p),
     card: (it) => { const F = it.fees7;
       return `<p class="big">${d100(it.hold)}</p><p class="bigsub">sur 100${NB}$ de frais vont aux détenteurs du jeton${sym(it).replace(' · ', ' ')}</p>` +
-      bars([['Détenteurs', it.hold, d100(it.hold), 'o'], ['Gardé', it.kept, d100(it.kept), 'r'], ['Service', it.supp, d100(it.supp)]]) +
-      facts([['Frais d’un an', '≈' + NB + usd(F)], ['Aux détenteurs', '≈' + NB + usd(F * it.hold)], ['Gardé par le protocole', '≈' + NB + usd(F * it.kept)], ['À ceux qui rendent le service', '≈' + NB + usd(F * it.supp)],
-        ['Capitalisation', usd(it.mcap)], ['Années de revenus reversés', it.phr ? yrs(it.phr) : 'aucun reversement']]) +
-      '<p class="members">Frais d’un an : la capitalisation divisée par le multiple prix / frais de l’agent, au rythme des 7 derniers jours. « Années de revenus reversés » : la capitalisation divisée par ce que reçoivent les détenteurs en un an.</p>'; },
+      bars([['Détenteurs', it.hold, d100(it.hold), 'o'], ['Protocole', it.kept, d100(it.kept), 'l'], ['Service', it.supp, d100(it.supp), 's']]) +
+      facts([['Frais d’un an', '≈' + NB + usd(F)], ['Aux détenteurs', '≈' + NB + usd(F * it.hold)], ['Gardé par le protocole', F * it.kept < 5e4 ? 'rien' : '≈' + NB + usd(F * it.kept)], ['Payé au service', F * it.supp < 5e4 ? 'rien' : '≈' + NB + usd(F * it.supp)],
+        ['Capitalisation', usd(it.mcap)], ['Années de revenus reversés', it.phr ? `${yrs(it.phr)} (${yrs(it.pf)} pour l’ensemble des frais)` : 'aucun reversement']]) +
+      '<p class="members">Frais d’un an : les 7 derniers jours ramenés à une année. Années de revenus reversés : capitalisation ÷ ce que reçoivent les détenteurs en un an. Compté : versements et rachats suivis par DefiLlama.</p>'; },
   };
 }
 
@@ -792,26 +827,27 @@ if (CR && VB && VB.sectors) {
   const items = named.concat(noisy, holes);
   items.forEach((it, i) => { it.rank = i + 1; it.logo = lkey(it.name); it._hz = hzRow(it.name); });
   const seen = new Set(named.concat(noisy).map((x) => x.name)), calm = Object.keys(byName).filter((n) => !seen.has(n));
-  const ZL = { nomme: 'cité cette semaine', agite: 'prix instable selon la période, non cité', trou: 'suivi, jamais valorisé' };
-  const disp = (v) => '×' + NB + nf(v, 1);
+  const ZL = { nomme: 'cité cette semaine', agite: 'chiffre instable, non cité', trou: 'suivi, jamais valorisé' };
+  const disp = (v) => '×' + NB + nf(v, 1), minD = noisy.length ? Math.min(...noisy.map((x) => x.dispersion || 0)) : null;
   if (items.length) PLH.attention = {
     tab: 'Attention', group: 'attention', items, asof: CRk.as_of, staleH: 6, b3: 'attention', meta: { calm: calm.length, n: { nomme: named.length, agite: noisy.length, trou: holes.length } },
     eyebrow: 'Recherche Hermes · le regard de l’agent',
     title: `Cette semaine, l’agent a cité <em>${named.length}</em> des ${CR.n_valorises} protocoles qu’il valorise.`,
-    insight: `Cités dans ses analyses : ${listFR(named.map((x) => x.name))}. ${noisy.length} autres ont un prix qui change fort selon la période observée, sans qu’il les cite. À part : ${holes.length} protocoles qu’il suit sans jamais les valoriser.`,
-    insightTel: `${noisy.length} autres ont un prix qui change fort selon la période, sans qu’il les cite ; ${calm.length} restent dans l’ombre. À part : ${holes.length} suivis sans jamais être valorisés.`,
-    legend: '<span><i class="sq champ"></i>sous la lumière : cité dans une analyse de l’agent cette semaine</span><span>× : années de frais, la plus haute de ses trois périodes divisée par la plus basse</span><span><i class="disc"></i>verre : suivi, jamais valorisé</span>',
+    insight: `Cités dans ses analyses : ${listFR(named.map((x) => x.name))}. ${noisy.length} autres ont un chiffre instable — leurs années de frais changent fort selon la période — sans être cités ; ${calm.length} restent dans l’ombre. À part : ${holes.length} protocoles suivis sans jamais être valorisés.`,
+    insightTel: `${noisy.length} ont un chiffre instable sans être cités, ${calm.length} restent dans l’ombre, ${holes.length} sont suivis sans être valorisés.`,
+    legendTel: '<span><i class="sq champ"></i>lumière : cité</span><span>écart × : années de frais, période la plus haute ÷ la plus basse (* sans 7 jours)</span><span><i class="disc"></i>verre : jamais valorisé</span>',
+    legend: `<span><i class="sq champ"></i>sous la lumière : cité cette semaine</span><span>écart × : années de frais, la plus haute de ses périodes (7 jours, 30 jours, 1 an) divisée par la plus basse${minD != null ? ` ; les ${noisy.length} instables ont un écart d’au moins ×${NB}${nf(Math.floor(minD * 10) / 10, 1)}` : ''}</span><span>disques sombres : les ${calm.length} autres, ni cités ni instables</span><span><i class="disc"></i>anneau de verre : suivi, jamais valorisé (« module oublié » : partie d’un protocole valorisé, absente de son calcul)</span><span>cité : nommé dans une analyse de la semaine, ce qui n’est pas un verdict de thèse</span>`,
     foot: `Agent Hermes · croisement de sa valorisation et de ses analyses de la semaine, calculé sans modèle de langage · ${when(CRk.as_of)}`,
-    value: (p) => p.zone === 'nomme' ? yrs(p.pf7) : p.zone === 'agite' ? 'écart ' + disp(p.dispersion) : p.etat,
+    value: (p) => p.zone === 'nomme' ? 'cité' : p.zone === 'agite' ? 'écart ' + disp(p.dispersion) : p.etat,
     label: (p) => p.name, kind: (p) => ZL[p.zone] + (p.sec ? ' · ' + (SECL[p.sec] || p.sec) : ''),
     card: (it) => it.zone === 'trou'
-      ? `<p class="big">${esc(it.etat)}</p><p class="bigsub">suivi par l’agent, sans multiple</p><p class="members">${esc(it.expl)}${it.motif ? ` Motif relevé : ${esc(it.motif)}.` : ''}</p>`
+      ? `<p class="big">${esc(it.etat)}</p><p class="bigsub">suivi par l’agent, jamais valorisé</p><p class="members">${esc(it.expl)}${it.motif ? ` Motif relevé : ${esc(it.motif)}.` : ''}</p>`
       : it.zone === 'nomme'
         ? `<p class="big">${yrs(it.pf7)}</p><p class="bigsub">de frais · cité cette semaine dans une analyse de l’agent · ${esc(SECL[it.sec] || '')}</p>` +
-          facts([['Au rythme de 30 jours', yrs(it.pf30)], ['Au rythme d’un an', yrs(it.pf1y)], ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], ['Part des revenus reversée', it.capture_pct != null ? nf(it.capture_pct, 1) + NB + '%' : 'non mesurée']])
+          facts([['Au rythme de 30 jours', yrs(it.pf30)], ['Au rythme d’un an', yrs(it.pf1y)], ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], ['Aux détenteurs, sur 100 $ de frais', holdTxt(it)]])
         : `<p class="big">${disp(it.dispersion)}</p><p class="bigsub">écart entre ses années de frais selon la période · ${esc(SECL[it.sec] || '')}</p>` +
           facts([['Au rythme de 7 jours', yrs(it.pf7)], ['Au rythme de 30 jours', yrs(it.pf30)], ['Au rythme d’un an', yrs(it.pf1y)], ['Cité cette semaine', 'non']]) +
-          '<p class="members">Le nombre d’années de frais change selon la période observée : les frais récents s’écartent de leur moyenne. L’agent le valorise sans l’avoir cité cette semaine.</p>',
+          `<p class="members">Le nombre d’années de frais change selon la période observée : les frais récents s’écartent de leur moyenne.${[it.pf7, it.pf30, it.pf1y].some((v) => v == null) ? ` Sans frais mesurés sur ${[['7 jours', it.pf7], ['30 jours', it.pf30], ['1 an', it.pf1y]].filter((x) => x[1] == null).map((x) => x[0]).join(' ni ')} : écart calculé par l’agent sur les autres périodes.` : ''} L’agent le valorise sans l’avoir cité cette semaine.</p>`,
   };
 }
 
@@ -832,12 +868,13 @@ if (COH && COH.membres) {
   const lanes = [0, 1, 2, 3, 4].map((k) => sum(all.filter((x) => x.score === k), (x) => x.tvl));
   const ROLE = { membre: 'membre de la cohorte', antichambre: 'antichambre (candidat)', reference: 'contre-référence, hors cohorte' };
   if (all.length && sLow + sHigh > 0) PLH.cohorte = {
-    tab: 'Cohorte', group: 'cohorte', items, asof: d ? d + 'T12:00:00Z' : null, staleH: 36, b3: 'cohorte', meta: { lanes },
+    tab: 'Cohorte', group: 'cohorte', items, asof: d ? d + 'T12:00:00Z' : null, staleH: 36, b3: 'cohorte', meta: { lanes, sLow, sHigh, pLow: sLow / (sLow + sHigh) },
     eyebrow: 'Recherche Hermes · enquête Robinhood Chain',
     title: `<em>${share(sLow / (sLow + sHigh))}</em> de l’argent déposé est chez des projets à 0 ou 1 point de preuve sur 4.`,
     insight: `Les ${all.length} projets que l’agent suit sur Robinhood Chain (cohorte et candidats), notés sur ce qu’on peut vérifier : audit publié (2 points), code public (1), mécanisme enregistré (1). À 0 ou 1 point : ${usd(sLow)} déposés ; à 2 points ou plus : ${kusd(sHigh)}.` +
-      (ref && ref.fees30 ? ` ${ref.name}, la référence, encaisse ${usd(ref.fees30)} de frais en 30 jours sans aucun dépôt.` : ''),
-    legend: '<span>colonnes : score de preuve, de 0 à 4</span><span><i class="sq mint"></i>hauteur : valeur déposée sur la chaîne</span><span><i class="sq champ"></i>antichambre : candidats suivis avant d’entrer dans la cohorte</span>',
+      (ref && ref.fees30 ? ` Point de comparaison choisi par l’agent : ${ref.name}, premier encaisseur de frais de la chaîne, ${usd(ref.fees30)} en 30 jours sans aucun dépôt.` : ''),
+    insightTel: `Les ${all.length} projets suivis par l’agent, notés sur 4 : audit publié (2 points), code public (1), mécanisme enregistré (1). À 0 ou 1 point : ${usd(sLow)} ; à 2 ou plus : ${kusd(sHigh)}.`,
+    legend: '<span>colonnes : score de preuve, de 0 à 4</span><span><i class="sq mint"></i>hauteur : valeur déposée sur la chaîne ; simple contour : trop petit pour l’échelle</span><span><i class="sq champ"></i>antichambre, nom suivi d’un petit « c » : candidats suivis avant d’entrer dans la cohorte</span>',
     foot: `Enquête quotidienne de l’agent · relevé du ${dayFR(d)} · preuve vérifiée : liens d’audit qui répondent, comptes GitHub, registre des mécanismes (hooks)`,
     value: (p) => p.role === 'reference' ? kusd(p.fees30) + ' de frais' : kusd(p.tvl), label: (p) => p.name, kind: (p) => ROLE[p.role] + ' · preuve ' + p.score + '/4',
     card: (it) => (it.role === 'reference'
@@ -845,10 +882,10 @@ if (COH && COH.membres) {
         facts([['Frais 30 jours', it.fees30 != null ? usd(it.fees30) : '—'], ['Volume 30 jours', it.vol30 != null ? usd(it.vol30) : '—'], ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], ['Part des frais de la chaîne', it.part != null ? nf(it.part, 1) + NB + '%' : '—']])
       : `<p class="big">${kusd(it.tvl)}</p><p class="bigsub">déposés sur Robinhood Chain · preuve ${it.score} sur 4 · relevé du ${dayFR(it.date)}</p>` +
         facts([['Audit publié (2 pts)', yes(it.audit)], ['Code public (1 pt)', yes(it.github)], ['Mécanisme enregistré (1 pt)', it.hooks ? nf(it.hooks, 0) + ' hook' + (it.hooks > 1 ? 's' : '') : 'aucun'],
-          it.fees30 != null ? ['Frais 30 jours', usd(it.fees30)] : ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], it.vol30 != null ? ['Volume 30 jours', usd(it.vol30)] : ['Rôle', ROLE[it.role]], ['Statut', it.role === 'antichambre' ? 'antichambre' : 'membre']]) +
+          it.fees30 != null ? ['Frais 30 jours', usd(it.fees30)] : ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], it.vol30 != null ? ['Volume 30 jours', usd(it.vol30)] : ['Rôle', ROLE[it.role]], ['Suivi depuis', it.hist.length ? dayFR(it.hist[0][0]) : '—']]) +
         sparkTVL(it.hist)) +
-      (it.sortie ? `<p class="members">Sort de la cohorte si : ${esc(it.sortie)}</p>` : '') + (it.entre ? `<p class="members">Entre dans la cohorte si : ${esc(it.entre)}</p>` : '') +
-      (it.mecanisme || it.lignee || it.comm ? `<details class="notes"><summary>Notes de l’enquête (texte de l’agent)</summary>` +
+      (it.sortie || it.entre || it.mecanisme || it.lignee || it.comm ? `<details class="notes"><summary>Lire les notes de l’enquête : sortie, mécanisme (texte brut de l’agent)</summary>` +
+        (it.sortie ? `<p class="members">Sort de la cohorte si : ${esc(it.sortie)}</p>` : '') + (it.entre ? `<p class="members">Entre dans la cohorte si : ${esc(it.entre)}</p>` : '') +
         (it.mecanisme ? `<p class="members">Mécanisme : ${esc(it.mecanisme)}</p>` : '') + (it.lignee ? `<p class="members">Équipe déclarée : ${esc(it.lignee)}</p>` : '') +
         (it.comm ? `<p class="members">${esc(trunc(it.comm, 420))}</p>` : '') + '</details>' : ''),
   };
@@ -859,7 +896,7 @@ const STB = IN_DASH && DATA.stables && (DATA.stables.chains || []).length ? DATA
 if (STB) {
   const ISS_LOGO = { USDT: 'c_tether.png', USDC: 'c_usd-coin.png', USDS: 'd_sky.png' };
   const chains = STB.chains.map((c) => Object.assign({}, c, { kindS: 'chaine', logo: c.logo || lkey(c.name) }));
-  const iss = (STB.top || []).map((t) => ({ name: t.name, symbol: t.symbol, total: t.mcap, kindS: 'emetteur', logo: ISS_LOGO[t.symbol] || 'mono:' + t.symbol }));
+  const iss = (STB.top || []).map((t) => ({ name: t.name, symbol: t.symbol, total: t.mcap, kindS: 'emetteur', logo: ISS_LOGO[t.symbol] || 'sym:' + t.symbol }));
   const restC = Math.max(0, STB.total - sum(chains, (c) => c.total)), restI = Math.max(0, STB.total - sum(iss, (i) => i.total));
   const SFOOT = `DefiLlama stablecoins · ${when(DATA.asof && DATA.asof.stables)}`;
   const byC = [...chains].sort((a, b) => b.total - a.total), c1 = byC[0], c2 = byC[1];
@@ -869,14 +906,14 @@ if (STB) {
     eyebrow: 'Recherche Hermes · argent stable',
     title: `<em>${usd(STB.total)}</em> de stablecoins, dont ${share(c1.total / STB.total)} sur ${esc(c1.name)}.`,
     insight: (iss.length > 1 ? `${iss[0].name} (${iss[0].symbol}) en émet ${share(iss[0].total / STB.total)}, ${iss[1].name} (${iss[1].symbol}) ${share(iss[1].total / STB.total)}. ` : '') +
-      `${c2.name} en porte ${share(c2.total / STB.total)}. Deux tours pour le même argent : à gauche par émetteur, à droite par chaîne.`,
-    legend: '<span><i class="sq champ"></i>par émetteur</span><span><i class="sq mint"></i>par chaîne</span><span>hauteur : part du total</span>',
-    foot: SFOOT + ` · stock de chaque stablecoin et de chaque chaîne · « autres » = le reste du total`,
+      `${c2.name} en porte ${share(c2.total / STB.total)}. Deux colonnes pour le même argent : à gauche par émetteur, à droite par chaîne.`,
+    legend: '<span><i class="sq champ"></i>par émetteur</span><span><i class="sq mint"></i>par chaîne</span><span>hauteur : part du total</span>', railSep: (it, prev) => !prev ? 'Émetteurs' : prev.kindS !== it.kindS ? 'Chaînes' : null,
+    foot: SFOOT + ` · relevé chaque heure · parts calculées sur le total exact, ${nf(STB.total / 1e9, 1)}${NB}Md$ · « autres » = le reste du total`,
     value: (p) => usd(p.total), label: (p) => p.symbol || p.name, kind: (p) => p.kindS === 'emetteur' ? 'stablecoin · ' + (p.symbol || '') : 'chaîne',
     card: (it) => it.kindS === 'emetteur'
-      ? `<p class="big">${usd(it.total)}</p><p class="bigsub">de ${esc(it.symbol || it.name)} en circulation · ${share(it.total / STB.total, 1)} du total</p>` +
+      ? `<p class="big">${usd(it.total)}</p><p class="bigsub">de ${esc(it.symbol || it.name)} en circulation · ${share(it.total / STB.total, it.total / STB.total < .1 ? 1 : 0)} du total</p>` +
         '<p class="members">Stock total du stablecoin, toutes chaînes confondues.</p>'
-      : `<p class="big">${usd(it.total)}</p><p class="bigsub">de stablecoins sur ${esc(it.name)} · ${share(it.total / STB.total, 1)} du total</p>` +
+      : `<p class="big">${usd(it.total)}</p><p class="bigsub">de stablecoins sur ${esc(it.name)} · ${share(it.total / STB.total, it.total / STB.total < .1 ? 1 : 0)} du total</p>` +
         facts([['Sur 1 jour', smoney(it.f1)], ['Sur 7 jours', smoney(it.f7)], ['Sur 30 jours', smoney(it.f30)], ['Variation 7 jours', pct(it.p7, 2)]]) +
         '<p class="members">Variation du stock entre deux dates. Le signe dit le sens.</p>',
   };
@@ -887,23 +924,27 @@ if (STB) {
     items.forEach((it, i) => { it.rank = i + 1; });
     const ten = items.filter((x) => !x.other), mx = ten[0], mn = ten[ten.length - 1];
     const said = (c) => f(c) > 0 ? `a augmenté de ${usd(f(c))} sur ${esc(c.name)}` : f(c) < 0 ? `a baissé de ${usd(-f(c))} sur ${esc(c.name)}` : `n’a pas bougé sur ${esc(c.name)}`;
+    const ups = [], dns = [];
+    chains.forEach((c) => [c.f7, c.f30].forEach((v) => (v >= 0 ? ups : dns).push(Math.abs(v || 0))));
+    [STB.f7 - sum(chains, (c) => c.f7), STB.f30 - sum(chains, (c) => c.f30)].forEach((v) => (v >= 0 ? ups : dns).push(Math.abs(v)));
+    const fmaxAll = Math.max(...chains.map((c) => Math.max(Math.abs(c.f7 || 0), Math.abs(c.f30 || 0))), Math.abs(STB.f7 - sum(chains, (c) => c.f7)), Math.abs(STB.f30 - sum(chains, (c) => c.f30)));
     PLH['stables-' + dd] = {
-      tab: 'Argent stable', group: 'stables', view: `Flux ${dd} jours`, items, asof: DATA.asof && DATA.asof.stables, staleH: 3, b3: 'flux', meta: { dd, tot: STB['f' + dd] },
+      tab: 'Argent stable', group: 'stables', view: `Flux ${dd} jours`, items, asof: DATA.asof && DATA.asof.stables, staleH: 3, b3: 'flux', meta: { dd, tot: STB['f' + dd], fmax: fmaxAll, up: Math.max(...ups) / fmaxAll, dn: Math.max(...dns) / fmaxAll },
       eyebrow: `Recherche Hermes · argent stable · ${dd} jours`,
       title: `En ${dd} jours : <em>${smoney(f(mx))}</em> de stablecoins sur ${esc(mx.name)}, ${smoney(f(mn))} sur ${esc(mn.name)}.`,
-      insight: `Le stock monte quand des stablecoins sont créés ou arrivent sur la chaîne, et baisse quand ils sont détruits ou partent. Au-dessus de la ligne : hausse ; en dessous : baisse. Toutes chaînes réunies : ${smoney(STB['f' + dd])}, dont ${smoney(rest)} sur les autres chaînes.`,
-      legend: '<span><i class="sq mint"></i>longueur : variation du stock</span><span>au-dessus : hausse · en dessous : baisse</span><span><i class="sq argent"></i>autres chaînes : le total moins les dix</span>',
+      insight: `Le stock monte quand des stablecoins sont créés ou arrivent sur la chaîne, et baisse quand ils sont détruits ou partent. À droite de la ligne : hausse ; à gauche : baisse. Toutes chaînes réunies : ${smoney(STB['f' + dd])}, dont ${smoney(rest)} sur les autres chaînes.`,
+      legend: '<span><i class="sq mint"></i>longueur : variation du stock, même échelle pour 7 et 30 jours</span><span>à droite : hausse · à gauche : baisse</span><span><i class="sq argent"></i>autres chaînes : le total moins les dix</span>',
       legendTel: '<span><i class="sq mint"></i>longueur : variation du stock</span><span>à droite : hausse · à gauche : baisse</span><span><i class="sq argent"></i>autres chaînes</span>',
-      insightTel: `Le stock monte quand des stablecoins sont créés ou arrivent, baisse quand ils sont détruits ou partent. À droite : hausse ; à gauche : baisse. Toutes chaînes : ${smoney(STB['f' + dd])}, dont ${smoney(rest)} hors des dix.`,
-      foot: SFOOT + ` · flux calculés sur les séries quotidiennes`,
+      insightTel: `Le stock monte quand des stablecoins sont créés ou arrivent, baisse quand ils sont détruits ou partent. À droite : hausse ; à gauche : baisse. Toutes chaînes : ${smoney(STB['f' + dd])}, dont ${smoney(rest)} sur les autres chaînes.`,
+      foot: SFOOT + ` · relevé chaque heure · variations calculées sur les séries quotidiennes`,
       value: (p) => smoney(f(p)), label: (p) => p.name, kind: (p) => 'stock ' + usd(p.total),
       card: (it) => it.other
-        ? `<p class="big">${smoney(f(it))}</p><p class="bigsub">en ${dd} jours sur toutes les chaînes hors des dix · stock ${usd(it.total)}</p>` +
+        ? `<p class="big">${smoney(f(it))}</p><p class="bigsub">en ${dd} jours sur les autres chaînes · stock ${usd(it.total)}</p>` +
           '<p class="members">Le total de toutes les chaînes, moins les dix chaînes montrées. Il fait que les barres s’additionnent au total annoncé.</p>'
         : `<p class="big">${smoney(f(it))}</p><p class="bigsub">en ${dd} jours sur ${esc(it.name)} · stock ${usd(it.total)}</p>` +
-        facts([['Sur 1 jour', smoney(it.f1)], ['Sur 7 jours', smoney(it.f7)], ['Sur 30 jours', smoney(it.f30)], ['Variation 7 jours', pct(it.p7, 2)],
-          ['Part du stock total', share(it.total / STB.total, 1)], ['Dernier jour compté', it.serie_date ? dayFR(new Date(it.serie_date * 1000).toISOString().slice(0, 10)) : '—']]) +
-        '<p class="members">Variation du stock entre deux dates. Le signe dit le sens ; aucune couleur ne le juge.</p>',
+        facts([['Sur 1 jour', smoney(it.f1)], ['Sur 7 jours', smoney(it.f7)], ['Sur 30 jours', smoney(it.f30)], dd === 7 ? ['Variation 7 jours', pct(it.p7, 2)] : ['Variation 30 jours', it.total - it.f30 ? pct(it.f30 / (it.total - it.f30) * 100, 2) : '—'],
+          ['Part du stock total', share(it.total / STB.total, 1)], ['Séries quotidiennes jusqu’au', it.serie_date ? dayFR(new Date(it.serie_date * 1000).toISOString().slice(0, 10)) : '—']]) +
+        '<p class="members">Variation du stock entre deux dates. Le signe dit le sens ; aucune couleur ne le juge. Un jour peut dépasser la semaine : la semaine contient aussi des jours de baisse.</p>',
     };
   });
 }
@@ -968,13 +1009,15 @@ function renderHead() {
 
 function renderRail() {
   const p = PL[state.pl], rail = $('rail');
-  rail.innerHTML = ''; rail.classList.toggle('many', p.items.length > 12);
+  rail.innerHTML = ''; rail.classList.toggle('many', p.items.length > 12); rail.classList.toggle('hzr', ORDER_H.includes(state.pl));
   p.items.forEach((it, i) => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'chip'; b.dataset.i = i; b.style.setProperty('--i', Math.min(i, 12));
     b.setAttribute('aria-pressed', 'false');
     b.setAttribute('aria-label', `${two(it.rank)}, ${it.name}, ${p.value(it)}`);
     b.innerHTML = `<img src="${LOGOS[it.logo]}" alt=""><span class="k">${two(it.rank)} · ${esc(p.label(it))}${it._hzF ? '<i class="hzd" title="suivi par l’agent Hermes"></i>' : ''}</span><span class="v">${p.value(it)}</span>`;
+    const sep = p.railSep && p.railSep(it, i ? p.items[i - 1] : null);
+    if (sep) { const s = document.createElement('span'); s.className = 'railsep'; s.textContent = sep; rail.append(s); }
     const im = b.querySelector('img'); im.addEventListener('error', () => { im.src = LOGOS['mono:' + it.name]; }, { once: true });
     b.addEventListener('click', () => select(state.sel === i ? -1 : i));
     b.addEventListener('pointerenter', () => setHover(i));
@@ -1027,7 +1070,7 @@ function select(i) {
   if (i >= 0 && innerWidth < 760) closeFil();
   $('head').classList.toggle('hide', i >= 0 || $('fil').classList.contains('on'));
   $('legend').parentNode.classList.toggle('hide', i >= 0); $('hint').classList.toggle('hide', i >= 0);
-  if (i >= 0) { const b = $('rail').children[i]; b && b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); }
+  if (i >= 0) { const b = $('rail').querySelectorAll('.chip')[i]; b && b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); }
 }
 function setPlanche(pl) {
   if (pl === state.pl) return;
@@ -1046,7 +1089,7 @@ addEventListener('keydown', (e) => {
 LASTV[grp(state.pl)] = state.pl;
 renderHead(); renderRail(); syncRail(); renderFil(); fitBar();
 
-const ui = window.__ui = { DATA, LOGOS, REDUCED, PL, ORDER, ALLK, state, select, setHover, setPlanche, two, esc, usd, nf, share, yrsH: (v) => v == null ? 'manquant' : '<b>' + yrs(v) + '</b>', onSwitch: null, ready: false };
+const ui = window.__ui = { DATA, LOGOS, REDUCED, PL, ORDER, ALLK, state, select, setHover, setPlanche, two, esc, usd, nf, share, yrsH: (v) => v == null ? 'non mesuré' : '<b>' + yrs(v) + '</b>', onSwitch: null, ready: false };
 dispatchEvent(new Event('ui:ready'));
 window.__bf = { state, select, setPlanche, get api() { return ui.api || null; } };
 function fallback(msg) { const v = $('veil'); v.innerHTML = '<p class="fallback">' + msg + '</p>'; setTimeout(() => v.classList.add('gone'), 2600); }
@@ -1652,7 +1695,7 @@ async function start3D() {
     for (const L of order) {
       const m = L.shown ? 2 : -2;   // une étiquette déjà visible tolère un léger contact : pas de clignotement
       // place prévue d'abord ; si elle est prise, un cran plus loin de l'objet (au-dessus, en dessous) avant de renoncer
-      const isV = /(^| )v( |$)/.test(L.cls || ''), alts = L.col || L.noslide || L.ay === .5 ? [0] : L.ay === 1 && (isV || L.slide) ? [0, -(L.h + 5)] : L.ay === 0 && L.slide ? [0, L.h + 5] : [0];
+      const isV = /(^| )v( |$)/.test(L.cls || ''), alts = L.col || L.noslide || L.ay === .5 ? [0] : L.ay === 1 && (isV || L.slide) ? (L.slide === 2 ? [0, -(L.h + 4), -2 * (L.h + 4)] : [0, -(L.h + 5)]) : L.ay === 0 && L.slide ? (L.slide === 2 ? [0, L.h + 4, 2 * (L.h + 4)] : [0, L.h + 5]) : [0];
       const tryOrder = L.alt ? [L.alt].concat(alts.filter((a) => a !== L.alt)) : alts;
       let ok = false, r = null;
       if (L.ok && ti >= L.t0) for (const a of tryOrder) {
@@ -1756,9 +1799,10 @@ async function start3D() {
       const tip = broken ? len + .3 + 3 * (t + .22) : len;
       maxLen = Math.max(maxLen, tip);
       const coin = makeCoin(it, medR, .045), pivot = new THREE.Group(); pivot.add(coin); root.add(pivot);
-      const home = port ? new THREE.Vector3(-medR - .2, 0, 0) : new THREE.Vector3(0, tip + medR + .32, 0);
-      const pk = port ? proxy(tip + medR * 2 + .6, rowH * .9, R * 2.2) : proxy(gap * .92, tip + medR * 2 + .7, R * 2.4);
-      if (port) pk.position.set((tip - medR * 2 - .2) / 2, 0, 0); else pk.position.set(0, (tip + medR * 2 + .7) / 2, 0);
+      const foot = false, fz = R + medR + .16;   // essai du 11/10 (médaille au pied de la pile) : elle cachait les petites piles, abandonné
+      const home = port ? new THREE.Vector3(-medR - .2, 0, 0) : foot ? new THREE.Vector3(0, medR + .03, fz) : new THREE.Vector3(0, tip + medR + .32, 0);
+      const pk = port ? proxy(tip + medR * 2 + .6, rowH * .9, R * 2.2) : foot ? proxy(gap * .92, tip + .5, R * 2.4 + medR * 2) : proxy(gap * .92, tip + medR * 2 + .7, R * 2.4);
+      if (port) pk.position.set((tip - medR * 2 - .2) / 2, 0, 0); else if (foot) pk.position.set(0, (tip + .5) / 2, medR); else pk.position.set(0, (tip + medR * 2 + .7) / 2, 0);
       root.add(pk);
       if (v == null) { const ring = new THREE.Mesh(new THREE.TorusGeometry(R, .012, 8, 64), new THREE.MeshBasicMaterial({ color: 0x8d9098 })); ring.rotation.x = Math.PI / 2; if (port) ring.rotation.set(0, 0, Math.PI / 2); ring.position.set(port ? .02 : 0, port ? 0 : .02, 0); root.add(ring); }
       const sh = shadow(R * 3.2, R * 3.2); if (!port) { sh.position.set(root.position.x, .004, 0); group.add(sh); }
@@ -1769,10 +1813,13 @@ async function start3D() {
       objs.push(o);
       const val = opt.valHTML(it, broken);
       if (!port) {
-        addLabel(set, val, { cls: opt.big && !narrow ? 'v big' : 'v', pos: lp(root, 0, tip + medR * 2 + (opt.big ? .62 : .42), 0), ay: 1, dy: -2, pri: 5 + (opt.big ? 2 : 0), obj: i, t0: o.delay + .9 });
-        addLabel(set, opt.nameHTML(it), { cls: 'n', slide: true, pos: lp(root, 0, 0, R), ay: 0, dy: 10 + (opt.big && narrow ? (i % 2) * 17 : 0), pri: 3, obj: i, t0: o.delay + .4 });
+        let ly = foot ? tip + .14 : tip + medR * 2 + (opt.big ? .62 : .42);
+        if (opt.med != null && opt.med <= capV && Math.abs(ly - opt.med * t) < .3) ly = Math.max(ly, opt.med * t + .34);   // au-dessus du trait de médiane, jamais dessus
+        addLabel(set, val, { cls: opt.big && !narrow ? 'v big' : 'v', pos: lp(root, 0, ly, 0), ay: 1, dy: -2, pri: 5 + (opt.big ? 2 : 0), obj: i, t0: o.delay + .9 });
+        addLabel(set, opt.nameHTML(it), { cls: 'n', slide: true, pos: foot ? lp(root, 0, 0, fz + medR) : lp(root, 0, 0, R), ay: 0, dy: foot ? 6 : 10 + (opt.big && narrow ? (i % 2) * 17 : 0), pri: 3, obj: i, t0: o.delay + .4 });
       } else {
-        addLabel(set, `<span class="nm">${opt.nameHTML(it)}</span>${val}`, { cls: 'v l1', pos: lp(root, tip + .16, 0, 0), ax: 0, ay: .5, pri: 5, obj: i, t0: o.delay + .6 });
+        if (broken) addLabel(set, `<span class="nm">${opt.nameHTML(it)}</span>${val}`, { cls: 'v l1', pos: lp(root, len + .14, 0, 0), ax: 0, ay: .5, pri: 6, obj: i, t0: o.delay + .6 });   // pile coupée : posée sur ses pièces détachées   // pile coupée : au-dessus de ses pièces
+        else addLabel(set, `<span class="nm">${opt.nameHTML(it)}</span>${val}`, { cls: 'v l1', pos: lp(root, Math.max(tip, opt.med != null && opt.med <= capV ? opt.med * t + .06 : 0) + .16, 0, 0), ax: 0, ay: .5, pri: 5, obj: i, t0: o.delay + .6 });
       }
     });
     // la médiane du secteur : un trait lumineux à travers la rangée
@@ -1780,19 +1827,19 @@ async function start3D() {
     if (opt.med != null && opt.med <= capV) {
       const span = port ? n * rowH + .3 : (n - 1) * gap + R * 2 + .9, hm = opt.med * t;
       const mm = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf3e6c8).multiplyScalar(1.5), transparent: true, opacity: 0, depthWrite: false });
-      if (!port) { med = new THREE.Mesh(new THREE.BoxGeometry(span, .016, .016), mm); med.position.set(0, hm, 0); group.add(med); }
+      if (!port) { med = new THREE.Mesh(new THREE.BoxGeometry(span, .016, .016), mm); med.position.set(0, hm, -R - .08); group.add(med); }   /* trait derrière les piles et les médailles */
       else { med = new THREE.Group(); for (let k = 0; k < n; k++) { const tk = new THREE.Mesh(new THREE.BoxGeometry(.018, R * 1.9, .018), mm); tk.position.set(hm, .55 + k * rowH, 0); med.add(tk); } med.material = mm; group.add(med); }
       const mtxt = `médiane <b>${opt.medTxt}</b>`;
       if (!port) addLabel(set, mtxt, { cls: 'z', pos: new THREE.Vector3(span / 2 + .1, hm, 0), ax: 0, ay: .5, dx: 6, pri: 8, t0: 1.6 });
-      else addLabel(set, mtxt, { cls: 'z', pos: new THREE.Vector3(hm, .55 - R * 1.3, 0), ax: .5, ay: 0, dy: 4, pri: 8, t0: 1.6 });
+      else addLabel(set, mtxt, { cls: 'z', pos: new THREE.Vector3(hm, .55 + (n - 1) * rowH + R * 1.2, 0), ax: .5, ay: 1, dy: -2, pri: 8, t0: 1.6 });
     }
-    const box = port ? new THREE.Box3(new THREE.Vector3(-medR * 2 - .45, med ? -.25 : .1, -R), new THREE.Vector3(maxLen + 3.7, .55 + (n - 1) * rowH + R + .3, R))
-      : new THREE.Box3(new THREE.Vector3(-(n - 1) / 2 * gap - R - (opt.big ? (narrow ? .3 : .55) : .2), -.35, -R), new THREE.Vector3((n - 1) / 2 * gap + R + (med ? 1.6 : opt.big ? (narrow ? .3 : .55) : .2), maxLen + medR * 2 + (opt.big ? 1.15 : .95), R));
+    const box = port ? new THREE.Box3(new THREE.Vector3(-medR * 2 - .45, .1, -R), new THREE.Vector3(maxLen + 3.7, .55 + (n - 1) * rowH + R + (med ? .6 : .3), R))
+      : new THREE.Box3(new THREE.Vector3(-(n - 1) / 2 * gap - R - (opt.big ? (narrow ? .3 : .55) : .2), opt.big && narrow ? -.8 : -.35, -R), new THREE.Vector3((n - 1) / 2 * gap + R + (med ? 1.6 : opt.big ? (narrow ? .3 : .55) : .2), maxLen + medR * 2 + (opt.big ? 1.15 : .95), R));
     return {
       group, objs, labels: set, noTag: true, port,
       fit: { box, dir: port ? new THREE.Vector3(.32, .2, 1) : new THREE.Vector3(0, .3, 1), fov: 28 },
       view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x2a2214), pool: new THREE.Color(0x15110a), poolZ: 0, off: 0, refl: .42 },
-      focus: (o, F) => focusOn(o, F, port ? .8 : .74),
+      focus: (o, F) => focusOn(o, F, port ? .8 : 1.06),   // fiche ouverte : toute la planche reste visible, décalée à gauche
       update(ti, t2, dt, anyFocus) {
         if (med) med.material.opacity = .85 * clamp01((ti - 1.4) / .6) * (anyFocus ? .35 : 1);
         objs.forEach((o) => {
@@ -1826,8 +1873,10 @@ async function start3D() {
   /* ================= planche : où vont les frais (bocaux de 100 $, trois couches) ================= */
   function buildPartage(items, meta) {
     const group = new THREE.Group(), objs = [], set = labelSet(), port = !LAND();
-    const H = port ? 3.6 : 3.0, rOf = (it) => (port ? .13 : .2) + (port ? .14 : .24) * Math.sqrt(it.fees7 / meta.fmax);
-    const MATS = { hold: () => liquidMat(0xe6c47a, 0x8a6418, .55), kept: () => liquidMat(0xe9e4da, 0x45413a, .35), supp: () => liquidMat(0x8ff0d8, 0x1f7a64, .45, .5) };
+    const H = port ? 3.6 : 3.0, rOf = () => port ? .2 : .3;
+    const glossy = (c) => new THREE.ShaderMaterial({ ...liquidShader, uniforms: { uT: { value: 0 }, uLevel: { value: 1 }, uWob: { value: 0 }, uGlow: { value: 1 }, uRad: { value: 1 },
+      uDeep: { value: new THREE.Color(c).multiplyScalar(.5) }, uBright: { value: new THREE.Color(c) }, uMid: { value: new THREE.Color(0) }, uUseMid: { value: 0 }, uDeep2: { value: new THREE.Color(0) }, uBright2: { value: new THREE.Color(0) }, uSplit: { value: 0 } } });
+    const MATS = { hold: () => glossy(0xf0c96e), kept: () => glossy(0xb9a6ee), supp: () => glossy(0x3f8f7d) };   // service plus sombre : l'or des détenteurs porte le message
     const cyl = new THREE.CylinderGeometry(1, 1, 1, 56); cyl.translate(0, .5, 0);
     const shellGeo = new THREE.CylinderGeometry(1, 1, 1, 56, 1, true); shellGeo.translate(0, .5, 0);
     const n = items.length, rs = items.map(rOf), sp = port ? .32 : .36;
@@ -1856,7 +1905,7 @@ async function start3D() {
       objs.push(o);
       const gTop = .035 + it.hold * H;
       if (!port) {
-        addLabel(set, `<b>${d100txt(it.hold)}</b>`, { cls: 'v', pos: new THREE.Vector3(root.position.x, H + .62 + .25 + .12, 0), ay: 1, dy: -2, pri: 6, obj: i, t0: o.delay + 1.6 });
+        addLabel(set, `<b>${d100txt(it.hold)}</b>`, { cls: 'v gold', pos: new THREE.Vector3(root.position.x, gTop, r + .04), ay: it.hold > .12 ? 0 : 1, dy: it.hold > .12 ? 3 : -3, pri: 6, obj: i, t0: o.delay + 1.6 });   // à hauteur de la part des détenteurs
         addLabel(set, `${esc(it.name)}<small>${usd(it.fees7)} / an</small>`, { cls: 'n', slide: true, pos: new THREE.Vector3(root.position.x, 0, r), ay: 0, dy: 10, pri: 3, obj: i, t0: o.delay + .4 });
       } else {
         addLabel(set, `<span class="nm">${esc(it.name)}</span><b>${d100txt(it.hold)}</b>`, { cls: 'v l1', pos: new THREE.Vector3(H + .2, mHome.y, 0), ax: 0, ay: .5, pri: 6, obj: i, t0: o.delay + 1.2 });
@@ -1866,9 +1915,9 @@ async function start3D() {
       : new THREE.Box3(new THREE.Vector3(-tot / 2 - .1, -.35, -.5), new THREE.Vector3(tot / 2 + .1, H + 1.35, .5));
     return {
       group, objs, labels: set, noTag: true, port,
-      fit: { box, dir: port ? new THREE.Vector3(0, .14, 1) : new THREE.Vector3(0, .26, 1), fov: 28 },
+      fit: { box, dir: port ? new THREE.Vector3(0, .14, 1) : new THREE.Vector3(0, .5, 1), fov: port ? 28 : 20 },
       view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x231c10), pool: new THREE.Color(0x120f08), poolZ: 0, off: 0, refl: .4 },
-      focus: (o, F) => focusOn(o, F, port ? .85 : .9),
+      focus: (o, F) => focusOn(o, F, port ? .85 : 1.06),
       update(ti, t2, dt, anyFocus) {
         objs.forEach((o) => {
           const on = o.i === state.sel || o.i === state.hover;
@@ -1876,8 +1925,8 @@ async function start3D() {
           const e = ease.out(clamp01((ti - o.delay) / .7));
           o.root.scale.setScalar(Math.max(.001, e));
           o.segs.forEach((s, k) => { const fill = ease.inOut(clamp01((ti - o.delay - .45 - k * .38) / .6)); s.m.scale.y = Math.max(.001, s.h * fill);
-            const dim = anyFocus && !on ? .3 : 1; s.m.material.emissiveIntensity = (s.k === 'hold' ? .55 : s.k === 'kept' ? .35 : .45) * dim + o.f * .2; s.m.material.color.setScalar(1);
-            s.m.material.color.setHex(s.k === 'hold' ? 0xe6c47a : s.k === 'kept' ? 0xe9e4da : 0x8ff0d8).multiplyScalar(.35 + .65 * dim); });
+            const U = s.m.material.uniforms, dim = anyFocus && !on ? .3 : 1, base = s.k === 'hold' ? 1.35 : 1;   // l'or des détenteurs ressort
+            U.uGlow.value += (base * dim + o.f * .2 - U.uGlow.value) * damp(dt, 6); });
           medalTick(o, ti, t2, anyFocus, on, o.delay + 1.5, o.home);
         });
       },
@@ -1893,76 +1942,101 @@ async function start3D() {
         gl_FragColor = vec4(uCol * edge * h * uA, 1.); }` };
   function buildAttention(items, meta) {
     const group = new THREE.Group(), objs = [], set = labelSet(), port = !LAND();
-    const BZ = port ? 3.05 : 2.6, ZONES = { nomme: -BZ, agite: 0, trou: BZ };
     const by = { nomme: [], agite: [], trou: [] }; items.forEach((it, i) => by[it.zone] && by[it.zone].push(i));
-    const R = port ? .27 : .36, SX = port ? .76 : 1.42;
-    const padGeo = new THREE.CylinderGeometry(R * .85, R * .98, 1, 40); padGeo.translate(0, .5, 0);
+    const ZT = { nomme: ['Cités', 'cette semaine'], agite: ['Chiffre instable,', 'non cités'], trou: ['Suivis, jamais', 'valorisés'] };
     const padMat = new THREE.MeshPhysicalMaterial({ color: 0x2a2620, metalness: .6, roughness: .35, clearcoat: .6 });
     const rimMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf3e3bd).multiplyScalar(1.4) });
     const ghostRing = new THREE.MeshBasicMaterial({ color: 0xc8c3b9, transparent: true, opacity: .32, depthWrite: false });
-    const ZT = { nomme: ['Regardés', 'cette semaine'], agite: ['Agités,', 'non regardés'], trou: ['Suivis, jamais', 'valorisés'] };
-    const colsOf = (n) => n;
-    const nMax = Math.max(...Object.values(by).map((a) => colsOf(a.length))), xL = -(nMax - 1) / 2 * SX - R;
+    const R = port ? .17 : .36;
+    const padGeo = new THREE.CylinderGeometry(R * (port ? .6 : .85), R * (port ? .7 : .98), 1, 40); padGeo.translate(0, .5, 0);
+    // place de chaque objet : ordinateur = une rangée par groupe ; téléphone = une liste à deux colonnes par groupe
+    const SX = 1.52, PZ = .44, HZ = .72, CX = [-2.0, .32], ZD = { nomme: -3.3, agite: -.6, calm: 1.55, trou: 3.6 }, BZ = 3.3;
+    const slot = {}; let zCur = 0; const zHead = {};
     Object.entries(by).forEach(([zk, idx]) => {
-      const n = idx.length, cols = colsOf(n);
+      if (port) { zHead[zk] = zCur; zCur += HZ; const rows = Math.ceil(idx.length / 2);
+        idx.forEach((i, k) => { slot[i] = { x: CX[k % 2], z: zCur + Math.floor(k / 2) * PZ }; }); zCur += rows * PZ + .12;
+        if (zk === 'agite' && meta.calm) { zHead.calm = zCur; zCur += HZ * .8 + Math.ceil(meta.calm / 14) * .2 + .15; } }   // la bande « dans l'ombre » après les instables
+      else { const z = ZD[zk], n = idx.length; zHead[zk] = z;
+        idx.forEach((i, k) => { slot[i] = { x: (k - (n - 1) / 2) * SX, z }; }); }
+    });
+    if (!port) zHead.calm = ZD.calm;
+    const nMax = Math.max(...Object.values(by).map((a) => a.length)), xL = -(nMax - 1) / 2 * SX - R;
+    Object.entries(by).forEach(([zk, idx]) => {
       idx.forEach((i, k) => {
-        const row = k < cols ? 0 : 1, c = row ? k - cols : k, nr = row ? n - cols : cols;
-        const it = items[i], x = (c - (nr - 1) / 2) * SX, z = ZONES[zk];
+        const it = items[i], { x, z } = slot[i];
         const root = new THREE.Group(); root.position.set(x, 0, z); group.add(root);
-        let y0 = .62, amp = 0, fq = 0;
-        const coin = makeCoin(it, R, .05), pivot = new THREE.Group(); pivot.add(coin); root.add(pivot);
+        let y0 = R + .26, amp = 0, fq = 0;
+        const coin = makeCoin(it, R, port ? .03 : .05), pivot = new THREE.Group(); pivot.add(coin); root.add(pivot);
         if (zk === 'nomme') {
-          const ph = .42; const pad = new THREE.Mesh(padGeo, padMat); pad.scale.y = ph; root.add(pad);
-          const rim = new THREE.Mesh(new THREE.TorusGeometry(R * .85, .012, 8, 64), rimMat); rim.rotation.x = Math.PI / 2; rim.position.y = ph; root.add(rim);
-          y0 = ph + R + .1;
+          const ph = port ? .12 : .42; const pad = new THREE.Mesh(padGeo, padMat); pad.scale.y = ph; root.add(pad);
+          const rim = new THREE.Mesh(new THREE.TorusGeometry(R * .85, port ? .008 : .012, 8, 64), rimMat); rim.rotation.x = Math.PI / 2; rim.position.y = ph; root.add(rim);
+          y0 = ph + R + (port ? .04 : .1);
         } else if (zk === 'agite') {
-          const lg = Math.log2(Math.max(1.01, it.dispersion || 1)); amp = .05 + .085 * lg; fq = 1.1 + .35 * lg; y0 = R + .32;
+          const lg = Math.log2(Math.max(1.01, it.dispersion || 1)); amp = (port ? .02 : .05) + (port ? .03 : .085) * lg; fq = 1.1 + .35 * lg; y0 = R + (port ? .1 : .32);
         } else {
           coin.userData.mats.metal.transparent = true; coin.userData.mats.metal.opacity = .28; coin.userData.mats.face.transparent = true; coin.userData.mats.face.opacity = .42;
           const ring = new THREE.Mesh(new THREE.RingGeometry(R * .9, R * .98, 64), ghostRing); ring.rotation.x = -Math.PI / 2; ring.position.y = .01; root.add(ring);
-          y0 = R + .26;
+          y0 = R + (port ? .06 : .26);
         }
-        const pk = proxy(SX * .9, y0 + R + .5, R * 2.6); pk.position.y = (y0 + R + .5) / 2; root.add(pk);
+        const pk = port ? proxy(1.9, y0 + R + .2, PZ * .95) : proxy(SX * .9, y0 + R + .5, R * 2.6);
+        if (port) pk.position.set(.8, (y0 + R + .2) / 2, 0); else pk.position.y = (y0 + R + .5) / 2;
+        root.add(pk);
         if (zk !== 'trou') { const sh = shadow(R * 3, R * 3); sh.position.set(x, .004, z); group.add(sh); }
-        const o = { i, item: it, root, pivot, coin, zk, y0, cy: y0, amp, fq, f: 0, phase: Math.random() * 6.28, pick: [pk, coin], delay: .35 + (zk === 'nomme' ? 0 : zk === 'agite' ? .45 : .85) + k * .07 };
+        const o = { i, item: it, root, pivot, coin, zk, y0, cy: y0, amp, fq, f: 0, phase: Math.random() * 6.28, pick: [pk, coin], delay: .35 + (zk === 'nomme' ? 0 : zk === 'agite' ? .45 : .85) + k * .06 };
         o.c = () => new THREE.Vector3(x, y0, z);
         objs.push(o);
-        const top = () => { root.updateMatrixWorld(); return root.localToWorld(wpos.set(0, o.cy + R + .05, 0)); };
-        const bot = () => { root.updateMatrixWorld(); return root.localToWorld(wpos.set(0, zk === 'nomme' ? 0 : o.y0 - R - .05, 0)); };
+        const xs = zk === 'agite' ? `<small class="x">×${NB}${nf(it.dispersion, 1)}${it.pf7 == null ? '*' : ''}</small>` : '';
         if (!port) {
-          // l'écart × s'écrit sous le nom : une seule étiquette, rien qui monte vers la rangée du dessus
-          addLabel(set, esc(it.name) + (zk === 'agite' ? `<small class="x">×${NB}${nf(it.dispersion, 1)}</small>` : ''), { cls: zk === 'nomme' ? 'n hi w pill' : 'n w pill', slide: zk !== 'nomme', pos: bot, ay: 0, dy: zk === 'nomme' ? 8 : 11, pri: zk === 'nomme' ? 6 : 3, obj: i, t0: o.delay + .7 });
-        } else {   // téléphone : un nom sur deux au-dessus, l'autre en dessous ; l'écart (×) reste dans la liste et la fiche
-          const up = k % 2 === 1, bot2 = () => { root.updateMatrixWorld(); return root.localToWorld(wpos.set(0, o.y0 - R - .03, 0)); };
-          addLabel(set, esc(it.name.replace(/ (Protocol|Finance)$/, '')) + (zk === 'agite' ? `<small class="x">×${NB}${nf(it.dispersion, 1)}</small>` : ''), { cls: zk === 'nomme' ? 'n hi pill' : 'n pill', slide: true, pos: up ? top : bot2, ay: up ? 1 : 0, dy: up ? -2 : 3, pri: zk === 'nomme' ? 6 : 3, obj: i, t0: o.delay + .7 });
+          const bot = () => { root.updateMatrixWorld(); return root.localToWorld(wpos.set(0, zk === 'nomme' ? 0 : o.y0 - R - .05, 0)); };
+          addLabel(set, esc(it.name.replace(/ (Finance|Protocol)$/, '')) + xs, { cls: zk === 'nomme' ? 'n hi w pill' : 'n w pill', pos: bot, ay: 0, dy: zk === 'nomme' ? 8 : zk === 'trou' ? 16 : 11, pri: zk === 'nomme' ? 6 : 3, obj: i, t0: o.delay + .7 });
+        } else {   // téléphone : le nom à droite de sa médaille, sur sa ligne
+          const side = () => { root.updateMatrixWorld(); return root.localToWorld(wpos.set(R + .07, o.y0, 0)); };
+          addLabel(set, `<span>${esc(it.name)}</span>` + (zk === 'agite' ? `<i>×${NB}${nf(it.dispersion, 1)}${it.pf7 == null ? '*' : ''}</i>` : ''), { cls: zk === 'nomme' ? 'n hi li' : 'n li', pos: side, ax: 0, ay: .5, pri: zk === 'nomme' ? 6 : 4, obj: i, t0: o.delay + .5 });
         }
       });
-      const zl = `${ZT[zk][0]}<br>${ZT[zk][1]} · <b>${n}</b>`;
-      if (port) addLabel(set, zl.replace('<br>', ' '), { cls: 'z', pos: new THREE.Vector3(-(cols - 1) / 2 * SX - R, .2, ZONES[zk] - 1.55), ax: 0, ay: 1, pri: 9, t0: .3 });
-      else addLabel(set, zl, { cls: 'z r', pos: new THREE.Vector3(xL - .35, .5, ZONES[zk]), ax: 1, ay: .5, pri: 9, t0: .3 });
+      const nMod = zk === 'trou' ? idx.filter((i) => items[i].etat === 'module oublié').length : 0;
+      const n = idx.length, zl = `${ZT[zk][0]}<br>${ZT[zk][1]} · <b>${n}</b>${nMod ? ` <span class="sub">dont ${nMod} module${nMod > 1 ? 's' : ''} oublié${nMod > 1 ? 's' : ''}</span>` : ''}`;
+      if (port) addLabel(set, zl.replace('<br>', ' '), { cls: 'z', pos: new THREE.Vector3(CX[0] - R, .05, zHead[zk] + .1), ax: 0, ay: .5, pri: 9, t0: .3 });
+      else addLabel(set, zl, { cls: 'z r', pos: new THREE.Vector3(xL - .35, .5, zHead[zk]), ax: 1, ay: .5, pri: 9, t0: .3 });
     });
-    // un projecteur sur les protocoles nommés ; les autres valorisés restent dans l'ombre
-    const nN = colsOf(by.nomme.length), coneH = port ? 1.9 : 5.6, cr = 1.6;
+    // un projecteur sur les protocoles cités ; les autres valorisés restent dans l'ombre, à l'écart
+    const nN = by.nomme.length, rowsN = Math.ceil(nN / 2);
+    const coneH = port ? 2.4 : 5.6, cr = 1.6, czN = port ? zHead.nomme + HZ + (rowsN - 1) * PZ / 2 : ZD.nomme, cxN = port ? (CX[0] + CX[1]) / 2 + .55 : 0;
     const cone = new THREE.Mesh(new THREE.ConeGeometry(cr, coneH, 64, 1, true), new THREE.ShaderMaterial({ ...coneShader, transparent: true, depthWrite: false, side: THREE.DoubleSide, blending: THREE.AdditiveBlending,
       uniforms: { uA: { value: 0 }, uCol: { value: new THREE.Color(0xfff1d6).multiplyScalar(.13) } } }));
-    cone.scale.set(Math.max(1, ((nN - 1) * SX / 2 + R + .5) / cr), 1, 1); cone.position.set(0, coneH / 2, -BZ); group.add(cone); floor.hide.push(cone);
-    const lamp = new THREE.Mesh(new THREE.SphereGeometry(.08, 16, 12), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xfff1d6).multiplyScalar(3) })); lamp.position.set(0, coneH, -BZ); group.add(lamp);
-    const beadGeo = new THREE.SphereGeometry(.07, 16, 12), beadMat = new THREE.MeshPhysicalMaterial({ color: 0x3a3d44, metalness: .9, roughness: .35 });
-    const nCalm = port ? 0 : meta.calm, beads = new THREE.InstancedMesh(beadGeo, beadMat, Math.max(1, nCalm)); beads.count = nCalm;
-    const bz = -BZ - (port ? 2.0 : 1.9), mtx = new THREE.Matrix4(), bw = (nMax - 1) * SX * .8;
-    for (let k = 0; k < nCalm; k++) { const u = (k + .5) / meta.calm, w = (Math.sin(k * 12.9898) * 43758.5453) % 1; mtx.makeTranslation((u - .5) * bw, .07, bz + (Math.abs(w) - .5) * .5); beads.setMatrixAt(k, mtx); }
-    group.add(beads);
-    if (nCalm) addLabel(set, `<b>${meta.calm}</b> autres valorisés, ni nommés ni agités`, { cls: 'z', pos: new THREE.Vector3(0, .1, bz - .35), ay: 1, dy: -3, pri: 7, t0: 1.4 });
-    const box = port ? new THREE.Box3(new THREE.Vector3(-(nMax - 1) / 2 * SX - .55, -.1, -BZ - 1.5), new THREE.Vector3((nMax - 1) / 2 * SX + .55, 2.0, BZ + 1.0))
-      : new THREE.Box3(new THREE.Vector3(xL - 2.3, -.2, bz - .7), new THREE.Vector3(-xL + .2, 1.7, BZ + .9));
+    if (port) cone.scale.set(1.65, 1, Math.max(.4, (rowsN * PZ + .25) / 2 / cr)); else cone.scale.set(Math.max(1, ((nN - 1) * SX / 2 + R + .5) / cr), 1, 1);
+    cone.position.set(cxN, coneH / 2, czN); group.add(cone); floor.hide.push(cone);
+    const lamp = new THREE.Mesh(new THREE.SphereGeometry(port ? .05 : .08, 16, 12), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xfff1d6).multiplyScalar(3) })); lamp.position.set(cxN, coneH, czN); group.add(lamp);
+    const nCalm = meta.calm, discs = [];
+    if (nCalm) {   // les autres valorisés, ni cités ni instables : une bande de disques sombres, loin du faisceau
+      const dg = new THREE.CylinderGeometry(1, 1, 1, 32); dg.translate(0, .5, 0);
+      const dm = new THREE.MeshPhysicalMaterial({ color: 0x777c88, metalness: .85, roughness: .35, clearcoat: .4 });
+      const per = port ? 14 : 23, dR = port ? .065 : .13, step = port ? (CX[1] - CX[0] + 2.0) / (per - 1) : (nMax - 1) * SX / (per - 1);
+      const inst = new THREE.InstancedMesh(dg, dm, nCalm), pv = new THREE.Vector3();
+      for (let k = 0; k < nCalm; k++) { const c = k % per, r = Math.floor(k / per);
+        discs.push({ x: port ? CX[0] + c * step : -(nMax - 1) / 2 * SX + c * step, z: port ? zHead.calm + HZ * .8 + r * .2 : ZD.calm, d: .9 + k * .03 }); }
+      inst.userData.dR = dR; inst.frustumCulled = false; group.add(inst); discs.inst = inst;
+      if (port) addLabel(set, `Ni cités ni instables · <b>${nCalm}</b>`, { cls: 'z', pos: new THREE.Vector3(CX[0] - R, .05, zHead.calm + .1), ax: 0, ay: .5, pri: 9, t0: .3 });
+      else addLabel(set, `Ni cités<br>ni instables · <b>${nCalm}</b>`, { cls: 'z r', pos: new THREE.Vector3(xL - .35, .3, ZD.calm), ax: 1, ay: .5, pri: 9, t0: .3 });
+    }
+    // une flaque de lumière chaude sous le projecteur
+    const spot = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: radialTexture(), color: new THREE.Color(0xffe2b0).multiplyScalar(.22), transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false }));
+    spot.rotation.x = -Math.PI / 2; spot.position.set(cxN, .008, czN); spot.scale.set(port ? 4.6 : (nN - 1) * SX + 2.6, port ? rowsN * PZ + .9 : 2.6, 1); group.add(spot); floor.hide.push(spot);
+    const box = port ? new THREE.Box3(new THREE.Vector3(CX[0] - R - .15, -.1, -.15), new THREE.Vector3(2.45, .6, zCur))
+      : new THREE.Box3(new THREE.Vector3(xL - 2.3, -.2, ZD.nomme - 1.0), new THREE.Vector3(-xL + .2, 1.7, ZD.trou + .9));
     objs.sort((a, b) => a.i - b.i);
+    const dM = new THREE.Matrix4(), dQ = new THREE.Quaternion(), dS = new THREE.Vector3(), dP = new THREE.Vector3();
     return {
       group, objs, labels: set, noTag: true, port,
-      fit: { box, dir: port ? new THREE.Vector3(0, 1.35, .75) : new THREE.Vector3(0, .82, 1), fov: 28 },
-      view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x1d1830), pool: new THREE.Color(0x2c2516), poolZ: -BZ, off: 0, refl: .3 },
-      focus: (o, F) => focusOn(o, F, .86),
+      fit: { box, dir: port ? new THREE.Vector3(0, 1.6, 1) : new THREE.Vector3(0, .82, 1), fov: 28 },
+      view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x1d1830), pool: new THREE.Color(0x2c2516), poolZ: czN, off: 0, refl: .3 },
+      focus: (o, F) => focusOn(o, F, port ? .92 : .86),
       update(ti, t2, dt, anyFocus) {
         cone.material.uniforms.uA.value = clamp01((ti - .2) / 1.2) * (anyFocus ? .55 : 1);
+        spot.material.opacity = clamp01((ti - .3) / 1.2) * (anyFocus ? .5 : 1);
+        if (discs.inst) { const dR = discs.inst.userData.dR;
+          discs.forEach((d, k) => { const e = ease.out(clamp01((ti - d.d) / .5)); dM.compose(dP.set(d.x, 0, d.z), dQ, dS.set(dR, Math.max(.001, e * dR * .35), dR)); discs.inst.setMatrixAt(k, dM); });
+          discs.inst.instanceMatrix.needsUpdate = true; }
         objs.forEach((o) => {
           const on = o.i === state.sel || o.i === state.hover;
           o.f += ((on ? 1 : 0) - o.f) * damp(dt, 6);
@@ -1985,13 +2059,17 @@ async function start3D() {
     [0, 1, 2, 3, 4].forEach((s) => {
       const x = (s - 2) * LX, idx = items.map((it, i) => i).filter((i) => (items[i].score || 0) === s && items[i].role !== 'reference').sort((a, b) => (items[b].tvl || 0) - (items[a].tvl || 0));
       const H = Math.max(.04, laneTot[s] / maxL * HMAX);
-      const shell = new THREE.Mesh(shellGeo, glassLite(0xffffff, .14)); shell.scale.y = H + .1; shell.position.set(x, 0, 0); group.add(shell);
+      const shell = new THREE.Mesh(shellGeo, glassLite(0xffffff, .14)); shell.scale.y = H + .03; shell.position.set(x, 0, 0); group.add(shell);
+      const tiny = laneTot[s] / maxL * HMAX < .03;   // moins d'un pixel à l'échelle : on le dit au lieu de dessiner une dalle
       const sh = shadow(W * 1.7, W * 1.5); sh.material.opacity = .55; sh.position.set(x, .004, 0); group.add(sh);
       let y = .03;
       idx.forEach((i, k) => {
         const it = items[i], h = laneTot[s] ? (it.tvl || 0) / laneTot[s] * H : 0, anti = it.role === 'antichambre';
         const tone = anti ? 0xe7cf9d : TONES[k % 2];
-        const m = new THREE.Mesh(segGeo, liquidMat(tone, anti ? 0x6f5a2c : 0x1f7a64, .45)); m.position.set(x, y, 0); m.scale.y = .001; group.add(m);
+        const m = new THREE.Mesh(segGeo, liquidMat(tone, anti ? 0x6f5a2c : 0x1f7a64, .45)); m.position.set(x, y, 0); m.scale.y = .001; m.visible = h >= .012 && !tiny; group.add(m);
+        if (tiny && k === 0) {   // trop petit pour l'échelle : un contour posé au sol, pas une dalle
+          const e = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(W * .86, .02, W * .86)), new THREE.LineBasicMaterial({ color: tone, transparent: true, opacity: .8 }));
+          e.position.set(x, .02, 0); group.add(e); }
         const hh = Math.max(.004, h - GAP), yMid = y + hh / 2;
         const pk = proxy(W, Math.max(hh, .08), W); pk.position.set(x, yMid, 0); group.add(pk);
         const o = { i, item: it, m, hh, tone, f: 0, pick: [pk], delay: .3 + s * .15 + k * .05 };
@@ -2002,30 +2080,44 @@ async function start3D() {
           o.pivot = pivot; o.coin = coin; o.phase = Math.random() * 6.28; o.home = new THREE.Vector3(x + side * (W / 2 + .32), yMid, .1); o.pick.push(coin);
           if (s === 0) addLabel(set, `${esc(it.name)} <b>${kusdTxt(it.tvl)}</b>`, { cls: 'n seg', pos: new THREE.Vector3(x - W / 2 - .32 - MR - .1, yMid, .1), ax: 1, ay: .5, pri: 6, obj: i, t0: o.delay + 1.1 });
           else addLabel(set, esc(it.name), { cls: 'in', pos: new THREE.Vector3(x, yMid, W * .43 + .02), ax: .5, ay: .5, pri: 6, obj: i, t0: o.delay + 1.1 });
-        } else if (port && h > .42) addLabel(set, esc(it.name.replace(/ (Robinhood )?Perps$/, '')), { cls: 'in', pos: new THREE.Vector3(x, yMid, W * .43 + .02), ax: .5, ay: .5, pri: 6, obj: i, t0: o.delay + .8 });   // nom écrit sur l'étage
+        } else if (port && h > .42) addLabel(set, `${esc(it.name.replace(/ (Robinhood )?Perps$/, ''))}<b class="bl">${kusdTxt(it.tvl)}</b>`, { cls: 'in', pos: new THREE.Vector3(x, yMid, W * .43 + .02), ax: .5, ay: .5, pri: 6, obj: i, t0: o.delay + .8 });   // nom écrit sur l'étage
         objs.push(o); y += h;
       });
       addLabel(set, `<b>${kusdTxt(laneTot[s])}</b>`, { cls: port ? 'v' : 'v mid', pos: new THREE.Vector3(x, H + .14, 0), ay: 1, dy: -3, pri: 8, t0: .9 + s * .12 });
       // sous chaque tour : le score, puis les projets qui la composent (les étages trop fins n'ont pas la place d'un nom)
       const shortN = (n) => esc(n.replace(/ (Robinhood )?Perps$/, ''));
       const who = idx.length > 3 ? idx.slice(0, 2).map((i) => shortN(items[i].name)).join(', ') + ` et ${idx.length - 2} autres` : idx.map((i) => shortN(items[i].name)).join(', ');
-      const unnamed = idx.filter((i) => !((items[i].tvl || 0) / (laneTot[s] || 1) * H > (port ? .42 : .3))).map((i) => `<small class="nm">${shortN(items[i].name)}</small>`).join('');
-      addLabel(set, (port ? `preuve<br><b>${s}</b>/4` : `preuve <b>${s}</b>/4<small>${idx.length} projet${idx.length > 1 ? 's' : ''}</small>`) + unnamed,   /* les projets sans nom sur leur étage */ { cls: 'z c', pos: new THREE.Vector3(x, 0, W / 2 + .1), ay: 0, dy: 8, pri: 9, t0: .4 + s * .1 });
+      const un = idx.filter((i) => !((items[i].tvl || 0) / (laneTot[s] || 1) * H > (port ? .42 : .3))).map((i) => shortN(items[i].name) + (items[i].role === 'antichambre' ? '<sup>c</sup>' : ''));
+      const partial = un.length && idx.length > un.length;
+      const unnamed = port ? un.map((n) => `<small class="nm">${n}</small>`).join('') : un.length ? `<small class="nms">${partial ? 'dont ' : ''}${un.join(', ')}</small>` : '';
+      addLabel(set, (port ? `<b>${s}</b>/4` : `preuve <b>${s}</b>/4<small>${idx.length} projet${idx.length > 1 ? 's' : ''}</small>`) + unnamed,   /* les projets sans nom sur leur étage */ { cls: 'z c', pos: new THREE.Vector3(x, 0, W / 2 + .1), ay: 0, dy: 8, pri: 9, t0: .4 + s * .1 });
+    });
+    // les deux groupes du titre : un cadre lumineux au sol autour des tours, avec leur somme et leur part
+    [[0, 1, meta.sLow, meta.pLow, '0 ou 1 point'], [2, 4, meta.sHigh, 1 - meta.pLow, '2 points ou plus']].forEach(([a, b, v, pr, lab], g) => {
+      const x0 = (a - 2) * LX - W / 2 - .22, x1 = (b - 2) * LX + W / 2 + .22, zf = W / 2 + .06;
+      const fr = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(x1 - x0, .01, W + .5)), new THREE.LineBasicMaterial({ color: g ? 0x8ff0d8 : 0xe7cf9d, transparent: true, opacity: .55 }));
+      fr.position.set((x0 + x1) / 2, .006, zf - (W + .5) / 2); group.add(fr); floor.hide.push(fr);
+      const glow = new THREE.Mesh(new THREE.PlaneGeometry(x1 - x0, W + .5), new THREE.MeshBasicMaterial({ color: g ? 0x8ff0d8 : 0xe7cf9d, transparent: true, opacity: .05, depthWrite: false }));
+      glow.rotation.x = -Math.PI / 2; glow.position.copy(fr.position); group.add(glow); floor.hide.push(glow);
+      if (!port) addLabel(set, `${lab} · <b>${kusdTxt(v)}</b> · <b>${share(pr)}</b>`, { cls: 'z grp', pos: new THREE.Vector3(g ? (x0 + x1) / 2 : -LX, g ? 1.25 : (meta.lanes[1] / Math.max(...meta.lanes) * HMAX) + 1.05, 0), ax: .5, ay: 1, pri: 9, t0: 1.8 });   // au-dessus de son groupe
+      else addLabel(set, `${lab}<br><b>${share(pr)}</b>`, { cls: 'z grp c', pos: new THREE.Vector3(g ? (x0 + x1) / 2 : -LX + .3, g ? 1.25 : (meta.lanes[1] / Math.max(...meta.lanes) * HMAX) + 1.0, 0), ay: 1, pri: 9, t0: 1.8 });
     });
     let refX = null;
     const ref = items.findIndex((it) => it.role === 'reference');
-    if (ref >= 0 && port) addLabel(set, `${esc(items[ref].name)}, la référence : <b>0 $</b> déposé<small>${usd(items[ref].fees30 || 0)} de frais en 30 jours</small>`,
-      { cls: 'n n1 c', pos: new THREE.Vector3(0, 0, W / 2 + .1), ay: 0, dy: 74, pri: 7, t0: 1.6 });   // téléphone : pas de cage, une ligne sous les tours
+    if (ref >= 0 && port) addLabel(set, `${esc(items[ref].name)}, point de comparaison hors cohorte<small>${usd(items[ref].fees30 || 0)} de frais en 30 j · aucun dépôt suivi</small>`,
+      { cls: 'n n1 r', pos: new THREE.Vector3(2 * LX + W / 2, 0, W / 2 + .1), ax: 1, ay: 0, dy: 78, pri: 7, t0: 1.6 });   // téléphone : pas de cage, deux lignes sous les tours, à droite
     if (ref >= 0 && !port) {   // la référence, hors cohorte : une cage vide (rien en dépôt), à l'écart à droite
       const it = items[ref], x = 2 * LX + LX * 1.4; refX = x;
       const cage = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(W * .8, .9, W * .8)), new THREE.LineBasicMaterial({ color: 0xdcc9a3, transparent: true, opacity: .55 }));
       cage.position.set(x, .45, 0); group.add(cage);
+      const sep = new THREE.Mesh(new THREE.BoxGeometry(.012, .012, W * 2.2), new THREE.MeshBasicMaterial({ color: 0xdcc9a3, transparent: true, opacity: .45 }));
+      sep.position.set(2 * LX + LX * .7, .01, .2); group.add(sep);   // la référence n'est pas dans la cohorte
       const coin = makeCoin(it, .26, .04), pivot = new THREE.Group(); pivot.add(coin); group.add(pivot);
       const pk = proxy(W, 1.6, W); pk.position.set(x, .8, 0); group.add(pk);
       const o = { i: ref, item: it, m: null, f: 0, pick: [pk, coin], delay: 1.2, pivot, coin, phase: 1, home: new THREE.Vector3(x, 1.25, 0) };
       o.c = () => new THREE.Vector3(x, .6, 0);
       objs.push(o);
-      addLabel(set, `<b>0 $</b> déposé<small>${usd(it.fees30 || 0)} de frais en 30 j</small>`, { cls: 'v', pos: new THREE.Vector3(x, 1.6, 0), ay: 1, dy: -3, pri: 7, obj: ref, t0: 1.8 });
+      addLabel(set, `<b>${usd(it.fees30 || 0)}</b> de frais en 30 j<small>aucun dépôt suivi · non noté</small>`, { cls: 'v', pos: new THREE.Vector3(x, 1.6, 0), ay: 1, dy: -3, pri: 7, obj: ref, t0: 1.8 });
       addLabel(set, `${esc(it.name)}<small>référence,</small><small>hors cohorte</small>`, { cls: 'z c', pos: new THREE.Vector3(x, 0, W / 2 + .1), ay: 0, dy: 8, pri: 9, t0: 1.5 });
     }
     const byI = []; objs.forEach((o) => { byI[o.i] = o; });   // la sélection lit objs[i] : un objet par élément de la liste
@@ -2033,7 +2125,7 @@ async function start3D() {
     const box = new THREE.Box3(new THREE.Vector3(-2 * LX - W / 2 - (port ? .25 : 2.4), -.7, -W / 2), new THREE.Vector3((refX != null ? refX : 2 * LX) + W / 2 + (port ? .25 : .6), HMAX + .7, W / 2 + (port ? 2.9 : .9)));
     return {
       group, objs: byI, labels: set, noTag: true, port,
-      fit: { box, dir: port ? new THREE.Vector3(.22, .42, 1) : new THREE.Vector3(.12, .36, 1), fov: 28 },
+      fit: { box, dir: port ? new THREE.Vector3(0, .42, 1) : new THREE.Vector3(.12, .36, 1), fov: 28 },
       view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x2a1c0c), pool: new THREE.Color(0x120d07), poolZ: 0, off: 0, refl: .42 },
       focus: (o, F) => focusOn(o, F, .8),
       update(ti, t2, dt, anyFocus) {
@@ -2067,10 +2159,10 @@ async function start3D() {
       let y = .03;
       layers.forEach((l, k) => {
         const h = l.it.total / meta.total * H, hh = Math.max(.004, h - GAP), other = l.i < 0;
-        const mat = other ? lmat(0x121418, 0x8d9098) : lmat(DEEP[T.kind], TONES[T.kind][k % 2]);
+        const mat = other ? lmat(0x121418, 0x8d9098) : lmat(new THREE.Color(TONES[T.kind][k % 2]).multiplyScalar(.5).getHex(), TONES[T.kind][k % 2]);
         const m = new THREE.Mesh(cyl, mat); m.position.set(T.x, y, 0); m.scale.set(RT, 1, RT); group.add(m);
         const yMid = y + hh / 2, delay = .3 + (T.kind === 'chaine' ? .25 : 0) + k * .09;
-        const sh = l.it.total / meta.total, lab = other ? `<span>autres <b>${usd(l.it.total)}</b></span>` : `<img src="${LOGOS[l.it.logo]}" alt=""><span>${esc(l.it.symbol || (port ? l.it.name.replace(/ L1$/, '') : l.it.name))} <b>${usd(l.it.total)}</b><i class="s">${share(sh, sh < .01 ? 1 : 0)}</i></span>`;
+        const sh = l.it.total / meta.total, lab = other ? `<span>autres <b>${usd(l.it.total)}</b></span>` : `<img src="${LOGOS[l.it.logo]}" alt=""><span>${esc(l.it.symbol || l.it.name)} <b>${usd(l.it.total)}</b><i class="s">${share(sh, sh < .1 ? 1 : 0)}</i></span>`;
         const anchor = new THREE.Vector3(T.x + T.side * RT * .98, yMid, RT * .2);
         addLabel(set, lab, { cls: 'v row' + (T.side < 0 ? ' r' : ''), pos: new THREE.Vector3(T.x + T.side * (RT + .45), yMid, 0), ax: T.side < 0 ? 1 : 0, ay: .5, col: T.kind, lead: anchor,
           pri: 3 + Math.log10(1 + l.it.total / 1e9), obj: l.i, t0: delay + .7 });
@@ -2082,10 +2174,10 @@ async function start3D() {
         } else objs.push({ i: -1, m, hh, y, T, f: 0, delay, pick: [], other: true });
         y += h;
       });
-      addLabel(set, port ? (T.kind === 'emetteur' ? 'émetteurs' : 'chaînes') : T.kind === 'emetteur' ? 'par émetteur' : 'par chaîne', port ? { cls: 'z', pos: new THREE.Vector3(T.x - T.side * RT * .7, 0, RT + .05), ax: T.side < 0 ? 1 : 0, ay: 0, dy: 12, pri: 9, t0: .3 } : { cls: 'z', pos: new THREE.Vector3(T.x, H + .42, 0), ay: 1, dy: -6, pri: 9, t0: .3 });   // téléphone : sous les tours
+      addLabel(set, T.kind === 'emetteur' ? 'par émetteur' : 'par chaîne', port ? { cls: 'z', pos: new THREE.Vector3(T.x - T.side * RT * .7, H + .3, 0), ax: T.side < 0 ? 1 : 0, ay: 1, dy: -4, pri: 9, t0: .3 } : { cls: 'z', pos: new THREE.Vector3(T.x, H + .42, 0), ay: 1, dy: -6, pri: 9, t0: .3 });   // téléphone : sous les tours
     });
     const real = objs.filter((o) => o.i >= 0).sort((a, b) => a.i - b.i), all = objs;
-    const box = new THREE.Box3(new THREE.Vector3(-TX - RT - (port ? 2.95 : 2.9), port ? -.55 : -.2, -RT), new THREE.Vector3(TX + RT + (port ? 3.75 : 3.2), H + .95, RT));
+    const box = new THREE.Box3(new THREE.Vector3(-TX - RT - (port ? 3.3 : 2.9), -.2, -RT), new THREE.Vector3(TX + RT + (port ? 5.0 : 3.2), H + (port ? .75 : .95), RT));
     return {
       group, objs: real, labels: set, noTag: true, port,
       fit: { box, dir: port ? new THREE.Vector3(0, .2, 1) : new THREE.Vector3(0, .24, 1), fov: 28 },
@@ -2106,9 +2198,10 @@ async function start3D() {
 
   /* ================= planche : les stablecoins, les flux (au-dessus de la ligne : entrées ; en dessous : sorties) ================= */
   function buildFlux(items, meta) {
-    const group = new THREE.Group(), objs = [], set = labelSet(), port = !LAND(), dd = meta.dd;
-    const f = (c) => c['f' + dd], fmax = Math.max(...items.map((c) => Math.abs(f(c)))) || 1;
-    const hasO = items.some((c) => c.other), n = items.length + (hasO ? .6 : 0), SP = port ? .64 : 1.38, Y0 = port ? 0 : 2.9, HM = port ? 2.0 : 2.55, r = port ? .17 : .23, R = port ? .19 : .25;
+    const group = new THREE.Group(), objs = [], set = labelSet(), desk = LAND(), port = true, dd = meta.dd;   // couché sur tous les écrans (11/10)
+    const f = (c) => c['f' + dd], fmax = meta.fmax || Math.max(...items.map((c) => Math.abs(f(c)))) || 1;   // même échelle pour 7 et 30 jours
+    const UPF = meta.up || 1, DNF = meta.dn || 1, HMd = 6.2;
+    const hasO = items.some((c) => c.other), n = items.length + (hasO ? .6 : 0), SP = desk ? .62 : .64, Y0 = 0, HM = desk ? 3.1 : 2.0, r = desk ? .17 : .17, R = desk ? .18 : .19;
     const col = new THREE.CylinderGeometry(1, 1, 1, 40); col.translate(0, .5, 0);
     const capGeo = new THREE.SphereGeometry(1, 32, 12, 0, Math.PI * 2, 0, Math.PI / 2);
     const water = new THREE.Mesh(new THREE.BoxGeometry(port ? .03 : n * SP + .8, port ? n * SP + .5 : .03, port ? 1.0 : 1.4), glassLite(0xbff7e8, .2));
@@ -2129,15 +2222,15 @@ async function start3D() {
       const cap = new THREE.Mesh(capGeo, mat); cap.scale.setScalar(r); cap.userData.r = r; if (!up) cap.rotation.x = Math.PI; root.add(cap);
       const coin = makeCoin(it, R, .042), pivot = new THREE.Group(); pivot.add(coin); group.add(pivot);
       const mSide = up ? -1 : 1;   // la médaille se pose de l'autre côté de la ligne
-      const home = port ? new THREE.Vector3(up ? -.4 : .4, root.position.y, 0) : new THREE.Vector3(root.position.x, Y0 + mSide * .48, 0);
+      const home = port ? new THREE.Vector3(up ? -.4 : .4, root.position.y, 0) : new THREE.Vector3(root.position.x, Y0 + mSide * .62, -.2);
       const pk = proxy(r * 3.2, h + .9, r * 3.2); pk.position.y = up ? (h - .8) / 2 : -(h - .8) / 2; root.add(pk);
       const o = { i, item: it, root, stem, cap, h, up, pivot, coin, home, f: 0, phase: Math.random() * 6.28, pick: [pk, coin], delay: .35 + i * .08, mat };
       o.c = () => port ? new THREE.Vector3(up ? h / 2 : -h / 2, root.position.y, 0) : new THREE.Vector3(root.position.x, Y0 + (up ? h / 2 : -h / 2), 0);
       objs.push(o);
       const val = `<b>${smoneyS(v)}</b>`;
       if (!port) {
-        addLabel(set, val, { cls: 'v', pos: new THREE.Vector3(root.position.x, Y0 + s * (h + .1), 0), ay: up ? 1 : 0, dy: up ? -2 : 2, slide: true,   /* gênée par sa voisine : la valeur s'éloigne d'un cran, toujours dans l'axe de sa colonne */ pri: 6, obj: i, t0: o.delay + 1.0 });
-        addLabel(set, esc(it.name.replace(/ L1$/, '')), { cls: 'n', slide: true, pos: new THREE.Vector3(root.position.x, Y0 - s * (.48 + R + .06), 0), ay: up ? 0 : 1, dy: up ? 2 : -2, pri: 3, obj: i, t0: o.delay + .6 });
+        addLabel(set, val, { cls: 'v', pos: new THREE.Vector3(root.position.x, Y0 + s * (h + .1), 0), ay: up ? 1 : 0, dy: up ? -2 : 2, slide: 2,   /* gênée par sa voisine : la valeur s'éloigne d'un cran, toujours dans l'axe de sa colonne */ pri: 6, obj: i, t0: o.delay + 1.0 });
+        addLabel(set, esc(it.name), { cls: 'n w pill axis', pos: new THREE.Vector3(root.position.x, Y0, .72), ay: .5, pri: 4, obj: i, t0: o.delay + .6 });   // tous les noms sur l'axe, une seule ligne
       } else {
         addLabel(set, val, { cls: 'v', pos: new THREE.Vector3(s * (h + r + .08), root.position.y, 0), ax: up ? 0 : 1, ay: .5, dx: up ? 2 : -2, pri: 6, obj: i, t0: o.delay + 1.0 });
         addLabel(set, esc(it.name), { cls: 'n', pos: new THREE.Vector3(home.x - s * (R + .08), root.position.y, 0), ax: up ? 1 : 0, ay: .5, pri: 3, obj: i, t0: o.delay + .6 });
@@ -2146,11 +2239,11 @@ async function start3D() {
     if (!port) { addLabel(set, 'entrées ↑', { cls: 'z', pos: new THREE.Vector3(-(n * SP + .8) / 2 - .05, Y0 + .35, 0), ax: 1, ay: .5, dx: -8, pri: 8, t0: 1.2 });
       addLabel(set, 'sorties ↓', { cls: 'z', pos: new THREE.Vector3(-(n * SP + .8) / 2 - .05, Y0 - .35, 0), ax: 1, ay: .5, dx: -8, pri: 8, t0: 1.2 }); }
     else { addLabel(set, '← sorties', { cls: 'z', pos: new THREE.Vector3(-.15, yTop + .55, 0), ax: 1, ay: 1, pri: 8, t0: 1.2 }); addLabel(set, 'entrées →', { cls: 'z', pos: new THREE.Vector3(.15, yTop + .55, 0), ax: 0, ay: 1, pri: 8, t0: 1.2 }); }
-    const box = port ? new THREE.Box3(new THREE.Vector3(-HM - 1.1, .05, -.5), new THREE.Vector3(HM + 1.1, yTop + .85, .5))
-      : new THREE.Box3(new THREE.Vector3(-(n * SP + .8) / 2 - 1.25, Y0 - HM - .55, -.7), new THREE.Vector3((n * SP + .8) / 2 + .1, Y0 + HM + .55, .7));
+    const box = port ? new THREE.Box3(new THREE.Vector3(-DNF * HM - (desk ? 1.7 : 1.1), .05, -.5), new THREE.Vector3(UPF * HM + (desk ? 1.3 : 1.1), yTop + .85, .5))
+      : new THREE.Box3(new THREE.Vector3(-(n * SP + .8) / 2 - 1.25, Y0 - DNF * HM - .7, -.7), new THREE.Vector3((n * SP + .8) / 2 + .1, Y0 + UPF * HM + .7, .7));
     return {
       group, objs, labels: set, noTag: true, port,
-      fit: { box, dir: port ? new THREE.Vector3(0, .18, 1) : new THREE.Vector3(0, .2, 1), fov: 28 },
+      fit: { box, dir: desk ? new THREE.Vector3(.08, .28, 1) : new THREE.Vector3(0, .18, 1), fov: 28 },
       view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x0f2b26), pool: new THREE.Color(0x0a1513), poolZ: 0, off: 0, refl: .4 },
       focus: (o, F) => focusOn(o, F, .8),
       update(ti, t2, dt, anyFocus) {
@@ -2184,7 +2277,7 @@ async function start3D() {
     valoAll: (p) => buildStacks(p.items, { val: (it) => it.med, alwaysUp: true, R: .5, medR: .34, L: LAND() ? 2.6 : 3.4, tMax: LAND() ? .3 : .42, gap: LAND() ? 2.0 : 1.5, big: true,
       valHTML: (it) => ui.yrsH(it.med), nameHTML: (it) => innerWidth < 760 ? esc(it.name) : `${esc(it.name)}<small>${it.n} protocoles</small>`, slide: true }),
     valoSec: (p) => buildStacks(p.items, { val: (it) => it.pf7, med: p.meta.med, medTxt: ui.yrsH(p.meta.med),
-      valHTML: (it, br) => ui.yrsH(it.pf7) + (br && LAND() ? '<small>hors échelle</small>' : ''), nameHTML: (it) => esc(it.name) }),
+      valHTML: (it, br) => ui.yrsH(it.pf7) + (br && LAND() ? '<small>frais quasi nuls · hors échelle</small>' : ''), nameHTML: (it) => esc(it.name) }),
     partage: (p) => buildPartage(p.items, p.meta),
     attention: (p) => buildAttention(p.items, p.meta),
     cohorte: (p) => buildCohorte(p.items, p.meta),
@@ -2315,7 +2408,7 @@ async function start3D() {
     camera.position.copy(cur.pos); camera.lookAt(cur.tgt);
     // décalage de cadre : la scène laisse la place au titre (à gauche) ou à la fiche (à droite)
     // sur écran étroit, la fiche couvre le bas : l'objet choisi remonte au-dessus d'elle
-    const wide = innerWidth >= 900, offGoal = F ? (sel ? (wide ? .1 : 0) : F.offX) : !wide ? 0 : sel ? .1 : V.off, offYGoal = F ? (sel ? (wide ? 0 : .26) : F.offY) : !wide && sel ? .26 : 0;
+    const wide = innerWidth >= 900, offGoal = F ? (sel ? (wide ? .17 : 0) : F.offX) : !wide ? 0 : sel ? .1 : V.off, offYGoal = F ? (sel ? (wide ? 0 : .26) : F.offY) : !wide && sel ? .26 : 0;
     cur.off += (offGoal - cur.off) * k; cur.offY = (cur.offY || 0) + (offYGoal - (cur.offY || 0)) * k;
     if (Math.abs(cur.off) > .001 || Math.abs(cur.offY) > .001) camera.setViewOffset(innerWidth, innerHeight, cur.off * innerWidth, cur.offY * innerHeight, innerWidth, innerHeight); else camera.clearViewOffset();
 
