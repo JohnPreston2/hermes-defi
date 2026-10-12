@@ -1,10 +1,10 @@
 {
- "genere": "2026-10-11T09:45:18Z",
+ "genere": "2026-10-12T09:44:50Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-10-11",
-   "recoupe": "Aucune annonce de Lista après le 14/09 trouvée au 11/10, ni rachat hebdomadaire d'octobre. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M après la destruction de 200 M de LISTA ; tokenomist.ai compte encore 1 milliard, ce qui donnerait environ 2,3, au-dessus du seuil de 2,0.",
+   "releve": "2026-10-12",
+   "recoupe": "Aucune annonce de Lista après le 14/09 trouvée au 12/10, ni rachat hebdomadaire d'octobre. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M après la destruction de 200 M de LISTA ; tokenomist.ai compte encore 1 milliard, ce qui donnerait environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -45,10 +45,17 @@
    ]
   },
   "Orca": {
-   "releve": "2026-10-11",
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la règle en vigueur (40 % des frais vers les stakers xORCA). Le vote ouvert du 11 au 16/10 ferait tomber cette part à 10 %, plus 10 % de rachats : la mesure devra être relue après le vote. Aucun fait web n'explique la baisse de volume (-24,5 % sur 7 jours au 10/10).",
+   "releve": "2026-10-12",
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la règle en vigueur (40 % des frais vers les stakers xORCA). Le vote relancé est ouvert du 11 au 16/10, sans décompte public trouvé au 12/10 : si la proposition passe, cette part tombe à 10 % et la mesure devra être relue. Aucun fait web n'explique la baisse de volume (-23,8 % sur 7 jours au 11/10).",
    "rien": false,
    "faits": [
+    {
+     "date": "2026-10-07",
+     "fait": "La proposition soumise au vote porterait la part des frais de l'équipe de 50 % à 80 %, supprimerait le conseil et transférerait environ 14,2 M d'ORCA (près de 19 % de l'offre) de la trésorerie commune vers un compte d'acquisitions géré par l'équipe.",
+     "touche": "gouvernance",
+     "source": "https://solanacompass.com/news/orca-tokenholders-vote-on-cutting-xorca-rewards-to-10-moving-142m-orca-to-the-team-and-dissolving-the-council",
+     "recoupe": true
+    },
     {
      "date": "2026-10-08",
      "fait": "Le conseil de gouvernance annule le vote en cours et le relance du 11 au 16/10 : la proposition ferait passer la part des frais versee aux stakers xORCA de 40 % a 10 %, et donnerait a l'equipe 14,2 M d'ORCA et environ 70 000 SOL du tresor.",
@@ -83,19 +90,12 @@
      "touche": "gouvernance",
      "source": "https://solanacompass.com/news/orca-and-loopscale-merge-to-form-formation-as-orcas-council-moves-to-re-run-the-orca-tokenholder-vote",
      "recoupe": true
-    },
-    {
-     "date": "2026-09-25",
-     "fait": "Bitget abaisse a 0,1 le ratio de collateral d'ORCA dans son compte unifie : l'ORCA deposee y garantit moins d'emprunt.",
-     "touche": "risque",
-     "source": "https://coinmarketcap.com/cmc-ai/orca/latest-updates/",
-     "recoupe": true
     }
    ]
   },
   "Meteora": {
-   "releve": "2026-10-11",
-   "recoupe": "Le zéro DefiLlama reste contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle, environ 983 000 USDC estimés au 3e cycle en cours), flux que DefiLlama ne compte pas. Aucune mise à jour des rachats trouvée au 11/10.",
+   "releve": "2026-10-12",
+   "recoupe": "Le zéro DefiLlama reste contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle, environ 983 000 USDC estimés au 3e cycle en cours, fin vers le 21/10), flux que DefiLlama ne compte pas. L'échéance du compteur, le 23/10, tombe après la fin de ce cycle. Aucune mise à jour des rachats trouvée au 12/10.",
    "rien": false,
    "faits": [
     {
@@ -143,8 +143,8 @@
    ]
   },
   "Maple Finance": {
-   "releve": "2026-10-11",
-   "recoupe": "La capture DefiLlama de 10 % sous-estime peut-être le flux : le rachat annoncé le 09/10 porte sur 20 % du revenu de septembre, palier supérieur de la règle MIP-021. Aucun fait web n'explique la baisse des fees (-26,2 % sur 7 jours au 10/10).",
+   "releve": "2026-10-12",
+   "recoupe": "La capture DefiLlama de 10 % sous-estime peut-être le flux : le rachat annoncé le 09/10 porte sur 20 % du revenu de septembre, palier supérieur de la règle MIP-021. Aucun fait web n'explique la baisse des fees (-18,9 % sur 7 jours au 11/10).",
    "rien": false,
    "faits": [
     {
@@ -167,13 +167,6 @@
      "touche": "capture",
      "source": "https://maple.finance/transparency",
      "recoupe": true
-    },
-    {
-     "date": "2026-07-13",
-     "fait": "La regle MIP-021 entre en vigueur pour six mois : rachats de 10 % du revenu mensuel sous 1,5 M$, 20 % jusqu'a 2 M$, 30 % au-dela.",
-     "touche": "capture",
-     "source": "https://community.maple.finance/t/mip-021-a-rules-based-buyback-that-scales-with-revenue/1153",
-     "recoupe": false
     },
     {
      "date": "2026-10-07",
