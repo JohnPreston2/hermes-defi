@@ -382,6 +382,37 @@
     }
    ],
    "genere": "2026-10-11T09:30:00Z"
+  },
+  {
+   "date": "2026-10-12",
+   "fichier": "2026-10-12-enquete.html",
+   "titre": "Robinhood Chain, 12/10 : un tiers du prêt adossé aux actions est du SpaceX, et ce prêt est plein",
+   "question": "Quand on dépose une action tokenisée en garantie sur cette chaîne, de quelle action s'agit-il, et ce prêt peut-il encore grandir ?",
+   "mesure_neuve": "Les 179 marchés Morpho dont la garantie est une action Robinhood ouverts un par un et relus sur la chaîne : sur 4,15 M$ d'actions déposées en garantie (0,75 % des 553,2 M$ de collatéral Morpho), 1,34 M$ (32,2 %) sont des jetons SpaceX (SPCX) ; Morpho détient 13,1 % de toute l'offre SPCX (8 133 sur 62 180). Quatre marchés USDG créés le 09/09 (NVDA, SPCX, GOOGL, AAPL) portent 99,7 % de ce collatéral et sont empruntés à 100,0 % (1 663 418 USDG prêtés = empruntés, lu par Morpho.market) : le prêt adossé aux actions ne peut plus grandir sans nouveaux prêteurs. Le prix SPCX vient d'un flux 'Robinhood SPCX / USD' tenu par un Safe 4 sur 9, quand l'émission des 50 jetons reste tenue par une clé unique.",
+   "chiffre_cle": {
+    "valeur": "32 %",
+    "libelle": "des actions tokenisées déposées en garantie chez Morpho sur Robinhood Chain sont des jetons SpaceX, et les dollars prêtés contre elles sont empruntés à 100 %",
+    "population": "1 335 055 $ sur 4 148 752 $ de collatéral actions (50 jetons « Robinhood Token », 179 marchés Morpho chainId 4663), API Morpho 12/10 08:40 UTC recoupée sur la chaîne"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_morpho_collat_actions_usd",
+     "libelle": "Actions déposées en garantie chez Morpho (en $)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours (ce que la chaîne encaisse)"
+    },
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés sur 7 jours (le rythme des lancements)"
+    }
+   ],
+   "genere": "2026-10-12T09:30:00Z"
   }
  ]
 }

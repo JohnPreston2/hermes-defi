@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 12/10 : le prêt SpaceX</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+.chart{margin:14px 0 22px}.chart svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<header>
+<div class="hwrap">
+<div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+<nav><a href="../">accueil</a><a href="2026-10-11-enquete.html">enquête du 11/10</a></nav>
+</div>
+</header>
+
+<main>
+<p class="tag data">Enquête · 12 octobre 2026 · fil Uniswap v4 × Robinhood Chain, jour 21 · premier week-end complet, et le prêt adossé aux actions lu sur la chaîne</p>
+<h1>Robinhood Chain, 12/10 : un tiers du prêt adossé aux actions est du SpaceX, et ce prêt est plein</h1>
+<p class="question">Quand on dépose une action tokenisée en garantie sur cette chaîne, de quelle action s'agit-il, et ce prêt peut-il encore grandir ?</p>
+
+<div class="provenance">
+<div class="row"><span>Page générée</span><span>2026-10-12 ~09:30 UTC (lundi)</span></div>
+<div class="row"><span class="src">RPC de la chaîne</span><span class="age-fresh">blocs 84 562 145 → 86 528 389 (10/10 00:00 → 12/10 ~08:20 UTC) · témoins : chainId 0x1237, eth_getCode sur une adresse bidon = 0x, PoolManager v4 = 24 009 octets · RPC officiel seul</span></div>
+<div class="row"><span class="src">API Morpho (blue-api)</span><span class="age-fresh">437 marchés chainId 4663 · 08:40 UTC · recoupé par balanceOf et Morpho.market(id) sur la chaîne</span></div>
+<div class="row"><span class="src">DefiLlama</span><span class="age-fresh">/v2/chains, /protocols, /overview/dexs, /overview/fees (+ revenus), /summary uniswap-v3, /protocol/pons · 08:12 UTC</span></div>
+<div class="row"><span class="src">Registre des hooks (Uniswap/hooklist)</span><span class="age-stale">dernière régénération 08/10 02:14 UTC (~102 h) : champs hooks_* identiques par absence de régénération</span></div>
+<div class="row"><span class="src">SEC 4-927 · Federal Register</span><span class="age-fresh">08:20 UTC · témoin 4-999999 = HTTP 404 · aucune entrée après le 09/10</span></div>
+<div class="row"><span class="src">CoinGecko · GitHub · presse</span><span class="age-fresh">08:13-09:10 UTC</span></div>
+<div class="row"><span class="src">Agent Hermes (delta)</span><span class="age-fresh">joignable 08:50 UTC, defi.json et rapport 0-LLM du 12/10 07:40 UTC · non utilisés : aucun chiffre de ce rapport n'en vient</span></div>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>32 %</b><span>du collatéral « actions » chez Morpho est du SpaceX (1,34 M$ sur 4,15 M$)</span></div>
+<div class="stat"><b>13,1 %</b><span>de toute l'offre du jeton SpaceX dort dans Morpho (8 133 sur 62 180)</span></div>
+<div class="stat"><b>100 %</b><span>des dollars prêtés contre des actions sont empruntés (1,66 M$ sur 1,66 M$)</span></div>
+<div class="stat"><b>0,31</b><span>activité des actions tokenisées le week-end 10-11/10, rapportée à la semaine</span></div>
+</div>
+
+<h2>La question</h2>
+<p>Depuis le 02/10, une veille affirme que le capital prêté sur la chaîne n'est pas adossé aux actions tokenisées : moins de 1 % du collatéral de Morpho (le prêteur qui porte 59 % de l'argent déposé sur la chaîne) est une action. Ce constat dit <em>combien</em>, jamais <em>quoi</em>. Aujourd'hui, j'ai ouvert les 179 marchés Morpho dont la garantie est une action Robinhood, un par un, et je les ai relus sur la chaîne.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p><strong>Méthode en une ligne :</strong> API Morpho (437 marchés de la chaîne 4663) filtrée sur les 50 jetons nommés « … Robinhood Token », puis recoupement sur la chaîne par <code>balanceOf(Morpho)</code>, <code>totalSupply()</code> et <code>Morpho.market(id)</code>, et lecture de l'oracle de prix jusqu'à son flux.</p>
+<table>
+<tr><th>Action</th><th class="num">Collatéral (Morpho, $, tous marchés)</th><th class="num">Part de l'offre dans Morpho</th><th class="num">USDG prêtés = empruntés</th></tr>
+<tr><td>NVDA</td><td class="num">1 644 011</td><td class="num">9,0 %</td><td class="num">689 317</td></tr>
+<tr><td>SPCX (SpaceX)</td><td class="num">1 335 055</td><td class="num">13,1 %</td><td class="num">516 383</td></tr>
+<tr><td>GOOGL</td><td class="num">668 482</td><td class="num">11,0 %</td><td class="num">260 081</td></tr>
+<tr><td>AAPL</td><td class="num">488 533</td><td class="num">10,8 %</td><td class="num">197 637</td></tr>
+<tr><td>46 autres jetons</td><td class="num">≈ 12 670</td><td class="num">≤ 0,06 %</td><td class="num">—</td></tr>
+</table>
+<p>Collatéral et part de l'offre : API Morpho 08:40 UTC et RPC 09:00 UTC. USDG : <code>Morpho.market(id)</code> sur la chaîne, en unités de jeton.</p>
+<p><strong>Le fait neuf.</strong> Sur 4 148 752 $ d'actions tokenisées déposées en garantie (0,75 % des 553,2 M$ de collatéral Morpho de la chaîne), <strong>1 335 055 $, soit 32,2 %, sont des jetons SpaceX</strong>. Seul NVDA pèse plus. Morpho détient 13,1 % de tous les jetons SPCX existants, contre 9,0 % pour NVDA. Sur ces quatre jetons, entre 9 % et 13 % de l'offre sert de garantie. Sur les 46 autres, au plus 0,06 %. Le prêt adossé aux actions tient donc à quatre marchés. Tous les quatre prêtent de l'USDG avec un seuil de liquidation de 62,5 %, et tous ont été créés le 09/09.</p>
+<p><strong>Ces quatre marchés sont pleins.</strong> Sur la chaîne, l'USDG prêté égale l'USDG emprunté au centime près : 1 663 418 USDG des deux côtés, soit une utilisation de 100,0 %. Un prêteur ne peut rien retirer, et un nouvel emprunteur ne trouve rien à emprunter. Les marchés AAPL, SPCX et GOOGL n'ont pas bougé depuis le 09/10, NVDA depuis le 11/10. Le collatéral peut encore grossir, mais il ne permet plus d'emprunter.</p>
+<p><strong>Qui fixe le prix de SpaceX.</strong> L'oracle Morpho de SPCX (<code>0x872F…7A5</code>) lit un flux nommé « Robinhood SPCX / USD » (<code>0xb265…bffb</code>, 8 décimales). Son dernier prix vaut 164,145 $, publié le 12/10 à 01:25 UTC. Ce flux appartient à un coffre multisignature Safe 1.3.0 qui exige 4 signatures sur 9. Le contraste est net : le rôle d'administrateur des 50 jetons, qui peut émettre, détruire et mettre à jour, reste tenu par un compte à clé unique sans code (v_20261008_02, re-vérifié ce jour). <strong>Le prix est mieux gardé que l'émission.</strong></p>
+
+<h2>Le fil : ce que les veilles disent aujourd'hui</h2>
+<p>21 veilles ouvertes, toutes re-testées. Aucune soldée aujourd'hui. Quatre arrivent à échéance le 13/10, et trois d'entre elles se jouent à quelques points.</p>
+<ul>
+<li><strong>v_20260922_01, la subvention de gaz (échéance 13/10) : contradiction de lecture.</strong> Depuis le 01/10, le carnet la relit semaine sur semaine : volume 7 j −31,2 %, frais 7 j −39,8 %, donc zone intermédiaire. Mais le point du 23/09 s'était déclaré « référence 7 jours pour le test post-29/09 ». Contre lui, les frais 7 j (19,92 M$) perdent <strong>58,8 %</strong>, au-delà du seuil CONFIRMÉE de 50 %. Le volume 7 j (6,41 Md$) perd 39,4 %. Deux réserves déjà écrites limitent cette lecture : la baisse des frais a commencé avant le 29/09, et le périmètre DefiLlama a changé depuis. Je tranche demain, sur la référence écrite.</li>
+<li><strong>v_20260926_01, la création de pools (échéance 13/10) : sur la frontière.</strong> Dimanche 11/10 : 5 535 pools v4, recensement complet. La branche CONFIRMÉE exige moins de 7 091 pools sur les 12 et 13/10, soit 3 545 par jour. Le lundi matin tourne à environ 3 590 par jour (1 237 pools à 08:13 UTC).</li>
+<li><strong>v_20261001_01, les transactions (échéance 13/10).</strong> Dimanche : 4,74 M transactions estimées. La moyenne 06-11/10 vaut environ 5,89 M, 0,12 M au-dessus du seuil de 5,77 M. Deux tirages de contrôle (4,84 M et 4,25 M) confirment l'ordre de grandeur, mais l'écart entre les deux premiers tirages (3,35 M et 6,13 M) est inhabituel. Le lundi tranchera.</li>
+<li><strong>v_20260924_01, la v3 qui rachète l'UNI.</strong> La chaîne porte 38,3 % du revenu que la v3 reverse aux détenteurs d'UNI sur 30 jours (3,85 M$ sur 10,06 M$), contre 40,3 % hier. C'est la marge la plus faible avant le seuil MORTE de 33 % depuis l'ouverture. Ethereum suit à 30,1 %.</li>
+<li><strong>v_20261004_02, le week-end des actions.</strong> Le week-end 10-11/10 vaut <strong>0,308</strong> : samedi 76 442 transactions, dimanche 88 545, contre 267 844 en moyenne du lundi au vendredi 05-09/10. Premier des trois week-ends sous 0,5. Le même dimanche, la chaîne entière tourne à 0,71 et la création de pools à 1,01.</li>
+<li><strong>v_20261007_01, les usines à pools.</strong> Dimanche, 45,5 % des 4 232 pools sans hook viennent de comptes qui en créent au moins 10 dans la journée (1 921 comptes, 3 039 transactions, toutes lues). Le samedi était à 27,7 %. Le recul du samedi était donc un effet du jour, pas une tendance.</li>
+<li><strong>v_20261006_01, Doppler.</strong> Dimanche, le lanceur Doppler crée 13,4 % de tous les pools : c'est la première journée pleine sous 15 %. Sur 07-11/10, il pèse 54,8 % des pools à hook, sous le seuil de 60 %.</li>
+</ul>
+<p><strong>Veille ouverte aujourd'hui :</strong> v_20261012_01. Elle affirme que le prêt adossé aux actions est bloqué, pas en croissance. Elle sera RÉVISÉE si le collatéral actions dépasse 8 M$, ou si l'utilisation repasse sous 90 %. Elle sera CONFIRMÉE si, au 12/11, l'utilisation reste au-dessus de 95 % et le collatéral sous 6 M$.</p>
+
+<h2>Le delta contre la veille</h2>
+<table>
+<tr><th>Mesure (DefiLlama 08:12 UTC sauf mention)</th><th class="num">11/10</th><th class="num">12/10</th><th class="num">Écart</th></tr>
+<tr><td>TVL (l'argent déposé) de la chaîne</td><td class="num">1 056,4 M$</td><td class="num">1 062,1 M$</td><td class="num">+0,5 %</td></tr>
+<tr><td>Volume 30 j de la chaîne</td><td class="num">41,92 Md$</td><td class="num">39,63 Md$</td><td class="num">−5,5 %</td></tr>
+<tr><td>Frais 30 j de la chaîne (total déclaré)</td><td class="num">190,95 M$</td><td class="num">177,78 M$</td><td class="num">−6,9 %</td></tr>
+<tr><td>Frais 7 j, semaine sur semaine</td><td class="num">−36,8 %</td><td class="num">−39,8 %</td><td class="num">−3,0 pt</td></tr>
+<tr><td>Taux de frais v4 sur 7 j</td><td class="num">32,9 pb</td><td class="num">32,3 pb</td><td class="num">−0,6 pb</td></tr>
+<tr><td>Part de Pons V2 dans les frais 30 j</td><td class="num">35,4 %</td><td class="num">34,7 %</td><td class="num">−0,7 pt</td></tr>
+<tr><td>Pools v4 créés sur 7 j (chaîne, 05-11/10)</td><td class="num">38 838</td><td class="num">39 060</td><td class="num">+0,6 %</td></tr>
+<tr><td>Hooks au registre (chain = robinhood)</td><td class="num">1 180</td><td class="num">1 180</td><td class="num">registre figé</td></tr>
+</table>
+<p>L'argent déposé tient, mais le volume et les frais continuent de baisser. Morpho Blue gagne 1,0 M$ (623,4 M$). Uniswap v4 gagne 1,9 M$ de TVL et la v3 0,9 M$. Sur la chaîne, le dimanche 11/10 a brûlé 13,07 ETH de frais de base, soit 33,4 k$. La ligne « Robinhood Chain » de DefiLlama affiche 33,2 k$ : rapport de 1,01.</p>
+
+<h2>Cohorte</h2>
+<p>Le score de preuve a été recalculé sur les 251 protocoles que DefiLlama rattache à la chaîne. 66 liens d'audit sur 71 répondent HTTP 200. 37 comptes GitHub déclarés sur 38 existent. Témoins : ARMSys26 rend 404, Uniswap rend 200. La composante « hooks » est reprise du 11/10, puisque le registre n'a pas changé. Aucune entrée, aucune sortie, aucun remplacement.</p>
+<ul>
+<li><strong>Ce qui a bougé :</strong> <strong>Longbow perd 22 % de sa TVL en un jour</strong> (3,61 → 2,81 M$). Il a un score de preuve de 0. UNCX Network V3 (score 2, 6,05 M$) le dépasse pour le 3e jour consécutif : si la série tient, le remplacement automatique tombe le 16/10. Deux autres candidats sont désormais au contact : Beefy (score 3, 2,807 M$, à 1,4 k$ près) et vfat.io (score 2, 2,80 M$). UNCX et Beefy n'encaissent aucun frais. L'ambiguïté de règle « traction = TVL ou frais » reste une décision de l'utilisateur. Arcus Perps passe de 52,0 à 54,0 M$.</li>
+<li><strong>Ce qui ne bouge pas et devrait inquiéter :</strong> TermMax reste à 11,3 k$ de TVL, toujours sans frais. Fables n'a toujours aucun lien d'audit. Les frais 7 j de StonkBrokers (28,9 k$) mettraient ses frais 30 j sous le seuil de sortie de 200 k$ en quelques semaines.</li>
+<li><strong>Contre Pons</strong> (frais 30 j des membres ÷ 61,75 M$ de Pons V2) : Fables 0,080 · Lighter 0,033 · StonkBrokers 0,024 · Arcus 0,021 · up v3 0,019 · Snuggle 0,018 · GIGA V3 0,002 · Ekubo 0,0006 · TermMax et Longbow 0. Les dix membres réunis pèsent 0,20 Pons. Pons reverse 14,4 % de ses frais à ses détenteurs. Son multiple de capitalisation sur ce reversement annualisé passe de 1,99 à 2,15. Tant que Pons garde 34,7 % des frais de la chaîne, la thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</li>
+</ul>
+
+<h2>Ce qui contredit</h2>
+<div class="gap"><b>Contre ma propre lecture.</b> « Un tiers du prêt adossé aux actions est du SpaceX » pourrait suggérer une demande pour emprunter contre SpaceX. Les données ne le montrent pas. Les quatre marchés ont la même date de création, le même actif prêté et le même seuil. Leurs collatéraux ont des proportions voisines (9 à 13 % de l'offre de chaque jeton). Ils sont tous empruntés à 100 %. Cela ressemble à une mise en place coordonnée, pas à quatre demandes indépendantes. Je n'ai pas compté les comptes déposants : un seul déposant pourrait porter la plus grande partie. Par ailleurs, 4,15 M$ restent 0,75 % du collatéral Morpho. Le prêt de la chaîne reste un portage de dollars synthétiques, comme le dit v_20261002_01.</div>
+<p>Deuxième contradiction, interne au carnet : la veille sur la subvention de gaz a été relue avec un étalon (semaine sur semaine) qui n'était pas celui écrit à son ouverture. Les deux lectures donnent deux statuts différents. Je ne lisse pas : les deux figurent dans son historique, et le choix se fera demain sur la référence écrite le 23/09.</p>
+<p>Troisième : la presse décrit SPCX comme coté au Nasdaq depuis juin 2026, avec un prix d'introduction de 135 $. Un autre site le dit encore privé. <span class="tag warn">presse, non recoupé</span> Le prix de l'oracle (164,15 $) ne peut pas être comparé ce jour à une cotation primaire.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<div class="unknown"><ul>
+<li>Combien de comptes ont déposé les 8 133 SPCX dans Morpho. Les positions individuelles n'ont pas été lues.</li>
+<li>D'où le flux « Robinhood SPCX / USD » tire son prix. Le contrat agrégateur sous-jacent n'émet aucun événement lisible au proxy, et <code>debug_traceCall</code> n'est pas disponible sur le RPC officiel.</li>
+<li>Le total du dossier SEC 4-927. La page n'affiche que 30 lignes par script ; aucune entrée datée après le 09/10.</li>
+<li>Les adaptateurs ajoutés le 11/10 pour la chaîne (Capsule, Ilyris : commits <code>9f6c3c55</code> et <code>34f999b0</code>) ne figurent pas encore par leur nom dans les tables de frais et de volume du jour. Ils ne pèsent donc pas sur les deltas ci-dessus.</li>
+<li>La part 30 j des pools sur des hooks hors registre (v_20260925_01) n'a pas été recalculée. Recalcul complet prévu le 16/10.</li>
+</ul></div>
+<p><strong>Pièges re-vérifiés ce jour.</strong> P1 : les fiches Pons V1 et V2 ont toujours un champ <code>chains</code> vide. P2 : la somme des lignes non doublecounted (183 782 998 $), moins la ligne de la chaîne (6 003 921 $), égale le total déclaré de 177 779 077 $ au dollar près. P8 : revenu aux détenteurs déclaré 7,58 M$, contre 17,24 M$ en somme des lignes. P10 : 18 commits dimension-adapters depuis le 11/10 08:00, dont 2 sur la chaîne. P11 : le registre n'est pas un recensement ; tout le comptage de pools vient de la chaîne. P12 : les comptes à plus de 10 pools sont publiés à part. Un nouveau piège est à ajouter au mémo : sur Morpho, le filtre « nom contient Robinhood » attrape aussi « Robinhood Wallet », qui n'est pas une action. Le bon filtre est « … Robinhood Token » (50 jetons, le compte du 04/10).</p>
+</main>
+<footer>Généré le 2026-10-12 vers 09:30 UTC · sources : RPC Robinhood Chain (chainId 4663, officiel), API Morpho, DefiLlama, CoinGecko, GitHub, Uniswap/hooklist, SEC 4-927, Federal Register, dépôt DefiLlama/dimension-adapters · aucun chiffre repris d'un agent</footer>
+</body>
+</html>
