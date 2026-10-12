@@ -52,7 +52,7 @@ button { font: inherit; color: inherit; }
 h1 { margin: 0; font: 400 clamp(32px, 3.6vw, 52px)/1.02 var(--display); letter-spacing: -.012em; text-wrap: balance; }
 h1 em { font-style: italic; color: var(--champ); }
 .insight { margin: 16px 0 0; max-width: 44ch; color: var(--ink2); font-size: 15px; line-height: 1.55; text-wrap: pretty; }
-.legend { margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 6px 16px; font: 400 11px/1.4 var(--mono); color: var(--muted); }
+.legend { margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 6px 16px; font: 400 12px/1.4 var(--mono); color: var(--muted); }
 .legend span { display: inline-flex; align-items: center; gap: 7px; }
 .legend i { display: inline-block; width: 14px; height: 2px; background: var(--champ); }
 .legend i.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); }
@@ -108,7 +108,7 @@ h1 em { font-style: italic; color: var(--champ); }
 .assets li em { font-style: normal; color: var(--ink); font-variant-numeric: tabular-nums; }
 
 .foot p { margin: 0; }
-.foot { position: fixed; z-index: 4; left: var(--gut); bottom: calc(78px + env(safe-area-inset-bottom, 0px)); max-width: 58ch; font: 400 10.5px/1.45 var(--mono); color: var(--muted); pointer-events: none; }
+.foot { position: fixed; z-index: 4; left: var(--gut); bottom: calc(78px + env(safe-area-inset-bottom, 0px)); max-width: 58ch; font: 400 11px/1.45 var(--mono); color: var(--muted); pointer-events: none; }
 .hint { position: fixed; z-index: 4; right: var(--gut); bottom: calc(78px + env(safe-area-inset-bottom, 0px)); font: 400 10.5px/1.45 var(--mono); color: var(--muted); pointer-events: none; text-align: right; }
 .veil { position: fixed; inset: 0; z-index: 8; display: grid; place-items: center; background: var(--bg); font: 500 11px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); transition: opacity .8s ease; }
 .veil.gone { opacity: 0; pointer-events: none; }
@@ -243,6 +243,95 @@ h1 em { font-style: italic; color: var(--champ); }
 @keyframes pl-chip { from { opacity: 0; transform: translateY(10px); } }
 @keyframes pl-line { from { opacity: 0; transform: translateY(.5em); } }
 @keyframes pl-fade { from { opacity: 0; } }
+/* Recherche Hermes v2 (11/10) : étiquettes HTML posées sur la scène (nettes à toute résolution), vues d'une planche, bouton d'une fiche */
+.lbls { position: fixed; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+.lset[hidden] { display: none; }
+.lset svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.lset path { fill: none; stroke: rgba(241, 237, 228, .34); stroke-width: 1; }
+.lb { position: absolute; left: 0; top: 0; white-space: nowrap; opacity: 0; text-align: center; font: 500 13px/1.2 var(--mono); font-variant-numeric: tabular-nums; color: var(--ink);
+  text-shadow: 0 0 10px rgba(0, 0, 0, .95), 0 0 4px rgba(0, 0, 0, .9), 0 1px 2px #000; }
+.lb b { font-weight: 600; }
+.lb.v { padding: 2px 6px; border-radius: 6px; background: rgba(8, 9, 11, .9); }
+.lb.v.big { padding: 2px 8px 4px; }
+.lb.v.row { background: none; padding: 0; }
+.lb small { display: block; margin-top: 3px; font: 400 11px/1.25 var(--ui); color: var(--ink2); }
+.lb.big { font: 400 30px/1 var(--display); letter-spacing: -.01em; }
+.lb.big b { font-weight: 400; }
+.lb.mid { font: 400 23px/1 var(--display); padding: 2px 7px 4px; }
+.lb.mid b { font-weight: 400; }
+.lb.big small { margin-top: 5px; }
+.lb.n { font: 500 12px/1.2 var(--ui); color: var(--ink2); }
+.lb.n.hi { font-weight: 600; font-size: 12.5px; color: var(--ink); }
+.lb.n.seg b { margin-left: 5px; font: 600 12.5px/1.2 var(--mono); color: var(--ink); }
+.lb.z.c, .lb.n.c { text-align: center; }
+.lb.n.w { white-space: normal; width: max-content; max-width: 70px; line-height: 1.15; }
+.lb.in { font: 600 11px/1.2 var(--ui); padding: 2px 6px; border-radius: 5px; background: rgba(8, 9, 11, .62); color: var(--ink); }
+.lb.z small { display: block; margin-top: 3px; font: 400 10.5px/1.2 var(--mono); letter-spacing: .04em; text-transform: none; color: var(--muted); }
+.lb.z { font: 500 10.5px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--champ); }
+.lb.z b { color: var(--ink); letter-spacing: .04em; }
+.lb.row { display: flex; align-items: center; gap: 7px; font-size: 12px; }
+.lb.row.r { flex-direction: row-reverse; }
+.lb.row img { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; flex: none; }
+.lb.row .s { margin-left: 6px; font-style: normal; color: var(--muted); font-weight: 400; }
+.lb.z.r { text-align: right; }
+.lb.on, .lb.n.on { color: #fff; }
+@media (max-width: 760px) {
+  .lb { font-size: 12px; } .lb.big { font-size: 17px; } .lb.mid { font-size: 17px; } .lb.n, .lb.n.hi { font-size: 11px; } .lb small { font-size: 10.5px; }
+  .lb.n { white-space: normal; width: max-content; max-width: 84px; line-height: 1.15; }
+  .lb.n.n1 { white-space: nowrap; max-width: none; }
+  .lb.v { padding: 1px 4px; }
+  .lb.row { font-size: 11px; gap: 5px; } .lb.row img { width: 15px; height: 15px; } .lb.row .s { display: none; }
+}
+.views { margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: auto; }
+.views[hidden] { display: none; }
+.views button { flex: 0 0 auto; border: 1px solid var(--line); background: var(--glass); backdrop-filter: blur(12px); padding: 8px 13px; border-radius: 999px; font: 500 12px/1 var(--ui); color: var(--ink2); cursor: pointer; white-space: nowrap; transition: background .2s, color .2s, border-color .2s; }
+.views button:hover { color: var(--ink); border-color: rgba(241, 237, 228, .3); }
+.views button[aria-pressed="true"] { background: var(--champ); border-color: var(--champ); color: #15120c; }
+@media (max-width: 760px) {
+  .views { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 12px calc(-1 * var(--gut)) 0; padding: 0 var(--gut); }
+  .views::-webkit-scrollbar { display: none; }
+  .views button { padding: 7px 11px; }
+}
+@media (prefers-reduced-motion: no-preference) { #views.rv { animation: pl-line .6s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: var(--d, 300ms); } }
+.gorow { margin: 16px 0 0; }
+.go { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--champ); background: color-mix(in srgb, var(--champ) 14%, transparent); color: var(--ink); font: 500 12.5px/1 var(--ui); cursor: pointer; }
+.go:hover { background: color-mix(in srgb, var(--champ) 26%, transparent); }
+.bars span.t b.o { background: #e6c47a; }
+.legend i.champ { background: var(--champ); }
+.bar.tight .asof { position: fixed; top: calc(60px + env(safe-area-inset-top, 0px)); right: var(--gut); }
+.card details.notes { margin: 12px 0 0; border-top: 1px solid var(--line); padding-top: 10px; }
+.card details.notes summary { cursor: pointer; font: 500 11px/1.4 var(--mono); letter-spacing: .06em; color: var(--ink2); }
+.card details.notes summary:hover { color: var(--ink); }
+.hz .lang { font-style: normal; color: var(--muted); }
+.lb small.x { font: 600 12px/1.2 var(--mono); color: var(--ink); margin-top: 2px; }
+@media (max-width: 760px) { .lb small.x { font-size: 11px; } }
+.lb.v.l1 { display: flex; align-items: baseline; gap: 7px; text-align: left; }
+.lb.v.l1 .nm { font: 500 11.5px/1.2 var(--ui); color: var(--ink2); }
+.lb.v.l1 small { display: inline; margin: 0 0 0 2px; }
+.lb.n.pill { padding: 1px 5px; border-radius: 5px; background: rgba(8, 9, 11, .66); }
+.lb.z small.nm { margin-top: 2px; font: 500 11px/1.25 var(--ui); color: var(--ink2); letter-spacing: 0; }
+@media (max-width: 760px) { .lb.z small.nm { font-size: 10.5px; } }
+.hz details.q { margin-top: 4px; }
+.hz details.q summary { cursor: pointer; font: 400 11px/1.4 var(--mono); color: var(--ink2); }
+.hz details.q summary:hover { color: var(--ink); }
+.rail .railsep { flex: 0 0 auto; align-self: center; margin: 0 6px 0 14px; font: 500 10.5px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--champ); }
+.rail .railsep:first-child { margin-left: 0; }
+.lb.n.li { white-space: nowrap; max-width: none; width: auto; display: flex; align-items: baseline; gap: 6px; font-size: 11.5px; padding: 1px 5px; border-radius: 5px; background: rgba(8, 9, 11, .62); }
+.lb.n.li i { font: 600 11px/1.2 var(--mono); font-style: normal; color: var(--ink); }
+.lb.n.r { text-align: right; }
+@media (pointer: coarse) and (prefers-reduced-motion: no-preference) { .rail > .railsep { scroll-snap-align: start; } }
+.rail.hzr:not(.many) .chip .k { max-width: 24ch; }   /* pas « .hz » : nom déjà pris par la section « Ce qu'en dit Hermes » */
+.legend i.lav { background: #b9a6ee; } .legend i.svc { background: #3f8f7d; }
+.bars span.t b.l { background: #b9a6ee; } .bars span.t b.s { background: #3f8f7d; }
+.lb.z small.nms { display: block; max-width: 100px; margin: 3px auto 0; font: 500 11px/1.3 var(--ui); letter-spacing: 0; text-transform: none; color: var(--ink2); white-space: normal; }
+.lb sup { font-size: 9px; color: var(--champ); margin-left: 1px; }
+.lb.v.l1 small.he { display: inline; margin-left: 6px; font: 400 10.5px/1 var(--ui); color: var(--ink2); }
+.lb.z .sub { letter-spacing: .04em; text-transform: none; color: var(--ink2); font-weight: 400; }
+.lb.v.gold { background: rgba(30, 22, 6, .88); color: #ffe3a6; box-shadow: 0 0 0 1px rgba(240, 201, 110, .45); }
+.lb.z.grp { font-size: 11px; letter-spacing: .1em; color: var(--ink2); }
+.lb.z.grp b { color: var(--ink); }
+.lb.n.axis { font-size: 11.5px; text-align: center; }
+.lb.in b.bl { display: block; font: 600 11px/1.2 var(--mono); color: var(--ink); }
 </style>
 <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.min.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
 </head>
@@ -259,6 +348,7 @@ h1 em { font-style: italic; color: var(--champ); }
   <p class="eyebrow" id="eyebrow"></p>
   <h1 id="title"></h1>
   <p class="insight" id="insight"></p>
+  <p class="views" id="views" role="group" aria-label="Vues de cette planche" hidden></p>
   <p class="filrow" id="filrow" hidden><button type="button" class="filbtn" id="filbtn" aria-expanded="false" aria-controls="fil"></button></p>
 </section>
 <aside class="fil" id="fil" aria-label="Le fil Hermes"></aside>
@@ -287,7 +377,29 @@ function monoURL(name) {   // pastille aux initiales, quand aucun logo n'existe 
   x.fillStyle = '#d8d2c6'; x.font = '600 52px "Segoe UI", system-ui, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(ini, 64, 68);
   return c.toDataURL('image/png');
 }
-const LOGOS = /*__LOGOS__*/null || new Proxy({}, { get: (_, k) => typeof k !== 'string' ? undefined : k.startsWith('mono:') ? (MONOS[k] || (MONOS[k] = monoURL(k.slice(5)))) : 'logos/' + k });
+function glyphURL(g) {   // pastille d'un secteur (11/10) : un signe dessiné, jamais un logo inventé
+  const c = document.createElement('canvas'); c.width = c.height = 128; const x = c.getContext('2d');
+  const gr = x.createRadialGradient(52, 46, 6, 64, 64, 66); gr.addColorStop(0, '#2d2b27'); gr.addColorStop(1, '#0d0d0f');
+  x.fillStyle = gr; x.beginPath(); x.arc(64, 64, 64, 0, Math.PI * 2); x.fill();
+  x.strokeStyle = 'rgba(220,201,163,.6)'; x.lineWidth = 3; x.beginPath(); x.arc(64, 64, 55, 0, Math.PI * 2); x.stroke();
+  // le signe est tracé, pas écrit : une police de symboles coûte plus d'une seconde au chargement (mesuré le 11/10)
+  x.strokeStyle = x.fillStyle = '#ead8b0'; x.lineWidth = 7; x.lineCap = x.lineJoin = 'round'; x.beginPath();
+  if (g === '⇄') { x.moveTo(38, 52); x.lineTo(90, 52); x.moveTo(78, 40); x.lineTo(90, 52); x.lineTo(78, 64); x.moveTo(90, 76); x.lineTo(38, 76); x.moveTo(50, 64); x.lineTo(38, 76); x.lineTo(50, 88); }
+  else if (g === '∞') { x.ellipse(48, 64, 15, 12, 0, 0, Math.PI * 2); x.moveTo(95, 64); x.ellipse(80, 64, 15, 12, 0, 0, Math.PI * 2); }
+  else if (g === '⌂') { x.moveTo(40, 62); x.lineTo(64, 40); x.lineTo(88, 62); x.moveTo(46, 58); x.lineTo(46, 88); x.lineTo(82, 88); x.lineTo(82, 58); }
+  else if (g === '◇') { x.moveTo(64, 36); x.lineTo(88, 64); x.lineTo(64, 92); x.lineTo(40, 64); x.closePath(); }
+  else if (g === '+') { x.moveTo(64, 42); x.lineTo(64, 86); x.moveTo(42, 64); x.lineTo(86, 64); }
+  else if (g === '%') { x.moveTo(84, 42); x.lineTo(44, 86); x.moveTo(58, 48); x.arc(50, 48, 8, 0, Math.PI * 2); x.moveTo(86, 80); x.arc(78, 80, 8, 0, Math.PI * 2); }
+  x.stroke();
+  return c.toDataURL('image/png');
+}
+function symURL(s) {   // pastille d'un sigle (11/10) : le sigle entier, lisible même petit
+  const c = document.createElement('canvas'); c.width = c.height = 128; const x = c.getContext('2d');
+  x.fillStyle = '#e9e4da'; x.beginPath(); x.arc(64, 64, 64, 0, Math.PI * 2); x.fill();
+  x.fillStyle = '#15171b'; x.font = '700 ' + (s.length > 3 ? 36 : 46) + 'px system-ui, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(s.slice(0, 4), 64, 68);
+  return c.toDataURL('image/png');
+}
+const LOGOS = /*__LOGOS__*/null || new Proxy({}, { get: (_, k) => typeof k !== 'string' ? undefined : k.startsWith('mono:') ? (MONOS[k] || (MONOS[k] = monoURL(k.slice(5)))) : k.startsWith('glyph:') ? (MONOS[k] || (MONOS[k] = glyphURL(k.slice(6)))) : k.startsWith('sym:') ? (MONOS[k] || (MONOS[k] = symURL(k.slice(4)))) : 'logos/' + k });
 // Lecture de l'agent Hermes : le fichier du tableau de bord (déjà publié) ; absent = les planches s'en passent.
 const IN_DASH = location.pathname.includes('/planches/');
 let HZRAW = /*__HERMES__*/null;
@@ -455,9 +567,9 @@ const escA = (s) => esc(s).replace(/"/g, '&quot;');
 const trunc = (s, n) => s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s;
 function theseTxt(x) {
   const head = x.statut === 'retiree' ? `retirée le ${dayFR(x.dernier)}, après ${x.n} verdicts`
-    : x.statut === 'dormante' ? `en sommeil : dernier verdict le ${dayFR(x.dernier)} (${VERD[x.dernier_verdict] || x.dernier_verdict})`
+    : x.statut === 'dormante' ? `en sommeil : aucun verdict depuis le ${dayFR(x.dernier)} (le dernier : ${VERD[x.dernier_verdict] || x.dernier_verdict})`
     : `en cours depuis le ${dayFR(x.premier)} · ${x.n} verdicts · dernier : ${VERD[x.dernier_verdict] || x.dernier_verdict}, le ${dayFR(x.dernier)}`;
-  return head + (x.kill ? `<q>Condition de sortie, texte de l’agent : « ${esc(x.kill)} »</q>` : '');
+  return head + (x.kill ? `<details class="q"><summary>Lire la condition de sortie de la thèse (texte brut de l’agent)</summary><q>${esc(x.kill)}</q></details>` : '');
 }
 function hzHTML(pl, it) {
   const h = it._hz, arts = it.articles || [];
@@ -465,7 +577,7 @@ function hzHTML(pl, it) {
   const rows = [];
   if (h && h.valo && h.valo.pf7 != null) rows.push(['Valorisation', `${nf(h.valo.pf7, 1)}× prix / frais sur 7 jours` + (h.valo.rang ? ` · ${ord(h.valo.rang)} sur ${h.valo.n} en ${SEC[h.valo.sec] || h.valo.sec}` + (h.valo.med != null ? ` (médiane ${nf(h.valo.med, 1)}×)` : '') : '')]);
   if (h && h.these) rows.push(['Thèse de l’agent', theseTxt(h.these)]);
-  if (h && h.wake) rows.push(['Dernière lecture', `${dayFR(h.wake.ts)}, ${esc(h.wake.label)} : « ${esc(trunc(h.wake.summary || '', 210))} »`]);
+  if (h && h.wake) rows.push(['Dernière analyse qui le cite', `${dayFR(h.wake.ts)}, ${esc(h.wake.label)}<details class="q"><summary>Lire le passage (texte brut de l’agent${/\b(the|and|is|of|with)\b/i.test(h.wake.summary || '') ? ', en anglais' : ''})</summary><q>${esc(trunc(h.wake.summary || '', 260))}</q></details>`]);
   const al = arts.map((a) => `<li><a href="${escA(a.u)}" target="_blank" rel="noopener">${esc(a.t)}</a><span>${esc(a.s)} · ${dayFR(a.d)}</span></li>`).join('');
   const src = ['Agent Hermes'];
   if (h && h.valo && HZ.valoAsof) src.push('valorisation du ' + dayFR(HZ.valoAsof));
@@ -549,9 +661,12 @@ function openFil() { document.body.classList.add('filon'); $('fil').classList.ad
 function closeFil() { document.body.classList.remove('filon'); $('fil').classList.remove('on'); $('filbtn').setAttribute('aria-expanded', 'false'); if (state.sel < 0) $('head').classList.remove('hide'); }
 $('filbtn').addEventListener('click', () => ($('fil').classList.contains('on') ? closeFil() : openFil()));
 
-/* ================================================================ Recherche Hermes (08/10) : quatre planches tirées du travail de l'agent */
-// Sources : defi.json (déjà lu : valorisation, croisements), rapport/cohorte.json (enquête quotidienne),
-// planches.json (stablecoins DefiLlama, logos). Seulement dans le tableau de bord : la version bookfolio n'a pas ces fichiers.
+/* ================================================================ Recherche Hermes v2 (11/10) : cinq onglets, une idée chacun */
+// Refonte demandée par le propriétaire le 11/10 (planches jugées trop denses, floues, illisibles) : chaque vue montre
+// au plus une douzaine d'objets, chaque chiffre est écrit en clair à côté de son objet, et les deux sujets larges
+// se lisent par vues (« Prix des frais » secteur par secteur, « Stablecoins » le stock puis les flux).
+// Sources inchangées : defi.json (valorisation, croisements), rapport/cohorte.json (enquête Robinhood Chain),
+// planches.json (stablecoins DefiLlama). Rien n'est recalculé hors de ce qui est écrit dans la fiche.
 let COH = null;
 if (IN_DASH) { try { const r = await fetch('../rapport/cohorte.json', { cache: 'no-cache' }); if (r.ok) COH = await r.json(); } catch (e) { console.warn('cohorte indisponible', e); } }
 const LH = DATA.logosHermes || {};
@@ -559,153 +674,301 @@ const lkey = (name) => LH[name] || 'mono:' + name;
 const blk = (k) => (IN_DASH && HZRAW && HZRAW.blocks && HZRAW.blocks[k] && !HZRAW.blocks[k].err) ? HZRAW.blocks[k] : null;
 const xf = (v, d = 1) => v == null ? '—' : nf(v, v >= 100 ? 0 : d) + NB + '×';
 const smoney = (v) => v == null ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + usd(Math.abs(v));
+const kusd = (v) => v == null ? '—' : v >= 1e6 ? usd(v) : v >= 1e3 ? nf(v / 1e3, v >= 1e5 ? 0 : 1) + NB + 'k$' : nf(v, 0) + NB + '$';
 const yes = (b) => b ? 'oui' : 'non';
+const listFR = (a) => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' et ' + a[a.length - 1];
 const SECO = ['dex', 'lending', 'perp', 'rwa', 'lst'];
 const SECL = { dex: 'Échanges', lending: 'Prêt', perp: 'Perpétuels', rwa: 'Actifs réels', lst: 'Staking liquide' };
-const BASE = { VOLUME: 'volume échangé', TVL: 'valeur déposée', OI: 'positions ouvertes', 'OI/VOL': 'positions ouvertes et volume' };
+const SECW = { dex: 'des échanges', lending: 'du prêt', perp: 'des perpétuels', rwa: 'des actifs réels', lst: 'du staking liquide' };
+const SECG = { dex: '⇄', lending: '%', perp: '∞', rwa: '⌂', lst: '◇' };
+const BASE = { VOLUME: 'volume échangé', TVL: 'valeur déposée', OI: 'positions ouvertes', 'OI/VOL': 'positions ouvertes et volume', 'OI/VOLUME': 'positions ouvertes et volume' };
 const baseOf = (s) => { const k = String(s || '').split(' ')[0].toUpperCase(); return BASE[k] || (s ? esc(s) : '—'); };
-function hzRow(name) {   // ce que l'agent dit de ce protocole hors valorisation (déjà le sujet de la planche)
+// années de frais : la capitalisation divisée par les frais d'une année (au rythme des 7 derniers jours)
+const sp = (s) => String(s).replace(/\u202f/g, NB);
+const yrs = (v) => v == null ? 'non mesuré' : v < .95 ? Math.max(1, Math.round(v * 12)) + NB + 'mois' : sp(nf(v, v >= 100 ? 0 : 1)) + NB + (v < 2 ? 'an' : 'ans');
+const d100 = (f) => f == null ? '—' : (f * 100 >= 1 ? nf(f * 100, 0) : f * 100 >= .1 ? nf(f * 100, 1) : f > 0 ? nf(f * 100, 2) : '0') + NB + '$';
+function hzRow(name) {   // ce que l'agent dit de ce protocole (thèse, dernier réveil)
   if (!HZ || !name) return null;
   const k = norm(name), these = HZ.theses.find((x) => norm(x.nom) === k) || null;
   const re = new RegExp('(^|[^A-Za-z0-9])(' + escRe(name) + ')(?![A-Za-z0-9])', 'i');
   const wake = HZ.wakes.find((w) => re.test(w.summary || '')) || null;
-  return these || wake ? { valo: null, these, wake, followed: !!(these && these.statut !== 'retiree') } : null;
+  return these || wake ? { valo: null, these, wake, followed: false } : null;
+}
+function sparkTVL(h) {   // valeur déposée relevée par l'enquête, un point par jour
+  const pts = (h || []).filter((x) => x[1] != null);
+  if (pts.length < 2) return '';
+  const W = 300, H = 66, arr = pts.map((x) => x[1]), lo = Math.min(...arr), hi = Math.max(...arr), span = hi - lo || 1;
+  const X = (i) => 4 + i / (arr.length - 1) * (W - 8), Y = (v) => 8 + (1 - (v - lo) / span) * (H - 16);
+  const line = arr.map((v, i) => X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' ');
+  return `<div class="viz"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Valeur déposée jour par jour"><polyline points="${line}" fill="none" stroke="#8ff0d8" stroke-width="1.6" stroke-linejoin="round"/><circle cx="${X(arr.length - 1).toFixed(1)}" cy="${Y(arr[arr.length - 1]).toFixed(1)}" r="3.2" fill="#f1ede4"/></svg>` +
+    `<p>valeur déposée : ${kusd(arr[0])} le ${dayFR(pts[0][0])} → ${kusd(arr[arr.length - 1])} le ${dayFR(pts[pts.length - 1][0])} · ${pts.length} relevés · bas ${kusd(lo)} · haut ${kusd(hi)}</p></div>`;
 }
 const PLH = {};
 
-/* ---- 1. le prix des frais ---- */
+/* ---- 1. le prix des frais : une vue d'ensemble, puis un secteur à la fois ---- */
 const VBk = blk('valuation'), VB = VBk && VBk.v;
 const pfw = (r, w) => r.fenetres && r.fenetres.pf ? r.fenetres.pf[w] : null;
+const mw = (r, m, w) => r.fenetres && r.fenetres[m] ? r.fenetres[m][w] : null;   // multiples de l'agent : pf (frais), ps (revenus), phr (revenus reversés)
+const sym = (p) => p.symbol && p.symbol !== '-' ? ' · ' + p.symbol : '';
+// part des frais reçue par les détenteurs du jeton (0 à 1) : multiple prix/frais ÷ multiple prix/revenus reversés, 7 jours.
+// null = non mesuré ; 0 quand le tableau de l'agent ne compte aucun reversement.
+const holdOf = (r) => { const pf = mw(r, 'pf', '7j'), phr = mw(r, 'phr', '7j'), ps = mw(r, 'ps', '7j');
+  if (pf && phr) return Math.min(1, ps ? Math.min(pf / ps, pf / phr) : pf / phr);
+  return pf && ps && (r.holders_rev_ann === 0 || r.capture_pct === 0) ? 0 : null; };
+const holdTxt = (r) => { const h = holdOf(r); return h == null ? 'non mesuré' : d100(h) + ' compté' + (h > 0 ? 's' : ''); };
+const VALO = {};
+if (VB && VB.sectors) SECO.forEach((s) => {
+  const all = VB.sectors[s] || [], rows = all.filter((r) => pfw(r, '7j') != null).sort((a, b) => pfw(a, '7j') - pfw(b, '7j'));
+  const m = rows.find((r) => r.classement && r.classement.mediane != null);
+  if (rows.length) VALO[s] = { rows, med: m ? m.classement.mediane : null, miss: all.filter((r) => pfw(r, '7j') == null) };
+});
+const VSEC = SECO.filter((s) => VALO[s]);
+const VASOF = VB ? (VB.fenetres_as_of || VB.as_of) : null;
+const VFOOT = VB ? `Agent Hermes · valorisation du ${VASOF ? when(VASOF) : '—'} · années de frais = capitalisation ÷ frais d’une année, au rythme des 7 derniers jours, protocole entier` : '';
+const VLEG = '<span><i class="sq or"></i>une pièce : une année de frais</span>';
+const READ = 'Moins d’années : plus de frais pour chaque dollar de capitalisation.';   // le sens de lecture, dit une fois par vue
+const GLOSS_B = { dex: 'le volume échangé', lending: 'la valeur déposée', perp: 'les positions ouvertes (montant des contrats en cours) et le volume', rwa: 'la valeur déposée', lst: 'la valeur déposée' };
+const gloss = (s) => `<p class="members">Capitalisation : valeur de tous les jetons en circulation, au prix du jour. Base de valeur : ce qui produit les frais${s && GLOSS_B[s] ? ', ici ' + GLOSS_B[s] : ''}. Secteurs : classement de l’agent.</p>`;
+if (VSEC.length) {
+  const items = VSEC.map((s) => { const V = VALO[s];
+    return { name: SECL[s], sec: s, med: V.med, n: V.rows.length, nAll: V.rows.length + V.miss.length, lo: V.rows[0], hi: V.rows[V.rows.length - 1], miss: V.miss, base: baseOf(V.rows[0].base_note), logo: 'glyph:' + SECG[s], go: 'valo-' + s }; })
+    .sort((a, b) => (b.med == null ? -1 : b.med) - (a.med == null ? -1 : a.med));
+  items.forEach((it, i) => { it.rank = i + 1; });
+  const withMed = items.filter((x) => x.med != null), hiS = withMed[0], loS = withMed[withMed.length - 1], nAll = items.reduce((a, b) => a + b.n, 0);
+  if (withMed.length) PLH.valo = {
+    tab: 'Prix des frais', group: 'valo', view: 'Ensemble', items, asof: VASOF, staleH: 18, b3: 'valoAll',
+    eyebrow: 'Recherche Hermes · prix des frais',
+    title: `Selon le secteur, le protocole médian vaut de <em>${yrs(loS.med)}</em> à <em>${yrs(hiS.med)}</em> de ses frais.`,
+    insight: `On divise la capitalisation par les frais d’une année : on obtient le nombre d’années de frais que vaut le protocole. ${READ} Une pile par secteur, à la hauteur de son protocole médian ; ${nAll + VSEC.reduce((a, s) => a + VALO[s].miss.length, 0)} protocoles valorisés, dont ${nAll} avec des frais sur 7 jours.`,
+    legend: VLEG + '<span>hauteur : protocole médian du secteur</span>',
+    foot: VFOOT,
+    value: (p) => yrs(p.med), label: (p) => p.name, kind: (p) => `${p.n} protocoles · base de valeur : ${p.base}`,
+    card: (it) => `<p class="big">${yrs(it.med)}</p><p class="bigsub">de frais pour le protocole médian ${SECW[it.sec]}</p>` +
+      facts([['Protocoles', it.nAll > it.n ? `${it.n} chiffrés sur ${it.nAll}` : nf(it.n, 0)], ['Base de valeur', it.base], ['Le plus bas', `${esc(it.lo.name)}<br>${yrs(pfw(it.lo, '7j'))}`], ['Le plus haut', `${esc(it.hi.name)}<br>${yrs(pfw(it.hi, '7j'))}`]]) +
+      (it.miss.length ? `<p class="members">Sans frais mesurés sur 7 jours : ${it.miss.map((r) => esc(r.name)).join(', ')}.</p>` : '') + gloss(it.sec) +
+      `<p class="gorow"><button type="button" class="go" data-go="${it.go}">Voir le détail ${SECW[it.sec]} →</button></p>`,
+  };
+}
+VSEC.forEach((s) => {
+  const V = VALO[s], items = V.rows.map((r) => Object.assign({}, r, { sec: s, pf7: pfw(r, '7j'), pf30: pfw(r, '30j'), pf1y: pfw(r, '1an'), logo: lkey(r.name) }));
+  V.miss.forEach((r) => items.push(Object.assign({}, r, { sec: s, pf7: null, pf30: pfw(r, '30j'), pf1y: pfw(r, '1an'), logo: lkey(r.name), missing: true })));
+  items.forEach((it, i) => { it.rank = i + 1; it._hz = hzRow(it.name); });
+  const n7 = V.rows.length, lo = items[0], hi = items[n7 - 1], ncap = items.filter((it) => holdOf(it) > 0).length, nmes = items.filter((it) => holdOf(it) != null).length;
+  const vals = V.rows.map((r) => pfw(r, '7j')).sort((a, b) => b - a), broken = vals.length > 2 && vals[0] > 3 * vals[1];   // même règle que la scène
+  PLH['valo-' + s] = {
+    tab: 'Prix des frais', group: 'valo', view: SECL[s], items, asof: VASOF, staleH: 18, b3: 'valoSec', meta: { med: V.med, sec: s },
+    eyebrow: 'Prix des frais · ' + SECL[s].toLowerCase(),
+    title: V.med != null ? `${SECL[s]} : le protocole médian vaut <em>${yrs(V.med)}</em> de frais.` : `${SECL[s]} : <em>${yrs(lo.pf7)}</em> de frais.`,
+    insight: `${READ} ` + (n7 > 1 ? `Le plus bas : ${lo.name}, ${yrs(lo.pf7)}. Le plus haut : ${hi.name}, ${yrs(hi.pf7)}${hi.pf7 > 100 ? ', des frais quasi nuls pour sa capitalisation' : ''}. ` : '') +
+      (nmes === items.length ? `Les détenteurs du jeton reçoivent une part des frais chez ${ncap} sur ${items.length}.`
+        : nmes ? `La part reçue par les détenteurs du jeton est mesurée pour ${nmes} protocoles sur ${items.length} : ${ncap > 1 ? ncap + ' en reçoivent une' : ncap ? 'un seul en reçoit une' : 'aucun n’en reçoit'}.` : 'Ce que reçoivent les détenteurs du jeton n’est pas mesuré dans ce secteur.'),
+    legend: VLEG.replace('année de frais', 'année de frais (épaisseur propre à chaque secteur)') + '<span><i></i>trait : médiane du secteur</span>' + (broken ? '<span>pièces détachées : pile coupée, la valeur dépasse trois fois la suivante</span>' : ''),
+    foot: VFOOT + ' · base de valeur du secteur : ' + baseOf(lo.base_note) + (V.miss.length ? ` · sans frais mesurés sur 7 jours : ${V.miss.map((r) => r.name).join(', ')}` : ''),
+    value: (p) => yrs(p.pf7), label: (p) => p.name, kind: (p) => SECL[p.sec] + sym(p),
+    card: (it) => (it.missing
+      ? `<p class="big">non mesuré</p><p class="bigsub">pas de frais mesurés sur 7 jours dans la valorisation de l’agent</p>`
+      : `<p class="big">${yrs(it.pf7)}</p><p class="bigsub">de frais${it.classement && it.classement.rang ? ` · ${ord(it.classement.rang)} sur ${it.classement.n_secteur} du secteur, en partant du moins d’années` : ''} · médiane ${yrs(V.med)}</p>`) +
+      facts([['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], ['Frais d’un an, rythme 7 j', it.mcap != null && it.pf7 ? '≈' + NB + usd(it.mcap / it.pf7) : '—'],
+        ['Au rythme de 30 jours', yrs(it.pf30)], ['Au rythme d’un an', yrs(it.pf1y)],
+        ['Aux détenteurs, sur 100 $ de frais', holdTxt(it)], ['Base de valeur', baseOf(it.base_note)]]) +
+      '<p class="members">Le même calcul refait avec les frais des 30 derniers jours, puis de la dernière année, dit si le rythme récent est habituel.</p>' +
+      (it.flags ? `<details class="notes"><summary>Lire les contrôles de l’agent</summary><p class="members">Le jeton reçoit des revenus : ${yes(it.flags.token_captures)}. ${it.flags.fdv_clean ? 'Presque tous les jetons circulent déjà' : 'Beaucoup de jetons ne circulent pas encore'}${it.fdv_mcap ? ` : tous réunis, ils vaudraient ${nf(it.fdv_mcap, 1)} fois la capitalisation` : ''}. Ce qui produit les frais ${it.flags.base_not_collapsing ? 'se tient' : 'recule'}.</p></details>` : '') + gloss(it.sec),
+  };
+});
+
+/* ---- 2. où vont les frais : sur 100 $ payés, la part des détenteurs du jeton ---- */
+// Les parts viennent des multiples de l'agent sur 7 jours (protocole entier) : frais, revenus, revenus reversés.
+// Revenus ÷ frais = (prix/frais) ÷ (prix/revenus) ; reversé ÷ frais = (prix/frais) ÷ (prix/revenus reversés). Les trois parts font 100 $.
 if (VB && VB.sectors) {
-  const items = [], MED = {};
-  SECO.forEach((s) => {
-    const rows = (VB.sectors[s] || []).filter((r) => pfw(r, '7j') != null).sort((a, b) => pfw(a, '7j') - pfw(b, '7j'));
-    MED[s] = rows.length && rows[0].classement && rows[0].classement.mediane != null ? rows[0].classement.mediane : null;
-    rows.forEach((r) => items.push(Object.assign({}, r, { sec: s, pf7: pfw(r, '7j'), pf30: pfw(r, '30j'), pf1y: pfw(r, '1an'), logo: lkey(r.name) })));
-  });
-  items.forEach((it, i) => { it.rank = i + 1; it._hz = hzRow(it.name); it._hzF = !!(it._hz && it._hz.followed); });
-  const ncap = items.filter((it) => it.capture_pct > 0).length;
-  const top = items.reduce((a, b) => (b.pf7 > a.pf7 ? b : a)), low = items.reduce((a, b) => (b.pf7 < a.pf7 ? b : a));
-  if (items.length) PLH.valo = {
-    tab: 'Prix des frais', items, asof: VB.fenetres_as_of || VB.as_of, staleH: 18, meta: { MED, SECL, xf },
-    eyebrow: 'Recherche Hermes · valorisation',
-    title: `Le prix des <em>frais</em> : ${items.length} protocoles, cinq secteurs.`,
-    insight: `Médianes du multiple prix / frais sur 7 jours : ${SECO.filter((s) => MED[s] != null).map((s) => SECL[s].toLowerCase() + ' ' + xf(MED[s])).join(', ')}. Les extrêmes vont de ${xf(low.pf7)} (${low.name}) à ${xf(top.pf7)} (${top.name}). ${ncap} protocoles sur ${items.length} reversent une part de leurs revenus aux détenteurs.`,
-    legend: '<span><i class="sq mint"></i>cœur teinté : revenus reversés aux détenteurs</span><span><i class="disc"></i>anneau : multiple sur 1 an</span><span>ligne : médiane du secteur</span>',
-    foot: `Agent Hermes · valorisation du ${when(VB.as_of)} · multiple = capitalisation / frais annualisés`,
-    value: (p) => xf(p.pf7), label: (p) => p.name, kind: (p) => SECL[p.sec] + (p.symbol ? ' · ' + p.symbol : ''),
-    card: (it) => `<p class="big">${xf(it.pf7)}</p><p class="bigsub">prix / frais sur 7 jours${it.classement && it.classement.rang ? ` · ${ord(it.classement.rang)} sur ${it.classement.n_secteur} en ${SEC[it.sec] || it.sec}` : ''} · médiane du secteur ${xf(MED[it.sec])}</p>` +
-      facts([['30 jours', xf(it.pf30)], ['1 an', xf(it.pf1y)],
-        ['Part aux détenteurs', it.capture_pct != null ? nf(it.capture_pct, 1) + NB + '%' : 'non mesurée'], ['Frais annualisés', it.fees_ann != null ? usd(it.fees_ann) : '—'],
-        ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], ['FDV / capitalisation', it.fdv_mcap != null ? nf(it.fdv_mcap, 2) : '—'],
-        ['Base de valeur', baseOf(it.base_note)], ['Modules couverts', it.couverture && it.couverture.part_captee != null ? share(it.couverture.part_captee) : '—']]) +
-      (it.flags ? `<p class="members">Contrôles de l’agent · le jeton capte des revenus : ${yes(it.flags.token_captures)} · FDV sans dilution forte : ${yes(it.flags.fdv_clean)} · base de valeur qui tient : ${yes(it.flags.base_not_collapsing)}</p>` : ''),
+  const all = [], sansRev = [];
+  SECO.forEach((s) => (VB.sectors[s] || []).forEach((r) => {
+    const pf = mw(r, 'pf', '7j'), ps = mw(r, 'ps', '7j'), phr = mw(r, 'phr', '7j');
+    if (!pf || !r.mcap) return;
+    const row = Object.assign({}, r, { sec: s, logo: lkey(r.name), pf, ps, phr, fees7: r.mcap / pf });
+    // pas de multiple de revenus reversés : rien n'est reversé si le tableau de l'agent dit 0 (montant ou part), sinon la part n'est pas mesurée
+    if (ps && (phr || r.holders_rev_ann === 0 || r.capture_pct === 0)) all.push(row); else sansRev.push(row);
+  }));
+  const top = all.concat(sansRev).sort((a, b) => b.fees7 - a.fees7).slice(0, 10).filter((r) => all.includes(r));
+  const omis = all.concat(sansRev).sort((a, b) => b.fees7 - a.fees7).slice(0, 10).filter((r) => !all.includes(r));
+  const items = top.length < 10 ? top.concat(all.filter((r) => !top.includes(r)).sort((a, b) => b.fees7 - a.fees7).slice(0, 10 - top.length)) : top;
+  items.forEach((it) => { const rev = Math.min(1, it.pf / it.ps); it.hold = it.phr ? Math.min(rev, it.pf / it.phr) : 0; it.kept = Math.max(0, rev - it.hold); it.supp = Math.max(0, 1 - rev); it._hz = hzRow(it.name); });
+  items.sort((a, b) => b.hold - a.hold || b.kept - a.kept).forEach((it, i) => { it.rank = i + 1; });
+  const zero = items.filter((x) => x.hold === 0), tiny = items.filter((x) => x.hold > 0 && x.hold < .01), top3 = items.filter((x) => x.hold >= .01).slice(0, 3);
+  if (items.length) PLH.partage = {
+    tab: 'Partage des frais', group: 'partage', items, asof: VASOF, staleH: 18, b3: 'partage', meta: { fmax: Math.max(...items.map((x) => x.fees7)) },
+    eyebrow: 'Recherche Hermes · où vont les frais',
+    title: `Sur 100${NB}$ de frais, les détenteurs du jeton reçoivent de <em>${d100(items[items.length - 1].hold)}</em> à <em>${d100(items[0].hold)}</em>.`,
+    insight: (top3.length ? top3.map((x, k) => `${x.name}${k ? '' : ' leur reverse'} ${d100(x.hold)}`).join(', ') + '. ' : '') + (tiny.length ? `Presque rien chez ${listFR(tiny.map((x) => `${x.name} (${d100(x.hold)})`))}. ` : '') + (zero.length ? `DefiLlama ne compte aucun reversement chez ${listFR(zero.map((x) => x.name))}. ` : '') +
+      'Le reste paie ceux qui rendent le service (liquidité, prêts, validation) ou reste dans le protocole.',
+    legend: '<span><i class="sq or"></i>aux détenteurs du jeton</span><span><i class="sq lav"></i>gardé par le protocole</span><span><i class="sq svc"></i>service : payé à ceux qui fournissent liquidité, prêts ou validation</span><span>sous chaque bocal : frais d’une année</span>',
+    legendTel: '<span><i class="sq or"></i>aux détenteurs du jeton</span><span><i class="sq lav"></i>gardé par le protocole</span><span><i class="sq svc"></i>service : liquidité, prêts, validation</span>',
+    foot: `Agent Hermes · ${VASOF ? when(VASOF) : '—'} · les dix plus gros encaisseurs de frais parmi les ${all.length} protocoles où le partage est mesuré` + (omis.length ? ` (non mesuré : ${omis.map((r) => r.name).join(', ')})` : '') + ' · « aux détenteurs » : ce que DefiLlama compte comme reversé (versements, rachats de jetons) ; ce qu’il ne suit pas n’apparaît pas',
+    value: (p) => d100(p.hold), label: (p) => p.name, kind: (p) => SECL[p.sec] + sym(p),
+    card: (it) => { const F = it.fees7;
+      return `<p class="big">${d100(it.hold)}</p><p class="bigsub">sur 100${NB}$ de frais vont aux détenteurs du jeton${sym(it).replace(' · ', ' ')}</p>` +
+      bars([['Détenteurs', it.hold, d100(it.hold), 'o'], ['Protocole', it.kept, d100(it.kept), 'l'], ['Service', it.supp, d100(it.supp), 's']]) +
+      facts([['Frais d’un an', '≈' + NB + usd(F)], ['Aux détenteurs', '≈' + NB + usd(F * it.hold)], ['Gardé par le protocole', F * it.kept < 5e4 ? 'rien' : '≈' + NB + usd(F * it.kept)], ['Payé au service', F * it.supp < 5e4 ? 'rien' : '≈' + NB + usd(F * it.supp)],
+        ['Capitalisation', usd(it.mcap)], ['Années de revenus reversés', it.phr ? `${yrs(it.phr)} (${yrs(it.pf)} pour l’ensemble des frais)` : 'aucun reversement']]) +
+      '<p class="members">Frais d’un an : les 7 derniers jours ramenés à une année. Années de revenus reversés : capitalisation ÷ ce que reçoivent les détenteurs en un an. Compté : versements et rachats suivis par DefiLlama.</p>'; },
   };
 }
 
-/* ---- 3. attention et valeur ---- */
+/* ---- 3. le regard de l'agent : ce qu'il nomme, ce qui bouge sans lui, ce qu'il ne valorise pas ---- */
 const CRk = blk('croisements'), CR = CRk && CRk.v;
 if (CR && VB && VB.sectors) {
-  const byName = {}, stars = [];
-  SECO.forEach((s) => (VB.sectors[s] || []).forEach((r) => { byName[r.name] = Object.assign({}, r, { sec: s, pf7: pfw(r, '7j'), pf1y: pfw(r, '1an') }); stars.push(byName[r.name]); }));
-  const named = CR.nommes || [], items = [];
-  named.forEach((n) => items.push(Object.assign({}, byName[n] || {}, { name: n, kindA: 'nomme' })));
-  (CR.trous || []).forEach((x) => items.push({ name: x.nom, kindA: 'trou', etat: x.etat, motif: x.motif }));
-  (CR.muets_bruyants || []).forEach((x) => items.push(Object.assign({}, byName[x.nom] || {}, { name: x.nom, sec: x.secteur, kindA: 'disp', dispersion: x.dispersion, pf_7j: x.pf_7j, pf_1an: x.pf_1an })));
-  const seen = new Set(items.map((x) => x.name));
-  stars.filter((s) => !seen.has(s.name)).sort((a, b) => (b.fees_ann || 0) - (a.fees_ann || 0)).forEach((s) => items.push(Object.assign({}, s, { kindA: 'muet' })));
-  items.forEach((it, i) => { it.rank = i + 1; it.logo = lkey(it.name); });
-  const trous = items.filter((it) => it.kindA === 'trou'), disp = items.filter((it) => it.kindA === 'disp');
-  const dmax = disp.reduce((a, b) => (b.dispersion > (a ? a.dispersion : 0) ? b : a), null);
-  const KA = { nomme: 'nommé cette semaine', trou: 'suivi, jamais valorisé', disp: 'multiple instable selon la fenêtre', muet: 'valorisé, non nommé' };
+  const byName = {};
+  SECO.forEach((s) => (VB.sectors[s] || []).forEach((r) => { byName[r.name] = Object.assign({}, r, { sec: s, pf7: pfw(r, '7j'), pf30: pfw(r, '30j'), pf1y: pfw(r, '1an') }); }));
+  const named = (CR.nommes || []).map((n) => Object.assign({}, byName[n] || {}, { name: n, zone: 'nomme' }));
+  const noisy = (CR.muets_bruyants || []).map((x) => Object.assign({}, byName[x.nom] || {}, { name: x.nom, sec: x.secteur, zone: 'agite', dispersion: x.dispersion }));
+  const ETAT = { 'suivi, jamais valorise': ['jamais valorisé', 'L’agent suit ce protocole, mais aucun multiple n’existe pour lui dans sa valorisation.'],
+    'ecarte par le screen': ['écarté par le filtre', 'Le filtre de l’agent l’a écarté avant la valorisation.'],
+    "module OMIS d'un protocole valorise": ['module oublié', 'Ce module appartient à un protocole valorisé, mais ses frais manquent dans le calcul du multiple.'] };
+  const holes = (CR.trous || []).map((x) => ({ name: x.nom, zone: 'trou', etat: (ETAT[x.etat] || [x.etat])[0], expl: (ETAT[x.etat] || [])[1] || '', motif: x.motif }));
+  const items = named.concat(noisy, holes);
+  items.forEach((it, i) => { it.rank = i + 1; it.logo = lkey(it.name); it._hz = hzRow(it.name); });
+  const seen = new Set(named.concat(noisy).map((x) => x.name)), calm = Object.keys(byName).filter((n) => !seen.has(n));
+  const ZL = { nomme: 'cité cette semaine', agite: 'chiffre instable, non cité', trou: 'suivi, jamais valorisé' };
+  const disp = (v) => '×' + NB + nf(v, 1), minD = noisy.length ? Math.min(...noisy.map((x) => x.dispersion || 0)) : null;
   if (items.length) PLH.attention = {
-    tab: 'Attention', items, asof: CRk.as_of, staleH: 6, meta: { stars, named, SECL },
-    eyebrow: 'Recherche Hermes · où l’agent regarde',
-    title: `Sur ${CR.n_valorises} protocoles valorisés, l’agent en a <em>nommé ${CR.n_nommes}</em> cette semaine.`,
-    insight: `${named.length ? 'Nommés : ' + named.join(' et ') + '. ' : ''}${trous.length} suivis sans jamais être valorisés : ${trous.map((x) => x.name).join(', ')}.${dmax ? ` Le multiple le plus instable : ${dmax.name}, ${xf(dmax.pf_7j)} sur 7 jours contre ${xf(dmax.pf_1an)} sur 1 an.` : ''}`,
-    legend: '<span>taille : frais annualisés</span><span><i class="hz"></i>faisceau : nommé par l’agent</span><span><i class="disc"></i>jumelle : multiple instable</span><span>trou noir : suivi, jamais valorisé</span>',
-    foot: `Agent Hermes · croisement valorisation × réveils, sans LLM · ${when(CRk.as_of)}`,
-    value: (p) => p.kindA === 'nomme' ? 'nommé' : p.kindA === 'trou' ? 'jamais valorisé' : p.kindA === 'disp' ? 'dispersion ' + nf(p.dispersion, 1) : xf(p.pf7),
-    label: (p) => p.name, kind: (p) => KA[p.kindA] + (p.sec ? ' · ' + (SECL[p.sec] || p.sec) : ''),
-    card: (it) => it.kindA === 'trou'
-      ? `<p class="big">jamais valorisé</p><p class="bigsub">${esc(it.etat || '')}</p>` + (it.motif ? `<p class="members">Motif relevé par l’agent : ${esc(it.motif)}</p>` : '') +
-        '<p class="members">L’agent suit ce protocole, mais il n’apparaît pas dans son tableau de valorisation : aucun multiple n’existe pour lui.</p>'
-      : it.kindA === 'nomme' || it.kindA === 'muet'
-        ? `<p class="big">${it.kindA === 'nomme' ? 'nommé' : 'non nommé'}</p><p class="bigsub">${it.kindA === 'nomme' ? 'par un réveil de l’agent cette semaine' : 'valorisé par l’agent, absent de ses réveils cette semaine'} · ${esc(SECL[it.sec] || '')}</p>` +
-          facts([['Prix / frais 7 j', xf(it.pf7)], ['1 an', xf(it.pf1y)], ['Frais annualisés', it.fees_ann != null ? usd(it.fees_ann) : '—'], ['Part aux détenteurs', it.capture_pct != null ? nf(it.capture_pct, 1) + NB + '%' : 'non mesurée']])
-        : `<p class="big">${nf(it.dispersion, 1)}</p><p class="bigsub">dispersion du multiple entre les fenêtres de l’agent</p>` +
-          facts([['Prix / frais 7 j', xf(it.pf_7j)], ['Prix / frais 1 an', xf(it.pf_1an)], ['Frais annualisés', it.fees_ann != null ? usd(it.fees_ann) : '—'], ['Nommé cette semaine', 'non']]) +
-          '<p class="members">Un multiple qui change beaucoup selon la fenêtre dit que les frais récents s’écartent de leur moyenne annuelle ; l’agent le valorise sans l’avoir nommé.</p>',
+    tab: 'Attention', group: 'attention', items, asof: CRk.as_of, staleH: 6, b3: 'attention', meta: { calm: calm.length, n: { nomme: named.length, agite: noisy.length, trou: holes.length } },
+    eyebrow: 'Recherche Hermes · le regard de l’agent',
+    title: `Cette semaine, l’agent a cité <em>${named.length}</em> des ${CR.n_valorises} protocoles qu’il valorise.`,
+    insight: `Cités dans ses analyses : ${listFR(named.map((x) => x.name))}. ${noisy.length} autres ont un chiffre instable — leurs années de frais changent fort selon la période — sans être cités ; ${calm.length} restent dans l’ombre. À part : ${holes.length} protocoles suivis sans jamais être valorisés.`,
+    insightTel: `${noisy.length} ont un chiffre instable sans être cités, ${calm.length} restent dans l’ombre, ${holes.length} sont suivis sans être valorisés.`,
+    legendTel: '<span><i class="sq champ"></i>lumière : cité</span><span>écart × : années de frais, période la plus haute ÷ la plus basse (* sans 7 jours)</span><span><i class="disc"></i>verre : jamais valorisé</span>',
+    legend: `<span><i class="sq champ"></i>sous la lumière : cité cette semaine</span><span>écart × : années de frais, la plus haute de ses périodes (7 jours, 30 jours, 1 an) divisée par la plus basse${minD != null ? ` ; les ${noisy.length} instables ont un écart d’au moins ×${NB}${nf(Math.floor(minD * 10) / 10, 1)}` : ''}</span><span>disques sombres : les ${calm.length} autres, ni cités ni instables</span><span><i class="disc"></i>anneau de verre : suivi, jamais valorisé (« module oublié » : partie d’un protocole valorisé, absente de son calcul)</span><span>cité : nommé dans une analyse de la semaine, ce qui n’est pas un verdict de thèse</span>`,
+    foot: `Agent Hermes · croisement de sa valorisation et de ses analyses de la semaine, calculé sans modèle de langage · ${when(CRk.as_of)}`,
+    value: (p) => p.zone === 'nomme' ? 'cité' : p.zone === 'agite' ? 'écart ' + disp(p.dispersion) : p.etat,
+    label: (p) => p.name, kind: (p) => ZL[p.zone] + (p.sec ? ' · ' + (SECL[p.sec] || p.sec) : ''),
+    card: (it) => it.zone === 'trou'
+      ? `<p class="big">${esc(it.etat)}</p><p class="bigsub">suivi par l’agent, jamais valorisé</p><p class="members">${esc(it.expl)}${it.motif ? ` Motif relevé : ${esc(it.motif)}.` : ''}</p>`
+      : it.zone === 'nomme'
+        ? `<p class="big">${yrs(it.pf7)}</p><p class="bigsub">de frais · cité cette semaine dans une analyse de l’agent · ${esc(SECL[it.sec] || '')}</p>` +
+          facts([['Au rythme de 30 jours', yrs(it.pf30)], ['Au rythme d’un an', yrs(it.pf1y)], ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], ['Aux détenteurs, sur 100 $ de frais', holdTxt(it)]])
+        : `<p class="big">${disp(it.dispersion)}</p><p class="bigsub">écart entre ses années de frais selon la période · ${esc(SECL[it.sec] || '')}</p>` +
+          facts([['Au rythme de 7 jours', yrs(it.pf7)], ['Au rythme de 30 jours', yrs(it.pf30)], ['Au rythme d’un an', yrs(it.pf1y)], ['Cité cette semaine', 'non']]) +
+          `<p class="members">Le nombre d’années de frais change selon la période observée : les frais récents s’écartent de leur moyenne.${[it.pf7, it.pf30, it.pf1y].some((v) => v == null) ? ` Sans frais mesurés sur ${[['7 jours', it.pf7], ['30 jours', it.pf30], ['1 an', it.pf1y]].filter((x) => x[1] == null).map((x) => x[0]).join(' ni ')} : écart calculé par l’agent sur les autres périodes.` : ''} L’agent le valorise sans l’avoir cité cette semaine.</p>`,
   };
 }
 
-/* ---- 4. la cohorte de Robinhood Chain ---- */
+/* ---- 4. la cohorte de Robinhood Chain : la preuve contre l'argent déposé ---- */
 if (COH && COH.membres) {
   const last = (m) => (m.historique || [])[(m.historique || []).length - 1] || {};
   const mk = (m, role) => { const h = last(m), pr = h.preuve || {}, tr = h.traction || {};
     return { name: m.nom_defillama, role, score: pr.score != null ? pr.score : (tr.score_preuve || 0), audit: !!pr.audit_ok, github: !!pr.github_ok, hooks: pr.hooks || 0,
-      tvl: tr.tvl_rh_usd, mcap: tr.mcap_usd, fees30: tr.fees_30d_usd, vol30: tr.vol_30d_usd, date: h.date, mecanisme: m.mecanisme, lignee: m.lignee_declaree,
-      sortie: m.sortie_si, entre: m.entre_si, comm: m.commentaire || m.pourquoi, logo: lkey(m.nom_defillama) }; };
-  const mem = COH.membres.map((m) => mk(m, 'membre')).sort((a, b) => b.score - a.score || (b.tvl || 0) - (a.tvl || 0));
-  const anti = (COH.antichambre || []).map((m) => mk(m, 'antichambre')), ref = COH.contre_reference ? [mk(COH.contre_reference, 'reference')] : [];
-  const items = mem.concat(anti, ref); items.forEach((it, i) => { it.rank = i + 1; });
+      tvl: tr.tvl_rh_usd, mcap: tr.mcap_usd, fees30: tr.fees_30d_usd, vol30: tr.vol_30d_usd, part: tr.part_frais_chaine_pct, date: h.date, mecanisme: m.mecanisme, lignee: m.lignee_declaree,
+      sortie: m.sortie_si, entre: m.entre_si, comm: m.commentaire || m.pourquoi, logo: lkey(m.nom_defillama),
+      hist: (m.historique || []).map((x) => [x.date, (x.traction || {}).tvl_rh_usd]) }; };
+  const mem = COH.membres.map((m) => mk(m, 'membre')), anti = (COH.antichambre || []).map((m) => mk(m, 'antichambre'));
+  const ref = COH.contre_reference ? mk(COH.contre_reference, 'reference') : null;
+  const all = mem.concat(anti).sort((a, b) => a.score - b.score || (b.tvl || 0) - (a.tvl || 0));
+  const items = ref ? all.concat([ref]) : all; items.forEach((it, i) => { it.rank = i + 1; });
   const d = items.map((x) => x.date).filter(Boolean).sort().pop();
-  const n0 = mem.filter((x) => !x.score).length, best = anti.concat(mem).reduce((a, b) => (b.score > a.score ? b : a), mem[0]), pons = ref[0];
-  const ROLE = { membre: 'membre de la cohorte', antichambre: 'antichambre', reference: 'contre-référence' };
-  if (items.length) PLH.cohorte = {
-    tab: 'Cohorte', items, asof: d ? d + 'T12:00:00Z' : null, staleH: 36,
+  const low = all.filter((x) => x.score <= 1), high = all.filter((x) => x.score >= 2), sLow = sum(low, (x) => x.tvl), sHigh = sum(high, (x) => x.tvl);
+  const lanes = [0, 1, 2, 3, 4].map((k) => sum(all.filter((x) => x.score === k), (x) => x.tvl));
+  const ROLE = { membre: 'membre de la cohorte', antichambre: 'antichambre (candidat)', reference: 'contre-référence, hors cohorte' };
+  if (all.length && sLow + sHigh > 0) PLH.cohorte = {
+    tab: 'Cohorte', group: 'cohorte', items, asof: d ? d + 'T12:00:00Z' : null, staleH: 36, b3: 'cohorte', meta: { lanes, sLow, sHigh, pLow: sLow / (sLow + sHigh) },
     eyebrow: 'Recherche Hermes · enquête Robinhood Chain',
-    title: `La cohorte de <em>Robinhood Chain</em> : ${mem.length} projets, la preuve d’abord.`,
-    insight: `${n0} projets sur ${mem.length} ont un score de preuve nul. ${best ? `${best.name}${best.role === 'antichambre' ? ', en antichambre,' : ''} a le meilleur score (${best.score} sur 4)${best.tvl != null ? ` pour ${best.tvl < 1e6 ? nf(best.tvl, 0) + NB + '$' : usd(best.tvl)} déposés` : ''}. ` : ''}${pons && pons.fees30 ? `${pons.name}, sans score, encaisse ${usd(pons.fees30)} de frais sur 30 jours.` : ''}`,
-    legend: '<span>points : audit (2), GitHub (1), hook (1)</span><span>hauteur : valeur déposée</span><span>verre : antichambre</span><span>monolithe : contre-référence</span>',
-    foot: `Enquête quotidienne de l’agent · relevé du ${dayFR(d)} · preuve vérifiée : liens d’audit, comptes GitHub, registre des hooks`,
-    value: (p) => 'preuve ' + p.score + '/4', label: (p) => p.name, kind: (p) => ROLE[p.role],
-    card: (it) => `<p class="big">${it.score} / 4</p><p class="bigsub">score de preuve · relevé du ${dayFR(it.date)}</p>` +
-      facts([['Audit publié (2)', yes(it.audit)], ['GitHub existant (1)', yes(it.github)], ['Hooks nommés (1)', it.hooks ? nf(it.hooks, 0) : 'aucun'],
-        ['Déposé sur la chaîne', it.tvl != null ? (it.tvl < 1e6 ? nf(it.tvl, 0) + NB + '$' : usd(it.tvl)) : '—'], it.fees30 != null ? ['Frais 30 jours', usd(it.fees30)] : ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'],
-        it.vol30 != null ? ['Volume 30 jours', usd(it.vol30)] : ['Rôle', ROLE[it.role]]]) +
-      (it.mecanisme ? `<p class="members">Mécanisme : ${esc(it.mecanisme)}</p>` : '') + (it.lignee ? `<p class="members">Lignée déclarée : ${esc(it.lignee)}</p>` : '') +
-      (it.sortie ? `<p class="members">Sort de la cohorte si : ${esc(it.sortie)}</p>` : '') + (it.entre ? `<p class="members">Entre dans la cohorte si : ${esc(it.entre)}</p>` : '') +
-      (it.comm ? `<p class="members">${esc(trunc(it.comm, 420))}</p>` : ''),
+    title: `<em>${share(sLow / (sLow + sHigh))}</em> de l’argent déposé est chez des projets à 0 ou 1 point de preuve sur 4.`,
+    insight: `Les ${all.length} projets que l’agent suit sur Robinhood Chain (cohorte et candidats), notés sur ce qu’on peut vérifier : audit publié (2 points), code public (1), mécanisme enregistré (1). À 0 ou 1 point : ${usd(sLow)} déposés ; à 2 points ou plus : ${kusd(sHigh)}.` +
+      (ref && ref.fees30 ? ` Point de comparaison choisi par l’agent : ${ref.name}, premier encaisseur de frais de la chaîne, ${usd(ref.fees30)} en 30 jours sans aucun dépôt.` : ''),
+    insightTel: `Les ${all.length} projets suivis par l’agent, notés sur 4 : audit publié (2 points), code public (1), mécanisme enregistré (1). À 0 ou 1 point : ${usd(sLow)} ; à 2 ou plus : ${kusd(sHigh)}.`,
+    legend: '<span>colonnes : score de preuve, de 0 à 4</span><span><i class="sq mint"></i>hauteur : valeur déposée sur la chaîne ; simple contour : trop petit pour l’échelle</span><span><i class="sq champ"></i>antichambre, nom suivi d’un petit « c » : candidats suivis avant d’entrer dans la cohorte</span>',
+    foot: `Enquête quotidienne de l’agent · relevé du ${dayFR(d)} · preuve vérifiée : liens d’audit qui répondent, comptes GitHub, registre des mécanismes (hooks)`,
+    value: (p) => p.role === 'reference' ? kusd(p.fees30) + ' de frais' : kusd(p.tvl), label: (p) => p.name, kind: (p) => ROLE[p.role] + ' · preuve ' + p.score + '/4',
+    card: (it) => (it.role === 'reference'
+      ? `<p class="big">${kusd(it.tvl || 0)}</p><p class="bigsub">déposés · ${usd(it.fees30 || 0)} de frais en 30 jours · relevé du ${dayFR(it.date)}</p>` +
+        facts([['Frais 30 jours', it.fees30 != null ? usd(it.fees30) : '—'], ['Volume 30 jours', it.vol30 != null ? usd(it.vol30) : '—'], ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], ['Part des frais de la chaîne', it.part != null ? nf(it.part, 1) + NB + '%' : '—']])
+      : `<p class="big">${kusd(it.tvl)}</p><p class="bigsub">déposés sur Robinhood Chain · preuve ${it.score} sur 4 · relevé du ${dayFR(it.date)}</p>` +
+        facts([['Audit publié (2 pts)', yes(it.audit)], ['Code public (1 pt)', yes(it.github)], ['Mécanisme enregistré (1 pt)', it.hooks ? nf(it.hooks, 0) + ' hook' + (it.hooks > 1 ? 's' : '') : 'aucun'],
+          it.fees30 != null ? ['Frais 30 jours', usd(it.fees30)] : ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], it.vol30 != null ? ['Volume 30 jours', usd(it.vol30)] : ['Rôle', ROLE[it.role]], ['Suivi depuis', it.hist.length ? dayFR(it.hist[0][0]) : '—']]) +
+        sparkTVL(it.hist)) +
+      (it.sortie || it.entre || it.mecanisme || it.lignee || it.comm ? `<details class="notes"><summary>Lire les notes de l’enquête : sortie, mécanisme (texte brut de l’agent)</summary>` +
+        (it.sortie ? `<p class="members">Sort de la cohorte si : ${esc(it.sortie)}</p>` : '') + (it.entre ? `<p class="members">Entre dans la cohorte si : ${esc(it.entre)}</p>` : '') +
+        (it.mecanisme ? `<p class="members">Mécanisme : ${esc(it.mecanisme)}</p>` : '') + (it.lignee ? `<p class="members">Équipe déclarée : ${esc(it.lignee)}</p>` : '') +
+        (it.comm ? `<p class="members">${esc(trunc(it.comm, 420))}</p>` : '') + '</details>' : ''),
   };
 }
 
-/* ---- 6. où va l'argent stable ---- */
+/* ---- 5. les stablecoins : où ils sont, puis où va l'argent frais ---- */
 const STB = IN_DASH && DATA.stables && (DATA.stables.chains || []).length ? DATA.stables : null;
 if (STB) {
-  const items = STB.chains.map((c) => Object.assign({}, c, { logo: c.logo || lkey(c.name), lab7: smoney(c.f7) }));
-  const ins = [...items].sort((a, b) => b.f7 - a.f7), mx = ins[0], mn = ins[ins.length - 1];
+  const ISS_LOGO = { USDT: 'c_tether.png', USDC: 'c_usd-coin.png', USDS: 'd_sky.png' };
+  const chains = STB.chains.map((c) => Object.assign({}, c, { kindS: 'chaine', logo: c.logo || lkey(c.name) }));
+  const iss = (STB.top || []).map((t) => ({ name: t.name, symbol: t.symbol, total: t.mcap, kindS: 'emetteur', logo: ISS_LOGO[t.symbol] || 'sym:' + t.symbol }));
+  const restC = Math.max(0, STB.total - sum(chains, (c) => c.total)), restI = Math.max(0, STB.total - sum(iss, (i) => i.total));
+  const SFOOT = `DefiLlama stablecoins · ${when(DATA.asof && DATA.asof.stables)}`;
+  const byC = [...chains].sort((a, b) => b.total - a.total), c1 = byC[0], c2 = byC[1];
+  const stock = iss.concat(chains); stock.forEach((it, i) => { it.rank = i + 1; });
   PLH.stables = {
-    tab: 'Argent stable', items, asof: DATA.asof && DATA.asof.stables, staleH: 3, meta: { total: STB.total, top: STB.top || [] },
-    eyebrow: 'Recherche Hermes · stablecoins',
-    title: `<em>${usd(STB.total)}</em> de stablecoins. Où va l’argent frais ?`,
-    insight: `Sur 7 jours, ${mx.name} reçoit le plus (${smoney(mx.f7)}) et ${mn.name} ${mn.f7 < 0 ? 'perd le plus' : 'reçoit le moins'} (${smoney(mn.f7)}). Au total, le stock varie de ${smoney(STB.f7)} sur 7 jours et ${smoney(STB.f30)} sur 30 jours.`,
-    legend: '<span>réservoir : stablecoins par émetteur</span><span>bassin : stock par chaîne</span><span>particules : flux net sur 7 jours</span>',
-    foot: `DefiLlama stablecoins · ${when(DATA.asof && DATA.asof.stables)} · flux calculés sur les séries quotidiennes`,
-    value: (p) => smoney(p.f7) + ' / 7 j', label: (p) => p.name, kind: (p) => 'stock ' + usd(p.total),
-    card: (it) => `<p class="big">${usd(it.total)}</p><p class="bigsub">de stablecoins sur ${esc(it.name)} · ${share(it.total / STB.total, 1)} du total</p>` +
-      facts([['Flux 1 jour', smoney(it.f1)], ['Flux 7 jours', smoney(it.f7)], ['Variation 7 jours', pct(it.p7, 2)], ['Flux 30 jours', smoney(it.f30)],
-        ['Série du', it.serie_date ? dayFR(new Date(it.serie_date * 1000).toISOString().slice(0, 10)) : '—'], ['Rang', ord(it.rank)]]) +
-      '<p class="members">Flux net : différence de stock entre deux jours. Le signe dit le sens ; aucune couleur ne le juge.</p>',
+    tab: 'Argent stable', group: 'stables', view: 'Où ils sont', items: stock, asof: DATA.asof && DATA.asof.stables, staleH: 3, b3: 'stock', meta: { total: STB.total, restC, restI, nI: iss.length },
+    eyebrow: 'Recherche Hermes · argent stable',
+    title: `<em>${usd(STB.total)}</em> de stablecoins, dont ${share(c1.total / STB.total)} sur ${esc(c1.name)}.`,
+    insight: (iss.length > 1 ? `${iss[0].name} (${iss[0].symbol}) en émet ${share(iss[0].total / STB.total)}, ${iss[1].name} (${iss[1].symbol}) ${share(iss[1].total / STB.total)}. ` : '') +
+      `${c2.name} en porte ${share(c2.total / STB.total)}. Deux colonnes pour le même argent : à gauche par émetteur, à droite par chaîne.`,
+    legend: '<span><i class="sq champ"></i>par émetteur</span><span><i class="sq mint"></i>par chaîne</span><span>hauteur : part du total</span>', railSep: (it, prev) => !prev ? 'Émetteurs' : prev.kindS !== it.kindS ? 'Chaînes' : null,
+    foot: SFOOT + ` · relevé chaque heure · parts calculées sur le total exact, ${nf(STB.total / 1e9, 1)}${NB}Md$ · « autres » = le reste du total`,
+    value: (p) => usd(p.total), label: (p) => p.symbol || p.name, kind: (p) => p.kindS === 'emetteur' ? 'stablecoin · ' + (p.symbol || '') : 'chaîne',
+    card: (it) => it.kindS === 'emetteur'
+      ? `<p class="big">${usd(it.total)}</p><p class="bigsub">de ${esc(it.symbol || it.name)} en circulation · ${share(it.total / STB.total, it.total / STB.total < .1 ? 1 : 0)} du total</p>` +
+        '<p class="members">Stock total du stablecoin, toutes chaînes confondues.</p>'
+      : `<p class="big">${usd(it.total)}</p><p class="bigsub">de stablecoins sur ${esc(it.name)} · ${share(it.total / STB.total, it.total / STB.total < .1 ? 1 : 0)} du total</p>` +
+        facts([['Sur 1 jour', smoney(it.f1)], ['Sur 7 jours', smoney(it.f7)], ['Sur 30 jours', smoney(it.f30)], ['Variation 7 jours', pct(it.p7, 2)]]) +
+        '<p class="members">Variation du stock entre deux dates. Le signe dit le sens.</p>',
   };
+  [7, 30].forEach((dd) => {
+    const f = (c) => c['f' + dd], items = chains.map((c) => Object.assign({}, c)).sort((a, b) => f(b) - f(a));
+    const rest = STB['f' + dd] - sum(chains, f);   // les chaînes hors des dix : le total moins les dix
+    if (STB['f' + dd] != null) items.push({ name: 'Autres chaînes', kindS: 'autres', total: restC, ['f' + dd]: rest, logo: 'glyph:+', other: true });
+    items.forEach((it, i) => { it.rank = i + 1; });
+    const ten = items.filter((x) => !x.other), mx = ten[0], mn = ten[ten.length - 1];
+    const said = (c) => f(c) > 0 ? `a augmenté de ${usd(f(c))} sur ${esc(c.name)}` : f(c) < 0 ? `a baissé de ${usd(-f(c))} sur ${esc(c.name)}` : `n’a pas bougé sur ${esc(c.name)}`;
+    const ups = [], dns = [];
+    chains.forEach((c) => [c.f7, c.f30].forEach((v) => (v >= 0 ? ups : dns).push(Math.abs(v || 0))));
+    [STB.f7 - sum(chains, (c) => c.f7), STB.f30 - sum(chains, (c) => c.f30)].forEach((v) => (v >= 0 ? ups : dns).push(Math.abs(v)));
+    const fmaxAll = Math.max(...chains.map((c) => Math.max(Math.abs(c.f7 || 0), Math.abs(c.f30 || 0))), Math.abs(STB.f7 - sum(chains, (c) => c.f7)), Math.abs(STB.f30 - sum(chains, (c) => c.f30)));
+    PLH['stables-' + dd] = {
+      tab: 'Argent stable', group: 'stables', view: `Flux ${dd} jours`, items, asof: DATA.asof && DATA.asof.stables, staleH: 3, b3: 'flux', meta: { dd, tot: STB['f' + dd], fmax: fmaxAll, up: Math.max(...ups) / fmaxAll, dn: Math.max(...dns) / fmaxAll },
+      eyebrow: `Recherche Hermes · argent stable · ${dd} jours`,
+      title: `En ${dd} jours : <em>${smoney(f(mx))}</em> de stablecoins sur ${esc(mx.name)}, ${smoney(f(mn))} sur ${esc(mn.name)}.`,
+      insight: `Le stock monte quand des stablecoins sont créés ou arrivent sur la chaîne, et baisse quand ils sont détruits ou partent. À droite de la ligne : hausse ; à gauche : baisse. Toutes chaînes réunies : ${smoney(STB['f' + dd])}, dont ${smoney(rest)} sur les autres chaînes.`,
+      legend: '<span><i class="sq mint"></i>longueur : variation du stock, même échelle pour 7 et 30 jours</span><span>à droite : hausse · à gauche : baisse</span><span><i class="sq argent"></i>autres chaînes : le total moins les dix</span>',
+      legendTel: '<span><i class="sq mint"></i>longueur : variation du stock</span><span>à droite : hausse · à gauche : baisse</span><span><i class="sq argent"></i>autres chaînes</span>',
+      insightTel: `Le stock monte quand des stablecoins sont créés ou arrivent, baisse quand ils sont détruits ou partent. À droite : hausse ; à gauche : baisse. Toutes chaînes : ${smoney(STB['f' + dd])}, dont ${smoney(rest)} sur les autres chaînes.`,
+      foot: SFOOT + ` · relevé chaque heure · variations calculées sur les séries quotidiennes`,
+      value: (p) => smoney(f(p)), label: (p) => p.name, kind: (p) => 'stock ' + usd(p.total),
+      card: (it) => it.other
+        ? `<p class="big">${smoney(f(it))}</p><p class="bigsub">en ${dd} jours sur les autres chaînes · stock ${usd(it.total)}</p>` +
+          '<p class="members">Le total de toutes les chaînes, moins les dix chaînes montrées. Il fait que les barres s’additionnent au total annoncé.</p>'
+        : `<p class="big">${smoney(f(it))}</p><p class="bigsub">en ${dd} jours sur ${esc(it.name)} · stock ${usd(it.total)}</p>` +
+        facts([['Sur 1 jour', smoney(it.f1)], ['Sur 7 jours', smoney(it.f7)], ['Sur 30 jours', smoney(it.f30)], dd === 7 ? ['Variation 7 jours', pct(it.p7, 2)] : ['Variation 30 jours', it.total - it.f30 ? pct(it.f30 / (it.total - it.f30) * 100, 2) : '—'],
+          ['Part du stock total', share(it.total / STB.total, 1)], ['Séries quotidiennes jusqu’au', it.serie_date ? dayFR(new Date(it.serie_date * 1000).toISOString().slice(0, 10)) : '—']]) +
+        '<p class="members">Variation du stock entre deux dates. Le signe dit le sens ; aucune couleur ne le juge. Un jour peut dépasser la semaine : la semaine contient aussi des jours de baisse.</p>',
+    };
+  });
 }
-const ORDER_H = ['valo', 'attention', 'cohorte', 'stables'].filter((k) => PLH[k]);
+const ORDER_H = ['valo'].concat(VSEC.map((s) => 'valo-' + s), ['partage', 'attention', 'cohorte', 'stables', 'stables-7', 'stables-30']).filter((k) => PLH[k]);
 ORDER_H.forEach((k) => { PL[k] = PLH[k]; });
 const ALLK = ORDER.concat(ORDER_H);
+const grp = (k) => (PL[k] && PL[k].group) || k;
+const GROUPK = {}; ALLK.forEach((k) => { (GROUPK[grp(k)] = GROUPK[grp(k)] || []).push(k); });
+const LASTV = {};
 
 /* ---------------------------------------------------------------- interface */
 const hash = location.hash.slice(1);
 const state = { pl: ALLK.includes(hash) ? hash : 'crypto', sel: -1, hover: -1 };
 
-ALLK.forEach((k) => {
+Object.keys(GROUPK).forEach((g) => {   // un bouton par onglet ; un onglet peut avoir plusieurs vues (11/10)
+  const k = GROUPK[g][0];
   if (k === ORDER_H[0]) { const s = document.createElement('span'); s.className = 'sep'; s.textContent = 'Hermes'; s.setAttribute('aria-hidden', 'true'); $('switch').append(s); }
-  const b = document.createElement('button'); b.type = 'button'; b.dataset.pl = k; b.textContent = PL[k].tab; if (ORDER_H.includes(k)) b.className = 'h';
-  b.addEventListener('click', () => setPlanche(k)); $('switch').append(b);
+  const b = document.createElement('button'); b.type = 'button'; b.dataset.pl = k; b.dataset.group = g; b.textContent = PL[k].tab; if (ORDER_H.includes(k)) b.className = 'h';
+  b.addEventListener('click', () => setPlanche(LASTV[g] || k)); $('switch').append(b);
 });
 
 // titre ligne par ligne (10/10) : mots enveloppés (l'italique est gardé), lignes repérées à la mise en page ; mouvement réduit : rien
 function reveal() {
-  const h1 = $('title'), side = [$('eyebrow'), $('insight'), $('filrow')];
+  const h1 = $('title'), side = [$('eyebrow'), $('insight'), $('views'), $('filrow')];
   side.forEach((e) => e.classList.remove('rv'));
   if (REDUCED) return;
   const walk = (node) => [...node.childNodes].forEach((c) => {
@@ -725,29 +988,37 @@ function renderHead() {
   const p = PL[state.pl], head = $('head');
   head.classList.add('out');
   setTimeout(() => {
-    const frT = (s) => String(s).replace(/ ([:;?!»])/g, '\u202f$1').replace(/« /g, '«\u202f');
-    $('eyebrow').textContent = p.eyebrow; $('title').innerHTML = frT(p.title); $('insight').textContent = frT(p.insight);
+    const frT = (s) => String(s).replace(/\u202f/g, '\xa0').replace(/ ([:;?!»])/g, '\xa0$1').replace(/« /g, '«\xa0');
+    const tel = innerWidth < innerHeight;   // téléphone tenu droit : certaines planches se couchent, leur texte suit
+    $('eyebrow').textContent = p.eyebrow; $('title').innerHTML = frT(p.title); $('insight').textContent = frT((tel && p.insightTel) || p.insight);
+    const vs = GROUPK[grp(state.pl)] || [], vw = $('views'); vw.hidden = vs.length < 2;
+    vw.innerHTML = vs.length < 2 ? '' : vs.map((k) => `<button type="button" data-pl="${k}" aria-pressed="${k === state.pl}">${esc(PL[k].view || PL[k].tab)}</button>`).join('');
+    vw.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => setPlanche(b.dataset.pl)));
+    const von = vw.querySelector('[aria-pressed="true"]'); if (von) vw.scrollLeft = Math.max(0, von.offsetLeft - (vw.clientWidth - von.offsetWidth) / 2);
     const age = (Date.now() - Date.parse(p.asof)) / 864e5, lim = p.staleH ? p.staleH / 24 : state.pl === 'rwa' && !RM ? 7 : 3 / 24;   // releve horaire depuis le 07/10 : signale apres 3 h (actifs reels aussi quand ils sont lus sur la chaine)
     const old = age > lim ? ` · relevé ancien de ${age < 2 ? Math.round(age * 24) + ' heures' : Math.floor(age) + ' jours'}` : '';
     const hzl = p.items.some((it) => it._hzF) ? '<span><i class="hz"></i>bague violette : suivi par l’agent Hermes</span>' : '';
-    $('legend').innerHTML = p.legend + hzl; $('foot').innerHTML = esc(p.foot) + (old ? `<span class="stale">${old}</span>` : '');
-    $('asof').innerHTML = 'Relevé du ' + esc(when(p.asof)) + (old ? `<span class="stale">${old}</span>` : '');
+    $('legend').innerHTML = ((tel && p.legendTel) || p.legend) + hzl; $('foot').innerHTML = esc(p.foot) + (old ? `<span class="stale">${old}</span>` : '');
+    $('asof').innerHTML = 'Relevé du ' + esc(when(p.asof)) + (old ? `<span class="stale">${old}</span>` : ''); fitBar();
     reveal();
     head.classList.remove('out');
   }, REDUCED ? 0 : 260);
-  $('switch').querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pl === state.pl)));
+  $('switch').querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.group === grp(state.pl))));
   const on = $('switch').querySelector('[aria-pressed="true"]'); on && on.scrollIntoView({ block: 'nearest', inline: 'center' });
 }
 
 function renderRail() {
   const p = PL[state.pl], rail = $('rail');
-  rail.innerHTML = ''; rail.classList.toggle('many', p.items.length > 12);
+  rail.innerHTML = ''; rail.classList.toggle('many', p.items.length > 12); rail.classList.toggle('hzr', ORDER_H.includes(state.pl));
   p.items.forEach((it, i) => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'chip'; b.dataset.i = i; b.style.setProperty('--i', Math.min(i, 12));
     b.setAttribute('aria-pressed', 'false');
     b.setAttribute('aria-label', `${two(it.rank)}, ${it.name}, ${p.value(it)}`);
     b.innerHTML = `<img src="${LOGOS[it.logo]}" alt=""><span class="k">${two(it.rank)} · ${esc(p.label(it))}${it._hzF ? '<i class="hzd" title="suivi par l’agent Hermes"></i>' : ''}</span><span class="v">${p.value(it)}</span>`;
+    const sep = p.railSep && p.railSep(it, i ? p.items[i - 1] : null);
+    if (sep) { const s = document.createElement('span'); s.className = 'railsep'; s.textContent = sep; rail.append(s); }
+    const im = b.querySelector('img'); im.addEventListener('error', () => { im.src = LOGOS['mono:' + it.name]; }, { once: true });
     b.addEventListener('click', () => select(state.sel === i ? -1 : i));
     b.addEventListener('pointerenter', () => setHover(i));
     b.addEventListener('pointerleave', () => setHover(-1));
@@ -768,6 +1039,11 @@ function wheelX(el) {   // molette verticale : la rangée défile sur le côté 
   }, { passive: false });
 }
 wheelX($('rail')); wheelX($('switch')); addEventListener('resize', syncBar);
+function fitBar() {   // onglets trop nombreux pour la largeur : la date du relevé passe sous la barre (11/10)
+  const bar = document.querySelector('.bar'), sw = $('switch'); bar.classList.remove('tight');
+  if (innerWidth > 760 && sw.scrollWidth > sw.clientWidth + 1) bar.classList.add('tight');
+}
+addEventListener('resize', fitBar);
 
 function renderCard() {
   const card = $('card'), i = state.sel;
@@ -775,6 +1051,8 @@ function renderCard() {
   const p = PL[state.pl], it = p.items[i];
   card.innerHTML = `<header><img src="${LOGOS[it.logo]}" alt=""><div><h2>${esc(it.name)}</h2><p class="kind">${two(it.rank)} · ${esc(p.kind(it))}</p></div><button type="button" class="close" aria-label="Fermer la fiche">×</button></header>${p.card(it)}${hzHTML(state.pl, it)}`;
   card.querySelector('.close').addEventListener('click', () => select(-1));
+  card.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => setPlanche(b.dataset.go)));
+  const cim = card.querySelector('header img'); cim.addEventListener('error', () => { cim.src = LOGOS['mono:' + it.name]; }, { once: true });
   card.scrollTop = 0; card.classList.add('on');
 }
 
@@ -792,24 +1070,26 @@ function select(i) {
   if (i >= 0 && innerWidth < 760) closeFil();
   $('head').classList.toggle('hide', i >= 0 || $('fil').classList.contains('on'));
   $('legend').parentNode.classList.toggle('hide', i >= 0); $('hint').classList.toggle('hide', i >= 0);
-  if (i >= 0) { const b = $('rail').children[i]; b && b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); }
+  if (i >= 0) { const b = $('rail').querySelectorAll('.chip')[i]; b && b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); }
 }
 function setPlanche(pl) {
   if (pl === state.pl) return;
-  state.pl = pl; state.sel = -1; state.hover = -1; $('head').classList.remove('hide'); $('legend').parentNode.classList.remove('hide'); $('hint').classList.remove('hide');
+  state.pl = pl; LASTV[grp(pl)] = pl; state.sel = -1; state.hover = -1; $('head').classList.remove('hide'); $('legend').parentNode.classList.remove('hide'); $('hint').classList.remove('hide');
   try { history.replaceState(null, '', '#' + pl); } catch (e) { /* adresse figée */ }
   renderHead(); renderRail(); renderCard(); syncRail(); renderFil();
   if (ui.onSwitch) ui.onSwitch(pl);
 }
+addEventListener('hashchange', () => { const h = location.hash.slice(1); if (ALLK.includes(h) && h !== state.pl) setPlanche(h); });   // adresse modifiée à la main (11/10)
 addEventListener('keydown', (e) => {
   const n = PL[state.pl].items.length;
   if (e.key === 'ArrowRight') { select((state.sel + 1 + n) % n); e.preventDefault(); }
   else if (e.key === 'ArrowLeft') { select(state.sel <= 0 ? n - 1 : state.sel - 1); e.preventDefault(); }
   else if (e.key === 'Escape') select(-1);
 });
-renderHead(); renderRail(); syncRail(); renderFil();
+LASTV[grp(state.pl)] = state.pl;
+renderHead(); renderRail(); syncRail(); renderFil(); fitBar();
 
-const ui = window.__ui = { DATA, LOGOS, REDUCED, PL, ORDER, ALLK, state, select, setHover, setPlanche, two, esc, usd, onSwitch: null, ready: false };
+const ui = window.__ui = { DATA, LOGOS, REDUCED, PL, ORDER, ALLK, state, select, setHover, setPlanche, two, esc, usd, nf, share, yrsH: (v) => v == null ? 'non mesuré' : '<b>' + yrs(v) + '</b>', onSwitch: null, ready: false };
 dispatchEvent(new Event('ui:ready'));
 window.__bf = { state, select, setPlanche, get api() { return ui.api || null; } };
 function fallback(msg) { const v = $('veil'); v.innerHTML = '<p class="fallback">' + msg + '</p>'; setTimeout(() => v.classList.add('gone'), 2600); }
@@ -829,7 +1109,8 @@ import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 const ui = window.__ui || await new Promise((res) => addEventListener('ui:ready', () => res(window.__ui), { once: true }));
-const { DATA, LOGOS, REDUCED, PL, state, select, setHover, two, esc, usd } = ui;
+const { DATA, LOGOS, REDUCED, PL, state, select, setHover, two, esc, usd, nf, share } = ui;
+const NB = '\xa0';
 const $ = (id) => document.getElementById(id);
 
 const loadImg = (src) => new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = src; });
@@ -982,7 +1263,7 @@ async function start3D() {
   const canvas = $('gl');
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
   if (!renderer.getContext()) throw new Error('webgl');
-  const MAXPR = Math.min(devicePixelRatio || 1, 2), MINPR = Math.min(1, MAXPR); let pr = MAXPR;
+  const DPR = devicePixelRatio || 1, MAXPR = Math.min(Math.max(DPR, 1.5), 2), MINPR = Math.min(1, DPR); let pr = Math.min(DPR, 2);
   renderer.setPixelRatio(pr);
   renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.08;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -1030,10 +1311,10 @@ async function start3D() {
 
   /* images des logos */
   const imgs = {}, imgP = {}, blank = document.createElement('canvas'); blank.width = blank.height = 4;
-  const loadKey = (k) => imgP[k] || (imgP[k] = loadImg(LOGOS[k]).then((im) => { imgs[k] = im; }).catch(() => { console.warn('logo absent', k); imgs[k] = blank; }));
-  const loadPl = (pl) => Promise.all(PL[pl].items.map((it) => loadKey(it.logo)));
+  const loadKey = (k, nm) => imgP[k] || (imgP[k] = loadImg(LOGOS[k]).then((im) => { imgs[k] = im; }).catch(() => { console.warn('logo absent', k); return loadImg(LOGOS['mono:' + (nm || k)]).then((im) => { imgs[k] = im; }, () => { imgs[k] = blank; }); }));
+  const loadPl = (pl) => Promise.all(PL[pl].items.map((it) => loadKey(it.logo, it.name)));
   await loadPl(state.pl);
-  (ui.ALLK || ui.ORDER).forEach((k) => { loadPl(k); });   // les autres planches se chargent en fond
+  setTimeout(() => (ui.ALLK || ui.ORDER).forEach((k) => { loadPl(k); }), 1500);   // les autres planches se chargent en fond, après l'affichage
 
   const metalBase = new THREE.MeshPhysicalMaterial({ color: 0xd8d0c0, metalness: 1, roughness: .26, anisotropy: .55, clearcoat: .35, clearcoatRoughness: .2 });
   const hzMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xa68cff).multiplyScalar(1.3) });
@@ -1357,334 +1638,630 @@ async function start3D() {
     };
   }
 
-  /* ================= Recherche Hermes (08/10) : textes posés dans la scène ================= */
-  function textPlane(text, { size = .3, color = '#c8c3b9', font = '500 64px "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif', opacity = .9 } = {}) {
-    const c = document.createElement('canvas'), x = c.getContext('2d');
-    x.font = font; const w = Math.ceil(x.measureText(text).width) + 28; c.width = w; c.height = 96;
-    x.font = font; x.fillStyle = color; x.textBaseline = 'middle'; x.fillText(text, 14, 50);
-    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(size * w / 96, size), new THREE.MeshBasicMaterial({ map: t, transparent: true, opacity, depthWrite: false }));
-    m.userData.w = size * w / 96; m.userData.op = opacity; return m;
+  /* ================= Recherche Hermes v2 (11/10) : étiquettes HTML nettes, cadrage automatique ================= */
+  // Les chiffres ne sont plus peints dans la scène (texture floue) : ce sont des étiquettes HTML posées sur la projection
+  // de leur objet, au pixel près ; une étiquette qui en chevaucherait une autre, ou le titre, la fiche, la rangée, s'efface.
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const LBL = document.createElement('div'); LBL.className = 'lbls'; LBL.setAttribute('aria-hidden', 'true'); document.body.append(LBL);
+  function labelSet() {
+    const root = document.createElement('div'); root.className = 'lset'; root.hidden = true; LBL.append(root);
+    const svg = document.createElementNS(SVGNS, 'svg'); root.append(svg);
+    return { root, svg, list: [] };
   }
-  const MONO = '500 60px ui-monospace, "Cascadia Mono", Consolas, monospace';
-  const glassThin = () => new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0, roughness: .06, transmission: 1, thickness: .14, ior: 1.28, clearcoat: 1, clearcoatRoughness: .05, envMapIntensity: 1.3 });
-
-  /* ================= planche : le prix des frais (valorisation) ================= */
-  function buildValo(items, meta) {
-    const group = new THREE.Group(), objs = [], rows = [], PORT = innerWidth < innerHeight;
-    const hOf = (pf) => .28 + (Math.log10(Math.max(pf, .1)) + 1) * .66;   // échelle log : 0,1× au sol, 1 000× vers 2,9
-    const ROWZ = 2.6, gap = .7, glass = glassThin();
-    const tubeGeo = new THREE.CylinderGeometry(.12, .12, 1, 48, 1, true); tubeGeo.translate(0, .5, 0);
-    const domeGeo = new THREE.SphereGeometry(.12, 32, 12, 0, Math.PI * 2, 0, Math.PI / 2);
-    const coreGeo = new THREE.CylinderGeometry(.078, .078, 1, 32); coreGeo.translate(0, .5, 0);
-    const ringGeo = new THREE.TorusGeometry(.165, .008, 8, 64);
-    const secs = [...new Set(items.map((it) => it.sec))];
-    secs.forEach((s, k) => {
-      const row = items.filter((it) => it.sec === s), z = 3.4 - k * ROWZ, n = row.length, wRow = (n - 1) * gap + .8;
-      // nom du secteur et médiane collés à la ligne de médiane, au bout gauche de la rangée
-      const m = meta.MED[s], ym = m != null ? hOf(m) : .5, xl = -wRow / 2 - .3;
-      let sheet = null, ml = null, lab;
-      if (PORT) {
-        lab = textPlane((meta.SECL[s] || s) + (m != null ? ' · médiane ' + meta.xf(m) : ''), { size: .25, color: '#efe2c4', font: MONO });
-        lab.position.set(-wRow / 2 - .1 + lab.userData.w / 2, ym + .2, z);
-      } else {
-        lab = textPlane(meta.SECL[s] || s, { size: .34 + k * .035, color: '#e6e0d4' }); lab.position.set(xl - lab.userData.w / 2, ym + .2, z);
-        if (m != null) { ml = textPlane('médiane ' + meta.xf(m), { size: .21 + k * .02, color: '#efe2c4', font: MONO }); ml.position.set(xl - ml.userData.w / 2, ym - .17, z); }
-      }
-      [lab, ml].forEach((q) => { if (!q) return; q.rotation.x = -.62; q.material.depthTest = false; q.renderOrder = 10; group.add(q); });
-      if (m != null) {
-        sheet = new THREE.Mesh(new THREE.BoxGeometry(wRow + .3, .014, .014), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf3e6c8).multiplyScalar(1.3), transparent: true, opacity: 0, depthWrite: false }));
-        sheet.position.set(-.15, ym, z); group.add(sheet);
-      }
-      rows.push({ sheet, ml, lab, k });
-      row.forEach((it, j) => {
-        const x = (j - (n - 1) / 2) * gap, h = hOf(it.pf7), grp = new THREE.Group(); grp.position.set(x, 0, z);
-        const tube = new THREE.Mesh(tubeGeo, glass); grp.add(tube);
-        const dome = new THREE.Mesh(domeGeo, glass); grp.add(dome);
-        const capt = it.capture_pct > 0;
-        const coreMat = new THREE.MeshStandardMaterial({ color: capt ? 0x8ff0d8 : 0xbfc2cb, emissive: capt ? 0x2fbf98 : 0x34363d, emissiveIntensity: 0, roughness: .32 });
-        const core = new THREE.Mesh(coreGeo, coreMat); core.position.y = .015; grp.add(core);
-        let ring = null;
-        if (it.pf1y != null) { ring = new THREE.Mesh(ringGeo, new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf6f0e2).multiplyScalar(1.15), transparent: true, opacity: 0 })); ring.rotation.x = Math.PI / 2; ring.position.y = hOf(it.pf1y); grp.add(ring); }
-        const coin = makeCoin(it, .135, .03); const pivot = new THREE.Group(); pivot.add(coin); pivot.position.y = h + .3; grp.add(pivot);
-        const sh = shadow(.62, .62); sh.position.set(x, .004, z); group.add(sh);
-        group.add(grp);
-        objs.push({ i: it.rank - 1, item: it, grp, tube, dome, core, coreMat, ring, capt, h, pivot, coin, x, z, f: 0, phase: Math.random() * 6.28, pick: [tube, core, coin], delay: .3 + k * .24 + j * .05 });
-      });
-    });
-    { // règle logarithmique, contre la rangée de devant
-      const nF = items.filter((it) => it.sec === secs[0]).length, xr = ((nF - 1) * gap + .8) / 2 + .45, zr = 3.4;
-      const line = new THREE.Mesh(new THREE.BoxGeometry(.012, hOf(1000) - hOf(.3), .012), new THREE.MeshBasicMaterial({ color: 0xc8c3b9, transparent: true, opacity: .55 }));
-      line.position.set(xr, (hOf(1000) + hOf(.3)) / 2, zr); group.add(line); rows.push({ lab: line, k: 0, rule: true });
-      [1, 10, 100, 1000].forEach((v) => {
-        const tick = new THREE.Mesh(new THREE.BoxGeometry(.16, .012, .012), line.material); tick.position.set(xr - .08, hOf(v), zr); group.add(tick);
-        const tl = textPlane(meta.xf(v, 0), { size: .2, color: '#c8c3b9', font: MONO }); tl.rotation.x = -.62; tl.position.set(xr + .14 + tl.userData.w / 2, hOf(v), zr); group.add(tl); rows.push({ lab: tl, k: 0 });
-      });
+  function addLabel(set, html, o) {
+    const el = document.createElement('div'); el.className = 'lb' + (o.cls ? ' ' + o.cls : ''); el.innerHTML = html; set.root.append(el);
+    const L = Object.assign({ el, ax: .5, ay: .5, dx: 0, dy: 0, pri: 1, obj: -1, t0: 0, a: 0, w: 0, h: 0, shown: false }, o);
+    if (o.lead) { L.path = document.createElementNS(SVGNS, 'path'); set.svg.append(L.path); }
+    set.list.push(L); return L;
+  }
+  let KEEP = [], keepN = 0;
+  function keepOut() {   // zones que les étiquettes ne recouvrent jamais
+    const out = [], head = $('head'), add = (el, pad = 6) => {
+      if (!el || el.hidden) return; const s = getComputedStyle(el); if (s.display === 'none' || s.visibility === 'hidden' || +s.opacity < .05) return;
+      const r = el.getBoundingClientRect(); if (r.width && r.height) out.push([r.left - pad, r.top - pad, r.right + pad, r.bottom + pad]); };
+    if (!head.classList.contains('hide')) ['eyebrow', 'title', 'insight', 'views'].forEach((id) => add($(id), 8));
+    add(document.querySelector('.bar .switch')); add($('asof')); add($('rail'), 4); if ($('card').classList.contains('on')) add($('card'), 8);
+    if (!document.querySelector('.foot').classList.contains('hide')) add(document.querySelector('.foot')); add($('hint'));
+    return out;
+  }
+  const vL = new THREE.Vector3();
+  function placeLabels(S, ti, dt, anyFocus, fadeK) {
+    const set = S.labels, W = innerWidth, H = innerHeight;
+    if (keepN++ % 10 === 0) KEEP = keepOut();
+    for (const L of set.list) {
+      if (!L.w) { L.w = L.el.offsetWidth; L.h = L.el.offsetHeight; }
+      vL.copy(typeof L.pos === 'function' ? L.pos() : L.pos).project(camera);
+      L.ok = vL.z < 1; L.cx = (vL.x * .5 + .5) * W; L.cy = (-vL.y * .5 + .5) * H;
+      L.sx = L.cx + L.dx - L.ax * L.w; L.sy = L.cy + L.dy - L.ay * L.h;
+      if (L.lead) { vL.copy(L.lead).project(camera); L.lx = (vL.x * .5 + .5) * W; L.ly = (-vL.y * .5 + .5) * H; }
+      L.on = L.obj >= 0 && (L.obj === state.sel || L.obj === state.hover);
     }
-    objs.sort((a, b) => a.i - b.i);
+    // colonnes : des étiquettes empilées gardent leur ordre vertical sans se toucher (reliées à leur objet par un trait)
+    const cols = {};
+    set.list.forEach((L) => { if (L.col) (cols[L.col] = cols[L.col] || []).push(L); });
+    Object.values(cols).forEach((c) => {
+      c.sort((a, b) => a.sy - b.sy);
+      for (let k = 1; k < c.length; k++) c[k].sy = Math.max(c[k].sy, c[k - 1].sy + c[k - 1].h + 1);
+      const lim = H - 92, over = c[c.length - 1].sy + c[c.length - 1].h - lim;
+      if (over > 0) { c[c.length - 1].sy -= over; for (let k = c.length - 2; k >= 0; k--) c[k].sy = Math.min(c[k].sy, c[k + 1].sy - c[k].h - 1); }
+    });
+    const order = set.list.slice().sort((a, b) => (b.pri + (b.on ? 100 : 0)) - (a.pri + (a.on ? 100 : 0)));
+    const placed = [];
+    const AIR = W < 760 ? 2 : 4;
+    const fits = (r) => { if (r[0] + AIR <= 2 || r[2] - AIR >= W - 2 || r[1] <= 2 || r[3] >= H - 2) return false;   // bords de l'écran : sans la marge d'air
+      for (const k of KEEP) if (r[0] < k[2] && r[2] > k[0] && r[1] < k[3] && r[3] > k[1]) return false;
+      for (const q of placed) if (r[0] < q[2] && r[2] > q[0] && r[1] < q[3] && r[3] > q[1]) return false;
+      return true; };
+    for (const L of order) {
+      const m = L.shown ? 2 : -2;   // une étiquette déjà visible tolère un léger contact : pas de clignotement
+      // place prévue d'abord ; si elle est prise, un cran plus loin de l'objet (au-dessus, en dessous) avant de renoncer
+      const isV = /(^| )v( |$)/.test(L.cls || ''), alts = L.col || L.noslide || L.ay === .5 ? [0] : L.ay === 1 && (isV || L.slide) ? (L.slide === 2 ? [0, -(L.h + 4), -2 * (L.h + 4)] : [0, -(L.h + 5)]) : L.ay === 0 && L.slide ? (L.slide === 2 ? [0, L.h + 4, 2 * (L.h + 4)] : [0, L.h + 5]) : [0];
+      const tryOrder = L.alt ? [L.alt].concat(alts.filter((a) => a !== L.alt)) : alts;
+      let ok = false, r = null;
+      if (L.ok && ti >= L.t0) for (const a of tryOrder) {
+        const q = [L.sx + m - AIR, L.sy + a + m, L.sx + L.w - m + AIR, L.sy + a + L.h - m];   // de l'air entre deux étiquettes voisines (8 px, 4 sur téléphone)
+        if (fits(q)) { ok = true; r = q; if (a !== L.alt) L.alt = a; break; }
+      }
+      if (ok) { placed.push(r); L.sy += L.alt || 0; }
+      L.shown = ok;
+      const goal = ok ? (anyFocus && !L.on ? (L.obj < 0 ? .45 : .22) : 1) * clamp01((ti - L.t0) / .5) * fadeK : 0;
+      L.a += (goal - L.a) * damp(dt, 11);
+      const op = L.a < .01 ? '0' : L.a.toFixed(3);
+      L.el.style.opacity = op; L.el.style.transform = `translate(${Math.round(L.sx)}px, ${Math.round(L.sy)}px)`;
+      if (L.on !== L.wasOn) { L.el.classList.toggle('on', L.on); L.wasOn = L.on; }
+      if (L.path) { L.path.setAttribute('d', L.a > .01 ? `M${L.lx.toFixed(1)} ${L.ly.toFixed(1)}L${(L.ax > .5 ? L.sx + L.w + 3 : L.sx - 3).toFixed(1)} ${(L.sy + L.h / 2).toFixed(1)}` : ''); L.path.style.opacity = op; }
+    }
+  }
+
+  /* cadrage : la caméra recule jusqu'à ce que la boîte de la scène tienne dans la zone libre de l'écran */
+  const fitCam = new THREE.PerspectiveCamera(), fv = new THREE.Vector3(), fc = new THREE.Vector3();
+  let RECT = null, rectN = 0;
+  function safeRect() {
+    const W = innerWidth, H = innerHeight, wide = W >= 900;
+    const bar = document.querySelector('.bar .switch').getBoundingClientRect(), head = $('head').getBoundingClientRect(), rail = $('rail').getBoundingClientRect();
+    const foot = document.querySelector('.foot').getBoundingClientRect(), bottom = Math.min(rail.top || H, H) - 14;
+    const asof = $('asof').getBoundingClientRect(), top = Math.max(bar.bottom + 26, asof.height && getComputedStyle($('asof')).position === 'fixed' ? asof.bottom + 14 : 0);
+    if (wide) return [Math.min(W * .48, head.right + 24), top, W - 30, Math.min(bottom, H - 96) - 8];
+    return [12, Math.max(bar.bottom + 12, head.bottom + 14), W - 12, Math.min(bottom, (foot.top || bottom) - 8)];
+  }
+  function fitView(S) {
+    const f = S.fit, W = innerWidth, H = innerHeight, R = RECT, key = W + 'x' + H + ':' + R.map(Math.round).join(',');
+    if (S._fk === key) return S._fv;
+    const box = f.box, dir = fv.copy(f.dir).normalize(), fov = f.fov || 30;
+    box.getCenter(fc); const pts = [];
+    for (let k = 0; k < 8; k++) pts.push(new THREE.Vector3(k & 1 ? box.max.x : box.min.x, k & 2 ? box.max.y : box.min.y, k & 4 ? box.max.z : box.min.z));
+    fitCam.fov = fov; fitCam.aspect = W / H; fitCam.near = .1; fitCam.far = 400; fitCam.updateProjectionMatrix();
+    const rw = (R[2] - R[0]) / W * 2, rh = (R[3] - R[1]) / H * 2;
+    let d = box.getSize(new THREE.Vector3()).length() * 1.5, ex = null;
+    for (let it = 0; it < 8; it++) {
+      fitCam.position.copy(dir).multiplyScalar(d).add(fc); fitCam.lookAt(fc); fitCam.updateMatrixWorld();
+      ex = [Infinity, Infinity, -Infinity, -Infinity];
+      for (const p of pts) { const q = p.clone().project(fitCam); ex[0] = Math.min(ex[0], q.x); ex[1] = Math.min(ex[1], q.y); ex[2] = Math.max(ex[2], q.x); ex[3] = Math.max(ex[3], q.y); }
+      const s = Math.max((ex[2] - ex[0]) / rw, (ex[3] - ex[1]) / rh);
+      if (Math.abs(s - 1) < .004) break; d *= Math.pow(s, .92);
+    }
+    const bx = ((ex[0] + ex[2]) / 2 + 1) / 2 * W, by = (1 - (ex[1] + ex[3]) / 2) / 2 * H;
+    S._fk = key;
+    return S._fv = { pos: fitCam.position.clone(), tgt: fc.clone(), fov, d, offX: (bx - (R[0] + R[2]) / 2) / W, offY: (by - (R[1] + R[3]) / 2) / H };
+  }
+
+  /* matières et formes communes */
+  const REED = (() => { const c = document.createElement('canvas'); c.width = 512; c.height = 64; const x = c.getContext('2d'); x.fillStyle = '#7a7a7a'; x.fillRect(0, 0, 512, 64);
+    for (let i = 0; i < 512; i += 4) { x.fillStyle = '#d8d8d8'; x.fillRect(i, 25, 2, 14); } const t = new THREE.CanvasTexture(c); t.wrapS = THREE.RepeatWrapping; return t; })();
+  const goldMat = () => new THREE.MeshPhysicalMaterial({ color: 0xdcc08a, metalness: 1, roughness: .27, clearcoat: .35, clearcoatRoughness: .2, bumpMap: REED, bumpScale: 1.4 });
+  function stackCoinGeo(r) {   // pièce d'épaisseur 1 : faces planes, listel biseauté, tranche striée
+    const pts = [], P = (x, y) => pts.push(new THREE.Vector2(Math.max(x, 1e-4), y));
+    P(0, -.5); P(r * .86, -.5); P(r * .97, -.43); P(r, -.29); P(r, .29); P(r * .97, .43); P(r * .86, .5); P(0, .5);
+    return new THREE.LatheGeometry(pts, 72);
+  }
+  const glassLite = (tint = 0xffffff, op = .14) => new THREE.MeshPhysicalMaterial({ color: tint, metalness: 0, roughness: .05, transparent: true, opacity: op, clearcoat: 1, clearcoatRoughness: .05, envMapIntensity: 1.5, depthWrite: false });
+  const liquidMat = (col, emi, k = .5, op = 1) => new THREE.MeshPhysicalMaterial({ color: col, emissive: emi, emissiveIntensity: k, roughness: .22, metalness: 0, clearcoat: .8, clearcoatRoughness: .1, transparent: op < 1, opacity: op });
+  const proxyMat = new THREE.MeshBasicMaterial({ visible: false });
+  const proxy = (w, h, d) => new THREE.Mesh(new THREE.BoxGeometry(w, h, d), proxyMat);
+  const faceCam = (pivot, wx, wz) => { pivot.rotation.y = Math.atan2(camera.position.x - wx, camera.position.z - wz); };
+  const wpos = new THREE.Vector3();
+  /* médaille d'un objet : tombe en place puis respire ; l'objet choisi s'éclaire, les autres s'éteignent */
+  function medalTick(o, ti, t, anyFocus, on, delay, home) {
+    const m = ease.back(clamp01((ti - delay) / 1.0));
+    o.pivot.scale.setScalar(Math.max(.001, Math.min(1, m * 1.12)));
+    o.pivot.position.set(home.x, home.y + (1 - m) * .6 + (REDUCED ? 0 : Math.sin(t * .9 + o.phase) * .03), home.z);
+    o.pivot.getWorldPosition(wpos); faceCam(o.pivot, wpos.x, wpos.z);
+    o.pivot.rotation.order = 'YXZ'; o.pivot.rotation.x = -Math.atan2(camera.position.y - wpos.y, Math.hypot(camera.position.x - wpos.x, camera.position.z - wpos.z)) * .7;
+    o.pivot.rotation.y += (1 - m) * Math.PI * 2 + (REDUCED ? 0 : Math.sin(t * .45 + o.phase) * .22 * (1 - o.f));
+    o.coin.userData.mats.metal.envMapIntensity = anyFocus && !on ? .35 : 1;
+    o.coin.userData.mats.face.color.setScalar(anyFocus && !on ? .45 : 1);
+  }
+  const vw = (o) => () => { o.root.updateMatrixWorld(); return o.root.localToWorld(wpos.copy(o.lp)); };   // position monde suivie d'une étiquette
+  const lp = (root, x, y, z) => { const p = new THREE.Vector3(x, y, z); return () => { root.updateMatrixWorld(); return root.localToWorld(wpos.copy(p)); }; };
+  const LAND = () => innerWidth >= innerHeight;
+  const focusOn = (o, F, k) => ({ tgt: F.tgt.clone().lerp(o.c(), .7), dist: F.d * k });
+
+  /* ================= planches : le prix des frais (piles de pièces, une pièce = une année de frais) ================= */
+  function buildStacks(items, opt) {
+    const group = new THREE.Group(), objs = [], set = labelSet(), port = !LAND() && !opt.alwaysUp, narrow = innerWidth < 760;
+    const vals = items.map(opt.val), fin = vals.filter((v) => v != null).sort((a, b) => b - a), vmax = fin[0] || 1, v2 = fin[1] || vmax;
+    const brk = fin.length > 2 && vmax > 3 * v2 ? Math.ceil(v2 * 1.3) : null;   // pile rompue : au-delà, hors échelle
+    const capV = brk || vmax, R = opt.R || .34, t = Math.min(opt.tMax || .26, (opt.L || 3.2) / capV), L = capV * t;
+    const geo = stackCoinGeo(R), n = items.length, gap = opt.gap || R * 2.75, rowH = R * 2 + .34, medR = opt.medR || .24;
+    const floatMats = [.5, .3, .14].map((op) => { const m = goldMat(); m.transparent = true; m.opacity = op; return m; });
+    const tmpM = new THREE.Matrix4(), tq = new THREE.Quaternion(), tS = new THREE.Vector3(), tP = new THREE.Vector3(), qPort = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), -Math.PI / 2);
+    let maxLen = 0;
+    items.forEach((it, i) => {
+      const v = vals[i], sv = v == null ? 0 : brk ? Math.min(v, brk) : v, nF = Math.floor(sv + 1e-9), fr = sv - nF, nC = nF + (fr > .02 ? 1 : 0);
+      const root = new THREE.Group();
+      if (!port) root.position.set((i - (n - 1) / 2) * gap, 0, 0); else root.position.set(0, .55 + (n - 1 - i) * rowH, 0);
+      group.add(root);
+      const mat = goldMat(), im = new THREE.InstancedMesh(geo, mat, Math.max(1, nC)); im.count = 0; im.frustumCulled = false; root.add(im);
+      const coins = []; for (let k = 0; k < nC; k++) { const th = k < nF ? t * .985 : t * fr; coins.push({ c: k * t + th / 2, th, j1: (Math.random() - .5) * R * .07, j2: (Math.random() - .5) * R * .07, r: Math.random() * 6.28 }); }
+      const len = sv * t, broken = brk && v > brk;
+      const floats = [];
+      if (broken) floatMats.forEach((fm, k) => { const c = new THREE.Mesh(geo, fm); c.scale.set(1, t * .985, 1); if (port) c.quaternion.copy(qPort); c.visible = false; root.add(c); floats.push({ c, at: len + .3 + k * (t + .22) }); });
+      const tip = broken ? len + .3 + 3 * (t + .22) : len;
+      maxLen = Math.max(maxLen, tip);
+      const coin = makeCoin(it, medR, .045), pivot = new THREE.Group(); pivot.add(coin); root.add(pivot);
+      const foot = false, fz = R + medR + .16;   // essai du 11/10 (médaille au pied de la pile) : elle cachait les petites piles, abandonné
+      const home = port ? new THREE.Vector3(-medR - .2, 0, 0) : foot ? new THREE.Vector3(0, medR + .03, fz) : new THREE.Vector3(0, tip + medR + .32, 0);
+      const pk = port ? proxy(tip + medR * 2 + .6, rowH * .9, R * 2.2) : foot ? proxy(gap * .92, tip + .5, R * 2.4 + medR * 2) : proxy(gap * .92, tip + medR * 2 + .7, R * 2.4);
+      if (port) pk.position.set((tip - medR * 2 - .2) / 2, 0, 0); else if (foot) pk.position.set(0, (tip + .5) / 2, medR); else pk.position.set(0, (tip + medR * 2 + .7) / 2, 0);
+      root.add(pk);
+      if (v == null) { const ring = new THREE.Mesh(new THREE.TorusGeometry(R, .012, 8, 64), new THREE.MeshBasicMaterial({ color: 0x8d9098 })); ring.rotation.x = Math.PI / 2; if (port) ring.rotation.set(0, 0, Math.PI / 2); ring.position.set(port ? .02 : 0, port ? 0 : .02, 0); root.add(ring); }
+      const sh = shadow(R * 3.2, R * 3.2); if (!port) { sh.position.set(root.position.x, .004, 0); group.add(sh); }
+      const o = { i, item: it, root, im, mat, coins, floats, nC, pivot, coin, home, f: 0, phase: Math.random() * 6.28, pick: [pk, coin],
+        delay: .25 + (opt.order ? opt.order(i) : i) * .09, port, tip, len };
+      o.c = () => { root.updateMatrixWorld(); return root.localToWorld(new THREE.Vector3(port ? tip / 2 : 0, port ? 0 : tip / 2 + .3, 0)); };
+      o.dc = Math.min(.07, 1.3 / Math.max(1, nC));
+      objs.push(o);
+      const val = opt.valHTML(it, broken);
+      if (!port) {
+        let ly = foot ? tip + .14 : tip + medR * 2 + (opt.big ? .62 : .42);
+        if (opt.med != null && opt.med <= capV && Math.abs(ly - opt.med * t) < .3) ly = Math.max(ly, opt.med * t + .34);   // au-dessus du trait de médiane, jamais dessus
+        addLabel(set, val, { cls: opt.big && !narrow ? 'v big' : 'v', pos: lp(root, 0, ly, 0), ay: 1, dy: -2, pri: 5 + (opt.big ? 2 : 0), obj: i, t0: o.delay + .9 });
+        addLabel(set, opt.nameHTML(it), { cls: 'n', slide: true, pos: foot ? lp(root, 0, 0, fz + medR) : lp(root, 0, 0, R), ay: 0, dy: foot ? 6 : 10 + (opt.big && narrow ? (i % 2) * 17 : 0), pri: 3, obj: i, t0: o.delay + .4 });
+      } else {
+        if (broken) addLabel(set, `<span class="nm">${opt.nameHTML(it)}</span>${val}`, { cls: 'v l1', pos: lp(root, len + .14, 0, 0), ax: 0, ay: .5, pri: 6, obj: i, t0: o.delay + .6 });   // pile coupée : posée sur ses pièces détachées   // pile coupée : au-dessus de ses pièces
+        else addLabel(set, `<span class="nm">${opt.nameHTML(it)}</span>${val}`, { cls: 'v l1', pos: lp(root, Math.max(tip, opt.med != null && opt.med <= capV ? opt.med * t + .06 : 0) + .16, 0, 0), ax: 0, ay: .5, pri: 5, obj: i, t0: o.delay + .6 });
+      }
+    });
+    // la médiane du secteur : un trait lumineux à travers la rangée
+    let med = null;
+    if (opt.med != null && opt.med <= capV) {
+      const span = port ? n * rowH + .3 : (n - 1) * gap + R * 2 + .9, hm = opt.med * t;
+      const mm = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf3e6c8).multiplyScalar(1.5), transparent: true, opacity: 0, depthWrite: false });
+      if (!port) { med = new THREE.Mesh(new THREE.BoxGeometry(span, .016, .016), mm); med.position.set(0, hm, -R - .08); group.add(med); }   /* trait derrière les piles et les médailles */
+      else { med = new THREE.Group(); for (let k = 0; k < n; k++) { const tk = new THREE.Mesh(new THREE.BoxGeometry(.018, R * 1.9, .018), mm); tk.position.set(hm, .55 + k * rowH, 0); med.add(tk); } med.material = mm; group.add(med); }
+      const mtxt = `médiane <b>${opt.medTxt}</b>`;
+      if (!port) addLabel(set, mtxt, { cls: 'z', pos: new THREE.Vector3(span / 2 + .1, hm, 0), ax: 0, ay: .5, dx: 6, pri: 8, t0: 1.6 });
+      else addLabel(set, mtxt, { cls: 'z', pos: new THREE.Vector3(hm, .55 + (n - 1) * rowH + R * 1.2, 0), ax: .5, ay: 1, dy: -2, pri: 8, t0: 1.6 });
+    }
+    const box = port ? new THREE.Box3(new THREE.Vector3(-medR * 2 - .45, .1, -R), new THREE.Vector3(maxLen + 3.7, .55 + (n - 1) * rowH + R + (med ? .6 : .3), R))
+      : new THREE.Box3(new THREE.Vector3(-(n - 1) / 2 * gap - R - (opt.big ? (narrow ? .3 : .55) : .2), opt.big && narrow ? -.8 : -.35, -R), new THREE.Vector3((n - 1) / 2 * gap + R + (med ? 1.6 : opt.big ? (narrow ? .3 : .55) : .2), maxLen + medR * 2 + (opt.big ? 1.15 : .95), R));
     return {
-      group, objs, view: { pos: new THREE.Vector3(.4, 19.85, 25.6), tgt: new THREE.Vector3(.4, 2.35, .9), fov: 19.5, glow: new THREE.Color(0x1d1830), pool: new THREE.Color(0x0d0b14), poolZ: -1, off: -.12, lift: 2.6, refl: .3,
-        tel: { pos: new THREE.Vector3(.65, 40.6, 46.4), tgt: new THREE.Vector3(.65, 3.0, -1.8), fov: 18.5 } },
-      focus: (o) => ({ tgt: new THREE.Vector3(o.x * .8 + .08, 2.2, o.z * .35 - 1), dist: 27 }),   // recentre sans perdre les rangées du fond
-      update(ti, t, dt, anyFocus) {
-        rows.forEach((r) => { const e = clamp01((ti - 1.1 - r.k * .24) / .8);
-          if (r.sheet) r.sheet.material.opacity = .75 * e * (anyFocus ? .4 : 1);
-          if (r.ml) r.ml.material.opacity = r.ml.userData.op * e; r.lab.material.opacity = (r.lab.userData.op || .55) * clamp01((ti - .2 - r.k * .24) / .6); });
+      group, objs, labels: set, noTag: true, port,
+      fit: { box, dir: port ? new THREE.Vector3(.32, .2, 1) : new THREE.Vector3(0, .3, 1), fov: 28 },
+      view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x2a2214), pool: new THREE.Color(0x15110a), poolZ: 0, off: 0, refl: .42 },
+      focus: (o, F) => focusOn(o, F, port ? .8 : 1.06),   // fiche ouverte : toute la planche reste visible, décalée à gauche
+      update(ti, t2, dt, anyFocus) {
+        if (med) med.material.opacity = .85 * clamp01((ti - 1.4) / .6) * (anyFocus ? .35 : 1);
         objs.forEach((o) => {
           const on = o.i === state.sel || o.i === state.hover;
           o.f += ((on ? 1 : 0) - o.f) * damp(dt, 6);
-          const e = ease.out(clamp01((ti - o.delay) / 1.1)), hh = Math.max(.001, o.h * e);
-          o.tube.scale.y = hh; o.dome.position.y = hh; o.dome.visible = e > .02;
-          o.core.scale.y = Math.max(.001, (o.h - .05) * ease.inOut(clamp01((ti - o.delay - .35) / 1.2)));
-          const dim = anyFocus && !on ? .25 : 1;
-          o.coreMat.emissiveIntensity += ((o.capt ? .6 : .22) * dim + o.f * .35 - o.coreMat.emissiveIntensity) * damp(dt, 6);
-          if (o.ring) o.ring.material.opacity = clamp01((ti - o.delay - 1.3) / .6) * (anyFocus && !on ? .15 : .6);
-          floatMedal(o, ti, t, anyFocus, on, o.h + .3, o.delay + .85);
+          if (!o.done) {
+            let all = true, cnt = 0;
+            o.coins.forEach((c, k) => {
+              const s = clamp01((ti - o.delay - k * o.dc) / .42); if (s <= 0) { all = false; return; }
+              if (s < 1) all = false;
+              const e = ease.out(s), drop = (1 - e) * (o.port ? .9 : 1.1);
+              tq.setFromAxisAngle(tP.set(0, 1, 0), c.r);
+              if (o.port) { tq.premultiply(qPort); tP.set(c.c + drop, c.j1, c.j2); } else tP.set(c.j1, c.c + drop, c.j2);
+              tmpM.compose(tP, tq, tS.set(1, c.th, 1)); o.im.setMatrixAt(k, tmpM); cnt = k + 1;
+            });
+            o.im.count = cnt; o.im.instanceMatrix.needsUpdate = true;
+            if (all && o.coins.length === cnt) o.done = true;
+          }
+          const tF = o.delay + o.nC * o.dc + .3;
+          o.floats.forEach((q, k) => { const s = clamp01((ti - tF - k * .12) / .5); q.c.visible = s > 0; const drift = REDUCED ? 0 : Math.sin(t2 * .8 + k + o.phase) * .03;
+            if (o.port) q.c.position.set(q.at + (1 - ease.out(s)) * .5 + drift, 0, 0); else q.c.position.set(0, q.at + (1 - ease.out(s)) * .5 + drift, 0); });
+          const dim = anyFocus && !on ? .3 : 1;
+          o.mat.envMapIntensity += (dim - o.mat.envMapIntensity) * damp(dt, 6);
+          o.mat.color.setHex(0xdcc08a).multiplyScalar(.35 + .65 * o.mat.envMapIntensity);
+          medalTick(o, ti, t2, anyFocus, on, o.delay + o.nC * o.dc * .6 + .25, o.home);
         });
       },
     };
   }
 
-  /* ================= planche : attention et valeur (constellation) ================= */
-  const diskShader = {
-    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }',
-    fragmentShader: `uniform float uT, uA; uniform vec3 uCol; varying vec2 vUv;
-      void main(){ vec2 p = vUv - .5; float r = length(p) * 2., a = atan(p.y, p.x);
-        float band = smoothstep(.55, .62, r) * smoothstep(1., .7, r);
-        float swirl = .55 + .45 * sin(a * 3. - uT * 1.4 + r * 9.);
-        gl_FragColor = vec4(uCol * band * swirl * 1.6, band * uA); }` };
-
-  function buildAttention(items, meta) {
-    const group = new THREE.Group(), objs = new Array(items.length), decor = [];
-    const secs = [...new Set(meta.stars.map((s) => s.sec))];
-    const fmax = Math.max(...meta.stars.map((s) => s.fees_ann || 0)) || 1;
-    const starGeo = new THREE.SphereGeometry(1, 32, 16);
-    const halo = new THREE.SpriteMaterial({ map: radialTexture(), color: new THREE.Color(0xa68cff), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
-    const PORT = innerWidth < innerHeight, DX = 1.65, EYE = PORT ? new THREE.Vector3(DX, 7.1, .6) : new THREE.Vector3(DX, 4.9, 1.8);
-    const eye = new THREE.Mesh(new THREE.SphereGeometry(.13, 32, 16), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xa68cff).multiplyScalar(2.2) }));
-    eye.position.copy(EYE); group.add(eye);
-    const eyeHalo = new THREE.Sprite(halo.clone()); eyeHalo.scale.setScalar(1.1); eyeHalo.position.copy(EYE); group.add(eyeHalo);
-    const eyeLab = textPlane('l’agent Hermes', { size: PORT ? .28 : .2, color: '#cbbcff' }); eyeLab.position.copy(EYE).add(new THREE.Vector3(0, .38, 0)); group.add(eyeLab);
-    const pos = {};
-    secs.forEach((s, k) => {
-      const list = meta.stars.filter((x) => x.sec === s), n = list.length;
-      const nS = secs.length, nA = Math.ceil(nS / 2), mid = (nS - 1) / 2;
-      const c = !PORT ? new THREE.Vector3(DX + (k - mid) * 1.95, 2.25, -1.6 - Math.abs(k - mid) * .5)
-        : k < nA ? new THREE.Vector3(DX + (k - (nA - 1) / 2) * 2.1, 4.9, -2) : new THREE.Vector3(DX + (k - nA - (nS - nA - 1) / 2) * 2.1, 2.55, -1);
-      const lab = textPlane(meta.SECL[s] || s, { size: PORT ? .32 : .24, color: '#d8d2c6' }); lab.position.set(c.x, c.y - 1.32, c.z + .3); group.add(lab); decor.push({ lab, k });
-      list.forEach((st, j) => {
-        const y = 1 - 2 * (j + .5) / n, rr = Math.sqrt(1 - y * y), th = j * 2.39996;
-        const p = c.clone().add(new THREE.Vector3(Math.cos(th) * rr, y, Math.sin(th) * rr).multiplyScalar(.95));
-        pos[st.name] = { p, r: .07 + .22 * Math.sqrt((st.fees_ann || 0) / fmax), st, k };
-      });
-    });
-    const starMat = (b) => new THREE.MeshStandardMaterial({ color: 0xf3eee4, emissive: 0xfff4e2, emissiveIntensity: b, roughness: .4 });
-    // étoiles non sélectionnables (valorisées, ni nommées ni instables)
-    const itemNames = new Set(items.map((it) => it.name));
-    Object.values(pos).forEach((q) => {
-      if (itemNames.has(q.st.name)) return;
-      const m = new THREE.Mesh(starGeo, starMat(.28)); m.position.copy(q.p); m.scale.setScalar(.001); group.add(m);
-      decor.push({ m, r: q.r, k: q.k, base: q.p.y, ph: Math.random() * 6.28 });
-    });
-    const tr = items.filter((it) => it.kindA === 'trou');
+  /* ================= planche : où vont les frais (bocaux de 100 $, trois couches) ================= */
+  function buildPartage(items, meta) {
+    const group = new THREE.Group(), objs = [], set = labelSet(), port = !LAND();
+    const H = port ? 3.6 : 3.0, rOf = () => port ? .2 : .3;
+    const glossy = (c) => new THREE.ShaderMaterial({ ...liquidShader, uniforms: { uT: { value: 0 }, uLevel: { value: 1 }, uWob: { value: 0 }, uGlow: { value: 1 }, uRad: { value: 1 },
+      uDeep: { value: new THREE.Color(c).multiplyScalar(.5) }, uBright: { value: new THREE.Color(c) }, uMid: { value: new THREE.Color(0) }, uUseMid: { value: 0 }, uDeep2: { value: new THREE.Color(0) }, uBright2: { value: new THREE.Color(0) }, uSplit: { value: 0 } } });
+    const MATS = { hold: () => glossy(0xf0c96e), kept: () => glossy(0xb9a6ee), supp: () => glossy(0x3f8f7d) };   // service plus sombre : l'or des détenteurs porte le message
+    const cyl = new THREE.CylinderGeometry(1, 1, 1, 56); cyl.translate(0, .5, 0);
+    const shellGeo = new THREE.CylinderGeometry(1, 1, 1, 56, 1, true); shellGeo.translate(0, .5, 0);
+    const n = items.length, rs = items.map(rOf), sp = port ? .32 : .36;
+    let x = 0; const xs = rs.map((r, k) => { const c = x + r; x += r * 2 + sp; return c; }); const tot = x - sp;
+    const rowH = .74;
     items.forEach((it, i) => {
-      const q = pos[it.name];
-      let p, r, mesh, extra = {};
-      if (it.kindA === 'trou' || !q) {
-        const j = tr.indexOf(it), nT = tr.length;
-        p = new THREE.Vector3(DX + (j - (nT - 1) / 2) * 1.35, PORT ? .55 : .8, 2.3); r = .19;
-        mesh = new THREE.Mesh(starGeo, new THREE.MeshBasicMaterial({ color: 0x000000 })); mesh.position.copy(p); group.add(mesh);
-        const disk = new THREE.Mesh(new THREE.PlaneGeometry(1.05, 1.05), new THREE.ShaderMaterial({ ...diskShader, uniforms: { uT: { value: 0 }, uA: { value: 0 }, uCol: { value: new THREE.Color(0xa68cff) } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide }));
-        disk.position.copy(p); disk.rotation.x = -Math.PI / 2 + .35; group.add(disk);
-        extra = { disk };
+      const r = rs[i], root = new THREE.Group();
+      if (!port) root.position.set(xs[i] - tot / 2, 0, 0); else { root.position.set(0, .5 + (n - 1 - i) * rowH, 0); root.rotation.z = -Math.PI / 2; }
+      group.add(root);
+      const shell = new THREE.Mesh(shellGeo, glassLite(0xffffff, .2)); shell.scale.set(r + .03, H + .1, r + .03); root.add(shell);
+      const base = new THREE.Mesh(cyl, glassLite(0xffffff, .3)); base.scale.set(r + .03, .03, r + .03); root.add(base);
+      const segs = []; let y = .035;
+      [['hold', it.hold], ['kept', it.kept], ['supp', it.supp]].forEach(([k, f]) => {
+        const h = Math.max(0, f * H - (f > .004 ? .018 : 0));
+        const m = new THREE.Mesh(cyl, MATS[k]()); m.position.y = y; m.scale.set(r - .015, .001, r - .015); m.visible = h > .002; root.add(m);
+        segs.push({ m, h, y0: y, k }); y += f * H;
+      });
+      const coin = makeCoin(it, port ? .2 : .25, .042), pivot = new THREE.Group(); pivot.add(coin);
+      // la médaille reste droite face à la caméra, même quand le bocal est couché (téléphone)
+      const mHome = port ? new THREE.Vector3(-.42, .5 + (n - 1 - i) * rowH, 0) : new THREE.Vector3(root.position.x, H + .62, 0);
+      group.add(pivot);
+      const pk = proxy(r * 2.4, H + 1.2, r * 2.4); pk.position.y = (H + 1.2) / 2 - .1; root.add(pk);
+      if (!port) { const sh = shadow(r * 3.4, r * 3.4); sh.position.set(root.position.x, .004, 0); group.add(sh); }
+      const o = { i, item: it, root, segs, pivot, coin, home: mHome, f: 0, phase: Math.random() * 6.28, pick: [pk, coin], delay: .25 + i * .1, shell };
+      o.c = () => port ? new THREE.Vector3(H / 2, mHome.y, 0) : new THREE.Vector3(root.position.x, H / 2, 0);
+      objs.push(o);
+      const gTop = .035 + it.hold * H;
+      if (!port) {
+        addLabel(set, `<b>${d100txt(it.hold)}</b>`, { cls: 'v gold', pos: new THREE.Vector3(root.position.x, gTop, r + .04), ay: it.hold > .12 ? 0 : 1, dy: it.hold > .12 ? 3 : -3, pri: 6, obj: i, t0: o.delay + 1.6 });   // à hauteur de la part des détenteurs
+        addLabel(set, `${esc(it.name)}<small>${usd(it.fees7)} / an</small>`, { cls: 'n', slide: true, pos: new THREE.Vector3(root.position.x, 0, r), ay: 0, dy: 10, pri: 3, obj: i, t0: o.delay + .4 });
       } else {
-        p = q.p; r = q.r;
-        mesh = new THREE.Mesh(starGeo, starMat(it.kindA === 'nomme' ? 1.6 : it.kindA === 'disp' ? .55 : .3)); mesh.position.copy(p); group.add(mesh);
-        if (it.kindA === 'nomme') {
-          const h = new THREE.Sprite(halo.clone()); h.scale.setScalar(r * 7); h.position.copy(p); group.add(h);
-          const len = EYE.distanceTo(p), beam = new THREE.Mesh(new THREE.CylinderGeometry(.012, .03, len, 12, 1, true), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xa68cff).multiplyScalar(1.6), transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false }));
-          beam.position.copy(EYE).lerp(p, .5); beam.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), p.clone().sub(EYE).normalize()); group.add(beam);
-          extra = { halo: h, beam };
-        } else if (it.kindA === 'disp') {
-          const lift = .25 + Math.log2(Math.max(1.1, it.dispersion || 1)) * .28;
-          const ghost = new THREE.Mesh(starGeo, new THREE.MeshBasicMaterial({ color: 0xd9e2ff, transparent: true, opacity: 0, wireframe: true }));
-          ghost.position.copy(p).add(new THREE.Vector3(0, lift, 0)); group.add(ghost);
-          const link = new THREE.Mesh(new THREE.CylinderGeometry(.005, .005, lift, 6, 1, true), new THREE.MeshBasicMaterial({ color: 0xd9e2ff, transparent: true, opacity: 0 }));
-          link.position.copy(p).add(new THREE.Vector3(0, lift / 2, 0)); group.add(link);
-          extra = { ghost, link, lift };
-        }
+        addLabel(set, `<span class="nm">${esc(it.name)}</span><b>${d100txt(it.hold)}</b>`, { cls: 'v l1', pos: new THREE.Vector3(H + .2, mHome.y, 0), ax: 0, ay: .5, pri: 6, obj: i, t0: o.delay + 1.2 });
       }
-      let pivot = null, coin = null;
-      if (it.kindA === 'nomme' || it.kindA === 'trou') { coin = makeCoin(it, .2, .04); pivot = new THREE.Group(); pivot.add(coin); pivot.position.copy(p).add(new THREE.Vector3(0, r + .42, 0)); group.add(pivot); }
-      objs[i] = Object.assign({ i, item: it, mesh, r, x: p.x, z: p.z, y0: p.y, tagY: p.y - r - (it.kindA === 'trou' ? .45 : .12), pivot, coin, f: 0, phase: Math.random() * 6.28, pick: coin ? [mesh, coin] : [mesh],
-        delay: it.kindA === 'nomme' ? 1.6 : it.kindA === 'trou' ? 1.2 : .45 + (q ? q.k * .15 : 0) }, extra);
     });
+    const box = port ? new THREE.Box3(new THREE.Vector3(-.75, .15, -.3), new THREE.Vector3(H + 2.9, .5 + (n - 1) * rowH + .4, .3))
+      : new THREE.Box3(new THREE.Vector3(-tot / 2 - .1, -.35, -.5), new THREE.Vector3(tot / 2 + .1, H + 1.35, .5));
     return {
-      group, objs, view: { pos: new THREE.Vector3(0, 5.3, 14.8), tgt: new THREE.Vector3(0, 2, -.8), glow: new THREE.Color(0x191433), pool: new THREE.Color(0x0c0a15), poolZ: 0, off: -.09, lift: 2.2, refl: .1,
-        tel: { pos: new THREE.Vector3(DX, 10.15, 29.2), tgt: new THREE.Vector3(DX, 4.9, -.5) } },
-      focus: (o) => ({ tgt: new THREE.Vector3(o.x, o.y0 + (o.item.kindA === 'trou' ? .3 : 1), o.z), dist: 13 }),   // les trous noirs de devant sortent du cadre
-      update(ti, t, dt, anyFocus) {
-        eye.scale.setScalar(clamp01(ti / .8) * (1 + (REDUCED ? 0 : .12 * Math.sin(t * 2.2))));
-        eyeHalo.material.opacity = clamp01(ti / 1.2) * .9; eyeLab.material.opacity = clamp01((ti - .6) / .8) * .9;
-        decor.forEach((d) => {
-          if (d.lab) { d.lab.material.opacity = d.lab.userData.op * clamp01((ti - .3 - d.k * .15) / .7); return; }
-          const e = ease.back(clamp01((ti - .4 - d.k * .15) / .9));
-          d.m.scale.setScalar(Math.max(.001, d.r * e)); d.m.position.y = d.base + (REDUCED ? 0 : Math.sin(t * .6 + d.ph) * .03);
-          d.m.material.emissiveIntensity = anyFocus ? .12 : .28;
-        });
+      group, objs, labels: set, noTag: true, port,
+      fit: { box, dir: port ? new THREE.Vector3(0, .14, 1) : new THREE.Vector3(0, .5, 1), fov: port ? 28 : 20 },
+      view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x231c10), pool: new THREE.Color(0x120f08), poolZ: 0, off: 0, refl: .4 },
+      focus: (o, F) => focusOn(o, F, port ? .85 : 1.06),
+      update(ti, t2, dt, anyFocus) {
         objs.forEach((o) => {
           const on = o.i === state.sel || o.i === state.hover;
           o.f += ((on ? 1 : 0) - o.f) * damp(dt, 6);
-          const e = ease.back(clamp01((ti - o.delay) / .9)), dim = anyFocus && !on ? .3 : 1;
-          o.mesh.scale.setScalar(Math.max(.001, o.r * e * (1 + o.f * .25)));
-          o.mesh.position.y = o.y0 + (REDUCED ? 0 : Math.sin(t * .6 + o.phase) * .03);
-          if (o.mesh.material.emissiveIntensity != null) o.mesh.material.emissiveIntensity = (o.item.kindA === 'nomme' ? 1.6 : o.item.kindA === 'disp' ? .6 : .3) * dim + o.f * .9;
-          if (o.halo) o.halo.material.opacity = e * dim * (.75 + (REDUCED ? 0 : .25 * Math.sin(t * 2 + o.phase)));
-          if (o.beam) o.beam.material.opacity = clamp01((ti - o.delay - .4) / .8) * .55 * dim * (.8 + (REDUCED ? 0 : .2 * Math.sin(t * 3)));
-          if (o.disk) { o.disk.material.uniforms.uT.value = t; o.disk.material.uniforms.uA.value = e * dim; o.disk.rotation.z = REDUCED ? 0 : t * .25; }
-          if (o.ghost) { const g = clamp01((ti - o.delay - .7) / .8); o.ghost.scale.setScalar(Math.max(.001, o.r * g)); o.ghost.material.opacity = .45 * g * dim; o.link.material.opacity = .4 * g * dim;
-            o.ghost.position.y = o.y0 + o.lift + (REDUCED ? 0 : Math.sin(t * 1.1 + o.phase) * .05); }
-          if (o.pivot) floatMedal(o, ti, t, anyFocus, on, o.y0 + o.r + .42, o.delay + .3);
+          const e = ease.out(clamp01((ti - o.delay) / .7));
+          o.root.scale.setScalar(Math.max(.001, e));
+          o.segs.forEach((s, k) => { const fill = ease.inOut(clamp01((ti - o.delay - .45 - k * .38) / .6)); s.m.scale.y = Math.max(.001, s.h * fill);
+            const U = s.m.material.uniforms, dim = anyFocus && !on ? .3 : 1, base = s.k === 'hold' ? 1.35 : 1;   // l'or des détenteurs ressort
+            U.uGlow.value += (base * dim + o.f * .2 - U.uGlow.value) * damp(dt, 6); });
+          medalTick(o, ti, t2, anyFocus, on, o.delay + 1.5, o.home);
+        });
+      },
+    };
+  }
+  const d100txt = (f) => (f * 100 >= 1 ? nf(f * 100, 0) : f * 100 >= .1 ? nf(f * 100, 1) : f > 0 ? nf(f * 100, 2) : '0') + ' $';
+
+  /* ================= planche : le regard de l'agent (un projecteur, des médailles agitées, du verre) ================= */
+  const coneShader = {
+    vertexShader: 'varying vec2 vUv; varying vec3 vN; varying vec3 vV; void main(){ vUv = uv; vN = normalize(normalMatrix * normal); vec4 mv = modelViewMatrix * vec4(position, 1.); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }',
+    fragmentShader: `uniform float uA; uniform vec3 uCol; varying vec2 vUv; varying vec3 vN; varying vec3 vV;
+      void main(){ float edge = pow(abs(dot(normalize(vN), normalize(vV))), 1.6); float h = smoothstep(0., .25, vUv.y) * (.35 + .65 * vUv.y);
+        gl_FragColor = vec4(uCol * edge * h * uA, 1.); }` };
+  function buildAttention(items, meta) {
+    const group = new THREE.Group(), objs = [], set = labelSet(), port = !LAND();
+    const by = { nomme: [], agite: [], trou: [] }; items.forEach((it, i) => by[it.zone] && by[it.zone].push(i));
+    const ZT = { nomme: ['Cités', 'cette semaine'], agite: ['Chiffre instable,', 'non cités'], trou: ['Suivis, jamais', 'valorisés'] };
+    const padMat = new THREE.MeshPhysicalMaterial({ color: 0x2a2620, metalness: .6, roughness: .35, clearcoat: .6 });
+    const rimMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf3e3bd).multiplyScalar(1.4) });
+    const ghostRing = new THREE.MeshBasicMaterial({ color: 0xc8c3b9, transparent: true, opacity: .32, depthWrite: false });
+    const R = port ? .17 : .36;
+    const padGeo = new THREE.CylinderGeometry(R * (port ? .6 : .85), R * (port ? .7 : .98), 1, 40); padGeo.translate(0, .5, 0);
+    // place de chaque objet : ordinateur = une rangée par groupe ; téléphone = une liste à deux colonnes par groupe
+    const SX = 1.52, PZ = .44, HZ = .72, CX = [-2.0, .32], ZD = { nomme: -3.3, agite: -.6, calm: 1.55, trou: 3.6 }, BZ = 3.3;
+    const slot = {}; let zCur = 0; const zHead = {};
+    Object.entries(by).forEach(([zk, idx]) => {
+      if (port) { zHead[zk] = zCur; zCur += HZ; const rows = Math.ceil(idx.length / 2);
+        idx.forEach((i, k) => { slot[i] = { x: CX[k % 2], z: zCur + Math.floor(k / 2) * PZ }; }); zCur += rows * PZ + .12;
+        if (zk === 'agite' && meta.calm) { zHead.calm = zCur; zCur += HZ * .8 + Math.ceil(meta.calm / 14) * .2 + .15; } }   // la bande « dans l'ombre » après les instables
+      else { const z = ZD[zk], n = idx.length; zHead[zk] = z;
+        idx.forEach((i, k) => { slot[i] = { x: (k - (n - 1) / 2) * SX, z }; }); }
+    });
+    if (!port) zHead.calm = ZD.calm;
+    const nMax = Math.max(...Object.values(by).map((a) => a.length)), xL = -(nMax - 1) / 2 * SX - R;
+    Object.entries(by).forEach(([zk, idx]) => {
+      idx.forEach((i, k) => {
+        const it = items[i], { x, z } = slot[i];
+        const root = new THREE.Group(); root.position.set(x, 0, z); group.add(root);
+        let y0 = R + .26, amp = 0, fq = 0;
+        const coin = makeCoin(it, R, port ? .03 : .05), pivot = new THREE.Group(); pivot.add(coin); root.add(pivot);
+        if (zk === 'nomme') {
+          const ph = port ? .12 : .42; const pad = new THREE.Mesh(padGeo, padMat); pad.scale.y = ph; root.add(pad);
+          const rim = new THREE.Mesh(new THREE.TorusGeometry(R * .85, port ? .008 : .012, 8, 64), rimMat); rim.rotation.x = Math.PI / 2; rim.position.y = ph; root.add(rim);
+          y0 = ph + R + (port ? .04 : .1);
+        } else if (zk === 'agite') {
+          const lg = Math.log2(Math.max(1.01, it.dispersion || 1)); amp = (port ? .02 : .05) + (port ? .03 : .085) * lg; fq = 1.1 + .35 * lg; y0 = R + (port ? .1 : .32);
+        } else {
+          coin.userData.mats.metal.transparent = true; coin.userData.mats.metal.opacity = .28; coin.userData.mats.face.transparent = true; coin.userData.mats.face.opacity = .42;
+          const ring = new THREE.Mesh(new THREE.RingGeometry(R * .9, R * .98, 64), ghostRing); ring.rotation.x = -Math.PI / 2; ring.position.y = .01; root.add(ring);
+          y0 = R + (port ? .06 : .26);
+        }
+        const pk = port ? proxy(1.9, y0 + R + .2, PZ * .95) : proxy(SX * .9, y0 + R + .5, R * 2.6);
+        if (port) pk.position.set(.8, (y0 + R + .2) / 2, 0); else pk.position.y = (y0 + R + .5) / 2;
+        root.add(pk);
+        if (zk !== 'trou') { const sh = shadow(R * 3, R * 3); sh.position.set(x, .004, z); group.add(sh); }
+        const o = { i, item: it, root, pivot, coin, zk, y0, cy: y0, amp, fq, f: 0, phase: Math.random() * 6.28, pick: [pk, coin], delay: .35 + (zk === 'nomme' ? 0 : zk === 'agite' ? .45 : .85) + k * .06 };
+        o.c = () => new THREE.Vector3(x, y0, z);
+        objs.push(o);
+        const xs = zk === 'agite' ? `<small class="x">×${NB}${nf(it.dispersion, 1)}${it.pf7 == null ? '*' : ''}</small>` : '';
+        if (!port) {
+          const bot = () => { root.updateMatrixWorld(); return root.localToWorld(wpos.set(0, zk === 'nomme' ? 0 : o.y0 - R - .05, 0)); };
+          addLabel(set, esc(it.name.replace(/ (Finance|Protocol)$/, '')) + xs, { cls: zk === 'nomme' ? 'n hi w pill' : 'n w pill', pos: bot, ay: 0, dy: zk === 'nomme' ? 8 : zk === 'trou' ? 16 : 11, pri: zk === 'nomme' ? 6 : 3, obj: i, t0: o.delay + .7 });
+        } else {   // téléphone : le nom à droite de sa médaille, sur sa ligne
+          const side = () => { root.updateMatrixWorld(); return root.localToWorld(wpos.set(R + .07, o.y0, 0)); };
+          addLabel(set, `<span>${esc(it.name)}</span>` + (zk === 'agite' ? `<i>×${NB}${nf(it.dispersion, 1)}${it.pf7 == null ? '*' : ''}</i>` : ''), { cls: zk === 'nomme' ? 'n hi li' : 'n li', pos: side, ax: 0, ay: .5, pri: zk === 'nomme' ? 6 : 4, obj: i, t0: o.delay + .5 });
+        }
+      });
+      const nMod = zk === 'trou' ? idx.filter((i) => items[i].etat === 'module oublié').length : 0;
+      const n = idx.length, zl = `${ZT[zk][0]}<br>${ZT[zk][1]} · <b>${n}</b>${nMod ? ` <span class="sub">dont ${nMod} module${nMod > 1 ? 's' : ''} oublié${nMod > 1 ? 's' : ''}</span>` : ''}`;
+      if (port) addLabel(set, zl.replace('<br>', ' '), { cls: 'z', pos: new THREE.Vector3(CX[0] - R, .05, zHead[zk] + .1), ax: 0, ay: .5, pri: 9, t0: .3 });
+      else addLabel(set, zl, { cls: 'z r', pos: new THREE.Vector3(xL - .35, .5, zHead[zk]), ax: 1, ay: .5, pri: 9, t0: .3 });
+    });
+    // un projecteur sur les protocoles cités ; les autres valorisés restent dans l'ombre, à l'écart
+    const nN = by.nomme.length, rowsN = Math.ceil(nN / 2);
+    const coneH = port ? 2.4 : 5.6, cr = 1.6, czN = port ? zHead.nomme + HZ + (rowsN - 1) * PZ / 2 : ZD.nomme, cxN = port ? (CX[0] + CX[1]) / 2 + .55 : 0;
+    const cone = new THREE.Mesh(new THREE.ConeGeometry(cr, coneH, 64, 1, true), new THREE.ShaderMaterial({ ...coneShader, transparent: true, depthWrite: false, side: THREE.DoubleSide, blending: THREE.AdditiveBlending,
+      uniforms: { uA: { value: 0 }, uCol: { value: new THREE.Color(0xfff1d6).multiplyScalar(.13) } } }));
+    if (port) cone.scale.set(1.65, 1, Math.max(.4, (rowsN * PZ + .25) / 2 / cr)); else cone.scale.set(Math.max(1, ((nN - 1) * SX / 2 + R + .5) / cr), 1, 1);
+    cone.position.set(cxN, coneH / 2, czN); group.add(cone); floor.hide.push(cone);
+    const lamp = new THREE.Mesh(new THREE.SphereGeometry(port ? .05 : .08, 16, 12), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xfff1d6).multiplyScalar(3) })); lamp.position.set(cxN, coneH, czN); group.add(lamp);
+    const nCalm = meta.calm, discs = [];
+    if (nCalm) {   // les autres valorisés, ni cités ni instables : une bande de disques sombres, loin du faisceau
+      const dg = new THREE.CylinderGeometry(1, 1, 1, 32); dg.translate(0, .5, 0);
+      const dm = new THREE.MeshPhysicalMaterial({ color: 0x777c88, metalness: .85, roughness: .35, clearcoat: .4 });
+      const per = port ? 14 : 23, dR = port ? .065 : .13, step = port ? (CX[1] - CX[0] + 2.0) / (per - 1) : (nMax - 1) * SX / (per - 1);
+      const inst = new THREE.InstancedMesh(dg, dm, nCalm), pv = new THREE.Vector3();
+      for (let k = 0; k < nCalm; k++) { const c = k % per, r = Math.floor(k / per);
+        discs.push({ x: port ? CX[0] + c * step : -(nMax - 1) / 2 * SX + c * step, z: port ? zHead.calm + HZ * .8 + r * .2 : ZD.calm, d: .9 + k * .03 }); }
+      inst.userData.dR = dR; inst.frustumCulled = false; group.add(inst); discs.inst = inst;
+      if (port) addLabel(set, `Ni cités ni instables · <b>${nCalm}</b>`, { cls: 'z', pos: new THREE.Vector3(CX[0] - R, .05, zHead.calm + .1), ax: 0, ay: .5, pri: 9, t0: .3 });
+      else addLabel(set, `Ni cités<br>ni instables · <b>${nCalm}</b>`, { cls: 'z r', pos: new THREE.Vector3(xL - .35, .3, ZD.calm), ax: 1, ay: .5, pri: 9, t0: .3 });
+    }
+    // une flaque de lumière chaude sous le projecteur
+    const spot = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: radialTexture(), color: new THREE.Color(0xffe2b0).multiplyScalar(.22), transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false }));
+    spot.rotation.x = -Math.PI / 2; spot.position.set(cxN, .008, czN); spot.scale.set(port ? 4.6 : (nN - 1) * SX + 2.6, port ? rowsN * PZ + .9 : 2.6, 1); group.add(spot); floor.hide.push(spot);
+    const box = port ? new THREE.Box3(new THREE.Vector3(CX[0] - R - .15, -.1, -.15), new THREE.Vector3(2.45, .6, zCur))
+      : new THREE.Box3(new THREE.Vector3(xL - 2.3, -.2, ZD.nomme - 1.0), new THREE.Vector3(-xL + .2, 1.7, ZD.trou + .9));
+    objs.sort((a, b) => a.i - b.i);
+    const dM = new THREE.Matrix4(), dQ = new THREE.Quaternion(), dS = new THREE.Vector3(), dP = new THREE.Vector3();
+    return {
+      group, objs, labels: set, noTag: true, port,
+      fit: { box, dir: port ? new THREE.Vector3(0, 1.6, 1) : new THREE.Vector3(0, .82, 1), fov: 28 },
+      view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x1d1830), pool: new THREE.Color(0x2c2516), poolZ: czN, off: 0, refl: .3 },
+      focus: (o, F) => focusOn(o, F, port ? .92 : .86),
+      update(ti, t2, dt, anyFocus) {
+        cone.material.uniforms.uA.value = clamp01((ti - .2) / 1.2) * (anyFocus ? .55 : 1);
+        spot.material.opacity = clamp01((ti - .3) / 1.2) * (anyFocus ? .5 : 1);
+        if (discs.inst) { const dR = discs.inst.userData.dR;
+          discs.forEach((d, k) => { const e = ease.out(clamp01((ti - d.d) / .5)); dM.compose(dP.set(d.x, 0, d.z), dQ, dS.set(dR, Math.max(.001, e * dR * .35), dR)); discs.inst.setMatrixAt(k, dM); });
+          discs.inst.instanceMatrix.needsUpdate = true; }
+        objs.forEach((o) => {
+          const on = o.i === state.sel || o.i === state.hover;
+          o.f += ((on ? 1 : 0) - o.f) * damp(dt, 6);
+          o.cy = o.y0 + (o.amp && !REDUCED ? Math.sin(t2 * o.fq + o.phase) * o.amp : 0);
+          medalTick(o, ti, t2, anyFocus, on, o.delay, wpos.set(0, o.cy, 0).clone());
         });
       },
     };
   }
 
   /* ================= planche : la cohorte de Robinhood Chain ================= */
-  function buildCohorte(items) {
-    const group = new THREE.Group(), objs = [];
-    const stone = () => new THREE.MeshPhysicalMaterial({ color: 0x3a3d45, metalness: .15, roughness: .34, clearcoat: .8, clearcoatRoughness: .14, envMapIntensity: 1.25 });
-    const plGeo = new RoundedBoxGeometry(.64, 1, .64, 4, .05); plGeo.translate(0, .5, 0);
-    const dotGeo = new RoundedBoxGeometry(.1, .1, .04, 2, .015);
-    const ON = new THREE.MeshStandardMaterial({ color: 0xfff3dc, emissive: 0xffe2b0, emissiveIntensity: 2.3 }), OFF = new THREE.MeshStandardMaterial({ color: 0x14151a, emissive: 0x000000, roughness: .3 });
-    const hOf = (tvl) => .28 + Math.log10(Math.max(1, tvl || 1)) * .2;
-    const mem = items.filter((x) => x.role === 'membre'), anti = items.filter((x) => x.role === 'antichambre');
-    const PORT = innerWidth < innerHeight, XC = PORT ? 1.55 : 1.2;
-    const nF = Math.ceil(mem.length / 2), xF = bellX(nF, 1), xB = bellX(mem.length - nF, 1);
-    const xs = bellX(mem.length, .9).map((v) => v + XC), slots = bellSlots(mem.length), maxSlot = Math.max(...slots.map(Math.abs));
-    items.forEach((it, i) => {
-      let x, z, h, w = 1, mat = stone(), delay;
-      if (it.role === 'membre') { const k = mem.indexOf(it);
-        if (PORT) { x = XC + (k < nF ? xF[k] : xB[k - nF] + .5); z = k < nF ? 1 : -.85; } else { x = xs[k]; z = -Math.pow(Math.abs((x - XC) / .9), 1.7) * .14; } h = hOf(it.tvl); delay = .25 + (maxSlot - Math.abs(slots[k])) * .18; }
-      else if (it.role === 'antichambre') { const k = anti.indexOf(it); if (PORT) { x = XC - 2.1 + k * .8; z = -2.6; } else { x = 6.4 + k * .8; z = -2 - k * .35; } h = hOf(it.tvl); w = .78; delay = 1.5 + k * .15;
-        mat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0, roughness: .08, transmission: 1, thickness: .5, ior: 1.3, clearcoat: 1, envMapIntensity: 1.2, attenuationColor: new THREE.Color(0xd8dcef), attenuationDistance: 1.2 }); }
-      else { x = PORT ? XC + 1.5 : XC; z = PORT ? -3.3 : -4.3; h = 2.8; w = 1.4; delay = .1;
-        mat = new THREE.MeshPhysicalMaterial({ color: 0x08090b, metalness: .3, roughness: .12, clearcoat: 1, clearcoatRoughness: .05, envMapIntensity: 1.6 }); }
-      const grp = new THREE.Group(); grp.position.set(x, 0, z);
-      const plinth = new THREE.Mesh(plGeo, mat); plinth.scale.set(w, h, it.role === 'reference' ? .5 : w); grp.add(plinth);
-      const slotsLit = [it.audit, it.audit, it.github, it.hooks > 0], dots = [];
-      const fz = (it.role === 'reference' ? .5 : w) * .32 + .021, dy = Math.min(h - .14, .9);
-      slotsLit.forEach((lit, k) => { const d = new THREE.Mesh(dotGeo, lit ? ON : OFF); d.position.set((k - 1.5) * .135 * w, dy, fz); grp.add(d); dots.push(d); });
-      const coin = makeCoin(it, it.role === 'reference' ? .34 : .26, .05); const pivot = new THREE.Group(); pivot.add(coin); pivot.position.y = h + .5; grp.add(pivot);
-      const sl = textPlane(it.score + ' / 4', { size: .22, color: it.score ? '#f3e2bf' : '#8d9098', font: MONO }); sl.rotation.x = -.8; sl.position.set(0, .09, (it.role === 'reference' ? .5 : w) * .32 + .32); grp.add(sl);
-      const sh = shadow(1.4 * w, 1.4 * w); sh.position.set(x, .004, z); group.add(sh);
-      group.add(grp);
-      objs.push({ i, item: it, grp, plinth, dots, h, w, pivot, coin, x, z, f: 0, phase: Math.random() * 6.28, pick: [plinth, coin], delay });
+  /* cohorte : cinq tours, une par score de preuve ; chaque projet est un étage de sa tour (téléphone et ordinateur) */
+  function buildCohorte(items, meta) {
+    const group = new THREE.Group(), objs = [], set = labelSet(), port = !LAND();
+    const LX = port ? 1.32 : 2.05, W = port ? .74 : .9, HMAX = port ? 3.6 : 4.7, GAP = .025, MR = .19;
+    const laneTot = [0, 1, 2, 3, 4].map((s) => meta.lanes[s] || 0), maxL = Math.max(...laneTot) || 1;
+    const segGeo = new RoundedBoxGeometry(W * .86, 1, W * .86, 2, .03); segGeo.translate(0, .5, 0);
+    const shellGeo = new RoundedBoxGeometry(W, 1, W, 3, .05); shellGeo.translate(0, .5, 0);
+    const TONES = [0x8ff0d8, 0x62c8b0];
+    [0, 1, 2, 3, 4].forEach((s) => {
+      const x = (s - 2) * LX, idx = items.map((it, i) => i).filter((i) => (items[i].score || 0) === s && items[i].role !== 'reference').sort((a, b) => (items[b].tvl || 0) - (items[a].tvl || 0));
+      const H = Math.max(.04, laneTot[s] / maxL * HMAX);
+      const shell = new THREE.Mesh(shellGeo, glassLite(0xffffff, .14)); shell.scale.y = H + .03; shell.position.set(x, 0, 0); group.add(shell);
+      const tiny = laneTot[s] / maxL * HMAX < .03;   // moins d'un pixel à l'échelle : on le dit au lieu de dessiner une dalle
+      const sh = shadow(W * 1.7, W * 1.5); sh.material.opacity = .55; sh.position.set(x, .004, 0); group.add(sh);
+      let y = .03;
+      idx.forEach((i, k) => {
+        const it = items[i], h = laneTot[s] ? (it.tvl || 0) / laneTot[s] * H : 0, anti = it.role === 'antichambre';
+        const tone = anti ? 0xe7cf9d : TONES[k % 2];
+        const m = new THREE.Mesh(segGeo, liquidMat(tone, anti ? 0x6f5a2c : 0x1f7a64, .45)); m.position.set(x, y, 0); m.scale.y = .001; m.visible = h >= .012 && !tiny; group.add(m);
+        if (tiny && k === 0) {   // trop petit pour l'échelle : un contour posé au sol, pas une dalle
+          const e = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(W * .86, .02, W * .86)), new THREE.LineBasicMaterial({ color: tone, transparent: true, opacity: .8 }));
+          e.position.set(x, .02, 0); group.add(e); }
+        const hh = Math.max(.004, h - GAP), yMid = y + hh / 2;
+        const pk = proxy(W, Math.max(hh, .08), W); pk.position.set(x, yMid, 0); group.add(pk);
+        const o = { i, item: it, m, hh, tone, f: 0, pick: [pk], delay: .3 + s * .15 + k * .05 };
+        o.c = () => new THREE.Vector3(x, yMid, 0);
+        // un étage assez haut porte sa médaille et son nom (ordinateur) ; sur téléphone, seulement le plus gros
+        if (!port && h > .3) {   // tour de gauche : nom et montant à gauche ; ailleurs : nom écrit sur l'étage, médaille à droite
+          const side = s === 0 ? -1 : 1, coin = makeCoin(it, MR, .035), pivot = new THREE.Group(); pivot.add(coin); group.add(pivot);
+          o.pivot = pivot; o.coin = coin; o.phase = Math.random() * 6.28; o.home = new THREE.Vector3(x + side * (W / 2 + .32), yMid, .1); o.pick.push(coin);
+          if (s === 0) addLabel(set, `${esc(it.name)} <b>${kusdTxt(it.tvl)}</b>`, { cls: 'n seg', pos: new THREE.Vector3(x - W / 2 - .32 - MR - .1, yMid, .1), ax: 1, ay: .5, pri: 6, obj: i, t0: o.delay + 1.1 });
+          else addLabel(set, esc(it.name), { cls: 'in', pos: new THREE.Vector3(x, yMid, W * .43 + .02), ax: .5, ay: .5, pri: 6, obj: i, t0: o.delay + 1.1 });
+        } else if (port && h > .42) addLabel(set, `${esc(it.name.replace(/ (Robinhood )?Perps$/, ''))}<b class="bl">${kusdTxt(it.tvl)}</b>`, { cls: 'in', pos: new THREE.Vector3(x, yMid, W * .43 + .02), ax: .5, ay: .5, pri: 6, obj: i, t0: o.delay + .8 });   // nom écrit sur l'étage
+        objs.push(o); y += h;
+      });
+      addLabel(set, `<b>${kusdTxt(laneTot[s])}</b>`, { cls: port ? 'v' : 'v mid', pos: new THREE.Vector3(x, H + .14, 0), ay: 1, dy: -3, pri: 8, t0: .9 + s * .12 });
+      // sous chaque tour : le score, puis les projets qui la composent (les étages trop fins n'ont pas la place d'un nom)
+      const shortN = (n) => esc(n.replace(/ (Robinhood )?Perps$/, ''));
+      const who = idx.length > 3 ? idx.slice(0, 2).map((i) => shortN(items[i].name)).join(', ') + ` et ${idx.length - 2} autres` : idx.map((i) => shortN(items[i].name)).join(', ');
+      const un = idx.filter((i) => !((items[i].tvl || 0) / (laneTot[s] || 1) * H > (port ? .42 : .3))).map((i) => shortN(items[i].name) + (items[i].role === 'antichambre' ? '<sup>c</sup>' : ''));
+      const partial = un.length && idx.length > un.length;
+      const unnamed = port ? un.map((n) => `<small class="nm">${n}</small>`).join('') : un.length ? `<small class="nms">${partial ? 'dont ' : ''}${un.join(', ')}</small>` : '';
+      addLabel(set, (port ? `<b>${s}</b>/4` : `preuve <b>${s}</b>/4<small>${idx.length} projet${idx.length > 1 ? 's' : ''}</small>`) + unnamed,   /* les projets sans nom sur leur étage */ { cls: 'z c', pos: new THREE.Vector3(x, 0, W / 2 + .1), ay: 0, dy: 8, pri: 9, t0: .4 + s * .1 });
     });
-    const rl = textPlane('antichambre', { size: .26 }); if (PORT) { rl.rotation.x = -.4; rl.position.set(XC - 1.3, 2.05, -2.6); } else { rl.rotation.x = -1; rl.position.set(7.2, .13, -1.1); } group.add(rl);
-    const pl = textPlane('contre-référence', { size: .26 }); pl.rotation.x = -.3; pl.position.set(PORT ? XC + 1.5 : XC, 3.95, PORT ? -3.3 : -4.3); group.add(pl);
+    // les deux groupes du titre : un cadre lumineux au sol autour des tours, avec leur somme et leur part
+    [[0, 1, meta.sLow, meta.pLow, '0 ou 1 point'], [2, 4, meta.sHigh, 1 - meta.pLow, '2 points ou plus']].forEach(([a, b, v, pr, lab], g) => {
+      const x0 = (a - 2) * LX - W / 2 - .22, x1 = (b - 2) * LX + W / 2 + .22, zf = W / 2 + .06;
+      const fr = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(x1 - x0, .01, W + .5)), new THREE.LineBasicMaterial({ color: g ? 0x8ff0d8 : 0xe7cf9d, transparent: true, opacity: .55 }));
+      fr.position.set((x0 + x1) / 2, .006, zf - (W + .5) / 2); group.add(fr); floor.hide.push(fr);
+      const glow = new THREE.Mesh(new THREE.PlaneGeometry(x1 - x0, W + .5), new THREE.MeshBasicMaterial({ color: g ? 0x8ff0d8 : 0xe7cf9d, transparent: true, opacity: .05, depthWrite: false }));
+      glow.rotation.x = -Math.PI / 2; glow.position.copy(fr.position); group.add(glow); floor.hide.push(glow);
+      if (!port) addLabel(set, `${lab} · <b>${kusdTxt(v)}</b> · <b>${share(pr)}</b>`, { cls: 'z grp', pos: new THREE.Vector3(g ? (x0 + x1) / 2 : -LX, g ? 1.25 : (meta.lanes[1] / Math.max(...meta.lanes) * HMAX) + 1.05, 0), ax: .5, ay: 1, pri: 9, t0: 1.8 });   // au-dessus de son groupe
+      else addLabel(set, `${lab}<br><b>${share(pr)}</b>`, { cls: 'z grp c', pos: new THREE.Vector3(g ? (x0 + x1) / 2 : -LX + .3, g ? 1.25 : (meta.lanes[1] / Math.max(...meta.lanes) * HMAX) + 1.0, 0), ay: 1, pri: 9, t0: 1.8 });
+    });
+    let refX = null;
+    const ref = items.findIndex((it) => it.role === 'reference');
+    if (ref >= 0 && port) addLabel(set, `${esc(items[ref].name)}, point de comparaison hors cohorte<small>${usd(items[ref].fees30 || 0)} de frais en 30 j · aucun dépôt suivi</small>`,
+      { cls: 'n n1 r', pos: new THREE.Vector3(2 * LX + W / 2, 0, W / 2 + .1), ax: 1, ay: 0, dy: 78, pri: 7, t0: 1.6 });   // téléphone : pas de cage, deux lignes sous les tours, à droite
+    if (ref >= 0 && !port) {   // la référence, hors cohorte : une cage vide (rien en dépôt), à l'écart à droite
+      const it = items[ref], x = 2 * LX + LX * 1.4; refX = x;
+      const cage = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(W * .8, .9, W * .8)), new THREE.LineBasicMaterial({ color: 0xdcc9a3, transparent: true, opacity: .55 }));
+      cage.position.set(x, .45, 0); group.add(cage);
+      const sep = new THREE.Mesh(new THREE.BoxGeometry(.012, .012, W * 2.2), new THREE.MeshBasicMaterial({ color: 0xdcc9a3, transparent: true, opacity: .45 }));
+      sep.position.set(2 * LX + LX * .7, .01, .2); group.add(sep);   // la référence n'est pas dans la cohorte
+      const coin = makeCoin(it, .26, .04), pivot = new THREE.Group(); pivot.add(coin); group.add(pivot);
+      const pk = proxy(W, 1.6, W); pk.position.set(x, .8, 0); group.add(pk);
+      const o = { i: ref, item: it, m: null, f: 0, pick: [pk, coin], delay: 1.2, pivot, coin, phase: 1, home: new THREE.Vector3(x, 1.25, 0) };
+      o.c = () => new THREE.Vector3(x, .6, 0);
+      objs.push(o);
+      addLabel(set, `<b>${usd(it.fees30 || 0)}</b> de frais en 30 j<small>aucun dépôt suivi · non noté</small>`, { cls: 'v', pos: new THREE.Vector3(x, 1.6, 0), ay: 1, dy: -3, pri: 7, obj: ref, t0: 1.8 });
+      addLabel(set, `${esc(it.name)}<small>référence,</small><small>hors cohorte</small>`, { cls: 'z c', pos: new THREE.Vector3(x, 0, W / 2 + .1), ay: 0, dy: 8, pri: 9, t0: 1.5 });
+    }
+    const byI = []; objs.forEach((o) => { byI[o.i] = o; });   // la sélection lit objs[i] : un objet par élément de la liste
+    items.forEach((it, i) => { if (!byI[i]) byI[i] = { i, item: it, m: null, f: 0, pick: [], delay: 0, c: () => new THREE.Vector3(-2 * LX, .5, 0) }; });
+    const box = new THREE.Box3(new THREE.Vector3(-2 * LX - W / 2 - (port ? .25 : 2.4), -.7, -W / 2), new THREE.Vector3((refX != null ? refX : 2 * LX) + W / 2 + (port ? .25 : .6), HMAX + .7, W / 2 + (port ? 2.9 : .9)));
     return {
-      group, objs, view: { pos: new THREE.Vector3(PORT ? 1.6 : 2.6, 4.5, PORT ? 12.6 : 14.6), tgt: new THREE.Vector3(PORT ? 1.6 : 2.6, 1.05, -1.4), tel: PORT ? { pos: new THREE.Vector3(XC + .25, 16.25, 18.5), tgt: new THREE.Vector3(XC + .25, 2.5, -1.2) } : null, glow: new THREE.Color(0x2e2416), pool: new THREE.Color(0x15110b), poolZ: -1, off: PORT ? -.1 : -.15, lift: 2, refl: .2 },
-      focus: (o) => ({ tgt: new THREE.Vector3(o.x, Math.min(o.h, 2) * .55 + .3, o.z), dist: 12.5 }),
-      update(ti, t, dt, anyFocus) {
-        rl.material.opacity = rl.userData.op * clamp01((ti - 1.6) / .6); pl.material.opacity = pl.userData.op * clamp01((ti - .4) / .6);
-        objs.forEach((o) => {
+      group, objs: byI, labels: set, noTag: true, port,
+      fit: { box, dir: port ? new THREE.Vector3(0, .42, 1) : new THREE.Vector3(.12, .36, 1), fov: 28 },
+      view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x2a1c0c), pool: new THREE.Color(0x120d07), poolZ: 0, off: 0, refl: .42 },
+      focus: (o, F) => focusOn(o, F, .8),
+      update(ti, t2, dt, anyFocus) {
+        byI.forEach((o) => {
           const on = o.i === state.sel || o.i === state.hover;
           o.f += ((on ? 1 : 0) - o.f) * damp(dt, 6);
-          const e = ease.out(clamp01((ti - o.delay) / 1));
-          o.plinth.scale.y = Math.max(.001, o.h * e);
-          o.dots.forEach((d, k) => { const s = ease.back(clamp01((ti - o.delay - .7 - k * .12) / .5)); d.scale.setScalar(Math.max(.001, s)); });
-          o.plinth.material.envMapIntensity += ((anyFocus && !on ? .35 : 1.2) - o.plinth.material.envMapIntensity) * damp(dt, 6);
-          floatMedal(o, ti, t, anyFocus, on, o.h + .5, o.delay + .9);
+          if (o.m) { o.m.scale.y = Math.max(.001, o.hh * ease.out(clamp01((ti - o.delay) / .6)));
+            const dim = anyFocus && !on ? .3 : 1; o.m.material.emissiveIntensity = .45 * dim + o.f * .35; o.m.material.color.setHex(o.tone).multiplyScalar(.35 + .65 * dim); }
+          if (o.pivot) medalTick(o, ti, t2, anyFocus, on, o.delay + .8, o.home);
         });
-        ON.emissiveIntensity = anyFocus ? 1.6 : 2.3;
+      },
+    };
+  }
+  const kusdTxt = (v) => v == null ? '—' : v >= 1e6 ? usd(v) : v >= 1e3 ? nf(v / 1e3, v >= 1e5 ? 0 : 1) + ' k$' : nf(v, 0) + ' $';
+
+  /* ================= planche : les stablecoins, le stock (deux tours, le même argent) ================= */
+  function buildStock(items, meta) {
+    const group = new THREE.Group(), objs = [], set = labelSet(), port = !LAND();
+    const H = port ? 4.6 : 4.4, RT = port ? .46 : .92, TX = port ? .8 : 1.45, GAP = .024;
+    const cyl = new THREE.CylinderGeometry(1, 1, 1, 64); cyl.translate(0, .5, 0);
+    const TONES = { emetteur: [0xead7a8, 0xc9b07f], chaine: [0x8ff0d8, 0x5ec8ae] }, DEEP = { emetteur: 0x2b2213, chaine: 0x05211b };
+    // même liquide que les colonnes de la planche DeFi : dégradé, reflet de bord, surface claire à chaque étage
+    const lmat = (deep, bright) => new THREE.ShaderMaterial({ ...liquidShader, uniforms: { uT: { value: 0 }, uLevel: { value: .001 }, uWob: { value: 0 }, uGlow: { value: 1 }, uRad: { value: 1 },
+      uDeep: { value: new THREE.Color(deep) }, uBright: { value: new THREE.Color(bright) }, uMid: { value: new THREE.Color(0) }, uUseMid: { value: 0 }, uDeep2: { value: new THREE.Color(0) }, uBright2: { value: new THREE.Color(0) }, uSplit: { value: 0 } } });
+    const towers = [{ kind: 'emetteur', x: -TX, side: -1, rest: meta.restI }, { kind: 'chaine', x: TX, side: 1, rest: meta.restC }];
+    towers.forEach((T) => {
+      const layers = items.map((it, i) => ({ it, i })).filter((l) => l.it.kindS === T.kind);
+      if (T.rest > 0) layers.push({ it: { name: 'autres', total: T.rest }, i: -1 });
+      const shell = new THREE.Mesh(cyl, glassLite(0xffffff, .12)); shell.scale.set(RT + .05, H + .12, RT + .05); shell.position.set(T.x, 0, 0); group.add(shell);
+      const sh = shadow(RT * 3.4, RT * 3.4); sh.position.set(T.x, .004, 0); group.add(sh);
+      let y = .03;
+      layers.forEach((l, k) => {
+        const h = l.it.total / meta.total * H, hh = Math.max(.004, h - GAP), other = l.i < 0;
+        const mat = other ? lmat(0x121418, 0x8d9098) : lmat(new THREE.Color(TONES[T.kind][k % 2]).multiplyScalar(.5).getHex(), TONES[T.kind][k % 2]);
+        const m = new THREE.Mesh(cyl, mat); m.position.set(T.x, y, 0); m.scale.set(RT, 1, RT); group.add(m);
+        const yMid = y + hh / 2, delay = .3 + (T.kind === 'chaine' ? .25 : 0) + k * .09;
+        const sh = l.it.total / meta.total, lab = other ? `<span>autres <b>${usd(l.it.total)}</b></span>` : `<img src="${LOGOS[l.it.logo]}" alt=""><span>${esc(l.it.symbol || l.it.name)} <b>${usd(l.it.total)}</b><i class="s">${share(sh, sh < .1 ? 1 : 0)}</i></span>`;
+        const anchor = new THREE.Vector3(T.x + T.side * RT * .98, yMid, RT * .2);
+        addLabel(set, lab, { cls: 'v row' + (T.side < 0 ? ' r' : ''), pos: new THREE.Vector3(T.x + T.side * (RT + .45), yMid, 0), ax: T.side < 0 ? 1 : 0, ay: .5, col: T.kind, lead: anchor,
+          pri: 3 + Math.log10(1 + l.it.total / 1e9), obj: l.i, t0: delay + .7 });
+        if (!other) {
+          const pk = proxy(RT * 2.1, Math.max(hh, .06), RT * 2.1); pk.position.set(T.x, yMid, 0); group.add(pk);
+          const o = { i: l.i, item: l.it, m, hh, y, T, f: 0, delay, pick: [pk], tone: TONES[T.kind][k % 2] };
+          o.c = () => new THREE.Vector3(T.x, yMid, 0);
+          objs.push(o);
+        } else objs.push({ i: -1, m, hh, y, T, f: 0, delay, pick: [], other: true });
+        y += h;
+      });
+      addLabel(set, T.kind === 'emetteur' ? 'par émetteur' : 'par chaîne', port ? { cls: 'z', pos: new THREE.Vector3(T.x - T.side * RT * .7, H + .3, 0), ax: T.side < 0 ? 1 : 0, ay: 1, dy: -4, pri: 9, t0: .3 } : { cls: 'z', pos: new THREE.Vector3(T.x, H + .42, 0), ay: 1, dy: -6, pri: 9, t0: .3 });   // téléphone : sous les tours
+    });
+    const real = objs.filter((o) => o.i >= 0).sort((a, b) => a.i - b.i), all = objs;
+    const box = new THREE.Box3(new THREE.Vector3(-TX - RT - (port ? 3.3 : 2.9), -.2, -RT), new THREE.Vector3(TX + RT + (port ? 5.0 : 3.2), H + (port ? .75 : .95), RT));
+    return {
+      group, objs: real, labels: set, noTag: true, port,
+      fit: { box, dir: port ? new THREE.Vector3(0, .2, 1) : new THREE.Vector3(0, .24, 1), fov: 28 },
+      view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x0f2b26), pool: new THREE.Color(0x0a1513), poolZ: 0, off: 0, refl: .42 },
+      focus: (o, F) => focusOn(o, F, .8),
+      update(ti, t2, dt, anyFocus) {
+        all.forEach((o) => {
+          const on = o.i >= 0 && (o.i === state.sel || o.i === state.hover);
+          o.f += ((on ? 1 : 0) - o.f) * damp(dt, 6);
+          const U = o.m.material.uniforms; U.uLevel.value = Math.max(.001, o.hh * ease.out(clamp01((ti - o.delay) / .55))); U.uT.value = t2;
+          const dim = anyFocus && !on ? .3 : 1;
+          U.uGlow.value += (dim + o.f * .25 - U.uGlow.value) * damp(dt, 6);
+          o.m.scale.x = o.m.scale.z = RT * (1 + o.f * .04);
+        });
       },
     };
   }
 
-  /* ================= planche : où va l'argent stable ================= */
-  function buildStables(items, meta) {
-    const group = new THREE.Group(), objs = [], PORT = innerWidth < innerHeight;
-    const RES = new THREE.Vector3(0, 0, -3.6), RR = 1.15, RH = 3.6, glass = glassThin();
-    const rTube = new THREE.Mesh(new THREE.CylinderGeometry(RR, RR, RH, 96, 1, true), glass); rTube.position.set(RES.x, RH / 2, RES.z); group.add(rTube);
-    const PAL = [0x8ff0d8, 0x8cb6ff, 0xf2c879, 0xc9b6ff, 0xefe2b6, 0xa9d8cc, 0x8d9098];
-    const tops = meta.top.slice(0, 6), rest = Math.max(0, meta.total - tops.reduce((a, b) => a + b.mcap, 0));
-    const bands = tops.map((x, k) => ({ name: x.symbol, v: x.mcap, col: PAL[k] })).concat(rest > 0 ? [{ name: 'autres', v: rest, col: PAL[6] }] : []);
-    let y0 = .02; const bandMeshes = [];
-    bands.forEach((b) => {
-      const hb = (RH - .1) * b.v / meta.total;
-      const m = new THREE.Mesh(new THREE.CylinderGeometry(RR - .05, RR - .05, 1, 96), new THREE.MeshStandardMaterial({ color: b.col, emissive: b.col, emissiveIntensity: .3, roughness: .35 }));
-      m.position.set(RES.x, y0 + hb / 2, RES.z); m.scale.y = .001; m.userData = { y: y0, hb }; group.add(m); bandMeshes.push(m);
-      if (hb > .18) { const l = textPlane(b.name + ' ' + usd(b.v), { size: PORT ? .25 : .19, color: '#efe9dc', font: MONO }); l.position.set(RES.x + RR + .18 + l.userData.w / 2, y0 + hb / 2, RES.z); group.add(l); m.userData.lab = l; }
-      y0 += hb;
+  /* ================= planche : les stablecoins, les flux (au-dessus de la ligne : entrées ; en dessous : sorties) ================= */
+  function buildFlux(items, meta) {
+    const group = new THREE.Group(), objs = [], set = labelSet(), desk = LAND(), port = true, dd = meta.dd;   // couché sur tous les écrans (11/10)
+    const f = (c) => c['f' + dd], fmax = meta.fmax || Math.max(...items.map((c) => Math.abs(f(c)))) || 1;   // même échelle pour 7 et 30 jours
+    const UPF = meta.up || 1, DNF = meta.dn || 1, HMd = 6.2;
+    const hasO = items.some((c) => c.other), n = items.length + (hasO ? .6 : 0), SP = desk ? .62 : .64, Y0 = 0, HM = desk ? 3.1 : 2.0, r = desk ? .17 : .17, R = desk ? .18 : .19;
+    const col = new THREE.CylinderGeometry(1, 1, 1, 40); col.translate(0, .5, 0);
+    const capGeo = new THREE.SphereGeometry(1, 32, 12, 0, Math.PI * 2, 0, Math.PI / 2);
+    const water = new THREE.Mesh(new THREE.BoxGeometry(port ? .03 : n * SP + .8, port ? n * SP + .5 : .03, port ? 1.0 : 1.4), glassLite(0xbff7e8, .2));
+    const yTop = port ? .7 + (n - 1) * SP : 0;
+    if (port) water.position.set(0, .7 + (n - 1) * SP / 2, 0); else water.position.set(0, Y0, 0);
+    group.add(water);
+    const edge = new THREE.Mesh(new THREE.BoxGeometry(port ? .012 : n * SP + .8, port ? n * SP + .5 : .012, .012), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xf3e6c8).multiplyScalar(1.4) }));
+    edge.position.copy(water.position); edge.position.z += port ? .5 : .7; group.add(edge);
+    let lastTip = null;
+    items.forEach((it, i) => {
+      const v = f(it), up = v >= 0, h = Math.max(.03, Math.abs(v) / fmax * HM), s = up ? 1 : -1;
+      let tipH = h + (port ? 0 : 0); /* colonnes assez espacées : plus de décalage */ lastTip = { up, h: tipH };
+      const root = new THREE.Group(); group.add(root);
+      const xi = i + (it.other ? .6 : 0);
+      if (!port) root.position.set((xi - (n - 1) / 2) * SP, Y0, 0); else root.position.set(0, .7 + (n - 1 - xi) * SP, 0);
+      if (port) root.rotation.z = -Math.PI / 2;          // couché : « au-dessus » devient « à droite »
+      const tone = it.other ? 0xa9adb5 : 0x8ff0d8, mat = it.other ? liquidMat(tone, 0x2c2f35, .35) : liquidMat(tone, 0x1f7a64, .5), stem = new THREE.Mesh(col, mat); stem.scale.set(r, .001, r); if (!up) stem.rotation.x = Math.PI; root.add(stem);
+      const cap = new THREE.Mesh(capGeo, mat); cap.scale.setScalar(r); cap.userData.r = r; if (!up) cap.rotation.x = Math.PI; root.add(cap);
+      const coin = makeCoin(it, R, .042), pivot = new THREE.Group(); pivot.add(coin); group.add(pivot);
+      const mSide = up ? -1 : 1;   // la médaille se pose de l'autre côté de la ligne
+      const home = port ? new THREE.Vector3(up ? -.4 : .4, root.position.y, 0) : new THREE.Vector3(root.position.x, Y0 + mSide * .62, -.2);
+      const pk = proxy(r * 3.2, h + .9, r * 3.2); pk.position.y = up ? (h - .8) / 2 : -(h - .8) / 2; root.add(pk);
+      const o = { i, item: it, root, stem, cap, h, up, pivot, coin, home, f: 0, phase: Math.random() * 6.28, pick: [pk, coin], delay: .35 + i * .08, mat };
+      o.c = () => port ? new THREE.Vector3(up ? h / 2 : -h / 2, root.position.y, 0) : new THREE.Vector3(root.position.x, Y0 + (up ? h / 2 : -h / 2), 0);
+      objs.push(o);
+      const val = `<b>${smoneyS(v)}</b>`;
+      if (!port) {
+        addLabel(set, val, { cls: 'v', pos: new THREE.Vector3(root.position.x, Y0 + s * (h + .1), 0), ay: up ? 1 : 0, dy: up ? -2 : 2, slide: 2,   /* gênée par sa voisine : la valeur s'éloigne d'un cran, toujours dans l'axe de sa colonne */ pri: 6, obj: i, t0: o.delay + 1.0 });
+        addLabel(set, esc(it.name), { cls: 'n w pill axis', pos: new THREE.Vector3(root.position.x, Y0, .72), ay: .5, pri: 4, obj: i, t0: o.delay + .6 });   // tous les noms sur l'axe, une seule ligne
+      } else {
+        addLabel(set, val, { cls: 'v', pos: new THREE.Vector3(s * (h + r + .08), root.position.y, 0), ax: up ? 0 : 1, ay: .5, dx: up ? 2 : -2, pri: 6, obj: i, t0: o.delay + 1.0 });
+        addLabel(set, esc(it.name), { cls: 'n', pos: new THREE.Vector3(home.x - s * (R + .08), root.position.y, 0), ax: up ? 1 : 0, ay: .5, pri: 3, obj: i, t0: o.delay + .6 });
+      }
     });
-    const tl = textPlane('tous les stablecoins · ' + usd(meta.total), { size: PORT ? .3 : .22, color: '#f1ede4' }); tl.position.set(RES.x, RH + .35, RES.z); group.add(tl);
-    const tmax = Math.max(...items.map((c) => c.total)), fmax = Math.max(...items.map((c) => Math.abs(c.f7 || 0))) || 1;
-    const rbs = items.map((c) => .2 + .5 * Math.sqrt(c.total / tmax));
-    const pack = (idx, gap) => { // ordre en cloche (le plus gros au centre), bord à bord avec un écart fixe
-      const bx = bellX(idx.length, 1), ord = idx.map((i, k) => [i, bx[k]]).sort((a, b) => a[1] - b[1]).map((a) => a[0]), out = {};
-      let x = 0; ord.forEach((i, k) => { if (k) x += rbs[ord[k - 1]] + rbs[i] + gap; out[i] = x; });
-      const a = ord[0], b = ord[ord.length - 1], mid = (out[a] - rbs[a] + out[b] + rbs[b]) / 2; ord.forEach((i) => { out[i] -= mid; }); return out; };
-    const all = items.map((c, i) => i), nA = Math.ceil(items.length / 2);
-    const XS = PORT ? Object.assign(pack(all.slice(0, nA), .26), pack(all.slice(nA), .62)) : pack(all, .22);
-    const slots = bellSlots(items.length), maxSlot = Math.max(...slots.map(Math.abs));
-    const cupGeo = new THREE.CylinderGeometry(1, 1, 1, 64, 1, true); cupGeo.translate(0, .5, 0);
-    const SRC = new THREE.Vector3(RES.x, RH * .82, RES.z + RR * .6);
-    const pGeo = new THREE.BufferGeometry(), streams = [];
-    let NP = 0;
-    items.forEach((c, i) => {
-      const x = XS[i], z = !PORT ? 1.3 - Math.pow(Math.abs(x / 1.05), 1.6) * .2 : i < nA ? 2.4 : .75, rb = rbs[i];
-      const grp = new THREE.Group(); grp.position.set(x, 0, z);
-      const cup = new THREE.Mesh(cupGeo, glass); cup.scale.set(rb, .46, rb); grp.add(cup);
-      const liq = new THREE.Mesh(new THREE.CylinderGeometry(rb - .03, rb - .03, 1, 64), new THREE.MeshStandardMaterial({ color: 0x8ff0d8, emissive: 0x2fbf98, emissiveIntensity: .45, roughness: .3 }));
-      liq.position.y = .2; liq.scale.y = .001; grp.add(liq);
-      const coin = makeCoin(c, .24, .045); const pivot = new THREE.Group(); pivot.add(coin); pivot.position.y = .95; grp.add(pivot);
-      const sh = shadow(rb * 3.2, rb * 3.2); sh.position.set(x, .004, z); group.add(sh);
-      const fl = textPlane(c.lab7, { size: PORT ? .27 : .19, color: '#e9e4d8', font: MONO }); fl.rotation.x = -.5; fl.position.set(0, .06, rb + .32); grp.add(fl);
-      group.add(grp);
-      const end = new THREE.Vector3(x, .5, z), mid = SRC.clone().lerp(end, .5).add(new THREE.Vector3(0, 1.4, 0));
-      const curve = new THREE.QuadraticBezierCurve3(SRC.clone(), mid, end);
-      const guide = new THREE.Mesh(new THREE.TubeGeometry(curve, 48, .006, 6, false), new THREE.MeshBasicMaterial({ color: 0xdfe8f2, transparent: true, opacity: 0, depthWrite: false }));
-      group.add(guide);
-      const n = c.f7 ? Math.round(4 + 34 * Math.sqrt(Math.abs(c.f7) / fmax)) : 0;
-      streams.push({ curve, n, off: NP, dir: c.f7 >= 0 ? 1 : -1, seeds: Array.from({ length: n }, () => Math.random()), guide });
-      NP += n;
-      objs.push({ i, item: c, grp, cup, liq, rb, pivot, coin, x, z, f: 0, phase: Math.random() * 6.28, pick: [cup, liq, coin], delay: .5 + (maxSlot - Math.abs(slots[i])) * .16 });
-    });
-    const pp = new Float32Array(Math.max(1, NP) * 3), pa = new Float32Array(Math.max(1, NP));
-    pGeo.setAttribute('position', new THREE.BufferAttribute(pp, 3)); pGeo.setAttribute('alpha', new THREE.BufferAttribute(pa, 1));
-    const parts = new THREE.Points(pGeo, new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-      uniforms: { uPR: { value: renderer.getPixelRatio() } },
-      vertexShader: 'attribute float alpha; uniform float uPR; varying float vA; void main(){ vA = alpha; vec4 mv = modelViewMatrix * vec4(position, 1.); gl_Position = projectionMatrix * mv; gl_PointSize = 5.5 * uPR * (8. / -mv.z); }',
-      fragmentShader: 'varying float vA; void main(){ float d = length(gl_PointCoord - .5); gl_FragColor = vec4(vec3(.85, 1., .95) * 1.6, smoothstep(.5, .05, d) * vA); }' }));
-    parts.frustumCulled = false; group.add(parts);
-    const P = new THREE.Vector3();
+    if (!port) { addLabel(set, 'entrées ↑', { cls: 'z', pos: new THREE.Vector3(-(n * SP + .8) / 2 - .05, Y0 + .35, 0), ax: 1, ay: .5, dx: -8, pri: 8, t0: 1.2 });
+      addLabel(set, 'sorties ↓', { cls: 'z', pos: new THREE.Vector3(-(n * SP + .8) / 2 - .05, Y0 - .35, 0), ax: 1, ay: .5, dx: -8, pri: 8, t0: 1.2 }); }
+    else { addLabel(set, '← sorties', { cls: 'z', pos: new THREE.Vector3(-.15, yTop + .55, 0), ax: 1, ay: 1, pri: 8, t0: 1.2 }); addLabel(set, 'entrées →', { cls: 'z', pos: new THREE.Vector3(.15, yTop + .55, 0), ax: 0, ay: 1, pri: 8, t0: 1.2 }); }
+    const box = port ? new THREE.Box3(new THREE.Vector3(-DNF * HM - (desk ? 1.7 : 1.1), .05, -.5), new THREE.Vector3(UPF * HM + (desk ? 1.3 : 1.1), yTop + .85, .5))
+      : new THREE.Box3(new THREE.Vector3(-(n * SP + .8) / 2 - 1.25, Y0 - DNF * HM - .7, -.7), new THREE.Vector3((n * SP + .8) / 2 + .1, Y0 + UPF * HM + .7, .7));
     return {
-      group, objs, view: { pos: new THREE.Vector3(0, 5.2, 14.4), tgt: new THREE.Vector3(0, 1.6, -1.4), tel: { pos: new THREE.Vector3(.25, 16.4, 22.7), tgt: new THREE.Vector3(.25, 2.9, -.7) }, glow: new THREE.Color(0x10221d), pool: new THREE.Color(0x09130f), poolZ: -1, off: -.145, lift: 2.4, refl: .32 },
-      focus: (o) => ({ tgt: new THREE.Vector3(o.x, .7, o.z), dist: 9 }),
-      update(ti, t, dt, anyFocus) {
-        bandMeshes.forEach((m, k) => { const e = ease.inOut(clamp01((ti - .3 - k * .18) / 1.1)); m.scale.y = Math.max(.001, m.userData.hb * e); m.position.y = m.userData.y + m.userData.hb * e / 2;
-          if (m.userData.lab) m.userData.lab.material.opacity = m.userData.lab.userData.op * clamp01((ti - 1.2 - k * .18) / .6); });
-        tl.material.opacity = tl.userData.op * clamp01((ti - .8) / .7);
-        objs.forEach((o, k) => {
-          const on = o.i === state.sel || o.i === state.hover, s = streams[k];
+      group, objs, labels: set, noTag: true, port,
+      fit: { box, dir: desk ? new THREE.Vector3(.08, .28, 1) : new THREE.Vector3(0, .18, 1), fov: 28 },
+      view: { pos: new THREE.Vector3(0, 3, 12), tgt: new THREE.Vector3(0, 1.5, 0), glow: new THREE.Color(0x0f2b26), pool: new THREE.Color(0x0a1513), poolZ: 0, off: 0, refl: .4 },
+      focus: (o, F) => focusOn(o, F, .8),
+      update(ti, t2, dt, anyFocus) {
+        objs.forEach((o) => {
+          const on = o.i === state.sel || o.i === state.hover;
           o.f += ((on ? 1 : 0) - o.f) * damp(dt, 6);
-          const e = ease.out(clamp01((ti - o.delay) / .9));
-          o.grp.scale.setScalar(Math.max(.001, e)); o.liq.scale.y = Math.max(.001, .36 * ease.inOut(clamp01((ti - o.delay - .4) / 1)));
-          o.liq.material.emissiveIntensity = (anyFocus && !on ? .15 : .45) + o.f * .3;
-          const flow = clamp01((ti - 2.2) / 1), dim = anyFocus && !on ? .2 : 1;
-          s.guide.material.opacity = .14 * flow * dim;
-          for (let j = 0; j < s.n; j++) {
-            let u = (s.seeds[j] + (REDUCED ? 0 : t * .16)) % 1; if (s.dir < 0) u = 1 - u;
-            s.curve.getPoint(u, P); pp.set([P.x, P.y, P.z], (s.off + j) * 3);
-            pa[s.off + j] = flow * dim * Math.sin(Math.PI * u) * .95;
-          }
-          floatMedal(o, ti, t, anyFocus, on, .95, o.delay + .6);
+          const g = ease.inOut(clamp01((ti - o.delay - .3) / 1.0)), hh = Math.max(.001, o.h * g);
+          const capH = Math.min(o.cap.userData.r, hh * .45);   // le bout arrondi fait partie de la longueur : une petite valeur reste petite
+          o.stem.scale.y = Math.max(.001, hh - capH); o.cap.scale.set(o.cap.userData.r, Math.max(.001, capH), o.cap.userData.r); o.cap.position.y = o.up ? hh - capH : -(hh - capH); o.cap.visible = g > .02;
+          const dim = anyFocus && !on ? .3 : 1; o.mat.emissiveIntensity = .5 * dim + o.f * .25; o.mat.color.setHex(o.item.other ? 0xa9adb5 : 0x8ff0d8).multiplyScalar(.35 + .65 * dim);
+          medalTick(o, ti, t2, anyFocus, on, o.delay, o.home);
         });
-        pGeo.attributes.position.needsUpdate = true; pGeo.attributes.alpha.needsUpdate = true;
       },
     };
   }
+  const smoneyS = (v) => { const a = Math.abs(v), s = v > 0 ? '+' : v < 0 ? '−' : ''; return s + (a >= 1e9 ? nf(a / 1e9, 1) + NB + 'Md$' : a >= 1e7 ? nf(a / 1e6, 0) + NB + 'M$' : usd(a)); };   // étiquette courte
+  const smoneyTxt = (v) => v == null ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + usd(Math.abs(v));
+
 
   /* ---------------- planches : construites à la première ouverture ---------------- */
   const BUILD = {
@@ -1695,18 +2272,30 @@ async function start3D() {
     rwa: () => buildIngots(DATA.rwa),
     solana: () => buildColumns(DATA.solana, { value: (p) => p.tvl, prev30: (p) => p.ch30 != null ? p.tvl / (1 + p.ch30 / 100) : null, fees: (p) => p.solOnly ? p.fees30 : null, hex: true,
       deep: 0x07031a, mid: 0x4a24a6, bright: 0x2ee6a6, spark: 0xd8fff0, glow: 0x1c1235, pool: 0x0e0a18, glassTint: 0xe6defa }),
-    valo: () => buildValo(PL.valo.items, PL.valo.meta),
-    attention: () => buildAttention(PL.attention.items, PL.attention.meta),
-    cohorte: () => buildCohorte(PL.cohorte.items),
-    stables: () => buildStables(PL.stables.items, PL.stables.meta),
   };
+  const B3 = {   // planches de recherche Hermes (11/10) : chaque vue nomme sa scène
+    valoAll: (p) => buildStacks(p.items, { val: (it) => it.med, alwaysUp: true, R: .5, medR: .34, L: LAND() ? 2.6 : 3.4, tMax: LAND() ? .3 : .42, gap: LAND() ? 2.0 : 1.5, big: true,
+      valHTML: (it) => ui.yrsH(it.med), nameHTML: (it) => innerWidth < 760 ? esc(it.name) : `${esc(it.name)}<small>${it.n} protocoles</small>`, slide: true }),
+    valoSec: (p) => buildStacks(p.items, { val: (it) => it.pf7, med: p.meta.med, medTxt: ui.yrsH(p.meta.med),
+      valHTML: (it, br) => ui.yrsH(it.pf7) + (br && LAND() ? '<small>frais quasi nuls · hors échelle</small>' : ''), nameHTML: (it) => esc(it.name) }),
+    partage: (p) => buildPartage(p.items, p.meta),
+    attention: (p) => buildAttention(p.items, p.meta),
+    cohorte: (p) => buildCohorte(p.items, p.meta),
+    stock: (p) => buildStock(p.items, p.meta),
+    flux: (p) => buildFlux(p.items, p.meta),
+  };
+  Object.keys(PL).forEach((k) => { if (PL[k].b3 && B3[PL[k].b3]) BUILD[k] = () => B3[PL[k].b3](PL[k]); });
   const SETS = {};
-  function ensure(pl) { if (!SETS[pl]) { SETS[pl] = BUILD[pl](); scene.add(SETS[pl].group); } return SETS[pl]; }
-  function showOnly(pl) { Object.entries(SETS).forEach(([k, s]) => { s.group.visible = k === pl; }); }
+  function ensure(pl) { if (!SETS[pl]) { SETS[pl] = BUILD[pl](); SETS[pl].land = LAND(); scene.add(SETS[pl].group); } return SETS[pl]; }
+  function showOnly(pl) { Object.entries(SETS).forEach(([k, s]) => { s.group.visible = k === pl; if (s.labels) s.labels.root.hidden = k !== pl; }); }
+  function drop(pl) { const s = SETS[pl]; if (!s) return; scene.remove(s.group); if (s.labels) s.labels.root.remove(); delete SETS[pl]; }
+  addEventListener('resize', () => { RECT = null; Object.values(SETS).forEach((s) => s.labels && s.labels.list.forEach((L) => { L.w = 0; })); });
 
   let active = state.pl; ensure(active); showOnly(active);
-  const I0 = SETS[active].view.intro && !REDUCED ? SETS[active].view.intro : null;
-  const cur = { pos: (I0 ? I0.pos : SETS[active].view.pos).clone(), tgt: (I0 ? I0.tgt : SETS[active].view.tgt).clone(), off: 0 };
+  RECT = safeRect();
+  const S0 = SETS[active], F0 = S0.fit ? fitView(S0) : null;
+  const I0 = S0.view.intro && !REDUCED ? S0.view.intro : null;
+  const cur = { pos: (I0 ? I0.pos : F0 ? F0.pos : S0.view.pos).clone(), tgt: (I0 ? I0.tgt : F0 ? F0.tgt : S0.view.tgt).clone(), off: F0 ? F0.offX : 0, offY: F0 ? F0.offY : 0 };
   let tAct = 0, fade = 1, fadeTo = 0, pending = null;
 
   /* ---------------- post-traitement ---------------- */
@@ -1781,13 +2370,18 @@ async function start3D() {
 
     // fondu entre planches ; la planche suivante est construite dans le noir
     fade += (fadeTo - fade) * damp(dt, 7);
+    if (!RECT || rectN++ % 15 === 0) RECT = safeRect();
+    if (!pending && SETS[active].labels && SETS[active].land !== LAND()) { drop(active); ensure(active); showOnly(active); tAct = t; }   // l'écran a pivoté : la planche se reconstruit
     if (pending && fade > .97) { active = pending; pending = null; ensure(active); showOnly(active); tAct = t; fadeTo = 0;
-      const I = SETS[active].view.intro; if (I && !REDUCED) { cur.pos.copy(I.pos); cur.tgt.copy(I.tgt); } else { cur.pos.copy(SETS[active].view.pos).add(new THREE.Vector3(0, .6, 2.5)); cur.tgt.copy(SETS[active].view.tgt); } }
+      const SA = SETS[active], FA = SA.fit ? fitView(SA) : null, I = SA.view.intro;
+      if (I && !REDUCED) { cur.pos.copy(I.pos); cur.tgt.copy(I.tgt); }
+      else if (FA) { cur.pos.copy(FA.pos).add(tmp.copy(FA.pos).sub(FA.tgt).multiplyScalar(.14)); cur.pos.y += .8; cur.tgt.copy(FA.tgt); cur.off = FA.offX; cur.offY = FA.offY; }
+      else { cur.pos.copy(SA.view.pos).add(new THREE.Vector3(0, .6, 2.5)); cur.tgt.copy(SA.view.tgt); } }
     finish.uniforms.uFade.value = fade; finish.uniforms.uT.value = t;
 
-    const S = SETS[active], V = S.view, ti = REDUCED ? 99 : t - tAct;
-    const VT = innerWidth < innerHeight && V.tel ? V.tel : null;   // cadrage propre au téléphone (portrait)
-    const fov = (VT && VT.fov) || V.fov || 34; if (camera.fov !== fov) { camera.fov = fov; camera.updateProjectionMatrix(); }
+    const S = SETS[active], V = S.view, ti = REDUCED ? 99 : t - tAct, F = S.fit ? fitView(S) : null;
+    const VT = !F && innerWidth < innerHeight && V.tel ? V.tel : null;   // cadrage propre au téléphone (portrait)
+    const fov = F ? F.fov : (VT && VT.fov) || V.fov || 34; if (camera.fov !== fov) { camera.fov = fov; camera.updateProjectionMatrix(); }
     const lightUp = ease.inOut(clamp01(ti / 2.4));
     scene.environmentIntensity = .95 * lightUp;
     key.intensity = 1.35 * lightUp; const sweep = ease.inOut(clamp01(ti / 3.2));
@@ -1802,10 +2396,10 @@ async function start3D() {
     S.update(ti, t, dt, anyFocus);
 
     // caméra : légère parallaxe, approche de l'objet choisi
-    const sel = !pending && state.sel >= 0 ? S.objs[state.sel] : null, ft = sel ? S.focus(sel) : null;
-    const asp = innerWidth / innerHeight, kzF = asp < 1.3 ? 1.3 / asp : 1, kz = VT ? Math.max(.8, .46 / asp) : kzF;
-    const vP = VT ? VT.pos : V.pos, vT = VT ? VT.tgt : V.tgt;
-    const baseT = tmp2.copy(vT); if (asp < 1 && !VT) baseT.y += V.lift * (1 / asp - 1) * .55;
+    const sel = !pending && state.sel >= 0 ? S.objs[state.sel] : null, ft = sel ? S.focus(sel, F) : null;
+    const asp = innerWidth / innerHeight, kzF = F ? 1 : asp < 1.3 ? 1.3 / asp : 1, kz = F ? 1 : VT ? Math.max(.8, .46 / asp) : kzF;
+    const vP = F ? F.pos : VT ? VT.pos : V.pos, vT = F ? F.tgt : VT ? VT.tgt : V.tgt;
+    const baseT = tmp2.copy(vT); if (!F && asp < 1 && !VT) baseT.y += V.lift * (1 / asp - 1) * .55;
     const goT = ft ? ft.tgt : baseT;
     const goP = ft ? tmp.copy(vP).sub(vT).normalize().multiplyScalar(ft.dist * Math.sqrt(kzF)).add(ft.tgt) : tmp.copy(vP).sub(vT).multiplyScalar(kz).add(baseT);
     if (!REDUCED) { goP.x += par.x * .55 + Math.sin(t * .07) * .35; goP.y += -par.y * .28; }
@@ -1814,13 +2408,13 @@ async function start3D() {
     camera.position.copy(cur.pos); camera.lookAt(cur.tgt);
     // décalage de cadre : la scène laisse la place au titre (à gauche) ou à la fiche (à droite)
     // sur écran étroit, la fiche couvre le bas : l'objet choisi remonte au-dessus d'elle
-    const wide = innerWidth >= 900, offGoal = !wide ? 0 : sel ? .1 : V.off, offYGoal = !wide && sel ? .26 : 0;
+    const wide = innerWidth >= 900, offGoal = F ? (sel ? (wide ? .17 : 0) : F.offX) : !wide ? 0 : sel ? .1 : V.off, offYGoal = F ? (sel ? (wide ? 0 : .26) : F.offY) : !wide && sel ? .26 : 0;
     cur.off += (offGoal - cur.off) * k; cur.offY = (cur.offY || 0) + (offYGoal - (cur.offY || 0)) * k;
     if (Math.abs(cur.off) > .001 || Math.abs(cur.offY) > .001) camera.setViewOffset(innerWidth, innerHeight, cur.off * innerWidth, cur.offY * innerHeight, innerWidth, innerHeight); else camera.clearViewOffset();
 
     // étiquette de survol, posée sous l'objet
     const hv = !pending && state.hover >= 0 && state.hover !== state.sel ? state.hover : -1;
-    if (hv >= 0 && S.objs[hv]) {
+    if (hv >= 0 && S.objs[hv] && !S.noTag) {
       const o = S.objs[hv], p = PL[active];
       tmp.set(o.x, o.tagY || 0, o.z).project(camera);
       tag.style.transform = `translate(${(tmp.x * .5 + .5) * innerWidth}px, ${(-tmp.y * .5 + .5) * innerHeight + 10}px) translate(-50%, 0)`;
@@ -1828,6 +2422,7 @@ async function start3D() {
       tag.classList.add('on');
     } else tag.classList.remove('on');
 
+    if (S.labels) placeLabels(S, ti, dt, anyFocus, pending ? Math.max(0, 1 - fade * 3) : 1 - clamp01(fade * 1.5));
     floor.update(scene, camera);
     composer.render(dt);
   }
