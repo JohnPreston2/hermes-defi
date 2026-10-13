@@ -413,6 +413,37 @@
     }
    ],
    "genere": "2026-10-12T09:30:00Z"
+  },
+  {
+   "date": "2026-10-13",
+   "fichier": "2026-10-13-enquete.html",
+   "titre": "Robinhood Chain, 13/10 : deux semaines sans gaz gratuit, la chaîne garde ses transactions et perd la moitié de ses frais",
+   "question": "Le 29/09, Robinhood a coupé la subvention de gaz. Deux semaines plus tard, qu'est-ce qui est vraiment parti ?",
+   "mesure_neuve": "Les frais de la chaîne relus semaine par semaine avec la même liste d'adaptateurs DefiLlama : 38,77 M$ (22-28/09) → 19,19 M$ (06-12/10), soit −50,5 %, quand les transactions estimées sur la chaîne ne perdent que 18 % (7,21 → 5,93 M par jour) et le volume 33 %. 44,6 % de la baisse des frais vient du seul lanceur Pons V2. Quatre veilles soldées : trois CONFIRMÉES (frais, transactions dans le bruit de la sonde, coût par transaction), une RÉVISÉE (création de pools −44 %, sans le décrochage écrit).",
+   "chiffre_cle": {
+    "valeur": "−50,5 %",
+    "libelle": "de frais encaissés sur Robinhood Chain entre la semaine d'avant la fin du gaz gratuit et la deuxième semaine après, quand les transactions ne perdent que 18 %",
+    "population": "frais DefiLlama /overview/fees Robinhood Chain, série journalière relue le 13/10 (mêmes adaptateurs pour les deux semaines) : 38,77 M$ (22-28/09) → 19,19 M$ (06-12/10)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours (ce que la chaîne encaisse)"
+    },
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume sur 7 jours (ce qui s'échange)"
+    },
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés sur 7 jours (le rythme des lancements)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    }
+   ],
+   "genere": "2026-10-13T09:00:00Z"
   }
  ]
 }
