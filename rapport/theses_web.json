@@ -1,10 +1,10 @@
 {
- "genere": "2026-10-12T09:44:50Z",
+ "genere": "2026-10-13T13:41:21Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-10-12",
-   "recoupe": "Aucune annonce de Lista après le 14/09 trouvée au 12/10, ni rachat hebdomadaire d'octobre. Le FDV/capi de 1,85 suppose l'offre maximale de 800 M après la destruction de 200 M de LISTA ; tokenomist.ai compte encore 1 milliard, ce qui donnerait environ 2,3, au-dessus du seuil de 2,0.",
+   "releve": "2026-10-13",
+   "recoupe": "Aucune annonce de Lista apres le 14/09 trouvee au 13/10, ni rachat hebdomadaire d'octobre ; rien n'explique la baisse des fees (-23,1 % sur 7 jours au 12/10). Le FDV/capi de 1,85 suppose l'offre maximale de 800 M apres la destruction de 200 M de LISTA ; tokenomist.ai compte encore 1 milliard, ce qui donnerait environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -45,8 +45,8 @@
    ]
   },
   "Orca": {
-   "releve": "2026-10-12",
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la règle en vigueur (40 % des frais vers les stakers xORCA). Le vote relancé est ouvert du 11 au 16/10, sans décompte public trouvé au 12/10 : si la proposition passe, cette part tombe à 10 % et la mesure devra être relue. Aucun fait web n'explique la baisse de volume (-23,8 % sur 7 jours au 11/10).",
+   "releve": "2026-10-13",
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la regle en vigueur (40 % des frais vers les stakers xORCA). Le vote relance est ouvert du 11 au 16/10 ; aucun decompte public ni message du forum apres le 08/10 trouve au 13/10 : si la proposition passe, cette part tombe a 10 % et la mesure devra etre relue. Aucun fait web n'explique la baisse de volume (-21,0 % sur 7 jours au 12/10).",
    "rien": false,
    "faits": [
     {
@@ -94,8 +94,8 @@
    ]
   },
   "Meteora": {
-   "releve": "2026-10-12",
-   "recoupe": "Le zéro DefiLlama reste contredit : le Referral Staking reverse aux stakers MET une part des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle, environ 983 000 USDC estimés au 3e cycle en cours, fin vers le 21/10), flux que DefiLlama ne compte pas. L'échéance du compteur, le 23/10, tombe après la fin de ce cycle. Aucune mise à jour des rachats trouvée au 12/10.",
+   "releve": "2026-10-13",
+   "recoupe": "Le zero DefiLlama reste contredit : le Referral Staking reverse aux stakers MET 10 % des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle, environ 983 000 USDC estimes au 3e cycle en cours, fin vers le 21/10), flux que DefiLlama ne compte pas. L'echeance du compteur, le 23/10, tombe apres la fin de ce cycle. Aucune mise a jour des rachats trouvee au 13/10.",
    "rien": false,
    "faits": [
     {
@@ -143,8 +143,8 @@
    ]
   },
   "Maple Finance": {
-   "releve": "2026-10-12",
-   "recoupe": "La capture DefiLlama de 10 % sous-estime peut-être le flux : le rachat annoncé le 09/10 porte sur 20 % du revenu de septembre, palier supérieur de la règle MIP-021. Aucun fait web n'explique la baisse des fees (-18,9 % sur 7 jours au 11/10).",
+   "releve": "2026-10-13",
+   "recoupe": "La capture DefiLlama de 10 % sous-estime peut-etre le flux : le rachat annonce le 09/10 porte sur 20 % du revenu de septembre, palier superieur de la regle MIP-021. Aucun fait web n'explique la baisse des fees (-11,9 % puis -10,8 % sur deux semaines au 12/10).",
    "rien": false,
    "faits": [
     {
