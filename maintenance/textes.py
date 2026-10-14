@@ -179,7 +179,7 @@ def relecture(fichier):
             continue
         net.append({k: d[k] for k in ('vue', 'ecran', 'type', 'gravite', 'constat')})
     ecrire(RELECTURE, {'jour': maintenant().strftime('%Y-%m-%d'), 'quand': maintenant().isoformat(timespec='seconds').replace('+00:00', 'Z'),
-                       'modele': 'claude-haiku-5-5 (routine cloud)', 'n_captures': len(vues), 'defauts': net})
+                       'n_captures': len(vues), 'defauts': net})
     print('%d constats gardés, %d écartés (forme invalide ou vue inconnue) -> maintenance/relecture.json' % (len(net), ecartes))
 
 
