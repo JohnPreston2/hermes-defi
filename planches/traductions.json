@@ -1,0 +1,10 @@
+{
+"generated_at": "2026-10-14T08:21:23Z",
+"modele": "claude-haiku-5-5",
+"n_affiches": 123,
+"n_refuses": 0,
+"n_traduits": 0,
+"regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
+"schema": 1,
+"t": {}
+}
