@@ -157,6 +157,7 @@ h1 em { font-style: italic; color: var(--champ); }
 .hz dt { font: 400 10px/1.2 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .hz dd { margin: 3px 0 0; font: 400 12.5px/1.45 var(--ui); color: var(--ink); }
 .hz q { display: block; margin-top: 4px; font: italic 400 12px/1.45 var(--ui); color: var(--ink2); quotes: none; }
+.hz .vo { display: block; margin-top: 6px; font: 400 11px/1.45 var(--mono); color: var(--muted); }
 .hz-k { margin: 12px 0 6px; font: 400 10px/1.2 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .hz ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .hz li a { font: 500 12.5px/1.35 var(--ui); color: var(--ink); text-decoration: none; }
@@ -404,6 +405,13 @@ const LOGOS = /*__LOGOS__*/null || new Proxy({}, { get: (_, k) => typeof k !== '
 const IN_DASH = location.pathname.includes('/planches/');
 let HZRAW = /*__HERMES__*/null;
 if (!HZRAW && IN_DASH) { try { const r = await fetch('../defi.json', { cache: 'no-cache' }); if (r.ok) HZRAW = await r.json(); } catch (e) { console.warn('lecture Hermes indisponible', e); } }
+/* TRADUCTIONS (ajout du 14/10/2026) : textes bruts de l'agent traduits en français par Claude Haiku sur le serveur,
+   publiés seulement si chaque nombre de l'original s'y retrouve (vérifié par le code). { original : traduction }.
+   Fichier absent ou texte absent : l'original s'affiche, comme avant. */
+let TRAD = {};
+if (IN_DASH) { try { const r = await fetch('traductions.json', { cache: 'no-cache' }); if (r.ok) TRAD = (await r.json()).t || {}; } catch (e) { console.warn('traductions indisponibles', e); } }
+const trad = (s) => (s && TRAD[String(s).trim()]) || null;
+const trS = (s) => trad(s) || s;
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------------------------------------------------------------- formats */
@@ -565,11 +573,12 @@ const ord = (r) => r === 1 ? '1er' : r + 'e';
 const dayFR = (s) => { if (!s) return '—'; const iso = s.length === 10 ? s + 'T12:00:00Z' : /T/.test(s) ? s : s.replace(' ', 'T') + 'Z'; return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', timeZone: 'Europe/Paris' }); };
 const escA = (s) => esc(s).replace(/"/g, '&quot;');
 const trunc = (s, n) => s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s;
+const trQ = (s, n) => { const f = trad(s); return f ? `<q>${esc(trunc(f, n))}</q><span class="vo">Traduction automatique. Original : « ${esc(trunc(s, n))} »</span>` : `<q>${esc(trunc(s, n))}</q>`; };
 function theseTxt(x) {
   const head = x.statut === 'retiree' ? `retirée le ${dayFR(x.dernier)}, après ${x.n} verdicts`
     : x.statut === 'dormante' ? `en sommeil : aucun verdict depuis le ${dayFR(x.dernier)} (le dernier : ${VERD[x.dernier_verdict] || x.dernier_verdict})`
     : `en cours depuis le ${dayFR(x.premier)} · ${x.n} verdicts · dernier : ${VERD[x.dernier_verdict] || x.dernier_verdict}, le ${dayFR(x.dernier)}`;
-  return head + (x.kill ? `<details class="q"><summary>Lire la condition de sortie de la thèse (texte brut de l’agent)</summary><q>${esc(x.kill)}</q></details>` : '');
+  return head + (x.kill ? `<details class="q"><summary>Lire la condition de sortie de la thèse (${trad(x.kill) ? 'texte de l’agent, traduit de l’anglais' : 'texte brut de l’agent'})</summary>${trQ(x.kill, 600)}</details>` : '');
 }
 function hzHTML(pl, it) {
   const h = it._hz, arts = it.articles || [];
@@ -577,13 +586,13 @@ function hzHTML(pl, it) {
   const rows = [];
   if (h && h.valo && h.valo.pf7 != null) rows.push(['Valorisation', `${nf(h.valo.pf7, 1)}× prix / frais sur 7 jours` + (h.valo.rang ? ` · ${ord(h.valo.rang)} sur ${h.valo.n} en ${SEC[h.valo.sec] || h.valo.sec}` + (h.valo.med != null ? ` (médiane ${nf(h.valo.med, 1)}×)` : '') : '')]);
   if (h && h.these) rows.push(['Thèse de l’agent', theseTxt(h.these)]);
-  if (h && h.wake) rows.push(['Dernière analyse qui le cite', `${dayFR(h.wake.ts)}, ${esc(h.wake.label)}<details class="q"><summary>Lire le passage (texte brut de l’agent${/\b(the|and|is|of|with)\b/i.test(h.wake.summary || '') ? ', en anglais' : ''})</summary><q>${esc(trunc(h.wake.summary || '', 260))}</q></details>`]);
-  const al = arts.map((a) => `<li><a href="${escA(a.u)}" target="_blank" rel="noopener">${esc(a.t)}</a><span>${esc(a.s)} · ${dayFR(a.d)}</span></li>`).join('');
+  if (h && h.wake) rows.push(['Dernière analyse qui le cite', `${dayFR(h.wake.ts)}, ${esc(h.wake.label)}<details class="q"><summary>Lire le passage (${trad(h.wake.summary) ? 'texte de l’agent, traduit de l’anglais' : 'texte brut de l’agent' + (/\b(the|and|is|of|with)\b/i.test(h.wake.summary || '') ? ', en anglais' : '')})</summary>${trQ(h.wake.summary || '', 260)}</details>`]);
+  const al = arts.map((a) => `<li><a href="${escA(a.u)}" target="_blank" rel="noopener"${trad(a.t) ? ` title="${escA(a.t)}"` : ''}>${esc(trS(a.t))}</a><span>${esc(a.s)} · ${dayFR(a.d)}</span></li>`).join(''), alT = arts.some((a) => trad(a.t));
   const src = ['Agent Hermes'];
   if (h && h.valo && HZ.valoAsof) src.push('valorisation du ' + dayFR(HZ.valoAsof));
   if (IN_DASH) src.push('<a href="../#valorisation">tableau de bord →</a>');
   return `<section class="hz"><h3><i></i>Ce qu’en dit Hermes</h3>` + (rows.length ? `<dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>` : '') +
-    (al ? `<p class="hz-k">Articles de sa veille · 14 derniers jours</p><ul>${al}</ul>` : '') + `<p class="hz-src">${src.join(' · ')}</p></section>`;
+    (al ? `<p class="hz-k">Articles de sa veille · 14 derniers jours${alT ? ' · titres traduits automatiquement' : ''}</p><ul>${al}</ul>` : '') + `<p class="hz-src">${src.join(' · ')}</p></section>`;
 }
 
 /* ---------------------------------------------------------------- le fil Hermes (planche Crypto) */
@@ -618,8 +627,8 @@ function filItem(g) {
   const x = g.items[0], [w, c] = impW(x.impact), ci = coinOf(x.headline || ''), rc = reclass(x);
   const s = SECN[x.sector] || (x.sector && x.sector !== 'none' ? x.sector : '');
   const aussi = g.items.slice(1).map((y) => { const wy = impW(y.impact)[0], ry = reclass(y);
-    return `<li><a href="${escA(y.url)}" target="_blank" rel="noopener">${esc(y.headline)}</a><span>${esc(y.source || '')}${wy !== w ? ' · ' + esc(wy) : ''}${ry ? ' · ' + ry : ''}</span></li>`; }).join('');
-  return `<li data-c="${ci}"><span class="w"><i class="imp imp-${c}"></i>${esc(w)}</span><a href="${escA(x.url)}" target="_blank" rel="noopener">${esc(x.headline)}</a><span class="m">${esc(x.source || '')}${s ? ' · ' + esc(s) : ''}</span>` +
+    return `<li><a href="${escA(y.url)}" target="_blank" rel="noopener"${trad(y.headline) ? ` title="${escA(y.headline)}"` : ''}>${esc(trS(y.headline))}</a><span>${esc(y.source || '')}${wy !== w ? ' · ' + esc(wy) : ''}${ry ? ' · ' + ry : ''}</span></li>`; }).join('');
+  return `<li data-c="${ci}"><span class="w"><i class="imp imp-${c}"></i>${esc(w)}</span><a href="${escA(x.url)}" target="_blank" rel="noopener"${trad(x.headline) ? ` title="${escA(x.headline)}"` : ''}>${esc(trS(x.headline))}</a><span class="m">${esc(x.source || '')}${s ? ' · ' + esc(s) : ''}</span>` +
     (rc ? `<span class="m rc">${rc}</span>` : '') + (aussi ? `<div class="aussi"><p>Même sujet</p><ul>${aussi}</ul></div>` : '') +
     (ci >= 0 ? `<img src="${LOGOS[C[ci].logo]}" alt="${esc(C[ci].sym)}">` : '') + '</li>';
 }
@@ -648,7 +657,7 @@ function renderFil() {
       (V.dernier_passage_err ? ` · <span class="stale">passage le plus récent en échec : ${esc(trunc(String(V.dernier_passage_err), 160))}</span>` : '') +
       (V.historique_err ? ` · <span class="stale">historique des passages illisible</span>` : '') + `</p><p class="tally">${tally}</p>`) +
     `<ol>${lis.join('')}</ol>
-    <p class="note">Le classement juge l’effet probable sur la valeur des protocoles, pas sur un cours. Les titres proches sont rangés sous « même sujet » : aucun n’est retiré. Survoler une actualité éclaire la pièce dont elle parle.</p>`;
+    <p class="note">Le classement juge l’effet probable sur la valeur des protocoles, pas sur un cours. Les titres proches sont rangés sous « même sujet » : aucun n’est retiré. Survoler une actualité éclaire la pièce dont elle parle.${V.groupes.some((g) => g.items.some((x) => trad(x.headline))) ? ' Titres anglais traduits automatiquement ; le lien mène à l’article d’origine.' : ''}</p>`;
   $('filclose').addEventListener('click', closeFil);
   fil.querySelectorAll('ol > li[data-c]').forEach((li) => {
     const ci = +li.dataset.c;
@@ -885,9 +894,9 @@ if (COH && COH.membres) {
           it.fees30 != null ? ['Frais 30 jours', usd(it.fees30)] : ['Capitalisation', it.mcap != null ? usd(it.mcap) : '—'], it.vol30 != null ? ['Volume 30 jours', usd(it.vol30)] : ['Rôle', ROLE[it.role]], ['Suivi depuis', it.hist.length ? dayFR(it.hist[0][0]) : '—']]) +
         sparkTVL(it.hist)) +
       (it.sortie || it.entre || it.mecanisme || it.lignee || it.comm ? `<details class="notes"><summary>Lire les notes de l’enquête : sortie, mécanisme (texte brut de l’agent)</summary>` +
-        (it.sortie ? `<p class="members">Sort de la cohorte si : ${esc(it.sortie)}</p>` : '') + (it.entre ? `<p class="members">Entre dans la cohorte si : ${esc(it.entre)}</p>` : '') +
-        (it.mecanisme ? `<p class="members">Mécanisme : ${esc(it.mecanisme)}</p>` : '') + (it.lignee ? `<p class="members">Équipe déclarée : ${esc(it.lignee)}</p>` : '') +
-        (it.comm ? `<p class="members">${esc(trunc(it.comm, 420))}</p>` : '') + '</details>' : ''),
+        (it.sortie ? `<p class="members">Sort de la cohorte si : ${esc(trS(it.sortie))}</p>` : '') + (it.entre ? `<p class="members">Entre dans la cohorte si : ${esc(trS(it.entre))}</p>` : '') +
+        (it.mecanisme ? `<p class="members">Mécanisme : ${esc(trS(it.mecanisme))}</p>` : '') + (it.lignee ? `<p class="members">Équipe déclarée : ${esc(trS(it.lignee))}</p>` : '') +
+        (it.comm ? `<p class="members">${esc(trunc(trS(it.comm), 420))}</p>` : '') + '</details>' : ''),
   };
 }
 
