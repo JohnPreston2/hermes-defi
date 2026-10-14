@@ -1,0 +1,14 @@
+{
+ "defauts": [
+  {
+   "constat": "Barre d'onglets en haut : le mot « HERMES » et « Prix des frais » sont coupés au bord droit de l'écran (on voit « HERM » et « Prix des fra »). Même coupure sur les autres vues téléphone : la barre défile, les onglets restent accessibles.",
+   "ecran": "telephone",
+   "gravite": "gene",
+   "type": "texte_coupe",
+   "vue": "Crypto"
+  }
+ ],
+ "jour": "2026-10-14",
+ "n_captures": 34,
+ "quand": "2026-10-14T09:33:45Z"
+}
