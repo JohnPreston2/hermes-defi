@@ -121,6 +121,11 @@
      "date": "2026-10-13",
      "valeur": "72,5 % (860/1187) / 25,8 % (306/1187)",
      "note": "Registre regenere le 12/10 (19:15 UTC) apres ~102 h d'arret : +7 hooks robinhood. Loin des seuils (60 % / 40 %). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "72,5 % (860/1187) / 25,8 % (306/1187)",
+     "note": "Registre regenere 5 fois le 13/10, uniquement des hooks Ethereum : 0 hook robinhood ajoute. Loin des seuils (60 % / 40 %). NON SOLDEE."
     }
    ],
    "solde": null
@@ -238,6 +243,11 @@
      "date": "2026-10-13",
      "valeur": "5 / 1187 (0,42 %) au champ auditUrl ; 4 / 1187 (0,34 %) vers un vrai rapport",
      "note": "Le 5e 'audit' (WorkLaunchHook3, ajoute le 12/10) pointe vers une page de tache du lanceur explorer.imd.fun (HTTP 200), pas vers un rapport d'audit. Sous 1 % dans les deux lectures. Aucun exploit public de hook trouve ce jour. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "5 / 1187 (0,42 %) au champ auditUrl ; 4 / 1187 (0,34 %) vers un vrai rapport",
+     "note": "Inchange. Sous 1 % dans les deux lectures. Aucun exploit public de hook trouve ce jour. NON SOLDEE."
     }
    ],
    "solde": null
@@ -355,6 +365,11 @@
      "date": "2026-10-13",
      "valeur": "v3 39,5 % / v4 36,9 % du volume 30j (15,40 / 14,39 / 38,98 Md$)",
      "note": "vs 12/10 : v3 +0,4 pt, v4 -0,2 pt. Loin des seuils. A 7 j : v3 6,2 pb, v4 31,4 pb."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "v3 39,7 % / v4 37,1 % du volume 30j (15,34 / 14,34 / 38,62 Md$)",
+     "note": "vs 13/10 : v3 +0,2 pt, v4 +0,2 pt. Loin des seuils. A 7 j (07-13/10) : v4 29,9 pb."
     }
    ],
    "solde": null
@@ -472,6 +487,11 @@
      "date": "2026-10-13",
      "valeur": "156 sur 1187 (13,2 % au motif large, 156 deploiements au motif strict) ; aucun avis de TSV sur Robinhood Chain",
      "note": "Le premier avis public de TSV connu vient d'OKXICE (ICE + OKX), sur XLayer, en pools Uniswap v4 permissionnes contre USDC/USDG/USDT (presse : Ledger Insights 05/10, non recoupe sur une source primaire). Il ne porte pas sur Robinhood Chain : ne solde pas la veille. Un nouveau hook 'StockHook' (paire STONKCOIN/NVDA) entre au registre. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "156 sur 1187 (13,2 % au motif large, 156 au motif strict) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "Registre robinhood inchange depuis le 12/10. Recherche web : aucun avis de TSV nouveau. NON SOLDEE."
     }
    ],
    "solde": null
@@ -688,6 +708,11 @@
      "date": "2026-10-13",
      "valeur": "34,0 % (56,66/166,70 M$) Pons V2 sur le total declare ; 35,1 % avec V1 (58,51 M$)",
      "note": "PONS 0,290 $ (CoinGecko, -17,7 % en 24 h, cause non trouvee en recherche web) ; mcap 196,6 M$ (DefiLlama) / 196,4 M$ (CoinGecko). Au-dessus des deux seuils (15 % / 30 %). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "32,5 % (51,05/156,94 M$) Pons V2 sur le total declare ; 33,6 % avec V1 (52,67 M$)",
+     "note": "-1,5 pt vs 13/10 ; PONS 0,335 $ (CoinGecko, +15,4 % en 24 h) apres -17,7 % la veille. Encore au-dessus du seuil CONFIRMEE (30 %) de 2,5 pt : la marge fond d'environ 1,5 pt par jour. NON SOLDEE."
     }
    ],
    "solde": null
@@ -937,6 +962,11 @@
      "date": "2026-10-13",
      "valeur": "36,7 % (3,72/10,15 M$, 30 points 14/09 -> 13/10 partiel)",
      "note": "-1,6 pt vs 12/10 ; Robinhood Chain reste 1re (Ethereum 3,16 M$, 31,1 %). UNI 7,50 $. Seuil MORTE 33 % : 3,7 pt de marge, nouveau minimum. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "35,8 % (3,49/9,77 M$, 30 points 15/09 -> 14/10 partiel)",
+     "note": "-0,9 pt vs 13/10 ; Robinhood Chain reste 1re (Ethereum 3,11 M$, 31,8 %). UNI 7,48 $. Seuil MORTE 33 % : 2,8 pt de marge, nouveau minimum. NON SOLDEE."
     }
    ],
    "solde": null
@@ -1024,6 +1054,11 @@
      "date": "2026-10-13",
      "valeur": "part 30 j non recalculee ; jour 12/10 : 40,6 % (761/1 873 pools a hook, registre regenere du 12/10 19:15) ; 13/10 partiel (00:00-08:14 UTC) : 30,0 % (125/417)",
      "note": "Cinquieme jour plein de suite au-dessus de 30 %, malgre 7 hooks ajoutes au registre. Recalcul 30 j complet prevu le 16/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "30 j (14/09-13/10) : 23,7 % (21 048 / 88 648 pools a hook) ; sans le 15/09 : 19,1 % (15 010 / 78 624) ; semaine 07-13/10 : 38,2 % (4 692 / 12 283) ; jour 13/10 : 32,3 % (587 / 1 820)",
+     "note": "Recalcul complet fait ce jour (prevu le 16/10). 30 j : +3,8 pt vs le 10/10 (19,9 %), a 1,3 pt du seuil REVISEE (25 %). Le 15/09 sortira de la fenetre demain : la mesure 'sans 15/09' est la bonne lecture de tendance (15,5 % le 10/10 -> 19,1 %). OUVERTE."
     }
    ],
    "solde": null
@@ -1310,6 +1345,11 @@
      "date": "2026-10-13",
      "valeur": "0,74 % (4,10 M$ sur 554,8 M$) ; 179 marches d'actions dont 6 au-dessus de 1 000 $",
      "note": "Stable vs 0,75 % le 12/10. SPCX 32,3 % du collateral actions. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "0,74 % (4,10 M$ sur 552,7 M$) ; 179 marches d'actions dont 6 au-dessus de 1 000 $",
+     "note": "Stable. SPCX 31,2 % du collateral actions. OUVERTE."
     }
    ]
   },
@@ -1432,6 +1472,11 @@
      "date": "2026-10-13",
      "valeur": "lundi 12/10 : 339 477 tx sur les 50 jetons (4 tirages : 466 418 / 227 077 / 370 401 / 294 008)",
      "note": "Premier jour de la fenetre 12-16/10, au-dessus du seuil CONFIRMEE (331 000) de 2,6 %, et +27 % vs la moyenne 05-09/10 (267 844). Dispersion entre tirages x2,1 : 4 tirages au lieu de 2, a garder pour la semaine. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "mardi 13/10 : 314 665 tx (4 tirages : 387 876 / 280 876 / 369 925 / 219 984) ; moyenne 12-13/10 : 327 071",
+     "note": "Moyenne des deux premiers jours ouvres de la fenetre 12-16/10 SOUS le seuil CONFIRMEE (331 000), de 1,2 %. Dispersion entre tirages x1,8. Echeance 17/10. OUVERTE."
     }
    ]
   },
@@ -1488,6 +1533,11 @@
      "date": "2026-10-13",
      "valeur": "pas de week-end dans la fenetre ce jour",
      "note": "Prochain point : week-end 17-18/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "pas de week-end dans la fenetre ce jour",
+     "note": "Prochain point : week-end 17-18/10. OUVERTE."
     }
    ]
   },
@@ -1539,6 +1589,11 @@
      "date": "2026-10-13",
      "valeur": "31,4 pb (frais 7j / volume 7j v4, ventilation chaine DefiLlama ; 9,01 M$ / 2,87 Md$), fenetre 06-12/10",
      "note": "Toujours sous 50 pb. La semaine 12-18/10 sera lue le 19/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "29,9 pb (frais 7j / volume 7j v4, ventilation chaine DefiLlama ; 8,92 M$ / 2,98 Md$), fenetre 07-13/10",
+     "note": "Sous 50 pb. Fenetre glissante, pas la semaine du test : 12-18/10 sera lue le 19/10. OUVERTE."
     }
    ]
   },
@@ -1590,6 +1645,11 @@
      "date": "2026-10-13",
      "valeur": "non re-mesure (echantillon de swaps non refait)",
      "note": "OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "non re-mesure (echantillon de swaps non refait)",
+     "note": "Releve hors veille : les pools WORM (sans hook) portent 12 100 swaps sur 200 pools echantillonnes depuis le 07/10, pour 0,133 ETH de volume : ils gonflent le COMPTE de swaps sans peser dans le volume valorise. OUVERTE."
     }
    ]
   },
@@ -1637,6 +1697,11 @@
      "date": "2026-10-13",
      "valeur": "12/10 : Doppler 946 / 1 873 pools a hook / 5 787 pools (50,5 % / 16,3 %) ; 07-12/10 (6 jours) : 5 656 / 10 463 / 33 794 (54,1 % / 16,7 %) ; 13/10 partiel 256 / 417 / 1 318 (61,4 % / 19,4 %)",
      "note": "Lundi a 0,5 pt du seuil REVISEE (50 % des pools a hook). Semaine 07-13/10 sous 60 % : la CONFIRMEE est perdue pour cette semaine. Plus de 500 pools Doppler par jour. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "semaine 07-13/10 complete : Doppler 6 747 / 12 283 pools a hook / 39 053 pools (54,9 % / 17,3 %) ; 13/10 : 1 091 / 1 820 / 5 259 (59,9 % / 20,7 %) ; jour sous 50 % : 09/10 (35,8 %)",
+     "note": "Semaine 07-13/10 sous 60 % : la CONFIRMEE est desormais IMPOSSIBLE (elle exigeait les deux semaines au-dessus de 60 %). Seuil REVISEE (semaine sous 50 %) non franchi ; plus de 500 pools Doppler chaque jour (741 au minimum, le 11/10). Solde a l'echeance du 20/10. OUVERTE."
     }
    ]
   },
@@ -1678,6 +1743,11 @@
      "date": "2026-10-13",
      "valeur": "base jour : lundi 12/10 37,3 % des 3 914 pools sans hook viennent d'emetteurs a >= 10 pools ce jour-la (1 968 emetteurs, 3 315 transactions toutes lues, 0 manquante)",
      "note": "En baisse vs dimanche (45,5 %). Trois emetteurs a exactement 200 pools chacun (0x3aa2..cf56, 0xc058..1574, 0x2b00..0bc5) : un plafond de lot, pas une coincidence. Pools sans hook a frais >= 50 % : 858/3 914 (21,9 %). Semaine 07-13/10 a mesurer le 14/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "semaine 07-13/10 complete : 47,2 % (12 637 / 26 770 pools sans hook) d'emetteurs a >= 10 pools ; 9 907 emetteurs, 22 944 transactions toutes lues (0 manquante) ; HORS JETON WORM : 38,4 % (8 799 / 22 903)",
+     "note": "Premiere semaine du test AU-DESSUS de 40 % (48,4 % la semaine 30/09-06/10). Mais 3 867 de ces pools (14,4 %) sont une echelle de frais sur la seule paire ETH/WORM, creee par 40 comptes dont 19 a exactement 200 pools chacun : sans elle, la part tombe a 38,4 %, sous le seuil. L'affirmation 'industriel' tient par un seul jeton. Frais >= 50 % : 5 665 / 26 770 (21,2 %, contre 28,3 %). OUVERTE (semaine 14-20/10 decisive)."
     }
    ]
   },
@@ -1714,6 +1784,11 @@
      "date": "2026-10-13",
      "valeur": "lundi 12/10 : 1 856 emissions, 1 057 destructions ; mardi 13/10 00:00-08:14 UTC : 330 emissions, 148 destructions",
      "note": "Premier jour plein de la fenetre lun-ven 12-16/10 : au-dessus du seuil CONFIRMEE (1 650/j), sous le seuil REVISEE (2 000/j). OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "mardi 13/10 : 2 252 emissions, 1 319 destructions ; moyenne 12-13/10 : 2 054 emissions/jour",
+     "note": "Mardi au-dessus du seuil REVISEE (2 000/j), et la moyenne des deux premiers jours aussi (2 054). SPCX en tete des emissions (215). Le seuil se lit sur la moyenne lun-ven 12-16/10 : non solde avant le 17/10. OUVERTE, en voie de REVISEE."
     }
    ]
   },
@@ -1750,6 +1825,11 @@
      "date": "2026-10-13",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code, nonce 2 ; implementation 0xb354...5ae2 inchangee ; paused() = 0 sur AMZN ; 0 evenement sur la balise depuis le 10/10",
      "note": "Aucun changement de controle. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code, nonce 2 ; implementation 0xb354...5ae2 inchangee ; paused() = 0 sur AMZN ; 0 evenement sur la balise depuis le 10/10",
+     "note": "Aucun changement de controle. OUVERTE."
     }
    ]
   },
@@ -1781,6 +1861,11 @@
      "date": "2026-10-13",
      "valeur": "657 pools (inchange ; 0 creation le 12/10 ni le 13/10 jusqu'a 08:14 UTC) ; swaps non relus",
      "note": "Le hook reste a l'arret depuis le 10/10 14:25 UTC. OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "657 pools (inchange ; aucune creation depuis le 10/10, recensement complet jusqu'au bloc 88 215 017) ; swaps non relus",
+     "note": "Le hook reste a l'arret depuis le 10/10 14:25 UTC. OUVERTE."
     }
    ]
   },
@@ -1802,6 +1887,11 @@
      "date": "2026-10-13",
      "valeur": "utilisation 100,0 % sur 4 marches (AAPL 197 637 / SPCX 517 763 / NVDA 690 537 / GOOGL 260 081 USDG, pretes = empruntes) ; collateral actions 4 104 376 $ sur 554 795 382 $ (0,74 %), SPCX 1 324 262 $",
      "note": "Aucun preteur revenu. Les montants montent seulement par les interets courus (SPCX +1 380 USDG, NVDA +1 220 en un jour). Morpho detient 12,9 % de l'offre SPCX (8 134 sur 63 272 : l'offre a grandi de 1 092 jetons). OUVERTE."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "utilisation 99,97 % sur 4 marches (NVDA 99,94 % : 691 131 pretes / 690 707 empruntes ; AAPL, SPCX, GOOGL 100,0 %) ; collateral actions 4 096 181 $ sur 552 667 872 $ (0,74 %), SPCX 1 277 834 $",
+     "note": "Premier ecart a 100 % : 424 USDG libres sur NVDA. Loin du seuil REVISEE (90 %). Offre SPCX 63 272 -> 68 437 jetons (+8,2 % en un jour) : Morpho n'en detient plus que 11,9 %. Part Morpho de l'offre NVDA 8,6 -> 9,2 % (offre en baisse). OUVERTE."
     }
    ]
   },
@@ -1818,6 +1908,27 @@
      "date": "2026-10-13",
      "valeur": "06-12/10 : 19,19 M$ (Pons V2 3,72 M$, Uniswap V4 9,01 M$) ; 22-28/09 : 38,77 M$",
      "note": "Point d'ouverture. Pentes hebdomadaires a perimetre constant : -25,3 % (16-22/09 -> 22-28/09), -18,1 % (-> 29/09-05/10), -39,6 % (-> 06-12/10). La derniere semaine est la plus raide : l'affirmation peut perdre."
+    },
+    {
+     "date": "2026-10-14",
+     "valeur": "indicatif (pas la fenetre du test) : 07-13/10 = 18,91 M$ contre 06-12/10 relue ce jour = 19,27 M$ (-1,9 %)",
+     "note": "La serie journaliere se tasse a 2,7-2,9 M$/j depuis le 12/10. Perimetre en mouvement : 06-12/10 lue 19,19 M$ hier, 19,27 M$ ce jour (+0,4 %, adaptateurs 'keep' et 'gondi-v3' ajoutes le 13/10). Premiere fenetre du test (13-19/10) lue le 20/10. OUVERTE."
+    }
+   ]
+  },
+  {
+   "id": "v_20261014_01",
+   "ouverte": "2026-10-14",
+   "affirmation": "Les ~6 500 pools Uniswap v4 de la paire ETH/WORM (Agent Wormhole), crees a un niveau de frais different chacun, ne sont pas un marche : leurs swaps sont de la poussiere routee par un seul contrat, et ils gonflent le nombre de pools et de swaps de la chaine sans peser dans son volume.",
+   "mesure": "Meme echantillon de 200 pools WORM (graine 7, crees depuis le 07/10) : somme |amount0| des Swap de la PoolManager 0x8366...0951 depuis le 07/10, mediane par swap, part des swaps dont le champ sender = 0x8876789976decbfcbbbe364623c63652db8c0904. Reference 14/10 08:30 UTC : 12 100 swaps, 0,1331 ETH (~335 $ a 2 514 $), mediane 1,38e-8 ETH, 99,7 % via 0x8876. En second : part des pools sans hook de la semaine dont une devise est WORM (14,4 % le 07-13/10).",
+   "seuil": "REVISEE si le volume cumule de l'echantillon depasse 10 ETH ou si la part routee par 0x8876 passe sous 80 % avant l'echeance (de vrais echanges arrivent). CONFIRMEE si, a l'echeance, le volume reste sous 1 ETH et la mediane sous 1e-6 ETH.",
+   "echeance": "2026-10-28",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-10-14",
+     "valeur": "12 100 swaps sur 198 des 200 pools ; 0,1331 ETH ; mediane 1,38e-8 ETH ; 99,7 % via 0x8876 ; 0 swap a montants nuls ; 396 evenements de liquidite",
+     "note": "Ouverture. Temoin : 20 pools Doppler du 13/10 portent 353 evenements de liquidite et 5 swaps sur la meme sonde."
     }
    ]
   }

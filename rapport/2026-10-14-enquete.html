@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 14/10 : l’échelle WORM</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+.chart{margin:14px 0 22px}.chart svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<header>
+<div class="hwrap">
+<div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+<nav><a href="../">accueil</a><a href="2026-10-13-enquete.html">enquête du 13/10</a></nav>
+</div>
+</header>
+
+<main>
+<p class="tag data">Enquête · 14 octobre 2026 · fil Uniswap v4 × Robinhood Chain, jour 23 · première semaine pleine relue en entier depuis la fin du gaz gratuit</p>
+<h1>Robinhood Chain, 14/10 : un jeton, 3 867 pools, un niveau de frais différent pour chacun</h1>
+<p class="question">La semaine du 07 au 13/10 est la première semaine pleine à tester l'affirmation « la création de pools sans hook est industrielle ». Qui crée ces pools, et le compteur mesure-t-il encore des marchés ?</p>
+
+<div class="provenance">
+<div class="row"><span>Page générée</span><span>2026-10-14 ~08:40 UTC (mercredi)</span></div>
+<div class="row"><span class="src">RPC de la chaîne</span><span class="age-fresh">Initialize de la PoolManager, blocs 62 000 000 → 88 215 017 (≈13/09 → 14/10 08:14 UTC) · 22 944 transactions de création lues une par une (RPC ordofi, 5 069 relues après une réponse vide) · témoins : chainId 0x1237, eth_getCode sur une adresse bidon = 0x</span></div>
+<div class="row"><span class="src">DefiLlama</span><span class="age-fresh">/v2/chains, /protocols, /overview/dexs et /overview/fees (totaux et séries), revenus, /summary uniswap-v3 et v4, /protocol/pons · 08:14 UTC</span></div>
+<div class="row"><span class="src">Registre des hooks (Uniswap/hooklist)</span><span class="age-fresh">régénéré le 13/10 21:24 UTC (commit def1583e) · 0 hook robinhood ajouté depuis le 12/10</span></div>
+<div class="row"><span class="src">API Morpho (blue-api)</span><span class="age-fresh">438 marchés chainId 4663 · 08:25 UTC · recoupé par Morpho.market(id)</span></div>
+<div class="row"><span class="src">SEC 4-927 · Federal Register</span><span class="age-stale">08:20 UTC · page 200, rien après le 09/10 · <b>témoin 4-999999 = HTTP 503, pas 404 : sonde non calibrée ce jour</b></span></div>
+<div class="row"><span class="src">CoinGecko · GitHub · presse</span><span class="age-fresh">08:14-08:50 UTC</span></div>
+<div class="row"><span class="src">Agent Hermes (delta)</span><span class="age-fresh">joignable 08:22 UTC · non utilisé : aucun chiffre de cette page n'en vient</span></div>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>14,4 %</b><span>des 26 770 pools v4 sans hook créés du 07 au 13/10 appartiennent à une seule paire : ETH/WORM</span></div>
+<div class="stat"><b>47,2 % → 38,4 %</b><span>part des pools sans hook venant d'émetteurs à 10 pools ou plus, avec puis sans WORM</span></div>
+<div class="stat"><b>1,4×10⁻⁸ ETH</b><span>échange médian sur 200 pools WORM tirés au hasard (12 100 échanges, 0,133 ETH en tout)</span></div>
+</div>
+
+<h2>Le fil : ce que les veilles disent ce matin</h2>
+<p>Une veille est une affirmation datée, avec une mesure, un seuil et une échéance. Les 19 veilles ouvertes ont été re-testées. Aucune n'est soldée ce jour. Quatre ont bougé de façon notable :</p>
+<ul>
+<li><strong>v_20261007_01, création « industrielle ».</strong> Semaine 07-13/10 : 47,2 % des pools sans hook viennent d'émetteurs qui en créent au moins 10 (12 637 sur 26 770). C'est au-dessus du seuil de 40 %. Mais sans la paire ETH/WORM, la part tombe à 38,4 % (8 799 sur 22 903). La veille ne tient que par un jeton. C'est le sujet du jour.</li>
+<li><strong>v_20261006_01, Doppler.</strong> Semaine complète : 6 747 pools Doppler sur 12 283 pools à hook (54,9 %) et sur 39 053 pools (17,3 %). Le seuil de confirmation exigeait 60 % deux semaines de suite : la confirmation est désormais impossible. Le seuil de révision (50 %) n'est pas franchi. Soldée le 20/10.</li>
+<li><strong>v_20260925_01, hooks hors registre.</strong> Recalcul complet sur 30 jours (14/09-13/10) : 23,7 % des 88 648 pools à hook sont sur un hook absent du registre officiel. Sans la journée du 15/09 (rafale mmETH, piège P12) : 19,1 %. C'était 19,9 % et 15,5 % le 10/10. Le seuil de révision est 25 %.</li>
+<li><strong>v_20261008_01, émissions d'actions tokenisées.</strong> Mardi 13/10 : 2 252 émissions et 1 319 destructions. La moyenne lundi-mardi (2 054 par jour) dépasse le seuil de révision (2 000). Le verdict se lit sur la moyenne lun-ven, le 17/10. SPCX (SpaceX) mène les émissions (215).</li>
+</ul>
+<p>Les autres restent dans leurs couloirs. Part de Pons dans les frais : 32,5 % (seuil de confirmation 30 %). Part de la chaîne dans le revenu UNI de la v3 : 35,8 % (seuil de mort 33 %). Transactions sur les 50 jetons d'actions : 327 071 par jour en moyenne lundi-mardi, juste sous le seuil de 331 000. Une veille est ouverte ce jour (v_20261014_01, voir plus bas).</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p><em>Méthode en une ligne :</em> tous les événements Initialize de la PoolManager v4 du 07/10 00:00 au 14/10 08:14 UTC (40 320 pools), l'émetteur de chacune des 22 944 transactions de création des pools sans hook, puis les échanges de 200 pools WORM tirés au hasard.</p>
+<p>Le décompte journalier redonne au pool près les chiffres publiés hier pour le 12/10 (5 787 pools, 1 873 à hook, 946 Doppler). La sonde est donc la même.</p>
+
+<h3>L'échelle WORM</h3>
+<p>Dans la semaine, 19 comptes ont créé <strong>exactement 200 pools chacun</strong>. Chaque compte agit en trois transactions, en moins de six secondes, via le gestionnaire de positions officiel d'Uniswap v4 (« Uniswap v4 Positions NFT », 0x58da…4fa7). Les 3 800 pools de ces 19 comptes portent tous la même paire : ETH natif contre le jeton 0x3ba5…c09d, « Agent Wormhole » (WORM, 1 milliard d'unités). Seul le niveau de frais change, par pas de 0,001 % : 2,250 %, 2,251 %, 2,252 %… Uniswap v4 identifie un pool par sa paire, son frais, son pas de prix et son hook. Changer le frais suffit à créer un « nouveau » pool.</p>
+<p>Avec 21 autres comptes, la paire ETH/WORM fait 3 867 pools sans hook sur la semaine, soit 14,4 % des 26 770. Depuis mi-septembre, elle compte 6 533 pools et 6 455 niveaux de frais distincts, de 0 à 99,12 %. Le phénomène démarre le 04/10. Avant, il pèse 0 à 4 % des pools sans hook par jour. Depuis, il pèse de 4,6 % (10/10) à 28,4 % (11/10).</p>
+
+<table>
+<tr><th>Jour (UTC)</th><th class="num">Pools sans hook</th><th class="num">dont ETH/WORM</th><th class="num">Part</th></tr>
+<tr><td>04/10</td><td class="num">3 835</td><td class="num">801</td><td class="num">20,9 %</td></tr>
+<tr><td>06/10</td><td class="num">3 763</td><td class="num">806</td><td class="num">21,4 %</td></tr>
+<tr><td>08/10</td><td class="num">3 671</td><td class="num">605</td><td class="num">16,5 %</td></tr>
+<tr><td>11/10</td><td class="num">4 252</td><td class="num">1 209</td><td class="num">28,4 %</td></tr>
+<tr><td>13/10</td><td class="num">3 422</td><td class="num">202</td><td class="num">5,9 %</td></tr>
+<tr><td><strong>07-13/10</strong></td><td class="num"><strong>26 770</strong></td><td class="num"><strong>3 867</strong></td><td class="num"><strong>14,4 %</strong></td></tr>
+</table>
+<p class="na">Les jours avant le 07/10 sont datés par interpolation des numéros de bloc (±1 h environ). Ceux du 07 au 13/10 sont bornés par l'horodatage réel des blocs.</p>
+
+<h3>Ces pools ont-ils un marché ?</h3>
+<p>Ils ont des échanges, beaucoup, mais minuscules. Sur 200 pools WORM tirés au hasard, 198 portent des échanges : 12 100 en tout depuis le 07/10, soit environ 30 par pool. Leur volume cumulé vaut 0,133 ETH, environ 335 $ au cours de 2 514 $. L'échange médian vaut 1,4×10⁻⁸ ETH, moins d'un dix-millième de cent. Le plus gros vaut 0,012 ETH. 99,7 % de ces échanges passent par un seul contrat, 0x8876…0904 (24 546 octets, sans proxy, sans nom lisible), appelé par de nombreux comptes différents.</p>
+<p>Témoin sur la même sonde : 20 pools Doppler du 13/10 portent 353 événements de liquidité et 5 échanges. La sonde voit donc bien les deux formes d'activité.</p>
+<p>Lecture : l'échelle WORM produit des pools et des échanges qui se comptent, sans volume qui se valorise. Elle gonfle trois compteurs de la chaîne à la fois : pools créés, échanges, et part des créateurs « industriels ». Elle ne pèse presque rien dans le volume DefiLlama. Le but reste inconnu. La presse présente WORM comme un projet de sécurité pour agents d'IA (Stocktwits, Bitrue ; non recoupé) : rien, sur la chaîne, ne relie ce discours à l'échelle de frais.</p>
+
+<h2>Le delta contre la veille</h2>
+<table>
+<tr><th>Mesure</th><th class="num">13/10</th><th class="num">14/10</th><th>Lecture</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td class="num">1 055,8 M$</td><td class="num">1 059,6 M$</td><td>+0,4 %</td></tr>
+<tr><td>Frais 30 j de la chaîne</td><td class="num">166,7 M$</td><td class="num">156,9 M$</td><td>la fenêtre perd un jour de mi-septembre à ~10 M$</td></tr>
+<tr><td>Frais par semaine, même périmètre</td><td class="num">19,27 M$ (06-12/10)</td><td class="num">18,91 M$ (07-13/10)</td><td>−1,9 % : le plancher se dessine</td></tr>
+<tr><td>Volume DEX 7 j</td><td class="num">6,26 Md$</td><td class="num">6,49 Md$</td><td>+3,7 % ; lun-mar à 1,05 et 1,15 Md$</td></tr>
+<tr><td>Taux de frais v4 sur 7 j</td><td class="num">31,4 pb</td><td class="num">29,9 pb</td><td>le prix d'un échange baisse encore</td></tr>
+<tr><td>Pons V2, part des frais 30 j</td><td class="num">34,0 %</td><td class="num">32,5 %</td><td>0,53 M$ encaissés le dernier jour</td></tr>
+<tr><td>Prix PONS (CoinGecko)</td><td class="num">0,290 $</td><td class="num">0,335 $</td><td>+15,4 % après −17,7 %</td></tr>
+<tr><td>Pools v4 créés sur 7 j (chaîne)</td><td class="num">39 282</td><td class="num">39 053</td><td>stable ; 14,4 % des pools sans hook sont WORM</td></tr>
+<tr><td>Hooks robinhood au registre</td><td class="num">1 187</td><td class="num">1 187</td><td>registre régénéré, rien de neuf ici</td></tr>
+</table>
+<p>Les frais journaliers de la chaîne tiennent entre 2,7 et 2,9 M$ depuis le 12/10. À même liste d'adaptateurs, la semaine 07-13/10 ne perd que 1,9 % sur la précédente. La pente était de −39,6 % une semaine plus tôt. Prudence : le périmètre bouge encore. La semaine 06-12/10 valait 19,19 M$ hier et 19,27 M$ aujourd'hui, après l'ajout le 13/10 des adaptateurs « keep » et « gondi-v3 » sur la chaîne (piège P10).</p>
+<p>Côté actions tokenisées, l'offre du jeton SPCX passe de 63 272 à 68 437 unités en un jour (+8,2 %). Morpho n'en détient plus que 11,9 %. Le prêt adossé aux actions reste plein : 99,97 % d'utilisation sur les quatre marchés USDG. Seul NVDA montre 424 USDG libres sur 691 131.</p>
+
+<h2>La cohorte</h2>
+<p>Rien n'a franchi un seuil chez les dix membres. Aucune entrée depuis l'antichambre, aucune sortie. Ce qui a bougé : Longbow (TVL +18 %, 3,44 M$), up v3 (TVL +13 %, 5,07 M$), et Lighter, dont les frais sur 7 jours montent à 0,56 M$. Ce qui n'a pas bougé et devrait inquiéter : TermMax reste à 11 k$ de TVL et sortira le 31/10 au rythme actuel ; Fables affiche toujours un code d'audit 3 sans aucun lien ; la lignée dYdX d'Arcus n'a toujours aucune source primaire.</p>
+<table>
+<tr><th>Membre</th><th class="num">Score de preuve</th><th class="num">TVL</th><th class="num">Frais 30 j</th><th class="num">÷ Pons V2</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="num">0</td><td class="num">113,2 M$</td><td class="num">2,17 M$</td><td class="num">0,042</td></tr>
+<tr><td>Arcus Perps</td><td class="num">0</td><td class="num">55,9 M$</td><td class="num">1,41 M$</td><td class="num">0,028</td></tr>
+<tr><td>Fables</td><td class="num">1</td><td class="num">36,5 M$</td><td class="num">5,06 M$</td><td class="num">0,099</td></tr>
+<tr><td>Snuggle</td><td class="num">2</td><td class="num">6,55 M$</td><td class="num">1,03 M$</td><td class="num">0,020</td></tr>
+<tr><td>up v3</td><td class="num">0</td><td class="num">5,07 M$</td><td class="num">1,13 M$</td><td class="num">0,022</td></tr>
+<tr><td>Longbow</td><td class="num">0</td><td class="num">3,44 M$</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>StonkBrokers (4 fiches)</td><td class="num">0</td><td class="num">1,62 M$</td><td class="num">1,36 M$</td><td class="num">0,027</td></tr>
+<tr><td>Ekubo</td><td class="num">2</td><td class="num">1,42 M$</td><td class="num">0,04 M$</td><td class="num">0,001</td></tr>
+<tr><td>GIGA V3</td><td class="num">0</td><td class="num">0,95 M$</td><td class="num">0,11 M$</td><td class="num">0,002</td></tr>
+<tr><td>TermMax</td><td class="num">3</td><td class="num">0,01 M$</td><td class="num">—</td><td class="num">—</td></tr>
+</table>
+<p>Les dix membres encaissent 12,3 M$ sur 30 jours, soit 0,24 fois Pons V2 (51,05 M$). Tant que ce ratio reste sous 1, « la chaîne mûrit vers les actions tokenisées » reste une thèse. Score de preuve recalculé sur les 263 protocoles de la chaîne : 179 à 0, 34 à 1, 39 à 2, 10 à 3, 1 à 4. Cinq candidats automatiques. UNCX Network V3 (score 2, TVL 5,80 M$) dépasse Longbow pour le 5e jour de suite : il prendra sa place le 16/10 si la série tient. Il n'encaisse aucun frais : la règle ne dit pas si cela compte, la décision reste à l'utilisateur. Team Finance quitte la liste (TVL 0,95 M$, sous le plancher de 1 M$).</p>
+
+<h2>Ce qui contredit</h2>
+<p><strong>Contre ma propre lecture d'hier.</strong> L'enquête du 07/10 a établi qu'environ la moitié des pools sans hook viennent de créateurs « industriels ». La semaine 07-13/10 semble le confirmer (47,2 %). Mais une part de ce chiffre n'est pas une industrie de lancements : c'est une seule paire qui énumère des niveaux de frais. Sans elle, 38,4 %. Le mot « industriel » mélangeait deux choses : des créateurs de jetons en série, et un remplissage d'espace d'identifiants.</p>
+<p><strong>Contre la lecture « WORM = pollution sans effet ».</strong> Ces pools ont de la liquidité (396 événements de liquidité sur l'échantillon) et des échanges réels, non nuls. Ce n'est pas le cas du hook 0xfcd1 du 10/10, dont 97 % des échanges étaient vides. Ici, chaque échange déplace un vrai montant, seulement minuscule. Une autre lecture reste possible : un routeur qui teste ou exploite chaque niveau de frais. Elle n'est pas écartée.</p>
+<p><strong>Contre le plancher des frais.</strong> Une semaine à −1,9 % ne fait pas un plancher. La comparaison glisse d'un seul jour (06-12 contre 07-13) : six jours sur sept sont communs. La veille v_20261013_01 sera tranchée sur deux semaines disjointes (13-19/10 et 20-26/10).</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<div class="unknown"><ul>
+<li>Qui contrôle les 40 comptes de l'échelle WORM, et qui les a financés. Leurs soldes restants sont à 6,9×10⁻⁷ ETH : ils ont été vidés après usage.</li>
+<li>Ce qu'est le contrat 0x8876…0904. Aucune source publique ne le nomme ; l'explorateur Blockscout bloque les scripts.</li>
+<li>Le second hook le plus utilisé de la semaine, 0x2c66…2acc, est absent du registre : 818 pools du 07 au 13/10, en hausse chaque jour (112 → 168). Il apparie WETH à des jetons créés par le contrat 0xc739…89c6. Son identité n'est pas établie.</li>
+<li>L'état du dossier SEC 4-927 : la page n'est pas lisible en entier par script, et le témoin négatif répond 503 ce matin au lieu de 404. « Rien de neuf » n'est donc pas prouvé aujourd'hui.</li>
+<li>Le volume d'échanges sur les jetons d'actions n'est qu'estimé : quatre tirages de 12 fenêtres de 200 blocs, qui varient du simple au double (219 984 à 387 876 transactions pour le 13/10).</li>
+</ul></div>
+<p><strong>Pièges du mémo re-vérifiés ce jour.</strong> P1 : les fiches Pons V1 et V2 ont toujours un champ <code>chains</code> vide. P2 : la somme des lignes non doublecounted (161 754 022 $), moins la ligne de la chaîne (4 814 474 $), égale le total déclaré de 156 939 548 $ au dollar près. P5 : Fables garde un code d'audit 3 sans lien. P8 : revenu aux détenteurs déclaré 6,61 M$, contre 15,18 M$ en somme des lignes. P10 : 26 commits dimension-adapters en 24 h, dont trois touchent la chaîne (keep, gondi-v3, BIM). P11 : tous les comptes de pools viennent de la chaîne ; 38,2 % des pools à hook de la semaine sont hors registre. P12 : nouvelle forme de rafale, à inscrire au mémo. Une population de pools peut être gonflée par une seule paire qui change seulement son niveau de frais. Parade : compter les pools par paire avant tout taux.</p>
+</main>
+<footer>Généré le 2026-10-14 vers 08:40 UTC · sources : RPC Robinhood Chain (chainId 4663, officiel et ordofi), DefiLlama, API Morpho, CoinGecko, GitHub, Uniswap/hooklist, SEC 4-927, Federal Register, dépôt DefiLlama/dimension-adapters, Stocktwits et Bitrue (presse, non recoupé) · aucun chiffre repris d'un agent</footer>
+</body>
+</html>

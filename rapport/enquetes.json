@@ -444,6 +444,37 @@
     }
    ],
    "genere": "2026-10-13T09:00:00Z"
+  },
+  {
+   "date": "2026-10-14",
+   "fichier": "2026-10-14-enquete.html",
+   "titre": "Robinhood Chain, 14/10 : un jeton, 3 867 pools, un niveau de frais différent pour chacun",
+   "question": "La semaine du 07 au 13/10 est la première semaine pleine à tester l'affirmation « la création de pools sans hook est industrielle ». Qui crée ces pools, et le compteur mesure-t-il encore des marchés ?",
+   "mesure_neuve": "Les 40 320 pools v4 créés du 07/10 au 14/10 08:14 UTC recensés, et l'émetteur des 22 944 transactions de création des pools sans hook lu une par une : 47,2 % des 26 770 pools sans hook de la semaine viennent d'émetteurs à 10 pools ou plus, mais 3 867 (14,4 %) sont une seule paire, ETH/WORM (Agent Wormhole), créée à un niveau de frais différent par pool (6 455 niveaux distincts depuis mi-septembre ; 19 comptes à exactement 200 pools chacun, en trois transactions). Sans elle, la part industrielle tombe à 38,4 %, sous le seuil de la veille. Sur 200 pools WORM tirés au hasard : 12 100 échanges pour 0,133 ETH, échange médian 1,4×10⁻⁸ ETH, 99,7 % via un seul contrat.",
+   "chiffre_cle": {
+    "valeur": "14,4 %",
+    "libelle": "des pools Uniswap v4 sans hook créés cette semaine sont une seule paire, ETH/WORM, déclinée en un niveau de frais par pool",
+    "population": "3 867 pools sur 26 770 pools v4 sans hook créés du 07 au 13/10 (recensement complet des événements Initialize)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v4_pools_crees_7j_onchain",
+     "libelle": "Pools créés sur 7 jours (le rythme des lancements)"
+    },
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours de la chaîne (ce qu'elle encaisse)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume sur 7 jours (les échanges réalisés)"
+    }
+   ],
+   "genere": "2026-10-14T08:40:00Z"
   }
  ]
 }
