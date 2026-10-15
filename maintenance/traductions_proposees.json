@@ -37,6 +37,11 @@
   "quand": "2026-10-15T11:07:37Z",
   "statut": "ok"
  },
+ "Australia’s financial watchdog seeks stiffer rules for crypto exchanges ahead of licensing deadline": {
+  "fr": "L'organisme australien de surveillance financière réclame des règles plus strictes pour les plateformes d'échange de crypto-actifs, avant l'échéance des licences",
+  "quand": "2026-10-15T15:07:33Z",
+  "statut": "ok"
+ },
  "Autheo’s THEO Plunges 92% After Suspected Bridge Exploit on Base": {
   "fr": "Le THEO d'Autheo chute de 92 % après une suspicion d'exploitation d'un pont sur Base",
   "quand": "2026-10-14T09:35:34Z",
@@ -132,6 +137,11 @@
   "quand": "2026-10-15T11:07:37Z",
   "statut": "ok"
  },
+ "Bitget, Liquid exploits push Q3 crypto hacks toward $1.2B": {
+  "fr": "Les piratages de Bitget et Liquid poussent les hacks crypto du T3 vers $1,2B",
+  "quand": "2026-10-15T15:07:33Z",
+  "statut": "ok"
+ },
  "Bitmine adds 12,532 ETH as Tom Lee flags potential ‘largest-ever’ crypto bull market": {
   "fr": "Bitmine ajoute 12 532 ETH, Tom Lee évoque un potentiel marché haussier crypto « le plus grand de l'histoire »",
   "quand": "2026-10-14T09:35:34Z",
@@ -224,6 +234,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "EU authority classifies Circle’s USDC as ‘significant’ under MiCA": {
+  "fr": "L'autorité européenne classe l'USDC de Circle comme « significatif » au titre de MiCA",
+  "quand": "2026-10-15T15:07:33Z",
+  "statut": "ok"
+ },
  "Enable General Collaterals for POL Borrowing on Polygon v3": {
   "fr": "Activer les collatéraux généraux pour l'emprunt de POL sur Polygon v3",
   "quand": "2026-10-14T09:35:34Z",
@@ -274,6 +289,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Forum Moderation Log": {
+  "fr": "Journal de modération du forum",
+  "quand": "2026-10-15T15:07:33Z",
+  "statut": "ok"
+ },
  "Godfather of AI and 400 Scientists Want AI Models Cut Off From the Internet": {
   "fr": "Le « parrain de l'IA » et 400 scientifiques veulent isoler les modèles d'IA d'Internet",
   "quand": "2026-10-15T11:07:37Z",
@@ -312,6 +332,11 @@
  "Jito’s JTX plans mobile app this fall, eyes perps integration later this winter": {
   "fr": "Le JTX de Jito prévoit une application mobile cet automne et envisage une intégration des perps plus tard cet hiver",
   "quand": "2026-10-14T15:10:04Z",
+  "statut": "ok"
+ },
+ "LST sector at 3rd percentile is structural, not cyclical — institutions migrate to dedicated stVaults outside generic TVL metrics. Published 2 watches on Lido and ether.fi to track persistence.": {
+  "fr": "Le secteur LST au 3e centile est structurel, pas cyclique : des institutions migrent vers des stVaults dédiés, hors des métriques TVL génériques. 2 suivis publiés sur Lido et ether.fi pour vérifier la persistance.",
+  "quand": "2026-10-15T15:07:33Z",
   "statut": "ok"
  },
  "Largest liquid staking protocols in coordinated capital flight (-8% weekly) with zero narrative coverage. Consensus obsesses over Aave liquidation stress while missing the upstream collateral evaporation. Emitted 3 falsifiable predicates on Lido, ether.fi, and dYdX OI to track the unwind.": {
@@ -384,6 +409,11 @@
  "MNX Launches Futures on AI Lab IPOs and Revenue": {
   "fr": "MNX lance des contrats à terme sur les introductions en bourse et les revenus de laboratoires d'IA",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Major shareholder presses SkyAI on Solana sales after treasury shrinks 70% in a month": {
+  "fr": "Un actionnaire majeur interpelle SkyAI sur ses cessions de Solana après une baisse de 70 % de sa trésorerie en un mois",
+  "quand": "2026-10-15T15:07:33Z",
   "statut": "ok"
  },
  "Mandating a 2-Year Financial Audit : Demand for Product R&D and Payroll Transparency": {
@@ -481,6 +511,11 @@
   "quand": "2026-10-14T15:10:04Z",
   "statut": "ok"
  },
+ "Russia's Biggest Bank Sberbank Wins Approval to Trade Bitcoin": {
+  "fr": "La plus grande banque russe, Sberbank, obtient l'autorisation de négocier du bitcoin",
+  "quand": "2026-10-15T15:07:33Z",
+  "statut": "ok"
+ },
  "Russia’s largest bank Sberbank secures approval to trade crypto": {
   "fr": "La plus grande banque russe, Sberbank, obtient l'autorisation de négocier les cryptos",
   "quand": "2026-10-14T09:35:34Z",
@@ -518,6 +553,11 @@
  "SkyAI Sells Half Its SOL Treasury, Plans $201 Million Cash Buyback": {
   "fr": "SkyAI cède la moitié de sa trésorerie en SOL et prévoit un rachat d'actions de 201 M$",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Solana Sets a Date for Its Next Major Upgrade": {
+  "fr": "Solana fixe une date pour sa prochaine mise à niveau majeure",
+  "quand": "2026-10-15T15:07:33Z",
   "statut": "ok"
  },
  "Solana sets Oct. 21 for Alpenglow upgrade targeting 150-millisecond finality": {
@@ -660,6 +700,11 @@
  "Unveiling Lido Lend: Security-First Lending": {
   "fr": "Présentation de Lido Lend : le prêt axé sur la sécurité d'abord",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "VanEck Seeks to Withdraw Lido Staked Ethereum ETF Filing": {
+  "fr": "VanEck demande le retrait de son dossier d'ETF Lido Staked Ethereum",
+  "quand": "2026-10-15T15:07:33Z",
   "statut": "ok"
  },
  "VanEck seeks to withdraw application for Lido staked Ether ETF": {
