@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-15T11:46:01Z",
+"generated_at": "2026-10-15T12:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 140,
+"n_affiches": 139,
 "n_refuses": 0,
-"n_traduits": 94,
+"n_traduits": 93,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -57,7 +57,6 @@
 "Live updates: Bitcoin treading water near $83,000 ahead of U.S. inflation data": "Direct : le bitcoin stagne autour de 83,000 $ avant la publication des chiffres de l'inflation américaine",
 "MNX Launches Futures on AI Lab IPOs and Revenue": "MNX lance des contrats à terme sur les IPO et les revenus des laboratoires d'IA",
 "Mandating a 2-Year Financial Audit : Demand for Product R&D and Payroll Transparency": "Imposer un audit financier sur 2 ans : demande de transparence sur la R&D produit et la masse salariale",
-"Marinade Says Council Blocked DAO Takeover Attempt": "Marinade affirme que son conseil a bloqué une tentative de prise de contrôle de la DAO",
 "Nearly $1 billion in crypto bets liquidated as bitcoin, ether and XRP slide": "Près de $1 milliard de paris crypto liquidés alors que bitcoin, ether et XRP reculent",
 "Node Operator Admission: 2xStake as stVault Basic Operator": "Admission d'un opérateur de nœud : 2xStake comme opérateur de base de stVault",
 "OCC report finds debanking efforts tied to crypto activities": "Un rapport de l'OCC constate que les fermetures de comptes bancaires (debanking) sont liées à des activités crypto",
