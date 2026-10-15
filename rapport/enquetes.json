@@ -475,6 +475,37 @@
     }
    ],
    "genere": "2026-10-14T08:40:00Z"
+  },
+  {
+   "date": "2026-10-15",
+   "fichier": "2026-10-15-enquete.html",
+   "titre": "Robinhood Chain, 15/10 : Robinhood émet 3,7 fois plus d'actions qu'il n'en détruit, et elles circulent moins",
+   "question": "Le mercredi 14/10, le canal d'émission des actions tokenisées a compté son plus haut jour depuis que les jours sont comptés un par un (08/10). Est-ce plus d'activité, ou plus d'argent qui entre ?",
+   "mesure_neuve": "Toutes les émissions et destructions d'actions tokenisées des 12, 13 et 14/10 comptées sur la chaîne (témoin : 12 et 13/10 retombent exactement sur les chiffres publiés) : le 14/10, 2 864 émissions et 1 132 destructions, sur 104 jetons ; sur les 50 actions suivies, 14,27 M$ émis contre 3,83 M$ détruits aux prix Morpho figés du 15/10, soit +10,43 M$ net, sans titre dominant (NVDA, MSTR, CRCL, SPY, SPCX en tête, aucun au-dessus de 17 %). Le même jour, les transactions sur ces 50 actions baissent à 292 391 (sonde à deux tirages), contre 314 665 la veille.",
+   "chiffre_cle": {
+    "valeur": "+10,4 M$",
+    "libelle": "d'actions tokenisées émises en net sur Robinhood Chain le mercredi 14/10, pendant que les transactions sur ces actions baissaient",
+    "population": "50 actions de la liste figée (collatéraux Morpho chainId 4663) : 14,27 M$ émis contre 3,83 M$ détruits, comptage complet des 2 163 émissions du jour sur ces jetons, prix Morpho figés du 15/10"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours (ce que la chaîne encaisse)"
+    },
+    {
+     "champ": "rh_morpho_collat_actions_usd",
+     "libelle": "Actions déposées en garantie chez Morpho (en $)"
+    },
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume sur 7 jours (les échanges réalisés)"
+    }
+   ],
+   "genere": "2026-10-15T09:10:00Z"
   }
  ]
 }
