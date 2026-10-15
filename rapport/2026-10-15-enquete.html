@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 15/10 : le solde des émissions</title>
+<style>
+:root{color-scheme:dark;--bg:#080b16;--bg2:#0b1020;--s1:#101637;--s2:#151d44;
+--ink:#e9edfc;--ink2:#b6bfe4;--ink3:#8e98c6;--line:rgba(233,237,252,.13);
+--line2:rgba(233,237,252,.24);--acc:#a68cff;--acc2:#5c9bff;--held:#3fe0b0;
+--warn:#f5b642;--broken:#ff5d7d;--data:#8e97ba;
+--serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:"Segoe UI Variable Text",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+--r1:7px;--r2:11px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;
+--bg:#eef0fa;--bg2:#e5e8f6;--s1:#ffffff;--s2:#f6f7fd;--ink:#0f1330;--ink2:#3b4270;
+--ink3:#585f8c;--line:rgba(15,19,48,.14);--line2:rgba(15,19,48,.26);--acc:#6b46e0;
+--acc2:#1f5fd0;--held:#00816a;--warn:#8a5a00;--broken:#d31146;--data:#5f678f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:5}
+.hwrap{max-width:900px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:-.01em}
+.brand small{font-weight:400;color:var(--ink3);font-size:12px}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--acc2)}
+main{max-width:900px;margin:auto;padding:30px 20px 90px}
+h1{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1.16;margin:0 0 14px;font-weight:600}
+h2{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;font-weight:600;
+  border-top:1px solid var(--line);padding-top:26px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 10px;color:var(--ink);font-weight:600}
+p{margin:0 0 15px;color:var(--ink2)}
+strong{color:var(--ink)}
+.question{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;
+  border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:0 0 26px}
+.provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink3);background:var(--s1);
+  border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;margin:18px 0 8px;
+  line-height:1.8}
+.provenance .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.provenance .row:first-child{border-top:none;padding-top:0;margin-top:0}
+.src{color:var(--acc2)}
+.age-fresh{color:var(--held)}
+.age-stale{color:var(--warn)}
+.age-dead{color:var(--broken)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+tr:last-child td{border-bottom:none}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 22px}
+.stat{flex:1 1 150px;background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--acc);line-height:1.1;margin-bottom:4px}
+.stat span{font-size:12.5px;color:var(--ink3)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--ink3);margin:0 6px 6px 0}
+.tag.data{color:var(--data);border-color:var(--data)}
+.tag.source{color:var(--acc2);border-color:var(--acc2)}
+.tag.ok{color:var(--held);border-color:var(--held)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--s1);border-left:3px solid var(--acc2);
+  border-radius:0 var(--r1) var(--r1) 0;font-size:14.5px;color:var(--ink2)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink3);font-style:normal}
+.gap{background:linear-gradient(90deg,rgba(255,93,125,.12),transparent);border:1px solid rgba(255,93,125,.35);
+  border-radius:var(--r2);padding:14px 16px;margin:16px 0}
+.gap b{color:var(--broken)}
+.unknown{border:1px dashed var(--line2);border-radius:var(--r2);padding:14px 16px;margin:10px 0}
+.unknown li{color:var(--ink2);margin-bottom:8px}
+ul{padding-left:20px;margin:0 0 16px}
+li{margin-bottom:6px;color:var(--ink2)}
+code{font-family:var(--mono);font-size:.92em;background:var(--s2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+footer{max-width:900px;margin:auto;padding:20px;color:var(--ink3);font-size:12px;font-family:var(--mono);
+  border-top:1px solid var(--line)}
+a{color:var(--acc2)}
+.na{color:var(--ink3)}
+.chart{margin:14px 0 22px}.chart svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<header>
+<div class="hwrap">
+<div class="brand">Hermes DeFi <small>enquête du jour</small></div>
+<nav><a href="../">accueil</a><a href="2026-10-14-enquete.html">enquête du 14/10</a></nav>
+</div>
+</header>
+<main>
+<p class="tag data">Enquête · 15 octobre 2026 · fil Uniswap v4 × Robinhood Chain, jour 24 · troisième jour ouvré de la semaine-test 12-16/10</p>
+<h1>Robinhood Chain, 15/10 : Robinhood émet 3,7 fois plus d'actions qu'il n'en détruit, et elles circulent moins</h1>
+<p class="question">Le mercredi 14/10, le canal d'émission des actions tokenisées a compté son plus haut jour depuis que les jours sont comptés un par un (08/10). Est-ce plus d'activité, ou plus d'argent qui entre ?</p>
+
+<div class="provenance">
+<div class="row"><span>Page générée</span><span>2026-10-15 ~08:30 UTC (jeudi)</span></div>
+<div class="row"><span class="src">RPC de la chaîne (rpc.mainnet.chain.robinhood.com)</span><span class="age-fresh">émissions et destructions comptées en entier, blocs 86 236 777 → 88 778 319 (12/10 00:00 → 14/10 23:59 UTC) · événements Initialize du 14/10 · sonde de transactions à deux tirages · Morpho.market et balise des jetons · témoins : chainId 0x1237, eth_getCode sur une adresse bidon = 0x, PoolManager 24 009 octets</span></div>
+<div class="row"><span class="src">DefiLlama</span><span class="age-fresh">/v2/chains, /protocols, /overview/dexs et /overview/fees (totaux et série journalière), revenus aux détenteurs, /summary uniswap-v3 et v4, /protocol/pons · 08:13 UTC</span></div>
+<div class="row"><span class="src">Registre des hooks (Uniswap/hooklist)</span><span class="age-stale">dernière régénération 13/10 21:24 UTC (commit def1583e), soit ~35 h : chiffres des hooks identiques à hier par absence de régénération</span></div>
+<div class="row"><span class="src">API Morpho (blue-api)</span><span class="age-fresh">445 marchés chainId 4663 · ~08:30 UTC · recoupé par Morpho.market(id)</span></div>
+<div class="row"><span class="src">SEC 4-927 · Federal Register</span><span class="age-fresh">08:20 UTC · page 200, 7 entrées datées 12-14/10 · témoin 4-999999 de nouveau en 404 (503 hier)</span></div>
+<div class="row"><span class="src">CoinGecko · GitHub · presse</span><span class="age-fresh">08:13-08:25 UTC · presse : aucune annonce Robinhood datée de cette semaine trouvée</span></div>
+<div class="row"><span class="src">Agent Hermes (delta)</span><span class="age-fresh">joignable 08:25 UTC · non utilisé : aucun chiffre de cette page n'en vient</span></div>
+</div>
+
+<div class="stat-row">
+<div class="stat"><b>+10,4 M$</b><span>solde net d'actions tokenisées émises le 14/10 (14,27 M$ émis, 3,83 M$ détruits), sur les 50 actions suivies</span></div>
+<div class="stat"><b>2 864</b><span>émissions le 14/10, tous jetons confondus : plus haut jour compté un par un depuis le 08/10, au-dessus de la moyenne 28-30/09 (2 201)</span></div>
+<div class="stat"><b>292 391</b><span>transactions estimées sur les 50 actions le 14/10, en baisse (339 477 lundi, 314 665 mardi)</span></div>
+</div>
+
+<h2>Le fil : ce que les veilles disent ce matin</h2>
+<p>Une veille est une affirmation datée, avec une mesure, un seuil et une échéance. Les 20 veilles ouvertes ont reçu un point daté du 15/10. Aucune n'est soldée ce jour. Cinq trous sont déclarés : quatre mesures non refaites, plus le recalcul sur 30 jours de la v_20260925_01. Les mouvements notables :</p>
+<ul>
+<li><strong>v_20261008_01, le canal d'émission.</strong> Le mercredi 14/10 compte 2 864 émissions et 1 132 destructions. La moyenne lundi-mercredi monte à 2 324 émissions par jour, au-dessus du seuil REVISEE (2 000). Pour redescendre sous 2 000, jeudi et vendredi devraient totaliser moins de 3 028 émissions. Solde le 17/10. Témoin : les 12 et 13/10, recomptés ce matin, retombent exactement sur les chiffres publiés hier (1 856 et 2 252).</li>
+<li><strong>v_20261004_01, les transactions sur actions.</strong> Mercredi : 292 391 transactions estimées (deux tirages : 348 373 et 236 409). La moyenne 12-14/10 vaut 315 511, sous le seuil CONFIRMEE de 331 000. La sonde rejoue le 13/10 à 315 369, contre 314 665 publié hier. Solde le 17/10.</li>
+<li><strong>v_20260919_01, le poids de Pons.</strong> Pons V2 (un lanceur de jetons) pèse 30,8 % des frais 30 jours de la chaîne (45,87 M$ sur 148,74 M$). La marge au-dessus du seuil CONFIRMEE (30 %) n'est plus que de 0,8 point. Mais DefiLlama inscrit 0 $ pour Pons V2 le 14/10, contre 0,53 M$ la veille : c'est probablement un retard d'adaptateur, pas un arrêt.</li>
+<li><strong>v_20260924_01, les rachats d'UNI.</strong> Robinhood Chain porte 35,1 % de la valeur d'UNI détruite par la v3 sur 30 jours (3,46 M$ sur 9,85 M$). C'est un nouveau minimum, à 2,1 points du seuil MORTE (33 %).</li>
+<li><strong>v_20261006_01, Doppler (un lanceur à courbe de prix).</strong> Le 14/10, premier jour de la semaine 14-20/10 : 1 424 pools Doppler sur 2 112 pools à hook (67,4 %). C'est le plus haut nombre journalier publié depuis le 11/10.</li>
+</ul>
+<p>Une veille est ouverte ce jour (v_20261015_01, échéance 19/10) : elle teste si la semaine 12-16/10 finit avec un solde net d'émission supérieur à +10 M$, pendant que les transactions restent sous 331 000.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : chaque émission (un transfert depuis l'adresse zéro vers l'adresse de réception unique <code>0xcfae…0a94</code>) et chaque destruction (depuis <code>0xa855…3c74</code> vers zéro) des jours UTC 12, 13 et 14/10 a été lue sur la chaîne, sans échantillon. Les quantités des 50 actions de la liste figée sont valorisées au prix de l'oracle Morpho relevé ce matin. Ces prix sont figés : la mesure parle de quantités, pas de la valeur de marché de chaque jour.</p>
+<table>
+<thead><tr><th>Jour (UTC)</th><th class="num">Émissions</th><th class="num">Destructions</th><th class="num">Jetons émis</th><th class="num">Émis (50 actions)</th><th class="num">Détruit</th><th class="num">Solde net</th></tr></thead>
+<tbody>
+<tr><td>lundi 12/10</td><td class="num">1 856</td><td class="num">1 057</td><td class="num">84</td><td class="num">—</td><td class="num">—</td><td class="num">−0,34 M$</td></tr>
+<tr><td>mardi 13/10</td><td class="num">2 252</td><td class="num">1 319</td><td class="num">89</td><td class="num">9,15 M$</td><td class="num">8,19 M$</td><td class="num">+0,96 M$</td></tr>
+<tr><td>mercredi 14/10</td><td class="num">2 864</td><td class="num">1 132</td><td class="num">104</td><td class="num">14,27 M$</td><td class="num">3,83 M$</td><td class="num">+10,43 M$</td></tr>
+</tbody>
+</table>
+<p>Sur les trois jours, 152 contrats de jetons différents ont été émis ou détruits par ces deux adresses, soit trois fois la liste des 50. Le 14/10, 2 163 des 2 864 émissions touchent les 50 actions suivies.</p>
+<p>Le solde du 14/10 n'est pas l'œuvre d'un seul titre. Les cinq plus gros contributeurs : NVDA +1,80 M$, MSTR +1,77 M$, CRCL +1,31 M$, SPY +1,08 M$, SPCX +1,08 M$. Aucun ne dépasse 17 % du solde. Deux des trois premiers, MicroStrategy et Circle, sont des actions liées à la crypto. Le même jour, l'ETH perd 5,9 % (2 514 $ → 2 366 $, CoinGecko).</p>
+<p>Pour lire l'ampleur : les relevés antérieurs, faits à d'autres prix figés, donnaient −3,77 M$ net sur la semaine du 28/09 au 02/10 et −8,04 M$ du 05 au 07/10. Le 14/10 est le premier jour mesuré où l'émission l'emporte nettement. La comparaison porte sur des prix différents : elle vaut pour le signe, pas pour l'écart exact.</p>
+
+<h2>Le delta contre la veille</h2>
+<table>
+<thead><tr><th>Mesure</th><th class="num">14/10</th><th class="num">15/10</th><th class="num">Écart</th></tr></thead>
+<tbody>
+<tr><td>TVL de la chaîne (l'argent déposé, DefiLlama)</td><td class="num">1,060 Md$</td><td class="num">1,036 Md$</td><td class="num">−2,2 %</td></tr>
+<tr><td>dont Morpho Blue</td><td class="num">617,0 M$</td><td class="num">596,7 M$</td><td class="num">−3,3 %</td></tr>
+<tr><td>Volume 7 jours (les échanges)</td><td class="num">6,49 Md$</td><td class="num">6,60 Md$</td><td class="num">+1,7 %</td></tr>
+<tr><td>Frais 7 jours (ce que la chaîne encaisse)</td><td class="num">18,91 M$</td><td class="num">18,39 M$</td><td class="num">−2,8 %</td></tr>
+<tr><td>Frais 30 jours</td><td class="num">156,94 M$</td><td class="num">148,74 M$</td><td class="num">−5,2 %</td></tr>
+<tr><td>Prix d'un swap v4 (frais / volume, 7 j)</td><td class="num">29,9 pb</td><td class="num">29,6 pb</td><td class="num">−0,3 pb</td></tr>
+<tr><td>Pools v4 créés sur un jour plein</td><td class="num">5 259 (13/10)</td><td class="num">5 681 (14/10)</td><td class="num">+8,0 %</td></tr>
+<tr><td>Collatéral actions chez Morpho</td><td class="num">4,10 M$</td><td class="num">3,92 M$</td><td class="num">−4,3 %</td></tr>
+<tr><td>Hooks robinhood au registre</td><td class="num">1 187</td><td class="num">1 187</td><td class="num">0 (registre figé)</td></tr>
+</tbody>
+</table>
+<p>La baisse de la TVL suit le prix de l'ETH, pas un retrait mesuré : ce relevé ne sépare pas l'effet prix de l'effet quantité. Les frais 30 jours perdent 8,2 M$ en un jour. Cela vient surtout de la sortie des journées de mi-septembre de la fenêtre, quand Pons V2 encaissait 4 à 6 M$ par jour. Relue avec les mêmes adaptateurs, la semaine 06-12/10 vaut 19,27 M$, comme hier : le périmètre DefiLlama n'a pas bougé. Aucun commit des adaptateurs DefiLlama des 26 dernières heures ne nomme la chaîne (32 commits lus, titres seulement).</p>
+<p>Chez Morpho, les quatre marchés d'actions contre USDG (AAPL, SPCX, NVDA, GOOGL) sont de nouveau empruntés à 100,0 % : 1 654 308 USDG prêtés, autant empruntés, lus sur la chaîne. Le petit écart de NVDA vu hier s'est refermé. L'offre de SPCX passe de 68 437 à 73 632 jetons (+7,6 %), et la part détenue par Morpho tombe à 11,05 %. Les nouvelles actions émises ne vont pas en garantie de prêt.</p>
+
+<h2>Ce qui contredit</h2>
+<p><strong>L'activité ne suit pas.</strong> Le jour où l'émission nette bondit, les transactions sur ces mêmes 50 actions baissent : 292 391 contre 314 665 la veille. Les émissions montent de 27 %, les transactions baissent de 7 %. La lecture la plus simple est celle de plus gros ordres, pas de plus d'utilisateurs. Elle n'est pas prouvée : la sonde de transactions a une dispersion de 1,5 entre ses deux tirages du 14/10.</p>
+<p><strong>Une émission n'est pas un achat sur la chaîne.</strong> Les jetons naissent à l'adresse de réception de Robinhood. Ce relevé ne dit pas s'ils ont été achetés par des clients de l'application, déplacés vers un échange, ou gardés en stock par l'émetteur. Une mise en stock avant une hausse de la demande donnerait le même chiffre.</p>
+<p><strong>Aucune cause datée trouvée.</strong> La recherche web ne trouve aucune annonce Robinhood de cette semaine sur les actions tokenisées. Les derniers faits datés restent l'ordre SEC du 17/09 et l'annonce de fin septembre sur le rachat en actions réelles et le vote. Au dossier SEC 4-927, sept entrées sont nouvelles du 12 au 14/10, dont un compte rendu de réunion du 14/10 entre la Crypto Task Force, Injective Labs et la Blockchain Association. Aucune ne vient de Robinhood.</p>
+<p><strong>Le poids de Pons baisse en partie par un trou de données.</strong> La part de 30,8 % compte une journée à 0 $. Avec un 14/10 au niveau du 13/10, elle serait plus proche de 31,1 %.</p>
+
+<h2>La cohorte</h2>
+<p>Les dix membres, les trois de l'antichambre et la contre-référence Pons ont reçu leur point du 15/10. Le score de preuve a été recalculé sur les 267 protocoles que DefiLlama rattache à la chaîne : 181 à 0, 33 à 1, 41 à 2, 11 à 3, 1 à 4. 70 liens d'audit sur 75 répondent 200 ; 44 comptes GitHub sur 46 existent (témoins : ARMSys26 en 404, Uniswap en 200). Le registre des hooks n'ayant pas bougé, la part « hooks » du score est reprise d'hier.</p>
+<table>
+<thead><tr><th>Membre</th><th class="num">Score</th><th class="num">TVL</th><th class="num">Frais 30 j</th><th class="num">Frais / Pons V2</th></tr></thead>
+<tbody>
+<tr><td>Lighter Robinhood Perps</td><td class="num">0</td><td class="num">112,4 M$</td><td class="num">2,18 M$</td><td class="num">4,8 %</td></tr>
+<tr><td>Arcus Perps</td><td class="num">0</td><td class="num">57,5 M$</td><td class="num">1,48 M$</td><td class="num">3,2 %</td></tr>
+<tr><td>Fables</td><td class="num">1</td><td class="num">33,8 M$</td><td class="num">5,09 M$</td><td class="num">11,1 %</td></tr>
+<tr><td>Snuggle</td><td class="num">2</td><td class="num">6,04 M$</td><td class="num">0,99 M$</td><td class="num">2,2 %</td></tr>
+<tr><td>up v3</td><td class="num">0</td><td class="num">4,41 M$</td><td class="num">1,11 M$</td><td class="num">2,4 %</td></tr>
+<tr><td>Longbow</td><td class="num">0</td><td class="num">2,89 M$</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>Ekubo (+ STONX 0,72 M$)</td><td class="num">2</td><td class="num">1,40 M$</td><td class="num">0,04 M$</td><td class="num">0,1 %</td></tr>
+<tr><td>StonkBrokers (4 fiches)</td><td class="num">0</td><td class="num">1,39 M$</td><td class="num">1,34 M$</td><td class="num">2,9 %</td></tr>
+<tr><td>GIGA V3</td><td class="num">0</td><td class="num">0,92 M$</td><td class="num">0,10 M$</td><td class="num">0,2 %</td></tr>
+<tr><td>TermMax</td><td class="num">3</td><td class="num">11,2 k$</td><td class="num">0</td><td class="num">0</td></tr>
+</tbody>
+</table>
+<p><strong>Ce qui a bougé.</strong> UNCX Network V3 (un service de verrouillage de liquidité, score 2, TVL 5,40 M$) domine Longbow (score 0, TVL 2,89 M$) pour le sixième jour consécutif. Au septième, demain 16/10, la règle écrite le fait entrer à la place de Longbow, sans arbitrage. Une ambiguïté reste ouverte : UNCX ne déclare aucun frais. La règle ne dit pas si la « traction » se lit à la TVL seule. C'est une décision de l'utilisateur, pas du relevé. Team Finance revient parmi les candidats (TVL 1,67 M$).</p>
+<p><strong>Ce qui n'a pas bougé et devrait inquiéter.</strong> Fables n'a toujours aucun lien d'audit malgré trois audits déclarés. Sa TVL perd 7,3 % en un jour. TermMax reste à 11,2 k$ de TVL et à zéro frais : son critère de sortie (moins de 0,5 M$ au 31/10) sera presque sûrement franchi. Aucun critère de sortie n'est franchi ce jour. Aucun membre de l'antichambre n'atteint son seuil d'entrée.</p>
+<p><strong>Contre Pons.</strong> Le premier encaisseur de la cohorte, Fables, encaisse 11,1 % de ce que Pons V2 encaisse. La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse. Pons coûte 205 M$ (CoinGecko, −8,9 % en 24 h), soit 2,43 fois ce qu'il reverse à ses détenteurs sur un an au rythme actuel. Ce reversement vaut 14,8 % de ses frais.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<div class="unknown"><ul>
+<li>Qui reçoit les actions émises le 14/10 : il faudrait suivre les transferts sortant de <code>0xcfae…0a94</code>. Ce n'est pas fait ce jour.</li>
+<li>Le recalcul sur 30 jours des pools à hook hors registre (v_20260925_01) n'a pas été refait. Le 15/09 et sa rafale de 5 514 hooks sortent de la fenêtre aujourd'hui : c'est le premier relevé où la mesure brute devient propre, et il manque.</li>
+<li>Les émetteurs des 3 569 pools sans hook du 14/10 n'ont pas été lus (v_20261007_01). L'échantillon de swaps v4 (v_20261005_02) n'a pas été refait.</li>
+<li>La fin de l'échelle ETH/WORM est un indice, pas une mesure : aucune paire avec l'ETH natif ne dépasse 39 pools sans hook le 14/10, mais l'adresse WORM n'a pas été relue.</li>
+<li>Le nombre total de lettres du dossier 4-927 reste illisible par script : la page n'affiche que 30 lignes.</li>
+<li>Le 0 $ de Pons V2 le 14/10 chez DefiLlama : retard ou arrêt, on le saura demain.</li>
+</ul></div>
+<p class="tag">Pièges du mémo re-vérifiés ce jour : P1 (Pons absent du filtre par chaîne, lu via /overview/fees), P4 (versions V1 et V2 de Pons recollées avant ratio : 14,8 %), P5 (seuls les liens d'audit en HTTP 200 comptent), P7 (populations nommées : hooks sur 1 187, protocoles sur 267), P8 (revenus aux détenteurs : total déclaré 6,40 M$ contre somme des lignes 13,87 M$), P9 (rachats d'UNI lus comme valeur détruite, UNI à 6,91 $), P10 (commits des adaptateurs des 26 h listés avant de lire un écart).</p>
+</main>
+<footer>Hermes DeFi · enquête du 15/10/2026 · chaque chiffre est relevé ce jour, aucune valeur de repli · sources primaires : RPC Robinhood Chain, DefiLlama, Uniswap/hooklist, API Morpho, SEC, Federal Register</footer>
+</body>
+</html>

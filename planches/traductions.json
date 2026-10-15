@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-15T07:46:02Z",
+"generated_at": "2026-10-15T09:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 129,
+"n_affiches": 127,
 "n_refuses": 0,
-"n_traduits": 89,
+"n_traduits": 87,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -34,7 +34,6 @@
 "EQX Plans 11 Tokenized Stock and ETF Markets on Hyperliquid": "EQX prévoit 11 marchés d'actions et d'ETF tokenisés sur Hyperliquid",
 "Ether.fi Announces Dollar Stablecoin Powered by Ethena": "Ether.fi annonce un stablecoin en dollar propulsé par Ethena",
 "FBI Reports $17 Billion Scam-Center Tally as West Africa Raids Net 28 Arrests": "Le FBI annonce un bilan de 17 milliards de dollars pour les centres d'escroquerie, tandis que des opérations en Afrique de l'Ouest aboutissent à 28 arrestations",
-"FTX’s crypto mining venture is now used to advance AI": "Le projet minier crypto de FTX sert désormais à faire avancer l'IA",
 "Fed’s Williams sees AI supply squeeze lasting beyond 2 years": "Williams (Fed) voit une tension sur l'offre liée à l'IA durer au-delà de 2 ans",
 "Fee growth turns negative for 2 consecutive weeks or FDV/Mcap exceeds 2.0.": "La croissance des frais devient négative pendant 2 semaines consécutives, ou le ratio FDV/Mcap dépasse 2,0.",
 "Fee growth turns negative for 2 consecutive weeks or capture drops below 5%.": "La croissance des frais devient négative pendant 2 semaines consécutives, ou la capture passe sous 5%.",
@@ -67,7 +66,6 @@
 "Securitize stock jumps over 10% after launching tokenized US equities on Solana": "L'action Securitize bondit de plus de 10% après le lancement d'actions américaines tokenisées sur Solana",
 "Settlement Reconciliation — MSC #5–#12 (January–August 2026)": "Rapprochement des règlements — MSC #5–#12 (janvier–août 2026)",
 "SkyAI Sells Half Its SOL Treasury, Plans $201 Million Cash Buyback": "SkyAI vend la moitié de sa trésorerie en SOL et prévoit un rachat d'actions en numéraire de $201 million",
-"Standard Chartered Will Hold Ripple's Stablecoin in Dubai—And Let Clients Trade With It Without Moving It": "Standard Chartered conservera le stablecoin de Ripple à Dubaï et permettra à ses clients de l'échanger sans le transférer",
 "Standard Chartered pushes $2T stablecoin forecast to 2030 as transaction volumes grow": "Standard Chartered porte sa prévision de stablecoins à 2030 à $2T, avec la hausse des volumes de transactions",
 "StarkWare Launches Shadow Accounts on Starknet": "StarkWare lance les Shadow Accounts sur Starknet",
 "StoneX raises Securitize price target 50% as tokenized stock platform opens new revenue stream": "StoneX relève de 50% son estimation pour Securitize, alors que la plateforme d'actions tokenisées ouvre un nouveau flux de revenus",
