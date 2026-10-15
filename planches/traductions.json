@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-15T03:46:02Z",
+"generated_at": "2026-10-15T07:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
 "n_affiches": 129,
 "n_refuses": 0,
-"n_traduits": 88,
+"n_traduits": 89,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -43,6 +43,7 @@
 "How the SEC’s lack of leadership could facilitate crypto rulemaking": "Comment le manque de direction de la SEC pourrait faciliter l'élaboration de règles sur les cryptoactifs",
 "Institutional Comet: Transition Plan to Compound Governance": "Institutional Comet : plan de transition vers la gouvernance de Compound",
 "JUP Rises 51% in Four Weeks as Jupiter Fees Decline": "JUP progresse de 51% en quatre semaines, alors que les frais de Jupiter baissent",
+"Largest liquid staking protocols in coordinated capital flight (-8% weekly) with zero narrative coverage. Consensus obsesses over Aave liquidation stress while missing the upstream collateral evaporation. Emitted 3 falsifiable predicates on Lido, ether.fi, and dYdX OI to track the unwind.": "Les plus grands protocoles de staking liquide sont touchés par une fuite de capitaux coordonnée (-8% sur la semaine), sans aucune couverture narrative. Le consensus se concentre sur le stress de liquidation d'Aave et néglige l'évaporation amont du collatéral. 3 hypothèses réfutables publiées sur Lido, ether.fi et l'OI de dYdX pour suivre le désengagement.",
 "Ledger Asks Resellers in Seven Asian Markets to Pull Devices After Suspected $86M Drain": "Ledger demande à des revendeurs de sept marchés asiatiques de retirer des appareils après un vidage suspect de $86M",
 "Ledger Finds LTE Implant That Stole Recovery Phrases in Suspected $86M Drain": "Ledger découvre un implant LTE qui a volé des phrases de récupération lors d'un drainage présumé de $86M",
 "Lido liquid staking bleed accelerates as stETH loses collateral dominance ; Morpho cirBTC liquidity squeeze signals BTC's new monetary base role in DeFi ; 3 veilles émises sur structural rotation out of speculation and staking.": "La fuite du staking liquide de Lido s'accélère alors que stETH perd sa part de collatéral ; la tension sur la liquidité du cirBTC de Morpho signale le nouveau rôle du BTC comme base monétaire de la DeFi ; 3 veilles émises sur la rotation structurelle hors de la spéculation et du staking.",
