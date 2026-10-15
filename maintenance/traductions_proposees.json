@@ -294,6 +294,11 @@
   "quand": "2026-10-14T15:10:04Z",
   "statut": "ok"
  },
+ "Largest liquid staking protocols in coordinated capital flight (-8% weekly) with zero narrative coverage. Consensus obsesses over Aave liquidation stress while missing the upstream collateral evaporation. Emitted 3 falsifiable predicates on Lido, ether.fi, and dYdX OI to track the unwind.": {
+  "fr": "Les plus grands protocoles de staking liquide sont touchés par une fuite de capitaux coordonnée (-8% sur la semaine), sans aucune couverture narrative. Le consensus se concentre sur le stress de liquidation d'Aave et néglige l'évaporation amont du collatéral. 3 hypothèses réfutables publiées sur Lido, ether.fi et l'OI de dYdX pour suivre le désengagement.",
+  "quand": "2026-10-15T07:07:23Z",
+  "statut": "ok"
+ },
  "Le compte GitHub declare (ARMSys26) rend 404. Je l'avais cite comme depot public : c'etait faux.": {
   "quand": "2026-10-14T09:35:34Z",
   "statut": "fr"
