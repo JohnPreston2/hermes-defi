@@ -35,3 +35,9 @@ git push origin claude/maintenance-planches
 Si le push est refuse parce que la branche a avance : git pull --no-edit origin claude/maintenance-planches puis git push origin claude/maintenance-planches (jamais --force).
 
 6. Reponds en francais, en cinq lignes au plus : nombre de captures, nombre de defauts (bloquants / genes), les bloquants en une ligne chacun, traductions acceptees / refusees, push reussi ou non.
+
+
+FIN DE SESSION (toujours)
+Tu travailles seul : personne ne lit la session en direct. Ne pose aucune question et ne propose aucune suite. Termine par le resume demande.
+S il n y avait rien a pousser, remets la branche locale sur celle du depot pour ne laisser aucun commit en attente : git checkout -B claude/maintenance-planches origin/claude/maintenance-planches (la fusion locale de main ne sert plus ; tout ce qu elle contenait est deja sur main).
+La branche propre a cette session (claude/...) ne sert pas : ignore-la. Si un controle automatique signale des commits non pousses qui viennent seulement de la fusion de main, remets la branche comme ci-dessus et termine.
