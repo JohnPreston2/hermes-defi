@@ -1,42 +1,21 @@
 {
  "defauts": [
   {
-   "constat": "« 51,1 M$ de frais en 30 j » : le mot « jours » sort de l’écran à droite.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Cohorte"
-  },
-  {
-   "constat": "La légende en bas à gauche recouvre les piles du bas ; l’icône bleue couvre le mot « médiane » dans « trait : médiane du secteur ».",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "chevauchement",
-   "vue": "Prix des frais · Échanges"
-  },
-  {
-   "constat": "Une pile et son icône sous la légende, après Aerodrome, n’ont ni nom ni valeur visibles ; la valeur de SUN n’apparaît pas sur cette vue.",
-   "ecran": "telephone",
-   "gravite": "bloquant",
-   "type": "sans_nom",
-   "vue": "Prix des frais · Échanges"
-  },
-  {
-   "constat": "Une bande de la colonne « par émetteur », entre USDS et USDT, n’a ni nom ni valeur ; USDC, 72,8 Md$, n’est écrit qu’en bas de l’écran.",
+   "constat": "Colonne par émetteur : le segment USDC (72,7 Md$, 24 %) n’a ni étiquette ni valeur visible sur l’écran ; le nom n’apparaît que dans la barre du bas.",
    "ecran": "telephone",
    "gravite": "gene",
    "type": "sans_nom",
    "vue": "Argent stable · Où ils sont"
   },
   {
-   "constat": "Une bande de la colonne « par chaîne », entre Base et BSC, n’a ni nom ni valeur ; Hyperliquid L1, 7,1 Md$, n’apparaît nulle part sur cette vue.",
+   "constat": "Colonne par chaîne : le segment Hyperliquid L1 (7,1 Md$, 2,3 %) n’a ni étiquette ni valeur visible sur l’écran.",
    "ecran": "telephone",
-   "gravite": "bloquant",
+   "gravite": "gene",
    "type": "sans_nom",
    "vue": "Argent stable · Où ils sont"
   }
  ],
- "jour": "2026-10-15",
+ "jour": "2026-10-16",
  "n_captures": 34,
- "quand": "2026-10-15T08:22:58Z"
+ "quand": "2026-10-16T08:21:40Z"
 }
