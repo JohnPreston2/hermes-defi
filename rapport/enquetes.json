@@ -506,6 +506,37 @@
     }
    ],
    "genere": "2026-10-15T08:30:00Z"
+  },
+  {
+   "date": "2026-10-16",
+   "fichier": "2026-10-16-enquete.html",
+   "titre": "Robinhood Chain, 16/10 : Pons n'a pas disparu, DefiLlama a cessé de le compter",
+   "question": "Depuis le 14/10, DefiLlama inscrit 0 $ de frais pour Pons V2, le premier encaisseur de la chaîne. Pons s'est-il arrêté, ou est-ce la mesure qui s'est arrêtée ?",
+   "mesure_neuve": "Fabrique et hook de Pons V2 comptés sur la chaîne, sans échantillon, du 12 au 15/10 (adresses tirées du code de l'adaptateur DefiLlama) : 1 904 et 1 671 lancements, 3 831 et 3 619 encaissements les 14 et 15/10, contre 2 260 / 3 869 et 1 561 / 3 645 les 12 et 13/10, jours où DefiLlama inscrivait 0,59 et 0,53 M$. DefiLlama inscrit 0 $ les 14, 15 et 16/10 : panne de mesure, pas arrêt. Corrigée, la part de Pons dans les frais 30 jours vaut ~30,3 % au lieu de 29,5 %, et près des trois quarts de la baisse des frais de la semaine viennent du trou.",
+   "chiffre_cle": {
+    "valeur": "1 671",
+    "libelle": "jetons lancés par Pons sur la chaîne le 15/10, jour où DefiLlama lui compte 0 $ de frais",
+    "population": "événements TokenLaunched de la fabrique Pons 0x7eD5…EC7e, jour UTC 15/10 (1 561 le 13/10, quand DefiLlama comptait 0,53 M$)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons (un lanceur de jetons) dans les frais 30 jours"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 jours (ce que la chaîne encaisse)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "Volume 30 jours (les échanges)"
+    }
+   ],
+   "genere": "2026-10-16T09:45:00Z"
   }
  ]
 }
