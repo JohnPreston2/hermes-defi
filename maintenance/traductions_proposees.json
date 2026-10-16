@@ -17,9 +17,19 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Aave V4’s Arc Markets Connect Dollar-Euro Loans to Shared Liquidity": {
+  "fr": "Les Arc Markets d’Aave V4 relient des prêts dollar-euro à une liquidité partagée",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "Altcoins rally on thin trading as bitcoin holds below $83,500": {
   "fr": "Les altcoins rebondissent sur des volumes faibles, alors que le bitcoin reste sous 83 500 $",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "An OpenAI agent ran out of Ethereum funds, and took from a wallet it did not own": {
+  "fr": "Un agent OpenAI a épuisé ses fonds en Ethereum et a prélevé sur un portefeuille qu’il ne possédait pas",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "Aptos rolls out Encrypted Mempool to curb frontrunning, sandwich attacks": {
@@ -60,6 +70,11 @@
  "Babylon Advances Native Bitcoin Collateral Plan for Aave V4": {
   "fr": "Babylon fait avancer son projet de garantie en Bitcoin natif pour Aave V4",
   "quand": "2026-10-14T23:08:52Z",
+  "statut": "ok"
+ },
+ "Balaji’s ‘Singapore of social media’ begins with a wave of bans": {
+  "fr": "Le « Singapour des réseaux sociaux » de Balaji débute par une vague d’interdictions",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "Base Introduces Earn & Borrow With Aave and Morpho": {
@@ -241,6 +256,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "DeFi Development boosts CHAD dividend to 14% amid push to grow Solana holdings": {
+  "fr": "DeFi Development porte le dividende de CHAD à 14 % alors qu’il cherche à accroître ses avoirs en Solana",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "DelegationManager implementation replaced 27 Aug 2026 (+88 bytes, unchanged ABI)": {
   "fr": "Implémentation de DelegationManager remplacée le 27 août 2026 (+88 octets, ABI inchangée)",
   "quand": "2026-10-14T09:35:34Z",
@@ -299,6 +319,11 @@
   "quand": "2026-10-16T07:59:22Z",
   "statut": "ok"
  },
+ "Ex-Trump crypto adviser profited after helping pass stablecoin bill: WSJ": {
+  "fr": "Un ancien conseiller crypto de Trump a tiré profit après avoir aidé à faire adopter la loi sur les stablecoins : WSJ",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "FBI Reports $17 Billion Scam-Center Tally as West Africa Raids Net 28 Arrests": {
   "fr": "Le FBI annonce un bilan de 17 milliards de dollars pour les centres d'escroquerie, tandis que des opérations en Afrique de l'Ouest aboutissent à 28 arrestations",
   "quand": "2026-10-14T11:08:54Z",
@@ -327,6 +352,11 @@
  "Fee growth turns negative or FDV/Mcap exceeds 2.5.": {
   "fr": "La croissance des frais devient négative, ou FDV/Mcap dépasse 2,5.",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Firelight Adds $30.5 Million of Cover to Kraken USDC Vault": {
+  "fr": "Firelight ajoute 30,5 M$ de couverture au coffre USDC de Kraken",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "Former Acting Chair Caroline Pham says CFTC can regulate almost everything except ‘onions and box office receipts’": {
@@ -418,6 +448,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Ledger unveils Atom Android device with Solana Mobile integration and new tamper protections amid investigation into modified wallets": {
+  "fr": "Ledger dévoile l’appareil Android Atom avec intégration Solana Mobile et nouvelles protections contre la falsification, sur fond d’enquête sur des portefeuilles modifiés",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "Lido Adds Direct ETH Staking From Four Layer 2s to Its Interface": {
   "fr": "Lido ajoute le staking direct d'ETH depuis quatre Layer 2 à son interface",
   "quand": "2026-10-16T07:59:22Z",
@@ -466,6 +501,21 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "MSCI Adopts Rules Putting Strategy and Metaplanet at Risk of Index Removal": {
+  "fr": "MSCI adopte des règles qui exposent Strategy et Metaplanet à un retrait de l’indice",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
+ "MSCI adopts index exclusion rules that could oust Strategy": {
+  "fr": "MSCI adopte des règles d’exclusion d’indice qui pourraient évincer Strategy",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
+ "MSCI finalizes index rules that put Strategy, crypto treasury firms at risk of exclusion": {
+  "fr": "MSCI finalise des règles d’indice qui exposent Strategy et les sociétés de trésorerie crypto à une exclusion",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "Major shareholder presses SkyAI on Solana sales after treasury shrinks 70% in a month": {
   "fr": "Un actionnaire majeur interpelle SkyAI sur ses cessions de Solana après une baisse de 70 % de sa trésorerie en un mois",
   "quand": "2026-10-15T15:07:33Z",
@@ -486,6 +536,11 @@
   "quand": "2026-10-14T15:10:04Z",
   "statut": "ok"
  },
+ "Nasdaq-listed Tron sets up $200M ATM share offering to fuel TRX acquisitions": {
+  "fr": "Tron, coté au Nasdaq, met en place une offre ATM d’actions de 200 M$ pour financer des acquisitions de TRX",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "Nearly $1 billion in crypto bets liquidated as bitcoin, ether and XRP slide": {
   "fr": "Près de $1 milliard de paris crypto liquidés alors que bitcoin, ether et XRP reculent",
   "quand": "2026-10-15T11:07:37Z",
@@ -499,6 +554,11 @@
  "OCC report finds debanking efforts tied to crypto activities": {
   "fr": "Un rapport de l'OCC constate que les fermetures de comptes bancaires (debanking) sont liées à des activités crypto",
   "quand": "2026-10-14T23:08:52Z",
+  "statut": "ok"
+ },
+ "OKX Opens Onchain Spot and Perps Beta With Simulated TradFi Trading": {
+  "fr": "OKX ouvre une bêta on-chain de spot et de perpétuels avec du trading TradFi simulé",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "Once-largest Ethereum NFT marketplace Blur is shutting down after volumes collapse 99%": {
@@ -521,9 +581,18 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "PROVISOIRE, a valider par l'user : TVL sous 1 M$ ou lien d'audit qui cesse de repondre 200 -- et toujours remplacable par la meme regle automatique.": {
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "fr"
+ },
  "Papertrade Trader Losses Reach $32.4 Million Two Days After Launch": {
   "fr": "Les pertes des traders de Papertrade atteignent 32,4 M$ deux jours après le lancement",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Pirate Chain Says Exploit Created 39.8 Million ARRR": {
+  "fr": "Pirate Chain affirme qu’un exploit a créé 39,8 millions d’ARRR",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "Polygon gains US payments licenses after closing Coinme deal": {
@@ -600,6 +669,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Safe Launches Safenet Aegis Security Network on Three Chains": {
+  "fr": "Safe lance le réseau de sécurité Safenet Aegis sur trois chaînes",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "Sanctioned A7 Announces USDT-to-SWIFT Payment Service": {
   "fr": "A7, entité sanctionnée, annonce un service de paiement USDT vers SWIFT",
   "quand": "2026-10-14T15:10:04Z",
@@ -633,6 +707,11 @@
  "Solana sets Oct. 21 for Alpenglow upgrade targeting 150-millisecond finality": {
   "fr": "Solana fixe au 21 oct. la mise à niveau Alpenglow, qui vise une finalité de 150 millisecondes",
   "quand": "2026-10-14T15:10:04Z",
+  "statut": "ok"
+ },
+ "Solana's Shanghai Event Halted With Officers Present, Attendees Say": {
+  "fr": "L’événement de Solana à Shanghai interrompu alors que des officiers étaient présents, selon des participants",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "South Korea just got its first traditional bank loans backed by bitcoin": {
@@ -690,6 +769,11 @@
  "Tether America USD (USAT) on Aave Ethereum Assessments": {
   "fr": "Évaluations de Tether America USD (USAT) sur Aave Ethereum",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Tether Routed Payments to Hines's Firm During White House Tenure, WSJ Reports": {
+  "fr": "Tether a versé des paiements à la société de Hines pendant son passage à la Maison-Blanche, selon le WSJ",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "The Cancellation of Proposal 612 Was Unjust": {
@@ -757,6 +841,10 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "UNCX Network, service de verrouillage de liquidite multi-chaines (declare, non verifie)": {
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "fr"
+ },
  "US Event-Contract Rules: What the CFTC Has Changed and What Remains Unresolved": {
   "fr": "Règles américaines sur les contrats d'événements : ce que la CFTC a changé et ce qui reste non résolu",
   "quand": "2026-10-15T11:07:37Z",
@@ -765,6 +853,11 @@
  "US Wholesale Inflation Accelerates to 6.3% as Bitcoin Slips": {
   "fr": "L'inflation de gros américaine accélère à 6,3% alors que le bitcoin recule",
   "quand": "2026-10-16T07:59:22Z",
+  "statut": "ok"
+ },
+ "US federal judge denies joint Gemini-CFTC bid to undo $5 million settlement": {
+  "fr": "Un juge fédéral américain rejette la demande conjointe de Gemini et de la CFTC visant à annuler un règlement de 5 M$",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "USDGO Adds Solana Trading Liquidity Through Jupiter Lend and Fluid": {
@@ -792,6 +885,11 @@
   "quand": "2026-10-15T11:07:37Z",
   "statut": "ok"
  },
+ "Visa Direct Moves USDC Prefunding Into Production With Inyo Global": {
+  "fr": "Visa Direct met en production le préfinancement en USDC avec Inyo Global",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": {
   "fr": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5 fois la médiane du secteur.",
   "quand": "2026-10-14T09:35:34Z",
@@ -812,6 +910,11 @@
   "quand": "2026-10-14T15:10:04Z",
   "statut": "ok"
  },
+ "[ARFC] Aave V4 Deployment on Tempo": {
+  "fr": "[ARFC] Déploiement d’Aave V4 sur Tempo",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
  "[ARFC] Onboard Native BTC as Collateral to Aave V4 via Babylon Trustless Bitcoin Vaults": {
   "fr": "[ARFC] Intégrer le BTC natif comme garantie dans Aave V4 via les coffres Bitcoin sans confiance de Babylon",
   "quand": "2026-10-14T23:08:52Z",
@@ -820,6 +923,26 @@
  "[ARFC] Onboard USAT to Aave V3 Core Instance and Aave V4 Core Hub on Ethereum": {
   "fr": "[ARFC] Intégrer USAT à l'instance Core d'Aave V3 et au hub Core d'Aave V4 sur Ethereum",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "[Arbitrum DAO] Adopting USDG as a Core Strategic Initiative for the ArbitrumDAO": {
+  "fr": "[Arbitrum DAO] Adoption de l’USDG comme initiative stratégique centrale pour l’ArbitrumDAO",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
+ "[Arbitrum DAO] Transfer 1,700 ETH from the Treasury to the Arbitrum Developer Guild & ATMC’s ETH Treasury Strategies": {
+  "fr": "[Arbitrum DAO] Transfert de 1,700 ETH depuis la trésorerie vers l’Arbitrum Developer Guild et les stratégies de trésorerie en ETH d’ATMC",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
+ "[Arbitrum DAO] [CONSTITUTIONAL] AIP: Update Arbitrum One and Nova L1-Pricing Parameters for Ethereum Glamsterdam": {
+  "fr": "[Arbitrum DAO] [Constitutionnel] AIP : mise à jour des paramètres de tarification L1 d’Arbitrum One et Nova pour Ethereum Glamsterdam",
+  "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
+ "[Arbitrum DAO] [Constitutional] AIP: Establish an L1 Voting Recovery System": {
+  "fr": "[Arbitrum DAO] [Constitutionnel] AIP : mise en place d’un système de reprise du vote L1",
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
  "[Direct-to-AIP] Asset Listing - syrupUSDG Arbitrum": {
@@ -930,6 +1053,10 @@
  },
  "ve(3,3) classique — retenu pour l'echelle seule": {
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "fr"
+ },
+ "verrouillage de positions de liquidite Uniswap V3 (preuve de liquidite bloquee pour les lancements)": {
+  "quand": "2026-10-16T11:59:16Z",
   "statut": "fr"
  },
  "‘Leave’: Crypto Backlash Over French Proposal to Report Wallets Over $112K": {
