@@ -1,4 +1,9 @@
 {
+ "\"Wallet blocked\" error app.sky.money": {
+  "fr": "Erreur « Wallet blocked » sur app.sky.money",
+  "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
  "42 marches de pret isoles sur Morpho Blue": {
   "quand": "2026-10-14T09:35:34Z",
   "statut": "fr"
@@ -40,6 +45,11 @@
  "Atlas Edit Weekly Cycle Proposal - Week Of 2026-10-12": {
   "fr": "Proposition de cycle hebdomadaire Atlas Edit — semaine du 2026-10-12",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Atlas Edit Weekly Cycle Proposal - Week Of 2026-10-19": {
+  "fr": "Atlas Edit : proposition de cycle hebdomadaire, semaine du 2026-10-19",
+  "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
  "Australia seeks feedback on crypto platform rules ahead of 2027 rollout": {
@@ -85,6 +95,11 @@
  "Bastion Demands $3.50 SkyAI Tender Price and Board Overhaul": {
   "fr": "Bastion exige un prix d'offre de 3,50 $ pour SkyAI et une refonte du conseil d'administration",
   "quand": "2026-10-14T23:08:52Z",
+  "statut": "ok"
+ },
+ "Big Tech's AI auditors will only see what they're shown": {
+  "fr": "Les auditeurs IA des géants de la tech ne verront que ce qu'on leur montre",
+  "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
  "Bitcoin Falls as Hot Inflation Puts a Fed Hike Back on the Table": {
@@ -157,6 +172,11 @@
   "quand": "2026-10-15T11:07:37Z",
   "statut": "ok"
  },
+ "Bitcoin price steadies around $82K after Fed’s Warsh avoids rate-hike hints": {
+  "fr": "Le cours du Bitcoin se stabilise autour de 82K $ après que Warsh, à la Fed, n'a pas laissé entrevoir de hausse de taux",
+  "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
  "Bitcoin shrugs off ETF outflows to trade above $84,000 as oil falls": {
   "fr": "Le bitcoin ignore les sorties des ETF et se maintient au-dessus de 84 000 $ alors que le pétrole baisse",
   "quand": "2026-10-14T09:35:34Z",
@@ -227,6 +247,11 @@
   "quand": "2026-10-14T11:08:54Z",
   "statut": "ok"
  },
+ "Circle details USDC revenue split, says $819 million went to partners and costs in H1 2026": {
+  "fr": "Circle détaille la répartition des revenus d'USDC : 819 millions $ sont allés aux partenaires et aux coûts en H1 2026, selon l'entreprise",
+  "quand": "2026-10-17T07:07:57Z",
+  "statut": "ok"
+ },
  "Circle targets 40 new markets as stablecoin demand grows globally": {
   "fr": "Circle vise 40 nouveaux marchés alors que la demande de stablecoins croît à l'échelle mondiale",
   "quand": "2026-10-16T15:59:12Z",
@@ -255,6 +280,11 @@
  "Confirming interest rate mechanism scope across SparkLend Ethereum reserves": {
   "fr": "Confirmation du périmètre du mécanisme de taux d'intérêt sur les réserves Ethereum de SparkLend",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Crypto PACs escalate spending against Sherrod Brown in Ohio Senate race": {
+  "fr": "Les PAC crypto intensifient leurs dépenses contre Sherrod Brown dans la course au Sénat de l'Ohio",
+  "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
  "CryptoQuant’s 3 charts keeping Bitcoin’s ‘Uptober’ thesis valid": {
@@ -561,9 +591,19 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Morning Minute: Google Clears a Major Quantum Hurdle, Bitcoin Still Safe": {
+  "fr": "Morning Minute : Google franchit un obstacle majeur en informatique quantique, Bitcoin reste à l'abri",
+  "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
  "Most tokenized stock trading on Solana, BNB Chain occurs outside US market hours": {
   "fr": "La plupart des négociations d'actions tokenisées sur Solana et BNB Chain ont lieu en dehors des heures d'ouverture du marché américain",
   "quand": "2026-10-14T15:10:04Z",
+  "statut": "ok"
+ },
+ "NEAR Intents Postmortem Links $3.8 Million Exploit to Deposit Bug": {
+  "fr": "Le post-mortem de NEAR Intents relie l'exploit de 3,8 millions $ à un bug de dépôt",
+  "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
  "Nasdaq-listed Tron sets up $200M ATM share offering to fuel TRX acquisitions": {
@@ -655,6 +695,11 @@
   "quand": "2026-10-14T11:08:54Z",
   "statut": "ok"
  },
+ "Risk Stewards: Cap Increases on Aave V4 / 2026.10.16": {
+  "fr": "Risk Stewards : hausses de plafonds sur Aave V4 / 2026.10.16",
+  "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
  "Risk Stewards: Cap Reductions on Aave V3 / 2026.10.15": {
   "fr": "Risk Stewards : réductions de plafonds sur Aave V3 / 2026.10.15",
   "quand": "2026-10-16T07:59:22Z",
@@ -673,6 +718,11 @@
  "Risk Stewards: JAAA Reserve Parameter Update on Aave V3 Horizon / 2026.10.15": {
   "fr": "Risk Stewards : mise à jour du paramètre de réserve JAAA sur Aave V3 Horizon / 2026.10.15",
   "quand": "2026-10-16T07:59:22Z",
+  "statut": "ok"
+ },
+ "Risk Stewards: Supply and Borrow Cap Changes on Aave V3 / 2026.10.16": {
+  "fr": "Risk Stewards : modifications des plafonds d'offre et d'emprunt sur Aave V3 / 2026.10.16",
+  "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
  "Robinhood Reports $15B in Stock Token Trading as Chain Passes 100 Days": {
@@ -698,6 +748,11 @@
  "Russia’s largest bank Sberbank secures approval to trade crypto": {
   "fr": "La plus grande banque russe, Sberbank, obtient l'autorisation de négocier les cryptos",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "SAEP-24: Update Risk Curation Framework": {
+  "fr": "SAEP-24 : mise à jour du cadre de curation des risques",
+  "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
  "STONX, marche de liquidite ve(3,3) pour actifs tokenises": {
@@ -774,6 +829,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Stablecoin remittances cost 84% less than traditional transfers, report finds": {
+  "fr": "Les envois de fonds en stablecoins coûtent 84% moins cher que les virements traditionnels, selon un rapport",
+  "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
  "Standard Chartered Will Hold Ripple's Stablecoin in Dubai—And Let Clients Trade With It Without Moving It": {
   "fr": "Standard Chartered conservera à Dubaï le stablecoin de Ripple, et permettra à ses clients d'opérer avec sans le déplacer",
   "quand": "2026-10-14T09:35:34Z",
@@ -821,6 +881,16 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "fr"
  },
+ "Technical Scope: Morpho Vault Timelock Compliance": {
+  "fr": "Périmètre technique : conformité du timelock des coffres Morpho",
+  "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
+ "Temporary pause of the deprecated Compound III USDe market on Mantle": {
+  "fr": "Pause temporaire du marché Compound III USDe déprécié sur Mantle",
+  "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
  "Tether America USD (USAT) on Aave Ethereum Assessments": {
   "fr": "Évaluations de Tether America USD (USAT) sur Aave Ethereum",
   "quand": "2026-10-14T09:35:34Z",
@@ -849,6 +919,11 @@
  "Token capture remains at 0% for 30 days or P/F multiple expands above 1.0x sector median.": {
   "fr": "La capture par le jeton reste à 0 % pendant 30 jours, ou le multiple P/F dépasse 1,0 fois la médiane du secteur.",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Tokenized Equities Reached $3.8 Billion This Year, DWF Labs Says": {
+  "fr": "Les actions tokenisées ont atteint 3,8 milliards $ cette année, selon DWF Labs",
+  "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
  "Tokenized SanDisk bets saw more liquidations than XRP as Asia’s chip rout wipes out $800 million": {
