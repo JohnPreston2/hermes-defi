@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-17T03:46:01Z",
+"generated_at": "2026-10-17T06:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 129,
+"n_affiches": 127,
 "n_refuses": 0,
-"n_traduits": 70,
+"n_traduits": 68,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -21,7 +21,6 @@
 "Bitcoin wilts as Fed rate uncertainty weighs. Kospi plunges 8%": "Le bitcoin fléchit sur fond d'incertitude sur les taux de la Fed ; le Kospi plonge de 8%",
 "Bitget, Liquid exploits push Q3 crypto hacks toward $1.2B": "Les piratages de Bitget et Liquid poussent les hacks crypto du T3 vers $1,2B",
 "Compound × Gauntlet Year 6 Renewal": "Compound × Gauntlet : renouvellement de l'année 6",
-"Confirming interest rate mechanism scope across SparkLend Ethereum reserves": "Confirmation du périmètre du mécanisme de taux d'intérêt sur les réserves Ethereum de SparkLend",
 "DelegationManager implementation replaced 27 Aug 2026 (+88 bytes, unchanged ABI)": "Implémentation de DelegationManager remplacée le 27 août 2026 (+88 octets, ABI inchangée)",
 "EQX Plans 11 Tokenized Stock and ETF Markets on Hyperliquid": "EQX prévoit 11 marchés d'actions et d'ETF tokenisés sur Hyperliquid",
 "Ether.fi Announces Dollar Stablecoin Powered by Ethena": "Ether.fi annonce un stablecoin en dollar propulsé par Ethena",
@@ -53,7 +52,6 @@
 "Scammer gets scammed in Ledger spy-chip exploit, loses almost $5 million in bitcoin": "Un escroc se fait escroquer lors d'une exploitation par puce espion Ledger et perd près de $5 millions en bitcoin",
 "Securitize brings Apple, Nvidia and Tesla to Solana, with NYSE trading in the works": "Securitize amène Apple, Nvidia et Tesla sur Solana, avec une négociation NYSE en préparation",
 "Securitize stock jumps over 10% after launching tokenized US equities on Solana": "L'action Securitize bondit de plus de 10% après le lancement d'actions américaines tokenisées sur Solana",
-"Settlement Reconciliation — MSC #5–#12 (January–August 2026)": "Rapprochement des règlements — MSC #5–#12 (janvier–août 2026)",
 "Solana's Shanghai Event Halted With Officers Present, Attendees Say": "L’événement de Solana à Shanghai interrompu alors que des officiers étaient présents, selon des participants",
 "Starknet opens seven-day vote on independent Layer 1 over quantum risks": "Starknet ouvre un vote de sept jours sur une Layer 1 indépendante face aux risques quantiques",
 "StoneX raises Securitize price target 50% as tokenized stock platform opens new revenue stream": "StoneX relève de 50% son estimation pour Securitize, alors que la plateforme d'actions tokenisées ouvre un nouveau flux de revenus",
