@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-17T07:46:01Z",
+"generated_at": "2026-10-17T09:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 128,
+"n_affiches": 126,
 "n_refuses": 0,
-"n_traduits": 83,
+"n_traduits": 81,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -35,7 +35,6 @@
 "Fee growth turns negative or FDV/Mcap exceeds 2.5.": "La croissance des frais devient négative, ou le ratio FDV/Mcap dépasse 2,5.",
 "Forum Moderation Log": "Journal de modération du forum",
 "GTA 6 Trailer Features Meme Coin—And Solana Copycat Soars 2,900%": "La bande-annonce de GTA 6 met en avant un meme coin, et un copieur de Solana grimpe de 2,900%",
-"Godfather of AI and 400 Scientists Want AI Models Cut Off From the Internet": "Le « parrain de l'IA » et 400 scientifiques veulent isoler les modèles d'IA d'Internet",
 "JUP Rises 51% in Four Weeks as Jupiter Fees Decline": "JUP progresse de 51% en quatre semaines, alors que les frais de Jupiter baissent",
 "Jupiter Says YOLO Hit $1 Billion in Volume in Under 24 Hours": "Jupiter affirme que YOLO a atteint $1B de volume en moins de 24 heures",
 "LST sector at 3rd percentile is structural, not cyclical — institutions migrate to dedicated stVaults outside generic TVL metrics. Published 2 watches on Lido and ether.fi to track persistence.": "Le secteur LST au 3e centile est structurel, pas cyclique : des institutions migrent vers des stVaults dédiés, hors des métriques TVL génériques. 2 suivis publiés sur Lido et ether.fi pour vérifier la persistance.",
@@ -81,7 +80,6 @@
 "USDGO Adds Solana Trading Liquidity Through Jupiter Lend and Fluid": "USDGO ajoute de la liquidité de négociation sur Solana via Jupiter Lend et Fluid",
 "Uniswap Launches ETH/USDC Pool With Separate Buy and Sell Fees": "Uniswap lance une paire ETH/USDC avec des frais distincts selon le sens de l'échange",
 "VanEck Seeks to Withdraw Lido Staked Ethereum ETF Filing": "VanEck demande le retrait de son dossier d'ETF Lido Staked Ethereum",
-"VanEck seeks to withdraw application for Lido staked Ether ETF": "VanEck souhaite retirer sa demande d'ETF sur l'ether staké de Lido",
 "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur.",
 "[Arbitrum DAO] Adopting USDG as a Core Strategic Initiative for the ArbitrumDAO": "[Arbitrum DAO] Adoption de l’USDG comme initiative stratégique centrale pour l’ArbitrumDAO",
 "[Arbitrum DAO] Transfer 1,700 ETH from the Treasury to the Arbitrum Developer Guild & ATMC’s ETH Treasury Strategies": "[Arbitrum DAO] Transfert de 1,700 ETH depuis la trésorerie vers l’Arbitrum Developer Guild et les stratégies de trésorerie en ETH d’ATMC",
