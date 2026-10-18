@@ -537,6 +537,37 @@
     }
    ],
    "genere": "2026-10-16T09:45:00Z"
+  },
+  {
+   "date": "2026-10-18",
+   "fichier": "2026-10-18-enquete.html",
+   "titre": "Robinhood Chain, 18/10 : le samedi, les actions tokenisées s'arrêtent, Pons non",
+   "question": "Le 0 $ de Pons V2 chez DefiLlama était-il une panne de mesure, et que fait la chaîne le week-end, quand la Bourse américaine est fermée ?",
+   "mesure_neuve": "Comptage complet des émissions de jetons d'actions sur la chaîne : 3 640 le vendredi 16/10 (plus haut jour mesuré), 0 le samedi 17/10, contre 1 333 lancements de jetons Pons le même samedi (0,74 de leur semaine). Moyenne lundi-vendredi 12-16/10 : 2 485 émissions par jour, solde net environ +17,5 M$, mais transactions stables à environ 373 000 par jour. DefiLlama a rechargé l'historique de Pons V2 : le trou du 14-16/10 est comblé (veille confirmée).",
+   "chiffre_cle": {
+    "valeur": "0",
+    "libelle": "émission d'action tokenisée le samedi 17/10, contre 3 640 le vendredi 16/10",
+    "population": "créations de jetons vers l'adresse unique de réception des 50 jetons d'actions Robinhood, comptage complet de la journée UTC"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "volume sur 30 jours (les échanges)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "frais sur 30 jours (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "hooks_robinhood",
+     "libelle": "hooks au registre (programmes greffés sur un pool)"
+    }
+   ],
+   "genere": "2026-10-18T08:09:41Z"
   }
  ]
 }

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enquête du 18/10/2026 — Robinhood Chain</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#242a47;--card:#10152b;--ok:#6fd6a4;--warn:#f2b66d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:0 18px}
+main{max-width:760px;margin:0 auto;padding-block:28px 64px}
+h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:600;line-height:1.2}
+h1{font-size:2rem;margin:.3em 0 .4em}
+h2{font-size:1.35rem;margin:2.1em 0 .5em;color:var(--acc)}
+.mono,.prov{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;color:var(--mute)}
+.prov{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 14px;margin-bottom:22px}
+.prov b{color:var(--ink);font-weight:600}
+.big{font-family:Georgia,serif;font-size:3.2rem;color:var(--acc);line-height:1;margin:.2em 0 0}
+.card{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500}
+.tw{overflow-x:auto}
+.tag{font-family:ui-monospace,monospace;font-size:.72rem;padding:1px 7px;border-radius:99px;border:1px solid var(--line)}
+.c{color:var(--ok);border-color:var(--ok)}.r{color:var(--warn);border-color:var(--warn)}
+p{margin:.7em 0}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Relevé du 18/10/2026, 10:00 UTC (dimanche).</b> DefiLlama : relu à 10:00 UTC (historique rechargé par la source entre le 16 et le 18/10). Registre des hooks : régénéré le 16/10 16:30 UTC, âge environ 41 h. Chaîne (RPC officiel) : bloc 91 609 259, 07:54 UTC. Morpho (API) : 10:00 UTC. CoinGecko : 10:00 UTC. Journée du 18/10 : incomplète, jamais utilisée comme point de comparaison. Serveur delta : non lu ce jour (aucun état de l'agent Hermes repris).
+</div>
+<p class="mono">ENQUÊTE · UNISWAP V4 × ROBINHOOD CHAIN</p>
+<h1>Le samedi, les actions tokenisées s'arrêtent. Pons, non.</h1>
+<p class="big">0</p>
+<p>émission de jeton d'action le samedi 17/10, contre 3 640 le vendredi 16/10. Population : les créations de jetons envoyées à l'adresse unique de réception des 50 jetons d'actions Robinhood, comptage complet de la journée UTC. Le même samedi, la fabrique Pons a lancé 1 333 jetons (1 794 le vendredi).</p>
+
+<h2>1. La question</h2>
+<p>Le 16/10, trois jours de frais de Pons V2 valaient 0 $ chez DefiLlama. Était-ce une panne de mesure ? Et que fait la chaîne le week-end, quand la Bourse américaine ferme ?</p>
+
+<h2>2. Le fil : ce que les veilles disent aujourd'hui</h2>
+<div class="card"><span class="tag c">CONFIRMÉE</span> <b>Le 0 $ de Pons V2 était une panne de mesure.</b> DefiLlama a rechargé son historique : 0,54, 0,43, 0,53 et 0,46 M$ pour les 14, 15, 16 et 17/10. Sur la chaîne, la fabrique a lancé 1 904 jetons le 14/10 et 1 671 le 15/10, exactement les chiffres relevés le 16/10 : la sonde est calibrée. L'adaptateur de Pons n'a pas changé depuis le 17/09 ; le cache ou l'indexeur a été réparé, pas le code. Conséquence : les parts de Pons et les ratios « membre / Pons » publiés le 16/10 étaient lus avec trois jours manquants.</div>
+<div class="card"><span class="tag r">RÉVISÉE</span> <b>Les émissions d'actions n'ont pas ralenti.</b> Moyenne lundi-vendredi 12-16/10 : 2 485 par jour (1 856 ; 2 252 ; 2 864 ; 1 814 ; 3 640), contre 2 201 fin septembre. La veille disait « au moins 25 % de moins » : fausse. Le vendredi 16/10 est le plus haut jour mesuré.</div>
+<div class="card"><span class="tag r">RÉVISÉE</span> <b>Les actions entrent, mais pas par plus de transactions.</b> Solde net émis moins détruit sur 12-16/10 : environ +17,5 M$ (prix Morpho figés, mesure de quantité). Mais le nombre de transactions sur ces actions reste autour de 373 000 par jour, au-dessus du seuil de 331 000. Les ordres sont plus gros, pas plus nombreux.</div>
+<div class="card"><span class="tag r">RÉVISÉE</span> <b>La contraction du flux de transactions s'arrête.</b> 373 000 par jour sur 12-16/10 contre 414 000 fin septembre : -10 %, dans la marge de la sonde. Attention : cette sonde est large. Deux tirages du même jour peuvent différer d'un facteur 2 (437 000 et 419 000 pour le 14/10 avec mes graines, 348 000 et 236 000 avec celles du 16/10).</div>
+<p><b>Veilles ouvertes, re-testées sans changement de verdict :</b> part de Robinhood Chain dans le rachat d'UNI par la v3 (33,6 % sur 18/09-17/10, Ethereum 33,0 % : l'écart est de 63 k$ ; seuil de mort à 33 %) ; prix d'un swap v4 (26,7 points de base sur 11-17/10, seuil 50) ; contrôle des 50 jetons d'actions (administrateur toujours un compte sans code, aucun événement sur la balise depuis le bloc 89 935 468 ; une adresse bidon rend 0) ; prêt adossé aux actions (0,74 % du collatéral Morpho, utilisation des 4 marchés 95,3 % contre 100 % : un peu de liquidité revient). Six veilles n'ont pas pu être relues (recensements des pools v4 et échantillons de swaps non refaits) : trou déclaré dans leur historique.</p>
+
+<h2>3. Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : DefiLlama (chaîne, protocoles, volumes, frais, revenu aux détenteurs), registre officiel des hooks (4 979 entrées toutes chaînes dont 1 191 Robinhood, comptées en local), et lecture directe de la chaîne (journaux Transfer et TokenLaunched, comptage complet par jour UTC).</p>
+<div class="tw"><table>
+<tr><th>Mesure</th><th>18/10</th><th>16/10</th><th>Variation</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td>1,055 Md$</td><td>1,052 Md$</td><td>+0,3 %</td></tr>
+<tr><td>Volume sur 30 jours (échanges)</td><td>35,47 Md$</td><td>37,01 Md$</td><td>-4,2 %</td></tr>
+<tr><td>Frais sur 30 jours (ce que les protocoles encaissent)</td><td>131,3 M$</td><td>141,8 M$</td><td>-7,4 %</td></tr>
+<tr><td>Frais sur 7 jours, contre les 7 jours d'avant</td><td>18,0 M$</td><td>17,5 M$</td><td>-16,1 % sur 7 j contre 7 j</td></tr>
+<tr><td>Hooks Robinhood au registre (1 191 entrées)</td><td>1 191</td><td>1 187</td><td>+4</td></tr>
+<tr><td>Hooks audités avec lien, sur 1 191</td><td>5 (4 vrais rapports)</td><td>5 sur 1 187</td><td>inchangé</td></tr>
+<tr><td>Part d'Uniswap dans le volume 30 jours</td><td>78,3 %</td><td>78,6 %</td><td>-0,3 pt</td></tr>
+<tr><td>Part de Pons V2 dans les frais 30 jours</td><td>29,2 %</td><td>29,5 %</td><td>-0,3 pt (16/10 avec trou)</td></tr>
+</table></div>
+<p>Les frais sur 30 jours ne se lisent pas à périmètre constant. Le 17/10, Fomo Wallet tombe à 0 $ chez DefiLlama (72 k$ le 16/10, 4,6 M$ sur 30 jours) et au moins quatre protocoles s'ajoutent sur la chaîne les 16 et 17/10 (PFWA, lincoln-protocol, lcx-liberty-dex, HedgeHood Stock Yield). À périmètre constant, 13-17/10 donne 13,19 M$ contre 14,47 M$ pour 06-10/10 : -8,8 %. Le plancher des frais annoncé par la veille n'est donc pas cassé.</p>
+<p><b>Revenu aux détenteurs.</b> Sur 138 lignes, 50 reversent quelque chose, pour 11,4 M$ sur 30 jours. Pons V1 en reverse 5,4 M$, soit 13,6 % des frais cumulés de Pons V1 et V2 (39,6 M$). Le jeton PONS vaut 0,278 $ (-12 % en 24 h), capitalisation 187 M$ : 2,87 fois le reversement annualisé, contre 3,15 le 16/10.</p>
+
+<h2>4. La cohorte</h2>
+<p>Aucune sortie, aucune entrée ce jour. Ce qui a bougé :</p>
+<div class="tw"><table>
+<tr><th>Membre</th><th>TVL sur la chaîne</th><th>Frais 30 j</th><th>Ratio contre Pons V2</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td>111,8 M$</td><td>2,23 M$</td><td>5,8 %</td></tr>
+<tr><td>Arcus Perps</td><td>61,5 M$</td><td>1,63 M$</td><td>4,3 %</td></tr>
+<tr><td>Fables</td><td>34,2 M$ (-4,8 %)</td><td>5,03 M$</td><td>13,1 %</td></tr>
+<tr><td>Snuggle</td><td>5,8 M$</td><td>0,90 M$</td><td>2,4 %</td></tr>
+<tr><td>UNCX Network V3</td><td>4,88 M$ (-10,8 %)</td><td>0</td><td>0</td></tr>
+<tr><td>up v3</td><td>4,87 M$</td><td>1,01 M$</td><td>2,6 %</td></tr>
+<tr><td>Ekubo</td><td>1,41 M$</td><td>45 k$</td><td>0,1 %</td></tr>
+<tr><td>StonkBrokers (4 fiches)</td><td>1,40 M$</td><td>0,51 M$ (-48 % en deux jours)</td><td>1,3 %</td></tr>
+<tr><td>GIGA V3</td><td>0,92 M$</td><td>81 k$</td><td>0,2 %</td></tr>
+<tr><td>TermMax</td><td>11 k$</td><td>0</td><td>0</td></tr>
+</table></div>
+<p><b>Ce qui devrait inquiéter sans avoir franchi de critère :</b> la capitalisation d'Ekubo recule de 19 % en deux jours (13,3 M$, source DefiLlama non recoupée) ; les frais de StonkBrokers sur 30 jours baissent de moitié alors que ses frais sur 7 jours ne bougent pas (cause non identifiée) ; TermMax reste à 11 k$ de TVL pour un critère de sortie à 0,5 M$ au 31/10. Fables n'a toujours aucun lien d'audit. Candidats automatiques : Beefy (preuve 3, TVL 2,69 M$) dépasse GIGA V3 pour la deuxième fois consécutive sur les relevés (le 17/10 n'a pas été relevé), il en faut sept. Team Finance sort de la liste (TVL 0,84 M$, sous 1 M$). Pons, la contre-référence, domine encore les frais (29,2 %) : la thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</p>
+
+<h2>5. Ce qui contredit</h2>
+<p>La lecture « la chaîne des actions s'éteint » ne tient pas : les émissions sont au plus haut un jour ouvré et le net est positif de 17,5 M$. La lecture inverse, « les actions montent », ne tient pas non plus : le nombre de transactions ne monte pas, et le samedi 17/10 il tombe à environ 102 000, soit 0,27 de la moyenne lundi-vendredi. Les actions suivent la Bourse ; la fabrique de jetons Pons, elle, tourne à 0,74 de sa semaine le samedi. Autre contradiction à garder : la presse relie les actions tokenisées aux pools Uniswap permissionnés (OKXICE, avis du 4/10, presse non recoupée), mais sur X Layer, pas sur Robinhood Chain, et les jetons de Robinhood sont décrits comme des titres de dette émis à Jersey, hors du champ de l'ordre de la SEC. Aucun avis de TSV ne concerne donc cette chaîne.</p>
+<p>Web, non recoupé : le dossier 4-927 affiche des entrées jusqu'au 15/10 (total non lisible par script) ; le <i>Federal Register</i> n'a rien publié de nouveau (308 documents, le seul de l'ordre reste 2026-19388 du 22/09) ; aucun exploit de hook en octobre 2026.</p>
+
+<h2>6. Ce qu'on ne sait pas</h2>
+<p>Dimanche 18/10 n'est pas terminé : la moitié du week-end tient sur un seul jour. Les recensements de pools v4 (Doppler, émetteurs récurrents, hooks hors registre) n'ont pas été refaits ce jour : six veilles ont un trou déclaré. La sonde de transactions d'actions est large (facteur 2 entre tirages) et lit 51 adresses au lieu des 50 de la liste figée. Je n'ai pas relevé les pièges du mémo au-delà de ceux-ci : <b>P1</b> (Pons absent du filtre par chaîne : 273 protocoles filtrés, Pons croisé via /overview/fees), <b>P4</b> (versions de Pons recollées avant tout ratio), <b>P8</b> (lignes doublecounted retirées des deux côtés du revenu aux détenteurs), <b>P9</b> (le revenu v3 des détenteurs d'UNI dépend du cours : UNI 7,24 $), <b>P10</b> (commits des adaptateurs listés avant de lire le delta : PFWA, lincoln, lcx-liberty-dex, HedgeHood, fix de l'indexeur le 16-17/10), <b>P11</b> (registre contre chaîne : taux du registre pas étendus), <b>P12</b> (rafales d'un seul déployeur : non testé ce jour). Prochain point utile : lundi 19/10 (semaine de prix d'un swap, veille d'émissions, suivi du seuil de 33 % d'UNI).</p>
+<p class="mono">Sources : api.llama.fi (v2/chains, protocols, overview/fees, overview/dexs, summary), Uniswap/hooklist, RPC rpc.mainnet.chain.robinhood.com, blue-api.morpho.org, api.coingecko.com, federalregister.gov, sec.gov, DefiLlama/dimension-adapters (commits). Presse : cryptobriefing.com (OKXICE, 5/10).</p>
+</main>
+</body>
+</html>
