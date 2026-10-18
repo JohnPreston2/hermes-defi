@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-18T15:46:02Z",
+"generated_at": "2026-10-18T18:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 117,
+"n_affiches": 116,
 "n_refuses": 0,
-"n_traduits": 65,
+"n_traduits": 64,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -23,7 +23,6 @@
 "Crypto Firms Launch Quantum Alliance as 6 Million Bitcoin Sit Exposed": "Des entreprises de la crypto lancent une alliance quantique alors que 6 millions de bitcoins sont exposés",
 "Crypto PACs escalate spending against Sherrod Brown in Ohio Senate race": "Les PAC crypto intensifient leurs dépenses contre Sherrod Brown dans la course au Sénat de l'Ohio",
 "DTCC Outlines 25-Security Tokenization Rollout on Canton and Besu": "La DTCC détaille le déploiement de 25 titres tokenisés sur Canton et Besu",
-"DelegationManager implementation replaced 27 Aug 2026 (+88 bytes, unchanged ABI)": "Implémentation de DelegationManager remplacée le 27 août 2026 (+88 octets, ABI inchangée)",
 "Ether ETFs Lose $320 Million, Overtaking Bitcoin's Weekly Outflows": "Les ETF Ether perdent 320 millions de $, dépassant les sorties hebdomadaires de Bitcoin",
 "Ether.fi Announces Dollar Stablecoin Powered by Ethena": "Ether.fi annonce un stablecoin en dollar propulsé par Ethena",
 "Fee growth turns negative for 2 consecutive weeks or FDV/Mcap exceeds 2.0.": "La croissance des frais devient négative pendant 2 semaines consécutives, ou le ratio FDV/Mcap dépasse 2,0.",
