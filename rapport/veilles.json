@@ -136,6 +136,11 @@
      "date": "2026-10-16",
      "valeur": "72,5 % (860/1187) / 25,8 % (306/1187)",
      "note": "Registre non regenere depuis le 13/10 21:24 UTC (~59 h) : valeurs identiques par absence de regeneration. Loin des seuils. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "72,5 % (863/1191) / 26,0 % (310/1191)",
+     "note": "Registre regenere le 16/10 16:30 UTC (+4 hooks robinhood). Loin des seuils (60 % / 40 %). NON SOLDEE."
     }
    ],
    "solde": null
@@ -268,6 +273,11 @@
      "date": "2026-10-16",
      "valeur": "5 / 1187 (0,42 %) au champ auditUrl ; 4 / 1187 (0,34 %) vers un vrai rapport",
      "note": "Registre inchange. Aucun exploit public de hook trouve ce jour (recherche web). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "5 / 1191 (0,42 %) au champ auditUrl ; 4 / 1191 (0,34 %) vers un vrai rapport",
+     "note": "Aucun exploit public de hook de la chaine trouve (recherche web 18/10 : rien en octobre 2026 ; 0x a classe en septembre 54 % de 84 163 hooks multichaines comme malveillants, presse non recoupee). NON SOLDEE."
     }
    ],
    "solde": null
@@ -400,6 +410,11 @@
      "date": "2026-10-16",
      "valeur": "v3 38,9 % / v4 38,2 % du volume 30j (14,39 / 14,14 / 37,01 Md$)",
      "note": "vs 15/10 : v3 -0,4 pt, v4 +0,5 pt. Loin des seuils."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "v3 37,7 % / v4 39,2 % du volume 30 j (13,36 / 13,91 / 35,47 Md$)",
+     "note": "vs 16/10 : v3 -1,2 pt, v4 +1,0 pt. Loin des seuils."
     }
    ],
    "solde": null
@@ -532,6 +547,11 @@
      "date": "2026-10-16",
      "valeur": "156 sur 1187 (13,2 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "Registre inchange. Recherche web : aucun avis de TSV. Dossier 4-927 : aucune entree des 15-16/10. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "156 sur 1191 (13,1 % au motif strict) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "Le seul avis de TSV connu est celui d'OKXICE (4/10, pools Uniswap v4 permissionnes sur X Layer, presse non recoupee) : ce n'est pas Robinhood Chain, et les jetons-actions de Robinhood sont des titres de dette emis a Jersey, hors du champ de l'ordre (analystes cites par la presse). Dossier 4-927 : derniere entree 15/10. NON SOLDEE."
     }
    ],
    "solde": null
@@ -763,6 +783,11 @@
      "date": "2026-10-16",
      "valeur": "29,5 % (41,88/141,84 M$) Pons V2 sur le total declare ; 30,5 % avec V1 (43,25 M$)",
      "note": "-1,3 pt vs 15/10. Passe SOUS le seuil CONFIRMEE (30 %) pour la premiere fois, mais par un TROU DE MESURE : DefiLlama inscrit 0 $ pour Pons V2 les 14, 15 et 16/10 alors que la chaine montre une activite Pons inchangee (1 904 et 1 671 lancements les 14 et 15/10 contre 2 260 et 1 561 les 12 et 13/10 ; 3 831 et 3 619 PoolFeesSwept contre 3 869 et 3 645). Corrigee du trou (3 x 0,53 M$), la part vaudrait ~30,3 %. Le seuil ne joue qu'a l'echeance (19/11). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "29,2 % (38,37/131,28 M$) Pons V2 ; 30,2 % avec V1",
+     "note": "DefiLlama a recharge l'historique de Pons V2 : le trou des 14-16/10 est comble (voir v_20261016_01), la part est de nouveau lisible (29,5 -> 29,2 % apres correction). Sous le seuil CONFIRMEE (30 %) pour V2 seul, au-dessus avec V1. NON SOLDEE."
     }
    ],
    "solde": null
@@ -1027,6 +1052,11 @@
      "date": "2026-10-16",
      "valeur": "35,1 % (3,34/9,52 M$, 30 points 17/09 -> 16/10 partiel)",
      "note": "Inchange vs 15/10 ; Robinhood Chain reste 1re (Ethereum 3,08 M$, 32,4 %). UNI 7,46 $ (CoinGecko, 6,91 hier) : a frais constants, la hausse d'UNI reduit le nombre de rachats (piege P9). Seuil MORTE 33 % : 2,1 pt de marge. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "33,6 % (3,08/9,14 M$ ; 30 jours pleins 18/09 -> 17/10) ; Ethereum 33,0 %",
+     "note": "Robinhood Chain reste 1re de 63 k$ seulement. Fenetre qui inclut le 18/10 partiel (19/09 -> 18/10) : Ethereum 32,9 %, Robinhood Chain 32,8 % : l'ordre s'inverse, mais sur une journee non terminee, donc non retenu. Seuil MORTE 33 % : 0,6 pt de marge. UNI 7,24 $ (CoinGecko). NON SOLDEE, a surveiller le 19/10."
     }
    ],
    "solde": null
@@ -1129,6 +1159,11 @@
      "date": "2026-10-16",
      "valeur": "19,9 % (15 495 / 77 916 pools a hook), fenetre 16/09-15/10",
      "note": "Premier recalcul 30 j sans le 15/09 (rafale mmETH sortie de la fenetre). Comparable a 19,1 % (meme mesure sans le 15/09, 14/10) : +0,8 pt. Sous le seuil CONFIRMEE (20 %) de 0,1 pt ; REVISEE a 25 %. Plus gros hook hors registre : 0x2c66...2acc (1 163 pools). Jour 15/10 : 22,7 %. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "non re-mesure (recensement Initialize non refait)",
+     "note": "Trou declare. Le registre regenere le 16/10 ajoute 4 hooks robinhood ; la population hors registre n'est pas relue ce jour."
     }
    ],
    "solde": null
@@ -1430,6 +1465,11 @@
      "date": "2026-10-16",
      "valeur": "0,74 % (3,97 M$ sur 536,6 M$) ; 179 marches d'actions dont 6 au-dessus de 1 000 $",
      "note": "Stable (API Morpho seule ce jour, recoupement RPC non refait). OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "0,74 % (3,92 M$ sur 531,76 M$) ; 181 marches d actions dont 7 au-dessus de 1 000 $",
+     "note": "API Morpho seule (recoupement RPC non refait). Stable. NON SOLDEE."
     }
    ]
   },
@@ -1506,7 +1546,7 @@
    "mesure": "RPC Robinhood Chain : evenements Transfer des 50 jetons d'actions/ETF Robinhood (liste = collateraux Morpho chainId 4663), 12 fenetres de 200 blocs par jour UTC, deux tirages independants moyennes ; transactions distinctes par jour, moyenne lun-ven. Reference 28/09-02/10 : 414 000 tx/jour ouvre (07-11/09 : 1 241 000).",
    "seuil": "CONFIRMEE si la moyenne des jours ouvres 12-16/10 passe sous 331 000 (-20 %). MORTE si elle remonte au-dessus de 497 000 (+20 %).",
    "echeance": "2026-10-17",
-   "statut": "OUVERTE",
+   "statut": "REVISEE",
    "historique": [
     {
      "date": "2026-10-04",
@@ -1567,8 +1607,18 @@
      "date": "2026-10-16",
      "valeur": "jeudi 15/10 : 571 874 tx (2 tirages : 545 798 / 597 949) ; moyenne 12-15/10 : 379 602",
      "note": "Temoin refait : 14/10 rejoue a l'identique (348 373 / 236 409). Deux tirages hors methode (graines 3 et 4) : 825 842 / 458 999 -- le jeudi est haut quelle que soit la graine. La moyenne repasse AU-DESSUS du seuil CONFIRMEE (331 000) ; MORTE au-dessus de 497 000 : il faudrait un vendredi a plus de 966 000. Solde le 17/10 sur la moyenne lun-ven. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "moyenne lun-ven 12-16/10 : environ 373 000 tx/jour (12-15/10 : 379 602 en archive ; vendredi 16/10 : 347 472, tirages 320 087 / 374 857)",
+     "note": "Echeance 17/10 atteinte. Ni sous 331 000 (CONFIRMEE) ni au-dessus de 497 000 (MORTE) : le flux est a -10 % de son niveau du 28/09-02/10 (414 000), dans la marge de l'echantillon. Temoin du 14/10 relance avec d'autres graines et 51 adresses lues : 437 160 / 418 975, contre 348 373 / 236 409 en archive : l'ecart entre tirages (jusqu'a 2x) dit que la sonde est large. Verdict : REVISEE, la contraction ne continue pas."
     }
-   ]
+   ],
+   "solde": {
+    "date": "2026-10-18",
+    "verdict": "REVISEE",
+    "raison": "Echeance 17/10 atteinte. Ni sous 331 000 (CONFIRMEE) ni au-dessus de 497 000 (MORTE) : le flux est a -10 % de son niveau du 28/09-02/10 (414 000), dans la marge de l'echantillon. Temoin du 14/10 relance avec d'autres graines et 51 adresses lues : 437 160 / 418 975, contre 348 373 / 236 409 en archive : l'ecart entre tirages (jusqu'a 2x) dit que la sonde est large. Verdict : REVISEE, la contraction ne continue pas."
+   }
   },
   {
    "id": "v_20261004_02",
@@ -1638,6 +1688,11 @@
      "date": "2026-10-16",
      "valeur": "pas de week-end dans la fenetre ce jour",
      "note": "Prochain point : week-end 17-18/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "samedi 17/10 : environ 101 895 tx (113 334 / 90 456) soit 0,27 de la moyenne lun-ven (373 000) ; dimanche 18/10 non termine",
+     "note": "Un week-end sur trois lu de facon partielle (samedi seul). Sous 0,5. Emissions du samedi : 0 ; destructions : 2. OUVERTE."
     }
    ]
   },
@@ -1704,6 +1759,11 @@
      "date": "2026-10-16",
      "valeur": "28,9 pb (8,73 M$ / 3,02 Md$), fenetre 09-15/10",
      "note": "Sous 50 pb. La semaine du test 12-18/10 sera lue le 19/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "26,7 pb (8,34 M$ / 3,12 Md$), fenetre 11-17/10",
+     "note": "Sous 50 pb. La semaine du test (12-18/10) sera lue le 19/10. OUVERTE."
     }
    ]
   },
@@ -1770,6 +1830,11 @@
      "date": "2026-10-16",
      "valeur": "non re-mesure (echantillon de swaps non refait)",
      "note": "Trou declare. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "non re-mesure",
+     "note": "Echantillon de swaps non refait. Trou declare."
     }
    ]
   },
@@ -1832,6 +1897,11 @@
      "date": "2026-10-16",
      "valeur": "jour 15/10 : Doppler 1 678 / 2 317 pools a hook / 6 167 pools (72,4 % / 27,2 %) ; 14-15/10 : 70,0 % / 26,2 %",
      "note": "Temoin : le 14/10 rejoue a l'identique (1 424 / 2 112 / 5 681). Deux premiers jours de la semaine 14-20/10 au-dessus des deux seuils ; la CONFIRMEE reste impossible (semaine 07-13/10 a 54,9 %). Solde le 20/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "non re-mesure (recensement Initialize non refait)",
+     "note": "Trou declare. La semaine 14-20/10 sera lue le 21/10."
     }
    ]
   },
@@ -1888,6 +1958,11 @@
      "date": "2026-10-16",
      "valeur": "jour 15/10 : 50,3 % des 3 850 pools sans hook viennent d'emetteurs a >= 10 pools le jour meme (47,6 % hors WORM) ; 1 347 a frais >= 50 %",
      "note": "Base JOUR, non comparable au seuil (base semaine). Emetteurs lus pour 3 166 transactions sur 3 166. Indicatif : au-dessus de 40 %. Semaine 14-20/10 lue le 21/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "non re-mesure",
+     "note": "Trou declare ; semaine 14-20/10 a lire le 21/10."
     }
    ]
   },
@@ -1898,7 +1973,7 @@
    "mesure": "RPC Robinhood Chain, comptage complet : eth_getLogs Transfer(from=0x0, to=0xcfaece2151502da2a21d47234ae1f08618a60a94), sans filtre d'adresse (fenetres de 30 000 blocs), par jour UTC ; moyenne lun-ven. Reference 28-30/09 : 2 201/j (6 603) ; 05-07/10 : 1 377/j (4 132). Temoin : la part dans les 50 jetons de la liste figee retombe exactement sur le comptage par jeton (1 757 le 28/09).",
    "seuil": "CONFIRMEE si la moyenne lun-ven 12-16/10 reste sous 1 650/j (-25 % vs 2 201). REVISEE si elle depasse 2 000/j.",
    "echeance": "2026-10-19",
-   "statut": "OUVERTE",
+   "statut": "REVISEE",
    "historique": [
     {
      "date": "2026-10-08",
@@ -1939,8 +2014,18 @@
      "date": "2026-10-16",
      "valeur": "jeudi 15/10 : 1 814 emissions, 2 305 destructions ; moyenne 12-15/10 : 2 197 emissions/jour",
      "note": "Temoin : 14/10 recompte a l'identique (2 864 / 1 132). Pour finir sous 2 000, le vendredi devrait compter moins de 1 214 emissions. Solde le 19/10. OUVERTE, en voie de REVISEE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "moyenne lun-ven 12-16/10 : 2 485 emissions/jour (1 856 ; 2 252 ; 2 864 ; 1 814 ; 3 640)",
+     "note": "Comptage complet. Temoins : 14/10 recompte a l'identique (2 864 / 1 132) et 15/10 (1 814 / 2 305). Au-dessus de 2 000 : la baisse de 25 % ne tient pas. Samedi 17/10 : 0 emission. Verdict : REVISEE (le canal n'a pas ralenti durablement ; le vendredi 16/10 est le plus haut jour releve)."
     }
-   ]
+   ],
+   "solde": {
+    "date": "2026-10-18",
+    "verdict": "REVISEE",
+    "raison": "Comptage complet. Temoins : 14/10 recompte a l'identique (2 864 / 1 132) et 15/10 (1 814 / 2 305). Au-dessus de 2 000 : la baisse de 25 % ne tient pas. Samedi 17/10 : 0 emission. Verdict : REVISEE (le canal n'a pas ralenti durablement ; le vendredi 16/10 est le plus haut jour releve)."
+   }
   },
   {
    "id": "v_20261008_02",
@@ -1990,6 +2075,11 @@
      "date": "2026-10-16",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code, nonce 2 ; implementation 0xb354...5ae2 inchangee ; 0 evenement emis par la balise du bloc 88 778 320 au bloc 89 935 467",
      "note": "Temoin negatif : une adresse bidon rend hasRole = 0. Aucun changement de controle. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code, nonce 2 ; implementation 0xb354...5ae2 inchangee ; 0 evenement de la balise depuis le bloc 89 935 468",
+     "note": "Temoin negatif : une adresse bidon rend hasRole = 0. Aucun changement de controle. OUVERTE."
     }
    ]
   },
@@ -2036,6 +2126,11 @@
      "date": "2026-10-16",
      "valeur": "0 pool cree le 15/10 (recensement complet du jour) ; 657 pools sur 30 j (recensement complet) ; swaps non relus",
      "note": "Le hook reste a l'arret. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "non re-mesure",
+     "note": "Trou declare ; hook a l'arret au 16/10."
     }
    ]
   },
@@ -2072,6 +2167,11 @@
      "date": "2026-10-16",
      "valeur": "utilisation 100,0 % sur 4 marches (API Morpho : 1 660 790 USDG pretes = empruntees) ; collateral actions 3 971 045 $ sur 536 637 070 $ (0,74 %)",
      "note": "Recoupement Morpho.market non refait ce jour (API seule). Loin du seuil REVISEE. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "utilisation 95,3 % sur 4 marches (1 664 815 / 1 746 492 USDG) ; collateral actions 3 915 340 $ sur 531 763 830 $ (0,74 %)",
+     "note": "API Morpho seule. L'utilisation baisse de 100 a 95,3 % : un peu de liquidite revient, loin du seuil REVISEE (90 %). OUVERTE."
     }
    ]
   },
@@ -2103,6 +2203,11 @@
      "date": "2026-10-16",
      "valeur": "indicatif : 13-15/10 = 7,85 M$ contre 06-08/10 = 9,61 M$ (-18,3 %) ; hors Pons V2 : 7,32 contre 7,80 M$ (-6,2 %)",
      "note": "Les trois jours a 0 $ de Pons V2 (panne de mesure, voir v_20261016_01) creusent la baisse apparente. Si l'adaptateur n'est pas repare avant le 20/10, la semaine 13-19/10 sera lue avec un trou et le seuil REVISEE (-30 %) peut etre franchi par la mesure, pas par la chaine : la lecture devra le dire. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "13-17/10 = 13,19 M$ contre 06-10/10 = 14,47 M$ (-8,8 %), meme liste d'adaptateurs, relus le 18/10",
+     "note": "Pons V2 est de nouveau inscrit (0,54 / 0,43 / 0,53 / 0,46 M$ pour 14-17/10) : le trou est ferme. Fomo Wallet tombe a 0 $ les 17 et 18/10 (72 k$ le 16/10) et 4 adaptateurs sont ajoutes sur la chaine les 16-17/10 : le perimetre bouge, la lecture reste indicative. OUVERTE."
     }
    ]
   },
@@ -2129,6 +2234,11 @@
      "date": "2026-10-16",
      "valeur": "non re-mesure ; 204 pools sans hook a devise WORM le 15/10 (200 d'un seul emetteur 0x825e...a167)",
      "note": "L'echelle WORM reprend le 15/10 (aucune paire au-dessus de 39 le 14/10). Volume de l'echantillon non relu. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "non re-mesure",
+     "note": "Trou declare."
     }
    ]
   },
@@ -2139,8 +2249,12 @@
    "mesure": "RPC, comptage complet par jour UTC : emissions Transfer(from=0x0, to=0xcfaece2151502da2a21d47234ae1f08618a60a94) et destructions Transfer(from=0xa8553db0049fc6843c0d00d0efc08d31848e3c74, to=0x0), restreintes aux 50 jetons de la liste figee, quantites x prix Morpho FIGES du 15/10 (champ prix_figes_15oct). Solde net lun-ven 12-16/10. Reference : 12/10 -0,34 M$ ; 13/10 +0,96 M$ ; 14/10 +10,43 M$ (14,27 emis / 3,83 detruits). Temoin anterieur (autres prix) : 05-07/10 -8,04 M$, 28/09-02/10 -3,77 M$.",
    "seuil": "CONFIRMEE si le solde net 12-16/10 depasse +10 M$ ET la moyenne d'emissions par jour depasse 2 000 alors que la sonde de transactions (v_20261004_01) reste sous 331 000. MORTE si le solde net 12-16/10 est negatif.",
    "echeance": "2026-10-19",
-   "statut": "OUVERTE",
-   "solde": null,
+   "statut": "REVISEE",
+   "solde": {
+    "date": "2026-10-18",
+    "verdict": "REVISEE",
+    "raison": "Net : 12/10 -0,34 ; 13/10 +0,96 ; 14/10 +10,45 ; 15/10 -0,03 ; 16/10 +6,42 M$ (prix Morpho du 18/10 pour 14-16/10, du 15/10 pour 12-13/10 : mesure de quantite). Deux conditions sur trois tiennent (net > 10 M$, emissions > 2 000) ; la troisieme (transactions sous 331 000) echoue : 373 000. Les actions entrent par plus de valeur par transaction, mais le nombre de transactions n'a pas baisse. Verdict : REVISEE."
+   },
    "prix_figes_15oct": {
     "0x12f190a9f9d7d37a250758b26824b97ce941bf54": [
      "AMZN",
@@ -2353,6 +2467,11 @@
      "date": "2026-10-16",
      "valeur": "12-15/10 : +11,06 M$ net (4 jours) ; jeudi 15/10 : +0,01 M$ (9,44 emis / 9,43 detruits)",
      "note": "Le jeudi est a l'equilibre : le solde de la semaine tient entierement au mercredi. Emissions moyennes 2 197/j (> 2 000). Mais la sonde de transactions remonte a 379 602 de moyenne, au-dessus de 331 000 : la troisieme condition de la CONFIRMEE ne tient plus. Solde le 19/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "solde net 12-16/10 : environ +17,5 M$ ; emissions 2 485/jour ; sonde de transactions 373 000",
+     "note": "Net : 12/10 -0,34 ; 13/10 +0,96 ; 14/10 +10,45 ; 15/10 -0,03 ; 16/10 +6,42 M$ (prix Morpho du 18/10 pour 14-16/10, du 15/10 pour 12-13/10 : mesure de quantite). Deux conditions sur trois tiennent (net > 10 M$, emissions > 2 000) ; la troisieme (transactions sous 331 000) echoue : 373 000. Les actions entrent par plus de valeur par transaction, mais le nombre de transactions n'a pas baisse. Verdict : REVISEE."
     }
    ]
   },
@@ -2363,13 +2482,56 @@
    "mesure": "(1) DefiLlama /overview/fees/Robinhood Chain, totalDataChartBreakdown : frais Pons V2 des jours 14, 15 et 16/10. (2) RPC, comptage complet par jour UTC : TokenLaunched de la fabrique 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e et PoolFeesSwept du hook 0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044. Reference : 14/10 1 904 et 3 831 ; 15/10 1 671 et 3 619 (12-13/10, quand DefiLlama inscrivait 0,59 et 0,53 M$ : 2 260 / 3 869 et 1 561 / 3 645).",
    "seuil": "CONFIRMEE si DefiLlama reinscrit au moins 0,3 M$ par jour pour Pons V2 sur 14-15/10 avant l'echeance. REVISEE si, a l'echeance, DefiLlama affiche toujours 0 $ alors que la fabrique compte encore plus de 1 000 lancements par jour (retrait durable de la mesure). MORTE si la fabrique tombe sous 500 lancements par jour sur deux jours consecutifs (arret reel de Pons).",
    "echeance": "2026-10-23",
-   "statut": "OUVERTE",
-   "solde": null,
+   "statut": "CONFIRMEE",
+   "solde": {
+    "date": "2026-10-18",
+    "verdict": "CONFIRMEE",
+    "raison": "Le trou etait une panne de mesure : DefiLlama a recharge l'historique entre le 16 et le 18/10. Temoins : 14/10 = 1 904 et 15/10 = 1 671 retombent sur les references du 16/10. Aucun commit de l'adaptateur ponsdotfamily-v2 depuis le 17/09 : c'est le cache ou l'indexeur qui a ete repare, pas le code. Verdict : CONFIRMEE."
+   },
    "historique": [
     {
      "date": "2026-10-16",
      "valeur": "DefiLlama : 0 $ les 14, 15 et 16/10 ; chaine : 1 904 et 1 671 lancements, 3 831 et 3 619 PoolFeesSwept (14 et 15/10)",
      "note": "Ouverture. L'adaptateur fees/ponsdotfamily-v2 n'a pas ete modifie depuis le 17/09 (commit 3c3fcd2c) : la cause n'est pas un changement de code publie. Il lit un indexeur (queryClickhouse) et un cache ; panne d'indexeur ou de cache probable, non prouvee."
+    },
+    {
+     "date": "2026-10-18",
+     "valeur": "DefiLlama relit 0,536 / 0,434 / 0,529 / 0,464 M$ pour Pons V2 les 14-17/10 ; chaine : 1 904 / 1 671 / 1 794 / 1 333 lancements (14-17/10)",
+     "note": "Le trou etait une panne de mesure : DefiLlama a recharge l'historique entre le 16 et le 18/10. Temoins : 14/10 = 1 904 et 15/10 = 1 671 retombent sur les references du 16/10. Aucun commit de l'adaptateur ponsdotfamily-v2 depuis le 17/09 : c'est le cache ou l'indexeur qui a ete repare, pas le code. Verdict : CONFIRMEE."
+    }
+   ]
+  },
+  {
+   "id": "v_20261018_01",
+   "ouverte": "2026-10-18",
+   "affirmation": "Le niveau d'emission des actions tokenisees Robinhood (2 485 par jour ouvre sur 12-16/10) n'est pas un pic d'une semaine : la moyenne lun-ven 19-23/10 reste au-dessus de 2 000 par jour.",
+   "mesure": "RPC Robinhood Chain, comptage complet par jour UTC : Transfer(from=0x0, to=0xcfaece2151502da2a21d47234ae1f08618a60a94), eth_getLogs sans filtre d'adresse, fenetres de 30 000 blocs ; moyenne lun-ven. Reference 12-16/10 : 1 856 ; 2 252 ; 2 864 ; 1 814 ; 3 640 (moyenne 2 485).",
+   "seuil": "CONFIRMEE si 19-23/10 reste au-dessus de 2 000/j. REVISEE si elle tombe sous 1 650/j.",
+   "echeance": "2026-10-26",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-10-18",
+     "valeur": "12-16/10 : 2 485/j ; samedi 17/10 : 0",
+     "note": "Ouverture."
+    }
+   ]
+  },
+  {
+   "id": "v_20261018_02",
+   "ouverte": "2026-10-18",
+   "affirmation": "Pons tourne 7 jours sur 7, contrairement aux actions tokenisees : le week-end, le nombre de lancements de jetons Pons reste au moins a 60 % de la moyenne lun-ven, alors que les emissions d'actions tombent a zero.",
+   "mesure": "RPC : evenements TokenLaunched de la fabrique 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e, comptage complet par jour UTC (fenetres de 100 000 blocs). Moyenne(samedi, dimanche) / moyenne(lun-ven de la semaine qui precede). Reference : samedi 17/10 = 1 333 contre 1 904 / 1 671 / 1 794 (14-16/10), soit 0,74.",
+   "seuil": "CONFIRMEE si les week-ends 17-18/10 et 24-25/10 restent au-dessus de 0,6. MORTE si l'un d'eux passe sous 0,4.",
+   "echeance": "2026-10-26",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-10-18",
+     "valeur": "samedi 17/10 : 1 333 lancements, 0,74 de la moyenne 14-16/10 ; dimanche 18/10 non termine (203 lancements a 07:50 UTC)",
+     "note": "Ouverture."
     }
    ]
   }
