@@ -1,10 +1,10 @@
 {
- "genere": "2026-10-15T09:46:17Z",
+ "genere": "2026-10-18T07:52:25Z",
  "note": "Contexte web date et source, releve par une routine locale. Jamais un verdict.",
  "theses": {
   "Lista DAO": {
-   "releve": "2026-10-15",
-   "recoupe": "Aucun rachat ni incident date d'octobre trouve au 15/10 ; tokenomist.ai affiche encore \"donnees de rachat indisponibles\". Le FDV/capi de 1,85 est calcule sur l'offre totale de 795,6 M LISTA (apres destruction) ; CoinGecko garde pourtant une offre maximale de 1 milliard, ce qui donnerait environ 2,3, au-dessus du seuil de 2,0.",
+   "releve": "2026-10-18",
+   "recoupe": "Aucun rachat, incident ni vote date d'octobre trouve au 18/10 (page CoinMarketCap : un seul element d'octobre, sur les bStocks). Le FDV/capi de 1,85 est calcule sur l'offre totale de 795,6 M LISTA (apres destruction) ; CoinGecko garde pourtant une offre maximale de 1 milliard, ce qui donnerait environ 2,3, au-dessus du seuil de 2,0.",
    "rien": false,
    "faits": [
     {
@@ -52,8 +52,8 @@
    ]
   },
   "Orca": {
-   "releve": "2026-10-15",
-   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la regle en vigueur (40 % des frais vers les stakers xORCA). Le vote relance ferme le 18/10 a 18:38 UTC, sans resultat au 15/10 ; s'il passe, cette part tombe a 10 % apres le 20/10 et la mesure devra etre relue. Aucun fait web n'explique la baisse de volume (-13,1 % sur 7 jours au 14/10).",
+   "releve": "2026-10-18",
+   "recoupe": "La capture DefiLlama de 36,9 % concorde avec la regle en vigueur (40 % des frais vers les stakers xORCA). Le vote relance ferme le 18/10 a 18:38 UTC ; aucun resultat n'etait publie au 18/10 (forum arrete au message du 13/10). S'il passe, cette part tombe a 10 % apres le 20/10 et la mesure devra etre relue.",
    "rien": false,
    "faits": [
     {
@@ -101,8 +101,8 @@
    ]
   },
   "Meteora": {
-   "releve": "2026-10-15",
-   "recoupe": "Le Referral Staking reverse aux stakers MET 10 % des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle, 3e cycle en cours jusque vers le 21/10). Au 14/10, DefiLlama affiche une capture de 3,8 % sur 7 jours et le compteur de jours a zero est a 0 : la mesure ne contredit pas ce flux. L'espace investisseurs n'affiche toujours aucun rachat au 15/10.",
+   "releve": "2026-10-18",
+   "recoupe": "Le Referral Staking reverse aux stakers MET 10 % des frais DLMM en USDC (plus de 700 000 USDC au 2e cycle, 3e cycle jusque vers le 21/10) : le zero DefiLlama sur les rachats ne dit rien de ce flux. L'espace investisseurs affiche toujours 0 $ de rachats au 18/10, sans rapport publie depuis celui d'aout (15/09).",
    "rien": false,
    "faits": [
     {
@@ -150,13 +150,13 @@
    ]
   },
   "Maple Finance": {
-   "releve": "2026-10-15",
-   "recoupe": "La capture DefiLlama de 10 % sous-estime peut-etre le flux : le rachat de septembre porte sur 20 % du revenu du mois (regle MIP-021). Au 15/10, la page de transparence n'affiche pas encore de rachat d'octobre, et aucun compte rendu de l'appel trimestriel du 13/10 n'a ete trouve.",
+   "releve": "2026-10-18",
+   "recoupe": "La capture DefiLlama de 10 % sous-estime peut-etre le flux : le rachat de septembre (314 116 $) est confirme sur la page de transparence au 18/10, apres 147 098 $ en aout. Aucun rachat d'octobre n'y figure encore et aucun compte rendu de l'appel trimestriel du 13/10 n'a ete trouve.",
    "rien": false,
    "faits": [
     {
-     "date": "2026-08-31",
-     "fait": "La page de transparence liste 136 768 $ de rachats en juillet et 147 098 $ en aout ; aucun montant pour septembre au 08/10.",
+     "date": "2026-10-09",
+     "fait": "La page de transparence liste 136 768 $ de rachats en juillet, 147 098 $ en aout et 314 116 $ en septembre (1 371 166 SYRUP) ; rien pour octobre au 18/10.",
      "touche": "capture",
      "source": "https://maple.finance/transparency",
      "recoupe": true
