@@ -568,6 +568,37 @@
     }
    ],
    "genere": "2026-10-18T08:09:41Z"
+  },
+  {
+   "date": "2026-10-19",
+   "fichier": "2026-10-19-enquete.html",
+   "titre": "Robinhood Chain, 19/10 : la chaine ne brule plus le plus d'UNI, Ethereum la repasse",
+   "question": "Le 24/09, Robinhood Chain etait la premiere source des rachats-destructions d'UNI, et la veille ouverte ce jour-la disait que ce n'etait pas un effet de lancement. Est-ce encore vrai trois semaines apres la fin du gaz gratuit ?",
+   "mesure_neuve": "Tous les rachats du Firepit (le contrat qui detruit 2 000 UNI contre les frais accumules) comptes sur la chaine du 25/08 au 19/10, sans echantillon (temoin 25/08-23/09 = 765, retrouve exactement) : 293 rachats la semaine du 01-07/09, 25 celle du 06-12/10, soit -91 % ; en dollars -89 % (3,81 -> 0,40 M$), car l'UNI a pris un quart (6,25 -> 7,90 $) : l'effet de cours est marginal, c'est le flux de frais v3 de la chaine qui s'effondre (14,81 -> 1,37 M$ par semaine). La chute commence le 15/09, deux semaines avant la fin du gaz gratuit. Sur 30 jours pleins (19/09-18/10), Ethereum repasse devant (33,0 % contre 32,7 % du revenu v3 reverse aux detenteurs d'UNI) : la veille du 24/09 est MORTE.",
+   "chiffre_cle": {
+    "valeur": "−91 %",
+    "libelle": "de rachats-destructions d'UNI par semaine sur Robinhood Chain entre debut septembre et mi-octobre ; Ethereum la repasse sur 30 jours",
+    "population": "evenements Released du contrat Firepit 0x7A8F…630B (2 000 UNI chacun), comptage complet : 293 (01-07/09) -> 25 (06-12/10)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v3_holders_part_robinhood_30j_jours_pleins_pct",
+     "libelle": "Part de la chaine dans les UNI detruits (rachats sur 30 jours)"
+    },
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours (ce que la chaine encaisse)"
+    },
+    {
+     "champ": "rh_v4_take_rate_bps_defillama_7j",
+     "libelle": "Prix d'un echange v4 (frais pour 10 000 $ echanges)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaine (l'argent depose)"
+    }
+   ],
+   "genere": "2026-10-19T09:15:00Z"
   }
  ]
 }

@@ -394,6 +394,22 @@
      },
      "note": "TVL 11,2 k$ ; zero frais ; mcap 1,26 -> 1,41 M$. Alerte traction nulle inchangee. Critere (TVL < 0,5 M$ au 31/10) en voie d'etre franchi.",
      "ratio_frais_vs_pons": 0
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 3,
+      "audit_ok": true,
+      "github_ok": true,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 11192,
+      "mcap_usd": 1357777
+     },
+     "note": "TVL 11,2 k$ ; zero frais ; mcap 1,41 -> 1,36 M$. Alerte traction nulle inchangee. Critere (TVL < 0,5 M$ au 31/10) en voie d'etre franchi : se tranche le 31/10.",
+     "ratio_frais_vs_pons": 0.0
     }
    ]
   },
@@ -887,6 +903,25 @@
      },
      "note": "TVL 1,38 -> 1,41 M$ ; frais 30 j 45 k$ ; mcap 16,5 -> 13,3 M$ (DefiLlama, non recoupe, -19 %). STONX TVL 0,61 M$, frais 30 j 37 k$. Volume 30 j non releve. Criteres non franchis ; mcap a 13x du plancher de 1 M$.",
      "ratio_frais_vs_pons": 0.0012
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 2,
+      "audit_ok": true,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1352798,
+      "fees_30d_usd": 44661,
+      "fees_7d_usd": 16812,
+      "mcap_usd": 13039057,
+      "vol_30d_usd": 40288619
+     },
+     "note": "TVL 1,41 -> 1,35 M$ ; frais 30 j 45 k$ ; mcap 13,3 -> 13,0 M$ (DefiLlama, non recoupe). Volume 30 j Ekubo 40,3 M$ ; STONX 37,9 M$ (> 10 M$). Criteres non franchis.",
+     "ratio_frais_vs_pons": 0.0012
     }
    ]
   },
@@ -1293,6 +1328,23 @@
      },
      "note": "TVL 113,3 -> 111,8 M$ ; frais 30 j 2,23 M$. Criteres non franchis.",
      "ratio_frais_vs_pons": 0.0582
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 112163476,
+      "fees_30d_usd": 2212611,
+      "fees_7d_usd": 575722
+     },
+     "note": "TVL 111,8 -> 112,2 M$ ; frais 30 j 2,21 M$. 2e place par TVL tenue. Criteres non franchis.",
+     "ratio_frais_vs_pons": 0.0619
     }
    ],
    "alerte_ouverte": "RESOLUE (dans le sens negatif) : l'attribution du hook HeavierHand a Lighter n'a jamais ete recorroboree en 3 jours (20, 22/09 -- pas de mesure le 21/09). Le score de preuve de Lighter est corrige a 0/4 ce jour. Le membre reste dans la cohorte uniquement au titre de sa traction (2e TVL de la chaine, 97,1 M$), plus aucun argument de mecanisme original documente.",
@@ -1724,6 +1776,24 @@
      },
      "note": "Alerte re-verifiee : audit_links toujours absent. TVL 35,9 -> 34,2 M$ (-4,8 %, l'ETH -2,0 % depuis le 16/10) ; frais 30 j 5,03 M$, 13,1 % de Pons V2 (le trou de mesure de Pons V2 est comble : le ratio redevient lisible).",
      "ratio_frais_vs_pons": 0.1311
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 10
+     },
+     "traction": {
+      "tvl_rh_usd": 32322816,
+      "fees_30d_usd": 4951465,
+      "fees_7d_usd": 832953,
+      "vol_30d_usd": 2429088394
+     },
+     "note": "Alerte re-verifiee : audit_links toujours absent. TVL 34,2 -> 32,3 M$ (-5,5 %) ; frais 30 j 4,95 M$ ; volume 30 j 2,43 Md$.",
+     "ratio_frais_vs_pons": 0.1385
     }
    ]
   },
@@ -2128,6 +2198,23 @@
      },
      "note": "TVL 58,7 -> 61,5 M$ ; frais 7 j 0,48 M$. Lignee dYdX toujours sans source primaire.",
      "ratio_frais_vs_pons": 0.0425
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 61275905,
+      "fees_30d_usd": 1647551,
+      "fees_7d_usd": 465828
+     },
+     "note": "TVL 61,5 -> 61,3 M$ ; frais 7 j 0,47 M$. Lignee dYdX toujours sans source primaire.",
+     "ratio_frais_vs_pons": 0.0461
     }
    ]
   },
@@ -2553,6 +2640,24 @@
      },
      "note": "TVL 4,75 -> 4,87 M$ ; frais 30 j 1,01 M$. Volume 30 j non releve. Critere non franchi.",
      "ratio_frais_vs_pons": 0.0262
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 4677295,
+      "fees_30d_usd": 963239,
+      "fees_7d_usd": 124605,
+      "vol_30d_usd": 540630592
+     },
+     "note": "TVL 4,87 -> 4,68 M$ ; frais 30 j 0,96 M$ ; volume 30 j 540,6 M$ (> 200 M$). Critere non franchi.",
+     "ratio_frais_vs_pons": 0.0269
     }
    ]
   },
@@ -2951,6 +3056,23 @@
      },
      "note": "4 fiches (Safety Deposit Box, Smart LP, Nightshades, Desks) : TVL 1,46 -> 1,40 M$ ; frais 30 j 0,98 -> 0,51 M$ (-48 % en deux jours, alors que les frais 7 j restent a 20 k$ : une voie de frais ou son historique a bouge chez DefiLlama, cause non identifiee). Critere (frais 30 j < 200 k$) non franchi, marge divisee par deux.",
      "ratio_frais_vs_pons": 0.0133
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 1372603,
+      "fees_30d_usd": 450704,
+      "fees_7d_usd": 16606
+     },
+     "note": "4 fiches (Safety Deposit Box, Smart LP, Desks, Nightshades) : TVL 1,40 -> 1,37 M$ ; frais 30 j 0,51 -> 0,45 M$ ; frais 7 j 16,6 k$ (20,4 k$ le 18/10). Critere (frais 30 j < 200 k$) non franchi, la pente continue.",
+     "ratio_frais_vs_pons": 0.0126
     }
    ]
   },
@@ -3376,6 +3498,24 @@
      },
      "note": "TVL 0,95 -> 0,92 M$ ; frais 30 j 81 k$. Volume 30 j non releve. Critere (volume < 50 M$) non mesure ; GIGA reste le plus faible membre a score 0.",
      "ratio_frais_vs_pons": 0.0021
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 886321,
+      "fees_30d_usd": 76292,
+      "fees_7d_usd": 9905,
+      "vol_30d_usd": 167495606
+     },
+     "note": "TVL 0,92 -> 0,89 M$ ; frais 30 j 76 k$ ; volume 30 j 167,5 M$ (> 50 M$, critere non franchi). Reste le membre le plus faible a score 0.",
+     "ratio_frais_vs_pons": 0.0021
     }
    ]
   },
@@ -3662,6 +3802,23 @@
      },
      "note": "TVL 6,02 -> 5,80 M$ ; frais 7 j 0,14 M$ ; lien d'audit toujours 200.",
      "ratio_frais_vs_pons": 0.0235
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 2,
+      "audit_ok": true,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 5831353,
+      "fees_30d_usd": 855299,
+      "fees_7d_usd": 147237
+     },
+     "note": "TVL 5,80 -> 5,83 M$ ; frais 7 j 0,15 M$ ; lien d'audit toujours 200.",
+     "ratio_frais_vs_pons": 0.0239
     }
    ]
   },
@@ -3706,6 +3863,21 @@
      },
      "note": "TVL 5,47 -> 4,88 M$ (-10,8 %), zero frais ; lien d'audit toujours 200. Critere provisoire (TVL < 1 M$) non franchi.",
      "ratio_frais_vs_pons": 0
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 2,
+      "audit_ok": true,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 4594159
+     },
+     "note": "TVL 4,88 -> 4,59 M$ (-5,9 %), zero frais ; lien d'audit toujours 200. Critere provisoire (TVL < 1 M$) non franchi.",
+     "ratio_frais_vs_pons": 0.0
     }
    ]
   }
@@ -4037,6 +4209,20 @@
      },
      "traction": {
       "tvl_rh_usd": 3767
+     },
+     "note": "TVL 3,8 k$ (seuil 1 M$). Score 4 inchange."
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 4,
+      "audit_ok": true,
+      "github_ok": true,
+      "hooks": 2
+     },
+     "traction": {
+      "tvl_rh_usd": 3785
      },
      "note": "TVL 3,8 k$ (seuil 1 M$). Score 4 inchange."
     }
@@ -4391,6 +4577,21 @@
       "mcap_usd": 37943
      },
      "note": "TVL 48,2 -> 46,1 k$ ; mcap 42,3 -> 37,9 k$ (seuil 1 M$)."
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 1,
+      "audit_ok": false,
+      "github_ok": true,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 38477,
+      "mcap_usd": 38638
+     },
+     "note": "TVL 46,1 -> 38,5 k$ ; mcap 37,9 -> 38,6 k$ (seuil 1 M$)."
     }
    ]
   },
@@ -4751,6 +4952,22 @@
       "fees_7d_usd": 164
      },
      "note": "TVL 55,6 -> 53,8 k$ ; compte GitHub ARMSys26 toujours 404 (temoin). Seuil 1 M$ loin."
+    },
+    {
+     "date": "2026-10-19",
+     "origine": "recalcule ce jour (audit_links : 75 liens, 70 en HTTP 200, 5 en 404 ; GitHub : 49 comptes, 47 existent, temoins ARMSys26 404 et Uniswap 200 ; registre hooks inchange depuis le 16/10 16:30 UTC, composante hooks reprise de la veille pour Fables (lignee etablie par adresse) ; DefiLlama 08:14 UTC ; filtre chaine : 273 protocoles)",
+     "preuve": {
+      "score": 0,
+      "audit_ok": false,
+      "github_ok": false,
+      "hooks": 0
+     },
+     "traction": {
+      "tvl_rh_usd": 54238,
+      "fees_30d_usd": 593,
+      "fees_7d_usd": 168
+     },
+     "note": "TVL 53,8 -> 54,2 k$ ; compte GitHub ARMSys26 toujours 404 (temoin). Seuil 1 M$ loin."
     }
    ]
   }
@@ -5828,6 +6045,40 @@
      }
     ],
     "note_journee": "Rescan des 273 protocoles. Liens d'audit : 70 sur 75 en 200. GitHub : 46 comptes sur 48 (ARMSys26 et lunasupply en 404). Scores : 172 a 0, 47 a 1, 40 a 2, 13 a 3, 1 a 4 (composante hooks recalculee par mot entier, plus stricte que celle des jours precedents : les chiffres ne se comparent pas au 16/10, qui comptait Fables a 1 par adresse). Team Finance sort de la liste : TVL 0,84 M$ sous le plancher de 1 M$. Aucun remplacement automatique ce jour."
+   },
+   {
+    "date": "2026-10-19",
+    "candidats": [
+     {
+      "nom_defillama": "Beefy",
+      "score": 3,
+      "tvl_rh_usd": 2674542,
+      "fees_30d_usd": 0,
+      "note": "TVL 2,69 -> 2,67 M$, score 3. Depasse GIGA V3 (score 0, 0,89 M$) sur la preuve et la TVL, pas sur les frais (0 contre 76 k$). Compteur jour 3 (releves consecutifs) ; 7 requis."
+     },
+     {
+      "nom_defillama": "vfat.io",
+      "score": 2,
+      "tvl_rh_usd": 2569741,
+      "fees_30d_usd": 22890,
+      "note": "TVL 2,43 -> 2,57 M$ ; frais 23 k$ contre 76 k$ pour GIGA V3. Compteur jour 3."
+     },
+     {
+      "nom_defillama": "HoodLock",
+      "score": 2,
+      "tvl_rh_usd": 1613613,
+      "fees_30d_usd": 0,
+      "note": "TVL 1,60 -> 1,61 M$, zero frais."
+     },
+     {
+      "nom_defillama": "Mellow Core",
+      "score": 2,
+      "tvl_rh_usd": 1007211,
+      "fees_30d_usd": 0,
+      "note": "1,0072 M$ : toujours a 0,7 % du plancher de 1 M$."
+     }
+    ],
+    "note_journee": "Rescan des 273 protocoles. Liens d'audit : 70 sur 75 en 200. GitHub : 47 comptes sur 49. Scores bruts (hooks par mot entier sur le NOM du hook, sans reprise de lignee) : 184 a 0, 36 a 1, 41 a 2, 11 a 3, 1 a 4 ; non comparables a la repartition du 18/10, calculee avec une autre regle de rapprochement. Aucun remplacement automatique ce jour."
    }
   ]
  },
@@ -6240,6 +6491,23 @@
      "lancements_onchain_17oct": 1333
     },
     "note": "PONS 0,278 $ (CoinGecko, -12 % en 24 h ; il valait 0,339 $ le 16/10). Multiple sur reversement annualise 3,15 -> 2,87 (le prix baisse plus vite que le reversement). DefiLlama a recharge l'historique de Pons V2 : 0,54 / 0,43 / 0,53 / 0,46 M$ pour les 14-17/10, le trou est ferme et les ratios 'membre / Pons' du 16/10, gonfles d'environ 4 %, redeviennent lisibles. La these 'la chaine murit vers les actions tokenisees' reste une these."
+   },
+   {
+    "date": "2026-10-19",
+    "origine": "recalcule ce jour (DefiLlama /overview/fees, /overview/dexs, dailyHoldersRevenue ; CoinGecko ; RPC fabrique Pons, 08:14 UTC)",
+    "traction": {
+     "fees_30d_usd": 35759284,
+     "vol_30d_usd": 597281325,
+     "tvl_rh_usd": 0,
+     "score_preuve": 0,
+     "fees_30d_v1_v2_combined_usd": 36930980,
+     "mcap_coingecko_usd": 177514297,
+     "holders_revenue_30d_v1v2_usd": 5288385,
+     "reversement_pct": 14.3,
+     "part_frais_chaine_pct": 28.5,
+     "lancements_onchain_18oct": 1078
+    },
+    "note": "PONS 0,263 $ (CoinGecko, -4,9 % en 24 h ; 0,278 $ le 18/10). Multiple sur reversement annualise 2,76. Frais Pons V2 du dimanche 18/10 : 0,25 M$ chez DefiLlama, le plus bas depuis le 10/10 ; 1 078 lancements sur la chaine. Pons domine toujours les frais de la chaine (28,5 %) : la these 'actions tokenisees' reste une these."
    }
   ]
  },
