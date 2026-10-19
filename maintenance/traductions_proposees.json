@@ -356,6 +356,11 @@
   "quand": "2026-10-19T07:07:36Z",
   "statut": "ok"
  },
+ "Crypto.com, Novig sue Missouri over sports event contracts; Kalshi, Polymarket, Robinhood hold off": {
+  "fr": "Crypto.com et Novig attaquent le Missouri en justice au sujet des contrats sur événements sportifs ; Kalshi, Polymarket et Robinhood s'abstiennent",
+  "quand": "2026-10-19T11:07:31Z",
+  "statut": "ok"
+ },
  "CryptoQuant’s 3 charts keeping Bitcoin’s ‘Uptober’ thesis valid": {
   "fr": "Les 3 graphiques de CryptoQuant qui maintiennent valide la thèse « Uptober » du Bitcoin",
   "quand": "2026-10-14T19:09:03Z",
@@ -393,6 +398,11 @@
  "DelegationManager implementation replaced 27 Aug 2026 (+88 bytes, unchanged ABI)": {
   "fr": "Implémentation de DelegationManager remplacée le 27 août 2026 (+88 octets, ABI inchangée)",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Deutsche Bank targets Asia crypto custody expansion in 2027 as German launch nears": {
+  "fr": "Deutsche Bank vise une expansion de la conservation de crypto-actifs en Asie en 2027 alors que le lancement allemand approche",
+  "quand": "2026-10-19T11:07:31Z",
   "statut": "ok"
  },
  "Divergence RWA institutionnels vs crypto-natifs. Basculement de dominance entre Invesco USTB et Ethena USDtb. 3 veilles émises sur la rotation structurelle du capital.\nWATCH: {\"metric\": \"tvl\", \"entity\": \"Huma\", \"op\": \">=\", \"threshold\": 480000000, \"deadline\": \"2026-11-07\", \"why\": \"RWA institutionnel en traction, momentum +13.7% sur 7j, rotation qualitative du capital vers créances réelles on-chain\"": {
@@ -809,6 +819,16 @@
   "quand": "2026-10-19T07:07:36Z",
   "statut": "ok"
  },
+ "Qubic freezes chain after attacker drains 1.4K wallets with weak seeds": {
+  "fr": "Qubic fige la chaîne après qu'un attaquant a vidé 1,4K portefeuilles aux phrases de récupération faibles",
+  "quand": "2026-10-19T11:07:31Z",
+  "statut": "ok"
+ },
+ "Richard Heart caught ‘off-guard,’ QDay gets even closer: Hodler’s Digest": {
+  "fr": "Richard Heart pris au dépourvu, QDay se rapproche encore : Hodler's Digest",
+  "quand": "2026-10-19T11:07:31Z",
+  "statut": "ok"
+ },
  "Ripple adds Stripe-owned wallets to XRP Ledger as AI payments pass 14 million": {
   "fr": "Ripple ajoute des portefeuilles détenus par Stripe au XRP Ledger alors que les paiements liés à l'IA dépassent 14 millions",
   "quand": "2026-10-14T11:08:54Z",
@@ -872,6 +892,11 @@
  "SAEP-24: Update Risk Curation Framework": {
   "fr": "SAEP-24 : mise à jour du cadre de curation des risques",
   "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
+ "SEC tokenized stock framework faces issuer pushback as Broadcom, Verizon object to OKX-ICE listing": {
+  "fr": "Le cadre des actions tokenisées de la SEC se heurte à la résistance des émetteurs, Broadcom et Verizon s'opposent à la cotation OKX-ICE",
+  "quand": "2026-10-19T11:07:31Z",
   "statut": "ok"
  },
  "STONX, marche de liquidite ve(3,3) pour actifs tokenises": {
@@ -1177,6 +1202,16 @@
  "Wallet Shifts 150 Million USDT From Aave to Spark Savings": {
   "fr": "Un portefeuille transfère 150 millions d'USDT d'Aave vers Spark Savings",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "World launches World ID suite for banks, makes Zoom deepfake check generally available": {
+  "fr": "World lance une suite World ID pour les banques et rend la détection de deepfakes sur Zoom généralement disponible",
+  "quand": "2026-10-19T11:07:31Z",
+  "statut": "ok"
+ },
+ "XRP Ledger is set to fix its lending code before anyone can use it": {
+  "fr": "Le XRP Ledger va corriger son code de prêt avant que quiconque ne l'utilise",
+  "quand": "2026-10-19T11:07:31Z",
   "statut": "ok"
  },
  "XRP Ledger’s Payment Engine Had a Counterfeiting Bug Hiding Since 2015": {
