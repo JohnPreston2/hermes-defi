@@ -356,6 +356,11 @@
   "quand": "2026-10-19T07:07:36Z",
   "statut": "ok"
  },
+ "Crypto vault deposits top $10 billion as lending risks draw regulatory scrutiny": {
+  "fr": "Les dépôts dans les coffres crypto atteignent $10 B alors que les risques de prêt attirent l'examen des régulateurs",
+  "quand": "2026-10-19T15:07:33Z",
+  "statut": "ok"
+ },
  "Crypto.com, Novig sue Missouri over sports event contracts; Kalshi, Polymarket, Robinhood hold off": {
   "fr": "Crypto.com et Novig attaquent le Missouri en justice au sujet des contrats sur événements sportifs ; Kalshi, Polymarket et Robinhood s'abstiennent",
   "quand": "2026-10-19T11:07:31Z",
@@ -561,6 +566,16 @@
  "Is Bitcoin kidding itself about the Lightning Network?": {
   "fr": "Le bitcoin se fait-il des illusions sur le Lightning Network ?",
   "quand": "2026-10-14T15:10:04Z",
+  "statut": "ok"
+ },
+ "JPMorgan expands ‘JPM Coin’ deposit token to Ethereum for institutional clients": {
+  "fr": "JPMorgan étend le jeton de dépôt « JPM Coin » à Ethereum pour les clients institutionnels",
+  "quand": "2026-10-19T15:07:33Z",
+  "statut": "ok"
+ },
+ "JPMorgan's JPM Coin, representing dollar deposits, is coming to Ethereum: Bloomberg": {
+  "fr": "Le JPM Coin de JPMorgan, qui représente des dépôts en dollars, arrive sur Ethereum : Bloomberg",
+  "quand": "2026-10-19T15:07:33Z",
   "statut": "ok"
  },
  "JUP Rises 51% in Four Weeks as Jupiter Fees Decline": {
@@ -913,6 +928,11 @@
   "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
+ "Sam Altman's World Takes Proof-of-Human IDs to Banks, Citing $40B AI Fraud Risk": {
+  "fr": "World de Sam Altman apporte les identifiants de preuve d'humanité aux banques, en invoquant un risque de fraude liée à l'IA de $40B",
+  "quand": "2026-10-19T15:07:33Z",
+  "statut": "ok"
+ },
  "Sanctioned A7 Announces USDT-to-SWIFT Payment Service": {
   "fr": "A7, entité sanctionnée, annonce un service de paiement USDT vers SWIFT",
   "quand": "2026-10-14T15:10:04Z",
@@ -1162,6 +1182,11 @@
  "USDGO Adds Solana Trading Liquidity Through Jupiter Lend and Fluid": {
   "fr": "USDGO ajoute de la liquidité d'échange sur Solana via Jupiter Lend et Fluid",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Unable to Connect": {
+  "fr": "Connexion impossible",
+  "quand": "2026-10-19T15:07:33Z",
   "statut": "ok"
  },
  "Uniswap Launches ETH/USDC Pool With Separate Buy and Sell Fees": {
