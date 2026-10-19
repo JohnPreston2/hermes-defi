@@ -1,77 +1,42 @@
 {
  "defauts": [
   {
-   "constat": "Aerodrome : la pile n'a aucune étiquette de valeur sur la scène ; 6,0 ans n'apparaît que dans la bande du bas.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Prix des frais · Échanges"
-  },
-  {
-   "constat": "L'étiquette « 38,4 M$ de frais en 30 j » est coupée par le bord droit de l'écran (« jours » absent).",
+   "constat": "La colonne la plus haute (157 Md$) sort du haut de l'écran : son nom et sa valeur ne sont pas visibles sur la scène.",
    "ecran": "ordinateur",
    "gravite": "gene",
    "type": "texte_coupe",
-   "vue": "Cohorte"
+   "vue": "Actifs réels"
   },
   {
-   "constat": "La grande pile traverse le titre et le sous-titre : « VALEUR », « actifs », « blockchains » et « Tether » sont partiellement masqués.",
+   "constat": "Trois disques n'ont pas d'étiquette sur la scène (un entre Morpho et Re, deux sombres dans « chiffre instable »).",
+   "ecran": "ordinateur",
+   "gravite": "gene",
+   "type": "sans_nom",
+   "vue": "Attention"
+  },
+  {
+   "constat": "La colonne géante passe devant « VALEUR SUR LA CHAÎNE », « blockchains », « Tether » et « dans » du titre et du sous-titre.",
    "ecran": "telephone",
    "gravite": "gene",
    "type": "texte_coupe",
    "vue": "Actifs réels"
   },
   {
-   "constat": "L'icône HumidiFi recouvre le dernier chiffre de « Tether Gold × 508,2 » ; l'icône voisine recouvre aussi « 4,7 » d'ApeX Protocol.",
+   "constat": "Le segment USDC (24 %) et le segment Hyperliquid L1 de la colonne n'ont pas d'étiquette, alors que la vue ordinateur les nomme.",
    "ecran": "telephone",
    "gravite": "gene",
-   "type": "chevauchement",
-   "vue": "Attention"
+   "type": "sans_nom",
+   "vue": "Argent stable · Où ils sont"
   },
   {
-   "constat": "La rangée de filtres est coupée à droite : « Actifs ré… » et « Staking liquide » sortent de l'écran.",
+   "constat": "La ligne Ethereum (+202 M$) est masquée sous les boutons de filtre ; seul le titre et la bande du bas la montrent.",
    "ecran": "telephone",
    "gravite": "gene",
    "type": "texte_coupe",
-   "vue": "Prix des frais · Ensemble"
-  },
-  {
-   "constat": "La rangée de filtres est coupée à droite : « Actifs ré… » sort de l'écran.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Prix des frais · Échanges"
-  },
-  {
-   "constat": "La rangée de filtres est coupée à droite : « Actifs ré… » sort de l'écran.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Prix des frais · Prêt"
-  },
-  {
-   "constat": "La rangée de filtres est coupée des deux côtés : « le » et « Stak… » sortent de l'écran.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Prix des frais · Perpétuels"
-  },
-  {
-   "constat": "La rangée de filtres est coupée à gauche : « es » (Échanges) sort de l'écran.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Prix des frais · Actifs réels"
-  },
-  {
-   "constat": "La rangée de filtres est coupée à gauche : « es » (Échanges) sort de l'écran.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Prix des frais · Staking liquide"
+   "vue": "Argent stable · Flux 7 jours"
   }
  ],
- "jour": "2026-10-18",
+ "jour": "2026-10-19",
  "n_captures": 34,
- "quand": "2026-10-18T08:20:45Z"
+ "quand": "2026-10-19T08:21:33Z"
 }
