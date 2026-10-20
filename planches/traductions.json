@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-20T18:46:02Z",
+"generated_at": "2026-10-20T21:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 132,
+"n_affiches": 136,
 "n_refuses": 0,
-"n_traduits": 77,
+"n_traduits": 69,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -19,12 +19,9 @@
 "BlackRock files for bitcoin ETF offering downside protection and upside exposure to IBIT": "BlackRock dépose un dossier d'ETF bitcoin offrant une protection à la baisse et une exposition à la hausse sur l'IBIT",
 "Blockchain Association says Treasury’s GENIUS Act rollout needs clearer DeFi, foreign issuer rules": "La Blockchain Association estime que la mise en œuvre du GENIUS Act par le Trésor doit préciser les règles pour la DeFi et les émetteurs étrangers",
 "Bubblemaps Alleges Anglio-Linked Wallets Traded Ahead of Pump.fun Calls": "Bubblemaps affirme que des portefeuilles liés à Anglio ont opéré avant les appels de Pump.fun",
-"Compound × Gauntlet Year 6 Renewal": "Compound × Gauntlet : renouvellement de l'année 6",
 "Crypto audits give investors false sense of security as Q3 hacks cost $1.18 billion, Hacken says": "Les audits crypto donnent un faux sentiment de sécurité, les piratages du T3 ayant coûté 1,18 milliard de dollars selon Hacken",
 "Crypto vault deposits top $10 billion as lending risks draw regulatory scrutiny": "Les dépôts dans les coffres crypto atteignent $10 B alors que les risques de prêt attirent l'examen des régulateurs",
 "Crypto.com, Novig sue Missouri over sports event contracts; Kalshi, Polymarket, Robinhood hold off": "Crypto.com et Novig attaquent le Missouri en justice au sujet des contrats sur événements sportifs ; Kalshi, Polymarket et Robinhood s'abstiennent",
-"Cysic Halts Bridge After Unauthorized Mint of 10 Million CYS": "Cysic suspend son pont après une émission non autorisée de 10 millions de CYS",
-"Cysic crypto bridge halted after unauthorized mint of 10M CYS": "Pont crypto de Cysic suspendu après une émission non autorisée de 10M CYS",
 "DEX capital efficiency divergence identified at Uniswap V4 and PancakeSwap V3; Uniswap V4 fee recovery watch emitted for Oct 30.": "Divergence d'efficacité du capital DEX identifiée sur Uniswap V4 et PancakeSwap V3 ; surveillance de la récupération des frais d'Uniswap V4 émise pour le 30 oct.",
 "Deutsche Bank targets Asia crypto custody expansion in 2027 as German launch nears": "Deutsche Bank vise une expansion de la conservation de crypto-actifs en Asie en 2027 alors que le lancement allemand approche",
 "Fee growth turns negative for 2 consecutive weeks or FDV/Mcap exceeds 2.0.": "La croissance des frais devient négative pendant 2 semaines consécutives, ou le ratio FDV/Mcap dépasse 2,0.",
@@ -43,10 +40,8 @@
 "Largest liquid staking protocols in coordinated capital flight (-8% weekly) with zero narrative coverage. Consensus obsesses over Aave liquidation stress while missing the upstream collateral evaporation. Emitted 3 falsifiable predicates on Lido, ether.fi, and dYdX OI to track the unwind.": "Les plus grands protocoles de staking liquide sont touchés par une fuite de capitaux coordonnée (-8% sur la semaine), sans aucune couverture narrative. Le consensus se concentre sur le stress de liquidation d'Aave et néglige l'évaporation amont du collatéral. 3 hypothèses réfutables publiées sur Lido, ether.fi et l'OI de dYdX pour suivre le désengagement.",
 "Lido V3 & KR1 x P2P.org: London Stock Exchange-Listed Company Launches Dedicated Ethereum Validators on stVaults": "Lido V3 & KR1 x P2P.org : une société cotée à la Bourse de Londres lance des validateurs Ethereum dédiés sur stVaults",
 "Lido liquid staking bleed accelerates as stETH loses collateral dominance ; Morpho cirBTC liquidity squeeze signals BTC's new monetary base role in DeFi ; 3 veilles émises sur structural rotation out of speculation and staking.": "La fuite du staking liquide de Lido s'accélère alors que stETH perd sa part de collatéral ; la tension sur la liquidité du cirBTC de Morpho signale le nouveau rôle du BTC comme base monétaire de la DeFi ; 3 veilles émises sur la rotation structurelle hors de la spéculation et du staking.",
-"Lighter Launches BTC and ETH Binary Options on Core": "Lighter lance des options binaires BTC et ETH sur Core",
 "MapQuest Now Shows Drivers Where Flock Cameras Are Watching": "MapQuest indique désormais aux conducteurs où se trouvent les caméras Flock qui les surveillent",
 "Mastercard unveils Stablecoin Security tool to screen payments for fraud and sanctions risks": "Mastercard dévoile un outil de sécurité des stablecoins pour filtrer les paiements à risque de fraude et de sanctions",
-"Papertrade Keeps PAPER Non-Transferable, Citing Perp Attack Risks": "Papertrade maintient PAPER non transférable, en invoquant les risques d'attaque sur les perpétuels",
 "Papertrade Trader Losses Reach $32.4 Million Two Days After Launch": "Les pertes des traders de Papertrade atteignent $32,4 million deux jours après le lancement",
 "Pump.fun Adds Pre-IPO Tokens to Its Launch Pairings": "Pump.fun ajoute des jetons pré-IPO à ses paires de lancement",
 "Qubic Halts Network After $1.3 Million Wallet Drain": "Qubic suspend son réseau après le vidage d'un portefeuille de 1,3 million de dollars",
@@ -67,7 +62,6 @@
 "THORChain Targets Rujira Restart With v3.21 Exploit Fix": "THORChain vise le redémarrage de Rujira avec le correctif d'exploit de la v3.21",
 "TVL base trend turns negative or FDV/Mcap ratio exceeds 3.5.": "La tendance de base de la TVL devient négative, ou le ratio FDV/Mcap dépasse 3,5.",
 "Technical Scope: Morpho Vault Timelock Compliance": "Périmètre technique : conformité du timelock des coffres Morpho",
-"Temporary pause of the deprecated Compound III USDe market on Mantle": "Pause temporaire du marché Compound III USDe déprécié sur Mantle",
 "Tether: Senator's investigation misses positive work that's led to lower Iran volumes": "Tether : l'enquête d'un sénateur ignore le travail positif qui a fait baisser les volumes liés à l'Iran",
 "Title: Recovery Request – 49.2 USDT Accidentally Sent to Aave Ethereum USDT Contract": "Titre : Demande de récupération – 49,2 USDT envoyés par erreur au contrat USDT d'Aave sur Ethereum",
 "Token capture remains 0.0% for 30 days or base (OI/Vol) contracts for 7 consecutive days.": "La capture de jetons reste à 0,0% pendant 30 jours, ou la base (OI/Vol) se contracte pendant 7 jours consécutifs.",
@@ -77,12 +71,10 @@
 "US Bitcoin ETFs draw $527M in biggest showing since September": "Les ETF bitcoin américains attirent $527M, leur plus forte séance depuis septembre",
 "US bans DeepSeek from civilian agency IT systems": "Les États-Unis interdisent DeepSeek dans les systèmes informatiques des agences civiles",
 "USDGO Adds Solana Trading Liquidity Through Jupiter Lend and Fluid": "USDGO ajoute de la liquidité de négociation sur Solana via Jupiter Lend et Fluid",
-"Unable to Connect": "Connexion impossible",
 "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur.",
 "World launches World ID suite for banks, makes Zoom deepfake check generally available": "World lance une suite World ID pour les banques et rend la détection de deepfakes sur Zoom généralement disponible",
 "XRP Ledger is set to fix its lending code before anyone can use it": "Le XRP Ledger va corriger son code de prêt avant que quiconque ne l'utilise",
 "[Direct to AIP] Onboard USAT to Aave V4 Core Instance on Avalanche": "[Direct vers AIP] Intégrer USAT à l'instance Aave V4 Core sur Avalanche",
-"cirBTC Borrowing on Morpho Tops $190 Million as Arc Liquidity Tightens": "Les emprunts de cirBTC sur Morpho dépassent 190 millions $ alors que la liquidité d'Arc se resserre",
-"‘We found room for more orange’: Michael Saylor’s Strategy buys another 267 bitcoin for $22 million": "« Nous avons trouvé de la place pour plus d'orange » : la Strategy de Michael Saylor achète 267 bitcoins supplémentaires pour 22M$"
+"cirBTC Borrowing on Morpho Tops $190 Million as Arc Liquidity Tightens": "Les emprunts de cirBTC sur Morpho dépassent 190 millions $ alors que la liquidité d'Arc se resserre"
 }
 }
