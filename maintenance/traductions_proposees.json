@@ -47,6 +47,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Aster Sets PAPER Perp Delisting After Transferability Decision": {
+  "fr": "Aster fixe la radiation des contrats perpétuels PAPER après une décision sur la transférabilité",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
  "Atlas Edit Weekly Cycle Proposal - Week Of 2026-10-12": {
   "fr": "Proposition de cycle hebdomadaire Atlas Edit — semaine du 2026-10-12",
   "quand": "2026-10-14T09:35:34Z",
@@ -207,6 +212,11 @@
   "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
+ "Bitcoin rally could revive treasury buying, but easy-money days over": {
+  "fr": "La hausse du bitcoin pourrait relancer les achats de trésorerie, mais les jours de crédit facile sont révolus",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
  "Bitcoin shrugs off ETF outflows to trade above $84,000 as oil falls": {
   "fr": "Le bitcoin ignore les sorties des ETF et se maintient au-dessus de 84 000 $ alors que le pétrole baisse",
   "quand": "2026-10-14T09:35:34Z",
@@ -265,6 +275,21 @@
  "Bitwise CIO argues bitcoin will benefit whether AI booms or busts": {
   "fr": "Le CIO de Bitwise affirme que le bitcoin profitera que l'IA connaisse un boom ou un effondrement",
   "quand": "2026-10-16T07:59:22Z",
+  "statut": "ok"
+ },
+ "BlackRock Files for 'Buffer' Bitcoin ETF as IBIT Draws $665M in a Day": {
+  "fr": "BlackRock dépose un dossier pour un ETF bitcoin « Buffer » alors que l'IBIT attire $665M en une journée",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
+ "BlackRock files for bitcoin ETF offering downside protection and upside exposure to IBIT": {
+  "fr": "BlackRock dépose un dossier d'ETF bitcoin offrant une protection à la baisse et une exposition à la hausse sur l'IBIT",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
+ "Blockchain Association says Treasury’s GENIUS Act rollout needs clearer DeFi, foreign issuer rules": {
+  "fr": "La Blockchain Association estime que la mise en œuvre du GENIUS Act par le Trésor doit préciser les règles pour la DeFi et les émetteurs étrangers",
+  "quand": "2026-10-20T15:07:44Z",
   "statut": "ok"
  },
  "Bubblemaps Alleges Anglio-Linked Wallets Traded Ahead of Pump.fun Calls": {
@@ -394,6 +419,11 @@
  "Cysic crypto bridge halted after unauthorized mint of 10M CYS": {
   "fr": "Pont crypto de Cysic suspendu après une émission non autorisée de 10M CYS",
   "quand": "2026-10-18T19:07:33Z",
+  "statut": "ok"
+ },
+ "DEX capital efficiency divergence identified at Uniswap V4 and PancakeSwap V3; Uniswap V4 fee recovery watch emitted for Oct 30.": {
+  "fr": "Divergence d'efficacité du capital DEX identifiée sur Uniswap V4 et PancakeSwap V3 ; surveillance de la récupération des frais d'Uniswap V4 émise pour le 30 oct.",
+  "quand": "2026-10-20T15:07:44Z",
   "statut": "ok"
  },
  "DEX reserve aux bots (API / transaction directe)": {
@@ -536,6 +566,11 @@
  "France advances stablecoin tax, eyes self-custodial wallets and exit tax proposals": {
   "fr": "La France avance sur une taxe sur les stablecoins, envisage des portefeuilles auto-conservés et des propositions de taxe de sortie",
   "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
+ "France's parliament approves vote to hit stablecoin trades with 31% capital gains tax": {
+  "fr": "Le parlement français approuve un vote soumettant les transactions de stablecoins à une taxe de 31% sur les plus-values",
+  "quand": "2026-10-20T15:07:44Z",
   "statut": "ok"
  },
  "French Assembly Backs Tax on Crypto-to-Stablecoin Swaps by One Vote": {
@@ -692,6 +727,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Lighter Launches BTC and ETH Binary Options on Core": {
+  "fr": "Lighter lance des options binaires BTC et ETH sur Core",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
  "Lighter, perps zk — perps par defaut du portefeuille Robinhood (declare, non verifie)": {
   "quand": "2026-10-14T09:35:34Z",
   "statut": "fr"
@@ -829,6 +869,11 @@
   "quand": "2026-10-16T11:59:16Z",
   "statut": "fr"
  },
+ "Papertrade Keeps PAPER Non-Transferable, Citing Perp Attack Risks": {
+  "fr": "Papertrade maintient PAPER non transférable, en invoquant les risques d'attaque sur les perpétuels",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
  "Papertrade Trader Losses Reach $32.4 Million Two Days After Launch": {
   "fr": "Les pertes des traders de Papertrade atteignent 32,4 M$ deux jours après le lancement",
   "quand": "2026-10-14T09:35:34Z",
@@ -854,6 +899,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Pump.fun Adds Pre-IPO Tokens to Its Launch Pairings": {
+  "fr": "Pump.fun ajoute des jetons pré-IPO à ses paires de lancement",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
  "Pump.fun to Tie Callout Rewards to Followers’ Profits": {
   "fr": "Pump.fun lie les récompenses des callouts aux profits de leurs abonnés",
   "quand": "2026-10-14T15:10:04Z",
@@ -872,6 +922,11 @@
  "Qubic freezes chain after attacker drains 1.4K wallets with weak seeds": {
   "fr": "Qubic fige la chaîne après qu'un attaquant a vidé 1,4K portefeuilles aux phrases de récupération faibles",
   "quand": "2026-10-19T11:07:31Z",
+  "statut": "ok"
+ },
+ "Ramp Seeks OCC Trust Bank Charter for Digital Asset Custody": {
+  "fr": "Ramp demande une charte de banque de confiance auprès de l'OCC pour la conservation d'actifs numériques",
+  "quand": "2026-10-20T15:07:44Z",
   "statut": "ok"
  },
  "Revolut secures Gibraltar crypto licence to support international expansion plans": {
@@ -998,6 +1053,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Sentora’s OUSD Lending Vault Holds $42.5 Million on Tempo": {
+  "fr": "Le coffre de prêt OUSD de Sentora détient 42,5 millions de $ sur Tempo",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
  "Settlement Reconciliation — MSC #5–#12 (January–August 2026)": {
   "fr": "Rapprochement des règlements — MSC #5 à #12 (janvier à août 2026)",
   "quand": "2026-10-14T09:35:34Z",
@@ -1041,6 +1101,11 @@
  "Solana shows resilience, but some areas need continued observation, Fidelity says": {
   "fr": "Solana montre sa résilience, mais certains domaines nécessitent une observation continue, selon Fidelity",
   "quand": "2026-10-18T07:31:23Z",
+  "statut": "ok"
+ },
+ "Solana treasury firm SkyAI sells all SOL holdings, launches $201M buyback": {
+  "fr": "La société de trésorerie en SOL SkyAI vend toutes ses positions en SOL et lance un rachat d'actions de $201M",
+  "quand": "2026-10-20T15:07:44Z",
   "statut": "ok"
  },
  "Solana's Shanghai Event Halted With Officers Present, Attendees Say": {
@@ -1165,6 +1230,11 @@
   "quand": "2026-10-18T19:07:33Z",
   "statut": "ok"
  },
+ "Tether: Senator's investigation misses positive work that's led to lower Iran volumes": {
+  "fr": "Tether : l'enquête d'un sénateur ignore le travail positif qui a fait baisser les volumes liés à l'Iran",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
  "The Cancellation of Proposal 612 Was Unjust": {
   "fr": "L'annulation de la proposition 612 était injuste",
   "quand": "2026-10-14T09:35:34Z",
@@ -1249,6 +1319,11 @@
   "quand": "2026-10-16T11:59:16Z",
   "statut": "fr"
  },
+ "US Bitcoin ETFs draw $527M in biggest showing since September": {
+  "fr": "Les ETF bitcoin américains attirent $527M, leur plus forte séance depuis septembre",
+  "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
  "US Event-Contract Rules: What the CFTC Has Changed and What Remains Unresolved": {
   "fr": "Règles américaines sur les contrats d'événements : ce que la CFTC a changé et ce qui reste non résolu",
   "quand": "2026-10-15T11:07:37Z",
@@ -1257,6 +1332,11 @@
  "US Wholesale Inflation Accelerates to 6.3% as Bitcoin Slips": {
   "fr": "L'inflation de gros américaine accélère à 6,3% alors que le bitcoin recule",
   "quand": "2026-10-16T07:59:22Z",
+  "statut": "ok"
+ },
+ "US bans DeepSeek from civilian agency IT systems": {
+  "fr": "Les États-Unis interdisent DeepSeek dans les systèmes informatiques des agences civiles",
+  "quand": "2026-10-20T15:07:44Z",
   "statut": "ok"
  },
  "US federal judge denies joint Gemini-CFTC bid to undo $5 million settlement": {
