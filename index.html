@@ -316,6 +316,335 @@ tr.weak td.k{color:var(--ink2)}
     <button class="tg" id="theme" type="button">Thème</button>
   </div>
 </header>
+<!-- ══ L'ESSENTIEL EN 60 SECONDES (ajout 2026-10-19, décision du propriétaire) ══ -->
+<style>
+/* Tout est limité à #essentiel (classes ess-). Retirer ce bloc retire tout : style, section et script.
+   Jetons de :root uniquement ; aucune couleur ne code une hausse ou une baisse (le signe vit dans le texte). */
+#essentiel{max-width:1280px;margin:0 auto;padding:16px 20px 0;scroll-margin-top:72px}
+#essentiel[hidden]{display:none}
+#essentiel.ess-on{animation:ess-in .55s ease-out both}
+@keyframes ess-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+#essentiel .ess-box{background:var(--s1);border:1px solid var(--line);border-top:2px solid var(--acc);
+  border-radius:var(--r2);box-shadow:var(--e1);padding:14px 18px 4px;color:var(--ink)}
+#essentiel .ess-head{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between;align-items:flex-end;padding-bottom:12px}
+#essentiel h2{margin:0;font:650 19px/1.25 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+#essentiel .ess-sub{margin:4px 0 0;font:12.5px/1.45 var(--sans);color:var(--ink3);max-width:62ch}
+#essentiel .ess-visit{margin:0;text-align:right;max-width:48ch}
+#essentiel .ess-visit-l{margin:0;font:600 12.5px/1.4 var(--sans);color:var(--ink2)}
+#essentiel .ess-visit-n{margin:2px 0 0;font:11.5px/1.4 var(--sans);color:var(--ink4)}
+#essentiel .ess-rows{list-style:none;margin:0;padding:0}
+#essentiel .ess-row{display:grid;grid-template-columns:200px minmax(0,1fr) auto;grid-template-areas:"q body go";
+  gap:4px 18px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+#essentiel .ess-q{grid-area:q;margin:3px 0 0;font:600 11px/1.35 var(--mono);letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink3)}
+#essentiel .ess-body{grid-area:body;min-width:0}
+#essentiel .ess-main{margin:0;font:14.5px/1.45 var(--sans);color:var(--ink);overflow-wrap:anywhere}
+#essentiel .ess-main+.ess-main{margin-top:3px}
+#essentiel .ess-n{font-weight:650;font-variant-numeric:tabular-nums}
+#essentiel .ess-grp{display:inline-block;margin-right:20px}
+#essentiel .ess-tag{font:600 11px/1.3 var(--mono);letter-spacing:.04em;color:var(--ink3);margin-right:8px;white-space:nowrap}
+#essentiel .ess-main a{color:var(--ink);font-weight:600;text-decoration:underline;
+  text-decoration-color:var(--line2);text-underline-offset:3px}
+#essentiel .ess-main a:hover{text-decoration-color:var(--acc2);color:var(--acc2)}
+#essentiel .ess-big{font:650 24px/1.1 var(--serif);letter-spacing:-.01em;margin-right:9px;vertical-align:-1px;
+  font-variant-numeric:tabular-nums}
+#essentiel .ess-lib{color:var(--ink2)}
+#essentiel .ess-na{color:var(--ink4);font-style:italic}
+#essentiel .ess-meta{margin:3px 0 0;font:12px/1.5 var(--sans);color:var(--ink3);overflow-wrap:anywhere}
+#essentiel .ess-meta>span+span::before{content:"\00b7";margin:0 .5em;color:var(--ink4)}
+#essentiel .ess-meta time{font:11px/1.5 var(--mono);color:var(--ink4)}
+#essentiel .ess-go{grid-area:go;display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;
+  padding:0 8px;border:1px solid var(--line2);border-radius:var(--r1);color:var(--acc2);
+  font:600 16px/1 var(--sans);text-decoration:none;transition:border-color .15s,background-color .15s}
+#essentiel .ess-go:hover{background:var(--s2);border-color:var(--acc2);text-decoration:none}
+@media (max-width:640px){
+  #essentiel{padding:12px 12px 0}
+  #essentiel .ess-box{padding:12px 12px 2px}
+  #essentiel .ess-head{display:block}
+  #essentiel .ess-visit{text-align:left;margin-top:10px;max-width:none}
+  #essentiel .ess-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"q go" "body body"}
+  #essentiel .ess-q{margin-top:6px}
+  #essentiel .ess-big{font-size:22px}
+}
+@media (prefers-reduced-motion: reduce){
+  #essentiel,#essentiel *,#essentiel *::before,#essentiel *::after{animation:none!important;transition:none!important}
+}
+</style>
+<section id="essentiel" aria-labelledby="ess-h" hidden>
+  <div class="ess-box">
+    <div class="ess-head">
+      <div>
+        <h2 id="ess-h">L'essentiel en 60 secondes</h2>
+        <p class="ess-sub">Cinq questions, une réponse chiffrée chacune, recopiée du flux avec son heure.</p>
+      </div>
+      <div class="ess-visit">
+        <p class="ess-visit-l" id="ess-visit-l"></p>
+        <p class="ess-visit-n">Comparaison faite par ton navigateur ; rien n'est envoyé.</p>
+      </div>
+    </div>
+    <ol class="ess-rows" id="ess-rows"></ol>
+  </div>
+</section>
+<script>
+/* L'essentiel en 60 secondes + « Depuis ta dernière visite ».
+   Aucune requête : le flux vient de window.__defiData / « defi:data », l'enquête de window.__uneEnquete / « une:prete ».
+   La mémoire (localStorage « ess:visites:v1 ») reste sur l'appareil du lecteur ; la page marche sans elle. */
+(function(){
+"use strict";
+var root=document.getElementById("essentiel"); if(!root) return;
+var KEY="ess:visites:v1", MOINS="−", NB=" ";
+var D=null, ENQ=null, enqConnue=false, etat=null, memoireOK=true, cmp={c:0,n:0}, timer=null;
+
+/* ── outils ─────────────────────────────────────────────────── */
+function isNum(x){ return typeof x==="number" && isFinite(x); }
+function g(o){ for(var i=1;i<arguments.length;i++){ if(o==null) return undefined; o=o[arguments[i]]; } return o; }
+function nf(x,d){ return x.toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d}).replace(/^[-−]/,MOINS); }
+function sgn(x,d){ return (x>0?"+":x<0?MOINS:"")+nf(Math.abs(x),d); }
+function usd(x){ var a=Math.abs(x);
+  return a>=1e9? nf(x/1e9,2)+NB+"Md$" : a>=1e6? nf(x/1e6,1)+NB+"M$" : a>=1e3? nf(x/1e3,1)+NB+"k$" : nf(x,0)+NB+"$"; }
+function pad(n){ return (n<10?"0":"")+n; }
+function jjmm(d){ var m=/^(\d{4})-(\d{2})-(\d{2})/.exec(String(d||"")); return m? m[3]+"/"+m[2] : null; }
+function utc(iso){ var t=Date.parse(iso); if(!isFinite(t)) return null; var s=new Date(t).toISOString();
+  return s.slice(8,10)+"/"+s.slice(5,7)+" à "+s.slice(11,16)+" UTC"; }
+function coupe(t,max){ t=String(t).replace(/\s+/g," ").trim(); if(t.length<=max) return t;
+  var c=t.slice(0,max+1), i=c.lastIndexOf(" "); c= i>max*0.6? c.slice(0,i) : c.slice(0,max);
+  return c.replace(/[\s,;:.\-–—(]+$/,"")+"…"; }
+function safeHref(h){ h=String(h==null?"":h).trim(); return h && !/^(?:[a-z][a-z0-9+.\-]*:|\/\/)/i.test(h)? h : null; }
+function el(tag,cls,txt){ var n=document.createElement(tag); if(cls) n.className=cls; if(txt!=null) n.textContent=txt; return n; }
+/* parts : une chaîne = texte simple ; {n:"…"} = chiffre mis en valeur */
+function ecrit(node,parts){ parts.forEach(function(p){
+  if(typeof p==="string") node.appendChild(document.createTextNode(p)); else node.appendChild(el("b","ess-n",p.n)); }); return node; }
+function manquant(node,txt){ node.appendChild(el("span","ess-na",txt||"manquant")); return node; }
+function heure(label,iso){ var u=utc(iso);
+  if(!u) return manquant(el("span"),label+" : heure manquante");
+  var s=el("span"), t=el("time",null,label+" le "+u); t.setAttribute("datetime",String(iso)); s.appendChild(t); return s; }
+
+/* ── mémoire du navigateur (jamais envoyée) ─────────────────── */
+function lire(){
+  var r; try{ r=window.localStorage.getItem(KEY); }catch(e){ memoireOK=false; return null; }
+  if(!r) return null;
+  try{ var o=JSON.parse(r);
+    if(o && o.cur && typeof o.cur.gen==="string" && o.cur.v && typeof o.cur.v==="object"
+       && (o.prev==null || (o.prev.v && typeof o.prev.v==="object"))) return o;
+  }catch(e){}
+  return null; }
+function ecrire(o){
+  try{ window.localStorage.setItem(KEY,JSON.stringify(o)); }
+  catch(e){ memoireOK=false; } }
+function enqCle(){ return ENQ && ENQ.titre? String(ENQ.titre)+" | "+String(ENQ.date||"") : null; }
+function instantane(){
+  var v={}, b=D.blocks||{};
+  var items=g(b,"prices","v","items")||[];
+  ["BTC","ETH"].forEach(function(s){ var it=null;
+    for(var i=0;i<items.length;i++) if(items[i] && items[i].sym===s){ it=items[i]; break; }
+    if(it && isNum(it.p)) v["px:"+s]=it.p; });
+  var t=g(b,"macro","v","agg","defi_tvl_b"); if(isNum(t)) v.defi_tvl_b=t;
+  (g(b,"movers","v","gainers")||[]).concat(g(b,"movers","v","losers")||[]).forEach(function(m){
+    if(m && m.name && isNum(m.tvl_usd)) v["tvl:"+m.name]=m.tvl_usd; });
+  var f=g(b,"funding","v","funding")||{};
+  Object.keys(f).forEach(function(k){ if(/USDT$/.test(k) && f[k] && isNum(f[k].annualized)) v["fund:"+k.replace(/USDT$/,"")]=f[k].annualized; });
+  if(enqCle()) v.enq=enqCle();
+  return {gen:String(D.generated_at||""), vu:new Date().toISOString(), v:v};
+}
+function sauve(){ if(etat && etat.cur.gen) ecrire({cur:etat.cur,prev:etat.prev}); }
+function initEtat(){
+  var S=instantane(), lu=lire();
+  if(!lu) etat={cur:S,prev:null};
+  else if(lu.cur.gen!==S.gen) etat={cur:S,prev:lu.cur};            /* nouvelle génération = nouvelle visite */
+  else { var v=lu.cur.v; for(var k in S.v) v[k]=S.v[k];               /* même génération : prev ne bouge pas */
+         etat={cur:{gen:S.gen,vu:S.vu,v:v},prev:lu.prev||null}; }
+  sauve();
+}
+function completeEnq(){ var k=enqCle(); if(etat && k && etat.cur.v.enq!==k){ etat.cur.v.enq=k; sauve(); } }
+function pv(cle){ return etat && etat.prev? etat.prev.v[cle] : undefined; }
+
+/* ── écarts depuis la visite précédente ─────────────────────── */
+function dPct(cur,prev){ return isNum(cur)&&isNum(prev)&&prev>0? (cur/prev-1)*100 : null; }
+function sPct(x){ return Math.abs(x)<0.05? null : (x>0?"+":MOINS)+nf(Math.abs(x),1)+NB+"%"; }
+function ecartPct(nom,x){ if(x==null) return null; cmp.c++; var s=sPct(x); if(!s) return nom+" inchangé"; cmp.n++; return nom+" "+s; }
+
+/* ── les lignes ─────────────────────────────────────────────── */
+function ligne(label,href,aria){
+  var li=el("li","ess-row"), body=el("div","ess-body");
+  li.appendChild(el("h3","ess-q",label)); li.appendChild(body);
+  var a=el("a","ess-go","→"); a.href=href; a.setAttribute("aria-label",aria); a.title=aria; li.appendChild(a);
+  return {li:li,body:body};
+}
+function meta(body,items){ var m=el("p","ess-meta"), k=0;
+  items.forEach(function(x){ if(!x) return; var s=typeof x==="string"? el("span",null,x) : x; m.appendChild(s); k++; });
+  if(k) body.appendChild(m); }
+
+function ligneEnquete(){
+  var r=ligne("Ce qui s'est passé", (ENQ&&safeHref(ENQ.href))||"rapport/", "Lire le détail : ce qui s'est passé");
+  var p=el("p","ess-main"); r.body.appendChild(p);
+  if(!enqConnue){ manquant(p,"Enquête du jour : chargement…"); return r.li; }
+  if(!ENQ){ manquant(p,"Enquête du jour : manquante"); return r.li; }
+  var d=jjmm(ENQ.date), href=safeHref(ENQ.href);
+  p.appendChild(el("span","ess-tag",(ENQ.type||"Enquête")+(d?" du "+d:"")));
+  if(!ENQ.titre) manquant(p,"titre manquant");
+  else if(href){ var a=el("a",null,ENQ.titre); a.href=href; p.appendChild(a); }
+  else p.appendChild(document.createTextNode(ENQ.titre));
+  var c=ENQ.chiffre, p2=el("p","ess-main");
+  if(c && c.valeur!=null && String(c.valeur).trim()){
+    p2.appendChild(el("span","ess-big",String(c.valeur)));
+    if(c.libelle){ var l=el("span","ess-lib",coupe(c.libelle,110)); l.title=String(c.libelle); p2.appendChild(l); }
+  } else manquant(p2,"chiffre clé : manquant");
+  r.body.appendChild(p2);
+  var pe=pv("enq"), k=enqCle(), diff=null;
+  if(pe && k) diff= pe===k? "déjà là lors de ta visite" : "nouvelle depuis ta visite";
+  meta(r.body,[diff, heure("relevé",ENQ.genere)]);
+  return r.li;
+}
+
+function ligneMarche(){
+  var r=ligne("Le marché","#marche","Voir le détail : le marché"), b=D.blocks||{};
+  var items=g(b,"prices","v","items")||[], p=el("p","ess-main"), diffs=[];
+  r.body.appendChild(p);
+  var gp=el("span","ess-grp"); p.appendChild(gp);
+  ["BTC","ETH"].forEach(function(s,i){
+    var it=null; for(var j=0;j<items.length;j++) if(items[j]&&items[j].sym===s){ it=items[j]; break; }
+    if(i) gp.appendChild(document.createTextNode(" · "));
+    gp.appendChild(document.createTextNode(s+" "));
+    if(it && isNum(it.p)) gp.appendChild(el("b","ess-n",it.p.toLocaleString("fr-FR",{maximumFractionDigits:2})+NB+"$"));
+    else manquant(gp);
+    var cur=it&&isNum(it.p)?it.p:null, e=ecartPct(s,dPct(cur,pv("px:"+s))); if(e) diffs.push(e);
+  });
+  var tvl=g(b,"macro","v","agg","defi_tvl_b"), np=g(b,"macro","v","n_protocols");
+  var g2=el("span","ess-grp"); p.appendChild(g2);
+  if(isNum(tvl)) ecrit(g2,[{n:nf(tvl,2)+NB+"Md$"}," déposés dans la DeFi"]); else { manquant(g2,"valeur déposée dans la DeFi : manquant"); }
+  g2.appendChild(document.createTextNode(" · "));
+  if(isNum(np)) ecrit(g2,[{n:String(np)}," protocoles suivis"]); else manquant(g2,"protocoles suivis : manquant");
+  var e2=ecartPct("DeFi",dPct(isNum(tvl)?tvl:null,pv("defi_tvl_b"))); if(e2) diffs.push(e2);
+  var t1=g(b,"prices","as_of"), t2=g(b,"macro","as_of"), same=utc(t1)&&utc(t1)===utc(t2);
+  meta(r.body,[ diffs.length? "depuis ta visite : "+diffs.join(" · ") : null,
+    same? heure("relevé",t1) : heure("prix relevés",t1),
+    same? null : heure("valeur déposée relevée",t2) ]);
+  return r.li;
+}
+
+function ligneMover(){
+  var r=ligne("Ce qui a le plus bougé","planches/","Voir le détail : les protocoles les plus mouvementés"), b=D.blocks||{};
+  var p=el("p","ess-main"); r.body.appendChild(p);
+  var tous=(g(b,"movers","v","gainers")||[]).concat(g(b,"movers","v","losers")||[]), best=null;
+  tous.forEach(function(m){ if(m && isNum(m.chg_1d) && (!best || Math.abs(m.chg_1d)>Math.abs(best.chg_1d))) best=m; });
+  if(!best){ manquant(p); meta(r.body,[heure("relevé",g(b,"movers","as_of"))]); return r.li; }
+  var parts=[best.name+(best.category?" ("+best.category+")":"")+" : TVL ",{n:sgn(best.chg_1d,1)+NB+"%"}," en 24"+NB+"h"];
+  if(isNum(best.tvl_usd)) parts.push(", à ",{n:usd(best.tvl_usd)}); else parts.push(", TVL actuelle manquante");
+  ecrit(p,parts);
+  var n=g(b,"movers","v","n_snapshot");
+  var ctx= isNum(n)? "plus forte variation sur 24"+NB+"h parmi les "+n+" plus gros protocoles suivis"
+                   : "plus forte variation sur 24"+NB+"h parmi les plus gros protocoles suivis (nombre manquant)";
+  var e=ecartPct("TVL",dPct(isNum(best.tvl_usd)?best.tvl_usd:null,pv("tvl:"+best.name)));
+  meta(r.body,[ctx, e? "depuis ta visite : "+e : null, heure("relevé",g(b,"movers","as_of"))]);
+  return r.li;
+}
+
+function ligneFlux(){
+  var r=ligne("Où va l'argent stable","#marche","Voir le détail : où va l'argent stable"), b=D.blocks||{};
+  var p=el("p","ess-main"); r.body.appendChild(p);
+  var fl=(g(b,"macro","v","flows")||[]).filter(function(x){ return x && x.chain && isNum(x.d7); }), ent=null, sor=null;
+  fl.forEach(function(x){
+    if(x.d7>0 && (!ent || x.d7>ent.d7)) ent=x;
+    if(x.d7<0 && (!sor || x.d7<sor.d7)) sor=x; });
+  if(!ent && !sor){ manquant(p,fl.length? "aucun flux net non nul" : "manquant"); meta(r.body,[heure("relevé",g(b,"macro","as_of"))]); return r.li; }
+  var parts=[];
+  if(ent) parts.push(ent.chain+" ",{n:sgn(ent.d7,1)+NB+"M$"});
+  if(ent&&sor) parts.push(" · ");
+  if(sor) parts.push(sor.chain+" ",{n:sgn(sor.d7,1)+NB+"M$"});
+  parts.push(" de stablecoins sur 7"+NB+"jours");
+  ecrit(p,parts);
+  var ctx=(ent&&sor? "plus forte entrée nette et plus forte sortie nette" : ent? "plus forte entrée nette ; aucune chaîne en sortie nette" : "plus forte sortie nette ; aucune chaîne en entrée nette")
+          +" parmi les "+fl.length+" chaînes du relevé";
+  meta(r.body,[ctx, heure("relevé",g(b,"macro","as_of"))]);
+  return r.li;
+}
+
+function ligneFunding(){
+  var r=ligne("Ce qui sort de l'ordinaire","#funding","Voir le détail : le funding"), b=D.blocks||{};
+  var p=el("p","ess-main"); r.body.appendChild(p);
+  var F=g(b,"funding","v");
+  if(!F){ manquant(p); meta(r.body,[heure("relevé",null)]); return r.li; }
+  if(!Array.isArray(F.anomalies_funding)){ manquant(p,"Funding : anomalies manquantes"); meta(r.body,[heure("relevé",F.last_fetch)]); return r.li; }
+  var an=F.anomalies_funding.filter(function(a){ return a && a.symbol && isNum(a.value); }), best=null;
+  an.forEach(function(a){ var z=isNum(a.z_score_30d)?Math.abs(a.z_score_30d):0, zb=best&&isNum(best.z_score_30d)?Math.abs(best.z_score_30d):0;
+    if(!best || z>zb) best=a; });
+  var t=heure("relevé",F.last_fetch);
+  if(!best){
+    if(isNum(F.tokens_tracked)) ecrit(p,["Funding : aucun écart marqué parmi les ",{n:String(F.tokens_tracked)}," contrats suivis"]);
+    else manquant(p,"Funding : aucun écart marqué (nombre de contrats manquant)");
+    meta(r.body,[t]); return r.li;
+  }
+  var venue=F.venue? String(F.venue).replace(/\s*\(.*$/,"") : null;
+  var parts=[{n:best.symbol}," : ",{n:sgn(best.value,1)+NB+"%"}," par an pour tenir un contrat perpétuel sur "+(venue||"la plateforme (nom manquant)")];
+  if(isNum(best.baseline_30d)) parts.push(", contre ",{n:sgn(best.baseline_30d,1)+NB+"%"}," en moyenne sur 30"+NB+"jours");
+  else parts.push(" (moyenne sur 30"+NB+"jours manquante)");
+  ecrit(p,parts);
+  var ctx= isNum(best.z_score_30d)? "écart de "+sgn(best.z_score_30d,1)+" écarts-types par rapport aux 30 derniers jours" : null;
+  var cur=g(F,"funding",best.symbol+"USDT","annualized"), prev=pv("fund:"+best.symbol), diff=null;
+  if(isNum(cur) && isNum(prev)){ cmp.c++; var dl=cur-prev;
+    if(Math.abs(dl)<0.05) diff="inchangé depuis ta visite"; else { cmp.n++; diff=sgn(dl,1)+" points depuis ta visite"; } }
+  meta(r.body,[ctx, diff, t]);
+  return r.li;
+}
+
+/* ── assemblage ─────────────────────────────────────────────── */
+function entete(){
+  var L=document.getElementById("ess-visit-l"); if(!L) return;
+  if(!memoireOK){ L.textContent="Mémoire du navigateur indisponible : pas de comparaison avec ta dernière visite."; return; }
+  if(!etat.prev){ L.textContent="Première visite sur cet appareil : la prochaine fois, chaque ligne dira ce qui a changé depuis."; return; }
+  var d=new Date(etat.prev.vu), s;
+  if(isFinite(d.getTime()))
+    s="Depuis ta visite du "+d.toLocaleDateString("fr-FR",{weekday:"short"})+" "+pad(d.getDate())+"/"+pad(d.getMonth()+1)
+      +" à "+d.getHours()+" h "+pad(d.getMinutes());
+  else s="Depuis ta visite précédente";
+  if(cmp.c>0) s+=" · "+(cmp.n===0? "aucun chiffre n'a changé" : cmp.n===1? "1 chiffre a changé" : cmp.n+" chiffres ont changé");
+  L.textContent=s;
+}
+function render(){
+  if(!D || !etat) return;
+  cmp={c:0,n:0};
+  var ul=document.getElementById("ess-rows"); while(ul.firstChild) ul.removeChild(ul.firstChild);
+  [["Ce qui s'est passé",ligneEnquete],["Le marché",ligneMarche],["Ce qui a le plus bougé",ligneMover],
+   ["Où va l'argent stable",ligneFlux],["Ce qui sort de l'ordinaire",ligneFunding]].forEach(function(x){
+    var li; try{ li=x[1](); }catch(e){ var r=ligne(x[0],"#","Détail indisponible"); manquant(r.body); li=r.li; }
+    ul.appendChild(li); });
+  entete();
+}
+
+/* ── branchements : événement ET variable (l'ordre n'est pas garanti) ── */
+function onData(d){ if(!d || D) return; D=d;
+  try{ initEtat(); }catch(e){ etat={cur:{gen:"",vu:new Date().toISOString(),v:{}},prev:null}; }
+  render(); root.hidden=false; root.classList.add("ess-on");
+  if(!enqConnue) timer=setTimeout(function(){ if(!enqConnue){ enqConnue=true; ENQ=null; render(); } },8000); }
+function onEnq(d){ ENQ=d||null; enqConnue=true; if(timer){ clearTimeout(timer); timer=null; }
+  if(D && etat){ completeEnq(); render(); } }
+document.addEventListener("defi:data",function(ev){ onData(ev.detail); });
+document.addEventListener("defi:error",function(){ root.hidden=true; });
+document.addEventListener("une:prete",function(ev){ onEnq(ev.detail); });
+if("__uneEnquete" in window) onEnq(window.__uneEnquete);
+if(window.__defiData) onData(window.__defiData);
+})();
+</script>
+<!-- ══ /ESSENTIEL ══ -->
+<!-- ══ LE FAIT DU JOUR (#hx), déplacé le 2026-10-19 sous « L'essentiel », accord du propriétaire. Contenu inchangé. ══ -->
+<div id="hx">
+  <div class="hx-frame">
+    <div class="stage" aria-label="Ouverture animée : le fait du jour">
+      <canvas aria-hidden="true"></canvas>
+      <div class="chrome">
+        <div class="topbar"><div class="live"><i></i>EN DIRECT · <span data-k="releve">RELEVÉ …</span></div></div>
+        <div class="bn1" data-need="hero">
+          <div class="bn-in"><div class="bn-rot"><div class="bn-float">
+            <div class="bn-row" data-slabs="9"><div class="bn-a">Le fait du jour</div><div class="bn-b"><span data-k="heroNameU"></span><em data-k="heroPFx"></em></div></div>
+          </div></div></div>
+          <p class="bn-sub" data-k="heroSub"></p>
+        </div>
+        <div class="ticker"><b>Flash</b><div class="run"><span data-tick="tHero"></span></div></div>
+      </div>
+    </div>
+  </div>
+  <p class="hx-rule" data-k="rule"></p>
+</div>
 <!-- ══ LA UNE v2 — « le plateau du direct » (2026-09-30, décision user : « le plus
      visuel et excitant possible »). Remplace la Une v1 du même jour.
      Sources, toutes publiques dans le dépôt, AUCUN chiffre en dur :
@@ -552,12 +881,14 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
     {champ:"rh_fees_30d_chaine",libelle:"Frais sur 30 jours (ce que la chaîne encaisse)"},
     {champ:"hooks_robinhood",libelle:"Hooks au registre (programmes greffés sur un pool)"}];
   const FAMILLES={theses:"Engagement testé",valorisation:"Valorisation",angles_morts:"Angle mort",marche:"Contexte de marché",funding:"Financement des perps"};
+  /* signal pour les ajouts (2026-10-19) : la Une est rendue (ou absente, detail null) */
+  const unePrete=d=>{ window.__uneEnquete=d; try{ document.dispatchEvent(new CustomEvent("une:prete",{detail:d})); }catch(_){} };
   try{
     const [enq,tra,serie,veil,coh,une]=await Promise.all(["rapport/enquetes.json","rapport/index.json",
       "rapport/serie.json","rapport/veilles.json","rapport/cohorte.json","une.json"].map(get));
     const E=recent(enq&&enq.enquetes), T=recent(tra&&tra.rapports);
     const e=E[0], t=T[0], p=e||t;
-    if(!p) return;
+    if(!p){ unePrete(null); return; }
     const auj=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Paris"}).format(new Date());
     const heure=+new Intl.DateTimeFormat("fr-FR",{timeZone:"Europe/Paris",hour:"2-digit",hourCycle:"h23"}).format(new Date());
     const age=Math.round((Date.parse(auj)-Date.parse(p.date))/864e5);
@@ -703,6 +1034,8 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
 
     /* ── 6. le moment orchestré : faisceau, courbes, décomptes ── */
     $("une").hidden=false;
+    unePrete({type:e?"Enquête":"Rapport quotidien",titre:p.titre||("Rapport du "+p.date),href:"rapport/"+p.fichier,
+      date:p.date,genere:p.genere||null,chiffre:aHero?{valeur:c.valeur,libelle:c.libelle||""}:null});
     dessins.forEach(f=>f());
     let tRz=null, larg=traces.clientWidth;
     if(window.ResizeObserver) new ResizeObserver(()=>{ if(traces.clientWidth===larg) return; larg=traces.clientWidth;
@@ -711,12 +1044,47 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
       if(aHero) decompte($("u-hero").querySelector(".v"),c.valeur,1400);
       document.querySelectorAll("#u-traces .val b").forEach(b=>decompte(b,b.dataset.texte,1300));
       document.querySelectorAll("#u-tiles .v").forEach((v,i)=>setTimeout(()=>decompte(v,v.dataset.texte,900),350+i*120)); });
-  }catch(err){ /* un fichier absent ne doit jamais casser le dashboard */ }
+  }catch(err){ /* un fichier absent ne doit jamais casser le dashboard */ unePrete(null); }
 })();
 </script>
+<!-- ══ VEILLES REPLIÉES SUR TÉLÉPHONE (ajout 2026-10-19, accord du propriétaire) ══ -->
+<style>
+@media (max-width:640px){ #u-fuses.vr-plie > .u-fuse:nth-child(n+6){display:none} }
+.vr-btn{display:none}
+@media (max-width:640px){ .vr-btn{display:block;width:100%;margin-top:10px;padding:9px 12px;font:600 12.5px var(--sans);color:var(--acc2);background:var(--s2);border:1px solid var(--line);border-radius:var(--r1);cursor:pointer} }
+</style>
+<script>
+/* Sur téléphone, les 5 premières veilles restent visibles ; un bouton déplie le reste.
+   Le script attend le signal « une:prete » de la Une (ou lit son état s'il est déjà passé). */
+(function(){
+  let fait=false;
+  function replier(){
+    if(fait) return; fait=true;
+    const box=document.getElementById("u-fuses");
+    if(!box) return;
+    const total=box.querySelectorAll(":scope > .u-fuse").length;
+    if(total<=5) return;
+    const reste=total-5;
+    const libelle=n=>"Voir "+(n>1?"les "+n+" autres veilles":"une autre veille");
+    box.classList.add("vr-plie");
+    const btn=document.createElement("button");
+    btn.type="button"; btn.className="vr-btn"; btn.setAttribute("aria-controls","u-fuses"); btn.setAttribute("aria-expanded","false");
+    btn.textContent=libelle(reste);
+    btn.addEventListener("click",()=>{
+      const plie=box.classList.toggle("vr-plie");
+      btn.setAttribute("aria-expanded",plie?"false":"true");
+      btn.textContent=plie?libelle(reste):"Replier la liste";
+    });
+    box.insertAdjacentElement("afterend",btn);
+  }
+  if("__uneEnquete" in window) replier();
+  else document.addEventListener("une:prete",replier,{once:true});
+})();
+</script>
+<!-- ══ /VEILLES REPLIÉES ══ -->
 <!-- ══ OUVERTURE ANIMÉE « GLOBE » (2026-09-24). Hors de #app : l'app remplace
      tout le contenu de #app à chaque rendu. Aucun chiffre en dur : tout vient
-     de defi.json, reçu du script principal (un seul téléchargement). ══ -->
+     de defi.json, reçu du script principal (un seul téléchargement). (le bloc #hx a été déplacé plus haut le 2026-10-19) ══ -->
 <!-- PLANCHES-3D -->
 <!-- Acces aux planches 3D (2026-10-06, decision user). Lien seulement : la page planches/
      charge son propre moteur et ses propres donnees (planches/planches.json, planches_feed.py). -->
@@ -744,24 +1112,6 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
     <span class="pl3d-l"><span>Crypto</span><span>DeFi</span><span>Prêt</span><span>Actifs réels</span><span>Solana</span></span>
     <span class="pl3d-go">Ouvrir →</span>
   </a>
-</div>
-<div id="hx">
-  <div class="hx-frame">
-    <div class="stage" aria-label="Ouverture animée : le fait du jour">
-      <canvas aria-hidden="true"></canvas>
-      <div class="chrome">
-        <div class="topbar"><div class="live"><i></i>EN DIRECT · <span data-k="releve">RELEVÉ …</span></div></div>
-        <div class="bn1" data-need="hero">
-          <div class="bn-in"><div class="bn-rot"><div class="bn-float">
-            <div class="bn-row" data-slabs="9"><div class="bn-a">Le fait du jour</div><div class="bn-b"><span data-k="heroNameU"></span><em data-k="heroPFx"></em></div></div>
-          </div></div></div>
-          <p class="bn-sub" data-k="heroSub"></p>
-        </div>
-        <div class="ticker"><b>Flash</b><div class="run"><span data-tick="tHero"></span></div></div>
-      </div>
-    </div>
-  </div>
-  <p class="hx-rule" data-k="rule"></p>
 </div>
 
 
