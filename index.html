@@ -306,6 +306,7 @@ tr.weak td.k{color:var(--ink2)}
   <div class="hwrap">
     <div class="brand">Hermes&nbsp;DeFi <small>marché &amp; valorisation</small></div>
     <nav>
+      <a href="#news">News</a>
       <a href="#valorisation">Valorisation</a>
       <a href="#brief">Value Watch</a>
       <a href="#marche">Marché</a>
@@ -645,6 +646,181 @@ if(window.__defiData) onData(window.__defiData);
   </div>
   <p class="hx-rule" data-k="rule"></p>
 </div>
+<!-- ══ LES NEWS DU JOUR (ajout 2026-10-20, demande du propriétaire) ══ -->
+<style>
+/* Tout est limité à #news (classes nw-). Retirer ce bloc retire tout : style, section et script.
+   Jetons de :root uniquement ; aucune couleur ne code une hausse ou une baisse : le classement
+   favorable / défavorable / neutre vit dans le texte. Seule couleur d'état : --warn, avec son libellé. */
+#news{max-width:1280px;margin:0 auto;padding:16px 20px 0;scroll-margin-top:72px}
+#news[hidden]{display:none}
+#news.nw-on{animation:nw-in .55s ease-out both}
+@keyframes nw-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+#news .nw-box{background:var(--s1);border:1px solid var(--line);border-radius:var(--r2);
+  box-shadow:var(--e1);padding:14px 18px 12px;color:var(--ink)}
+#news .nw-head{padding-bottom:10px}
+#news h2{margin:0;font:650 19px/1.25 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+#news .nw-meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;margin-top:4px}
+#news .nw-meta p{margin:0;font:12.5px/1.45 var(--sans);color:var(--ink3)}
+#news #nw-resume{color:var(--ink2);font-weight:600}
+#news .nw-vieux{display:inline-block;font:600 12px/1.4 var(--sans);color:var(--warn);
+  border:1px solid var(--warn);border-radius:999px;padding:1px 9px}
+#news .nw-list{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--line)}
+#news .nw-item{display:grid;grid-template-columns:22px minmax(0,1fr);gap:0 8px;padding:9px 0 10px;
+  border-top:1px solid var(--line);break-inside:avoid;-webkit-column-break-inside:avoid}
+#news .nw-rank{font:11px/21px var(--mono);color:var(--ink4);font-variant-numeric:tabular-nums}
+#news .nw-body{min-width:0;overflow-wrap:anywhere}
+#news .nw-t{margin:0}
+#news .nw-link{font:600 15px/1.4 var(--sans);color:var(--ink)}
+#news .nw-na{font-weight:400;font-style:italic;color:var(--ink3)}
+#news a.nw-link{text-decoration:none;text-decoration-thickness:1px;text-underline-offset:3px}
+#news a.nw-link:hover,#news a.nw-link:focus-visible{text-decoration:underline;text-decoration-color:var(--acc2)}
+#news a.nw-link:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+#news .nw-sub{margin:2px 0 0;font:12px/1.5 var(--sans);color:var(--ink3)}
+#news .nw-impact::before{content:"\00b7";content:"\00b7" / "";margin:0 .5em}
+#news .nw-vide{margin:0;padding:12px 0 6px;border-top:1px solid var(--line);font:13px/1.45 var(--sans);color:var(--ink3)}
+#news .nw-note{margin:0;padding:10px 0 0;font:12px/1.5 var(--sans);color:var(--ink3);max-width:110ch}
+@media (min-width:900px){
+  #news .nw-list{columns:2;column-gap:40px}   /* ordre de lecture : colonne par colonne (1 à 4 à gauche, 5 à 8 à droite) */
+}
+@media (max-width:700px){
+  #news{scroll-margin-top:160px}   /* l'en-tête collant mesure 83 à 173 px quand ses liens passent à la ligne : 72 px cacherait le titre */
+}
+@media (max-width:640px){
+  #news{padding:12px 12px 0}
+  #news .nw-box{padding:12px 12px 10px}
+}
+@media (prefers-reduced-motion: reduce){
+  #news,#news *,#news *::before,#news *::after{animation:none!important;transition:none!important}
+}
+</style>
+<section id="news" aria-labelledby="nw-h" hidden>
+  <div class="nw-box">
+    <div class="nw-head">
+      <h2 id="nw-h">Les news du jour</h2>
+      <div class="nw-meta" id="nw-meta"></div>
+    </div>
+    <div id="nw-corps"></div>
+  </div>
+</section>
+<script>
+/* Les news du jour : la sélection de l'agent (defi.json › blocks.hot_news), recopiée telle quelle.
+   Aucune requête : le flux vient de window.__defiData / « defi:data ». Tout texte passe par textContent.
+   Ne sont lus NI le secteur, NI le suffixe de l'id, NI label, model, watchlist, notes_greffier (classements peu fiables). */
+(function(){
+"use strict";
+var root=document.getElementById("news"), meta=document.getElementById("nw-meta"), corps=document.getElementById("nw-corps");
+if(!root || !meta || !corps) return;
+var MAX=12, NOTE="Titres recopiés tels que publiés par les sites, en anglais. Les liens ouvrent le site d'origine dans un nouvel onglet ; cette page ne charge rien d'extérieur. Le classement favorable / défavorable / neutre est une lecture automatique de l'agent sur la valeur des protocoles et des jetons concernés : une piste à vérifier dans l'article, pas un fait.";
+var D=null, revele=false;
+
+function el(tag,cls,txt){ var n=document.createElement(tag); if(cls) n.className=cls; if(txt!=null) n.textContent=txt; return n; }
+function vider(n){ while(n.firstChild) n.removeChild(n.firstChild); }
+function isNum(x){ return typeof x==="number" && isFinite(x); }
+function objet(x){ return x!==null && typeof x==="object"; }
+function texte(x){ return typeof x==="string" && x.trim()!==""; }
+/* Date.parse ne sert qu'à JUGER l'âge (jamais à afficher) ; les fractions de seconde sont ramenées à 3 chiffres */
+function ms(iso){ return typeof iso==="string"? Date.parse(iso.trim().replace(/(\.\d{3})\d+/,"$1")) : NaN; }
+
+/* « jj/mm à hh:mm » lu par découpage de la chaîne ISO UTC (le décalage nul est la règle ; un autre décalage passe par Date) */
+function quand(iso){
+  if(typeof iso!=="string") return null;
+  var m=/^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})(?::\d{2}(?:\.\d+)?)?\s*(Z|[+-]\d{2}(?::?\d{2})?)?$/i.exec(iso.trim());
+  if(!m) return null;
+  var mo=+m[2], jo=+m[3], h=+m[4], mi=+m[5];
+  if(mo<1||mo>12||jo<1||jo>31||h>23||mi>59) return null;
+  if(m[6] && !/^(?:z|[+-]00(?::?00)?)$/i.test(m[6])){
+    var t=ms(iso); if(!isFinite(t)) return null;
+    var s=new Date(t).toISOString(); return s.slice(8,10)+"/"+s.slice(5,7)+" à "+s.slice(11,16);
+  }
+  return m[3]+"/"+m[2]+" à "+m[4]+":"+m[5];
+}
+
+/* « il y a X h » ; sous une heure en minutes, à partir de 48 h en jours */
+function depuis(min){
+  if(min<60) return "il y a "+Math.max(1,Math.round(min))+" min";
+  var h=min/60;
+  if(h>=48) return "il y a "+Math.round(h/24)+" jours";
+  return "il y a "+Math.round(h)+" h";
+}
+
+/* liens : http(s) seulement, paramètres utm_ retirés, le reste de l'adresse n'est pas touché */
+function lienSur(u){
+  if(typeof u!=="string" || u.trim()==="") return null;
+  try{
+    var x=new URL(u.trim());
+    if(x.protocol!=="http:" && x.protocol!=="https:") return null;
+    if(x.search.length>1){
+      var p=x.search.slice(1).split("&"), garde=p.filter(function(kv){
+        var k=kv.split("=")[0];
+        try{ k=decodeURIComponent(k.replace(/\+/g," ")); }catch(e){}
+        return k.toLowerCase().indexOf("utm_")!==0; });
+      if(garde.length!==p.length) x.search= garde.length? "?"+garde.join("&") : "";
+    }
+    return x.href;
+  }catch(e){ return null; }
+}
+
+var IMPACT={"value-accretive":["favorable","favorable"],"adverse":["défavorable","defavorable"],"neutral":["neutre","neutre"]};
+function impact(x){ return typeof x==="string" && Object.prototype.hasOwnProperty.call(IMPACT,x)? IMPACT[x] : ["non classée","non-classee"]; }
+
+function pluriel(n,mot){ return n+" "+mot+(n>1?"s":""); }
+
+function item(n,i){
+  var li=el("li","nw-item"), corpsLi=el("div","nw-body"), t=el("p","nw-t"), sub=el("p","nw-sub");
+  li.appendChild(el("span","nw-rank",String(i+1)));
+  var lien= lienSur(n.url);
+  if(!texte(n.headline)) t.appendChild(el("span","nw-link nw-na","titre manquant"));
+  else if(lien){
+    var a=el("a","nw-link",n.headline); a.href=lien; a.target="_blank"; a.rel="noopener noreferrer"; t.appendChild(a);
+  } else t.appendChild(el("span","nw-link",n.headline));
+  sub.appendChild(el("span","nw-src", texte(n.source)? n.source.trim() : "source manquante"));
+  var im=impact(n.impact), s=el("span","nw-impact",im[0]); s.setAttribute("data-impact",im[1]); sub.appendChild(s);
+  corpsLi.appendChild(t); corpsLi.appendChild(sub); li.appendChild(corpsLi);
+  return li;
+}
+
+function rendre(){
+  vider(meta); vider(corps);
+  var b=objet(D.blocks)? D.blocks : null, hn=b? b.hot_news : null, v=objet(hn)? hn.v : null;
+  if(!objet(v)){ corps.appendChild(el("p","nw-vide","News du jour : manquantes.")); return; }
+  var liste= Array.isArray(v.news)? v.news.filter(objet).slice(0,MAX) : [], N=liste.length;
+
+  var q=quand(hn.as_of);
+  var sel=el("p",null,"Sélection de l'agent "+(q? "du "+q+" UTC" : "(date manquante)")+" · "+N+(N>1?" titres":" titre"));
+  sel.id="nw-sel"; meta.appendChild(sel);
+
+  var c={"favorable":0,"defavorable":0,"neutre":0};
+  liste.forEach(function(n){ var k=impact(n.impact)[1]; if(k in c) c[k]++; });
+  var r=[]; if(c.favorable) r.push(pluriel(c.favorable,"favorable")); if(c.defavorable) r.push(pluriel(c.defavorable,"défavorable")); if(c.neutre) r.push(pluriel(c.neutre,"neutre"));
+  if(r.length){ var res=el("p",null,r.join(" · ")); res.id="nw-resume"; meta.appendChild(res); }
+
+  var gen=ms(D.generated_at), asof=ms(hn.as_of), seuil=hn.stale_min;
+  if(isFinite(gen) && isFinite(asof) && isNum(seuil) && (gen-asof)/60000>seuil){
+    var et=el("span","nw-vieux","sélection ancienne : relevée "+depuis((gen-asof)/60000)); et.id="nw-etat"; meta.appendChild(et);
+  }
+
+  if(!N){ corps.appendChild(el("p","nw-vide","Aucune news dans la dernière sélection.")); return; }
+  var ol=el("ol","nw-list"); ol.id="nw-list"; ol.setAttribute("role","list");
+  liste.forEach(function(n,i){ ol.appendChild(item(n,i)); });
+  corps.appendChild(ol);
+  corps.appendChild(el("p","nw-note",NOTE));
+}
+
+/* branchements : événement ET variable (l'ordre n'est pas garanti) */
+function onData(d){
+  if(!objet(d) || d===D) return; D=d;
+  try{ rendre(); }
+  catch(e){ vider(meta); vider(corps); corps.appendChild(el("p","nw-vide","News du jour : manquantes.")); }
+  root.hidden=false;
+  if(!revele){ revele=true; root.classList.add("nw-on");
+    if(location.hash==="#news"){ try{ root.scrollIntoView(); }catch(e){} } }
+}
+document.addEventListener("defi:data",function(ev){ onData(ev.detail); });
+document.addEventListener("defi:error",function(){ root.hidden=true; });
+if(window.__defiData) onData(window.__defiData);
+})();
+</script>
+<!-- ══ /NEWS ══ -->
 <!-- ══ LA UNE v2 — « le plateau du direct » (2026-09-30, décision user : « le plus
      visuel et excitant possible »). Remplace la Une v1 du même jour.
      Sources, toutes publiques dans le dépôt, AUCUN chiffre en dur :
