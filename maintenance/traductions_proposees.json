@@ -37,6 +37,11 @@
   "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
+ "AnchorWatch Trust Company launches bitcoin custody service with up to $370 million in insurance per client": {
+  "fr": "AnchorWatch Trust Company lance un service de conservation de bitcoins avec jusqu'à 370 millions $ d'assurance par client",
+  "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
  "Aptos rolls out Encrypted Mempool to curb frontrunning, sandwich attacks": {
   "fr": "Aptos déploie un mempool chiffré pour limiter le frontrunning et les attaques sandwich",
   "quand": "2026-10-14T09:35:34Z",
@@ -110,6 +115,11 @@
  "Big Tech's AI auditors will only see what they're shown": {
   "fr": "Les auditeurs IA des géants de la tech ne verront que ce qu'on leur montre",
   "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
+ "BingX, YouHodler added to ESMA MiCA register in latest update": {
+  "fr": "BingX et YouHodler ajoutés au registre MiCA de l'ESMA dans la dernière mise à jour",
+  "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
  "Bitcoin ETFs Shed Nearly $1 Billion in Two Weeks as Uptober Stays Red": {
@@ -240,6 +250,11 @@
  "Bitmine adds 12,532 ETH as Tom Lee flags potential ‘largest-ever’ crypto bull market": {
   "fr": "Bitmine ajoute 12 532 ETH, Tom Lee évoque un potentiel marché haussier crypto « le plus grand de l'histoire »",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Bitmine adds 12,535 ETH as treasury reaches 6.04 million tokens": {
+  "fr": "Bitmine ajoute 12,535 ETH, sa trésorerie atteint 6,04 millions de jetons",
+  "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
  "Bitquery Says $10 Million Frozen in CryptoBilis-Linked Wallet Drains": {
@@ -518,6 +533,11 @@
   "quand": "2026-10-15T15:07:33Z",
   "statut": "ok"
  },
+ "France advances stablecoin tax, eyes self-custodial wallets and exit tax proposals": {
+  "fr": "La France avance sur une taxe sur les stablecoins, envisage des portefeuilles auto-conservés et des propositions de taxe de sortie",
+  "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
  "French Assembly Backs Tax on Crypto-to-Stablecoin Swaps by One Vote": {
   "fr": "L'Assemblée nationale française approuve une taxe sur les échanges crypto-stablecoin à une voix près",
   "quand": "2026-10-18T11:07:30Z",
@@ -571,6 +591,16 @@
  "JPMorgan expands ‘JPM Coin’ deposit token to Ethereum for institutional clients": {
   "fr": "JPMorgan étend le jeton de dépôt « JPM Coin » à Ethereum pour les clients institutionnels",
   "quand": "2026-10-19T15:07:33Z",
+  "statut": "ok"
+ },
+ "JPMorgan takes JPM Coin to Ethereum for institutional clients: Report": {
+  "fr": "JPMorgan déploie JPM Coin sur Ethereum pour ses clients institutionnels : selon un rapport",
+  "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
+ "JPMorgan's JPM Coin Arrives on Ethereum, Putting Bank Dollars on a Public Blockchain": {
+  "fr": "Le JPM Coin de JPMorgan arrive sur Ethereum, plaçant les dollars de la banque sur une blockchain publique",
+  "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
  "JPMorgan's JPM Coin, representing dollar deposits, is coming to Ethereum: Bloomberg": {
@@ -725,6 +755,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Mastercard unveils Stablecoin Security tool to screen payments for fraud and sanctions risks": {
+  "fr": "Mastercard dévoile un outil de sécurité des stablecoins pour filtrer les paiements à risque de fraude et de sanctions",
+  "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
  "Morning Minute: Google Clears a Major Quantum Hurdle, Bitcoin Still Safe": {
   "fr": "Morning Minute : Google franchit un obstacle majeur en informatique quantique, Bitcoin reste à l'abri",
   "quand": "2026-10-17T07:07:37Z",
@@ -842,6 +877,11 @@
  "Revolut secures Gibraltar crypto licence to support international expansion plans": {
   "fr": "Revolut obtient la licence crypto de Gibraltar pour soutenir ses projets d'expansion internationale",
   "quand": "2026-10-19T19:07:34Z",
+  "statut": "ok"
+ },
+ "Revolut secures Gibraltar crypto license to support global expansion": {
+  "fr": "Revolut obtient une licence crypto à Gibraltar pour soutenir son expansion mondiale",
+  "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
  "Richard Heart caught ‘off-guard,’ QDay gets even closer: Hodler’s Digest": {
@@ -963,9 +1003,24 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "SharpLink Says It Deployed $400 Million Across Ether.fi and Lido": {
+  "fr": "SharpLink annonce avoir déployé 400M$ sur Ether.fi et Lido",
+  "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
+ "SkyAI Sells Entire Solana Treasury, Launches $201 Million Tender": {
+  "fr": "SkyAI vend l'intégralité de sa trésorerie Solana et lance une offre de rachat de 201M$",
+  "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
  "SkyAI Sells Half Its SOL Treasury, Plans $201 Million Cash Buyback": {
   "fr": "SkyAI cède la moitié de sa trésorerie en SOL et prévoit un rachat d'actions de 201 M$",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "SkyAI sells off entire Solana treasury as it launches $201 million buyback": {
+  "fr": "SkyAI vend l'intégralité de sa trésorerie Solana et lance un rachat de 201 millions $",
+  "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
  "Solana Postpones Shanghai Event, Citing Registration Surge": {
@@ -1038,9 +1093,19 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Strategy Buys $22M in Bitcoin, Buys Back $193M of STRC": {
+  "fr": "Strategy achète pour 22M$ de bitcoins et rachète pour 193M$ de STRC",
+  "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
  "Strategy Slides 9.6% After MSCI Decision, Outpacing Bitcoin’s Drop": {
   "fr": "Strategy recule de 9,6 % après la décision de MSCI, plus que la baisse de Bitcoin",
   "quand": "2026-10-17T15:07:31Z",
+  "statut": "ok"
+ },
+ "Strategy buys $22M in Bitcoin, repurchases $193M in STRC": {
+  "fr": "Strategy achète pour 22M$ de bitcoins et rachète pour 193M$ de STRC",
+  "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
  "Strategy on verge of golden cross, just weeks after bitcoin flashed same bullish signal": {
@@ -1051,6 +1116,11 @@
  "Strategy’s preferred stock financing may cost it bitcoin, K33 argues": {
   "fr": "Le financement par actions privilégiées de Strategy pourrait lui coûter du bitcoin, selon K33",
   "quand": "2026-10-14T23:08:52Z",
+  "statut": "ok"
+ },
+ "THORChain Targets Rujira Restart With v3.21 Exploit Fix": {
+  "fr": "THORChain vise le redémarrage de Rujira avec le correctif d'exploit de la v3.21",
+  "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
  "TVL > 1 M$": {
@@ -1299,6 +1369,11 @@
   "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
+ "[Direct to AIP] Onboard USAT to Aave V4 Core Instance on Avalanche": {
+  "fr": "[Direct vers AIP] Intégrer USAT à l'instance Aave V4 Core sur Avalanche",
+  "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
  "[Direct-to-AIP] Asset Listing - syrupUSDG Arbitrum": {
   "fr": "[Direct-to-AIP] Inscription d'actif syrupUSDG sur Arbitrum",
   "quand": "2026-10-16T07:59:22Z",
@@ -1416,6 +1491,11 @@
  "‘Leave’: Crypto Backlash Over French Proposal to Report Wallets Over $112K": {
   "fr": "« Qu'ils partent » : la communauté crypto s'insurge contre une proposition française de déclarer les portefeuilles de plus de 112 K$",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "‘We found room for more orange’: Michael Saylor’s Strategy buys another 267 bitcoin for $22 million": {
+  "fr": "« Nous avons trouvé de la place pour plus d'orange » : la Strategy de Michael Saylor achète 267 bitcoins supplémentaires pour 22M$",
+  "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  }
 }
