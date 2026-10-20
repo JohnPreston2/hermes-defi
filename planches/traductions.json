@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-20T15:46:01Z",
+"generated_at": "2026-10-20T18:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 133,
+"n_affiches": 132,
 "n_refuses": 0,
-"n_traduits": 78,
+"n_traduits": 77,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -27,7 +27,6 @@
 "Cysic crypto bridge halted after unauthorized mint of 10M CYS": "Pont crypto de Cysic suspendu après une émission non autorisée de 10M CYS",
 "DEX capital efficiency divergence identified at Uniswap V4 and PancakeSwap V3; Uniswap V4 fee recovery watch emitted for Oct 30.": "Divergence d'efficacité du capital DEX identifiée sur Uniswap V4 et PancakeSwap V3 ; surveillance de la récupération des frais d'Uniswap V4 émise pour le 30 oct.",
 "Deutsche Bank targets Asia crypto custody expansion in 2027 as German launch nears": "Deutsche Bank vise une expansion de la conservation de crypto-actifs en Asie en 2027 alors que le lancement allemand approche",
-"Ether.fi Announces Dollar Stablecoin Powered by Ethena": "Ether.fi annonce un stablecoin en dollar propulsé par Ethena",
 "Fee growth turns negative for 2 consecutive weeks or FDV/Mcap exceeds 2.0.": "La croissance des frais devient négative pendant 2 semaines consécutives, ou le ratio FDV/Mcap dépasse 2,0.",
 "Fee growth turns negative for 2 consecutive weeks or capture drops below 5%.": "La croissance des frais devient négative pendant 2 semaines consécutives, ou la capture passe sous 5%.",
 "Fee growth turns negative or FDV/Mcap exceeds 2.5.": "La croissance des frais devient négative, ou le ratio FDV/Mcap dépasse 2,5.",
