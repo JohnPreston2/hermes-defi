@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-20T07:46:02Z",
+"generated_at": "2026-10-20T09:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 124,
+"n_affiches": 123,
 "n_refuses": 0,
-"n_traduits": 74,
+"n_traduits": 73,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -30,7 +30,6 @@
 "Fee growth turns negative or FDV/Mcap exceeds 2.5.": "La croissance des frais devient négative, ou le ratio FDV/Mcap dépasse 2,5.",
 "Forum Moderation Log": "Journal de modération du forum",
 "France advances stablecoin tax, eyes self-custodial wallets and exit tax proposals": "La France avance sur une taxe sur les stablecoins, envisage des portefeuilles auto-conservés et des propositions de taxe de sortie",
-"French Assembly Backs Tax on Crypto-to-Stablecoin Swaps by One Vote": "L'Assemblée nationale française approuve une taxe sur les échanges crypto-stablecoin à une voix près",
 "JPMorgan expands ‘JPM Coin’ deposit token to Ethereum for institutional clients": "JPMorgan étend le jeton de dépôt « JPM Coin » à Ethereum pour les clients institutionnels",
 "JPMorgan takes JPM Coin to Ethereum for institutional clients: Report": "JPMorgan déploie JPM Coin sur Ethereum pour ses clients institutionnels : selon un rapport",
 "JPMorgan's JPM Coin Arrives on Ethereum, Putting Bank Dollars on a Public Blockchain": "Le JPM Coin de JPMorgan arrive sur Ethereum, plaçant les dollars de la banque sur une blockchain publique",
