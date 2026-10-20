@@ -1,42 +1,28 @@
 {
  "defauts": [
   {
-   "constat": "La colonne la plus haute (157 Md$) sort du haut de l'écran : son nom et sa valeur ne sont pas visibles sur la scène.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Actifs réels"
-  },
-  {
-   "constat": "Trois disques n'ont pas d'étiquette sur la scène (un entre Morpho et Re, deux sombres dans « chiffre instable »).",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Attention"
-  },
-  {
-   "constat": "La colonne géante passe devant « VALEUR SUR LA CHAÎNE », « blockchains », « Tether » et « dans » du titre et du sous-titre.",
+   "constat": "la tour xStocks traverse le titre et le texte d’introduction, ce qui masque une partie de « blockchains » et de « Tether ».",
    "ecran": "telephone",
    "gravite": "gene",
    "type": "texte_coupe",
    "vue": "Actifs réels"
   },
   {
-   "constat": "Le segment USDC (24 %) et le segment Hyperliquid L1 de la colonne n'ont pas d'étiquette, alors que la vue ordinateur les nomme.",
-   "ecran": "telephone",
+   "constat": "Fables affiche 32,4 M$ au-dessus de sa barre et 32,3 M$ dans la liste du bas.",
+   "ecran": "ordinateur",
    "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Argent stable · Où ils sont"
+   "type": "contradiction",
+   "vue": "Cohorte"
   },
   {
-   "constat": "La ligne Ethereum (+202 M$) est masquée sous les boutons de filtre ; seul le titre et la bande du bas la montrent.",
+   "constat": "Fables affiche 32,4 M$ au-dessus de sa barre et 32,3 M$ dans le libellé du bas.",
    "ecran": "telephone",
    "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Argent stable · Flux 7 jours"
+   "type": "contradiction",
+   "vue": "Cohorte"
   }
  ],
- "jour": "2026-10-19",
+ "jour": "2026-10-20",
  "n_captures": 34,
- "quand": "2026-10-19T08:21:33Z"
+ "quand": "2026-10-20T08:21:20Z"
 }
