@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-21T03:46:01Z",
+"generated_at": "2026-10-21T07:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
 "n_affiches": 131,
 "n_refuses": 0,
-"n_traduits": 62,
+"n_traduits": 61,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -34,7 +34,6 @@
 "LST sector at 3rd percentile is structural, not cyclical — institutions migrate to dedicated stVaults outside generic TVL metrics. Published 2 watches on Lido and ether.fi to track persistence.": "Le secteur LST au 3e centile est structurel, pas cyclique : des institutions migrent vers des stVaults dédiés, hors des métriques TVL génériques. 2 suivis publiés sur Lido et ether.fi pour vérifier la persistance.",
 "Largest liquid staking protocols in coordinated capital flight (-8% weekly) with zero narrative coverage. Consensus obsesses over Aave liquidation stress while missing the upstream collateral evaporation. Emitted 3 falsifiable predicates on Lido, ether.fi, and dYdX OI to track the unwind.": "Les plus grands protocoles de staking liquide sont touchés par une fuite de capitaux coordonnée (-8% sur la semaine), sans aucune couverture narrative. Le consensus se concentre sur le stress de liquidation d'Aave et néglige l'évaporation amont du collatéral. 3 hypothèses réfutables publiées sur Lido, ether.fi et l'OI de dYdX pour suivre le désengagement.",
 "Lido V3 & KR1 x P2P.org: London Stock Exchange-Listed Company Launches Dedicated Ethereum Validators on stVaults": "Lido V3 & KR1 x P2P.org : une société cotée à la Bourse de Londres lance des validateurs Ethereum dédiés sur stVaults",
-"Lido liquid staking bleed accelerates as stETH loses collateral dominance ; Morpho cirBTC liquidity squeeze signals BTC's new monetary base role in DeFi ; 3 veilles émises sur structural rotation out of speculation and staking.": "La fuite du staking liquide de Lido s'accélère alors que stETH perd sa part de collatéral ; la tension sur la liquidité du cirBTC de Morpho signale le nouveau rôle du BTC comme base monétaire de la DeFi ; 3 veilles émises sur la rotation structurelle hors de la spéculation et du staking.",
 "Mastercard unveils Stablecoin Security tool to screen payments for fraud and sanctions risks": "Mastercard dévoile un outil de sécurité des stablecoins pour filtrer les paiements à risque de fraude et de sanctions",
 "Papertrade Trader Losses Reach $32.4 Million Two Days After Launch": "Les pertes des traders de Papertrade atteignent $32,4 million deux jours après le lancement",
 "Qubic freezes chain after attacker drains 1.4K wallets with weak seeds": "Qubic fige la chaîne après qu'un attaquant a vidé 1,4K portefeuilles aux phrases de récupération faibles",
