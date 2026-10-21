@@ -599,6 +599,37 @@
     }
    ],
    "genere": "2026-10-19T09:15:00Z"
+  },
+  {
+   "date": "2026-10-21",
+   "fichier": "2026-10-21-enquete.html",
+   "titre": "Robinhood Chain, 21/10 : Uniswap v3 n'a pas doublé, DefiLlama a cessé d'en perdre la moitié",
+   "question": "Le 19/10, la TVL d'Uniswap v3 sur la chaîne passe de 49 à 102 M$ en une nuit chez DefiLlama. Qui a déposé 53 M$ ?",
+   "mesure_neuve": "Personne. Les 445 446 pools Uniswap v3 de la chaîne recensés et leurs soldes lus sur la chaîne : 92,3 M$ valorisables, dont 45,9 M$ dans les 100 000 premiers pools et 46,4 M$ dans les 345 446 suivants. Le 18/10, le flux net de liquidité v3 est négatif (−831 ETH). Le même jour à 16:22 UTC, DefiLlama corrige un défaut de son cache de journaux qui perdait des morceaux de 100 000 événements ; à 16:07, il ajoute 18 jetons de la chaîne à ses actifs de référence (14,5 M$ dans les pools v3). Le saut est une correction de mesure.",
+   "chiffre_cle": {
+    "valeur": "46,4 M$",
+    "libelle": "dans les pools Uniswap v3 créés après le 100 000e, une zone que le compteur de DefiLlama perdait jusqu'au 18/10",
+    "population": "345 446 pools v3 sur 445 446 (fabrique 0x1f7d…2efa), soldes WETH, USDG, actions et PONS lus sur la chaîne le 21/10, valorisés aux prix DefiLlama"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v3_tvl_usd",
+     "libelle": "TVL Uniswap v3 (l'argent déposé) selon DefiLlama"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours (ce que la chaîne encaisse)"
+    },
+    {
+     "champ": "rh_morpho_marches_actions_utilisation_pct",
+     "libelle": "Part prêtée des dollars offerts contre actions (Morpho)"
+    }
+   ],
+   "genere": "2026-10-21T16:30:00Z"
   }
  ]
 }

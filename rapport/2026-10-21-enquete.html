@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enquête du 21/10/2026 — Robinhood Chain</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#242a47;--card:#10152b;--ok:#6fd6a4;--warn:#f2b66d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:0 18px}
+main{max-width:760px;margin:0 auto;padding-block:28px 64px}
+h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:600;line-height:1.2}
+h1{font-size:2rem;margin:.3em 0 .4em}
+h2{font-size:1.35rem;margin:2.1em 0 .5em;color:var(--acc)}
+.mono,.prov{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;color:var(--mute)}
+.prov{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 14px;margin-bottom:22px}
+.prov b{color:var(--ink);font-weight:600}
+.big{font-family:Georgia,serif;font-size:3.2rem;color:var(--acc);line-height:1;margin:.2em 0 0}
+.card{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500}
+.tw{overflow-x:auto}
+.tag{font-family:ui-monospace,monospace;font-size:.72rem;padding:1px 7px;border-radius:99px;border:1px solid var(--line)}
+.c{color:var(--ok);border-color:var(--ok)}.r{color:var(--warn);border-color:var(--warn)}
+p{margin:.7em 0}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Relevé du 21/10/2026, 14:37 UTC (mercredi), page générée vers 16:30 UTC.</b> DefiLlama : relu à 14:37 UTC ; son dernier jour plein est le 20/10. Registre des hooks : dernière régénération le 16/10 16:30 UTC, âge environ 118 h, aucun commit depuis. Chaîne : RPC officiel lu jusqu'au bloc 94 372 185 (21/10 vers 15:00 UTC). Morpho : API et RPC vers 15:05 UTC. CoinGecko : 14:37 UTC. GitHub DefiLlama-Adapters : lu vers 16:00 UTC. VPS delta : consulté pour l'état du dépôt seulement. Aucune enquête n'a été publiée le 20/10 : le relevé fait ce jour-là, resté inédit, est versé tel quel dans la série, daté du 20/10.
+</div>
+<p class="mono">ENQUÊTE · UNISWAP V4 × ROBINHOOD CHAIN</p>
+<h1>Uniswap v3 n'a pas doublé : DefiLlama a cessé d'en perdre la moitié</h1>
+<p class="big">46,4 M$</p>
+<p>dorment dans les pools Uniswap v3 créés après le 100 000<sup>e</sup>, une zone que le compteur de DefiLlama perdait jusqu'au 18/10. Population : 345 446 pools v3 sur 445 446, recensés depuis la fabrique 0x1f7d…2efa, soldes en WETH, USDG, actions tokenisées et PONS lus sur la chaîne le 21/10, valorisés aux prix DefiLlama.</p>
+
+<h2>1. La question</h2>
+<p>Entre le 18/10 00:00 et le 19/10 00:00 UTC, DefiLlama fait passer la TVL (l'argent déposé) d'Uniswap v3 sur Robinhood Chain de 49,46 M$ à 102,49 M$. Le 21/10 à 14:37 UTC, elle vaut 104,75 M$. Le relevé du 20/10 a vu ce saut sans en trouver la cause. Qui a déposé 53 M$ en une nuit ?</p>
+
+<h2>2. Le fil : ce que les veilles disent aujourd'hui</h2>
+<div class="card"><span class="tag c">CONFIRMÉE</span> <b>La création de pools sans hook reste industrielle.</b> Semaine 14-20/10 : 52,7 % des 23 377 pools v4 sans hook (un hook est un programme greffé sur un pool) viennent de comptes qui en créent au moins 10 dans la semaine. La semaine 07-13/10 était à 47,2 %. Seuil : 40 % les deux semaines. 28,9 % de ces pools sont réglés à un frais d'au moins 50 %, impossible pour un vrai marché. Émetteurs lus pour les 22 050 transactions, sans échec.</div>
+<div class="card"><span class="tag r">RÉVISÉE</span> <b>Doppler domine, mais pas de façon stable.</b> Semaine 14-20/10 : 10 849 pools Doppler sur 16 220 pools à hook (66,9 %) et sur 39 597 pools (27,4 %). Mais la semaine 07-13/10 était à 54,9 %, sous le seuil de 60 %. Le niveau tient, la régularité non.</div>
+<div class="card"><span class="tag r">RÉVISÉE</span> <b>Le prêt adossé aux actions se débloque.</b> Les quatre marchés Morpho de référence (AAPL, SPCX, NVDA, GOOGL contre USDG) sont prêtés à 88,6 % : 1 606 196 $ empruntés sur 1 813 801 $ offerts, lus sur la chaîne, identiques à l'API. 100 % le 12/10, 94,1 % le 19/10. Seuil de révision : 90 %. Des prêteurs reviennent. Le collatéral en actions reste petit : 4,00 M$, soit 0,73 % des 545,18 M$ de collatéral Morpho.</div>
+<div class="card"><span class="tag c">SEMAINE VALIDÉE</span> <b>Les frais ont trouvé un plancher.</b> 13-19/10 : 16,95 M$, contre 19,27 M$ pour 06-12/10 relus le même jour. Soit −12,0 %, et −12,1 % avec la même liste d'adaptateurs DefiLlama. Seuil : −20 %. Reste la semaine 20-26/10.</div>
+<div class="card"><span class="tag r">MESURE CORRIGÉE</span> <b>Le compteur des émissions d'actions lisait 0 à tort.</b> Depuis le 17/10 06:25 UTC, Robinhood émet ses jetons d'actions vers une nouvelle adresse (0xc584…e616), et non plus vers 0xcfae…0a94. Même émetteur, clone du même contrat. Recompté sur toutes les adresses : 1 462 émissions le 19/10, 2 019 le 20/10. Seuil de la veille : moyenne 19-23/10 au-dessus de 2 000. Lecture finale le 24/10.</div>
+<p>Autres veilles ouvertes, re-testées sans franchir de seuil : part des pools sur des hooks hors registre à 22,0 % sur 30 jours (16 239 sur 73 781 pools à hook, contre 21,0 % le 19/10) ; prix d'un échange v4 à 24,1 pb (centièmes de pour cent) sur 13-19/10 ; 29 rachats d'UNI sur 13-19/10, Ethereum toujours devant sur 30 jours (33,3 % contre 31,8 %) ; contrôle des jetons d'actions inchangé (même administrateur sans code, aucun événement). Trous déclarés : échantillon des échanges v4, pools WORM, échanges du hook 0xfcd1.</p>
+
+<h2>3. Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : recensement de tous les pools v3, lecture de leurs soldes sur la chaîne, comparaison avec le chiffre de DefiLlama et avec l'historique de son code.</p>
+<p><b>Personne n'a déposé.</b> Le 18/10, j'ai compté tous les ajouts et retraits de liquidité Uniswap v3 de la chaîne : 16 562 ajouts, 31 875 retraits, sur 940 pools. Le solde net est un retrait de 831 ETH (environ 2 M$), compensé par seulement 55 496 USDG ajoutés. Aucun dépôt de 53 M$.</p>
+<p><b>Ce que contiennent les pools.</b> La fabrique v3 a créé 445 446 pools depuis le lancement. J'ai lu leurs soldes en WETH, USDG, actions tokenisées et PONS, soit 443 176 lectures, sans échec. Valorisés aux prix DefiLlama, ils font 92,3 M$, dont 66,5 M$ en WETH et USDG. Témoin : le plus gros pool (WETH/USDG, 11,8 M$ en ETH) relu seul donne le même ordre. Coupe décisive : les 100 000 premiers pools contiennent 45,9 M$ ; les 345 446 suivants, 46,4 M$. Le 100 000<sup>e</sup> pool date du 15/07 17:50 UTC.</p>
+<p><b>Ce qui a changé chez DefiLlama le 18/10.</b> Deux commits dans le dépôt de ses adaptateurs de TVL (pas dans celui des frais, que le mémo surveille) :</p>
+<ul>
+<li><b>16:22 UTC, commit c6c0c221, « fix getLogs chunk bug ».</b> Le cache qui garde les journaux de la chaîne travaille par morceaux de 100 000 événements. L'ancien code retirait chaque morceau deux fois. Des morceaux entiers de pools disparaissaient donc du calcul. Avec 445 446 pools créés, la fabrique v3 de cette chaîne dépasse ce plafond plus de quatre fois.</li>
+<li><b>16:07 UTC, commit ed336ccb.</b> 18 jetons de la chaîne entrent dans la liste des actifs de référence de DefiLlama : PONS, CASHCAT, WYFI et 15 actions tokenisées (AAPL, NVDA, SPCX, TSLA…). Avant, la liste n'en comptait que trois : WETH, USDG et USDe. Ces 18 jetons pèsent 14,5 M$ dans les pools v3.</li>
+</ul>
+<p>Le saut apparaît au premier relevé journalier qui suit ces deux commits (19/10 00:00). Le volume v3 sur 30 jours, calculé par un autre dépôt, ne bouge pas : 12,82 Md$ le 19/10, 12,57 Md$ ce jour.</p>
+
+<h2>4. Le delta contre la veille</h2>
+<p>Comparaison au dernier point publié (19/10 08:14 UTC).</p>
+<div class="tw"><table>
+<tr><th>Mesure</th><th>19/10</th><th>21/10</th><th>Écart</th></tr>
+<tr><td>TVL de la chaîne (DefiLlama)</td><td>1 054,2 M$</td><td>1 147,6 M$</td><td>+93,3 M$, dont +56,0 M$ pour Uniswap v3</td></tr>
+<tr><td>TVL Uniswap v3</td><td>48,7 M$</td><td>104,7 M$</td><td>rupture de mesure, série non comparable</td></tr>
+<tr><td>TVL Uniswap v4</td><td>171,2 M$</td><td>195,2 M$</td><td>+14,0 %</td></tr>
+<tr><td>Volume 30 j de la chaîne</td><td>34,17 Md$</td><td>34,17 Md$</td><td>0,0 %</td></tr>
+<tr><td>Frais 30 j de la chaîne</td><td>125,5 M$</td><td>117,6 M$</td><td>−6,3 %</td></tr>
+<tr><td>Frais 7 j de la chaîne</td><td>17,83 M$</td><td>16,67 M$</td><td>−6,5 %</td></tr>
+<tr><td>Part de Pons V2 dans les frais 30 j</td><td>28,5 %</td><td>27,0 %</td><td>−1,5 pt</td></tr>
+<tr><td>Revenu aux détenteurs, total déclaré 30 j</td><td>5,37 M$</td><td>5,02 M$</td><td>−6,6 %</td></tr>
+<tr><td>Hooks au registre (chaîne robinhood)</td><td>1 191</td><td>1 191</td><td>registre gelé depuis le 16/10</td></tr>
+<tr><td>Utilisation des 4 marchés Morpho d'actions</td><td>94,1 %</td><td>88,6 %</td><td>−5,5 pts</td></tr>
+</table></div>
+<p>Par les trois mesures, la chaîne ne change pas de nature en deux jours. Par les frais, Pons reste le premier encaisseur (27,0 %). Par le capital, Morpho Blue domine (606 M$ de TVL). Par le volume, Uniswap porte 78,5 % des échanges sur 30 jours. La hausse de la TVL de la chaîne vient pour 60 % d'une correction de mesure.</p>
+
+<h2>5. La cohorte</h2>
+<p>Les dix membres sont relevés, et le score de preuve est recalculé sur les 281 protocoles de la chaîne : 72 liens d'audit sur 77 répondent ; 48 comptes GitHub sur 50 existent. Aucun critère de sortie n'est franchi. Aucun membre de l'antichambre ne franchit son seuil d'entrée.</p>
+<div class="tw"><table>
+<tr><th>Membre</th><th>Preuve</th><th>Traction</th><th>Frais 30 j / Pons</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td>0</td><td>TVL 114,4 M$ (+2,0 %)</td><td>0,072</td></tr>
+<tr><td>Arcus Perps</td><td>0</td><td>TVL 63,7 M$ (+3,9 %)</td><td>0,055</td></tr>
+<tr><td>Fables</td><td>1</td><td>TVL 30,0 M$ (−7,1 %), volume 30 j 2,37 Md$</td><td>0,155</td></tr>
+<tr><td>Snuggle</td><td>2</td><td>TVL 6,21 M$ (+6,4 %)</td><td>0,026</td></tr>
+<tr><td>up v3</td><td>0</td><td>volume 30 j 505,8 M$ (−6,4 %)</td><td>0,029</td></tr>
+<tr><td>UNCX Network V3</td><td>2</td><td>TVL 4,19 M$ (−8,8 %), 0 frais</td><td>0</td></tr>
+<tr><td>StonkBrokers (4 fiches)</td><td>0</td><td>frais 30 j 0,28 M$ (0,45 le 19/10)</td><td>0,009</td></tr>
+<tr><td>Ekubo</td><td>2</td><td>TVL 1,37 M$, volume 30 j 40,5 M$</td><td>0,001</td></tr>
+<tr><td>GIGA V3</td><td>0</td><td>volume 30 j 163,3 M$</td><td>0,002</td></tr>
+<tr><td>TermMax</td><td>3</td><td>TVL 11,2 k$, 0 frais</td><td>0</td></tr>
+</table></div>
+<p><b>Ce qui devrait inquiéter.</b> StonkBrokers perd 37 % de ses frais 30 jours en deux jours. Il est à 83 k$ de son critère de sortie (200 k$). Avec 19 k$ de frais sur 7 jours, la sortie devient probable avant la fin du mois. TermMax reste à 11 k$ de TVL pour un critère à 0,5 M$ le 31/10. Fables perd 7 % de TVL, et son audit annoncé n'a toujours aucun lien.</p>
+<p><b>Contre-référence.</b> Pons V2 encaisse 31,7 M$ sur 30 jours, 27,0 % des frais de la chaîne. Il reverse 16,0 % de ses frais aux détenteurs de PONS, et sa fabrique a lancé 1 958 jetons le 20/10. Fables, le premier membre, pèse 0,155 Pons. La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</p>
+<p><b>Candidats automatiques.</b> Six protocoles hors cohorte passent le filtre (score d'au moins 2, TVL au-dessus de 1 M$) : Beefy, vfat.io, LayerBank, HoodLock, Team Finance, Mellow Core. Aucun n'a de frais au-dessus de ceux de GIGA V3. Comme aucun relevé n'a été publié le 20/10, le compteur de 7 jours consécutifs repart de 1. Aucun remplacement.</p>
+
+<h2>6. Ce qui contredit</h2>
+<p><b>Ma mesure n'atteint pas le chiffre de DefiLlama.</b> Je valorise 92,3 M$ ; DefiLlama affiche 104,75 M$. Les 12,5 M$ d'écart sont probablement des jetons que je n'ai pas lus : les jetons-mèmes appariés à l'ETH dans les pools. C'est une hypothèse, pas une mesure.</p>
+<p><b>La coupe à 100 000 est un test de cohérence, pas une reconstitution.</b> L'ancien code perdait des morceaux en alternance, pas forcément tout ce qui suit le 100 000<sup>e</sup> pool. Je ne peux pas reconstituer quels pools DefiLlama comptait avant le 18/10. Indice dans ce sens : sa TVL v3 a varié de 27,8 M$ (01/08) à 71,9 M$ (15/09) avant de revenir à 49,5 M$. Une simple troncature fixe n'expliquerait pas ces mouvements.</p>
+<p><b>Deux changements le même jour.</b> L'ajout des 18 actifs de référence pourrait expliquer jusqu'à 14,5 M$ du saut, et je ne peux pas séparer les deux effets depuis l'extérieur. Mais même en lui attribuant tout, il reste près de 39 M$ que seul le correctif du cache explique.</p>
+<p><b>Le cas inverse a été cherché.</b> Une vraie arrivée de capital aurait laissé des ajouts de liquidité nets le 18/10. Il n'y en a pas : le flux net est un retrait. Une hausse de prix d'un gros jeton détenu aurait aussi joué : l'ETH (2 476 $) et PONS (0,285 $) bougent de moins de 2 % sur la journée.</p>
+
+<h2>7. Ce qu'on ne sait pas</h2>
+<p>Je ne sais pas quels pools DefiLlama comptait avant le 18/10, ni si d'autres protocoles de la chaîne qui lisent beaucoup de journaux ont été sous-comptés de la même façon. Uniswap v4 a plus de 210 000 pools créés en 30 jours. Je ne sais pas pourquoi Robinhood a changé l'adresse qui reçoit ses émissions d'actions le 17/10. Côté régulation, la SIFMA (l'association des courtiers américains) a déposé le 19/10 une lettre au dossier SEC 4-927. Elle y demande que la SEC tranche plusieurs questions avant l'ouverture des plateformes de titres tokenisés. Deux plateformes ont publié leur avis (OKXICE le 04/10, Perpetuals.com le 14/10) ; aucune ne concerne Robinhood Chain. Le Federal Register ne compte toujours qu'un document pour l'ordre (2026-19388, 22/09).</p>
+<p class="mono">Pièges du mémo re-vérifiés ce jour : P10 (commits d'adaptateurs : étendu au dépôt de TVL DefiLlama-Adapters, où se trouvait la cause du jour), P11 (population nommée : « pools v3 », « pools à hook », « hooks du registre »), P7 (chaque chiffre porte sa population), P2/P8 (totaux déclarés DefiLlama lus hors lignes doublecounted). Témoins : chainId 0x1237 ; code d'une adresse bidon = 0x ; jours 16, 17 et 18/10 recomptés à l'identique (5 657 / 4 827 / 4 914 pools) ; taux v4 12-18/10 relu à 25,5 pb ; dossier SEC 4-999999 en 404. Sources : api.llama.fi (v2/chains, protocols, protocol/uniswap-v3, overview/fees, overview/dexs, summary/fees et dexs uniswap-v3/v4), coins.llama.fi, github.com/DefiLlama/DefiLlama-Adapters (c6c0c221, ed336ccb, 384289b7), Uniswap/hooklist, RPC rpc.mainnet.chain.robinhood.com, Multicall3, blue-api.morpho.org, api.coingecko.com, sec.gov, federalregister.gov, sifma.org (19/10), defiprime.com (Perpetuals, 14/10), ledgerinsights.com (OKXICE).</p>
+</main>
+</body>
+</html>
