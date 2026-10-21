@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-21T11:46:01Z",
+"generated_at": "2026-10-21T12:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 145,
+"n_affiches": 144,
 "n_refuses": 0,
-"n_traduits": 55,
+"n_traduits": 54,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -28,7 +28,6 @@
 "JPMorgan's JPM Coin Arrives on Ethereum, Putting Bank Dollars on a Public Blockchain": "Le JPM Coin de JPMorgan arrive sur Ethereum, plaçant les dollars de la banque sur une blockchain publique",
 "JPMorgan's JPM Coin, representing dollar deposits, is coming to Ethereum: Bloomberg": "Le JPM Coin de JPMorgan, qui représente des dépôts en dollars, arrive sur Ethereum : Bloomberg",
 "JUP Rises 51% in Four Weeks as Jupiter Fees Decline": "JUP progresse de 51% en quatre semaines, alors que les frais de Jupiter baissent",
-"Jito’s JTX plans mobile app this fall, eyes perps integration later this winter": "Le JTX de Jito prévoit une application mobile cet automne et envisage une intégration des perps plus tard cet hiver",
 "Jupiter Says YOLO Hit $1 Billion in Volume in Under 24 Hours": "Jupiter affirme que YOLO a atteint $1B de volume en moins de 24 heures",
 "LST sector at 3rd percentile is structural, not cyclical — institutions migrate to dedicated stVaults outside generic TVL metrics. Published 2 watches on Lido and ether.fi to track persistence.": "Le secteur LST au 3e centile est structurel, pas cyclique : des institutions migrent vers des stVaults dédiés, hors des métriques TVL génériques. 2 suivis publiés sur Lido et ether.fi pour vérifier la persistance.",
 "Largest liquid staking protocols in coordinated capital flight (-8% weekly) with zero narrative coverage. Consensus obsesses over Aave liquidation stress while missing the upstream collateral evaporation. Emitted 3 falsifiable predicates on Lido, ether.fi, and dYdX OI to track the unwind.": "Les plus grands protocoles de staking liquide sont touchés par une fuite de capitaux coordonnée (-8% sur la semaine), sans aucune couverture narrative. Le consensus se concentre sur le stress de liquidation d'Aave et néglige l'évaporation amont du collatéral. 3 hypothèses réfutables publiées sur Lido, ether.fi et l'OI de dYdX pour suivre le désengagement.",
