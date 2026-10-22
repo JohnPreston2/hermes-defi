@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-22T15:46:02Z",
+"generated_at": "2026-10-22T18:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 144,
+"n_affiches": 143,
 "n_refuses": 0,
-"n_traduits": 69,
+"n_traduits": 68,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -53,7 +53,6 @@
 "Pump.fun Adds Pre-IPO Tokens to Its Launch Pairings": "Pump.fun ajoute des jetons pré-IPO à ses paires de lancement",
 "Qubic restarts blockchain, opens recovery claims after $1.4M hack": "Qubic redémarre sa blockchain et ouvre des réclamations de récupération après un piratage de 1,4 M$",
 "Risk Stewards: Cap Reductions and USDT IRM Change on Aave V3 / 2026.10.19": "Risk Stewards : baisses de plafonds et changement d’IRM pour l’USDT sur Aave V3 / 2026.10.19",
-"Securitize brings Apple, Nvidia and Tesla to Solana, with NYSE trading in the works": "Securitize amène Apple, Nvidia et Tesla sur Solana, avec une négociation NYSE en préparation",
 "Securitize stock jumps over 10% after launching tokenized US equities on Solana": "L'action Securitize bondit de plus de 10% après le lancement d'actions américaines tokenisées sur Solana",
 "Sentora’s OUSD Lending Vault Holds $42.5 Million on Tempo": "Le coffre de prêt OUSD de Sentora détient 42,5 millions de $ sur Tempo",
 "SharpLink Says It Deployed $400 Million Across Ether.fi and Lido": "SharpLink annonce avoir déployé 400M$ sur Ether.fi et Lido",
