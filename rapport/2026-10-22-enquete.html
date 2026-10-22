@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enquête du 22/10/2026 — Robinhood Chain</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#242a47;--card:#10152b;--ok:#6fd6a4;--warn:#f2b66d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:0 18px}
+main{max-width:760px;margin:0 auto;padding-block:28px 64px}
+h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:600;line-height:1.2}
+h1{font-size:2rem;margin:.3em 0 .4em}
+h2{font-size:1.35rem;margin:2.1em 0 .5em;color:var(--acc)}
+.mono,.prov{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;color:var(--mute)}
+.prov{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 14px;margin-bottom:22px}
+.prov b{color:var(--ink);font-weight:600}
+.big{font-family:Georgia,serif;font-size:3.2rem;color:var(--acc);line-height:1;margin:.2em 0 0}
+.card{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500}
+.tw{overflow-x:auto}
+.tag{font-family:ui-monospace,monospace;font-size:.72rem;padding:1px 7px;border-radius:99px;border:1px solid var(--line)}
+.c{color:var(--ok);border-color:var(--ok)}.r{color:var(--warn);border-color:var(--warn)}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.85em;word-break:break-all}
+p{margin:.7em 0}
+a{color:var(--acc)}
+</style>
+<body>
+<main>
+<div class="prov">
+<b>Relevé du 22/10/2026, 08:08 UTC (jeudi), page générée vers 09:30 UTC.</b> DefiLlama : relu à 08:08 UTC ; son dernier jour plein est le 21/10. Le relevé d'hier datait de 14:37 UTC : 17 h 30 d'écart, à garder en tête pour chaque delta. Registre des hooks : dernière régénération le 16/10 16:30 UTC, âge environ 136 h, aucun commit depuis. Chaîne : RPC officiel lu jusqu'au bloc 94 962 938 (22/10 vers 08:10 UTC), puis vers 09:00 UTC pour la gouvernance. Morpho : API vers 08:40 UTC. CoinGecko : vers 09:00 UTC. SEC et Federal Register : vers 08:45 UTC. VPS delta : répond ; <code>defi.json</code> généré à 07:40 UTC, lu pour l'état du dépôt seulement, aucune donnée reprise.
+</div>
+<p class="mono">ENQUÊTE · UNISWAP V4 × ROBINHOOD CHAIN</p>
+<h1>Le préavis de 21 jours de Lighter n'a jamais servi</h1>
+<p class="big">8 sur 8</p>
+<p>mises à jour du contrat Lighter ont vu leur préavis de 21 jours ramené à zéro par un compte à clé unique, puis se sont terminées en moins de 38 minutes. Population : les 8 mises à jour terminées de la porte de mise à jour <code>0x43cf…2716</code> (compteur de version = 8), du 28/06 au 08/10, lues sur la chaîne le 22/10. Une neuvième a été annulée le 04/10.</p>
+
+<h2>1. La question</h2>
+<p>Deux protocoles de la cohorte gardent à eux seuls 169 M$ de dollars USDG (le dollar numérique de Paxos) sur Robinhood Chain : Lighter, une plateforme de contrats perpétuels (des paris à effet de levier sans échéance), et Arcus, construite selon sa fiche par l'équipe de dYdX. C'est presque autant que les 189,8 M$ de TVL (l'argent déposé) de tout Uniswap v4 sur la chaîne. La cohorte suit leur traction depuis le 19/09. Elle n'a jamais regardé une chose : <b>qui peut changer les règles de ces contrats, et avec quel délai ?</b> Sur cette chaîne, la réponse est sur la chaîne, pas chez un agrégateur.</p>
+
+<h2>2. Le fil : ce que les veilles disent aujourd'hui</h2>
+<p>18 veilles ouvertes, toutes datées ce jour. Aucune ne franchit son seuil. Les quatre qui bougent :</p>
+<div class="card"><span class="tag c">AU-DESSUS DU SEUIL</span> <b>Les émissions d'actions tokenisées tiennent.</b> Le 21/10, Robinhood a émis 3 446 jetons d'actions (comptage complet, 69 jetons, 100 % vers <code>0xc584…e616</code>) et en a détruit 2 646. Moyenne 19-21/10 : 2 309 par jour, au-dessus du seuil de 2 000. Le 20/10 a été recompté à l'identique (2 019 et 1 992). Lecture finale le 24/10.</div>
+<div class="card"><span class="tag r">EN HAUSSE</span> <b>Le registre décrit de moins en moins le flux.</b> Sur 30 jours (22/09-21/10), 16 327 des 71 867 pools v4 à hook (22,7 %) utilisent un hook absent du registre officiel. Le 21/10 seul : 32,4 %. Troisième hausse de suite, entre les seuils de 20 % et 25 %.</div>
+<div class="card"><span class="tag">STABLE</span> <b>La v4 reste un marché bon marché.</b> Prix moyen d'un échange v4 chez DefiLlama : 23,1 points de base (0,231 %) sur 19-21/10, contre 24,1 sur 13-19/10, relu à l'identique. Seuil de révision : 60.</div>
+<div class="card"><span class="tag">EN COURS</span> <b>Le plancher des frais.</b> 20-21/10 : 4,73 M$ en deux jours, soit environ 2,37 M$ par jour. À ce rythme, la semaine finirait vers −14 % contre 06-12/10, au-dessus du seuil de −20 %. Lecture finale le 27/10.</div>
+<p class="mono">Trous déclarés : échantillon des échanges v4 par type de hook (v_20261005_02), échantillon WORM (v_20261014_01), recomptage des pools v3 sur la chaîne (v_20261021_01) : non refaits ce jour.</p>
+
+<h2>3. Ce qui a été mesuré</h2>
+<p class="mono">Méthode : adresses tirées de trois sources indépendantes, puis emplacements de stockage, fonctions et journaux d'événements lus en RPC, chaque sonde calibrée sur un témoin.</p>
+<p><b>Lighter.</b> L'adresse <code>0x94bA…fF9d</code> est donnée par la documentation de Robinhood, celle de Lighter et celle de Bitquery. Elle détient <b>104 940 438 USDG</b> à 08:30 UTC, à rapprocher des 113,6 M$ de TVL DefiLlama (dont 104,9 M$ d'USDG selon sa ventilation). C'est un proxy : son code délègue à une implémentation, <code>0x998e…8faa</code>, que l'on peut remplacer. Le remplacement passe par une « porte de mise à jour », <code>0x43cf…2716</code>, inspirée de zkSync. Elle annonce un préavis de 1 814 400 secondes, soit <b>21 jours</b>. Son maître est un coffre Safe 1.4.1 à <b>3 signatures sur 5</b>, cinq comptes sans code, sans module ni garde. Mais elle a aussi une fonction <code>cutUpgradeNoticePeriod</code>, appelable par son « conseil de sécurité » : <code>0x4972…efdb</code>. <b>Ce conseil est un compte sans code, donc une seule clé.</b> Son compteur de transactions vaut 8.</p>
+<p>Les 47 événements de la porte, lus depuis le bloc 1, donnent le calendrier complet :</p>
+<div class="tw"><table>
+<tr><th>Mise à jour</th><th>Lancée par</th><th>Préavis coupé à zéro</th><th>Durée lancement → fin</th></tr>
+<tr><td>28/06 19:12</td><td>compte 0x42cd…6213</td><td>oui, 3 min 46 s après</td><td>5 min 20 s</td></tr>
+<tr><td>30/06 16:53</td><td>compte 0x42cd…6213</td><td>oui</td><td>1 min 58 s</td></tr>
+<tr><td>12/07 19:10</td><td>compte 0x42cd…6213</td><td>oui</td><td>1 min 17 s</td></tr>
+<tr><td>17/07 05:22</td><td>compte 0x42cd…6213</td><td>oui</td><td>1 min 35 s</td></tr>
+<tr><td>21/08 14:42</td><td>coffre 3 sur 5</td><td>oui</td><td>11 min 52 s</td></tr>
+<tr><td>01/09 17:27</td><td>coffre 3 sur 5</td><td>oui</td><td>13 min 10 s</td></tr>
+<tr><td>04/10 10:54</td><td>coffre 3 sur 5</td><td>non</td><td>annulée après 20 min</td></tr>
+<tr><td>08/10 10:48</td><td>coffre 3 sur 5</td><td>oui</td><td>10 min 17 s</td></tr>
+<tr><td>08/10 13:41</td><td>coffre 3 sur 5</td><td>oui</td><td>37 min 39 s</td></tr>
+</table></div>
+<p>Chaque appel de coupe vient du même compte <code>0x4972…efdb</code> : 8 appels, compteur 8. Jusqu'au 17/07, les mises à jour étaient lancées directement par <code>0x42cd…6213</code>, le compte qui a déployé la porte le 26/06. Il est aujourd'hui l'un des cinq signataires du coffre. Recoupement : l'implémentation installée le 21/08 se termine par <code>…7401d90</code>, celle que Bitquery décrit comme « actuelle » ; elle a été remplacée deux fois le 08/10. <b>Ce chiffre n'existe nulle part ailleurs : en 3 mois et demi, le délai de 21 jours n'a jamais été laissé courir.</b></p>
+<p><b>Arcus.</b> Aucun adaptateur public : ni <code>lighter-rh</code> ni <code>arcus-perp</code> n'existent dans le dépôt DefiLlama-Adapters, et aucun commit n'y a jamais porté ces chemins. J'ai donc classé les plus gros détenteurs d'USDG à partir des 115 687 transferts des ~1 h 40 précédentes. Le deuxième, <code>0x4fdb…15a4</code>, détient <b>64 005 433 USDG</b>, pour 63,87 M$ de TVL Arcus chez DefiLlama, entièrement en « ARCUSDG ». Son nom sur la chaîne est « Arcus USDG », son offre est exactement de 64 005 433 parts. C'est un coffre du modèle BoringVault de Veda : <b>pas de proxy, donc pas de mise à jour</b>. Mais sa fonction <code>manage</code> lui fait appeler n'importe quel contrat avec ses fonds. Aucun rôle n'a ce droit dans son registre de rôles <code>0x0d14…8cd4</code> : il reste au seul propriétaire, un coffre Safe 1.5.0 à <b>3 signatures sur 5</b>, sans module ni garde, <b>sans aucun délai</b>. Le retrait passe par un guichet public <code>0x323f…b501</code>, sans verrou de durée.</p>
+<p>Pour comparer : les 50 jetons d'actions Robinhood suivis depuis le 08/10 restent administrés par un compte sans code (veille v_20261008_02, inchangée ce jour, 0 événement).</p>
+
+<h2>4. Le delta contre la veille</h2>
+<div class="tw"><table>
+<tr><th>Mesure (DefiLlama sauf mention)</th><th>21/10 14:37</th><th>22/10 08:08</th><th>Écart</th></tr>
+<tr><td>TVL de la chaîne</td><td>1 147,56 M$</td><td>1 147,78 M$</td><td>stable</td></tr>
+<tr><td>TVL Uniswap v4</td><td>195,25 M$</td><td>189,82 M$</td><td>−2,8 %</td></tr>
+<tr><td>Volume 30 j de la chaîne</td><td>34,17 Md$</td><td>33,21 Md$</td><td>−2,8 %</td></tr>
+<tr><td>Frais 30 j de la chaîne</td><td>117,63 M$</td><td>111,48 M$</td><td>−5,2 %</td></tr>
+<tr><td>Frais 7 j, contre les 7 j d'avant</td><td>−11,7 %</td><td>−17,2 %</td><td>la baisse accélère</td></tr>
+<tr><td>Part de Pons V2 dans les frais 30 j</td><td>27,0 %</td><td>26,0 %</td><td>−1,0 pt</td></tr>
+<tr><td>Hooks au registre, chaîne Robinhood</td><td>1 191</td><td>1 191</td><td>registre figé depuis 6 jours</td></tr>
+<tr><td>Pools v4 créés (RPC, jour plein)</td><td>6 074 (20/10)</td><td>6 444 (21/10)</td><td>+6,1 %</td></tr>
+<tr><td>Lancements Pons (RPC, jour plein)</td><td>1 958 (20/10)</td><td>1 871 (21/10)</td><td>−4,4 %</td></tr>
+<tr><td>Cours PONS (CoinGecko)</td><td>0,285 $</td><td>0,261 $</td><td>−8,3 % sur 24 h</td></tr>
+</table></div>
+<p>Les frais baissent par glissement de fenêtre : le 21/10 a encaissé 2,27 M$, le 20/10 2,46 M$. Trois adaptateurs DefiLlama ont touché la chaîne depuis le 21/10 (Gloam, umbrae, flooor-fun) : ils ajoutent des lignes, ils n'expliquent pas une baisse.</p>
+
+<h2>5. La cohorte</h2>
+<p>Score de preuve recalculé sur les 283 protocoles de la chaîne : 191 à 0, 38 à 1, 41 à 2, 12 à 3, 1 à 4. Liens d'audit : 72 sur 77 en HTTP 200 (témoins 404 et 200 corrects). Comptes GitHub : 48 sur 50 existent (ARMSys26 toujours en 404). Aucune entrée, aucune sortie, aucun remplacement automatique : Beefy dépasse GIGA V3 sur la preuve et la TVL, pas sur les frais (0 contre 66,9 k$).</p>
+<div class="tw"><table>
+<tr><th>Membre</th><th>TVL</th><th>Frais 30 j</th><th>Ratio frais / Pons V2</th><th>Ce qui a bougé</th></tr>
+<tr><td>Lighter RH Perps</td><td>113,6 M$</td><td>2,25 M$</td><td>0,078</td><td>gouvernance mesurée ce jour (section 3)</td></tr>
+<tr><td>Arcus Perps</td><td>63,9 M$</td><td>1,78 M$</td><td>0,061</td><td>contrôle mesuré ce jour ; lignée toujours non prouvée</td></tr>
+<tr><td>Fables</td><td>28,6 M$</td><td>4,78 M$</td><td>0,165</td><td>TVL −4,8 % ; 36,0 → 28,6 M$ depuis le 16/10</td></tr>
+<tr><td>Snuggle</td><td>6,17 M$</td><td>0,79 M$</td><td>0,027</td><td>stable</td></tr>
+<tr><td>up v3</td><td>5,22 M$</td><td>0,87 M$</td><td>0,030</td><td>volume 30 j 505,8 → 478,4 M$</td></tr>
+<tr><td>UNCX Network V3</td><td>4,15 M$</td><td>0</td><td>0</td><td>stable</td></tr>
+<tr><td>StonkBrokers</td><td>1,45 M$</td><td>415,4 k$ (8 fiches)</td><td>0,014</td><td>périmètre corrigé, voir ci-dessous</td></tr>
+<tr><td>Ekubo</td><td>1,35 M$</td><td>45,7 k$</td><td>0,0016</td><td>stable</td></tr>
+<tr><td>GIGA V3</td><td>0,89 M$</td><td>66,9 k$</td><td>0,0023</td><td>stable</td></tr>
+<tr><td>TermMax</td><td>11,2 k$</td><td>0</td><td>0</td><td>alerte traction nulle, se tranche le 31/10</td></tr>
+</table></div>
+<p><b>Un critère de sortie a failli être franchi, et je le tranche.</b> StonkBrokers sort si ses frais 30 j passent sous 200 k$. Sur les 4 fiches suivies jusqu'ici, ils tombent de 283,4 k$ à 180,6 k$, sous le seuil, par sortie d'une grosse journée de la fenêtre. Mais 4 autres fiches StonkBrokers ont un champ « chaînes » vide chez DefiLlama, le piège P1 du mémo, et encaissent bien sur la chaîne : Anvil 199,4 k$, Safe Launch 35,5 k$. Périmètre complet : 415,4 k$. <b>Décision : critère non franchi.</b> L'ancien périmètre sous-estimait le protocole ; les relevés passés restent datés tels quels, le nouveau champ <code>rh_stonkbrokers_fees_30d_8fiches_usd</code> porte la correction.</p>
+<p><b>Contre-référence Pons</b> : 28,93 M$ de frais 30 j, 26,0 % de la chaîne, 17,3 % reversés aux détenteurs (V1 et V2 recollés), multiple de 2,79 fois le reversement annualisé. Tant qu'un lanceur de jetons encaisse 6 fois plus que Fables, premier membre de la cohorte, la chaîne « des actions tokenisées » reste une thèse.</p>
+
+<h2>6. Ce qui contredit ma lecture</h2>
+<p><b>Couper un préavis n'est pas voler.</b> Un conseil de sécurité qui raccourcit un délai est un outil prévu pour les correctifs urgents. Rien ne montre que ces 8 mises à jour aient nui aux déposants. La documentation de Lighter dit que les mises à jour de l'instance Robinhood sont annoncées sur Discord et sur une page d'état ; je n'ai pas pu lire ces annonces.</p>
+<p><b>Le pire cas n'est pas pire qu'ailleurs sur la chaîne.</b> Les jetons d'actions de Robinhood eux-mêmes sont administrés par une seule clé. Lighter et Arcus exigent au moins 3 clés sur 5 pour agir. À l'échelle de la chaîne, ce sont les plus gardés des gros dépôts mesurés.</p>
+<p><b>Arcus laisse sortir.</b> Le retrait est public, sans verrou. Mais rien n'oblige à prévenir avant un appel de <code>manage</code> : la sortie protège quelqu'un qui surveille, pas quelqu'un qui dort.</p>
+<p><b>Ma lecture d'Arcus repose sur un rapprochement de montants.</b> 64 005 433 USDG contre 63,87 M$ de TVL, et un nom « Arcus USDG » lu sur la chaîne. C'est fort, mais l'adresse n'est publiée par aucune source primaire que j'aie trouvée.</p>
+
+<h2>7. Ce qu'on ne sait pas</h2>
+<p>Qui sont les dix signataires des deux coffres, et si une même personne tient la clé du conseil de sécurité de Lighter et une clé du coffre. Ce que contiennent les 8 implémentations successives : leur code source n'est pas lisible depuis les explorateurs, qui refusent les scripts (HTTP 403). Si Lighter sur Ethereum suit le même schéma : non mesuré. Le total des lettres au dossier SEC 4-927 : toujours non lisible par script (dernière date lisible : 20/10 ; témoin 4-999999 en 404). Federal Register : 308 documents, inchangé, aucun nouvel acte lié à l'ordre.</p>
+<p class="mono">Pièges du mémo re-vérifiés ce jour : P1 (champ chaînes vide : StonkBrokers Anvil, Pons), P5 (Fables affiche toujours 3 audits sans lien), P7 (chaque chiffre porte sa population), P10 (3 adaptateurs nouveaux depuis le 21/10), P11 (registre ≠ recensement : 22,7 % des pools à hook hors registre). Erreur de sonde attrapée ce jour : le RPC ordofi répondait « réseau occupé », que ma première sonde lisait comme un refus de la fonction ; le témoin <code>decimals()</code> de l'USDG l'a révélé, et toutes les lectures de gouvernance ont été refaites sur le RPC officiel, avec témoin positif et négatif.</p>
+<p class="mono">Sources : RPC rpc.mainnet.chain.robinhood.com ; api.llama.fi ; github.com/Uniswap/hooklist ; github.com/DefiLlama/DefiLlama-Adapters ; blue-api.morpho.org ; api.coingecko.com ; docs.robinhood.com/chain/lighter-domains ; docs.lighter.xyz ; docs.bitquery.io (Lighter Perp DEX on Robinhood Chain) ; sec.gov 4-927 ; federalregister.gov.</p>
+</main>
+</body>
+</html>

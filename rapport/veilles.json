@@ -151,6 +151,11 @@
      "date": "2026-10-21",
      "valeur": "72,5 % (863/1191) / 26,0 % (310/1191)",
      "note": "Registre inchange depuis le 16/10 16:30 UTC. Loin des seuils. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "72,5 % (863/1191) / 26,0 % (310/1191)",
+     "note": "Registre inchange depuis le 16/10 16:30 UTC. Loin des seuils. NON SOLDEE."
     }
    ],
    "solde": null
@@ -298,6 +303,11 @@
      "date": "2026-10-21",
      "valeur": "5 / 1191 (0,42 %) au champ auditUrl ; 4 / 1191 (0,34 %) vers un vrai rapport",
      "note": "Registre inchange. Aucun exploit public de hook de la chaine (recherche web 21/10). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "5 / 1191 (0,42 %) au champ auditUrl ; 4 / 1191 (0,34 %) vers un vrai rapport",
+     "note": "Registre inchange. Aucun exploit public de hook de la chaine trouve le 22/10. NON SOLDEE."
     }
    ],
    "solde": null
@@ -445,6 +455,11 @@
      "date": "2026-10-21",
      "valeur": "v3 36,8 % / v4 40,8 % du volume 30 j (12,57 / 13,93 / 34,17 Md$)",
      "note": "vs 19/10 : v3 -0,7 pt, v4 +0,2 pt. Le saut de TVL v3 du 19/10 est une correction de mesure et ne touche pas le volume. Loin des seuils."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "v3 36,3 % / v4 41,4 % du volume 30 j (12,06 / 13,74 / 33,21 Md$)",
+     "note": "vs 21/10 : v3 -0,5 pt, v4 +0,6 pt. Loin des seuils."
     }
    ],
    "solde": null
@@ -592,6 +607,11 @@
      "date": "2026-10-21",
      "valeur": "156 sur 1191 (13,1 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "Web 21/10 : des avis de TSV existent (OKXICE 04/10, Perpetuals.com 14/10 ; la SIFMA ecrit le 19/10 que plusieurs sont publies), aucun ne concerne Robinhood Chain. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "156 sur 1191 (13,1 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "Registre inchange ; Federal Register inchange (308 documents) ; dossier 4-927 sans lettre nouvelle lisible apres le 20/10. NON SOLDEE."
     }
    ],
    "solde": null
@@ -838,6 +858,11 @@
      "date": "2026-10-21",
      "valeur": "27,0 % (31,73/117,63 M$) Pons V2 ; 27,9 % avec V1 (32,80 M$)",
      "note": "-1,5 pt vs 19/10. Sous le seuil CONFIRMEE (30 %), loin de MORTE (15 %). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "26,0 % (28,93/111,48 M$) Pons V2 ; 26,8 % avec V1 (29,90 M$)",
+     "note": "-1,0 pt vs 21/10. Sous le seuil CONFIRMEE (30 %), loin de MORTE (15 %). NON SOLDEE."
     }
    ],
    "solde": null
@@ -1233,6 +1258,11 @@
      "date": "2026-10-21",
      "valeur": "22,0 % (16 239 / 73 781 pools a hook), fenetre 21/09-20/10",
      "note": "vs 21,0 % (19/09-18/10) : +1,0 pt. Semaine 14-20/10 seule : 28,2 % (4 576 / 16 220). Temoins 16, 17, 18/10 recomptes a l'identique. Entre les seuils (20 % / 25 %), en hausse."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "22,7 % (16 327 / 71 867 pools a hook), fenetre 22/09-21/10",
+     "note": "vs 22,0 % (21/09-20/10) : +0,7 pt. Jour 21/10 seul : 32,4 % (766 / 2 364). Fenetre glissee d'un jour, bloc de depart du 21/09 identique au releve du 21/10. Entre les seuils (20 % / 25 %), en hausse pour le troisieme releve."
     }
    ],
    "solde": null
@@ -1549,6 +1579,11 @@
      "date": "2026-10-21",
      "valeur": "0,73 % (4,00 M$ sur 545,18 M$) ; 180 marches d'actions dont 9 au-dessus de 1 000 $",
      "note": "API Morpho. Stable. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "0,72 % (3,98 M$ sur 550,63 M$) ; 181 marches d'actions dont 10 au-dessus de 1 000 $",
+     "note": "API Morpho. Stable. NON SOLDEE."
     }
    ]
   },
@@ -1782,6 +1817,11 @@
      "date": "2026-10-21",
      "valeur": "non re-mesure",
      "note": "Rien a mesurer avant le week-end 24-25/10 (dernier des trois)."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "non re-mesure",
+     "note": "Rien a mesurer avant le week-end 24-25/10 (dernier des trois)."
     }
    ]
   },
@@ -1863,6 +1903,11 @@
      "date": "2026-10-21",
      "valeur": "24,1 pb (7,77 M$ / 3,23 Md$), semaine 13-19/10 ; 19-20/10 : 22,2 pb",
      "note": "Temoin 12-18/10 relu a 25,5 pb (identique). Semaine du test 19-25/10 en cours, sous 50 pb a J2. OUVERTE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "semaine du test 19-25/10 a J3 : 23,1 pb (2,95 M$ / 1,28 Md$, 19-21/10)",
+     "note": "13-19/10 relu a l'identique (24,1 pb) ; temoin 12-18/10 relu 25,5 pb. Sous 50 pb. OUVERTE."
     }
    ]
   },
@@ -1944,6 +1989,11 @@
      "date": "2026-10-21",
      "valeur": "non re-mesure",
      "note": "Echantillon de swaps non refait. Trou declare."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "non re-mesure",
+     "note": "Echantillon de swaps non refait. Trou declare (deuxieme jour)."
     }
    ]
   },
@@ -2223,6 +2273,11 @@
      "date": "2026-10-21",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement de la balise du bloc 92 473 915 au bloc 94 357 482",
      "note": "Temoin negatif : adresse bidon hasRole = 0. Aucun changement de controle. OUVERTE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement de la balise du bloc 94 357 482 au bloc courant (22/10 ~08:30 UTC)",
+     "note": "Temoin negatif : adresse bidon hasRole = 0. Aucun changement de controle. OUVERTE."
     }
    ]
   },
@@ -2283,6 +2338,11 @@
     {
      "date": "2026-10-21",
      "valeur": "0 pool cree du 14 au 20/10 (recensement complet)",
+     "note": "Le hook reste a l'arret. Swaps non relus. Echeance 24/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "0 pool cree le 21/10 (recensement complet, 6 444 pools)",
      "note": "Le hook reste a l'arret. Swaps non relus. Echeance 24/10. OUVERTE."
     }
    ]
@@ -2383,6 +2443,11 @@
      "date": "2026-10-21",
      "valeur": "13-19/10 = 16,95 M$ contre 06-12/10 = 19,27 M$ (-12,0 % ; -12,1 % a perimetre constant d'adaptateurs), relus le 21/10",
      "note": "Premiere semaine du test au-dessus de -20 % : validee. 8 adaptateurs apparus, 11 disparus entre les deux fenetres. Semaine 20-26/10 restante. OUVERTE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "20-21/10 = 4,73 M$ (2 jours sur 7 de la semaine 20-26/10)",
+     "note": "Semaine du test incomplete ; lecture finale le 27/10. Rythme journalier (2,37 M$/j) compatible avec ~16,6 M$ sur la semaine, soit ~-14 % vs 06-12/10. OUVERTE."
     }
    ]
   },
@@ -2422,6 +2487,11 @@
     },
     {
      "date": "2026-10-21",
+     "valeur": "non re-mesure",
+     "note": "Trou declare."
+    },
+    {
+     "date": "2026-10-22",
      "valeur": "non re-mesure",
      "note": "Trou declare."
     }
@@ -2710,6 +2780,11 @@
      "date": "2026-10-21",
      "valeur": "19/10 : 1 462 emissions ; 20/10 : 2 019 (comptage complet, tous destinataires, 117 jetons)",
      "note": "MESURE CORRIGEE : la definition ecrite (to = 0xcfae...0a94) lit 0 depuis le 17/10 06:25 UTC, car les emissions vont desormais a 0xc584...e616 (meme emetteur, clone du meme contrat). Le seuil s'applique au comptage tous destinataires. Moyenne 19-20/10 : 1 740/j, entre 1 650 et 2 000. Lecture finale le 24/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "19/10 : 1 462 ; 20/10 : 2 019 ; 21/10 : 3 446 emissions (comptage complet, tous destinataires, liste de 133 jetons)",
+     "note": "Moyenne 19-21/10 : 2 309/j, au-dessus de 2 000. Temoin 20/10 recompte a l'identique. Lecture finale le 24/10 (jeudi 22 et vendredi 23 restent). OUVERTE."
     }
    ]
   },
@@ -2737,6 +2812,11 @@
      "date": "2026-10-21",
      "valeur": "lun 19/10 : 1 707 ; mar 20/10 : 1 958 lancements",
      "note": "Points de semaine, sans effet sur le seuil (week-end 24-25/10). OUVERTE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "mer 21/10 : 1 871 lancements",
+     "note": "Point de semaine, sans effet sur le seuil (week-end 24-25/10). Temoin 20/10 recompte a l'identique (1 958). OUVERTE."
     }
    ]
   },
@@ -2759,6 +2839,11 @@
      "date": "2026-10-21",
      "valeur": "semaine 13-19/10 : 29 rachats ; 20/10 : 4 ; 30 j pleins 21/09-20/10 : Robinhood 31,8 % contre Ethereum 33,3 %",
      "note": "Sous 40 rachats. Ethereum devant. OUVERTE."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "21/10 : 4 rachats ; nonce Firepit 1 318 ; 30 j pleins 22/09-21/10 : Robinhood 31,4 % contre Ethereum 33,0 %",
+     "note": "Semaine 20-26/10 a 8 rachats apres 2 jours. Ethereum devant. OUVERTE."
     }
    ]
   },
@@ -2775,6 +2860,28 @@
     {
      "date": "2026-10-21",
      "valeur": "DefiLlama 104,75 M$ ; mesure sur la chaine 92,29 M$ (ecart 13,5 %)",
+     "note": "Ouverture."
+    },
+    {
+     "date": "2026-10-22",
+     "valeur": "DefiLlama 102,85 M$ (22/10 08:08 UTC) ; mesure sur la chaine non refaite",
+     "note": "Au-dessus de 80 M$. Ecart avec la chaine non re-mesure (trou declare). OUVERTE."
+    }
+   ]
+  },
+  {
+   "id": "v_20261022_01",
+   "ouverte": "2026-10-22",
+   "affirmation": "Le preavis de 21 jours qui protege les 105 M$ deposes chez Lighter sur Robinhood Chain est une facade : chaque mise a jour du contrat est precedee d'un appel du conseil de securite, un compte a cle unique, qui ramene le preavis a zero, et la mise a jour se termine en moins d'une heure.",
+   "mesure": "RPC Robinhood Chain : evenements de la porte de mise a jour 0x43cff77cd060a155dce5deb12b93b875f69f2716 ; pour chaque finishUpgrade (0x253b153b), presence d'un cutUpgradeNoticePeriod (0x389b8b3a) emis par securityCouncilAddress() depuis le startUpgrade (0x31a94da3) ; duree start -> finish ; eth_getCode(securityCouncilAddress()). Reference 22/10 : 8 mises a jour terminees sur 8 raccourcies (versionId 8), duree 1 min 17 s a 37 min 39 s, 1 annulee le 04/10 ; conseil 0x4972e0cacb2ac45644ba054838e96ff4f6f7efdb sans code, nonce 8.",
+   "seuil": "REVISEE si une mise a jour se termine plus de 24 h apres son lancement sans appel du conseil, ou si securityCouncilAddress() devient un contrat (multisignature ou delai). CONFIRMEE si, a l'echeance, toute nouvelle mise a jour a ete raccourcie par un compte sans code.",
+   "echeance": "2026-12-22",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-10-22",
+     "valeur": "8 / 8 mises a jour raccourcies ; conseil sans code (nonce 8) ; versionId 8 ; upgradeStatus 0 (au repos)",
      "note": "Ouverture."
     }
    ]

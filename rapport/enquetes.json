@@ -630,6 +630,37 @@
     }
    ],
    "genere": "2026-10-21T16:30:00Z"
+  },
+  {
+   "date": "2026-10-22",
+   "fichier": "2026-10-22-enquete.html",
+   "titre": "Robinhood Chain, 22/10 : le préavis de 21 jours de Lighter n'a jamais servi",
+   "question": "Lighter et Arcus gardent ensemble 169 M$ de dollars USDG sur la chaîne, presque autant que toute la TVL d'Uniswap v4 (189,8 M$). Qui peut changer les règles de ces contrats, et avec quel délai ?",
+   "mesure_neuve": "Lu sur la chaîne : le contrat Lighter 0x94bA…fF9d détient 104,94 M$ d'USDG ; sa porte de mise à jour annonce un préavis de 21 jours, mais ses 8 mises à jour terminées (28/06 → 08/10) ont toutes été précédées d'un appel du « conseil de sécurité » qui ramène ce préavis à zéro, et se sont achevées en 1 min 17 s à 37 min 39 s. Ce conseil est un compte sans code, à clé unique. Le coffre Arcus USDG 0x4fdb…15a4 (64,01 M$) ne se met pas à jour, mais un coffre-fort à 3 signatures sur 5 peut en déplacer les fonds sans délai.",
+   "chiffre_cle": {
+    "valeur": "8 sur 8",
+    "libelle": "mises à jour du contrat Lighter dont le préavis de 21 jours a été ramené à zéro par un compte à clé unique",
+    "population": "8 mises à jour terminées (versionId 8) de la porte 0x43cf…2716, du 28/06 au 08/10, lues sur la chaîne le 22/10 ; 1 annulée le 04/10"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_v4_tvl_usd",
+     "libelle": "TVL Uniswap v4 (l'argent déposé dans la v4)"
+    },
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours (ce que la chaîne encaisse)"
+    },
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons dans les frais (le lanceur de jetons)"
+    }
+   ],
+   "genere": "2026-10-22T09:30:00Z"
   }
  ]
 }
