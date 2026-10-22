@@ -1,35 +1,14 @@
 {
  "defauts": [
   {
-   "constat": "La tour de pièces passe au travers du titre (« blockchains ») et du sous-titre (« Tether », « dans la DeFi »).",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Actifs réels"
-  },
-  {
-   "constat": "L'icône bleue de HumidiFi recouvre le chiffre « 254,7 » de « Tether Gold × 254,7».",
+   "constat": "L'icône bleue de HumidiFi touche le chiffre « 254,7 » de Tether Gold, et l'icône edgeX touche « 9,6 » d'EigenCloud.",
    "ecran": "telephone",
    "gravite": "gene",
    "type": "chevauchement",
    "vue": "Attention"
-  },
-  {
-   "constat": "Fables est affiché à 32,4 M$ au-dessus de sa barre et à 32,3 M$ dans l'étiquette placée dessous.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "contradiction",
-   "vue": "Cohorte"
-  },
-  {
-   "constat": "Les étiquettes n'affichent pas les pourcentages (« Ethereum 144 Md$ » sans « 47 % ») et Hyperliquid L1 n'a pas d'étiquette.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Argent stable · Où ils sont"
   }
  ],
- "jour": "2026-10-21",
+ "jour": "2026-10-22",
  "n_captures": 34,
- "quand": "2026-10-21T13:35:45Z"
+ "quand": "2026-10-22T08:20:41Z"
 }
