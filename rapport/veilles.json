@@ -146,6 +146,11 @@
      "date": "2026-10-19",
      "valeur": "72,5 % (863/1191) / 26,0 % (310/1191)",
      "note": "Registre inchange depuis le 16/10 16:30 UTC (aucun commit). Loin des seuils. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "72,5 % (863/1191) / 26,0 % (310/1191)",
+     "note": "Registre inchange depuis le 16/10 16:30 UTC. Loin des seuils. NON SOLDEE."
     }
    ],
    "solde": null
@@ -288,6 +293,11 @@
      "date": "2026-10-19",
      "valeur": "5 / 1191 (0,42 %) au champ auditUrl ; 4 / 1191 (0,34 %) vers un vrai rapport",
      "note": "Registre inchange. Aucun exploit public de hook de la chaine trouve (recherche web 19/10). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "5 / 1191 (0,42 %) au champ auditUrl ; 4 / 1191 (0,34 %) vers un vrai rapport",
+     "note": "Registre inchange. Aucun exploit public de hook de la chaine (recherche web 21/10). NON SOLDEE."
     }
    ],
    "solde": null
@@ -430,6 +440,11 @@
      "date": "2026-10-19",
      "valeur": "v3 37,5 % / v4 40,6 % du volume 30 j (12,82 / 13,87 / 34,17 Md$)",
      "note": "vs 18/10 : v3 -0,2 pt, v4 +1,4 pt. Loin des seuils."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "v3 36,8 % / v4 40,8 % du volume 30 j (12,57 / 13,93 / 34,17 Md$)",
+     "note": "vs 19/10 : v3 -0,7 pt, v4 +0,2 pt. Le saut de TVL v3 du 19/10 est une correction de mesure et ne touche pas le volume. Loin des seuils."
     }
    ],
    "solde": null
@@ -572,6 +587,11 @@
      "date": "2026-10-19",
      "valeur": "156 sur 1191 (13,1 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "Recherche web 19/10 : rien de nouveau. Dossier 4-927 : dates d'octobre lisibles jusqu'au 14/10. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "156 sur 1191 (13,1 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "Web 21/10 : des avis de TSV existent (OKXICE 04/10, Perpetuals.com 14/10 ; la SIFMA ecrit le 19/10 que plusieurs sont publies), aucun ne concerne Robinhood Chain. NON SOLDEE."
     }
    ],
    "solde": null
@@ -813,6 +833,11 @@
      "date": "2026-10-19",
      "valeur": "28,5 % (35,76/125,51 M$) Pons V2 ; 29,4 % avec V1 (36,93 M$)",
      "note": "-0,7 pt vs 18/10. Sous le seuil CONFIRMEE (30 %) pour V2 seul et desormais aussi avec V1 ; loin de MORTE (15 %). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "27,0 % (31,73/117,63 M$) Pons V2 ; 27,9 % avec V1 (32,80 M$)",
+     "note": "-1,5 pt vs 19/10. Sous le seuil CONFIRMEE (30 %), loin de MORTE (15 %). NON SOLDEE."
     }
    ],
    "solde": null
@@ -1203,6 +1228,11 @@
      "date": "2026-10-19",
      "valeur": "21,0 % (15 728 / 74 940 pools a hook), fenetre 19/09-18/10",
      "note": "vs 20,8 % (18/09-17/10) : +0,2 pt. Temoins : 16 et 17/10 recomptes a l'identique (5 657 / 2 274 et 4 827 / 2 198). Jour 18/10 : 28,4 % (630 / 2 221). Au-dessus du seuil CONFIRMEE (20 %), sous REVISEE (25 %)."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "22,0 % (16 239 / 73 781 pools a hook), fenetre 21/09-20/10",
+     "note": "vs 21,0 % (19/09-18/10) : +1,0 pt. Semaine 14-20/10 seule : 28,2 % (4 576 / 16 220). Temoins 16, 17, 18/10 recomptes a l'identique. Entre les seuils (20 % / 25 %), en hausse."
     }
    ],
    "solde": null
@@ -1514,6 +1544,11 @@
      "date": "2026-10-19",
      "valeur": "0,73 % (3,88 M$ sur 531,58 M$) ; 181 marches d'actions dont 7 au-dessus de 1 000 $",
      "note": "API Morpho seule. Stable. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "0,73 % (4,00 M$ sur 545,18 M$) ; 180 marches d'actions dont 9 au-dessus de 1 000 $",
+     "note": "API Morpho. Stable. NON SOLDEE."
     }
    ]
   },
@@ -1742,6 +1777,11 @@
      "date": "2026-10-19",
      "valeur": "week-end 17-18/10 : 0,53 de la moyenne lun-ven 12-16/10 (samedi 0,40, dimanche 0,65), sonde 48 fenetres",
      "note": "Sonde a 12 fenetres NON reproductible : le samedi 17/10 relu le 19/10 donne 192 174 / 265 032 contre 113 334 / 90 456 le 18/10 (meme methode, memes graines, bornes de blocs probablement differentes d'un bloc). Sonde passee a 48 fenetres de 200 blocs par jour : 12-16/10 = 272 807 / 283 868 / 365 935 / 528 117 / 351 118, samedi 145 627 (+-33 077), dimanche 234 250 (+-56 971). Le ratio 0,53 depasse 0,5 mais reste dans l'erreur de la sonde (+-0,1 environ). CONFIRMEE devient improbable ; MORTE (0,8) loin. OUVERTE, solde le 26/10."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "non re-mesure",
+     "note": "Rien a mesurer avant le week-end 24-25/10 (dernier des trois)."
     }
    ]
   },
@@ -1818,6 +1858,11 @@
      "date": "2026-10-19",
      "valeur": "25,5 pb (8,22 M$ / 3,22 Md$), semaine 12-18/10",
      "note": "Semaine du test 12-18/10 sous 50 pb : 2e semaine sur 3 validee. Le prix d'un echange continue de baisser : 19,3 pb le dimanche 18/10. OUVERTE (semaine 19-25/10 restante)."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "24,1 pb (7,77 M$ / 3,23 Md$), semaine 13-19/10 ; 19-20/10 : 22,2 pb",
+     "note": "Temoin 12-18/10 relu a 25,5 pb (identique). Semaine du test 19-25/10 en cours, sous 50 pb a J2. OUVERTE."
     }
    ]
   },
@@ -1894,6 +1939,11 @@
      "date": "2026-10-19",
      "valeur": "non re-mesure",
      "note": "Echantillon de swaps non refait. Trou declare."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "non re-mesure",
+     "note": "Echantillon de swaps non refait. Trou declare."
     }
    ]
   },
@@ -1904,7 +1954,7 @@
    "mesure": "Recensement Initialize de la PoolManager v4 0x8366a39cc670b4001a1121b8f6a443a643e40951 (topic0 0xdd466e67...6438) : par semaine UTC pleine, part de Doppler (champ hooks de l'evenement = 0x4e34...a544) dans (a) tous les pools crees, (b) les pools a hook. Reference 04/10 : 19,9 % et 76,7 % (1 056 / 5 313 / 1 377) ; 05/10 : 20,6 % et 70,6 % (1 148 / 5 565 / 1 626). Fenetres de 200 000 blocs a heure fixe (00:00 UTC) : part Doppler dans les pools a hook 51,0 % (04/09), 57,4 % (11/09), 63,3 % (18/09), 74,7 % (25/09), 80,2 % (02/10) ; dans tous les pools 18,7 / 17,6 / 21,9 / 25,5 / 23,0 %.",
    "seuil": "CONFIRMEE si les semaines 07-13/10 et 14-20/10 gardent Doppler au-dessus de 60 % des pools a hook ET au-dessus de 15 % de tous les pools. REVISEE si la part Doppler dans les pools a hook passe sous 50 % (retour d'une diversite d'usines) ou si son nombre de pools par jour passe sous 500 trois jours de suite.",
    "echeance": "2026-10-20",
-   "statut": "OUVERTE",
+   "statut": "REVISEE",
    "solde": null,
    "historique": [
     {
@@ -1966,8 +2016,15 @@
      "date": "2026-10-19",
      "valeur": "14-18/10 : Doppler 7 456 / 11 122 pools a hook (67,0 %) / 27 232 pools (27,4 %) ; jour 18/10 : 1 494 / 2 221 (67,3 %) / 4 914 (30,4 %)",
      "note": "Temoins 16 et 17/10 identiques. Semaine 14-20/10 au-dessus de 60 % a J5. CONFIRMEE impossible (semaine 07-13/10 a 54,9 %) ; REVISEE non atteinte (> 50 %, > 500 pools/j). Solde le 20/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "semaine 14-20/10 : Doppler 10 849 / 16 220 pools a hook (66,9 %) / 39 597 pools (27,4 %) ; minimum 1 299 pools/j (17/10)",
+     "note": "Echeance 20/10 atteinte."
     }
-   ]
+   ],
+   "soldee": "2026-10-21",
+   "solde_motif": "Doppler domine bien les pools a hook (66,9 % sur 14-20/10) et pese plus d'un pool sur quatre, mais la STABILITE ecrite n'a pas tenu : la semaine 07-13/10 etait a 54,9 %, sous le seuil de 60 %. Ni la bascule (< 50 %) ni l'extinction (< 500/j) ne se sont produites. L'affirmation tient sur le niveau, pas sur la regularite."
   },
   {
    "id": "v_20261007_01",
@@ -1976,7 +2033,7 @@
    "mesure": "Recensement Initialize de la PoolManager v4 0x8366a39cc670b4001a1121b8f6a443a643e40951 (pools hooks=0x0, semaine UTC pleine) ; champ from de TOUTES les transactions de creation (eth_getTransactionByHash, RPC ordofi puis officiel) ; part des pools dont l'emetteur en a cree >= 10 dans la semaine ; en second, part des pools a fee >= 500 000 (hors 0x800000). Reference 30/09-06/10 : 48,4 % (13 855/28 639) et 28,3 % (8 103/28 639).",
    "seuil": "CONFIRMEE si les semaines 07-13/10 et 14-20/10 restent toutes deux au-dessus de 40 % (emetteurs >= 10). REVISEE si l'une passe sous 30 %.",
    "echeance": "2026-10-21",
-   "statut": "OUVERTE",
+   "statut": "CONFIRMEE",
    "historique": [
     {
      "date": "2026-10-07",
@@ -2032,8 +2089,15 @@
      "date": "2026-10-19",
      "valeur": "jour 18/10 : 31,4 % des 2 693 pools sans hook viennent d'emetteurs a >= 10 pools le jour meme",
      "note": "Base JOUR, non comparable au seuil (base semaine). Emetteurs lus pour les 2 693 transactions (0 echec). Plus gros emetteur : 91 pools. Tendance : 36,4 % (16/10), 39,8 % (17/10), 31,4 % (18/10). Semaine 14-20/10 lue le 21/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "semaine 14-20/10 : 52,7 % (12 319 / 23 377 pools sans hook) viennent d'emetteurs a >= 10 pools ; frais >= 50 % : 28,9 %",
+     "note": "Emetteurs lus pour les 22 050 transactions (0 echec). Sans la premiere paire (803 pools), 51,0 %."
     }
-   ]
+   ],
+   "soldee": "2026-10-21",
+   "solde_motif": "Les deux semaines du test restent au-dessus de 40 % : 47,2 % (07-13/10) et 52,7 % (14-20/10). Plus d'un quart des pools sans hook (28,9 %) sont regles a un frais d'au moins 50 %."
   },
   {
    "id": "v_20261008_01",
@@ -2154,6 +2218,11 @@
      "date": "2026-10-19",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code, nonce 2 ; implementation 0xb354...5ae2 inchangee ; 0 evenement de la balise du bloc 88 778 320 au bloc 92 473 915",
      "note": "Temoin negatif : adresse bidon hasRole = 0. Aucun changement de controle. OUVERTE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement de la balise du bloc 92 473 915 au bloc 94 357 482",
+     "note": "Temoin negatif : adresse bidon hasRole = 0. Aucun changement de controle. OUVERTE."
     }
    ]
   },
@@ -2210,6 +2279,11 @@
      "date": "2026-10-19",
      "valeur": "0 pool cree le 18/10 (recensement complet) ; 657 pools sur 30 j (19/09-18/10)",
      "note": "Le hook reste a l'arret. Swaps non relus. OUVERTE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "0 pool cree du 14 au 20/10 (recensement complet)",
+     "note": "Le hook reste a l'arret. Swaps non relus. Echeance 24/10. OUVERTE."
     }
    ]
   },
@@ -2220,7 +2294,7 @@
    "mesure": "RPC : Morpho.market(id) (0x9D53d5E3bd5E8d4Cbfa6DB1ca238AEA02E651010, selecteur 0x5c60e39a) sur les marches d'actions dont le collateral depasse 100 000 $ (API Morpho chainId 4663) : totalBorrowAssets / totalSupplyAssets ; et collateral actions en $ (API Morpho, recoupe par balanceOf). Reference 12/10 : 4 marches, utilisation 100,0 %, 1,66 M$ de USDG pretes, collateral actions 4,15 M$ dont SPCX 32,2 %.",
    "seuil": "REVISEE si le collateral actions depasse 8 M$ (x2) ou si l'utilisation des marches d'actions repasse sous 90 % avant l'echeance (des preteurs reviennent). CONFIRMEE si, a l'echeance, l'utilisation reste au-dessus de 95 % et le collateral actions sous 6 M$.",
    "echeance": "2026-11-12",
-   "statut": "OUVERTE",
+   "statut": "REVISEE",
    "historique": [
     {
      "date": "2026-10-12",
@@ -2256,8 +2330,15 @@
      "date": "2026-10-19",
      "valeur": "utilisation 94,1 % sur 4 marches (1 603 641 / 1 703 865 $) ; collateral actions 3 882 898 $ (0,73 %)",
      "note": "API Morpho seule. L'utilisation baisse encore (100 -> 95,3 -> 94,1 %) : un peu de liquidite revient, seuil REVISEE (90 %) pas atteint. OUVERTE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "utilisation 88,6 % sur les 4 marches (1 606 196 / 1 813 801 $, RPC = API) ; collateral actions 4 000 152 $ (0,73 %)",
+     "note": "L'offre de dollars a preter monte de 1,70 a 1,81 M$ depuis le 19/10."
     }
-   ]
+   ],
+   "soldee": "2026-10-21",
+   "solde_motif": "L'utilisation des marches d'actions repasse sous 90 % avant l'echeance (100 % le 12/10, 94,1 % le 19/10, 88,6 % le 21/10, lu sur la chaine) : des preteurs reviennent. Le collateral actions reste petit (4,0 M$, sous 8 M$) : le marche se debloque sans grandir."
   },
   {
    "id": "v_20261013_01",
@@ -2297,6 +2378,11 @@
      "date": "2026-10-19",
      "valeur": "13-18/10 = 14,88 M$ contre 06-11/10 = 16,32 M$ (-8,8 % ; -8,9 % a perimetre constant d'adaptateurs), relus le 19/10",
      "note": "Semaine du test 13-19/10 pas finie (lecture complete le 20/10). Fomo Wallet a 0 $ depuis le 18/10 ; 7 adaptateurs apparus, 12 disparus entre les deux fenetres. Au-dessus de -20 %. OUVERTE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "13-19/10 = 16,95 M$ contre 06-12/10 = 19,27 M$ (-12,0 % ; -12,1 % a perimetre constant d'adaptateurs), relus le 21/10",
+     "note": "Premiere semaine du test au-dessus de -20 % : validee. 8 adaptateurs apparus, 11 disparus entre les deux fenetres. Semaine 20-26/10 restante. OUVERTE."
     }
    ]
   },
@@ -2331,6 +2417,11 @@
     },
     {
      "date": "2026-10-19",
+     "valeur": "non re-mesure",
+     "note": "Trou declare."
+    },
+    {
+     "date": "2026-10-21",
      "valeur": "non re-mesure",
      "note": "Trou declare."
     }
@@ -2614,6 +2705,11 @@
      "date": "2026-10-19",
      "valeur": "lundi 19/10 a 08:15 UTC : 0 emission, 366 destructions (jour partiel)",
      "note": "Week-end : 0 emission samedi et dimanche. La moyenne 19-23/10 se lit le 24/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "19/10 : 1 462 emissions ; 20/10 : 2 019 (comptage complet, tous destinataires, 117 jetons)",
+     "note": "MESURE CORRIGEE : la definition ecrite (to = 0xcfae...0a94) lit 0 depuis le 17/10 06:25 UTC, car les emissions vont desormais a 0xc584...e616 (meme emetteur, clone du meme contrat). Le seuil s'applique au comptage tous destinataires. Moyenne 19-20/10 : 1 740/j, entre 1 650 et 2 000. Lecture finale le 24/10. OUVERTE."
     }
    ]
   },
@@ -2636,6 +2732,11 @@
      "date": "2026-10-19",
      "valeur": "week-end 17-18/10 : 1 333 + 1 078 lancements, moyenne 1 205,5 = 0,66 de la moyenne lun-ven 12-16/10 (1 838)",
      "note": "Temoin : samedi 17/10 recompte a l'identique (1 333). Au-dessus de 0,6 : 1er week-end valide. Avec la reference 14-16/10 de l'ouverture, 0,67. OUVERTE (week-end 24-25/10)."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "lun 19/10 : 1 707 ; mar 20/10 : 1 958 lancements",
+     "note": "Points de semaine, sans effet sur le seuil (week-end 24-25/10). OUVERTE."
     }
    ]
   },
@@ -2652,6 +2753,28 @@
     {
      "date": "2026-10-19",
      "valeur": "25 (06-12/10) ; 26 (13-18/10, 6 j) ; 30 j : 32,7 % contre 33,0 %",
+     "note": "Ouverture."
+    },
+    {
+     "date": "2026-10-21",
+     "valeur": "semaine 13-19/10 : 29 rachats ; 20/10 : 4 ; 30 j pleins 21/09-20/10 : Robinhood 31,8 % contre Ethereum 33,3 %",
+     "note": "Sous 40 rachats. Ethereum devant. OUVERTE."
+    }
+   ]
+  },
+  {
+   "id": "v_20261021_01",
+   "ouverte": "2026-10-21",
+   "affirmation": "Le doublement de la TVL Uniswap v3 de la chaine chez DefiLlama (49 -> 102 M$ le 19/10) est une correction de mesure qui tient : ce n'est pas un pic, et la valeur relue sur la chaine reste du meme ordre que le chiffre affiche.",
+   "mesure": "(1) DefiLlama /protocol/uniswap-v3, chainTvls['Robinhood Chain'] : derniere valeur. (2) Sur la chaine : soldes WETH, USDG, actions et PONS des pools v3 (PoolCreated de la fabrique 0x1f7d7550b1b028f7571e69a784071f0205fd2efa, Multicall3 tryAggregate), valorises aux prix coins.llama.fi. Reference 21/10 : DefiLlama 104,75 M$ ; mesure 92,29 M$ sur 445 446 pools (dont 46,38 M$ dans les pools apres le 100 000e).",
+   "seuil": "CONFIRMEE si DefiLlama reste au-dessus de 80 M$ au 04/11 et que l'ecart avec la mesure sur la chaine reste sous 25 %. REVISEE si DefiLlama retombe sous 60 M$ avant l'echeance (retour du defaut ou autre cause).",
+   "echeance": "2026-11-04",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-10-21",
+     "valeur": "DefiLlama 104,75 M$ ; mesure sur la chaine 92,29 M$ (ecart 13,5 %)",
      "note": "Ouverture."
     }
    ]
