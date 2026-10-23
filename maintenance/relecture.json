@@ -1,14 +1,6 @@
 {
- "defauts": [
-  {
-   "constat": "L'icône bleue de HumidiFi touche le chiffre « 254,7 » de Tether Gold, et l'icône edgeX touche « 9,6 » d'EigenCloud.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "chevauchement",
-   "vue": "Attention"
-  }
- ],
- "jour": "2026-10-22",
+ "defauts": [],
+ "jour": "2026-10-23",
  "n_captures": 34,
- "quand": "2026-10-22T08:20:41Z"
+ "quand": "2026-10-23T08:46:59Z"
 }
