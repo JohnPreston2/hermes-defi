@@ -156,6 +156,11 @@
      "date": "2026-10-22",
      "valeur": "72,5 % (863/1191) / 26,0 % (310/1191)",
      "note": "Registre inchange depuis le 16/10 16:30 UTC. Loin des seuils. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "72,5 % (866/1195) / 26,2 % (313/1195)",
+     "note": "Registre regenere le 22/10 17:15 UTC apres 6 jours de gel (+4 entrees de la chaine). Loin des seuils. NON SOLDEE."
     }
    ],
    "solde": null
@@ -308,6 +313,11 @@
      "date": "2026-10-22",
      "valeur": "5 / 1191 (0,42 %) au champ auditUrl ; 4 / 1191 (0,34 %) vers un vrai rapport",
      "note": "Registre inchange. Aucun exploit public de hook de la chaine trouve le 22/10. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "5 / 1195 (0,42 %) au champ auditUrl ; 4 / 1195 (0,34 %) vers un vrai rapport",
+     "note": "Aucune des 4 entrees ajoutees le 22/10 ne porte d'auditUrl. Pas de recherche d'exploit dediee ce jour. NON SOLDEE."
     }
    ],
    "solde": null
@@ -460,6 +470,11 @@
      "date": "2026-10-22",
      "valeur": "v3 36,3 % / v4 41,4 % du volume 30 j (12,06 / 13,74 / 33,21 Md$)",
      "note": "vs 21/10 : v3 -0,5 pt, v4 +0,6 pt. Loin des seuils."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "v3 36,3 % / v4 41,5 % du volume 30 j (11,74 / 13,44 / 32,37 Md$)",
+     "note": "vs 22/10 : v3 0,0 pt, v4 +0,1 pt. Loin des seuils."
     }
    ],
    "solde": null
@@ -612,6 +627,11 @@
      "date": "2026-10-22",
      "valeur": "156 sur 1191 (13,1 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "Registre inchange ; Federal Register inchange (308 documents) ; dossier 4-927 sans lettre nouvelle lisible apres le 20/10. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "156 sur 1195 (13,1 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "Federal Register inchange (308 documents). Dossier 4-927 : 6 lettres datees 21-22/10 (Better Markets, Solana Policy Institute...), aucune n'est un avis de TSV. NON SOLDEE."
     }
    ],
    "solde": null
@@ -863,6 +883,11 @@
      "date": "2026-10-22",
      "valeur": "26,0 % (28,93/111,48 M$) Pons V2 ; 26,8 % avec V1 (29,90 M$)",
      "note": "-1,0 pt vs 21/10. Sous le seuil CONFIRMEE (30 %), loin de MORTE (15 %). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "25,4 % (26,84/105,75 M$) Pons V2 ; 26,2 % avec V1 (27,73 M$)",
+     "note": "-0,6 pt vs 22/10. Sous le seuil CONFIRMEE (30 %), loin de MORTE (15 %). NON SOLDEE."
     }
    ],
    "solde": null
@@ -1263,6 +1288,11 @@
      "date": "2026-10-22",
      "valeur": "22,7 % (16 327 / 71 867 pools a hook), fenetre 22/09-21/10",
      "note": "vs 22,0 % (21/09-20/10) : +0,7 pt. Jour 21/10 seul : 32,4 % (766 / 2 364). Fenetre glissee d'un jour, bloc de depart du 21/09 identique au releve du 21/10. Entre les seuils (20 % / 25 %), en hausse pour le troisieme releve."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "23,2 % (15 851 / 68 435 pools a hook), fenetre 23/09-22/10, registre du jour",
+     "note": "Recompte complet, pas par glissement. Avec le registre du 16/10 : 23,7 %. Temoin : 22/09-21/10 recompte = 22,7 %, identique au chiffre publie. Jour 22/10 : 28,1 % (36,7 % avec le registre du 16/10). Les 4 entrees du 22/10 retirent 0,5 pt a la fenetre. Entre les seuils, en hausse pour le quatrieme releve."
     }
    ],
    "solde": null
@@ -1584,6 +1614,11 @@
      "date": "2026-10-22",
      "valeur": "0,72 % (3,98 M$ sur 550,63 M$) ; 181 marches d'actions dont 10 au-dessus de 1 000 $",
      "note": "API Morpho. Stable. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "0,71 % (3,91 M$ sur 548,38 M$) ; 216 marches d'actions dont 11 au-dessus de 1 000 $",
+     "note": "API Morpho, 508 marches lus en deux pages. Stable. NON SOLDEE."
     }
    ]
   },
@@ -1822,6 +1857,11 @@
      "date": "2026-10-22",
      "valeur": "non re-mesure",
      "note": "Rien a mesurer avant le week-end 24-25/10 (dernier des trois)."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "non re-mesure",
+     "note": "Rien a mesurer avant le week-end 24-25/10 (dernier des trois)."
     }
    ]
   },
@@ -1908,6 +1948,11 @@
      "date": "2026-10-22",
      "valeur": "semaine du test 19-25/10 a J3 : 23,1 pb (2,95 M$ / 1,28 Md$, 19-21/10)",
      "note": "13-19/10 relu a l'identique (24,1 pb) ; temoin 12-18/10 relu 25,5 pb. Sous 50 pb. OUVERTE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "16-22/10 : 23,3 pb (6,64 M$ / 2,85 Md$)",
+     "note": "Approximation par les totaux 7 j de /overview (pas la ventilation /summary de la mesure). Sous 50 pb. OUVERTE."
     }
    ]
   },
@@ -1994,6 +2039,11 @@
      "date": "2026-10-22",
      "valeur": "non re-mesure",
      "note": "Echantillon de swaps non refait. Trou declare (deuxieme jour)."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "non re-mesure",
+     "note": "Echantillon de swaps non refait. Trou declare (troisieme jour)."
     }
    ]
   },
@@ -2278,6 +2328,11 @@
      "date": "2026-10-22",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement de la balise du bloc 94 357 482 au bloc courant (22/10 ~08:30 UTC)",
      "note": "Temoin negatif : adresse bidon hasRole = 0. Aucun changement de controle. OUVERTE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation 0xb354...5ae2 inchangee ; 2 evenements RoleGranted le 22/10",
+     "note": "EVENEMENT : 22/10 19:40:44 et 19:44:43 UTC, l'admin accorde MINTER_ROLE puis BURNER_ROLE au contrat 0x1364...9c08 (proxy, implementation 0x31e1...9113). Le role d'administrateur reste a un compte sans code : seuil non franchi. Aucun Upgraded ni Paused. Temoin negatif : adresse bidon hasRole = 0. OUVERTE."
     }
    ]
   },
@@ -2344,6 +2399,11 @@
      "date": "2026-10-22",
      "valeur": "0 pool cree le 21/10 (recensement complet, 6 444 pools)",
      "note": "Le hook reste a l'arret. Swaps non relus. Echeance 24/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "0 pool cree le 22/10 ; 657 pools au total (recensement complet)",
+     "note": "Le hook reste a l'arret. Swaps non relus. Echeance 24/10 : lecture finale demain. OUVERTE."
     }
    ]
   },
@@ -2448,6 +2508,11 @@
      "date": "2026-10-22",
      "valeur": "20-21/10 = 4,73 M$ (2 jours sur 7 de la semaine 20-26/10)",
      "note": "Semaine du test incomplete ; lecture finale le 27/10. Rythme journalier (2,37 M$/j) compatible avec ~16,6 M$ sur la semaine, soit ~-14 % vs 06-12/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "13-19/10 = 16,95 M$ (-12,0 % vs 06-12/10 = 19,27 M$, lus le meme jour) ; 20-22/10 = 6,74 M$ (3 jours)",
+     "note": "Premiere semaine du test au-dessus de -20 %. Rythme de la seconde (2,25 M$/j) : ~15,7 M$, soit ~-18 %, proche du seuil de -20 %. Lecture finale le 27/10. OUVERTE."
     }
    ]
   },
@@ -2492,6 +2557,11 @@
     },
     {
      "date": "2026-10-22",
+     "valeur": "non re-mesure",
+     "note": "Trou declare."
+    },
+    {
+     "date": "2026-10-23",
      "valeur": "non re-mesure",
      "note": "Trou declare."
     }
@@ -2763,7 +2833,7 @@
    "mesure": "RPC Robinhood Chain, comptage complet par jour UTC : Transfer(from=0x0, to=0xcfaece2151502da2a21d47234ae1f08618a60a94), eth_getLogs sans filtre d'adresse, fenetres de 30 000 blocs ; moyenne lun-ven. Reference 12-16/10 : 1 856 ; 2 252 ; 2 864 ; 1 814 ; 3 640 (moyenne 2 485).",
    "seuil": "CONFIRMEE si 19-23/10 reste au-dessus de 2 000/j. REVISEE si elle tombe sous 1 650/j.",
    "echeance": "2026-10-26",
-   "statut": "OUVERTE",
+   "statut": "CONFIRMEE",
    "solde": null,
    "historique": [
     {
@@ -2785,8 +2855,15 @@
      "date": "2026-10-22",
      "valeur": "19/10 : 1 462 ; 20/10 : 2 019 ; 21/10 : 3 446 emissions (comptage complet, tous destinataires, liste de 133 jetons)",
      "note": "Moyenne 19-21/10 : 2 309/j, au-dessus de 2 000. Temoin 20/10 recompte a l'identique. Lecture finale le 24/10 (jeudi 22 et vendredi 23 restent). OUVERTE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "19/10 : 1 462 ; 20/10 : 2 019 ; 21/10 : 3 448 (recompte) ; 22/10 : 4 792 emissions",
+     "note": "Moyenne 19-22/10 : 2 930/j. Meme a 0 emission le vendredi 23/10, la moyenne 19-23/10 vaut au moins 2 344/j, au-dessus de 2 000 : le seuil CONFIRMEE est atteint sans attendre. 22/10 = plus haut jour compte depuis le 08/10. SOLDEE CONFIRMEE."
     }
-   ]
+   ],
+   "soldee": "2026-10-23",
+   "solde_raison": "Moyenne lun-jeu 19-22/10 = 2 930/j ; plancher mathematique de la moyenne lun-ven = 2 344/j > 2 000, quel que soit le vendredi. Comptage tous destinataires (recepteur 0xc584...e616 depuis le 17/10)."
   },
   {
    "id": "v_20261018_02",
@@ -2817,6 +2894,11 @@
      "date": "2026-10-22",
      "valeur": "mer 21/10 : 1 871 lancements",
      "note": "Point de semaine, sans effet sur le seuil (week-end 24-25/10). Temoin 20/10 recompte a l'identique (1 958). OUVERTE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "jeu 22/10 : 1 598 lancements",
+     "note": "Point de semaine, sans effet sur le seuil (week-end 24-25/10). Temoin 21/10 recompte a l'identique (1 871). OUVERTE."
     }
    ]
   },
@@ -2844,6 +2926,11 @@
      "date": "2026-10-22",
      "valeur": "21/10 : 4 rachats ; nonce Firepit 1 318 ; 30 j pleins 22/09-21/10 : Robinhood 31,4 % contre Ethereum 33,0 %",
      "note": "Semaine 20-26/10 a 8 rachats apres 2 jours. Ethereum devant. OUVERTE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "22/10 : 3 rachats (nonces 1 317-1 319)",
+     "note": "Semaine 20-26/10 a 11 rachats apres 3 jours. Part 30 j Ethereum/Robinhood non relue ce jour. OUVERTE."
     }
    ]
   },
@@ -2866,6 +2953,11 @@
      "date": "2026-10-22",
      "valeur": "DefiLlama 102,85 M$ (22/10 08:08 UTC) ; mesure sur la chaine non refaite",
      "note": "Au-dessus de 80 M$. Ecart avec la chaine non re-mesure (trou declare). OUVERTE."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "DefiLlama 101,83 M$ (23/10 08:13 UTC) ; mesure sur la chaine non refaite",
+     "note": "Au-dessus de 80 M$. Ecart avec la chaine non re-mesure (trou declare). OUVERTE."
     }
    ]
   },
@@ -2883,6 +2975,43 @@
      "date": "2026-10-22",
      "valeur": "8 / 8 mises a jour raccourcies ; conseil sans code (nonce 8) ; versionId 8 ; upgradeStatus 0 (au repos)",
      "note": "Ouverture."
+    },
+    {
+     "date": "2026-10-23",
+     "valeur": "8 / 8 mises a jour raccourcies ; conseil sans code (nonce 8) ; versionId 8 ; upgradeStatus 0",
+     "note": "0 evenement de la porte depuis le bloc 94 300 000. USDG chez Lighter : 106,23 M$ (+1,29 M$). OUVERTE."
+    }
+   ]
+  },
+  {
+   "id": "v_20261023_01",
+   "ouverte": "2026-10-23",
+   "affirmation": "Le registre officiel Uniswap ne suit pas le rythme de la chaine : pendant le gel de 6 jours (16/10 16:30 -> 22/10 17:15 UTC), 1 533 hooks ont servi pour la premiere fois sur Robinhood Chain et 3 sont entres au registre a la reprise. Sur les 30 jours qui suivent, le registre accueille moins de 2 % des hooks nouveaux de la chaine.",
+   "mesure": "RPC : recensement complet des Initialize de la PoolManager v4 0x8366...0951 ; hooks distincts dont le premier pool tombe entre le 23/10 00:00 et le 21/11 23:59 UTC ; part presente chain='robinhood' dans hooklist.json le 22/11. Reference : 3 / 1 533 (0,2 %) pour le gel ; tout l'historique 1 171 / 29 315 (4,0 %).",
+   "seuil": "REVISEE si la part depasse 5 % (le registre rattrape le flux). CONFIRMEE si elle reste sous 2 % le 22/11.",
+   "echeance": "2026-11-22",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-10-23",
+     "valeur": "gel : 3 / 1 533 (0,2 %) ; historique : 1 171 / 29 315 (4,0 %)",
+     "note": "Ouverture. 1 468 des 1 533 hooks du gel n'ont servi qu'a un seul pool."
+    }
+   ]
+  },
+  {
+   "id": "v_20261023_02",
+   "ouverte": "2026-10-23",
+   "affirmation": "LanistaHook, le premier moteur de positions a effet de levier greffe sur Uniswap v4 de la chaine (prix Chainlink, paires USDG), reste une vitrine : ses 72 marches crees le 21/10 n'attirent pas d'echanges reels avant le 06/11.",
+   "mesure": "RPC : evenements Swap de la PoolManager v4 sur les pools dont hooks = 0x2e24565dbd125adcc2b96a86010bc2cade0c6888 (depuis le bloc 94 313 544) ; somme des Transfer USDG 0x5fc5...d168 vers le hook. Reference 23/10 : 72 pools, 3 echanges, 5,90 USDG entres.",
+   "seuil": "REVISEE si plus de 1 000 echanges OU plus de 1 M USDG entres avant le 06/11. CONFIRMEE si moins de 100 echanges ET moins de 100 000 USDG au 06/11.",
+   "echeance": "2026-11-06",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-10-23",
+     "valeur": "72 pools ; 3 echanges ; 5,90 USDG entres et ressortis",
+     "note": "Ouverture. Absent de DefiLlama /protocols. Aucune source web trouvee sur le projet."
     }
    ]
   }
