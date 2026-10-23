@@ -661,6 +661,37 @@
     }
    ],
    "genere": "2026-10-22T09:30:00Z"
+  },
+  {
+   "date": "2026-10-23",
+   "fichier": "rapport/2026-10-23-enquete.html",
+   "titre": "Robinhood Chain, 23/10 : en six jours de gel, 1 533 hooks sont apparus, 3 sont entres au registre",
+   "question": "Le registre officiel des hooks Uniswap a repris le 22/10 apres six jours sans mise a jour. Qu'a-t-il manque pendant ce temps, et que deviennent nos mesures qui s'appuient sur lui ?",
+   "mesure_neuve": "Recensement complet des 1 065 350 pools Uniswap v4 de la chaine : 1 533 hooks ont servi pour la premiere fois pendant le gel du registre (16/10 16:30 -> 22/10 17:15 UTC) ; 3 y sont entres a la reprise. Les 4 entrees du jour retirent a elles seules 8,6 points a la part 'hors registre' du 22/10.",
+   "chiffre_cle": {
+    "valeur": "3 / 1 533",
+    "libelle": "hooks apparus pendant le gel du registre Uniswap qui y sont entres a la reprise",
+    "population": "1 533 hooks au premier pool entre le 16/10 16:30 et le 22/10 17:15 UTC, sur 29 315 hooks distincts recenses (1 065 350 pools v4)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v4_pools_hook_hors_registre_30j_pct",
+     "libelle": "Pools a hook hors registre sur 30 j (un hook = un programme greffe sur un pool)"
+    },
+    {
+     "champ": "hooks_robinhood",
+     "libelle": "Hooks de la chaine au registre officiel"
+    },
+    {
+     "champ": "rh_actions_emissions_jour_tous_destinataires",
+     "libelle": "Actions tokenisees emises par jour (nouveaux jetons crees)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 j de la chaine (ce que les protocoles encaissent)"
+    }
+   ],
+   "genere": "2026-10-23T10:00:00Z"
   }
  ]
 }

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enquête du 23/10/2026 — Robinhood Chain</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#242a47;--card:#10152b;--ok:#6fd6a4;--warn:#f2b66d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:0 18px}
+main{max-width:760px;margin:0 auto;padding-block:28px 64px}
+h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:600;line-height:1.2}
+h1{font-size:2rem;margin:.3em 0 .4em}
+h2{font-size:1.35rem;margin:2.1em 0 .5em;color:var(--acc)}
+.mono,.prov{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;color:var(--mute)}
+.prov{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 14px;margin-bottom:22px}
+.prov b{color:var(--ink);font-weight:600}
+.big{font-family:Georgia,serif;font-size:3.2rem;color:var(--acc);line-height:1;margin:.2em 0 0}
+.card{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500}
+.tw{overflow-x:auto}
+.tag{font-family:ui-monospace,monospace;font-size:.72rem;padding:1px 7px;border-radius:99px;border:1px solid var(--line)}
+.c{color:var(--ok);border-color:var(--ok)}.r{color:var(--warn);border-color:var(--warn)}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.85em;word-break:break-all}
+p{margin:.7em 0}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Relevé du 23/10/2026, 08:13 UTC (vendredi), page générée vers 10:00 UTC.</b> DefiLlama : relu à 08:13 UTC ; son dernier jour plein est le 22/10. Registre Uniswap/hooklist : régénéré le 22/10 à 17:15 UTC, après 6 jours sans régénération. Chaîne : RPC officiel, recensement arrêté au bloc 95 510 160 (22/10 23:59 UTC). SEC et Federal Register : lus à 08:13 UTC. Agent Hermes (delta) : joignable, <code>defi.json</code> généré à 07:40 UTC, 0 bloc en échec ; lu en appoint, aucun chiffre repris. Relevé précédent : 22/10 08:08 UTC, 24 h 05 d'écart.
+</div>
+<p class="mono">ENQUÊTE · UNISWAP V4 × ROBINHOOD CHAIN</p>
+<h1>En six jours de gel, 1 533 hooks sont apparus, 3 sont entrés au registre</h1>
+<p class="big">3 / 1 533</p>
+<p>hooks (un hook est un programme greffé sur un pool d'échange) ont été ajoutés au registre officiel d'Uniswap à sa reprise, sur les 1 533 qui ont servi pour la première fois sur Robinhood Chain pendant son gel. Population : 1 533 hooks dont le premier pool est créé entre le 16/10 16:30 et le 22/10 17:15 UTC, sur 29 315 hooks distincts recensés dans 1 065 350 pools Uniswap v4.</p>
+
+<h2>1. La question</h2>
+<p>Le registre officiel des hooks Uniswap (<code>Uniswap/hooklist</code>) n'a reçu aucune régénération du 16/10 16:30 au 22/10 17:15 UTC. Le 22/10, 22 commits ont fusionné en 16 minutes. Plusieurs de nos mesures s'appuient sur ce registre : la part des pools « hors registre », le taux d'audit, le vocabulaire des descriptions. La question du jour : qu'a-t-il manqué pendant le gel, et qu'est-ce que la reprise change à nos séries ?</p>
+
+<h2>2. Le fil : ce que les veilles disent aujourd'hui</h2>
+<p>19 veilles ouvertes ce matin, toutes datées ce jour. Une est soldée, deux sont ouvertes.</p>
+<div class="card"><span class="tag c">CONFIRMÉE</span> <b>Les émissions d'actions tokenisées tiennent (v_20261018_01).</b> Le jeudi 22/10, Robinhood a émis <b>4 792</b> jetons d'actions (comptage complet, 83 jetons, 100 % vers <code>0xc584…e616</code>). C'est le plus haut jour compté depuis le début des comptages jour par jour (08/10). Moyenne lundi-jeudi 19-22/10 : 2 930 par jour. Même avec zéro émission vendredi, la moyenne de la semaine vaut au moins 2 344, au-dessus du seuil de 2 000. Témoin : le 21/10 recompté donne 3 448, contre 3 446 publiés hier (écart de 2).</div>
+<div class="card"><span class="tag r">ÉVÉNEMENT</span> <b>Nouveaux droits d'émission sur les jetons d'actions (v_20261008_02).</b> Le 22/10 à 19:40 et 19:44 UTC, l'administrateur de la balise commune aux jetons d'actions, un compte à clé unique (<code>0xd6f8…b66d</code>), accorde le droit d'émettre (<code>MINTER_ROLE</code>) puis celui de détruire (<code>BURNER_ROLE</code>) à un nouveau contrat, <code>0x1364…9c08</code>. Ce contrat est un proxy déjà très actif : 84 090 événements entre les blocs 93 M et 95 M. Aucun droit retiré. Le seuil de la veille n'est pas franchi : l'administrateur reste un compte sans code.</div>
+<div class="card"><span class="tag r">EN HAUSSE</span> <b>Le registre décrit de moins en moins le flux (v_20260925_01).</b> Sur 30 jours (23/09-22/10), <b>15 851 des 68 435</b> pools v4 à hook (23,2 %) utilisent un hook absent du registre. Recompte complet, pas par glissement. Avec le registre d'avant la reprise : 23,7 %. Quatrième relevé en hausse, sous le seuil de 25 %.</div>
+<div class="card"><span class="tag">EN COURS</span> <b>Le plancher des frais (v_20261013_01).</b> Semaine 13-19/10 : 16,95 M$, soit −12,0 % contre 06-12/10 (19,27 M$), les deux relues ce jour. Elle passe le seuil de −20 %. Semaine 20-26/10 : 6,74 M$ en 3 jours. À ce rythme, elle finirait vers −18 %, près du seuil.</div>
+<p class="mono">Autres veilles relues, loin des seuils : flags des hooks 72,5 % / 26,2 % ; v3 36,3 % du volume 30 j ; Pons 25,4 % des frais 30 j ; actions 0,71 % du collatéral Morpho ; v4 à 23,3 pb sur 7 j (approximation par les totaux) ; Lighter 8/8 mises à jour raccourcies, porte au repos ; 3 rachats d'UNI le 22/10 ; 1 598 lancements Pons le 22/10 ; v3 à 101,8 M$ chez DefiLlama ; hook 0xfcd1 : 0 pool le 22/10. Trous déclarés : échantillon des échanges v4 par type de hook (3e jour), échantillon WORM, recomptage des pools v3 sur la chaîne.</p>
+
+<h2>3. Ce qui a été mesuré</h2>
+<p class="mono">Méthode : recensement complet des événements Initialize de la PoolManager v4 (bloc 9 505 → 95 510 160), croisé avec le registre du 16/10 (commit 31258a8b) et celui du 22/10 (commit b15904c8).</p>
+<p><b>Le recensement.</b> 1 065 350 pools v4 depuis le premier, dont 365 493 à hook. Ils utilisent <b>29 315 hooks distincts</b>, dont 1 171 au registre (4,0 %). Le 26/09, le même recensement comptait 23 362 hooks. Témoins : le 21/10 recompté donne 6 444 pools dont 2 364 à hook, identique au relevé d'hier ; la fenêtre 22/09-21/10 recomptée avec le registre du 16/10 donne 22,7 %, identique au chiffre publié hier par glissement.</p>
+<p><b>Le gel.</b> Du 16/10 16:30 au 22/10 17:15 UTC, 14 215 pools à hook sont créés. <b>1 533 hooks</b> servent pour la première fois. 1 468 d'entre eux ne servent qu'à un seul pool. À la reprise, le registre ajoute 15 entrées toutes chaînes, 4 sur Robinhood Chain, et n'en retire aucune :</p>
+<div class="tw"><table>
+<tr><th>Entrée</th><th>Ce que dit la description</th><th>Pools sur la chaîne</th><th>Premier pool</th></tr>
+<tr><td>Pangea Multichain Hook <code>0x15e5…a8cc</code></td><td>prélève les frais en devise de cotation, pools enregistrés par des fabriques autorisées</td><td>313</td><td>16/10, avant le gel</td></tr>
+<tr><td>LanistaHook <code>0x2e24…6888</code></td><td>remplace la formule du pool par un moteur de positions à effet de levier au prix Chainlink, paires USDG</td><td>72</td><td>21/10</td></tr>
+<tr><td>LaunchHook <code>0x41d2…6aec</code></td><td>courbe de lancement, taxe de 99 % les 3 premières secondes</td><td>1</td><td>18/10</td></tr>
+<tr><td>PonsV2MemeHook <code>0xe6da…a044</code></td><td>prélèvement et rachat-blocage pour les jetons Pons diplômés</td><td>1</td><td>20/10</td></tr>
+</table></div>
+<p>Trois de ces quatre hooks sont nés pendant le gel. Aucun ne porte de lien d'audit.</p>
+<p><b>L'effet sur nos séries.</b> Quatre entrées suffisent à déplacer la mesure du jour. Le 22/10, 524 des 1 868 pools à hook sont hors registre avec le registre du jour (28,1 %). Avec celui du 16/10, ils sont 686 (36,7 %). Écart : <b>8,6 points</b>, dû surtout aux 313 pools de Pangea. Sur 30 jours, l'écart est de 0,5 point. Une part « hors registre » mesure donc autant le rythme de relecture du registre que la chaîne elle-même.</p>
+<p><b>Lanista, le seul mécanisme neuf.</b> LanistaHook est le premier moteur de positions à effet de levier greffé sur Uniswap v4 qu'on trouve sur la chaîne. Sur la chaîne, ses 72 pools sont créés le 21/10 en 14 minutes, tous par le même compte (<code>0xefE2…FcA</code>), tous appariés à l'USDG (le dollar numérique de Paxos). Depuis : <b>3 échanges</b>, tous passés par le routeur <code>0x8876…0904</code> déjà vu dans les pools WORM, et <b>5,90 USDG</b> entrés puis ressortis. Solde du hook : 0. Lanista n'a pas de fiche DefiLlama. La recherche web n'a rien trouvé.</p>
+<p><b>Le reste de la chaîne.</b> Le 22/10 compte 4 547 pools v4 créés, contre 6 444 la veille (−29 %). Doppler, le premier hook de la chaîne, en crée 1 100, son plus bas de la semaine. Pons lance 1 598 jetons (1 871 la veille). Les frais d'Uniswap brûlent 3 × 2 000 UNI (nonces 1 317 à 1 319).</p>
+
+<h2>4. Le delta contre la veille</h2>
+<div class="tw"><table>
+<tr><th>Mesure (source, heure)</th><th>22/10 08:08</th><th>23/10 08:13</th><th>Écart</th></tr>
+<tr><td>TVL de la chaîne (DefiLlama)</td><td>1 147,8 M$</td><td>1 139,3 M$</td><td>−0,7 %</td></tr>
+<tr><td>TVL Uniswap v4 sur la chaîne</td><td>189,8 M$</td><td>184,0 M$</td><td>−3,1 %</td></tr>
+<tr><td>Volume DEX 30 j, chaîne</td><td>33,21 Md$</td><td>32,37 Md$</td><td>−2,5 %</td></tr>
+<tr><td>Volume DEX 24 h, chaîne</td><td>909 M$</td><td>748 M$</td><td>−17,8 %</td></tr>
+<tr><td>Frais 30 j, chaîne</td><td>111,48 M$</td><td>105,75 M$</td><td>−5,1 %</td></tr>
+<tr><td>Hooks de la chaîne au registre</td><td>1 191</td><td>1 195</td><td>+4</td></tr>
+<tr><td>Pools à hook hors registre, 30 j (RPC)</td><td>22,7 %</td><td>23,2 %</td><td>+0,5 pt</td></tr>
+<tr><td>Émissions d'actions, dernier jour plein (RPC)</td><td>3 446 (21/10)</td><td>4 792 (22/10)</td><td>+39 %</td></tr>
+<tr><td>Part de Pons V2 dans les frais 30 j</td><td>26,0 %</td><td>25,4 %</td><td>−0,6 pt</td></tr>
+<tr><td>USDG chez Lighter / Arcus (RPC)</td><td>104,94 / 64,01 M$</td><td>106,23 / 63,15 M$</td><td>+1,29 / −0,86 M$</td></tr>
+</table></div>
+<p>Le −5,1 % des frais sur 30 jours vient en partie de la fenêtre : le 22/09, sorti ce jour, tombait avant la fin du gaz gratuit (29/09). DefiLlama a ajouté 4 adaptateurs sur la chaîne le 22/10 (FlowRouter, Dexstock, TradeWood, sapling). Le volume 30 j n'est donc pas à périmètre constant.</p>
+
+<h2>5. La cohorte</h2>
+<p>Score de preuve recalculé sur les 285 protocoles de la chaîne chez DefiLlama : 76 liens d'audit sur 81 répondent HTTP 200 ; 49 comptes GitHub sur 51 existent (témoins : ARMSys26 en 404, Uniswap en 200). Répartition : 194 à 0, 35 à 1, 42 à 2, 13 à 3, 1 à 4. Les mêmes 5 candidats qu'hier ; Beefy dépasse GIGA V3 sur la preuve et la TVL pour le 3e jour, pas sur les frais. Aucun remplacement, aucune sortie, aucune entrée.</p>
+<div class="tw"><table>
+<tr><th>Membre</th><th>Score</th><th>TVL chaîne</th><th>Frais 30 j</th><th>Ratio frais / Pons V2</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td>0</td><td>114,7 M$</td><td>2,26 M$</td><td>0,084</td></tr>
+<tr><td>Arcus Perps</td><td>0</td><td>63,1 M$</td><td>1,82 M$</td><td>0,068</td></tr>
+<tr><td>Fables</td><td>1</td><td>26,0 M$ (−9,0 %)</td><td>4,62 M$</td><td>0,172</td></tr>
+<tr><td>Snuggle</td><td>2</td><td>6,04 M$</td><td>0,77 M$</td><td>0,029</td></tr>
+<tr><td>up v3</td><td>0</td><td>4,82 M$</td><td>0,83 M$</td><td>0,031</td></tr>
+<tr><td>UNCX Network V3</td><td>2</td><td>4,07 M$</td><td>0</td><td>0</td></tr>
+<tr><td>Ekubo</td><td>2</td><td>1,31 M$</td><td>45,5 k$</td><td>0,002</td></tr>
+<tr><td>GIGA V3</td><td>0</td><td>0,87 M$</td><td>63,0 k$</td><td>0,002</td></tr>
+<tr><td>StonkBrokers (7 lignes)</td><td>0</td><td>—</td><td>304,3 k$</td><td>0,011</td></tr>
+<tr><td>TermMax</td><td>3</td><td>11,1 k$</td><td>0</td><td>0</td></tr>
+</table></div>
+<p><b>Ce qui a bougé.</b> Fables perd 9 % de TVL en un jour, sans explication trouvée ; son audit affiche toujours 3 sans lien (piège P5). StonkBrokers tombe de 415,4 à 304,3 k$ de frais 30 j sur son périmètre complet : Safe Launch passe de 35,5 k$ à 0,8 k$ en un jour. Le critère de sortie (200 k$) n'est pas franchi, mais il peut l'être avant le 31/10.</p>
+<p><b>Ce qui ne bouge pas et devrait inquiéter.</b> TermMax : TVL de 11,1 k$, critère de sortie (0,5 M$) le 31/10. Lighter et Arcus, les deux premières TVL, restent à un score de preuve de 0.</p>
+<p><b>La contre-référence.</b> Pons V2 encaisse 26,84 M$ sur 30 jours, soit 25,4 % des frais de la chaîne. Aucun membre n'atteint 20 % de ce chiffre. Le registre ajoute une entrée « PonsV2MemeHook » sans adresse de déploiement : rien ne prouve qu'elle appartient à Pons (piège P6), la composante hooks de Pons ne change pas. La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</p>
+
+<h2>6. Ce qui contredit</h2>
+<p><b>Contre ma lecture « le registre décroche ».</b> Le registre n'a jamais prétendu recenser : il accepte des soumissions. 1 468 des 1 533 hooks du gel n'ont servi qu'à un seul pool, souvent des lanceurs à jeton unique. Si l'on pèse par pools et non par hooks, le registre couvre encore 76,8 % des pools à hook sur 30 jours. Le bon chiffre dépend de la question : le registre décrit mal la diversité des hooks, et correctement le gros du flux.</p>
+<p><b>Contre une hausse des actions tokenisées.</b> Le jour du record d'émissions (22/10), le volume DEX de la chaîne baisse de 17,8 % sur 24 h et les créations de pools de 29 %. Les émissions mesurent les jetons créés pour les clients de Robinhood, pas les échanges sur la chaîne. Les actions restent à 0,71 % du collatéral de Morpho.</p>
+<p><b>Contre Lanista comme signal d'innovation.</b> Un mécanisme décrit au registre n'est pas un mécanisme utilisé : 3 échanges et 5,90 USDG en deux jours. Une source externe (outil <code>hookguard</code>, presse non recoupée) trouve sur Unichain un registre qui couvre 1,24 % des hooks : notre 4,0 % n'est pas une exception de Robinhood Chain.</p>
+
+<h2>7. Ce qu'on ne sait pas</h2>
+<p>Ce que fait le contrat <code>0x1364…9c08</code> qui reçoit les droits d'émission : ses 84 090 événements portent une adresse, un nombre et un horodatage, ce qui ressemble à un flux de prix ; sa nature n'est pas établie. Pourquoi Fables perd 9 % de TVL. Qui est derrière Lanista : le propriétaire du hook est un contrat (<code>0x1bc7…dc7e</code>) non identifié. Le nombre total de lettres au dossier SEC 4-927 : toujours illisible par script ; 6 lettres sont datées des 21-22/10, dont Better Markets et le Solana Policy Institute, aucune n'est un avis de plateforme d'actions tokenisées. Le Federal Register reste à 308 documents.</p>
+<p><b>Deux veilles ouvertes ce jour.</b> v_20261023_01 : sur 30 jours, le registre accueille moins de 2 % des hooks nouveaux de la chaîne (échéance 22/11). v_20261023_02 : Lanista reste sous 100 échanges et 100 000 USDG au 06/11.</p>
+<p class="mono">Pièges du mémo re-vérifiés ce jour : P1 (champ chaînes vide : StonkBrokers, Pons), P5 (Fables, 3 audits sans lien), P6 (PonsV2MemeHook rattaché par le nom seulement), P7 (chaque chiffre porte sa population), P8 (revenu aux détenteurs : Pons V1+V2 4,47 M$ > total déclaré 4,44 M$), P10 (4 adaptateurs nouveaux le 22/10), P11 (registre ≠ recensement), santé de la source (historique des commits du registre lu avant toute conclusion).</p>
+<p class="mono">Sources : RPC rpc.mainnet.chain.robinhood.com ; api.llama.fi ; raw.githubusercontent.com/Uniswap/hooklist (commits 31258a8b et b15904c8) ; api.github.com ; blue-api.morpho.org ; api.coingecko.com ; sec.gov 4-927 ; federalregister.gov ; pypi.org/project/hookguard (presse, non recoupé).</p>
+</main>
+</body>
+</html>
