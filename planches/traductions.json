@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-23T03:46:02Z",
+"generated_at": "2026-10-23T06:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 139,
+"n_affiches": 138,
 "n_refuses": 0,
-"n_traduits": 55,
+"n_traduits": 54,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -41,7 +41,6 @@
 "Qubic restarts blockchain, opens recovery claims after $1.4M hack": "Qubic redémarre sa blockchain et ouvre des réclamations de récupération après un piratage de 1,4 M$",
 "Risk Stewards: Cap Increases on Aave V4 / 2026.10.16": "Risk Stewards : hausses de plafonds sur Aave V4 / 2026.10.16",
 "Risk Stewards: Cap Reductions and USDT IRM Change on Aave V3 / 2026.10.19": "Risk Stewards : baisses de plafonds et changement d’IRM pour l’USDT sur Aave V3 / 2026.10.19",
-"Securitize stock jumps over 10% after launching tokenized US equities on Solana": "L'action Securitize bondit de plus de 10% après le lancement d'actions américaines tokenisées sur Solana",
 "SharpLink Says It Deployed $400 Million Across Ether.fi and Lido": "SharpLink annonce avoir déployé 400M$ sur Ether.fi et Lido",
 "Solana treasury firm SkyAI sells all SOL holdings, launches $201M buyback": "La société de trésorerie en SOL SkyAI vend toutes ses positions en SOL et lance un rachat d'actions de $201M",
 "SpaceX Share Unlock Looms Over Aave Collateral Proposal": "Le déblocage d'actions SpaceX plane sur la proposition de collatéral d'Aave",
