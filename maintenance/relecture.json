@@ -1,42 +1,28 @@
 {
  "defauts": [
   {
-   "constat": "La légende en bas à gauche est recouverte par les pastilles Aerodrome et HumidiFi (« trait : médiane du secteur »).",
-   "ecran": "telephone",
+   "constat": "Trois disques sans nom sur la scène : celui du groupe « cités » juste à gauche d'Uniswap, celui du groupe « chiffre instable » à droite de Meteora et celui du groupe « suivis, jamais valorisés » ; leur nom n'apparaît qu'en bas, par survol.",
+   "ecran": "ordinateur",
    "gravite": "gene",
+   "type": "sans_nom",
+   "vue": "Attention"
+  },
+  {
+   "constat": "L'infobulle de Pons V2 affiche « 23,3 M$ de frais en 30 j » : le mot « jours » est coupé au bord droit.",
+   "ecran": "ordinateur",
+   "gravite": "gene",
+   "type": "texte_coupe",
+   "vue": "Cohorte"
+  },
+  {
+   "constat": "La légende « une pièce : une année de frais » recouvre la ligne HumidiFi ; on ne voit qu'un anneau, sans nom ni valeur.",
+   "ecran": "telephone",
+   "gravite": "bloquant",
    "type": "chevauchement",
    "vue": "Prix des frais · Échanges"
-  },
-  {
-   "constat": "Une pastille bleue recouvre la fin du libellé « Tether Gold × 510,4».",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "chevauchement",
-   "vue": "Attention"
-  },
-  {
-   "constat": "La pastille Meteora recouvre le chiffre de « EigenCloud × 4,0».",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "chevauchement",
-   "vue": "Attention"
-  },
-  {
-   "constat": "La pastille HumidiFi n'a ni nom ni valeur visibles : le titre annonce 8 chiffres instables, seuls 7 sont nommés.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Attention"
-  },
-  {
-   "constat": "Le segment Hyperliquid L1 (6,9 Md$) de la colonne « par chaîne » n'a pas de libellé sur le téléphone.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Argent stable · Où ils sont"
   }
  ],
  "jour": "2026-10-25",
  "n_captures": 34,
- "quand": "2026-10-25T06:40:13Z"
+ "quand": "2026-10-25T08:21:53Z"
 }
