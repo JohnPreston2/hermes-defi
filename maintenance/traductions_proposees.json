@@ -171,6 +171,11 @@
   "quand": "2026-10-18T07:31:23Z",
   "statut": "ok"
  },
+ "Base DEX structural fracture unreported. Native venue Aerodrome Slipstream in silent freefall. One fee watch issued to capture continued evaporation.": {
+  "fr": "Fracture structurelle non signalée de la base DEX. Plateforme native Aerodrome Slipstream en chute libre silencieuse. Une veille des frais a été émise pour suivre l'évaporation continue.",
+  "quand": "2026-10-25T15:07:32Z",
+  "statut": "ok"
+ },
  "Base Introduces Earn & Borrow With Aave and Morpho": {
   "fr": "Base lance Earn & Borrow avec Aave et Morpho",
   "quand": "2026-10-14T15:10:04Z",
@@ -194,6 +199,11 @@
  "BitGo launches innovation unit to design crypto’s next breakout application": {
   "fr": "BitGo lance une unité d'innovation pour concevoir la prochaine application phare de la crypto",
   "quand": "2026-10-21T15:07:27Z",
+  "statut": "ok"
+ },
+ "Bitcoin ETFs Bleed $636 Million as October Turns Red Again": {
+  "fr": "Les ETF bitcoin perdent $636 Million alors qu'octobre repasse dans le rouge",
+  "quand": "2026-10-25T15:07:32Z",
   "statut": "ok"
  },
  "Bitcoin ETFs Erase October Losses With $1 Billion in Three Days": {
@@ -1050,6 +1060,11 @@
  "Kazakhstan court bars Coinbase, five others from unlicensed crypto services in Astana International Financial Centre": {
   "fr": "Un tribunal kazakh interdit à Coinbase et à cinq autres sociétés de proposer des services crypto sans licence au Centre financier international d’Astana",
   "quand": "2026-10-21T13:36:37Z",
+  "statut": "ok"
+ },
+ "Keystone Website Breach Exposes Customer Addresses and Order Details": {
+  "fr": "Une faille du site Keystone expose les adresses clients et les détails des commandes",
+  "quand": "2026-10-25T15:07:32Z",
   "statut": "ok"
  },
  "LST sector at 3rd percentile is structural, not cyclical — institutions migrate to dedicated stVaults outside generic TVL metrics. Published 2 watches on Lido and ether.fi to track persistence.": {
@@ -2155,6 +2170,11 @@
  "X100 Exploit Nets 4.85 Million USDT After Governance Takeover": {
   "fr": "L'exploit X100 rapporte 4,85 millions USDT après une prise de contrôle de la gouvernance",
   "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "X100 Exploit Proceeds Split Into Four 400-ETH Wallets": {
+  "fr": "Le produit de l'exploit X100 réparti en quatre portefeuilles de 400 ETH",
+  "quand": "2026-10-25T15:07:32Z",
   "statut": "ok"
  },
  "XRP Ledger is set to fix its lending code before anyone can use it": {
