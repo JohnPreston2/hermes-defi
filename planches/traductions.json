@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-25T06:46:02Z",
+"generated_at": "2026-10-25T09:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 129,
+"n_affiches": 127,
 "n_refuses": 0,
-"n_traduits": 77,
+"n_traduits": 75,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -16,7 +16,6 @@
 "Atlas Edit Weekly Cycle Proposal - Week Of 2026-10-26": "Proposition de cycle hebdomadaire Atlas Edit, semaine du 2026-10-26",
 "Babylon Native BTC on Aave Ethereum Assessments": "Babylon Native BTC sur Aave Ethereum : évaluations",
 "Bitcoin consolidates after 3% loss as AI fears stoke fresh stock-market weakness": "Le bitcoin se consolide après une baisse de 3 %, les craintes liées à l'IA ravivant la faiblesse des marchés boursiers",
-"Bitcoin, gold trim early losses as yen gives up gains. Oil stays near $100": "Bitcoin et l’or réduisent leurs pertes du début de séance alors que le yen abandonne ses gains. Le pétrole reste proche de 100 $",
 "Bitwise, Hyperliquid seek SEC rule changes for token trading, airdrops": "Bitwise et Hyperliquid demandent à la SEC de modifier les règles sur le trading de jetons et les airdrops",
 "Bounty payout request for Immunefi bugs #86831, #93482 and #94379": "Demande de paiement de prime pour les bugs Immunefi #86831, #93482 et #94379",
 "Cardano holders are being asked to bet $5 million on copper hitting a new record": "Les détenteurs de Cardano sont invités à miser 5 millions $ sur un nouveau record du cuivre",
@@ -44,7 +43,6 @@
 "JUP Rises 51% in Four Weeks as Jupiter Fees Decline": "JUP progresse de 51% en quatre semaines, alors que les frais de Jupiter baissent",
 "Jupiter Says YOLO Hit $1 Billion in Volume in Under 24 Hours": "Jupiter affirme que YOLO a atteint $1B de volume en moins de 24 heures",
 "Ledger Adds Morpho Loans Against Wrapped Bitcoin": "Ledger ajoute des prêts Morpho contre du Wrapped Bitcoin",
-"Malaysia and Thailand Join Singapore’s BLOOM Digital-Money Initiative": "La Malaisie et la Thaïlande rejoignent l’initiative BLOOM de monnaie numérique de Singapour",
 "Morpho Opens Robinhood Stock Tokens to Stablecoin Borrowing": "Morpho ouvre les tokens d'actions Robinhood aux emprunts en stablecoins",
 "Netanyahu Considering Crypto Plan to Dodge Banking Sanctions on Israel": "Netanyahu envisage un plan crypto pour contourner les sanctions bancaires visant Israël",
 "New York seeks over $1.3 billion from NovaTech founders after couple fled the US": "New York réclame plus de 1,3 milliard $ aux fondateurs de NovaTech après la fuite du couple hors des États-Unis",
