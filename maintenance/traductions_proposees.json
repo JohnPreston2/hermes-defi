@@ -37,6 +37,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "API Key Rotation: What Revocation and Redeployment Actually Change": {
+  "fr": "Rotation des clés API : ce que la révocation et le redéploiement changent réellement",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "Aave V4’s Arc Markets Connect Dollar-Euro Loans to Shared Liquidity": {
   "fr": "Les Arc Markets d’Aave V4 relient des prêts dollar-euro à une liquidité partagée",
   "quand": "2026-10-16T11:59:16Z",
@@ -45,6 +50,16 @@
  "Aerodrome and Velodrome merge to launch Aero across seven blockchain networks": {
   "fr": "Aerodrome et Velodrome fusionnent pour lancer Aero sur sept réseaux blockchain",
   "quand": "2026-10-23T07:07:43Z",
+  "statut": "ok"
+ },
+ "Agora Freezes AUSD Account Linked to Initia Exploit": {
+  "fr": "Agora gèle un compte AUSD lié à l'exploit d'Initia",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "Agora Says Initia Exploit Hit Third-Party Product Using AUSD": {
+  "fr": "Agora indique que l'exploit d'Initia a touché un produit tiers utilisant AUSD",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Altcoins rally on thin trading as bitcoin holds below $83,500": {
@@ -72,6 +87,16 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Arbitrum Proposal Would Reopen Stylus Activations With Foundation Sign-Off": {
+  "fr": "Une proposition Arbitrum rouvrirait les activations Stylus, avec l'aval de la fondation",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "Argentine Judge Dismisses LIBRA Criminal Case Against Milei and 10 Others": {
+  "fr": "Un juge argentin rejette l'affaire pénale LIBRA contre Milei et 10 autres personnes",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "Aster Sets PAPER Perp Delisting After Transferability Decision": {
   "fr": "Aster fixe la radiation des contrats perpétuels PAPER après une décision sur la transférabilité",
   "quand": "2026-10-20T15:07:44Z",
@@ -85,6 +110,11 @@
  "Atlas Edit Weekly Cycle Proposal - Week Of 2026-10-19": {
   "fr": "Atlas Edit : proposition de cycle hebdomadaire, semaine du 2026-10-19",
   "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
+ "Atlas Edit Weekly Cycle Proposal - Week Of 2026-10-26": {
+  "fr": "Proposition de cycle hebdomadaire Atlas Edit, semaine du 2026-10-26",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Australia seeks feedback on crypto platform rules ahead of 2027 rollout": {
@@ -115,6 +145,11 @@
  "Babylon Advances Native Bitcoin Collateral Plan for Aave V4": {
   "fr": "Babylon fait avancer son projet de garantie en Bitcoin natif pour Aave V4",
   "quand": "2026-10-14T23:08:52Z",
+  "statut": "ok"
+ },
+ "Babylon Native BTC on Aave Ethereum Assessments": {
+  "fr": "Babylon Native BTC sur Aave Ethereum : évaluations",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Balaji’s ‘Singapore of social media’ begins with a wave of bans": {
@@ -215,6 +250,11 @@
  "Bitcoin climbs toward $84,000 after Fed’s Williams sees no rate hikes in 2027": {
   "fr": "Le bitcoin grimpe vers 84,000 $ après que Williams, de la Fed, n'anticipe aucune hausse de taux en 2027",
   "quand": "2026-10-14T11:08:54Z",
+  "statut": "ok"
+ },
+ "Bitcoin consolidates after 3% loss as AI fears stoke fresh stock-market weakness": {
+  "fr": "Le bitcoin se consolide après une baisse de 3 %, les craintes liées à l'IA ravivant la faiblesse des marchés boursiers",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Bitcoin diverges from South Korean stocks as AI concerns deepen the Kospi selloff": {
@@ -556,6 +596,11 @@
   "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
+ "Crypto Scammers Who Used Prayer Groups to Lure Victims Must Pay $1.3 Billion, Says New York": {
+  "fr": "Les escrocs crypto qui ont utilisé des groupes de prière pour attirer leurs victimes doivent payer 1,3 milliard $, selon New York",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "Crypto audits give investors false sense of security as Q3 hacks cost $1.18 billion, Hacken says": {
   "fr": "Les audits crypto donnent un faux sentiment de sécurité, les piratages du T3 ayant coûté 1,18 milliard de dollars selon Hacken",
   "quand": "2026-10-19T07:07:36Z",
@@ -564,6 +609,11 @@
  "Crypto firms, Wall Street push SEC to revise Regulation Crypto Assets as comments close": {
   "fr": "Des acteurs de la crypto et Wall Street poussent la SEC à réviser la « Regulation Crypto Assets » à la clôture des commentaires",
   "quand": "2026-10-21T13:36:37Z",
+  "statut": "ok"
+ },
+ "Crypto longs lose $404 million in four hours as bitcoin briefly slips below $80,000": {
+  "fr": "Les positions longues sur les cryptos perdent 404 millions $ en quatre heures, le bitcoin passant brièvement sous 80,000 $",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Crypto traders price India telecoms company Reliance Jio's IPO at about $110 billion": {
@@ -638,6 +688,11 @@
  "DelegationManager implementation replaced 27 Aug 2026 (+88 bytes, unchanged ABI)": {
   "fr": "Implémentation de DelegationManager remplacée le 27 août 2026 (+88 octets, ABI inchangée)",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Delist scam LDO": {
+  "fr": "Retrait de LDO : arnaque",
+  "quand": "2026-10-25T06:09:06Z",
   "statut": "ok"
  },
  "Deutsche Bank targets Asia crypto custody expansion in 2027 as German launch nears": {
@@ -721,6 +776,11 @@
  "Ether ETFs Lose $320 Million, Overtaking Bitcoin's Weekly Outflows": {
   "fr": "Les ETF Ether perdent 320 millions de $, dépassant les sorties hebdomadaires de Bitcoin",
   "quand": "2026-10-17T15:07:31Z",
+  "statut": "ok"
+ },
+ "Ether Falls Below $2,300 as 28-Day Loss Reaches 14.7%": {
+  "fr": "Ether passe sous 2,300 $ alors que la perte sur 28 jours atteint 14,7 %",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Ether.fi Announces Dollar Stablecoin Powered by Ethena": {
@@ -843,6 +903,11 @@
   "quand": "2026-10-16T15:59:12Z",
   "statut": "ok"
  },
+ "Global Dollar (USDG) on Aave Arbitrum Assessments": {
+  "fr": "Global Dollar (USDG) : évaluations sur Aave Arbitrum",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "Godfather of AI and 400 Scientists Want AI Models Cut Off From the Internet": {
   "fr": "Le « parrain de l'IA » et 400 scientifiques veulent isoler les modèles d'IA d'Internet",
   "quand": "2026-10-15T11:07:37Z",
@@ -883,6 +948,16 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Hyperliquid’s Yan and CME’s Duffy Split Over Who Must Bear US Compliance": {
+  "fr": "Yan d'Hyperliquid et Duffy du CME divergent sur qui doit assumer la conformité américaine",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "IRYS Surges 1,200% Past May Listing Peak": {
+  "fr": "IRYS grimpe de 1,200 % au-delà de son sommet de cotation de mai",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "India's largest exchange denies hack after sleuths pointed to $16 million in suspicious outflows": {
   "fr": "La plus grande plateforme d'échange indienne nie un piratage après que des enquêteurs ont signalé $16 million de sorties suspectes",
   "quand": "2026-10-23T19:16:31Z",
@@ -896,6 +971,11 @@
  "Institutional Comet: Transition Plan to Compound Governance": {
   "fr": "Institutional Comet : plan de transition vers la gouvernance de Compound",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Introducing 0x02 CSM: A Permissionless Path to Running Higher-Balance Validators": {
+  "fr": "Présentation de 0x02 CSM : une voie sans autorisation pour faire tourner des validateurs à solde plus élevé",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Irish cenbank fines Coinbase arm $3.6M for oversight, safeguard failures": {
@@ -1195,9 +1275,24 @@
   "quand": "2026-10-15T11:07:37Z",
   "statut": "ok"
  },
+ "Netanyahu Considering Crypto Plan to Dodge Banking Sanctions on Israel": {
+  "fr": "Netanyahu envisage un plan crypto pour contourner les sanctions bancaires visant Israël",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "New York seeks over $1.3 billion from NovaTech founders after couple fled the US": {
+  "fr": "New York réclame plus de 1,3 milliard $ aux fondateurs de NovaTech après la fuite du couple hors des États-Unis",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "Node Operator Admission: 2xStake as stVault Basic Operator": {
   "fr": "Admission d'un opérateur de nœud : 2xStake comme opérateur de base de stVault",
   "quand": "2026-10-14T15:10:04Z",
+  "statut": "ok"
+ },
+ "Not All ETH ETPs Are Equal": {
+  "fr": "Tous les ETP ETH ne se valent pas",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "OCC Finalizes GENIUS Act Rule, Drops Third-Party Yield Presumption": {
@@ -1374,6 +1469,11 @@
   "quand": "2026-10-21T13:36:37Z",
   "statut": "ok"
  },
+ "Question regarding Acier's alleged misrepresentation and deception of investors": {
+  "fr": "Question concernant les fausses déclarations et tromperies présumées d'Acier envers les investisseurs",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "RWA Foundation/HVB - Monthly Reporting (September 2026)": {
   "fr": "Fondation RWA/HVB - Rapport mensuel (septembre 2026)",
   "quand": "2026-10-23T19:16:31Z",
@@ -1429,9 +1529,19 @@
   "quand": "2026-10-14T11:08:54Z",
   "statut": "ok"
  },
+ "Risk Stewards: Cap and IRM Changes on Aave V3 / 2026.10.23": {
+  "fr": "Risk Stewards : modifications des plafonds et des IRM sur Aave V3 / 2026.10.23",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "Risk Stewards: Cap and IRM Changes on Aave V4 / 2026.10.09": {
   "fr": "Risk Stewards : changements de plafond et d'IRM sur Aave V4 / 2026.10.09",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Risk Stewards: Cap and IRM Changes on Aave V4 / 2026.10.23": {
+  "fr": "Risk Stewards : modifications des plafonds et des IRM sur Aave V4 / 2026.10.23",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Risk Stewards: JAAA Reserve Parameter Update on Aave V3 Horizon / 2026.10.15": {
@@ -1477,6 +1587,16 @@
  "SAEP-24: Update Risk Curation Framework": {
   "fr": "SAEP-24 : mise à jour du cadre de curation des risques",
   "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
+ "SEC Flags AI 'Super Intelligence' and Tokenization as Systemic Market Risks": {
+  "fr": "La SEC signale l'« IA super-intelligente » et la tokenisation comme risques systémiques pour les marchés",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "SEC flags tokenization as high-risk area in 2027 market examinations": {
+  "fr": "La SEC classe la tokenisation parmi les domaines à haut risque des examens de marché 2027",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "SEC tokenized stock framework faces issuer pushback as Broadcom, Verizon object to OKX-ICE listing": {
@@ -1531,6 +1651,11 @@
  "Securitize stock jumps over 10% after launching tokenized US equities on Solana": {
   "fr": "L'action Securitize bondit de plus de 10 % après le lancement d'actions américaines tokenisées sur Solana",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Senate Democrat Probes Tether Payments to Ex-White House Crypto Adviser’s Firm": {
+  "fr": "Un démocrate du Sénat enquête sur les paiements de Tether à la société d'un ex-conseiller crypto de la Maison-Blanche",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Senate's top Democratic investigator looking into Tether payments to Bo Hines' firm": {
@@ -1683,6 +1808,11 @@
   "quand": "2026-10-19T19:07:34Z",
   "statut": "ok"
  },
+ "Strategy, Strive face balancing act between bitcoin buying and preferred stock dividends": {
+  "fr": "Strategy et Strive jonglent entre achats de bitcoin et dividendes des actions privilégiées",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "Strategy’s preferred stock financing may cost it bitcoin, K33 argues": {
   "fr": "Le financement par actions privilégiées de Strategy pourrait lui coûter du bitcoin, selon K33",
   "quand": "2026-10-14T23:08:52Z",
@@ -1773,6 +1903,11 @@
  "The Coinbase allegations expose Bitcoin's corporate governance gap": {
   "fr": "Les accusations visant Coinbase révèlent la lacune de gouvernance d’entreprise du bitcoin",
   "quand": "2026-10-21T13:36:37Z",
+  "statut": "ok"
+ },
+ "Third X100 Exploit Transaction Pulls 550,000 X From Uniswap Pool": {
+  "fr": "Troisième transaction d'exploit X100 qui retire 550,000 X du pool Uniswap",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "Title: Independent check of RLUSD reserves and on-chain supply (Aug 2025 – Aug 2026)": {
@@ -1909,6 +2044,11 @@
   "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
+ "US senator probes Tether after reported deal with ex-Trump crypto adviser": {
+  "fr": "Un sénateur américain enquête sur Tether après un accord signalé avec un ex-conseiller crypto de Trump",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "USDGO Adds Solana Trading Liquidity Through Jupiter Lend and Fluid": {
   "fr": "USDGO ajoute de la liquidité d'échange sur Solana via Jupiter Lend et Fluid",
   "quand": "2026-10-14T09:35:34Z",
@@ -1983,6 +2123,16 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Wells Fargo and five others object to OKX-ICE tokenized stock listings: Report": {
+  "fr": "Wells Fargo et cinq autres s'opposent aux cotations d'actions tokenisées OKX-ICE : rapport",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "Wells Fargo, Cisco, Marvell among latest firms objecting to OKXICE's tokenized stock plan": {
+  "fr": "Wells Fargo, Cisco, Marvell parmi les dernières entreprises à s'opposer au plan d'actions tokenisées d'OKXICE",
+  "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
  "Why centralized exchanges refuse to list legacy crypto tokens without explicit SEC immunity": {
   "fr": "Pourquoi les plateformes centralisées refusent de lister d'anciens jetons sans immunité explicite de la SEC",
   "quand": "2026-10-22T07:07:42Z",
@@ -1996,6 +2146,11 @@
  "Wrongful Cancellation of 618 by CommunityMultisig": {
   "fr": "Annulation abusive de 618 par CommunityMultisig",
   "quand": "2026-10-23T19:16:31Z",
+  "statut": "ok"
+ },
+ "X100 Exploit Nets 4.85 Million USDT After Governance Takeover": {
+  "fr": "L'exploit X100 rapporte 4,85 millions USDT après une prise de contrôle de la gouvernance",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "XRP Ledger is set to fix its lending code before anyone can use it": {
@@ -2061,6 +2216,11 @@
  "[Direct to AIP] Onboard USAT to Aave V4 Core Instance on Avalanche": {
   "fr": "[Direct vers AIP] Intégrer USAT à l'instance Aave V4 Core sur Avalanche",
   "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
+ "[Direct-To-AIP] Onboard PT-sUSDe-28JAN2027 to Aave V3 Plasma Instance": {
+  "fr": "[Direct-To-AIP] Intégrer PT-sUSDe-28JAN2027 à l'instance Aave V3 Plasma",
+  "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
  "[Direct-to-AIP] Asset Listing - syrupUSDG Arbitrum": {
