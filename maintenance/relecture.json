@@ -1,6 +1,42 @@
 {
- "defauts": [],
- "jour": "2026-10-23",
+ "defauts": [
+  {
+   "constat": "La légende en bas à gauche est recouverte par les pastilles Aerodrome et HumidiFi (« trait : médiane du secteur »).",
+   "ecran": "telephone",
+   "gravite": "gene",
+   "type": "chevauchement",
+   "vue": "Prix des frais · Échanges"
+  },
+  {
+   "constat": "Une pastille bleue recouvre la fin du libellé « Tether Gold × 510,4».",
+   "ecran": "telephone",
+   "gravite": "gene",
+   "type": "chevauchement",
+   "vue": "Attention"
+  },
+  {
+   "constat": "La pastille Meteora recouvre le chiffre de « EigenCloud × 4,0».",
+   "ecran": "telephone",
+   "gravite": "gene",
+   "type": "chevauchement",
+   "vue": "Attention"
+  },
+  {
+   "constat": "La pastille HumidiFi n'a ni nom ni valeur visibles : le titre annonce 8 chiffres instables, seuls 7 sont nommés.",
+   "ecran": "telephone",
+   "gravite": "gene",
+   "type": "sans_nom",
+   "vue": "Attention"
+  },
+  {
+   "constat": "Le segment Hyperliquid L1 (6,9 Md$) de la colonne « par chaîne » n'a pas de libellé sur le téléphone.",
+   "ecran": "telephone",
+   "gravite": "gene",
+   "type": "sans_nom",
+   "vue": "Argent stable · Où ils sont"
+  }
+ ],
+ "jour": "2026-10-25",
  "n_captures": 34,
- "quand": "2026-10-23T08:46:59Z"
+ "quand": "2026-10-25T06:40:13Z"
 }
