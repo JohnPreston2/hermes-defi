@@ -692,6 +692,37 @@
     }
    ],
    "genere": "2026-10-23T10:00:00Z"
+  },
+  {
+   "date": "2026-10-25",
+   "fichier": "rapport/2026-10-25-enquete.html",
+   "titre": "Robinhood Chain, 25/10 : le samedi, les actions tokenisees se taisent a la minute pres ; Pons ralentit aussi",
+   "question": "Le canal d'emission des actions tokenisees s'arrete-t-il le week-end par hasard ou par horaire ecrit, et le contraste avec Pons, cense tourner 7 jours sur 7, tient-il ?",
+   "mesure_neuve": "Comptage complet sur la chaine : la semaine du 19 au 23/10, la premiere emission d'action tombe lundi a 00:00:50 UTC et la derniere vendredi a 23:58:06 UTC, exactement la fenetre publiee par Robinhood UE (lun 02:00 -> sam 02:00, heure de Paris) ; samedi 24/10 : 0 emission sur 113 jetons, contre 1 065 lancements Pons (0,62 de leur semaine). La hausse des frais 30 j (+3,7 %) vient de l'entree de Relay (12,83 M$) : a perimetre constant, -8,5 %.",
+   "chiffre_cle": {
+    "valeur": "0 / 1 065",
+    "libelle": "jetons d'actions emis contre jetons Pons lances le samedi 24/10 : le canal des actions ferme par horaire ecrit",
+    "population": "comptage complet sur la chaine : 113 jetons d'actions a balise commune (2 883 emissions par jour ouvre du 19 au 23/10) et fabrique Pons (1 706 lancements par jour ouvre)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_actions_emissions_jour_tous_destinataires",
+     "libelle": "Actions tokenisees emises par jour (nouveaux jetons crees)"
+    },
+    {
+     "champ": "rh_pons_lancements_onchain_jour",
+     "libelle": "Jetons lances par Pons par jour (un lanceur de memecoins)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 j de la chaine (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaine (l'argent depose)"
+    }
+   ],
+   "genere": "2026-10-25T06:45:00Z"
   }
  ]
 }
