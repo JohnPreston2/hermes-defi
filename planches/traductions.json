@@ -1,14 +1,13 @@
 {
-"generated_at": "2026-10-26T19:46:01Z",
+"generated_at": "2026-10-26T21:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 119,
+"n_affiches": 122,
 "n_refuses": 0,
-"n_traduits": 69,
+"n_traduits": 63,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
 "A Wallet Three Hours Old Minted Kimchi's Coin and Routed Every Fee to One Address": "Un portefeuille vieux de trois heures a frappé la pièce de Kimchi et envoyé chaque frais vers une seule adresse",
-"A16z is the latest VC giant to widen bets beyond crypto and into AI and emerging tech": "A16z est le dernier géant du capital-risque à élargir ses paris au-delà de la crypto, vers l'IA et les technologies émergentes",
 "AI agents help rescue ETH’s Glamsterdam fork, ‘Steal My Bitcoin’ site: Hodler’s Digest": "Des agents d'IA aident à sauver le fork Glamsterdam d'ETH, site « Steal My Bitcoin » : Hodler's Digest",
 "API Key Rotation: What Revocation and Redeployment Actually Change": "Rotation des clés API : ce que la révocation et le redéploiement changent réellement",
 "Atlas Edit Weekly Cycle Proposal - Week Of 2026-10-26": "Proposition de cycle hebdomadaire Atlas Edit, semaine du 2026-10-26",
@@ -18,9 +17,6 @@
 "Base DEX structural fracture unreported. Native venue Aerodrome Slipstream in silent freefall. One fee watch issued to capture continued evaporation.": "Fracture structurelle non signalée de la base DEX. Plateforme native Aerodrome Slipstream en chute libre silencieuse. Une veille des frais a été émise pour suivre l'évaporation continue.",
 "Bitcoin ETFs Bleed $636 Million as October Turns Red Again": "Les ETF bitcoin perdent $636 Million alors qu'octobre repasse dans le rouge",
 "Bitcoin ETFs Snap Two-Week Losing Streak Despite Late-Week Slide": "Les ETF Bitcoin mettent fin à deux semaines de pertes malgré un repli en fin de semaine",
-"Bitcoin ETFs break 2-week outflow streak with $301M comeback": "Les ETFs bitcoin mettent fin à une série de 2 semaines de sorties, avec un retour de $301M",
-"Bitcoin holds near $80,000 as oil retreats and the Fed decision looms": "Bitcoin se maintient près de $80,000 alors que le pétrole recule et que la décision de la Fed approche",
-"Bitwise, Hyperliquid seek SEC rule changes for token trading, airdrops": "Bitwise et Hyperliquid demandent à la SEC de modifier les règles sur le trading de jetons et les airdrops",
 "Blast Reaches Withdrawal Interface Deadline With $40 Million Still in Bridge": "Blast atteint la date limite de son interface de retrait, avec encore $40 Million dans le Bridge",
 "Capital is fleeing the Sky ecosystem faster than any headline captures. Sky Lending at z=-2.45 with no press coverage; SparkLend fees and TVL tracking the exit. Two TVL watches and one fee watch issued to track the bleed.": "Le capital quitte l'écosystème Sky plus vite que ne le laissent voir les gros titres. Sky Lending à z=-2,45 sans aucune couverture presse ; les frais et la TVL de SparkLend suivent cette fuite. Deux suivis de TVL et un suivi des frais ont été ouverts pour surveiller cette baisse.",
 "Chinese Prosecutors Seek to Confiscate $5.1B in Bitcoin Seized by UK in Qian Case": "Des procureurs chinois cherchent à confisquer $5,1B de bitcoins saisis par le Royaume-Uni dans l'affaire Qian",
@@ -56,7 +52,6 @@
 "Pump.fun Adds Pre-IPO Tokens to Its Launch Pairings": "Pump.fun ajoute des jetons pré-IPO à ses paires de lancement",
 "Pump.fun Adds Take-Profit and Stop-Loss Orders for EVM Trades": "Pump.fun ajoute des ordres take-profit et stop-loss pour les trades EVM",
 "Question regarding Acier's alleged misrepresentation and deception of investors": "Question concernant les fausses déclarations et tromperies présumées d'Acier envers les investisseurs",
-"Risk Stewards: Cap and IRM Changes on Aave V4 / 2026.10.23": "Risk Stewards : modifications des plafonds et des IRM sur Aave V4 / 2026.10.23",
 "Robinhood vs. Securitize: Stock Token Access Compared": "Robinhood contre Securitize : comparaison de l'accès aux jetons d'actions",
 "Securitize’s tokenized stock value halves as Circle widens lead": "La valeur de l'action tokenisée de Securitize se réduit de moitié alors que Circle élargit son avance",
 "SharpLink Says It Deployed $400 Million Across Ether.fi and Lido": "SharpLink annonce avoir déployé 400M$ sur Ether.fi et Lido",
@@ -73,7 +68,6 @@
 "Wrongful Cancellation of 618 by CommunityMultisig": "Annulation abusive de 618 par CommunityMultisig",
 "X100 Exploit Nets 4.85 Million USDT After Governance Takeover": "L'exploit X100 rapporte 4,85 millions USDT après une prise de contrôle de la gouvernance",
 "X100 Exploit Proceeds Split Into Four 400-ETH Wallets": "Le produit de l'exploit X100 réparti en quatre portefeuilles de 400 ETH",
-"Yearn Curation - Compound: Risk Management and Sustainable Growth": "Curation Yearn – Compound : gestion des risques et croissance durable",
 "[November 5, 2026] - Proposed Changes to Grove for Upcoming Spell": "[5 novembre 2026] - Changements proposés pour Grove pour le prochain spell",
 "[November 5, 2026] Proposed Changes to Spark for Upcoming Spell": "[5 novembre 2026] Changements proposés à Spark pour le prochain Spell"
 }
