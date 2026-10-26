@@ -166,6 +166,11 @@
      "date": "2026-10-25",
      "valeur": "72,5 % (866/1195) / 26,2 % (313/1195)",
      "note": "Registre non regenere depuis le 22/10 17:15 UTC : valeurs identiques par construction. Loin des seuils. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "72,5 % (866/1195) / 26,2 % (313/1195)",
+     "note": "Registre non regenere depuis le 22/10 17:15 UTC (4e jour) : valeurs identiques par construction. Loin des seuils. OUVERTE."
     }
    ],
    "solde": null
@@ -328,6 +333,11 @@
      "date": "2026-10-25",
      "valeur": "5 / 1195 (0,42 %) au champ auditUrl ; 4 / 1195 (0,34 %) vers un vrai rapport",
      "note": "Registre inchange. Pas de recherche d'exploit dediee ce jour. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "5 / 1195 (0,42 %) au champ auditUrl ; 4 / 1195 (0,34 %) vers un vrai rapport",
+     "note": "Registre inchange. Pas de recherche d'exploit dediee ce jour. OUVERTE."
     }
    ],
    "solde": null
@@ -490,6 +500,11 @@
      "date": "2026-10-25",
      "valeur": "v3 35.4 % / v4 42.4 % du volume 30 j (10,85 / 12,97 / 30,61 Md$)",
      "note": "vs 23/10 : v3 -0,9 pt, v4 +0,9 pt. Loin des seuils. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "v3 34.9 % / v4 43.1 % du volume 30 j (10,38 / 12,82 / 29,77 Md$)",
+     "note": "vs 25/10 : v3 -0,5 pt, v4 +0,7 pt. Loin des seuils. OUVERTE."
     }
    ],
    "solde": null
@@ -652,6 +667,11 @@
      "date": "2026-10-25",
      "valeur": "156 sur 1195 (13,1 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "Federal Register : 312 documents (+4 avis Cboe du 26/10 sur un bareme de frais, sans rapport). Dossier 4-927 : lettres du 23/10 (Andreas Park, Leo Tinkham), aucune n'est un avis de TSV. NON SOLDEE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "156 sur 1195 (13,1 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "Federal Register : 312 documents (inchange). Dossier 4-927 : premiere page inchangee depuis le 23/10. OUVERTE."
     }
    ],
    "solde": null
@@ -913,6 +933,11 @@
      "date": "2026-10-25",
      "valeur": "21.3 % (23,33/109,64 M$) Pons V2 ; 22,0 % avec V1 (24,12 M$)",
      "note": "-4,1 pts vs 23/10, dont l'essentiel vient du denominateur : Relay (12,83 M$) entre dans /overview/fees le 23/10. Sans Relay : 24,1 % (-1,3 pt). Sous le seuil CONFIRMEE (30 %), au-dessus de MORTE (15 %). NON SOLDEE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "20,9 % (22,00/105,20 M$) Pons V2 ; 21,6 % avec V1 (22,72 M$) ; 23,7 % hors Relay",
+     "note": "-0,4 pt vs 25/10. Sous CONFIRMEE (30 %), au-dessus de MORTE (15 %). OUVERTE."
     }
    ],
    "solde": null
@@ -1323,6 +1348,11 @@
      "date": "2026-10-25",
      "valeur": "non re-mesure",
      "note": "Recensement 30 j des pools a hook hors registre non refait ce jour (trou declare). Registre non regenere depuis le 22/10. Pools v4 crees : 4 899 le 23/10 (2 188 a hook), 3 570 le 24/10 (1 550 a hook). OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "non re-mesure",
+     "note": "Recensement 30 j des pools a hook hors registre non refait (trou declare). Registre gele depuis le 22/10. OUVERTE."
     }
    ],
    "solde": null
@@ -1654,6 +1684,11 @@
      "date": "2026-10-25",
      "valeur": "non re-mesure",
      "note": "API Morpho non relue ce jour (trou declare). OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "non re-mesure",
+     "note": "API Morpho non relue ce jour (trou declare). OUVERTE."
     }
    ]
   },
@@ -1811,7 +1846,7 @@
    "mesure": "Meme sonde que v_20261004_01 : moyenne(sam, dim) / moyenne(lun-ven de la semaine qui precede). Reference : 0,57 (12-13/09), 0,50 (19-20/09), 0,32 (26-27/09), 0,29 (samedi 03/10 seul). Temoin : volume total de la chaine (DefiLlama) 0,77 sur 4 semaines.",
    "seuil": "CONFIRMEE si les trois week-ends 10-11/10, 17-18/10 et 24-25/10 restent sous 0,5. MORTE si l'un d'eux depasse 0,8 (bascule vers une activite 7 j/7).",
    "echeance": "2026-10-26",
-   "statut": "OUVERTE",
+   "statut": "REVISEE",
    "historique": [
     {
      "date": "2026-10-04",
@@ -1902,8 +1937,18 @@
      "date": "2026-10-25",
      "valeur": "samedi 24/10 : 118277 tx sur 113 jetons ([122092, 114462]), soit 0.3 de la moyenne lun-ven 19-23/10 (392916) ; dimanche 25/10 partiel (00:00 -> ~06:05 UTC, 219368 blocs) : 27181 tx ([23582, 30780]), soit ~102594 au rythme d'une journee (0.26 de la semaine), lecture provisoire",
      "note": "NOUVELLE POPULATION (113 jetons a la balise commune, 48 fenetres regulieres) : le ratio se lit contre sa propre semaine, pas contre les 0,31 et 0,53 des week-ends precedents. Emissions du samedi : 0 (comptage complet) ; destructions : 2. Echeance 26/10 : verdict sur le week-end complet demain. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "week-end 24-25/10 : 0.404 (samedi 118 277 publie le 25/10, re-tire ce jour 121150 ; dimanche 25/10 199508 [231564, 167451]) contre 392 916 lun-ven 19-23/10",
+     "note": "Verdict a l'echeance sur les trois week-ends : 0,31 (10-11/10, 50 jetons), 0,53 (17-18/10, 50 jetons, dans l'erreur de la sonde), 0,40 (24-25/10, 113 jetons). Aucun au-dessus de 0,8 ; un au-dessus de 0,5."
     }
-   ]
+   ],
+   "solde": {
+    "date": "2026-10-26",
+    "verdict": "REVISEE",
+    "raison": "Les actions tokenisees suivent bien un calendrier de semaine (emissions : 0 les samedis et dimanches 24-25/10, comptage complet), mais l'activite d'echange du week-end ne reste pas toujours sous 0,5 : 0,53 le 17-18/10, et le dimanche 25/10 seul vaut 0,51. Lecture revisee : le canal d'emission ferme le week-end ; les echanges tombent a 0,3-0,5 de la semaine, le dimanche plus haut que le samedi."
+   }
   },
   {
    "id": "v_20261005_01",
@@ -1912,7 +1957,7 @@
    "mesure": "DefiLlama /summary/fees/uniswap-v4 et /summary/dexs/uniswap-v4, ventilation 'Robinhood Chain' : somme 7 j des frais / somme 7 j du volume. Reference 28/09-04/10 : 36,5 pb (29/08-04/09 : 85,3 pb). Recoupement : echantillon on-chain des Swap de la PoolManager (champ fee), 41,2 pb le 04/10, part du volume valorise a plus de 1 % : 7,4 % (56,2 % le 04/09).",
    "seuil": "CONFIRMEE si les semaines 05-11/10, 12-18/10 et 19-25/10 restent toutes sous 50 pb. REVISEE si l'une depasse 60 pb (retour des lancements a taxe).",
    "echeance": "2026-10-26",
-   "statut": "OUVERTE",
+   "statut": "CONFIRMEE",
    "historique": [
     {
      "date": "2026-10-05",
@@ -1998,8 +2043,18 @@
      "date": "2026-10-25",
      "valeur": "18-24/10 : 23,1 pb (5,94 M$ / 2,56 Md$)",
      "note": "Approximation par les totaux 7 j de /overview (pas la ventilation /summary de la mesure). Sous 50 pb. Semaine 19-25/10 non terminee : verdict le 26/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "semaine 19-25/10 : 22,9 pb (5,61 M$ / 2,45 Md$), ventilation /summary de la mesure",
+     "note": "Temoin 12-18/10 relu a 25,5 pb (identique). Trois semaines : 32,3 / 25,5 / 22,9 pb, toutes sous 50."
     }
-   ]
+   ],
+   "solde": {
+    "date": "2026-10-26",
+    "verdict": "CONFIRMEE",
+    "raison": "Les semaines 05-11/10 (32,3 pb), 12-18/10 (25,5 pb) et 19-25/10 (22,9 pb) restent sous 50 pb. Le prix d'un echange v4 sur la chaine continue de baisser : 15,9 pb le dimanche 25/10."
+   }
   },
   {
    "id": "v_20261005_02",
@@ -2388,6 +2443,11 @@
      "date": "2026-10-25",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise depuis le 23/10 00:00 UTC",
      "note": "Seuil non franchi. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise depuis le bloc 97 378 446",
+     "note": "Seuil non franchi. OUVERTE."
     }
    ]
   },
@@ -2579,6 +2639,11 @@
      "date": "2026-10-25",
      "valeur": "relu le 25/10 : 06-12/10 = 22,12 M$ ; 13-19/10 = 19,70 M$ (-10,9 %) ; 20-24/10 = 11,57 M$ en 5 jours (2,31 M$/j, -26,8 % vs le rythme 06-12/10)",
      "note": "La serie entiere a ete relevee par DefiLlama depuis le 23/10 (06-12/10 lu 19,27 M$ le 23/10, 22,12 M$ ce jour) : seul le ratio lu le meme jour compte. Premiere semaine du test toujours au-dessus de -20 %. Seconde : il faudrait 3,9 M$ les 25-26/10 pour tenir -30 % ; au rythme de samedi (1,59 M$/j) elle finirait vers -33 %. Lecture finale le 27/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "relu le 26/10 : 06-12/10 = 22,12 M$ ; 13-19/10 = 19,70 M$ (-10,9 %) ; 20-25/10 = 12,94 M$ en 6 jours (2,16 M$/j, -31,7 % vs le rythme 06-12/10) ; dimanche 25/10 = 1,34 M$",
+     "note": "Pour tenir au-dessus de -30 %, la semaine 20-26/10 doit atteindre 15,48 M$, donc 2,54 M$ le lundi 26/10 (1,34 M$ le dimanche, 2,29 M$ le lundi 19/10). Lecture finale le 27/10. OUVERTE."
     }
    ]
   },
@@ -2635,6 +2700,11 @@
      "date": "2026-10-25",
      "valeur": "non re-mesure",
      "note": "Trou declare."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "non re-mesure",
+     "note": "Trou declare. Echeance 28/10 : l'echantillon des 200 pools WORM doit etre relu au plus tard ce jour-la."
     }
    ]
   },
@@ -2943,8 +3013,12 @@
    "mesure": "RPC : evenements TokenLaunched de la fabrique 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e, comptage complet par jour UTC (fenetres de 100 000 blocs). Moyenne(samedi, dimanche) / moyenne(lun-ven de la semaine qui precede). Reference : samedi 17/10 = 1 333 contre 1 904 / 1 671 / 1 794 (14-16/10), soit 0,74.",
    "seuil": "CONFIRMEE si les week-ends 17-18/10 et 24-25/10 restent au-dessus de 0,6. MORTE si l'un d'eux passe sous 0,4.",
    "echeance": "2026-10-26",
-   "statut": "OUVERTE",
-   "solde": null,
+   "statut": "CONFIRMEE",
+   "solde": {
+    "date": "2026-10-26",
+    "verdict": "CONFIRMEE",
+    "raison": "Les deux week-ends restent au-dessus de 0,6 (0,66 et 0,618), alors que les emissions d'actions sont a 0 ces memes jours. Marge faible : -12 % de lancements le week-end 24-25/10 contre le 17-18/10."
+   },
    "historique": [
     {
      "date": "2026-10-18",
@@ -2975,6 +3049,11 @@
      "date": "2026-10-25",
      "valeur": "samedi 24/10 : 1 065 lancements, 0.624 de la moyenne lun-ven 19-23/10 (1 706) ; dimanche 25/10 partiel : 153 a 06:02 UTC",
      "note": "Le samedi tient au-dessus de 0,6, de peu. Pour un week-end au-dessus de 0,6 il faut au moins 983 lancements dimanche (1 078 le 18/10). Lancements du samedi -20 % vs samedi 17/10 (1 333). Echeance 26/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "week-end 24-25/10 : 1 065 + 1 045 lancements, moyenne 1 055 = 0,618 de la moyenne lun-ven 19-23/10 (1 706)",
+     "note": "Temoin : samedi 24/10 recompte a l'identique (1 065). Week-ends 0,66 (17-18/10) et 0,618 (24-25/10)."
     }
    ]
   },
@@ -3012,6 +3091,11 @@
      "date": "2026-10-25",
      "valeur": "23/10 : 4 rachats ; 24/10 : 2 (nonce 1 326)",
      "note": "Semaine 20-26/10 a 17 rachats apres 5 jours. Sous 40. Part 30 j Ethereum/Robinhood non relue. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "semaine 19-25/10 : 22 rachats (3/4/4/3/4/2/2) ; nonce 1 329",
+     "note": "Sous 40. Part 30 j Ethereum/Robinhood non relue. OUVERTE."
     }
    ]
   },
@@ -3044,6 +3128,11 @@
      "date": "2026-10-25",
      "valeur": "DefiLlama 93.18 M$ (25/10 06:20 UTC), -8,5 % vs 23/10 ; mesure sur la chaine non refaite",
      "note": "Au-dessus de 80 M$. Ecart avec la chaine non re-mesure (trou declare). OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "DefiLlama 91,86 M$ (26/10 11:11 UTC), -1,4 % vs 25/10 ; mesure sur la chaine non refaite",
+     "note": "Au-dessus de 80 M$. Ecart avec la chaine non re-mesure (trou declare). OUVERTE."
     }
    ]
   },
@@ -3071,6 +3160,11 @@
      "date": "2026-10-25",
      "valeur": "0 evenement de la porte de mise a jour depuis le bloc 94 300 000 (jusqu au bloc 97 378 446)",
      "note": "Porte au repos. USDG chez Lighter non relu ce jour. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "0 evenement de la porte de mise a jour depuis le bloc 97 378 446 (jusqu'au releve) ; securityCouncilAddress() = 0x4972...efdb, toujours sans code",
+     "note": "Porte au repos. USDG chez Lighter non relu. OUVERTE."
     }
    ]
   },
@@ -3092,6 +3186,11 @@
      "date": "2026-10-25",
      "valeur": "non mesurable avant le 22/11 ; registre non regenere depuis le 22/10",
      "note": "Aucune entree ajoutee au registre depuis la reprise. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "non mesurable avant le 22/11 ; registre non regenere depuis le 22/10",
+     "note": "Aucune entree au registre depuis la reprise. OUVERTE."
     }
    ]
   },
@@ -3113,6 +3212,11 @@
      "date": "2026-10-25",
      "valeur": "72 pools ; 3 echanges (tous du 22/10, blocs 95 243 495-95 245 393) ; 0 echange depuis",
      "note": "Aucun echange en 2 jours. OUVERTE."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "72 pools ; 3 echanges depuis le bloc 94 313 544 (tous du 22/10, blocs 95 243 495-95 245 393) ; 0 echange depuis",
+     "note": "Recensement complet termine apres la publication du rapport (temoin : 3 570 pools v4 crees le 24/10 dont 1 550 a hook, identique au releve du 25/10). Aucun echange en 4 jours. OUVERTE."
     }
    ]
   },
@@ -3129,6 +3233,28 @@
      "date": "2026-10-25",
      "valeur": "semaine 19-23/10 : premiere emission lun 19/10 00:00:50 UTC, derniere ven 23/10 23:58:06 UTC ; samedi 24/10 : 0 emission, 2 destructions",
      "note": "Ouverture. Fenetre publiee : page support Robinhood UE « About Stock Tokens »."
+    },
+    {
+     "date": "2026-10-26",
+     "valeur": "lun 26/10 : premiere emission 00:02:17 UTC (01:02 heure de Paris), 64 emissions et 15 destructions entre 00:00 et 01:00 UTC ; 0 emission le dimanche 25/10",
+     "note": "La premiere moitie du critere MORTE est atteinte (debut avant 00:30 UTC) et CONFIRMEE est devenue impossible (elle exigeait un debut a 01:00 UTC ou apres). La seconde moitie (arret vendredi 30/10 avant minuit UTC) se lit le 31/10. OUVERTE."
+    }
+   ]
+  },
+  {
+   "id": "v_20261026_01",
+   "ouverte": "2026-10-26",
+   "affirmation": "Le canal d'emission des actions tokenisees suit l'horloge du marche 24 h de Robinhood aux Etats-Unis (dimanche 20:00 -> vendredi 20:00, heure de New York), pas l'horaire publie par Robinhood Europe (lun 02:00 -> sam 02:00, heure de Paris). L'ete, les deux horloges tombaient sur la meme minute UTC ; la semaine du 26/10 au 30/10 est la seule ou elles divergent d'une heure.",
+   "mesure": "RPC Robinhood Chain : Transfer(from=0x0, to=0xc5844fc781aefad2f2d9f8a8f0459eac8d50e616) tous contrats, comptage complet entre ven 30/10 23:00 UTC et sam 31/10 02:00 UTC ; derniere emission de la semaine. Temoin a reponse connue : lundi 26/10, premiere emission 00:02:17 UTC, 64 emissions entre 00:00 et 01:00 UTC.",
+   "seuil": "CONFIRMEE si la derniere emission de la semaine tombe avant sam 31/10 00:05 UTC (20:05 a New York) et qu'aucune emission n'existe entre 00:05 et 01:00 UTC. MORTE si au moins 10 emissions tombent entre sam 31/10 00:05 et 01:00 UTC (fenetre de Paris).",
+   "echeance": "2026-11-01",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-10-26",
+     "valeur": "lun 26/10 : premiere emission 00:02:17 UTC = 20:02 a New York (ouverture du marche 24 h : 20:00) = 01:02 a Paris (ouverture publiee : 02:00) ; 554 emissions sur 39 jetons de 00:00 a 10:48 UTC",
+     "note": "Ouverture. Horaires : page support Robinhood UE 'About Stock Tokens' et page US '24 Hour Market'."
     }
    ]
   }
