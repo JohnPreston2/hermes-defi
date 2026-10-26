@@ -3215,8 +3215,8 @@
     },
     {
      "date": "2026-10-26",
-     "valeur": "non re-mesure",
-     "note": "Recensement des pools Lanista non termine au moment de la publication (trou declare). OUVERTE."
+     "valeur": "72 pools ; 3 echanges depuis le bloc 94 313 544 (tous du 22/10, blocs 95 243 495-95 245 393) ; 0 echange depuis",
+     "note": "Recensement complet termine apres la publication du rapport (temoin : 3 570 pools v4 crees le 24/10 dont 1 550 a hook, identique au releve du 25/10). Aucun echange en 4 jours. OUVERTE."
     }
    ]
   },
