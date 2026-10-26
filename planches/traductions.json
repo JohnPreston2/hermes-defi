@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-26T15:46:02Z",
+"generated_at": "2026-10-26T18:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 120,
+"n_affiches": 119,
 "n_refuses": 0,
-"n_traduits": 66,
+"n_traduits": 65,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -56,7 +56,6 @@
 "Risk Stewards: Cap and IRM Changes on Aave V4 / 2026.10.23": "Risk Stewards : modifications des plafonds et des IRM sur Aave V4 / 2026.10.23",
 "Robinhood vs. Securitize: Stock Token Access Compared": "Robinhood contre Securitize : comparaison de l'accès aux jetons d'actions",
 "SharpLink Says It Deployed $400 Million Across Ether.fi and Lido": "SharpLink annonce avoir déployé 400M$ sur Ether.fi et Lido",
-"StoneX raises Securitize price target 50% as tokenized stock platform opens new revenue stream": "StoneX relève de 50% son estimation pour Securitize, alors que la plateforme d'actions tokenisées ouvre un nouveau flux de revenus",
 "Strategy, Strive face balancing act between bitcoin buying and preferred stock dividends": "Strategy et Strive jonglent entre achats de bitcoin et dividendes des actions privilégiées",
 "TVL base trend turns negative or FDV/Mcap ratio exceeds 3.5.": "La tendance de base de la TVL devient négative, ou le ratio FDV/Mcap dépasse 3,5.",
 "Third X100 Exploit Transaction Pulls 550,000 X From Uniswap Pool": "Troisième transaction d'exploit X100 qui retire 550,000 X du pool Uniswap",
