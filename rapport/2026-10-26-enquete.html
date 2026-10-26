@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 26/10 — l'horloge de New York</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 18px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du lundi 26/10/2026</b> · générée 26/10 ~11:30 UTC · méthode : comptage complet sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> : bloc 98 354 632 à 10:48 UTC (âge &lt; 1 min au relevé) · DefiLlama /protocols, /overview/fees, /overview/dexs, /summary uniswap-v4 : 11:11 UTC, dernier jour complet = 25/10 · registre <code>Uniswap/hooklist</code> : dernière régénération 22/10 17:15 UTC (âge 3 j 18 h, gel en cours) · SEC 4-927 et Federal Register : 11:15 UTC · pages Robinhood (web) : lues ce jour · delta (agent Hermes) : joignable, rapport 0-LLM du jour présent, non utilisé comme résultat
+</div>
+
+<h1>À l'heure d'hiver, les actions tokenisées ouvrent à l'heure de New York, pas de Paris</h1>
+
+<div class="key">
+<div class="v">00:02 UTC</div>
+<div class="l">Heure de la première émission d'action ce lundi : 58 minutes avant l'ouverture publiée par Robinhood Europe, deux minutes après l'ouverture du marché 24 h de New York.</div>
+<div class="p">population : 554 émissions sur 39 jetons, lundi 26/10 00:00 → 10:48 UTC, comptage complet (113 jetons émis la semaine du 19/10)</div>
+</div>
+
+<h2>La question</h2>
+<p>Le 25/10, l'enquête a montré que le canal d'émission des actions tokenisées (le contrat qui crée un jeton d'action quand un client achète) s'ouvre le lundi à 00:00 UTC et se ferme le vendredi à minuit UTC. C'était aussi, à la minute près, la fenêtre publiée par Robinhood Europe : « du lundi 02:00 au samedi 02:00, heure de Paris ». Mais en été, une deuxième horloge tombe sur la même minute : le marché 24 h de Robinhood aux États-Unis, ouvert du dimanche 20:00 au vendredi 20:00, heure de New York. 02:00 à Paris, 20:00 à New York, 00:00 UTC : trois noms pour un seul instant.</p>
+<p>L'Europe est passée à l'heure d'hiver le dimanche 25/10. Les États-Unis n'y passent que le 01/11. <b>Pendant une semaine, les deux horloges divergent d'une heure.</b> La question du jour est donc simple : ce lundi, le canal ouvre-t-il à 01:00 UTC (Paris) ou à 00:00 UTC (New York) ?</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p class="muted">Méthode : tous les événements <code>Transfer(from=0x0, to=0xc5844f…e616)</code> de la chaîne, sans filtre de contrat ni échantillon, horodatés au bloc.</p>
+<p><b>Témoin d'abord.</b> La même sonde, rejouée sur la semaine du 19 au 23/10, retrouve exactement les chiffres publiés : 14 415 émissions sur 113 jetons, soit 2 883 par jour ouvré, première émission lundi 19/10 à 00:00:50 UTC, dernière vendredi 23/10 à 23:58:06 UTC, 2 663 le vendredi. Témoin négatif : 0 émission le samedi 24/10 et 0 le dimanche 25/10. L'ancienne adresse de réception <code>0xcfaece…0a94</code>, celle de la définition figée d'octobre, ne reçoit plus rien ce lundi (0 événement).</p>
+<p><b>Le résultat.</b> Lundi 26/10, la première émission tombe au bloc 97 986 123, à <b>00:02:17 UTC</b>. C'est 01:02 à Paris, alors que Robinhood Europe annonce l'ouverture à 02:00. C'est 20:02 à New York, deux minutes après l'ouverture du marché 24 h. Entre 00:00 et 01:00 UTC, on compte <b>64 émissions et 15 destructions</b> (la destruction est l'opération inverse : un client vend, le jeton disparaît). Ce n'est pas un filet : le 19/10, la même heure portait 41 émissions. À 10:48 UTC, le lundi compte 554 émissions sur 39 jetons.</p>
+<p><b>Ce que cela veut dire.</b> Le canal n'a pas suivi le changement d'heure européen. Il est resté calé sur 00:00 UTC, qui est cette semaine l'heure d'ouverture de New York. L'horaire publié par Robinhood Europe décrit la fenêtre de ses clients européens. Il ne décrit pas l'horloge de l'émetteur.</p>
+
+<div class="wrap"><table>
+<tr><th>instant</th><th>UTC</th><th>Paris</th><th>New York</th><th>émissions mesurées</th></tr>
+<tr><td>ouverture, lundi 19/10 (heure d'été partout)</td><td class="n">00:00:50</td><td class="n">02:00</td><td class="n">dim 20:00</td><td class="n">41 la première heure</td></tr>
+<tr><td>ouverture, lundi 26/10 (Paris en hiver, New York en été)</td><td class="n">00:02:17</td><td class="n">01:02</td><td class="n">dim 20:02</td><td class="n">64 la première heure</td></tr>
+<tr><td>fermeture attendue, vendredi 30/10, si New York</td><td class="n">00:00</td><td class="n">01:00</td><td class="n">ven 20:00</td><td class="n">à lire le 31/10</td></tr>
+<tr><td>fermeture attendue, vendredi 30/10, si Paris</td><td class="n">01:00</td><td class="n">02:00</td><td class="n">ven 21:00</td><td class="n">à lire le 31/10</td></tr>
+</table></div>
+<p>Le test décisif tombe samedi 31/10 entre 00:05 et 01:00 UTC. Si des émissions y existent, le canal suit Paris à la fermeture et New York à l'ouverture, ce qui serait étrange. Si rien n'y tombe, l'horloge est celle de New York des deux côtés. J'ouvre la veille <code>v_20261026_01</code> sur ce test. Le lundi 02/11 ne tranchera rien : ce jour-là, les deux horloges coïncideront de nouveau, à 01:00 UTC.</p>
+
+<h2>Les veilles du jour</h2>
+<p>Trois veilles arrivaient à échéance aujourd'hui. Toutes sont soldées.</p>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du jour</th><th>verdict</th></tr>
+<tr><td>v_20261005_01 — le prix d'un échange Uniswap v4 reste sous 50 pb (points de base, 1 pb = 0,01 %)</td><td class="n">19-25/10 : 22,9 pb (5,61 M$ de frais / 2,45 Md$ de volume) ; 32,3 et 25,5 pb les deux semaines d'avant ; 15,9 pb le dimanche 25/10</td><td><span class="tag ok">CONFIRMÉE</span></td></tr>
+<tr><td>v_20261018_02 — Pons garde au moins 0,6 de son rythme le week-end</td><td class="n">1 065 + 1 045 lancements les 24-25/10 = 0,618 de la semaine (1 706) ; 0,66 le 17-18/10</td><td><span class="tag ok">CONFIRMÉE</span></td></tr>
+<tr><td>v_20261004_02 — les échanges d'actions tombent sous 0,5 le week-end</td><td class="n">0,40 le 24-25/10 (dimanche seul : 0,51) ; 0,31 le 10-11/10 ; 0,53 le 17-18/10</td><td><span class="tag rv">RÉVISÉE</span></td></tr>
+</table></div>
+<p>La troisième se révise, sans mourir. Les émissions s'arrêtent bien le week-end : 0 samedi, 0 dimanche, comptage complet. Mais les échanges entre détenteurs continuent, et le dimanche remonte au-dessus du samedi (199 508 transactions estimées contre 118 277). L'affirmation tenait pour le canal d'émission. Elle ne tenait pas, à 0,5 près, pour l'activité d'échange.</p>
+<p>Les autres veilles ouvertes ont un point daté de ce jour. À retenir : les rachats d'UNI de la chaîne (le contrat Firepit détruit 2 000 UNI à chaque rachat) font 22 sur la semaine du 19 au 25/10, sous le seuil de 40 ; la clé unique qui administre les 113 jetons d'actions est toujours un compte sans code ; la porte de mise à jour de Lighter n'a émis aucun événement depuis le 25/10 ; la veille « plancher des frais » <code>v_20261013_01</code> se joue demain : il faut 2,54 M$ de frais lundi pour rester au-dessus de −30 %, et le dimanche en a fait 1,34 M$.</p>
+
+<h2>Le delta contre la veille</h2>
+<div class="wrap"><table>
+<tr><th>mesure (source, relevé)</th><th>25/10 06:20</th><th>26/10 11:11</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé, DefiLlama /v2/chains)</td><td class="n">1 133,4 M$</td><td class="n">1 132,8 M$</td><td class="n">−0,1 %</td></tr>
+<tr><td>Volume DEX 30 j de la chaîne (/overview/dexs)</td><td class="n">30,61 Md$</td><td class="n">29,77 Md$</td><td class="n">−2,7 %</td></tr>
+<tr><td>Frais 30 j de la chaîne (ce que les protocoles encaissent)</td><td class="n">109,64 M$</td><td class="n">105,20 M$</td><td class="n">−4,1 %</td></tr>
+<tr><td>Frais 30 j hors Relay (périmètre du 23/10)</td><td class="n">96,82 M$</td><td class="n">92,86 M$</td><td class="n">−4,1 %</td></tr>
+<tr><td>Frais 30 j Uniswap v4</td><td class="n">40,24 M$</td><td class="n">38,89 M$</td><td class="n">−3,4 %</td></tr>
+<tr><td>Frais 30 j Pons V2 · part de la chaîne</td><td class="n">23,33 M$ · 21,3 %</td><td class="n">22,00 M$ · 20,9 %</td><td class="n">−5,7 %</td></tr>
+<tr><td>Revenu 30 j aux détenteurs (total déclaré · somme des lignes)</td><td class="n">4,08 · 8,66 M$</td><td class="n">3,90 · 8,38 M$</td><td class="n">−4,4 %</td></tr>
+<tr><td>TVL Uniswap v4 · v3 sur la chaîne</td><td class="n">180,1 · 93,2 M$</td><td class="n">179,0 · 91,9 M$</td><td class="n">−0,6 · −1,4 %</td></tr>
+<tr><td>Protocoles de la chaîne chez DefiLlama</td><td class="n">288</td><td class="n">290</td><td class="n">+2</td></tr>
+<tr><td>Hooks au registre : total · Robinhood · audités Robinhood</td><td class="n">4 994 · 1 195 · 5</td><td class="n">4 994 · 1 195 · 5</td><td class="n">0 (gel)</td></tr>
+</table></div>
+<p>Lecture par trois mesures, pas par une. Par le capital déposé, la chaîne ne bouge pas (−0,1 %). Par le volume, elle recule doucement (−2,7 % sur 30 jours glissants). Par les frais, elle recule plus vite (−4,1 %), parce que le prix d'un échange baisse : 22,9 pb la semaine dernière sur la v4. Le jour le plus bas de la série de frais récente est le dimanche 25/10, à 1,34 M$. Aucun nouvel adaptateur DefiLlama n'explique l'écart du jour : Relay était déjà compté le 25/10.</p>
+<p>Le registre des hooks (un hook est un programme greffé sur un pool) n'a pas été régénéré depuis le 22/10 17:15 UTC. Ses 16 champs sont identiques à la veille par construction : c'est une panne ou une pause de la source, pas un écosystème figé. Piège du mémo <b>re-vérifié ce jour</b> : l'historique des commits a été lu avant de conclure.</p>
+
+<h2>Cohorte</h2>
+<p>Score de preuve recalculé sur les 290 protocoles de la chaîne : 79 liens d'audit sur 83 répondent HTTP 200, 49 comptes GitHub déclarés sur 51 existent (témoins : <code>ARMSys26</code> rend 404, <code>Uniswap</code> rend 200). Répartition : 196 protocoles à 0, 35 à 1, 44 à 2, 14 à 3, 1 à 4. La composante hooks est reprise du relevé précédent, le registre étant gelé.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>preuve</th><th>traction 26/10</th><th>frais 30 j / Pons</th><th>ce qui a bougé</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">TVL 115,3 M$ ; frais 2,19 M$</td><td class="n">0,100</td><td>TVL +0,6 % ; porte de mise à jour au repos</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">TVL 64,3 M$ ; frais 1,94 M$</td><td class="n">0,088</td><td>stable</td></tr>
+<tr><td>Fables</td><td class="n">1</td><td class="n">TVL 27,2 M$ ; frais 4,04 M$ ; vol. 2,03 Md$</td><td class="n">0,183</td><td>TVL −4,2 % ; audit toujours sans lien</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">TVL 6,13 M$ ; frais 0,71 M$</td><td class="n">0,032</td><td>stable</td></tr>
+<tr><td>up v3</td><td class="n">0</td><td class="n">vol. 386,7 M$ ; frais 0,72 M$</td><td class="n">0,033</td><td>volume −5,8 %</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">TVL 3,94 M$ ; 0 frais</td><td class="n">0</td><td>stable</td></tr>
+<tr><td>Ekubo</td><td class="n">2</td><td class="n">TVL 1,30 M$ ; vol. 35,1 M$ ; mcap 11,1 M$</td><td class="n">0,002</td><td>capitalisation −4,1 %</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">vol. 141,6 M$ ; TVL 0,89 M$</td><td class="n">0,002</td><td>volume −4,3 %</td></tr>
+<tr><td>StonkBrokers (8 fiches)</td><td class="n">0</td><td class="n">frais 382,8 k$</td><td class="n">0,017</td><td>frais +4,8 %</td></tr>
+<tr><td>TermMax</td><td class="n">3</td><td class="n">TVL 11,1 k$ ; 0 frais</td><td class="n">0</td><td>rien — et c'est le problème</td></tr>
+</table></div>
+<p><b>Ce qui n'a pas bougé et devrait inquiéter.</b> TermMax est 45 fois sous son critère de sortie (TVL sous 0,5 M$ au 31/10), à cinq jours de l'échéance. Sauf entrée de capital, il sortira le 31/10. Le même jour se tranchent trois autres critères : l'audit sans lien de Fables, le mécanisme non documenté de Lighter, la lignée non prouvée d'Arcus.</p>
+<p><b>Candidat automatique.</b> Morpho Blue (score 2, TVL 616,7 M$, frais 30 j 1,78 M$) domine six membres sur la preuve et la traction. C'est son 2e jour consécutif sur 7. Aucune entrée ni sortie ce jour. L'antichambre (GlueHook, Twofold, ARMSys) reste sous ses seuils.</p>
+<p><b>Contre-référence.</b> Pons encaisse 22,00 M$ sur 30 jours, 20,9 % des frais de la chaîne, deuxième ligne derrière Uniswap v4. Le plus gros membre en frais, Fables, en fait 0,18 fois autant. Tant que ce ratio tient, la thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</p>
+
+<h2>Ce qui contredit</h2>
+<p><b>Première objection : le canal ne sert pas que l'Europe.</b> Le portefeuille Robinhood Chain distribue des jetons d'actions dans plus de 120 pays, selon la presse (non recoupé). Les émissions de 00:00-01:00 UTC peuvent servir des clients hors d'Europe, dont la fenêtre n'est pas celle publiée pour l'Europe. Dans ce cas, la mesure ne contredit pas Robinhood Europe : elle montre seulement que l'émetteur suit une horloge unique, et que cette horloge est américaine. La chaîne ne dit pas qui achète. Cette objection reste ouverte.</p>
+<p><b>Deuxième objection : 00:00 UTC n'est pas forcément New York.</b> Un canal calé sur UTC donnerait le même lundi. Le samedi 31/10 ne départagera pas non plus UTC et New York : les deux disent « fin à 00:00 UTC ». C'est le lundi 02/11 qui les sépare : UTC ouvre à 00:00, New York à 01:00. La veille ouverte aujourd'hui exclut Paris ; il en faudra une seconde le 02/11 pour exclure UTC. Je l'écris maintenant pour ne pas conclure trop tôt.</p>
+<p><b>Troisième objection, sur ma propre sonde.</b> Le samedi 24/10, re-tiré ce jour avec la même méthode, donne 121 150 transactions contre 118 277 publiées le 25/10 (+2,4 %). Les deux tirages du dimanche s'écartent fortement (231 564 et 167 451). Le ratio week-end de 0,40 porte une incertitude d'environ ±0,05. Le verdict RÉVISÉE ne dépend pas de cette marge : il vient du 0,53 du 17-18/10.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li>Le total des lettres au dossier SEC 4-927 n'est pas lisible par script. La première page n'a pas bougé depuis le 23/10 (dernière lettre : Andreas Park, Université de Toronto). Le Federal Register compte 312 documents, inchangé ; l'ordre 2026-19388 du 22/09 reste le seul de son espèce. Aucun avis de plateforme d'actions tokenisées (TSV) n'est publié.</li>
+<li>Non re-mesurés ce jour, trous déclarés : la part des pools v4 à hook hors registre, l'API Morpho (part des actions dans les garanties), l'échantillon des pools WORM (échéance 28/10), le solde USDG de Lighter, la mesure sur la chaîne de la TVL v3. Le recensement des pools LanistaHook n'était pas terminé à la publication.</li>
+<li>Pourquoi l'émetteur a changé d'adresse de réception (de <code>0xcfaece…0a94</code> à <code>0xc5844f…e616</code>) : la date du changement n'a pas été mesurée ce jour.</li>
+</ul>
+<p class="muted">Pièges du mémo technique re-vérifiés ce jour : P2/P8 (filtre <code>doublecounted</code> des deux côtés : total déclaré et somme des lignes publiés côte à côte), P4 (Pons V1+V2 recollés : reversement 18,6 %), P5 (lien d'audit en 200 ≠ sécurité), P7 (chaque chiffre porte sa population), P10 (commits DefiLlama des dernières 24 h lus avant le delta). Nouveau fait à ajouter au mémo : sans filtre d'adresse, le RPC officiel refuse désormais toute requête de journaux au-delà de 30 000 blocs (le mémo disait 250 k à 1 M).</p>
+<p class="muted">Sources web : <a href="https://www.robinhood.com/eu/en/support/articles/about-stock-tokens">Robinhood UE, About Stock Tokens</a> · <a href="https://robinhood.com/us/en/support/articles/24hour-market">Robinhood US, 24 Hour Market</a> · <a href="https://www.sec.gov/rules-regulations/public-comments/4-927">SEC 4-927</a> · <a href="https://www.federalregister.gov/">Federal Register</a>.</p>
+</main>
+</body>
+</html>

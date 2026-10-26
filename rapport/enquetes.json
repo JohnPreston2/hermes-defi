@@ -723,6 +723,37 @@
     }
    ],
    "genere": "2026-10-25T06:45:00Z"
+  },
+  {
+   "date": "2026-10-26",
+   "fichier": "rapport/2026-10-26-enquete.html",
+   "titre": "Robinhood Chain, 26/10 : a l'heure d'hiver, les actions tokenisees ouvrent a l'heure de New York, pas de Paris",
+   "question": "Apres le passage a l'heure d'hiver en Europe (25/10), le canal d'emission des actions tokenisees ouvre-t-il a 01:00 UTC, comme le dit l'horaire publie par Robinhood Europe, ou garde-t-il son ouverture de 00:00 UTC ?",
+   "mesure_neuve": "Comptage complet sur la chaine : lundi 26/10, la premiere emission d'action tombe a 00:02:17 UTC, soit 01:02 a Paris, 58 minutes avant l'ouverture publiee par Robinhood Europe (02:00), et 20:02 a New York, deux minutes apres l'ouverture du marche 24 h de Robinhood US (dimanche 20:00). 64 emissions et 15 destructions tombent dans cette heure. L'ete, les deux horloges coincidaient ; cette semaine est la seule ou elles divergent. Le meme jour, trois veilles sont soldees : prix d'un echange v4 sous 50 pb trois semaines de suite (22,9 pb le 19-25/10, CONFIRMEE), Pons au-dessus de 0,6 le week-end (0,618, CONFIRMEE), actions sous 0,5 le week-end (0,40, mais 0,53 le 17-18/10 : REVISEE).",
+   "chiffre_cle": {
+    "valeur": "00:02 UTC",
+    "libelle": "heure de la premiere emission d'action ce lundi : 58 minutes avant l'ouverture publiee par Robinhood Europe, a l'heure d'ouverture de New York",
+    "population": "554 emissions sur 39 jetons, lundi 26/10 00:00 -> 10:48 UTC, comptage complet (113 jetons emis la semaine du 19/10)"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_pons_lancements_onchain_jour",
+     "libelle": "Jetons lances par Pons par jour (un lanceur de memecoins)"
+    },
+    {
+     "champ": "rh_v4_take_rate_bps_defillama_7j_overview",
+     "libelle": "Prix d'un echange Uniswap v4, en points de base (pb)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 j de la chaine (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaine (l'argent depose)"
+    }
+   ],
+   "genere": "2026-10-26T11:11:12Z"
   }
  ]
 }
