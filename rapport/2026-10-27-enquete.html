@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 27/10 — pas de plancher, et le volume v4 quitte les hooks</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 18px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du mardi 27/10/2026</b> · générée 27/10 ~14:45 UTC · méthode : échantillon et en-têtes lus sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> : témoins <code>eth_chainId</code> = 0x1237 et <code>eth_getCode</code>(adresse bidon) = 0x ; bloc 99 308 411 au relevé (14:15 UTC) · DefiLlama /protocols, /overview/fees, /overview/dexs, /summary/fees/robinhood-chain : 14:12 UTC, dernier jour complet = 26/10 · registre <code>Uniswap/hooklist</code> : régénéré 27/10 14:09 UTC (âge 3 min, gel du 22/10 levé le 26/10) · prix ETH : coins.llama.fi, journalier · SEC 4-927 et Federal Register : ~14:20 UTC · delta (agent Hermes) : joignable, non utilisé comme résultat
+</div>
+
+<h1>Les frais n'ont pas de plancher, et le volume Uniswap v4 quitte les pools à hook</h1>
+
+<div class="key">
+<div class="v">33 %</div>
+<div class="l">du volume Uniswap v4 passe encore par un pool à hook (un programme greffé sur le pool), contre 56 % deux semaines plus tôt.</div>
+<div class="p">population : 46 191 échanges v4 échantillonnés sur la chaîne (2 tirages × 12 fenêtres de 100 blocs par jour, 06-12/10 et 20-26/10), dont 13,9 M$ valorisés par leur jambe ETH, WETH ou USDG</div>
+</div>
+
+<h2>Le fil : deux veilles soldées ce matin</h2>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du jour</th><th>statut</th></tr>
+<tr><td>v_20261013_01 — « les frais ont trouvé leur plancher »</td><td class="n">semaine 20-26/10 : 14,68 M$, soit −33,6 % contre 06-12/10 (22,12 M$, relu le même jour)</td><td><span class="tag rv">REVISEE</span></td></tr>
+<tr><td>v_20260925_01 — « le registre décrit le flux des hooks »</td><td class="n">26,2 % des pools à hook créés sur 30 j ont un hook hors registre (16 825 / 64 236)</td><td><span class="tag rv">REVISEE</span></td></tr>
+<tr><td>v_20261005_02 — « les pools à hook gardent plus de la moitié du volume v4 »</td><td class="n">32,8 % (moyenne de 2 tirages, 20-26/10) ; prélèvement invisible (bit asrd) 11,6 %</td><td><span class="tag op">OUVERTE</span>, seconde moitié cassée</td></tr>
+<tr><td>v_20261008_02 — contrôle des jetons d'actions</td><td class="n">admin toujours un compte sans code ; 0 événement sur la balise</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261022_01 — préavis Lighter</td><td class="n">0 événement de la porte de mise à jour ; conseil sans code</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261002_01 — Morpho adossé aux actions</td><td class="n">0,71 % du collatéral (3,93 M$ sur 556,6 M$), API seule</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261023_02 — LanistaHook</td><td class="n">72 pools, 3 échanges, tous du 22/10</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261019_01 — rachats d'UNI</td><td class="n">3 le 26/10, 1 le 27/10 (partiel) ; nonce 1 332</td><td><span class="tag op">OUVERTE</span></td></tr>
+</table></div>
+<p class="muted">Autres veilles ouvertes re-testées : registre (flags 72,3 % / 26,3 % sur 1 197 hooks ; audits 5 sur 1 197), v3 à 34,9 % du volume 30 j, Pons à 20,3 % des frais 30 j, TVL v3 DefiLlama 91,42 M$. Non mesurées ce jour : échantillon WORM (échéance demain 28/10), horloges des actions (lecture le 31/10), registre post-gel (lecture le 22/11).</p>
+
+<h2>La question</h2>
+<p>Le 13/10, une veille pariait que les frais de la chaîne avaient touché le fond après la fin du gaz gratuit : la baisse venait des lancements de jetons Pons, et ceux-ci étaient déjà tombés. Le seuil était écrit : si une semaine perd plus de 30 % contre celle du 06 au 12/10, la pente continue. La semaine du 20 au 26/10 perd <b>33,6 %</b>. Le pari est perdu.</p>
+<p>Reste la vraie question : <b>qu'est-ce qui baisse ?</b> Les gens qui utilisent la chaîne, ou l'argent que rapporte chaque chose qu'ils y font ?</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p class="muted">Méthode : trois mesures indépendantes sur les mêmes deux semaines (06-12/10 et 20-26/10), deux d'entre elles lues directement sur la chaîne.</p>
+<p><b>1. L'activité brute, par les en-têtes de blocs.</b> 144 blocs par jour (un toutes les dix minutes), 21 jours, 3 024 en-têtes. Chaque en-tête donne le gaz consommé et le prix de base du gaz : leur produit est ce que la chaîne facture, sans dire qui paie. Témoin : sur la même période, la ligne « Robinhood Chain » de DefiLlama (le séquenceur) donne 349,3 k$ puis 294,8 k$ ; ma lecture, convertie au cours ETH du jour, donne 342,6 k$ puis 278,8 k$. Écart de 2 à 5 % : la sonde est calibrée.</p>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>06-12/10</th><th>20-26/10</th><th>écart</th></tr>
+<tr><td>transactions d'utilisateurs (en-têtes, extrapolé)</td><td class="n">43,8 M</td><td class="n">40,8 M</td><td class="n">−6,8 %</td></tr>
+<tr><td>gaz facturé par la chaîne (en-têtes)</td><td class="n">133,4 ETH</td><td class="n">116,3 ETH</td><td class="n">−12,8 %</td></tr>
+<tr><td>volume des échanges, toute la chaîne (DefiLlama)</td><td class="n">6,29 Md$</td><td class="n">5,18 Md$</td><td class="n">−17,7 %</td></tr>
+<tr><td>volume Uniswap v4 (DefiLlama)</td><td class="n">2,87 Md$</td><td class="n">2,27 Md$</td><td class="n">−20,9 %</td></tr>
+<tr><td>frais des protocoles, toute la chaîne (DefiLlama)</td><td class="n">22,12 M$</td><td class="n">14,68 M$</td><td class="n">−33,6 %</td></tr>
+<tr><td>frais Uniswap v4 (DefiLlama)</td><td class="n">9,01 M$</td><td class="n">5,25 M$</td><td class="n">−41,8 %</td></tr>
+</table></div>
+<p>La pente s'accentue à chaque étage : <b>les transactions perdent 7 %, les frais en perdent 34 %.</b> La chaîne ne se vide pas ; ce qu'on y fait rapporte moins. Uniswap v4 porte à lui seul 3,77 M$ des 7,44 M$ de baisse. Pons V2 en porte 1,16 M$ (−31 %), Relay 1,17 M$.</p>
+<p>Le prix base au plancher : la médiane du prix de base du gaz est de 0,020 gwei sur les 14 jours mesurés d'octobre, contre 0,053 le 22/09. Le gaz facturé suit donc le seul volume de gaz consommé.</p>
+
+<p><b>2. Où passe le volume v4, échange par échange.</b> 12 fenêtres de 100 blocs par jour, à une position tirée au hasard, deux tirages indépendants. Chaque échange est rattaché à son pool grâce au recensement complet des 1 084 737 pools v4 de la chaîne (base du 23/10 + 19 387 pools lus ce jour). Il est valorisé par sa jambe ETH, WETH ou USDG au cours du jour. Contrôle d'échelle : le tirage 27 extrapolé à toute la semaine du 06/10 donne ~2,85 Md$ de volume v4 ; DefiLlama donne 2,87 Md$.</p>
+<div class="wrap"><table>
+<tr><th>part du volume v4 valorisé</th><th>06-12/10 (tirages 27 / 7)</th><th>20-26/10 (tirages 27 / 7)</th></tr>
+<tr><td>pools à hook</td><td class="n">54,7 % / 56,6 %</td><td class="n">34,2 % / 31,4 %</td></tr>
+<tr><td>dont hooks hors registre</td><td class="n">33,4 % / 33,8 %</td><td class="n">17,4 % / 14,0 %</td></tr>
+<tr><td>dont famille « …a80 » hors registre</td><td class="n">21,2 % / 22,3 %</td><td class="n">5,7 % / 3,9 %</td></tr>
+<tr><td>dont FablesRampETH (membre de la cohorte)</td><td class="n">12,7 % (2 tirages)</td><td class="n">8,5 % (2 tirages)</td></tr>
+<tr><td>pools à frais ≤ 0,05 %</td><td class="n">34,6 % / 31,0 %</td><td class="n">47,8 % / 50,1 %</td></tr>
+<tr><td>pools à frais ≥ 1 % — part des frais payés</td><td class="n">63,2 % / 59,2 %</td><td class="n">79,5 % / 75,3 %</td></tr>
+</table></div>
+<p><b>Le fait neuf.</b> En deux semaines, la part du volume v4 qui passe par un pool à hook tombe de 55,6 % à 32,8 %. Les trois quarts de cette chute (17 points sur 23) tiennent à <b>une seule famille</b> : des hooks hors registre dont l'adresse finit par <code>a80</code>. Ce suffixe code trois permissions : avant un ajout de liquidité, avant un retrait, avant un échange. Le recensement en compte <b>547</b>, avec 606 pools : un hook, un pool, surtout appariés à WETH à 0,3 %. Sur 20 hooks tirés au hasard, 19 ont le même code de 5 059 octets. Sur 12 pools tirés, 12 portefeuilles différents ont appelé la PoolManager : c'est un modèle copié par beaucoup, pas un seul lanceur. Leur création ralentit : 21 le 22/10, 10, 6, puis 1 le 25/10, 3 le 26/10.</p>
+<p>Le volume qui reste part vers les pools sans hook et à frais très bas. La part ≤ 0,05 % gagne 16 points. C'est là que se trouve l'écart entre les transactions (−7 %) et les frais (−34 %).</p>
+
+<h2>Le delta contre la veille</h2>
+<p>Contre le relevé du 26/10 (11:11 UTC) : TVL (l'argent déposé) de la chaîne 1,1322 Md$ (−0,1 %) ; TVL v4 176,3 M$ (−1,5 %) ; volume 30 j 29,70 Md$ (−0,2 %) ; frais 30 j 101,8 M$ (−3,2 %) ; frais 7 j 14,68 M$ (−3,6 %). Registre : 1 197 hooks robinhood (+2, dont <code>StablePairHook</code>, frais dynamiques autour d'un prix de référence, entré le 27/10 à 14:08 UTC). Le gel du registre est levé depuis le 26/10 15:02 UTC. Pons : 1 430 lancements le lundi 26/10, contre 1 707 le lundi 19/10 (−16 %) ; témoin du 25/10 recompté à l'identique (1 045). Dossier SEC 4-927 : 5 lettres nouvelles depuis le 23/10, aucune d'une plateforme ; le total n'est toujours pas lisible par script.</p>
+
+<h2>Ce qui contredit</h2>
+<p><b>Le prix par échange, je ne sais pas le mesurer.</b> DefiLlama dit que chaque dollar échangé sur v4 rapporte 31,4 points de base (pb) la semaine du 06/10 et 23,1 pb celle du 20/10. Mes deux tirages se contredisent : le tirage 7 retrouve la baisse (34,4 → 23,6 pb), le tirage 27 ne la voit pas (33,0 → 32,9 pb). Quelques gros échanges à 1 % ou plus font basculer la moyenne. La décomposition « 57 % de la baisse des frais v4 vient du prix, 43 % du volume » repose donc sur DefiLlama seul ; je ne la confirme pas. Seule la bascule vers les pools sans hook tient dans les deux tirages.</p>
+<p><b>Le hors registre monte, alors que le volume hors registre baisse.</b> 26,2 % des pools à hook créés sur 30 jours ont un hook hors registre, et la veille du 25/09 est soldée REVISEE. Mais ces hooks portent de moins en moins de volume : 33,6 % puis 15,7 %. Le registre décrit de plus en plus mal les créations, et de mieux en mieux les échanges.</p>
+<p><b>La lecture « chaîne qui se vide » ne tient pas.</b> 40,8 millions de transactions d'utilisateurs en une semaine, −6,8 % seulement. Par le capital déposé, la chaîne est stable à 1,13 Md$, dont 618 M$ chez Morpho (prêt). Par le volume, elle perd 18 %. Par les frais, elle perd 34 %. Les trois sont vraies.</p>
+
+<h2>Cohorte</h2>
+<p>Rien n'a bougé de façon décisive chez les dix ; quatre critères se tranchent le 31/10.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>preuve</th><th>traction (27/10)</th><th>frais 30 j / Pons</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">TVL 116,6 M$ (+1,1 %)</td><td class="n">0,108</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">TVL 64,2 M$</td><td class="n">0,097</td></tr>
+<tr><td>Fables</td><td class="n">1</td><td class="n">TVL 27,4 M$ ; hook v4 n° 1, 12,7 → 8,5 % du volume échantillonné</td><td class="n">0,192</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">TVL 6,13 M$</td><td class="n">0,034</td></tr>
+<tr><td>up v3</td><td class="n">0</td><td class="n">volume 30 j 373,6 M$ (−3,4 %)</td><td class="n">0,033</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">TVL 3,85 M$, zéro frais</td><td class="n">0</td></tr>
+<tr><td>Ekubo</td><td class="n">2</td><td class="n">TVL 1,30 M$ ; mcap 11,1 M$</td><td class="n">0,002</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">volume 30 j 139,5 M$</td><td class="n">0,003</td></tr>
+<tr><td>StonkBrokers</td><td class="n">0</td><td class="n">frais 30 j 460,9 k$ (+20,4 %, deux fiches entrent dans la fenêtre)</td><td class="n">0,022</td></tr>
+<tr><td>TermMax</td><td class="n">3</td><td class="n">TVL 11,2 k$, 45 fois sous son seuil de sortie (0,5 M$ au 31/10)</td><td class="n">0</td></tr>
+</table></div>
+<p><b>Ce qui devrait inquiéter :</b> TermMax sortira le 31/10 sauf retournement. Lighter, Arcus et Fables jouent aussi leur critère ce jour-là, et rien n'a changé depuis une semaine (lignée non corroborée, audit sans lien, mécanisme non documenté). <b>Candidat automatique :</b> Morpho Blue (preuve 2, TVL 618,4 M$, frais 30 j 1,79 M$) domine six membres pour le 3e jour consécutif ; remplacement possible le 31/10 si la série n'a pas de trou. Antichambre : aucun seuil franchi (GlueHook TVL 3,6 k$, Twofold 16,9 k$, ARMSys 53,8 k$). Recalcul sur 291 protocoles : 79 liens d'audit sur 83 en HTTP 200, 50 comptes GitHub sur 52 ; scores 196 à 0, 36 à 1, 44 à 2, 14 à 3, 1 à 4.</p>
+<p><b>Contre-référence Pons</b> : 20,67 M$ de frais 30 j, 20,3 % des frais de la chaîne, toujours deuxième ligne derrière Uniswap v4. Reversement aux détenteurs 19,4 % (V1+V2). La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse : 0,71 % du collatéral Morpho est en actions.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li><b>Pourquoi la famille « …a80 » s'éteint.</b> Le créateur du modèle n'est pas identifié : les explorateurs refusent les scripts (Blockscout et HoodScan bloqués, Robinscan muet). Un modèle copié par des centaines de portefeuilles, puis abandonné, ressemble à un outil de lancement passé de mode. C'est une hypothèse, pas une mesure.</li>
+<li><b>Le prix réel par échange.</b> Voir plus haut : deux tirages ne suffisent pas. Il faudrait un comptage complet des échanges v4 d'une journée.</li>
+<li><b>Qui paie le gaz.</b> Les en-têtes disent ce que la chaîne facture, pas qui règle.</li>
+<li><b>Les résultats trimestriels de Robinhood</b> sortent ce soir après la clôture de New York (annonce de la société). Ils ne sont pas lus ici.</li>
+<li><b>Pièges du mémo re-vérifiés ce jour</b> : P2 (la ligne de la chaîne est hors du total des frais : je la lis séparément), P3 (jointure par nom : les pools sont rattachés par identifiant, 0 clé manquante sur 46 191 échanges), P7 (chaque chiffre porte sa population), P10 (perimètre : StonkBrokers +20 % par l'entrée de deux fiches, pas par l'activité), P11 (registre ≠ recensement : 1 173 des 29 776 hooks utilisés sont au registre, 3,9 %), P12 (rafale d'un seul acteur : ici à l'inverse, des centaines d'acteurs, un seul code).</li>
+</ul>
+<p class="muted">Nouvelle veille ouverte : v_20261027_01 — la famille « …a80 » reste sous 10 % du volume v4 échantillonné trois semaines de suite (REVISEE au-dessus de 15 %, échéance 17/11).</p>
+</main>
+</body>
+</html>

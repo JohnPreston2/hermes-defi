@@ -754,6 +754,37 @@
     }
    ],
    "genere": "2026-10-26T11:11:12Z"
+  },
+  {
+   "date": "2026-10-27",
+   "fichier": "rapport/2026-10-27-enquete.html",
+   "titre": "Robinhood Chain, 27/10 : les frais n'ont pas de plancher, et le volume Uniswap v4 quitte les pools à hook",
+   "question": "La veille du 13/10 disait que les frais de la chaîne avaient trouvé leur plancher. La semaine du 20 au 26/10 tranche : sinon, est-ce l'activité qui disparaît, ou l'argent que rapporte chaque échange ?",
+   "mesure_neuve": "Échantillon sur la chaîne de 46 191 échanges Uniswap v4 (2 tirages, 12 fenêtres de 100 blocs par jour, 06-12/10 et 20-26/10), valorisés par leur jambe ETH/WETH/USDG : la part du volume passant par un pool à hook tombe de 55,6 % à 32,8 %. Les trois quarts de la chute tiennent à une seule famille hors registre (adresse finissant par a80, 547 hooks, un pool chacun, même code) : 21,8 % -> 4,8 %. Dans le même temps, les transactions de la chaîne ne baissent que de 6,8 % et le gaz facturé de 12,8 % (en-têtes de blocs), contre -33,6 % pour les frais des protocoles chez DefiLlama. Veilles soldées : plancher des frais (REVISEE), registre qui décrit le flux (REVISEE, 26,2 % hors registre sur 30 j).",
+   "chiffre_cle": {
+    "valeur": "33 %",
+    "libelle": "du volume Uniswap v4 passe encore par un pool à hook (un programme greffé sur le pool), contre 56 % deux semaines plus tôt",
+    "population": "46 191 échanges v4 échantillonnés sur la chaîne (2 tirages × 12 fenêtres de 100 blocs par jour, 06-12/10 et 20-26/10), dont 13,9 M$ valorisés par leur jambe ETH, WETH ou USDG"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume sur 7 jours (les échanges de la chaîne)"
+    },
+    {
+     "champ": "rh_v4_pools_hook_hors_registre_30j_pct",
+     "libelle": "Pools à hook hors registre sur 30 j (un hook = un programme greffé sur un pool)"
+    },
+    {
+     "champ": "rh_v4_vol_part_pools_hook_pct",
+     "libelle": "Part du volume v4 passant par un pool à hook"
+    }
+   ],
+   "genere": "2026-10-27T14:12:37Z"
   }
  ]
 }
