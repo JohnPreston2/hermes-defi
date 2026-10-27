@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-27T07:46:01Z",
+"generated_at": "2026-10-27T09:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 120,
+"n_affiches": 118,
 "n_refuses": 0,
-"n_traduits": 70,
+"n_traduits": 68,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -42,7 +42,6 @@
 "JPMorgan Brings MONY and JLTXX Tokenized Funds to Solana": "JPMorgan porte les fonds tokenisés MONY et JLTXX sur Solana",
 "JUP Rises 51% in Four Weeks as Jupiter Fees Decline": "JUP progresse de 51% en quatre semaines, alors que les frais de Jupiter baissent",
 "Jupiter Says YOLO Hit $1 Billion in Volume in Under 24 Hours": "Jupiter affirme que YOLO a atteint $1B de volume en moins de 24 heures",
-"Keystone Website Breach Exposes Customer Addresses and Order Details": "Une faille du site Keystone expose les adresses clients et les détails des commandes",
 "Keystone customers say breach exposed data the hardware wallet maker promised to delete": "Les clients de Keystone disent qu’une fuite a exposé des données que le fabricant de portefeuilles matériels avait promis de supprimer",
 "Keystone says website breach exposed hardware wallet buyers’ addresses": "Keystone indique qu'une faille du site web a exposé les adresses des acheteurs de portefeuilles matériels",
 "Ledger Adds Morpho Loans Against Wrapped Bitcoin": "Ledger ajoute des prêts Morpho contre du Wrapped Bitcoin",
@@ -74,7 +73,6 @@
 "Uniswap Swap Costs: What Reduces Your Output and What Is Paid Separately": "Coûts des swaps sur Uniswap : ce qui réduit votre rendement et ce qui est payé à part",
 "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur.",
 "Wrongful Cancellation of 618 by CommunityMultisig": "Annulation abusive de 618 par CommunityMultisig",
-"X100 Exploit Proceeds Split Into Four 400-ETH Wallets": "Le produit de l'exploit X100 réparti en quatre portefeuilles de 400 ETH",
 "[November 5, 2026] - Proposed Changes to Grove for Upcoming Spell": "[5 novembre 2026] - Changements proposés pour Grove pour le prochain spell",
 "[November 5, 2026] Proposed Changes to Spark for Upcoming Spell": "[5 novembre 2026] Changements proposés à Spark pour le prochain Spell"
 }
