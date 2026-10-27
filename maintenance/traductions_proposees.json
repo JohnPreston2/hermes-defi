@@ -42,9 +42,19 @@
   "quand": "2026-10-26T11:07:30Z",
   "statut": "ok"
  },
+ "AI giant Anthropic files for blockbuster IPO": {
+  "fr": "Le géant de l'IA Anthropic dépose un dossier d'introduction en Bourse très attendu",
+  "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
  "API Key Rotation: What Revocation and Redeployment Actually Change": {
   "fr": "Rotation des clés API : ce que la révocation et le redéploiement changent réellement",
   "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "Aave Raises USDT Borrowing Costs at High Utilization": {
+  "fr": "Aave augmente le coût d'emprunt en USDT lorsque le taux d'utilisation est élevé",
+  "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
  "Aave V4’s Arc Markets Connect Dollar-Euro Loans to Shared Liquidity": {
@@ -221,6 +231,11 @@
   "quand": "2026-10-21T15:07:27Z",
   "statut": "ok"
  },
+ "Bitcoin Dips Below $80,000 Ahead of Fed Decision, Midterms": {
+  "fr": "Le bitcoin passe sous les 80 000 $ avant la décision de la Fed et les élections de mi-mandat",
+  "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
  "Bitcoin ETFs Bleed $636 Million as October Turns Red Again": {
   "fr": "Les ETF bitcoin perdent $636 Million alors qu'octobre repasse dans le rouge",
   "quand": "2026-10-25T15:07:32Z",
@@ -279,6 +294,11 @@
  "Bitcoin Treasury Giant Strategy Faces Index Removal Under Finalized MSCI Rules": {
   "fr": "Le géant de la trésorerie bitcoin Strategy fait face à un retrait d'indice selon les règles MSCI finalisées",
   "quand": "2026-10-17T15:07:31Z",
+  "statut": "ok"
+ },
+ "Bitcoin Wallet Fixes Critical Flaw That Redirected Funds to Attackers": {
+  "fr": "Un correctif de portefeuille Bitcoin corrige une faille critique qui redirigeait les fonds vers des attaquants",
+  "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
  "Bitcoin Whale That Sat Through Every Crash Since 2020 Just Moved $377M": {
@@ -489,6 +509,11 @@
  "Bounty payout request for Immunefi bugs #86831, #93482 and #94379": {
   "fr": "Demande de paiement de prime pour les bugs Immunefi #86831, #93482 et #94379",
   "quand": "2026-10-23T11:07:31Z",
+  "statut": "ok"
+ },
+ "Brazil’s Stock Market Crashes After Lula’s Upset Victory": {
+  "fr": "La Bourse du Brésil chute après la victoire surprise de Lula",
+  "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
  "Bubblemaps Alleges Anglio-Linked Wallets Traded Ahead of Pump.fun Calls": {
@@ -822,6 +847,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "End Community Multisig Cancellation Power": {
+  "fr": "Supprimer le pouvoir d'annulation du multisig communautaire",
+  "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
  "Equity weakness could damp demand for bitcoin after biggest ETF inflows in a month": {
   "fr": "La faiblesse des actions pourrait freiner la demande de bitcoin après les plus fortes entrées dans les ETF depuis un mois",
   "quand": "2026-10-21T13:36:37Z",
@@ -1022,6 +1052,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Hyperliquid Tests Permissioned Markets for Payward's US Perps Plan": {
+  "fr": "Hyperliquid teste des marchés à accès autorisé pour le projet de contrats perpétuels américains de Payward",
+  "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
  "Hyperliquid’s Yan and CME’s Duffy Split Over Who Must Bear US Compliance": {
   "fr": "Yan d'Hyperliquid et Duffy du CME divergent sur qui doit assumer la conformité américaine",
   "quand": "2026-10-25T06:08:47Z",
@@ -1035,6 +1070,11 @@
  "India's largest exchange denies hack after sleuths pointed to $16 million in suspicious outflows": {
   "fr": "La plus grande plateforme d'échange indienne nie un piratage après que des enquêteurs ont signalé $16 million de sorties suspectes",
   "quand": "2026-10-23T19:16:31Z",
+  "statut": "ok"
+ },
+ "India’s CoinDCX Confirms $16 Million Loss Days After CEO Called It a ‘False Alarm’": {
+  "fr": "CoinDCX, en Inde, confirme une perte de 16 millions de dollars quelques jours après que son PDG a qualifié l'incident de « fausse alerte »",
+  "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
  "Injective partners with BDACS to bring Korean won stablecoin to RWA ecosystem": {
@@ -1394,6 +1434,11 @@
   "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
+ "OCC Encourages Community Banks to Become Stablecoin Issuers": {
+  "fr": "L'OCC encourage les banques communautaires à devenir émettrices de stablecoins",
+  "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
  "OCC Finalizes GENIUS Act Rule, Drops Third-Party Yield Presumption": {
   "fr": "L'OCC finalise la règle du GENIUS Act et abandonne la présomption de rendement par des tiers",
   "quand": "2026-10-21T15:07:27Z",
@@ -1472,6 +1517,11 @@
  "PHP flaw draws millions of exploit attempts, Cloudflare CEO warns": {
   "fr": "Une faille PHP suscite des millions de tentatives d'exploitation, selon le PDG de Cloudflare",
   "quand": "2026-10-23T07:07:43Z",
+  "statut": "ok"
+ },
+ "PHP flaw shows AI ‘vulnerability apocalypse’ is on schedule: Immunefi CEO": {
+  "fr": "Une faille dans PHP montre que la « vague de vulnérabilités liée à l'IA » suit son calendrier, selon le PDG d'Immunefi",
+  "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
  "PROVISOIRE, a valider par l'user : TVL sous 1 M$ ou lien d'audit qui cesse de repondre 200 -- et toujours remplacable par la meme regle automatique.": {
@@ -1897,6 +1947,11 @@
   "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
+ "Strategy Pauses Bitcoin Buying, Spends $205M Buying Back STRC": {
+  "fr": "Strategy suspend ses achats de bitcoin et dépense 205 M$ pour racheter des STRC",
+  "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
  "Strategy Slides 9.6% After MSCI Decision, Outpacing Bitcoin’s Drop": {
   "fr": "Strategy recule de 9,6 % après la décision de MSCI, plus que la baisse de Bitcoin",
   "quand": "2026-10-17T15:07:31Z",
@@ -1912,6 +1967,11 @@
   "quand": "2026-10-19T19:07:34Z",
   "statut": "ok"
  },
+ "Strategy pauses bitcoin buys, repurchases $205 million of STRC preferred shares": {
+  "fr": "Strategy suspend ses achats de bitcoin et rachète pour 205 M$ d'actions privilégiées STRC",
+  "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
  "Strategy, Strive face balancing act between bitcoin buying and preferred stock dividends": {
   "fr": "Strategy et Strive jonglent entre achats de bitcoin et dividendes des actions privilégiées",
   "quand": "2026-10-25T06:08:47Z",
@@ -1920,6 +1980,11 @@
  "Strategy’s preferred stock financing may cost it bitcoin, K33 argues": {
   "fr": "Le financement par actions privilégiées de Strategy pourrait lui coûter du bitcoin, selon K33",
   "quand": "2026-10-14T23:08:52Z",
+  "statut": "ok"
+ },
+ "Strive closes in on second-largest corporate bitcoin treasury with $511 million purchase": {
+  "fr": "Strive s'approche de la deuxième plus grande trésorerie d'entreprise en bitcoin avec un achat de 511 M$",
+  "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
  "Sunrise Brings Backpack’s Tokenized Meta Shares to Solana": {
