@@ -256,6 +256,11 @@
   "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
+ "Bitcoin ETF inflows climb to $176M as BTC rebounds above $80K": {
+  "fr": "Les entrées dans les ETF Bitcoin grimpent à $176M alors que le BTC remonte au-dessus de $80K",
+  "quand": "2026-10-28T19:07:42Z",
+  "statut": "ok"
+ },
  "Bitcoin ETFs Bleed $636 Million as October Turns Red Again": {
   "fr": "Les ETF bitcoin perdent $636 Million alors qu'octobre repasse dans le rouge",
   "quand": "2026-10-25T15:07:32Z",
@@ -1142,6 +1147,11 @@
   "quand": "2026-10-18T07:31:23Z",
   "statut": "ok"
  },
+ "Google to preview crypto custody security system as AI threats grow": {
+  "fr": "Google présentera en avant-première un système de sécurité pour la garde crypto, alors que les menaces liées à l'IA grandissent",
+  "quand": "2026-10-28T19:07:42Z",
+  "statut": "ok"
+ },
  "Grayscale expands in-kind subscriptions to 10 crypto ETFs and trusts": {
   "fr": "Grayscale étend les souscriptions en nature à 10 ETF et fiducies cryptos",
   "quand": "2026-10-22T07:07:42Z",
@@ -1532,6 +1542,11 @@
  "McDonald's McRib Doesn't Actually Boost Bitcoin's Price, Sorry Everyone": {
   "fr": "Le McRib de McDonald's ne fait pas vraiment grimper le prix du bitcoin, désolé tout le monde",
   "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
+ "Mirae Asset Securities issues tokenized notes on Solana": {
+  "fr": "Mirae Asset Securities émet des billets tokenisés sur Solana",
+  "quand": "2026-10-28T19:07:42Z",
   "statut": "ok"
  },
  "Mitigating Correlated Risk: Framework for Hybrid CSM Deployments and Provider Diversity Scoring": {
@@ -2037,6 +2052,11 @@
   "quand": "2026-10-16T15:59:12Z",
   "statut": "ok"
  },
+ "Securitize adds Stellar blockchain as institutional tokenization gathers steam": {
+  "fr": "Securitize ajoute la blockchain Stellar alors que la tokenisation institutionnelle prend de l'ampleur",
+  "quand": "2026-10-28T19:07:42Z",
+  "statut": "ok"
+ },
  "Securitize brings Apple, Nvidia and Tesla to Solana, with NYSE trading in the works": {
   "fr": "Securitize amène Apple, Nvidia et Tesla sur Solana, avec une négociation à la NYSE en préparation",
   "quand": "2026-10-14T09:35:34Z",
@@ -2302,6 +2322,11 @@
  "Technical Scope: Morpho Vault Timelock Compliance": {
   "fr": "Périmètre technique : conformité du timelock des coffres Morpho",
   "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
+ "Technical scope of the Beacon and Configurator launch on Base": {
+  "fr": "Périmètre technique du lancement de Beacon et Configurator sur Base",
+  "quand": "2026-10-28T19:07:42Z",
   "statut": "ok"
  },
  "Temporary pause of the deprecated Compound III USDe market on Mantle": {
@@ -2720,6 +2745,11 @@
  "[November 5, 2026] - Proposed Changes to Grove for Upcoming Spell": {
   "fr": "[5 novembre 2026] - Changements proposés pour Grove pour le prochain spell",
   "quand": "2026-10-22T07:07:42Z",
+  "statut": "ok"
+ },
+ "[November 5, 2026] - Skybase Foundation Grant: 900,000 USDS SubProxy Transfer": {
+  "fr": "[5 novembre 2026] - Subvention de la Skybase Foundation : transfert de 900,000 USDS vers le SubProxy",
+  "quand": "2026-10-28T19:07:42Z",
   "statut": "ok"
  },
  "[November 5, 2026] Proposed Changes to Spark for Upcoming Spell": {
