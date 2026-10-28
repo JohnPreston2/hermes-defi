@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 28/10 — les pools WORM sont morts</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du mercredi 28/10/2026</b> · générée 28/10 ~17:20 UTC · méthode : échantillon relu sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> : bloc 100 228 138 au relevé (16:56 UTC) ; témoin des bornes de jour : le bloc du 27/10 00:00 recalculé ce jour (98 814 676) est identique à celui d'hier · DefiLlama /protocols, /overview/fees, /overview/dexs, dailyHoldersRevenue : 16:44 UTC, dernier jour complet = 27/10 · registre <code>Uniswap/hooklist</code> : régénéré 28/10 12:06 UTC (âge 4 h 40) · API Morpho : 16:56 UTC · SEC 4-927 et Federal Register : ~17:00 UTC · delta (agent Hermes) : joignable, non utilisé comme résultat
+</div>
+
+<h1>Les 200 pools WORM n'ont plus bougé depuis quatorze jours</h1>
+
+<div class="key">
+<div class="v">0</div>
+<div class="l">échange depuis le 14/10 sur 200 pools Uniswap v4 ETH/WORM tirés au hasard : ces pools ne sont pas vides, ils sont morts.</div>
+<div class="p">population : 200 pools tirés parmi les 4 765 pools ETH/WORM créés depuis le 07/10 ; 12 100 échanges au total, tous entre le 07/10 et le 14/10 00:52 UTC</div>
+</div>
+
+<h2>La question</h2>
+<p>Le 14/10, une veille affirmait que les milliers de pools Uniswap v4 de la paire ETH/WORM (le jeton « Agent Wormhole »), créés chacun à un niveau de frais différent, n'étaient pas un marché : de la poussière routée par un seul contrat. Seuil : moins de 1 ETH de volume cumulé et une médiane sous 1e-6 ETH à l'échéance. L'échéance, c'est aujourd'hui. Depuis le 15/10, sept relevés de suite ont noté « non re-mesuré ». Ce matin, il fallait relire ou laisser mourir la veille sans preuve.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p>L'échantillon du 14/10 n'avait pas été sauvegardé. Je l'ai reconstitué depuis la chaîne avec la même règle : tous les pools dont une devise est WORM (<code>0x3ba5…c09d</code>), initialisés entre le 07/10 00:00 et le 14/10 08:30 UTC, puis tirage de 200 identifiants avec la graine 7. Ensuite, tous les événements Swap de la PoolManager v4 (<code>0x8366…0951</code>) sur ces 200 pools, du 07/10 au bloc 100 222 093.</p>
+<p><b>Témoin positif.</b> Arrêté au 14/10 08:30, le comptage rend exactement la référence publiée ce jour-là. 12 100 échanges sur 198 des 200 pools, 0,1331 ETH, médiane 1,38e-8 ETH, 99,7 % via <code>0x8876…0904</code>. L'échantillon est donc le même, au pool près. Sans ce témoin, un « zéro » ne voudrait rien dire.</p>
+<div class="wrap"><table>
+<tr><th>mesure (200 pools ETH/WORM, graine 7)</th><th>14/10 08:30</th><th>28/10 16:55</th></tr>
+<tr><td>échanges cumulés</td><td class="n">12 100</td><td class="n">12 100</td></tr>
+<tr><td>volume cumulé, jambe ETH</td><td class="n">0,1331 ETH</td><td class="n">0,1331 ETH</td></tr>
+<tr><td>médiane par échange</td><td class="n">1,38e-8 ETH</td><td class="n">1,38e-8 ETH</td></tr>
+<tr><td>part routée par 0x8876</td><td class="n">99,7 %</td><td class="n">99,7 % (12 061 sur 12 100)</td></tr>
+<tr><td>dernier échange</td><td class="n" colspan="2">14/10 00:52 UTC (bloc 87 953 633) — puis plus rien sur 12,3 millions de blocs</td></tr>
+</table></div>
+<p>Par jour, l'activité s'éteint d'elle-même : 1 853 échanges le 07/10, 4 832 le 08/10, 2 785 le 11/10, 129 le 13/10, 42 le 14/10, puis zéro. La population mère, recomptée aujourd'hui de la même façon, compte <b>4 765 pools ETH/WORM depuis le 07/10</b>, et non « ~6 500 » comme l'écrivait la veille. L'écart est gardé tel quel : la source du ~6 500 n'est pas retrouvée.</p>
+<p><b>Verdict : <span class="tag ok">CONFIRMEE</span>.</b> Le volume reste à 0,1331 ETH (seuil : 1 ETH) et la médiane à 1,38e-8 ETH (seuil : 1e-6). Le résultat va plus loin que l'affirmation : ces pools ont cessé de vivre quatorze jours avant l'échéance.</p>
+
+<h2>Le fil : les autres veilles re-testées</h2>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du jour</th><th>statut</th></tr>
+<tr><td>v_20261014_01 — pools WORM = poussière</td><td class="n">0 échange depuis le 14/10 ; 0,1331 ETH cumulés</td><td><span class="tag ok">CONFIRMEE</span></td></tr>
+<tr><td>v_20261008_02 — clé unique sur les jetons d'actions</td><td class="n">hasRole(admin) = 1 (témoin 0x…dead : 0) ; compte sans code ; 0 événement sur la balise depuis hier</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261022_01 — préavis Lighter</td><td class="n">0 événement de la porte de mise à jour ; conseil de sécurité toujours sans code</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261019_01 — rachats d'UNI</td><td class="n">semaine 19-25/10 : 22 rachats (seuil 40) ; 26-28/10 : 3, 3, 2 ; nonce 1 336</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20260919_01 — poids de Pons</td><td class="n">19,9 % des frais 30 j (19,74 / 98,98 M$), −0,4 pt</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261002_01 — actions dans le collatéral Morpho</td><td class="n">0,72 % (3,84 M$ sur 535,41 M$)</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261023_02 — LanistaHook</td><td class="n">72 pools, 3 échanges, tous du 22/10, 0 depuis</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261021_01 — TVL v3</td><td class="n">DefiLlama 92,66 M$ (+1,4 %) ; chaîne non relue</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20260918_01 / 02 / 03 / 04</td><td class="n">asrd 72,3 % (868/1 200) ; audits 5/1 200 ; v3 34,9 % du volume ; actions 156/1 200</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261005_02, v_20261023_01, v_20261027_01</td><td class="n">non re-mesurées (mesures hebdomadaires ou finales)</td><td><span class="tag op">trou déclaré</span></td></tr>
+<tr><td>v_20261025_01, v_20261026_01 — horloge des émissions</td><td class="n">non mesurables avant le 31/10</td><td><span class="tag op">OUVERTE</span></td></tr>
+</table></div>
+<p class="muted">Aucune veille ouverte ce jour : la mesure neuve solde une affirmation, elle n'en produit pas de nouvelle testable.</p>
+
+<h2>Le delta contre la veille</h2>
+<div class="wrap"><table>
+<tr><th>mesure (DefiLlama, 27/10 14:12 → 28/10 16:44 UTC)</th><th>27/10</th><th>28/10</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td class="n">1 132,2 M$</td><td class="n">1 134,5 M$</td><td class="n">+0,2 %</td></tr>
+<tr><td>TVL Uniswap v4</td><td class="n">176,3 M$</td><td class="n">181,6 M$</td><td class="n">+3,0 %</td></tr>
+<tr><td>volume 7 j de la chaîne</td><td class="n">5,18 Md$</td><td class="n">4,84 Md$</td><td class="n">−6,6 %</td></tr>
+<tr><td>volume 24 h</td><td class="n">758 M$</td><td class="n">605 M$</td><td class="n">−20,2 %</td></tr>
+<tr><td>frais 7 j (ce que les protocoles encaissent)</td><td class="n">14,68 M$</td><td class="n">13,60 M$</td><td class="n">−7,4 %</td></tr>
+<tr><td>frais 30 j</td><td class="n">101,82 M$</td><td class="n">98,98 M$</td><td class="n">−2,8 %</td></tr>
+<tr><td>revenu aux détenteurs de jetons, 30 j (total déclaré)</td><td class="n">3,83 M$</td><td class="n">3,77 M$</td><td class="n">−1,6 %</td></tr>
+<tr><td>hooks robinhood au registre</td><td class="n">1 197</td><td class="n">1 200</td><td class="n">+3</td></tr>
+<tr><td>lancements Pons sur la chaîne (mardi)</td><td class="n">1 958 (20/10)</td><td class="n">1 452 (27/10)</td><td class="n">−26 %</td></tr>
+</table></div>
+<p>Les frais 30 j passent sous 100 M$ pour la première fois de la série. Les trois natures de la chaîne, lues ensemble : par le capital déposé, c'est une chaîne de prêt (Morpho Blue 612,6 M$ sur 1 134,5 M$) ; par le volume, un DEX (Uniswap 78,4 % du volume 30 j) ; par les frais, Uniswap v4 (37,1 M$) et Pons (19,7 M$, un lanceur de jetons) portent 57 % du total déclaré. Le capital tient, l'activité continue de reculer.</p>
+<p class="muted">Piège P10 re-vérifié : 33 commits <code>dimension-adapters</code> depuis le 27/10 14:00 UTC, aucun ne nomme Robinhood ou Pons ; le delta est lu à périmètre déclaré constant.</p>
+
+<h2>Cohorte</h2>
+<p>Rien n'a bougé chez les dix au point de franchir un critère. Trois critères se tranchent le 31/10 et aucun n'a changé de sens : TermMax reste 45 fois sous son seuil de TVL (11,2 k$ contre 0,5 M$) ; Fables affiche toujours un code d'audit 3 sans lien qui répond ; la lignée d'Arcus reste non corroborée. Ce qui devrait inquiéter : six membres sur dix ont un score de preuve nul, et Morpho Blue les domine depuis quatre jours.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>preuve</th><th>TVL chaîne</th><th>frais 30 j</th><th>frais / Pons</th></tr>
+<tr><td>Fables</td><td class="n">1</td><td class="n">27,7 M$</td><td class="n">3,85 M$</td><td class="n">0,195</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">115,6 M$</td><td class="n">2,23 M$</td><td class="n">0,113</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">65,4 M$</td><td class="n">2,01 M$</td><td class="n">0,102</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">6,30 M$</td><td class="n">0,70 M$</td><td class="n">0,035</td></tr>
+<tr><td>up v3</td><td class="n">0</td><td class="n">4,51 M$</td><td class="n">0,66 M$</td><td class="n">0,033</td></tr>
+<tr><td>StonkBrokers (8 lignes)</td><td class="n">0</td><td class="n">—</td><td class="n">0,46 M$</td><td class="n">0,023</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">0,84 M$</td><td class="n">53,5 k$</td><td class="n">0,003</td></tr>
+<tr><td>Ekubo</td><td class="n">2</td><td class="n">1,30 M$</td><td class="n">45,6 k$</td><td class="n">0,002</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">3,91 M$</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>TermMax</td><td class="n">3</td><td class="n">11,2 k$</td><td class="n">0</td><td class="n">0</td></tr>
+</table></div>
+<p><b>Recalcul sur toute la chaîne</b> (292 protocoles au filtre DefiLlama) : 196 à 0, 36 à 1, 45 à 2, 14 à 3, 1 à 4. Liens d'audit : 79 sur 83 répondent 200. Comptes GitHub : 50 sur 52 existent (témoins ARMSys26 = 404, Uniswap = 200). <b>Morpho Blue</b> (score 2, 612,6 M$ de TVL, 1,78 M$ de frais) en est à son 4e jour consécutif comme candidat dominant. Le remplacement automatique tombe le 31/10 si la série reste sans trou. Antichambre : aucun seuil franchi (GlueHook 3,7 k$, Twofold 17,5 k$, ARMSys 54,8 k$). Contre-référence : Pons pèse 19,9 % des frais 30 j (20,3 % hier) ; son reversement aux détenteurs vaut 19,0 % des frais des deux versions.</p>
+
+<h2>Ce qui contredit</h2>
+<p><b>Le nombre de pools n'était pas gonflé.</b> La veille disait que ces pools « gonflent le nombre de pools de la chaîne ». Or 4 765 pools ETH/WORM pèsent environ 0,44 % du recensement v4 du 27/10 (1 084 737 pools). Ils n'ont jamais faussé le comptage des pools de façon visible. La partie « pas un marché » est confirmée ; la partie « gonfle » était surestimée dès le départ, ~6 500 compris.</p>
+<p><b>Un échantillon n'est pas la population.</b> 200 pools sur 4 765, c'est 4,2 %. Les 4 565 autres n'ont pas été lus un par un. Si un vrai marché WORM existe, il peut vivre ailleurs : DexTools affiche une paire WORM/PLTR avec ~194 k$ de liquidité, relevé daté du 21/09 (presse, non recoupé).</p>
+<p><b>Mort ne veut pas dire inoffensif.</b> Ces pools morts restent initialisés. Tout indicateur fondé sur le nombre de pools ou de swaps de la semaine du 07/10 porte leur rafale : 12 100 échanges sur 200 pools, soit de l'ordre de 290 000 sur la population si la densité est la même (extrapolation, non mesurée).</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li>Si le contrat routeur <code>0x8876…0904</code> a cessé toute activité ou s'est déplacé vers d'autres pools : sonde lancée ce jour, non terminée à la publication.</li>
+<li>Qui a créé ces pools et pourquoi ils ont été abandonnés le 14/10 : aucune source web ne documente WORM sur cette chaîne.</li>
+<li>Les mesures hebdomadaires de volume v4 (part des pools à hook, famille « a80 ») : non refaites, prochaine lecture sur la semaine 27/10-02/11.</li>
+<li>Le dossier SEC 4-927 : total de lettres toujours non lisible par script ; 2 lettres datées du 27/10 en première page, aucune d'une plateforme. Federal Register : 312 documents, inchangé, aucun avis de TSV (venue de titres tokenisés).</li>
+</ul>
+<p class="muted">Pièges du mémo re-vérifiés ce jour : P1 (Pons absent du filtre par chaîne, lu par /overview/fees), P2/P8 (Pons V1 reste doublecounted = vrai), P5 (seuls les liens en 200 comptent), P7 (chaque chiffre avec sa population), P10 (commits des adaptateurs), P11 (registre ≠ recensement : 1 200 hooks au registre, contre 29 776 utilisés sur la chaîne au 27/10), santé du registre (commit 73c8c420, 28/10 12:06 UTC).</p>
+</main>
+</body>
+</html>

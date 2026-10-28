@@ -785,6 +785,37 @@
     }
    ],
    "genere": "2026-10-27T14:12:37Z"
+  },
+  {
+   "date": "2026-10-28",
+   "fichier": "rapport/2026-10-28-enquete.html",
+   "titre": "Robinhood Chain, 28/10 : les 200 pools WORM n'ont plus bougé depuis quatorze jours",
+   "question": "La veille du 14/10 disait que les milliers de pools ETH/WORM d'Uniswap v4 n'étaient pas un marché. Elle échoit aujourd'hui : ces pools ont-ils fini par attirer de vrais échanges ?",
+   "mesure_neuve": "L'échantillon de 200 pools ETH/WORM (graine 7) reconstitué depuis la chaîne rend exactement la référence du 14/10 (12 100 échanges, 0,1331 ETH, 99,7 % via un seul contrat) — et aucun échange depuis le 14/10 00:52 UTC, sur 12,3 millions de blocs. Population mère recomptée : 4 765 pools ETH/WORM créés depuis le 07/10, et non ~6 500. Veille soldée CONFIRMEE.",
+   "chiffre_cle": {
+    "valeur": "0",
+    "libelle": "échange depuis le 14/10 sur 200 pools Uniswap v4 ETH/WORM tirés au hasard : ces pools sont morts, pas seulement vides",
+    "population": "200 pools tirés parmi les 4 765 pools ETH/WORM créés depuis le 07/10 ; 12 100 échanges au total, tous du 07 au 14/10"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_fees_7d_chaine",
+     "libelle": "Frais sur 7 jours (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume sur 7 jours (les échanges de la chaîne)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons (un lanceur de jetons) dans les frais 30 j"
+    }
+   ],
+   "genere": "2026-10-28T16:44:43Z"
   }
  ]
 }
