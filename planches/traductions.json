@@ -1,14 +1,13 @@
 {
-"generated_at": "2026-10-28T07:46:02Z",
+"generated_at": "2026-10-28T09:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 135,
+"n_affiches": 134,
 "n_refuses": 0,
-"n_traduits": 84,
+"n_traduits": 83,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
 "A16z is the latest VC giant to widen bets beyond crypto and into AI and emerging tech": "A16z est le dernier géant du capital-risque à élargir ses paris au-delà de la crypto, vers l'IA et les technologies émergentes",
-"AI agents help rescue ETH’s Glamsterdam fork, ‘Steal My Bitcoin’ site: Hodler’s Digest": "Des agents d'IA aident à sauver le fork Glamsterdam d'ETH, site « Steal My Bitcoin » : Hodler's Digest",
 "AI giant Anthropic files for blockbuster IPO": "Le géant de l'IA Anthropic dépose un dossier d'introduction en Bourse très attendu",
 "Aave Raises USDT Borrowing Costs at High Utilization": "Aave augmente le coût d'emprunt en USDT lorsque le taux d'utilisation est élevé",
 "Aave vs. Bitso USDC Prime: What Lenders Hold and What Limits Exits": "Aave contre USDC Prime de Bitso : ce que détiennent les prêteurs et ce qui limite les sorties",
