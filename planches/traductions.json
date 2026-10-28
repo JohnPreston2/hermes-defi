@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-28T15:46:02Z",
+"generated_at": "2026-10-28T19:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
 "n_affiches": 145,
 "n_refuses": 0,
-"n_traduits": 88,
+"n_traduits": 94,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -14,6 +14,7 @@
 "Aviva Investors, Ripple launch tokenized share class of $29 billion sterling fund on XRP Ledger": "Aviva Investors et Ripple lancent une catégorie de parts tokenisée d'un fonds en livres sterling de $29 billion sur le XRP Ledger",
 "Base DEX structural fracture unreported. Native venue Aerodrome Slipstream in silent freefall. One fee watch issued to capture continued evaporation.": "Fracture structurelle non signalée de la base DEX. Plateforme native Aerodrome Slipstream en chute libre silencieuse. Une veille des frais a été émise pour suivre l'évaporation continue.",
 "Binance Seeks Brazil Crypto License as It Delists 22 Tokens": "Binance demande une licence crypto au Brésil alors qu'elle retire 22 jetons de sa cote",
+"Bitcoin ETF inflows climb to $176M as BTC rebounds above $80K": "Les entrées dans les ETF Bitcoin grimpent à $176M alors que le BTC remonte au-dessus de $80K",
 "Bitcoin Wallet Fixes Critical Flaw That Redirected Funds to Attackers": "Un correctif de portefeuille Bitcoin corrige une faille critique qui redirigeait les fonds vers des attaquants",
 "Bitcoin treasury Datavault AI plunges 50% after firm says it can’t access its BTC": "Datavault AI, trésorerie en bitcoin, chute de 50 % après que la société affirme ne pas pouvoir accéder à ses BTC",
 "Bitget Wallet Brings USD and EUR Virtual Accounts to 100 Million Users": "Bitget Wallet ouvre des comptes virtuels en USD et en EUR à 100 millions d'utilisateurs",
@@ -44,6 +45,7 @@
 "FDV/Mcap exceeds 2.0x or fees coverage drops below 60%.": "Le ratio FDV/Mcap dépasse 2,0x ou la couverture des frais tombe sous 60%.",
 "FDV/Mcap exceeds 2.0x or fees decline >10% over 7 days.": "Le FDV/Mcap dépasse 2,0x ou les frais baissent de plus de 10 % sur 7 jours.",
 "Fee growth turns negative or FDV/Mcap exceeds 2.5.": "La croissance des frais devient négative, ou le ratio FDV/Mcap dépasse 2,5.",
+"Google to preview crypto custody security system as AI threats grow": "Google présentera en avant-première un système de sécurité pour la garde crypto, alors que les menaces liées à l'IA grandissent",
 "Hyperliquid Tests Permissioned Markets for Payward's US Perps Plan": "Hyperliquid teste des marchés à accès autorisé pour le projet de contrats perpétuels américains de Payward",
 "Hyperliquid says Kraken parent Payward to be first CFTC-regulated HIP-3 deployer": "Hyperliquid indique que Payward, maison mère de Kraken, sera le premier déployeur HIP-3 régulé par la CFTC",
 "Hyperliquid’s Yan and CME’s Duffy Split Over Who Must Bear US Compliance": "Yan d'Hyperliquid et Duffy du CME divergent sur qui doit assumer la conformité américaine",
@@ -56,6 +58,7 @@
 "LEGO Grant Proposal: Production-Ready Local-First Safe UI": "Proposition de subvention LEGO : interface Safe prête pour la production, locale d'abord",
 "Marinade Waives Bond Charges for Agave Slot-Skipping Bug": "Marinade renonce aux frais de caution (bond) liés au bug de saut de slots d'Agave",
 "McDonald's McRib Doesn't Actually Boost Bitcoin's Price, Sorry Everyone": "Le McRib de McDonald's ne fait pas vraiment grimper le prix du bitcoin, désolé tout le monde",
+"Mirae Asset Securities issues tokenized notes on Solana": "Mirae Asset Securities émet des billets tokenisés sur Solana",
 "Moody’s Assigns Ripple’s RLUSD A2 and P-1 Deposit Ratings": "Moody's attribue au RLUSD de Ripple les notes de dépôt A2 et P-1",
 "OCC Encourages Community Banks to Become Stablecoin Issuers": "L'OCC encourage les banques communautaires à devenir émettrices de stablecoins",
 "Ondo Brings 15 Stock Tokens to Robinhood Chain With Uniswap Pools": "Ondo apporte 15 Stock Tokens sur Robinhood Chain avec des pools Uniswap",
@@ -78,6 +81,7 @@
 "Robinhood taps Ripple’s $2.5 billion RLUSD stablecoin despite backing rival USDG": "Robinhood fait appel au stablecoin RLUSD de Ripple, d'un montant de $2,5 milliards, malgré son soutien à USDG, son rival",
 "Robinhood vs. Securitize: Stock Token Access Compared": "Robinhood contre Securitize : comparaison de l'accès aux jetons d'actions",
 "SLL pilot request: Zyfai as a $10M rate-limited USDC venue on Ethereum": "Demande de pilote SLL : Zyfai comme plateforme USDC de 10 M$ à débit limité sur Ethereum",
+"Securitize adds Stellar blockchain as institutional tokenization gathers steam": "Securitize ajoute la blockchain Stellar alors que la tokenisation institutionnelle prend de l'ampleur",
 "Securitize’s tokenized stock value halves as Circle widens lead": "La valeur de l'action tokenisée de Securitize se réduit de moitié alors que Circle élargit son avance",
 "SharpLink Says It Deployed $400 Million Across Ether.fi and Lido": "SharpLink annonce avoir déployé 400M$ sur Ether.fi et Lido",
 "SoFi discloses 503,000 crypto products as gross crypto revenue hits $162 million": "SoFi déclare 503,000 produits crypto, et son chiffre d'affaires brut crypto atteint 162 millions de $",
@@ -86,6 +90,7 @@
 "Strategy Pauses Bitcoin Buying, Spends $205M Buying Back STRC": "Strategy suspend ses achats de bitcoin et dépense 205 M$ pour racheter des STRC",
 "Strive closes in on second-largest corporate bitcoin treasury with $511 million purchase": "Strive s'approche de la deuxième plus grande trésorerie d'entreprise en bitcoin avec un achat de 511 M$",
 "TVL base trend turns negative or FDV/Mcap ratio exceeds 3.5.": "La tendance de base de la TVL devient négative, ou le ratio FDV/Mcap dépasse 3,5.",
+"Technical scope of the Beacon and Configurator launch on Base": "Périmètre technique du lancement de Beacon et Configurator sur Base",
 "Tether America USD (USAT) on Aave Avalanche Assessments": "Évaluations de Tether America USD (USAT) sur Aave Avalanche",
 "Token capture remains 0.0% for 30 days or base (OI/Vol) contracts for 7 consecutive days.": "La capture de jetons reste à 0,0% pendant 30 jours, ou la base (OI/Vol) se contracte pendant 7 jours consécutifs.",
 "Trade Where You Read: Decrypt Brings Jupiter-Powered Trading to The Information Exchange": "Trader là où vous lisez : Decrypt ajoute le trading propulsé par Jupiter à The Information Exchange",
@@ -94,6 +99,7 @@
 "Uniswap Fee Switch: Deployment Status, TokenJars and UNI Burns": "Uniswap Fee Switch : état du déploiement, TokenJars et destructions d'UNI",
 "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur.",
 "Wrongful Cancellation of 618 by CommunityMultisig": "Annulation abusive de 618 par CommunityMultisig",
-"Zcash co-founder proposes ending grants subsidy, citing $125 million treasury": "Le cofondateur de Zcash propose de mettre fin au programme de subventions (grants), en invoquant un trésor de 125 millions de $"
+"Zcash co-founder proposes ending grants subsidy, citing $125 million treasury": "Le cofondateur de Zcash propose de mettre fin au programme de subventions (grants), en invoquant un trésor de 125 millions de $",
+"[November 5, 2026] - Skybase Foundation Grant: 900,000 USDS SubProxy Transfer": "[5 novembre 2026] - Subvention de la Skybase Foundation : transfert de 900,000 USDS vers le SubProxy"
 }
 }
