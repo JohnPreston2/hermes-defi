@@ -1,56 +1,14 @@
 {
  "defauts": [
   {
-   "constat": "La ligne Arbitrum (+88 M$), en tête du graphique, est masquée sous les boutons Flux ; seule la ligne Plasma apparaît.",
-   "ecran": "telephone",
-   "gravite": "bloquant",
-   "type": "texte_coupe",
-   "vue": "Argent stable · Flux 7 jours"
-  },
-  {
-   "constat": "Aucune étiquette pour le segment USDC (71,2 Md$) ni pour Hyperliquid L1 (6,9 Md$) ; le texte les cite, la scène non.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Argent stable · Où ils sont"
-  },
-  {
-   "constat": "« Cités cette semaine · 7 » : seulement six disques sont visibles, Morpho n’apparaît pas.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Attention"
-  },
-  {
-   "constat": "Deux disques bleu et gris sans nom, à demi cachés sous « Tether Gold » et « ApeX Protocol ».",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Attention"
-  },
-  {
-   "constat": "Deux anneaux de la rangée « suivis, jamais valorisés » n’ont aucun nom affiché.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Attention"
-  },
-  {
-   "constat": "Disques vert et cyan de la rangée cités, et disque bleu de chiffre instable, sans nom sur la scène.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Attention"
-  },
-  {
-   "constat": "La légende « une pièce : une année de frais » et « trait : médiane du secteur » est recouverte par les disques Aerodrome et HumidiFi.",
+   "constat": "Les pastilles des protocoles recouvrent la fin des chiffres « 12,1* », « 7,0 » et « 4,3 » dans la liste « chiffre instable ».",
    "ecran": "telephone",
    "gravite": "gene",
    "type": "chevauchement",
-   "vue": "Prix des frais · Échanges"
+   "vue": "Attention"
   }
  ],
- "jour": "2026-10-27",
+ "jour": "2026-10-28",
  "n_captures": 34,
- "quand": "2026-10-27T14:20:59Z"
+ "quand": "2026-10-28T08:21:08Z"
 }
