@@ -431,6 +431,11 @@
   "quand": "2026-10-16T07:59:22Z",
   "statut": "ok"
  },
+ "Bitcoin treasury Datavault AI plunges 50% after firm says it can’t access its BTC": {
+  "fr": "Datavault AI, trésorerie en bitcoin, chute de 50 % après que la société affirme ne pas pouvoir accéder à ses BTC",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
  "Bitcoin whale moves $378 million in BTC after six years of dormancy: onchain data": {
   "fr": "Une baleine de bitcoin déplace 378 M$ en BTC après six ans d'inactivité : données on-chain",
   "quand": "2026-10-14T09:35:34Z",
@@ -461,9 +466,29 @@
   "quand": "2026-10-19T07:07:36Z",
   "statut": "ok"
  },
+ "Bitget Wallet Brings USD and EUR Virtual Accounts to 100 Million Users": {
+  "fr": "Bitget Wallet ouvre des comptes virtuels en USD et en EUR à 100 millions d'utilisateurs",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
  "Bitget, Liquid exploits push Q3 crypto hacks toward $1.2B": {
   "fr": "Les piratages de Bitget et Liquid poussent les hacks crypto du T3 vers $1,2B",
   "quand": "2026-10-15T15:07:33Z",
+  "statut": "ok"
+ },
+ "Bithumb Says Hackers Accessed Internal System, Leaking Personal Data": {
+  "fr": "Bithumb affirme que des pirates ont accédé à un système interne et fait fuir des données personnelles",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
+ "Bithumb discloses data leak after internal system breach: Report": {
+  "fr": "Bithumb signale une fuite de données après une intrusion dans son système interne : rapport",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
+ "Bithumb hacked through employee system as South Korean financial firms face cyberattacks": {
+  "fr": "Bithumb piraté via un système interne d'employés alors que des entreprises financières sud-coréennes subissent des cyberattaques",
+  "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
  "Bitmine adds 12,532 ETH as Tom Lee flags potential ‘largest-ever’ crypto bull market": {
@@ -551,6 +576,11 @@
   "quand": "2026-10-23T11:07:31Z",
   "statut": "ok"
  },
+ "Brazilian companies turned to stablecoins on election day to dodge a currency crash": {
+  "fr": "Des entreprises brésiliennes se sont tournées vers les stablecoins le jour de l'élection pour échapper à une chute de la monnaie",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
  "Brazil’s Stock Market Crashes After Lula’s Upset Victory": {
   "fr": "La Bourse du Brésil chute après la victoire surprise de Lula",
   "quand": "2026-10-27T07:07:28Z",
@@ -574,6 +604,11 @@
  "CFTC Sues Utah to Block Prediction-Market Enforcement": {
   "fr": "La CFTC poursuit l'Utah pour bloquer l'application des règles sur les marchés de prédiction",
   "quand": "2026-10-28T07:07:57Z",
+  "statut": "ok"
+ },
+ "CFTC sues Utah as battle over prediction market regulation intensifies": {
+  "fr": "La CFTC poursuit l'Utah alors que le bras de fer sur la régulation des marchés de prédiction s'intensifie",
+  "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
  "COMP Jumps 27%, Outpacing Bitcoin and Ether": {
@@ -666,6 +701,11 @@
   "quand": "2026-10-18T19:07:33Z",
   "statut": "ok"
  },
+ "Circle’s Arc Tops $1 Billion in USDC": {
+  "fr": "Arc de Circle dépasse 1 milliard de dollars en USDC",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
  "Citrini sees a tokenization boom. The harder question is who profits": {
   "fr": "Citrini voit un essor de la tokenisation. La question la plus difficile est de savoir qui en tire profit",
   "quand": "2026-10-18T07:31:23Z",
@@ -681,9 +721,24 @@
   "quand": "2026-10-23T19:16:31Z",
   "statut": "ok"
  },
+ "Coinbase Customer Data Hit in Analytics Vendor Breach, Funds ‘Not Impacted’": {
+  "fr": "Données clients de Coinbase touchées par une fuite chez un prestataire d'analyse, fonds « non touchés »",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
  "Coinbase Ireland fined $3.6 million over customer fund segregation, oversight failures": {
   "fr": "Coinbase Ireland écope d'une amende de $3,6 million pour séparation des fonds clients et défaillances de supervision",
   "quand": "2026-10-23T07:07:43Z",
+  "statut": "ok"
+ },
+ "Coinbase denies systems breach, says vendor exposed customer data": {
+  "fr": "Coinbase nie une intrusion dans ses systèmes et affirme qu'un prestataire a exposé des données clients",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
+ "Coinbase says user funds are safe after third-party vendor exposes customer contact info": {
+  "fr": "Coinbase affirme que les fonds des utilisateurs sont sûrs après qu'un prestataire tiers a exposé les coordonnées de clients",
+  "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
  "Collector Crypt Logs $151 Million in Monthly Pack Sales": {
@@ -1474,9 +1529,19 @@
   "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
+ "McDonald's McRib Doesn't Actually Boost Bitcoin's Price, Sorry Everyone": {
+  "fr": "Le McRib de McDonald's ne fait pas vraiment grimper le prix du bitcoin, désolé tout le monde",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
  "Mitigating Correlated Risk: Framework for Hybrid CSM Deployments and Provider Diversity Scoring": {
   "fr": "Atténuer le risque corrélé : cadre pour les déploiements CSM hybrides et notation de la diversité des fournisseurs",
   "quand": "2026-10-26T11:07:30Z",
+  "statut": "ok"
+ },
+ "Moody’s Assigns Ripple’s RLUSD A2 and P-1 Deposit Ratings": {
+  "fr": "Moody's attribue au RLUSD de Ripple les notes de dépôt A2 et P-1",
+  "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
  "MoonPay, Upbit parent Dunamu explore collaboration on stablecoin payments, GIWA expansion": {
@@ -1728,6 +1793,11 @@
   "quand": "2026-10-16T15:59:12Z",
   "statut": "ok"
  },
+ "Quantum fears already limiting Bitcoin’s growth, Stacks founder says": {
+  "fr": "Les craintes liées au quantique freinent déjà la croissance du bitcoin, selon le fondateur de Stacks",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
  "Qubic Halts Network After $1.3 Million Wallet Drain": {
   "fr": "Qubic suspend son réseau après le vidage d'un portefeuille de 1,3 million de dollars",
   "quand": "2026-10-19T07:07:36Z",
@@ -1806,6 +1876,11 @@
  "Ripple wins final US approval for national trust bank": {
   "fr": "Ripple obtient l’approbation finale des États-Unis pour une banque fiduciaire nationale",
   "quand": "2026-10-27T14:20:59Z",
+  "statut": "ok"
+ },
+ "Ripple, Robinhood expand partnership to bring RLUSD to retail and institutional markets": {
+  "fr": "Ripple et Robinhood élargissent leur partenariat pour amener le RLUSD aux marchés de détail et institutionnels",
+  "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
  "Risk Stewards: Cap Increases on Aave V4 / 2026.10.16": {
@@ -2032,6 +2107,11 @@
   "quand": "2026-10-15T15:07:33Z",
   "statut": "ok"
  },
+ "Solana bug reports now cost 1 SOL as AI floods security teams with spam": {
+  "fr": "Les signalements de bugs sur Solana coûtent désormais 1 SOL, l'IA inondant les équipes de sécurité de spam",
+  "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
  "Solana sets Oct. 21 for Alpenglow upgrade targeting 150-millisecond finality": {
   "fr": "Solana fixe au 21 oct. la mise à niveau Alpenglow, qui vise une finalité de 150 millisecondes",
   "quand": "2026-10-14T15:10:04Z",
@@ -2135,6 +2215,11 @@
  "Strategy Pauses Bitcoin Buying, Spends $205M Buying Back STRC": {
   "fr": "Strategy suspend ses achats de bitcoin et dépense 205 M$ pour racheter des STRC",
   "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
+ "Strategy Shareholders to Vote on Daily STRC Dividends": {
+  "fr": "Les actionnaires de Strategy voteront sur des dividendes STRC quotidiens",
+  "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
  "Strategy Slides 9.6% After MSCI Decision, Outpacing Bitcoin’s Drop": {
@@ -2322,6 +2407,11 @@
  "Trade Where You Read: Decrypt Brings Jupiter-Powered Trading to The Information Exchange": {
   "fr": "Trader là où vous lisez : Decrypt ajoute le trading propulsé par Jupiter à The Information Exchange",
   "quand": "2026-10-23T07:07:43Z",
+  "statut": "ok"
+ },
+ "Tranche Vault on Avalanche Drained of 1.01 Million USDC": {
+  "fr": "Le coffre Tranche sur Avalanche vidé de 1,01 million d'USDC",
+  "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
  "Trezor Shrinks Reseller Network After Hardware Wallet Supply-Chain Incidents": {
