@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 29/10 — le hook d'Uniswap tenu par la gouvernance est vide</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du jeudi 29/10/2026</b> · générée 29/10 ~10:45 UTC · méthode : recensement complet sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> (témoins : <code>eth_chainId</code> = 0x1237, code d'une adresse bidon = 0x, premier pool v4 retrouvé au bloc 9 505) : recensement des pools jusqu'au bloc 100 798 998 (~09:25 UTC), relectures jusqu'au bloc 100 801 909 (09:33 UTC) · DefiLlama /protocols, /v2/chains, /overview/fees, /overview/dexs, dailyHoldersRevenue : 09:25 UTC, dernier jour complet = 28/10 · registre <code>Uniswap/hooklist</code> : régénéré 28/10 21:46 UTC (âge 11 h 40) · dépôt <code>Uniswap/v4-hooks-public</code> et RPC Ethereum public : ~10:00 UTC · API Morpho, SEC 4-927, Federal Register : ~09:50 UTC · delta (agent Hermes) : joignable, <code>defi.json</code> de 08:53 UTC, non utilisé comme résultat
+</div>
+
+<h1>Le hook d'Uniswap tenu par la gouvernance est vide ; celui qu'Uniswap a abandonné tourne encore</h1>
+
+<div class="key">
+<div class="v">0 pool</div>
+<div class="l">sur le hook VolatilePair qu'Uniswap Labs a posé hier soir, le seul de la chaîne dont la clé est la gouvernance UNI. Le DualPool qu'Uniswap a abandonné le 19/10 a encore traité 265 échanges le 28/10.</div>
+<div class="p">population : 3 185 pools Uniswap v4 créés entre le déploiement (28/10 20:56 UTC) et le relevé (29/10 ~09:25 UTC), sur 1 095 143 pools v4 au total</div>
+</div>
+
+<h2>Le fil : les veilles re-testées ce matin</h2>
+<p>Seize veilles ouvertes, seize points datés d'aujourd'hui, aucune soldée. Trois choses ont bougé.</p>
+<ul>
+<li><b>Audit des hooks (v_20260918_02) — correction.</b> Le registre compte 5 hooks de la chaîne avec un lien d'audit sur 1 201. Hier, on écrivait « 4 vers un vrai rapport ». C'était 3 depuis le 19/10 : le lien du DualPoolHook <code>0xd1bc…2ac0</code> pointe vers un rapport OpenZeppelin qu'Uniswap a supprimé ce jour-là. Il rend 404. Taux réel : 3 sur 1 201 (0,25 %). Seuil de révision (1 %) loin.</li>
+<li><b>Registre contre chaîne (v_20261023_01), point intermédiaire.</b> Recensement complet des 1 095 143 pools v4 : 758 hooks ont servi pour la première fois depuis le 23/10 00:00 UTC. 4 sont au registre (0,5 %). Le seuil de confirmation est sous 2 % le 22/11.</li>
+<li><b>Famille « a80 » (v_20261027_01), mesure seconde.</b> 60 nouveaux hooks hors registre finissant par <code>a80</code> le 29/10 avant 09:25 UTC, contre 1 à 10 par jour depuis le 23/10 (3 le 28/10). Le seuil porte sur le volume, pas sur le nombre ; le volume de la semaine se mesure le 02/11.</li>
+</ul>
+<p class="muted">Inchangés et loin de leurs seuils : flags des hooks (afterSwapReturnsDelta 72,3 %, 868/1 201), v3 à 34,4 % du volume 30 j, famille actions 13,0 % (156/1 201) et aucun avis de TSV, Pons à 19,6 % des frais 30 j (échéance 19/11), actions à 0,70 % du collatéral Morpho (3,76 M$ sur 539,91 M$), balise des jetons d'actions et porte de Lighter sans événement du bloc 100 228 139 au bloc 100 801 909, rachats d'UNI 3/3/3/1 du 26 au 29/10 (nonce 1 338), TVL v3 DefiLlama 90,95 M$ (−1,8 %), LanistaHook 3 échanges, tous du 22/10 (témoin retrouvé exactement). Non mesurés : échantillon hebdomadaire du volume v4 (échéance 05/11) et deux veilles d'horaire lisibles seulement le 31/10.</p>
+
+<h2>La question</h2>
+<p>Hier à 21:46 UTC, le registre officiel des hooks (les programmes greffés sur un pool Uniswap v4) a reçu une entrée : <b>VolatilePairHook</b>, <code>0xe9e0221b…3fcc0</code>. Le message de commit le dit « Uniswap Labs ». Sur Ethereum, ce hook est lancé depuis le 14/10 sur ETH/USDC : il fixe un frais d'achat et un frais de vente qui suivent les mouvements de prix récents. Trois questions : qui contrôle cette adresse sur Robinhood Chain ? sert-elle ? et que sont devenus les autres hooks qui portent du code Uniswap ?</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : lecture directe des rôles et des événements du contrat, recensement complet des 1 095 143 événements <code>Initialize</code> de la PoolManager v4, puis comptage de tous les échanges de chaque pool concerné, une requête par pool.</p>
+<p><b>Qui contrôle VolatilePair.</b> L'adresse est un proxy de 135 octets ; l'implémentation (<code>0xd98a…8000</code>, 19 055 octets) est dans l'emplacement standard. Le code public d'Uniswap réserve la mise à jour au rôle d'administrateur. Les 5 événements du contrat, tous dans la transaction de déploiement (bloc 100 366 843, 28/10 20:56:07 UTC), donnent trois rôles :</p>
+<div class="wrap"><table>
+<tr><th>rôle</th><th>détenteur</th><th>ce que c'est</th></tr>
+<tr><td>administrateur (mise à jour, attribution des rôles)</td><td><code>0x2bad…46cd</code></td><td>alias sur la chaîne du Timelock de la gouvernance UNI (calcul vérifié le 24/09). Délai lu ce jour sur Ethereum : 172 800 s, soit 2 jours après un vote.</td></tr>
+<tr><td>réglage des frais</td><td><code>0x2bad…46cd</code></td><td>idem</td></tr>
+<tr><td>ouverture des pools</td><td><code>0xa67e…5953</code></td><td>coffre Safe 1.4.1, 2 signatures sur 5, aucune transaction exécutée (nonce 0). Ses 5 signataires et son seuil sont <b>identiques</b> à ceux du coffre <code>0xFc43…7d27</code> que le dépôt d'Uniswap désigne comme ouvreur de pools sur Ethereum.</td></tr>
+</table></div>
+<p>Témoins : <code>hasRole</code> rend 0 pour le déployeur, pour le Timelock sur Ethereum (non aliasé) et pour <code>0x…dead</code>. L'appartenance à Uniswap Labs est donc prouvée par adresse, pas par le nom : mêmes signataires que sur Ethereum, même gouvernance.</p>
+<p><b>Sert-il ?</b> Non. Sur les 3 185 pools v4 créés depuis le déploiement, aucun n'utilise ce hook. Le coffre n'a encore rien signé. Le fichier de paramètres du dépôt Uniswap ne prévoit d'ailleurs que deux chaînes, Ethereum et Sepolia. Aucune annonce trouvée sur le web : le déploiement sur Robinhood Chain n'est publié nulle part, sauf au registre.</p>
+<p><b>Les autres hooks au code Uniswap.</b> Le registre porte 5 hooks de la chaîne nommés DualPoolHook ou LooprDualPoolHook : un hook de liquidité « juste à temps », qui pose des positions avant chaque échange et les retire après. Le 19/10 à 16:46 UTC, Uniswap a retiré ce code de son dépôt public. Le commit <code>f4be7be4</code> dit « Dual pool has been scrapped » et supprime aussi le rapport d'audit OpenZeppelin. Sur la chaîne :</p>
+<div class="wrap"><table>
+<tr><th>hook</th><th>pools</th><th>échanges cumulés</th><th>dernier échange</th><th>propriétaire</th></tr>
+<tr><td>DualPool <code>0xd1bc…2ac0</code> (lien d'audit au registre)</td><td class="n">34</td><td class="n">50 094</td><td class="n">29/10 06:22</td><td>contrat de 8 014 octets</td></tr>
+<tr><td>DualPool <code>0x127b…aac0</code></td><td class="n">30</td><td class="n">6 251</td><td class="n">28/10 16:11</td><td>contrat de 7 973 octets</td></tr>
+<tr><td>DualPool <code>0xf4f6…2ac0</code></td><td class="n">9</td><td class="n">11</td><td class="n">12/09</td><td>coffre 1 sur 1</td></tr>
+<tr><td>DualPool <code>0x547d…eac0</code></td><td class="n">10</td><td class="n">3</td><td class="n">01/10</td><td>compte à clé unique</td></tr>
+<tr><td>LooprDualPool <code>0x2664…eac0</code></td><td class="n">3</td><td class="n">10</td><td class="n">05/09</td><td>compte à clé unique</td></tr>
+<tr><td>VolatilePair <code>0xe9e0…fcc0</code></td><td class="n">0</td><td class="n">0</td><td class="n">—</td><td>gouvernance UNI</td></tr>
+</table></div>
+<p>Le DualPool <code>0xd1bc</code> porte presque tout : 50 094 échanges sur 56 369 pour la famille, soit 88,9 %. Par jour (bornes interpolées entre deux blocs datés) : 7 687 le 19/10, 6 342 le 20/10, puis 982, 1 412, 943, 124, 40, 89, 50 et 265 du 21 au 28/10. 60 adresses distinctes ont échangé depuis le 19/10 ; la première en porte 7 009.</p>
+
+<h2>Le delta contre la veille</h2>
+<p>Relevé DefiLlama de 09:25 UTC contre 16:44 UTC hier ; les deux couvrent jusqu'au dernier jour complet, donc l'écart est d'un jour.</p>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>28/10</th><th>29/10</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne</td><td class="n">1 134,5 M$</td><td class="n">1 129,8 M$</td><td class="n">−0,4 %</td></tr>
+<tr><td>volume 7 j de la chaîne</td><td class="n">4,84 Md$</td><td class="n">4,67 Md$</td><td class="n">−3,4 %</td></tr>
+<tr><td>volume 24 h</td><td class="n">605 M$</td><td class="n">748 M$</td><td class="n">+23,7 %</td></tr>
+<tr><td>frais 30 j de la chaîne</td><td class="n">98,98 M$</td><td class="n">95,48 M$</td><td class="n">−3,5 %</td></tr>
+<tr><td>TVL Uniswap v4 / v3</td><td class="n">181,6 / 92,7 M$</td><td class="n">180,6 / 91,0 M$</td><td class="n">−0,5 % / −1,8 %</td></tr>
+<tr><td>part de Pons dans les frais 30 j</td><td class="n">19,9 %</td><td class="n">19,6 %</td><td class="n">−0,3 pt</td></tr>
+<tr><td>hooks au registre (chaîne)</td><td class="n">1 200</td><td class="n">1 201</td><td class="n">+1</td></tr>
+<tr><td>hooks utilisés sur la chaîne</td><td class="n">29 776 (27/10)</td><td class="n">30 073</td><td class="n">+297 en 2 j</td></tr>
+<tr><td>pools v4 créés par jour</td><td class="n">4 678 (27/10)</td><td class="n">5 879 (28/10)</td><td class="n">plus haut depuis le 22/10</td></tr>
+</table></div>
+<p>Le registre ne couvre que 1 176 des 30 073 hooks utilisés (3,9 %). Le jour 25/10 recompté ce matin donne 4 581 pools, la valeur publiée le 26/10 : la borne de jour est stable.</p>
+
+<h2>La cohorte</h2>
+<p>Rien n'a franchi un seuil aujourd'hui. Quatre critères se tranchent le 31/10, dans deux jours : TermMax (TVL 11,2 k$, 45 fois sous le seuil de 0,5 M$), Fables (code d'audit 3, toujours aucun lien), Arcus (lignée dYdX sans preuve primaire), Lighter (mécanisme documenté). Fables perd 6,0 % de TVL (26,1 M$) et up v3 7,0 % de volume 30 j (333 M$, seuil 200 M$). StonkBrokers est à 461 k$ de frais 30 j sur ses 8 fiches, 470 k$ avec Mutual Fun, ajoutée le 28/10. Ratio des frais 30 j contre Pons V2 (18,75 M$) : Fables 0,19, Lighter 0,12, Arcus 0,11, Snuggle 0,036, up v3 0,033, StonkBrokers 0,025, GIGA V3 0,003, Ekubo 0,002, TermMax et UNCX 0.</p>
+<p>Score de preuve recalculé sur les 294 protocoles de la chaîne : 80 liens d'audit sur 84 en HTTP 200, 51 comptes GitHub sur 53 (<code>lunasupply</code> rend 404, nouveau). Scores : 194 à 0, 39 à 1, 46 à 2, 14 à 3, 1 à 4. <b>Morpho Blue</b> (score 2, TVL 611,4 M$) domine six membres sur la preuve et la traction pour le <b>5e jour</b> de suite : le remplacement automatique peut tomber le 31/10 si la série n'a pas de trou. Antichambre : GlueHook (score 4, TVL 3,6 k$), Twofold, ARMSys sous leurs seuils. Contre-référence : Pons reste la 2e ligne de frais, derrière Uniswap V4 (36,1 M$). La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</p>
+
+<h2>Ce qui contredit ma lecture</h2>
+<ul>
+<li><b>« Le hook d'Uniswap » n'est pas un objet unique.</b> Sur Ethereum, 5 des 6 DualPool du registre déclarent un déployeur, et les 5 sont différents ; sur la chaîne, les propriétaires sont des contrats, des coffres et des comptes à clé unique. Le code venait d'Uniswap, passait par une fabrique sur liste blanche, mais les opérateurs ne sont pas prouvés comme Uniswap Labs. Je n'écris donc pas « Uniswap fait encore tourner DualPool » : j'écris que du code qu'Uniswap a abandonné tourne encore, sous d'autres clés.</li>
+<li><b>La chute du DualPool après le 20/10 ne prouve pas un lien avec le retrait du code.</b> Le commit est du 19/10 16:46 UTC ; la chute est du 21/10. La date colle, la cause n'est pas mesurée. Le volume Uniswap v4 à hook baissait aussi sur toute la chaîne (32,8 % du volume v4 la semaine du 20/10, mesuré le 27/10).</li>
+<li><b>Le registre inverse la preuve d'audit.</b> Il compte comme audité le DualPool dont le rapport n'existe plus, et laisse vide l'auditUrl de VolatilePair, dont le rapport OpenZeppelin répond 200 dans le dépôt Uniswap. Le taux d'audit du registre (5 sur 1 201) surcompte d'un côté et sous-compte de l'autre.</li>
+<li><b>Un hook vide n'est pas un échec.</b> VolatilePair a 13 heures. Le coffre peut ouvrir un pool demain. D'où la veille ouverte : zéro pool au 30/11, ou révision.</li>
+</ul>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li>Le volume en dollars des 50 094 échanges du DualPool <code>0xd1bc</code> : non valorisé ce jour.</li>
+<li>Qui opère <code>0xd1bc</code> : son propriétaire est un contrat de 8 014 octets non décodé.</li>
+<li>Le total du dossier SEC 4-927 : toujours illisible par script. Première page : aucune lettre du 28/10. Federal Register : 312 documents, inchangé.</li>
+<li>Pourquoi le déploiement sur Robinhood Chain n'est annoncé nulle part.</li>
+</ul>
+<p><b>Veilles ouvertes ce jour (2).</b> <code>v_20261029_01</code> : VolatilePair reste sans pool au 30/11 (révisée au premier pool). <code>v_20261029_02</code> : le DualPool <code>0xd1bc</code> ne revient pas au-dessus de 3 000 échanges par jour avant le 26/11.</p>
+<p class="muted"><b>Pièges du mémo re-vérifiés ce jour.</b> P5 : seul un lien qui répond compte, et un lien qui répondait peut mourir (DualPool, 404 depuis le 19/10). P6 et règle 3 : l'appartenance s'est prouvée par les signataires du coffre, pas par le nom « Uniswap Labs » du commit. P7 : chaque taux porte sa population (hooks du registre, hooks utilisés, pools). P10 : commits DefiLlama des 24 h listés (StonkBrokers Mutual Fun le 28/10, Books et StonkDrop le 29/10, outil de prix Uniswap v3 le 28/10 à 09:56 UTC). P11 : registre ≠ recensement, 1 176 sur 30 073. <b>Piège nouveau</b> : le RPC officiel plafonne à 100 000 blocs une requête qui filtre sur plusieurs identifiants de pool à la fois ; une requête par pool lève la limite.</p>
+<p class="muted">Sources web : <a href="https://cryptobriefing.com/uniswap-volatilepair-hook-eth-usdc-pool/">Crypto Briefing, 14/10</a> (lancement sur Ethereum) · dépôt <a href="https://github.com/Uniswap/v4-hooks-public">Uniswap/v4-hooks-public</a> (commit f4be7be4 du 19/10, Parameters.sol) · <a href="https://github.com/Uniswap/hooklist">Uniswap/hooklist</a> (commit 592af6c2 du 28/10).</p>
+</main>
+</body>
+</html>

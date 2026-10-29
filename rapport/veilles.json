@@ -181,6 +181,11 @@
      "date": "2026-10-28",
      "valeur": "72,3 % (868/1200) / 26,3 % (316/1200)",
      "note": "Registre regenere le 28/10 12:06 UTC (+3 hooks robinhood). Loin des seuils. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "72,3 % (868/1201) / 26,4 % (317/1201)",
+     "note": "+1 hook robinhood au registre (VolatilePairHook, 28/10 21:46 UTC). Loin des seuils. OUVERTE."
     }
    ],
    "solde": null
@@ -358,6 +363,11 @@
      "date": "2026-10-28",
      "valeur": "5 / 1200 (0,42 %) au champ auditUrl ; 4 / 1200 (0,33 %) vers un vrai rapport",
      "note": "Aucun audit ajoute avec les 3 nouveaux hooks. Pas de recherche d'exploit dediee. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "5 / 1201 (0,42 %) au champ auditUrl ; 4 liens en HTTP 200 ; 3 / 1201 (0,25 %) vers un vrai rapport qui repond",
+     "note": "CORRECTION : le lien du DualPoolHook 0xd1bc...2ac0 (rapport OpenZeppelin dans le depot Uniswap) rend 404 depuis le 19/10, jour ou Uniswap a supprime le rapport ('Dual pool has been scrapped', commit f4be7be4). Le '4 vers un vrai rapport' des releves du 19 au 28/10 etait donc 3. A l'inverse, VolatilePairHook a un audit OpenZeppelin publie (200) mais un auditUrl vide. Taux sous 1 %. OUVERTE."
     }
    ],
    "solde": null
@@ -535,6 +545,11 @@
      "date": "2026-10-28",
      "valeur": "v3 34,9 % / v4 42,9 % du volume 30 j (10,24 / 12,59 / 29,36 Md$)",
      "note": "Inchange vs 27/10. Loin des seuils. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "v3 34,4 % / v4 43,3 % du volume 30 j (9,80 / 12,33 / 28,50 Md$)",
+     "note": "Releve 09:25 UTC. Loin des seuils. OUVERTE."
     }
    ],
    "solde": null
@@ -712,6 +727,11 @@
      "date": "2026-10-28",
      "valeur": "156 sur 1200 (13,0 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "Federal Register : 312 documents (inchange). Dossier 4-927 : 2 lettres datees du 27/10, aucune d'une plateforme. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "156 sur 1201 (13,0 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "Federal Register : 312 documents (inchange). Dossier 4-927 : aucune lettre datee du 28/10 en premiere page. OUVERTE."
     }
    ],
    "solde": null
@@ -988,6 +1008,11 @@
      "date": "2026-10-28",
      "valeur": "19,9 % (19,74/98,98 M$) Pons V2 ; 20,6 % avec V1 (20,38 M$) ; 22,6 % hors Relay",
      "note": "-0,4 pt vs 27/10. Sous CONFIRMEE (30 %), au-dessus de MORTE (15 %). Echeance 19/11. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "19,6 % (18,75/95,48 M$) Pons V2 ; 20,2 % avec V1 (19,33 M$) ; 22,2 % hors Relay",
+     "note": "-0,3 pt vs 28/10. Entre MORTE (15 %) et CONFIRMEE (30 %). Echeance 19/11. OUVERTE."
     }
    ],
    "solde": null
@@ -1758,6 +1783,11 @@
      "date": "2026-10-28",
      "valeur": "0,72 % (3,84 M$ sur 535,41 M$ de collateral Morpho), 215 marches d'actions dont 11 au-dessus de 1 000 $",
      "note": "API seule. Le collateral total baisse de 3,8 % (556,6 -> 535,4 M$), la part actions ne bouge pas. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "0,70 % (3,76 M$ sur 539,91 M$ de collateral Morpho), 216 marches d'actions dont 12 au-dessus de 1 000 $",
+     "note": "API seule, filtre par nom 'Robinhood Token' (51 jetons). OUVERTE."
     }
    ]
   },
@@ -2228,6 +2258,11 @@
      "date": "2026-10-28",
      "valeur": "non re-mesure",
      "note": "Trou declare : l'echantillon hebdomadaire se refait sur la semaine 27/10-02/11. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "non re-mesure",
+     "note": "Trou declare : echantillon hebdomadaire de la semaine 27/10-02/11 non tire ce jour. Echeance 05/11. OUVERTE."
     }
    ]
   },
@@ -2536,6 +2571,11 @@
     {
      "date": "2026-10-28",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise du bloc 99 308 411 au bloc 100 228 138",
+     "note": "Seuil non franchi. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise du bloc 100 228 139 au bloc 100 801 909",
      "note": "Seuil non franchi. OUVERTE."
     }
    ]
@@ -3220,6 +3260,11 @@
      "date": "2026-10-28",
      "valeur": "semaine 19-25/10 : 22 rachats ; 26-28/10 : 3, 3, 2 (28/10 partiel 16:56 UTC) ; nonce 1 336",
      "note": "Semaine pleine sous 40. Part 30 j Ethereum/Robinhood non relue. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "26-29/10 : 3, 3, 3, 1 (29/10 partiel 09:33 UTC) ; nonce 1 338",
+     "note": "Semaine en cours a 10 rachats en 3,4 jours, sous 40. Part 30 j Ethereum/Robinhood non relue. OUVERTE."
     }
    ]
   },
@@ -3267,6 +3312,11 @@
      "date": "2026-10-28",
      "valeur": "DefiLlama 92,66 M$ (28/10 16:44 UTC), +1,4 % vs 27/10 ; mesure sur la chaine non refaite",
      "note": "Au-dessus de 80 M$. Ecart avec la chaine non re-mesure (trou declare). Echeance 04/11. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "DefiLlama 90,95 M$ (29/10 09:25 UTC), -1,8 % vs 28/10 ; mesure sur la chaine non refaite",
+     "note": "Au-dessus de 80 M$. Ecart avec la chaine non re-mesure (trou declare). Echeance 04/11. OUVERTE."
     }
    ]
   },
@@ -3309,6 +3359,11 @@
      "date": "2026-10-28",
      "valeur": "0 evenement de la porte de mise a jour du bloc 99 308 411 au bloc 100 228 138 ; securityCouncilAddress() = 0x4972...efdb, toujours sans code",
      "note": "Porte au repos. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "0 evenement de la porte de mise a jour du bloc 100 228 139 au bloc 100 801 909 ; securityCouncilAddress() = 0x4972...efdb, toujours sans code",
+     "note": "Porte au repos. OUVERTE."
     }
    ]
   },
@@ -3345,6 +3400,11 @@
      "date": "2026-10-28",
      "valeur": "non re-mesure ; registre : +3 hooks robinhood le 28/10",
      "note": "Mesure finale le 22/11. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "point intermediaire : 758 hooks ont servi pour la premiere fois du 23/10 00:00 au 29/10 ~09:25 UTC, 4 sont au registre (0,5 %)",
+     "note": "Recensement complet des 1 095 143 pools v4. Sous 2 %. Mesure finale le 22/11. OUVERTE."
     }
    ]
   },
@@ -3381,6 +3441,11 @@
      "date": "2026-10-28",
      "valeur": "72 pools ; 3 echanges depuis le bloc 94 313 544, tous du 22/10 ; 0 depuis (releve bloc 100 228 138)",
      "note": "Aucun echange en 6 jours. Transferts USDG non relus. Echeance 06/11. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "72 pools ; 3 echanges depuis le bloc 94 313 544, tous du 22/10 (dernier 16:20 UTC) ; 0 depuis",
+     "note": "Temoin retrouve exactement (3 echanges du 22/10). Recompte par pool, sans echantillon. Echeance 06/11. OUVERTE."
     }
    ]
   },
@@ -3412,6 +3477,11 @@
      "date": "2026-10-28",
      "valeur": "non mesurable avant le 31/10",
      "note": "Lecture sur la fin de semaine du 30/10. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "non mesurable avant le 31/10",
+     "note": "Lecture sur la fin de semaine du 30/10. OUVERTE."
     }
    ]
   },
@@ -3439,6 +3509,11 @@
      "date": "2026-10-28",
      "valeur": "non mesurable avant le 31/10",
      "note": "Lecture prevue sur ven 30/10 23:00 -> sam 31/10 02:00 UTC. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "non mesurable avant le 31/10",
+     "note": "Lecture prevue sur ven 30/10 23:00 -> sam 31/10 02:00 UTC. OUVERTE."
     }
    ]
   },
@@ -3461,6 +3536,43 @@
      "date": "2026-10-28",
      "valeur": "non re-mesure",
      "note": "Premiere semaine du critere (27/10-02/11) en cours. OUVERTE."
+    },
+    {
+     "date": "2026-10-29",
+     "valeur": "mesure de volume non refaite ; mesure seconde : nouveaux hooks 'a80' hors registre 3 le 28/10, 60 le 29/10 avant ~09:25 UTC",
+     "note": "La famille recree des hooks 10 a 20 fois plus vite que les jours precedents (1 a 10 par jour depuis le 23/10). Le volume decide du seuil, pas le nombre : a mesurer sur la semaine 27/10-02/11. OUVERTE."
+    }
+   ]
+  },
+  {
+   "id": "v_20261029_01",
+   "ouverte": "2026-10-29",
+   "affirmation": "Le hook VolatilePair qu'Uniswap Labs a deploye sur Robinhood Chain le 28/10 (cle de mise a jour : la gouvernance UNI via son Timelock ; ouverture des pools : un coffre 2 sur 5 aux memes signataires que sur Ethereum) reste une coquille : aucun pool n'y est initialise avant le 30/11.",
+   "mesure": "RPC : evenements Initialize de la PoolManager v4 0x8366...0951 dont hooks = 0xe9e0221b95ddae7679784842ef4497b183e3fcc0, depuis le bloc 100 366 843 ; nonce() du coffre 0xa67e322d3a0e1336e37af79a52967d7351c95953 (0 le 29/10). Reference 29/10 ~09:25 UTC : 0 pool sur 3 185 pools v4 crees depuis le deploiement.",
+   "seuil": "REVISEE des qu'un pool est initialise avant le 30/11. CONFIRMEE si 0 pool au 30/11. Tout RoleGranted, RoleRevoked ou Upgraded sur le hook est un evenement a ecrire.",
+   "echeance": "2026-11-30",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-10-29",
+     "valeur": "0 pool ; roles : admin et config = 0x2bad...46cd (alias du Timelock Uniswap, delai 172 800 s), ouverture des pools = coffre 0xa67e...5953 (2 sur 5, nonce 0)",
+     "note": "point de reference"
+    }
+   ]
+  },
+  {
+   "id": "v_20261029_02",
+   "ouverte": "2026-10-29",
+   "affirmation": "Le DualPoolHook audite de la chaine (0xd1bc...2ac0), dont Uniswap a retire le code et l'audit de son depot le 19/10, s'eteint : ses echanges ne reviennent pas au niveau d'avant le 21/10.",
+   "mesure": "RPC : evenements Swap de la PoolManager v4 sur ses 34 pools (une requete par PoolId), comptes par jour UTC (bornes interpolees). Reference : 7 687 le 19/10, 6 342 le 20/10, puis 40 a 1 412 par jour du 21 au 28/10 (265 le 28/10).",
+   "seuil": "REVISEE si un jour depasse 3 000 echanges avant le 26/11. CONFIRMEE si aucun jour ne depasse 1 500 du 29/10 au 26/11.",
+   "echeance": "2026-11-26",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-10-29",
+     "valeur": "50 094 echanges cumules depuis le 05/09 ; 265 le 28/10 ; dernier le 29/10 06:22 UTC",
+     "note": "point de reference"
     }
    ]
   }
