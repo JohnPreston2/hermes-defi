@@ -87,6 +87,16 @@
   "quand": "2026-10-27T14:20:59Z",
   "statut": "ok"
  },
+ "Alipay Denies Supporting Crypto Trading After Peer's Beta Launch": {
+  "fr": "Alipay dément prendre en charge le trading de cryptomonnaies après le lancement en bêta d'un pair",
+  "quand": "2026-10-29T11:07:40Z",
+  "statut": "ok"
+ },
+ "Allium Discloses Security Breach, Revokes API Keys": {
+  "fr": "Allium divulgue une atteinte à la sécurité et révoque ses clés API",
+  "quand": "2026-10-29T11:07:40Z",
+  "statut": "ok"
+ },
  "Altcoins rally on thin trading as bitcoin holds below $83,500": {
   "fr": "Les altcoins rebondissent sur des volumes faibles, alors que le bitcoin reste sous 83 500 $",
   "quand": "2026-10-14T09:35:34Z",
@@ -349,6 +359,11 @@
  "Bitcoin consolidates after 3% loss as AI fears stoke fresh stock-market weakness": {
   "fr": "Le bitcoin se consolide après une baisse de 3 %, les craintes liées à l'IA ravivant la faiblesse des marchés boursiers",
   "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "Bitcoin dips below $80,000 as Samsung-led tech jitters and a hawkish Fed weigh on crypto": {
+  "fr": "Bitcoin passe sous $80,000 sur fond d'inquiétudes technologiques liées à Samsung et d'une Fed restrictive",
+  "quand": "2026-10-29T11:07:40Z",
   "statut": "ok"
  },
  "Bitcoin diverges from South Korean stocks as AI concerns deepen the Kospi selloff": {
@@ -1115,6 +1130,11 @@
  "Fed’s Williams sees AI supply squeeze lasting beyond 2 years": {
   "fr": "Williams (Fed) voit une tension sur l'offre liée à l'IA durer au-delà de 2 ans",
   "quand": "2026-10-14T11:08:54Z",
+  "statut": "ok"
+ },
+ "Fed’s hawkish rate hold keeps pressure on Bitcoin: Analysts": {
+  "fr": "Le maintien des taux par la Fed, à tendance restrictive, continue de peser sur Bitcoin : selon des analystes",
+  "quand": "2026-10-29T11:07:40Z",
   "statut": "ok"
  },
  "Fee growth turns negative for 2 consecutive weeks or FDV/Mcap exceeds 2.0.": {
@@ -2648,6 +2668,16 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Utah Brings Criminal Charges Against Kalshi and Its Co-Founders": {
+  "fr": "L'Utah engage des poursuites pénales contre Kalshi et ses cofondateurs",
+  "quand": "2026-10-29T11:07:40Z",
+  "statut": "ok"
+ },
+ "Utah charges predictions platform Kalshi with illegal gambling": {
+  "fr": "L'Utah accuse la plateforme de prédictions Kalshi de jeux d'argent illégaux",
+  "quand": "2026-10-29T11:07:40Z",
+  "statut": "ok"
+ },
  "VanEck Seeks to Withdraw Lido Staked Ethereum ETF Filing": {
   "fr": "VanEck demande le retrait de son dossier d'ETF Lido Staked Ethereum",
   "quand": "2026-10-15T15:07:33Z",
@@ -2750,6 +2780,11 @@
  "Yearn Curation - Compound: Risk Management and Sustainable Growth": {
   "fr": "Curation Yearn – Compound : gestion des risques et croissance durable",
   "quand": "2026-10-21T13:36:37Z",
+  "statut": "ok"
+ },
+ "Your fridge could one day stake Ether, launch memecoins: CFTC chair": {
+  "fr": "Votre frigo pourrait un jour staker de l'Ether et lancer des mémécoins : selon le président de la CFTC",
+  "quand": "2026-10-29T11:07:40Z",
   "statut": "ok"
  },
  "Zcash co-founder proposes ending grants subsidy, citing $125 million treasury": {
@@ -2945,6 +2980,11 @@
  "verrouillage de positions de liquidite Uniswap V3 (preuve de liquidite bloquee pour les lancements)": {
   "quand": "2026-10-16T11:59:16Z",
   "statut": "fr"
+ },
+ "zkLink Nova Bridge Exploit Drains About $779,000 in One Transaction": {
+  "fr": "Une faille du pont zkLink Nova siphonne environ $779,000 en une seule transaction",
+  "quand": "2026-10-29T11:07:40Z",
+  "statut": "ok"
  },
  "‘Leave’: Crypto Backlash Over French Proposal to Report Wallets Over $112K": {
   "fr": "« Qu'ils partent » : la communauté crypto s'insurge contre une proposition française de déclarer les portefeuilles de plus de 112 K$",
