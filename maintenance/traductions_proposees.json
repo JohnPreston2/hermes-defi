@@ -52,6 +52,11 @@
   "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
+ "Aave Raises Bitcoin and Ether Collateral Borrowing Limits Across V3 and V4": {
+  "fr": "Aave relève les plafonds d'emprunt adossés au bitcoin et à l'ether sur V3 et V4",
+  "quand": "2026-10-29T15:07:30Z",
+  "statut": "ok"
+ },
  "Aave Raises USDT Borrowing Costs at High Utilization": {
   "fr": "Aave augmente le coût d'emprunt en USDT lorsque le taux d'utilisation est élevé",
   "quand": "2026-10-27T07:07:28Z",
@@ -491,6 +496,11 @@
   "quand": "2026-10-23T11:07:31Z",
   "statut": "ok"
  },
+ "Bitcoin-backed mortgages are coming to Canada, but borrowers are still unaware of the cost": {
+  "fr": "Des prêts hypothécaires adossés au bitcoin arrivent au Canada, mais les emprunteurs ne connaissent pas encore leur coût",
+  "quand": "2026-10-29T15:07:30Z",
+  "statut": "ok"
+ },
  "Bitcoin’s $100,000 year-end hope divides analysts as inflation clouds outlook": {
   "fr": "L'espoir d'un Bitcoin à 100 000 $ d'ici la fin de l'année divise les analystes, l'inflation brouillant les perspectives",
   "quand": "2026-10-19T07:07:36Z",
@@ -815,6 +825,10 @@
   "quand": "2026-10-18T19:07:33Z",
   "statut": "fr"
  },
+ "Concurrence réglementaire stablecoin — RLUSD gagne du terrain sur USDT/USDC en contraction, mais l'absence de whale flows et d'intégration DeFi visible (Aave, Morpho) empêche de dire si c'est un afflux net ou une redistribution interne. La prochaine vérification porte sur l'adoption on-chain.": {
+  "quand": "2026-10-29T15:07:30Z",
+  "statut": "fr"
+ },
  "Confirming interest rate mechanism scope across SparkLend Ethereum reserves": {
   "fr": "Confirmation du périmètre du mécanisme de taux d'intérêt sur les réserves Ethereum de SparkLend",
   "quand": "2026-10-14T09:35:34Z",
@@ -972,6 +986,11 @@
  "Discussion: Strategic Opportunity, Should Lido Treasury Acquire & Stake 5–10% of SSV?": {
   "fr": "Discussion : opportunité stratégique, la trésorerie de Lido devrait-elle acquérir et staker 5–10% de SSV ?",
   "quand": "2026-10-23T07:07:43Z",
+  "statut": "ok"
+ },
+ "Diva Cancels Mainnet Launch, Tells Early Stakers to Withdraw": {
+  "fr": "Diva annule le lancement du mainnet et invite les premiers stakers à retirer leurs fonds",
+  "quand": "2026-10-29T15:07:30Z",
   "statut": "ok"
  },
  "Divergence RWA institutionnels vs crypto-natifs. Basculement de dominance entre Invesco USTB et Ethena USDtb. 3 veilles émises sur la rotation structurelle du capital.\nWATCH: {\"metric\": \"tvl\", \"entity\": \"Huma\", \"op\": \">=\", \"threshold\": 480000000, \"deadline\": \"2026-11-07\", \"why\": \"RWA institutionnel en traction, momentum +13.7% sur 7j, rotation qualitative du capital vers créances réelles on-chain\"": {
@@ -1377,6 +1396,11 @@
   "quand": "2026-10-16T15:59:12Z",
   "statut": "ok"
  },
+ "Kamino Opens USDC Loans Against Backpack Tokenized Stocks": {
+  "fr": "Kamino ouvre des prêts en USDC adossés aux actions tokenisées de Backpack",
+  "quand": "2026-10-29T15:07:30Z",
+  "statut": "ok"
+ },
  "Kazakhstan court bars Coinbase, five others from unlicensed crypto services in Astana International Financial Centre": {
   "fr": "Un tribunal kazakh interdit à Coinbase et à cinq autres sociétés de proposer des services crypto sans licence au Centre financier international d’Astana",
   "quand": "2026-10-21T13:36:37Z",
@@ -1664,6 +1688,11 @@
   "quand": "2026-10-22T07:07:42Z",
   "statut": "ok"
  },
+ "Mystery Wall Street Journal ad sparks new fight over tokenized stocks": {
+  "fr": "Une publicité mystère du Wall Street Journal relance le débat sur les actions tokenisées",
+  "quand": "2026-10-29T15:07:30Z",
+  "statut": "ok"
+ },
  "NEAR Intents Postmortem Links $3.8 Million Exploit to Deposit Bug": {
   "fr": "Le post-mortem de NEAR Intents relie l'exploit de 3,8 millions $ à un bug de dépôt",
   "quand": "2026-10-17T07:07:37Z",
@@ -1818,6 +1847,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Peer Adds Alipay-Funded USDC Trading on Base in Beta": {
+  "fr": "Peer ajoute en bêta des échanges d'USDC financés par Alipay sur Base",
+  "quand": "2026-10-29T15:07:30Z",
+  "statut": "ok"
+ },
  "Pendle Daily Volume Hits $159 Million, Led by Ethereum": {
   "fr": "Le volume quotidien de Pendle atteint 159 M$, porté par Ethereum",
   "quand": "2026-10-21T13:36:37Z",
@@ -1856,6 +1890,11 @@
  "PrimeRevenue Announces Solana Tokenization of Corporate Payment Drafts": {
   "fr": "PrimeRevenue annonce la tokenisation sur Solana de traites de paiement des entreprises",
   "quand": "2026-10-27T14:20:59Z",
+  "statut": "ok"
+ },
+ "Privacy Pools v2 Brings Shielded Payments and Yield to BNB Chain": {
+  "fr": "Privacy Pools v2 apporte paiements masqués et rendement sur BNB Chain",
+  "quand": "2026-10-29T15:07:30Z",
   "statut": "ok"
  },
  "Proposal Guardian: Cancellation of Proposal 618": {
@@ -1926,6 +1965,11 @@
  "Ramp Seeks OCC Trust Bank Charter for Digital Asset Custody": {
   "fr": "Ramp demande une charte de banque de confiance auprès de l'OCC pour la conservation d'actifs numériques",
   "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
+ "Reduce ABC Step 2 to 25%, increase Staking emissions 50%": {
+  "fr": "Réduire l'étape 2 de ABC à 25%, augmenter de 50% les émissions de staking",
+  "quand": "2026-10-29T15:07:30Z",
   "statut": "ok"
  },
  "Revolut secures Gibraltar crypto licence to support international expansion plans": {
@@ -2327,6 +2371,11 @@
   "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
+ "Strategy Shareholders Approve Daily Dividends on Preferred Stock, With 99.3% in Favor": {
+  "fr": "Les actionnaires de Strategy approuvent des dividendes quotidiens sur actions privilégiées, avec 99,3% de voix pour",
+  "quand": "2026-10-29T15:07:30Z",
+  "statut": "ok"
+ },
  "Strategy Shareholders to Vote on Daily STRC Dividends": {
   "fr": "Les actionnaires de Strategy voteront sur des dividendes STRC quotidiens",
   "quand": "2026-10-28T15:07:32Z",
@@ -2350,6 +2399,11 @@
  "Strategy pauses bitcoin buys, repurchases $205 million of STRC preferred shares": {
   "fr": "Strategy suspend ses achats de bitcoin et rachète pour 205 M$ d'actions privilégiées STRC",
   "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
+ "Strategy shareholders approve daily dividends for four preferred stocks": {
+  "fr": "Les actionnaires de Strategy approuvent des dividendes quotidiens pour quatre actions privilégiées",
+  "quand": "2026-10-29T15:07:30Z",
   "statut": "ok"
  },
  "Strategy, Strive face balancing act between bitcoin buying and preferred stock dividends": {
