@@ -816,6 +816,37 @@
     }
    ],
    "genere": "2026-10-28T16:44:43Z"
+  },
+  {
+   "date": "2026-10-29",
+   "fichier": "rapport/2026-10-29-enquete.html",
+   "titre": "Robinhood Chain, 29/10 : le hook d'Uniswap tenu par la gouvernance est vide, celui qu'Uniswap a abandonné tourne encore",
+   "question": "Uniswap Labs a enregistré hier soir un hook VolatilePair sur la chaîne. Qui le contrôle, sert-il, et que sont devenus les autres hooks au code Uniswap ?",
+   "mesure_neuve": "Lu sur la chaîne : VolatilePair (0xe9e0…fcc0), déployé le 28/10 à 20:56 UTC, ne peut être mis à jour que par l'alias du Timelock de la gouvernance UNI (délai 2 jours) et n'ouvre de pool que via un coffre 2 sur 5 aux mêmes signataires que sur Ethereum ; 0 pool sur les 3 185 pools v4 créés depuis. À l'inverse, le DualPoolHook audité (0xd1bc…2ac0), dont Uniswap a supprimé le code et le rapport d'audit le 19/10, a traité 50 094 échanges sur 34 pools depuis le 05/09, dont 265 le 28/10 ; son lien d'audit au registre rend 404 depuis le 19/10.",
+   "chiffre_cle": {
+    "valeur": "0 pool",
+    "libelle": "sur le hook VolatilePair qu'Uniswap Labs a posé hier soir, le seul de la chaîne tenu par la gouvernance UNI ; le DualPool qu'Uniswap a abandonné le 19/10 a encore traité 265 échanges le 28/10",
+    "population": "3 185 pools Uniswap v4 créés entre le déploiement (28/10 20:56 UTC) et le relevé (29/10 ~09:25 UTC), sur 1 095 143 au total"
+   },
+   "points_cles": [
+    {
+     "champ": "hooks_onchain_distincts_utilises",
+     "libelle": "Hooks utilisés sur la chaîne (programmes greffés sur un pool)"
+    },
+    {
+     "champ": "hooks_robinhood",
+     "libelle": "Hooks au registre officiel Uniswap"
+    },
+    {
+     "champ": "rh_vol_7d_chaine",
+     "libelle": "Volume sur 7 jours (les échanges de la chaîne)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais sur 30 jours (ce que les protocoles encaissent)"
+    }
+   ],
+   "genere": "2026-10-29T10:45:00Z"
   }
  ]
 }
