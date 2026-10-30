@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-30T11:46:02Z",
+"generated_at": "2026-10-30T12:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 144,
+"n_affiches": 143,
 "n_refuses": 0,
-"n_traduits": 86,
+"n_traduits": 85,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -48,7 +48,6 @@
 "HYPE surges 15% as NYSE parent ICE moves to bring Hyperliquid perps to US": "HYPE grimpe de 15 % alors que la maison mère du NYSE, ICE, veut amener les perps Hyperliquid aux États-Unis",
 "HYPE teases all-time high as NYSE owner ICE eyes US Hyperliquid perps": "HYPE vise un record historique alors que la maison mère du NYSE, ICE, envisage des perps Hyperliquid aux États-Unis",
 "Here's how much bitcoin and the S&P 500 could rally after midterms": "Voici de combien le bitcoin et le S&P 500 pourraient progresser après les élections de mi-mandat",
-"Jupiter Says YOLO Hit $1 Billion in Volume in Under 24 Hours": "Jupiter affirme que YOLO a atteint $1B de volume en moins de 24 heures",
 "Kospi surges 7% as SK Hynix earnings fuel AI stock rebound": "Le Kospi grimpe de 7 % : les résultats de SK Hynix nourrissent le rebond des valeurs IA",
 "LEGO Grant Proposal: Fixing Shared Problems Before They Turn Into Lost Funds": "Proposition de subvention LEGO : corriger les problèmes communs avant qu'ils ne deviennent des fonds perdus",
 "LEGO Grant Proposal: Preventing Theft in Mainstream Wallets with Vaults": "Proposition de subvention LEGO : empêcher le vol dans les portefeuilles grand public grâce aux coffres (vaults)",
