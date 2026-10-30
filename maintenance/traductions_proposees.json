@@ -491,6 +491,11 @@
   "quand": "2026-10-30T06:44:30Z",
   "statut": "ok"
  },
+ "Bitcoin price metrics hint at rebound as $1.6B liquidations follow Binance hack": {
+  "fr": "Les indicateurs du prix du Bitcoin laissent présager un rebond alors que $1,6B de liquidations suivent le piratage de Binance",
+  "quand": "2026-10-30T19:07:31Z",
+  "statut": "ok"
+ },
  "Bitcoin price spikes to $83.3K as US stocks rise on Q3 earnings, oil falls": {
   "fr": "Le cours du bitcoin grimpe à 83,3 k$ alors que les actions américaines progressent avec les résultats du Q3 et que le pétrole recule",
   "quand": "2026-10-21T13:36:37Z",
@@ -1531,6 +1536,11 @@
   "quand": "2026-10-14T15:10:04Z",
   "statut": "ok"
  },
+ "Jupiter Lend Says Liquidity Crunch Is Delaying Withdrawals": {
+  "fr": "Jupiter Lend indique qu'une crise de liquidité retarde les retraits",
+  "quand": "2026-10-30T19:07:31Z",
+  "statut": "ok"
+ },
  "Jupiter Says YOLO Hit $1 Billion in Volume in Under 24 Hours": {
   "fr": "Jupiter affirme que YOLO a atteint $1B de volume en moins de 24 heures",
   "quand": "2026-10-16T15:59:12Z",
@@ -1716,6 +1726,11 @@
  "Live updates: Bitcoin treading water near $83,000 ahead of U.S. inflation data": {
   "fr": "Direct : le bitcoin stagne autour de 83,000 $ avant la publication des chiffres de l'inflation américaine",
   "quand": "2026-10-14T15:10:04Z",
+  "statut": "ok"
+ },
+ "LlamaRisk Proposes Aave Cap Cuts Before Markets Reopen": {
+  "fr": "LlamaRisk propose des baisses de plafonds sur Aave avant la réouverture des marchés",
+  "quand": "2026-10-30T19:07:31Z",
   "statut": "ok"
  },
  "Lulo Says Boost Deposits Face 6.4% Drawdown From Neutrl Exposure": {
@@ -2197,6 +2212,11 @@
   "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
+ "Risk Stewards: Borrow and Draw Cap Reductions on Aave V3 and Aave V4 / 2026.10.30": {
+  "fr": "Risk Stewards : réductions des plafonds d'emprunt et de tirage sur Aave V3 et Aave V4 / 2026.10.30",
+  "quand": "2026-10-30T19:07:31Z",
+  "statut": "ok"
+ },
  "Risk Stewards: Cap Increases on Aave V4 / 2026.10.16": {
   "fr": "Risk Stewards : hausses de plafonds sur Aave V4 / 2026.10.16",
   "quand": "2026-10-17T07:07:37Z",
@@ -2571,6 +2591,11 @@
   "quand": "2026-10-20T07:27:15Z",
   "statut": "ok"
  },
+ "Strategy CFO Andrew Kang resigns as company posts record operating profit": {
+  "fr": "Le directeur financier de Strategy, Andrew Kang, démissionne alors que l'entreprise publie un bénéfice d'exploitation record",
+  "quand": "2026-10-30T19:07:31Z",
+  "statut": "ok"
+ },
  "Strategy Pauses Bitcoin Buying, Spends $205M Buying Back STRC": {
   "fr": "Strategy suspend ses achats de bitcoin et dépense 205 M$ pour racheter des STRC",
   "quand": "2026-10-27T07:07:28Z",
@@ -2594,6 +2619,11 @@
  "Strategy buys $22M in Bitcoin, repurchases $193M in STRC": {
   "fr": "Strategy achète pour 22M$ de bitcoins et rachète pour 193M$ de STRC",
   "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
+ "Strategy eyes more Bitcoin buys as Saylor touts $30B credit capacity": {
+  "fr": "Strategy envisage d'acheter davantage de Bitcoin alors que Saylor vante une capacité de crédit de $30B",
+  "quand": "2026-10-30T19:07:31Z",
   "statut": "ok"
  },
  "Strategy on verge of golden cross, just weeks after bitcoin flashed same bullish signal": {
@@ -2920,6 +2950,11 @@
  "USDGO Adds Solana Trading Liquidity Through Jupiter Lend and Fluid": {
   "fr": "USDGO ajoute de la liquidité d'échange sur Solana via Jupiter Lend et Fluid",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "USDT0 Freezes 6.19 Million Tokens Linked to Binance Exploit": {
+  "fr": "USDT0 gèle 6,19 millions de jetons liés à l'exploitation de Binance",
+  "quand": "2026-10-30T19:07:31Z",
   "statut": "ok"
  },
  "Unable to Connect": {
