@@ -1056,6 +1056,7 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
     {champ:"rh_vol_30d_chaine",libelle:"Volume échangé sur 30 jours"},
     {champ:"rh_fees_30d_chaine",libelle:"Frais sur 30 jours (ce que la chaîne encaisse)"},
     {champ:"hooks_robinhood",libelle:"Hooks au registre (programmes greffés sur un pool)"}];
+  const rapportPath=file=>"rapport/"+file.replace(/^rapport\//,"");
   const FAMILLES={theses:"Engagement testé",valorisation:"Valorisation",angles_morts:"Angle mort",marche:"Contexte de marché",funding:"Financement des perps"};
   /* signal pour les ajouts (2026-10-19) : la Une est rendue (ou absente, detail null) */
   const unePrete=d=>{ window.__uneEnquete=d; try{ document.dispatchEvent(new CustomEvent("une:prete",{detail:d})); }catch(_){} };
@@ -1076,14 +1077,14 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
     else if(age===1&&heure<12) et.textContent="celle du jour paraît vers 10 h";
     else { et.textContent="aucune "+(e?"enquête":"publication")+" depuis "+age+" jour"+(age>1?"s":""); et.classList.add("vieux"); }
     $("u-prov").textContent=p.genere? "générée le "+jjmm(p.date)+" à "+String(p.genere).slice(11,16)+" UTC par la routine d'enquête" : "";
-    $("u-lien").href=$("u-go").href="rapport/"+p.fichier;
+    $("u-lien").href=$("u-go").href=rapportPath(p.fichier);
     $("u-lien").textContent=p.titre||("Rapport du "+p.date);
     if(e&&e.question){ $("u-q").textContent=e.question; $("u-q").hidden=false; }
     const c=e&&e.chiffre_cle, aHero=!!(c&&c.valeur!=null&&String(c.valeur).trim());
     if(aHero){ const h=$("u-hero"); h.querySelector(".v").textContent=c.valeur; const l=h.querySelector(".l"); l.textContent=c.libelle||"";
       if(c.population) l.appendChild(el("small",null,c.population)); h.hidden=false; }
     if(e&&e.mesure_neuve){ const m=$("u-mesure"); m.querySelector("p").textContent=e.mesure_neuve; m.hidden=false; if(!aHero) m.open=true; }
-    if(e&&t){ const a=$("u-annexe"); a.href="rapport/"+t.fichier; a.textContent="annexe de données du "+jjmm(t.date); a.hidden=false; }
+    if(e&&t){ const a=$("u-annexe"); a.href=rapportPath(t.fichier); a.textContent="annexe de données du "+jjmm(t.date); a.hidden=false; }
 
     /* ── 2. les courbes de la série ───────────────────────────── */
     const pts=((serie&&serie.points)||[]).filter(x=>x&&x.date).slice().sort((a,b)=>String(a.date).localeCompare(String(b.date)));
@@ -1205,12 +1206,12 @@ body[data-gabarit] main#app>.card:first-child{order:-2}
     }
     const prev=E.slice(1,4);
     if(prev.length){ const box=$("u-prev"); box.appendChild(el("h2",null,"Le fil des enquêtes"));
-      for(const x of prev){ const d=el("div"); const tm=el("time",null,jjmm(x.date)); const a=el("a",null,x.titre||x.date); a.href="rapport/"+x.fichier; d.append(tm,a); box.appendChild(d); }
+      for(const x of prev){ const d=el("div"); const tm=el("time",null,jjmm(x.date)); const a=el("a",null,x.titre||x.date); a.href=rapportPath(x.fichier); d.append(tm,a); box.appendChild(d); }
       box.hidden=false; }
 
     /* ── 6. le moment orchestré : faisceau, courbes, décomptes ── */
     $("une").hidden=false;
-    unePrete({type:e?"Enquête":"Rapport quotidien",titre:p.titre||("Rapport du "+p.date),href:"rapport/"+p.fichier,
+    unePrete({type:e?"Enquête":"Rapport quotidien",titre:p.titre||("Rapport du "+p.date),href:rapportPath(p.fichier),
       date:p.date,genere:p.genere||null,chiffre:aHero?{valeur:c.valeur,libelle:c.libelle||""}:null});
     dessins.forEach(f=>f());
     let tRz=null, larg=traces.clientWidth;
@@ -2161,13 +2162,11 @@ function vueMarche(D){
         .map(k=>`<div class="kpi"><div class="l">${esc(k[0])}</div>
           <div class="v">${k[1]||NA}</div>${k[2]?`<div class="s">${esc(k[2])}</div>`:""}</div>`).join("")}
     </div>
-    <div class="warnbox" style="margin-top:9px"><b>Stables mcap ne se reproduit pas depuis la source</b>
-      Relevé le 17/09 : la somme des actifs <code>peggedUSD</code> de DefiLlama valait
-      <b>311,36 G$</b> contre <b>${usd(a.stable_mcap_b*1e9)}</b> affichés ici, soit
-      <b>−4,5 %</b>. La variation 7 j, elle, est bonne — la série officielle donnait
-      −0,30 % contre −0,24 % affichés. Ce chiffre vient du bloc <code>macro</code>
-      (<code>fact_api</code>), en amont de cette page : il n'est pas corrigé ici, il est
-      signalé. Les trois autres tuiles se reproduisent.</div>
+    <div class="warnbox" style="margin-top:9px"><b>Contrôle historique du total stablecoins — non actualisé ici</b>
+      Le contrôle du 17/09 avait relevé une différence de −4,5 % avec la source.
+      Il ne vérifie pas le total courant affiché ci-dessus ni sa variation actuelle.
+      Ces mesures proviennent du bloc <code>macro</code> (<code>fact_api</code>) ;
+      leurs périmètres et dates doivent être comparés à la source avant interprétation.</div>
     </div></div>`;
   },"macro");
 
@@ -2370,7 +2369,7 @@ function textes(){
     +(H?` Retenu : ${H.name}.`:' Aucun retenu.');
   const A=DATA.A,po=[];
   if(has(A.defi_tvl_b))po.push(`TVL DEFI ${nf(A.defi_tvl_b,2)} G$`);
-  if(has(A.stable_mcap_b))po.push(`STABLECOINS ${nf(A.stable_mcap_b,2)} G$*${has(A.stable_d7_pct)?` (${sgn(A.stable_d7_pct,2)} % SUR 7 J)`:''} — TOTAL NON REPRODUIT À LA SOURCE (−4,5 % RELEVÉ LE 17/09)`);
+  if(has(A.stable_mcap_b))po.push(`STABLECOINS ${nf(A.stable_mcap_b,2)} G$*${has(A.stable_d7_pct)?` (${sgn(A.stable_d7_pct,2)} % SUR 7 J)`:''} — CONTRÔLE HISTORIQUE DU 17/09, NON ACTUALISÉ ICI`);
   if(has(A.dex_vol_24h_b))po.push(`VOLUME DEX 24 H ${nf(A.dex_vol_24h_b,2)} G$`);
   if(has(DATA.nProt))po.push(`${DATA.nProt} PROTOCOLES SUIVIS, DONT ${DATA.P.length} À JETON`);
   po.push('EN GRIS AVEC * : MULTIPLE INCERTAIN, AFFICHÉ, JAMAIS MASQUÉ');S.tPouls=po;
