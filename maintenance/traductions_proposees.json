@@ -261,6 +261,16 @@
   "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
+ "Binance Hot Wallet Exploit: Aave's Response": {
+  "fr": "Exploitation du portefeuille chaud de Binance : la réponse d'Aave",
+  "quand": "2026-10-30T15:07:55Z",
+  "statut": "ok"
+ },
+ "Binance Pauses Withdrawals Amid Suspected Hack, Says User Funds Are Safe": {
+  "fr": "Binance suspend les retraits dans un contexte de piratage présumé, et affirme que les fonds des utilisateurs sont sûrs",
+  "quand": "2026-10-30T15:07:55Z",
+  "statut": "ok"
+ },
  "Binance Seeks Brazil Crypto License as It Delists 22 Tokens": {
   "fr": "Binance demande une licence crypto au Brésil alors qu'elle retire 22 jetons de sa cote",
   "quand": "2026-10-28T07:07:57Z",
@@ -364,6 +374,11 @@
  "Bitcoin Tests $81,000 as Rate Hike Fears Linger After Hot Inflation Data": {
   "fr": "Bitcoin teste 81 000 $ alors que la crainte de hausses de taux persiste après des données d'inflation fortes",
   "quand": "2026-10-16T07:59:22Z",
+  "statut": "ok"
+ },
+ "Bitcoin Trades Below $80,000 as Long Liquidations Hit $1.34 Billion": {
+  "fr": "Bitcoin passe sous 80,000 $ tandis que les liquidations de positions longues atteignent 1,34 milliard de $",
+  "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
  "Bitcoin Treasury Giant Strategy Faces Index Removal Under Finalized MSCI Rules": {
@@ -534,6 +549,11 @@
  "Bitcoin ‘top buyers’ halt BTC price upside with $87.7K now key: Glassnode": {
   "fr": "Les « top buyers » du Bitcoin freinent la hausse du BTC ; $87,7K désormais le niveau clé : Glassnode",
   "quand": "2026-10-21T15:07:27Z",
+  "statut": "ok"
+ },
+ "Bitcoin, ether and XRP selloff wipes out $1.5 billion in leveraged crypto bets": {
+  "fr": "La chute de Bitcoin, ether et XRP efface 1,5 milliard de $ de paris à effet de levier sur les cryptos",
+  "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
  "Bitcoin, gold trim early losses as yen gives up gains. Oil stays near $100": {
@@ -806,6 +826,11 @@
   "quand": "2026-10-16T15:59:12Z",
   "statut": "ok"
  },
+ "Circle to Cut Legacy USDC Crosschain Limits From Oct. 31": {
+  "fr": "Circle réduit les limites inter-chaînes de l'USDC historique à partir du 31 oct.",
+  "quand": "2026-10-30T15:07:55Z",
+  "statut": "ok"
+ },
  "Circle’s Allaire says stablecoin issuer looking to enter 40 developing markets: Report": {
   "fr": "Allaire (Circle) affirme que l'émetteur de stablecoins veut entrer sur 40 marchés en développement, selon un rapport",
   "quand": "2026-10-18T19:07:33Z",
@@ -987,6 +1012,11 @@
  "Curve Finance launches on Stellar in first native deployment outside EVM ecosystem": {
   "fr": "Curve Finance se lance sur Stellar, premier déploiement natif hors de l'écosystème EVM",
   "quand": "2026-10-30T06:44:30Z",
+  "statut": "ok"
+ },
+ "Curve Volume Jumps to $847 Million as 3pool Tilts Further Toward USDT": {
+  "fr": "Le volume de Curve grimpe à 847 millions de $ tandis que le 3pool penche davantage vers l'USDT",
+  "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
  "Cybersecurity’s Black October: How to protect yourself": {
@@ -1371,6 +1401,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Hyperliquid Fees Hit 30-Day High as Perpetuals Volume Doubles": {
+  "fr": "Les frais d'Hyperliquid atteignent un plus haut sur 30 jours tandis que le volume des contrats perpétuels double",
+  "quand": "2026-10-30T15:07:55Z",
+  "statut": "ok"
+ },
  "Hyperliquid Tests Permissioned Markets for Payward's US Perps Plan": {
   "fr": "Hyperliquid teste des marchés à accès autorisé pour le projet de contrats perpétuels américains de Payward",
   "quand": "2026-10-27T07:07:28Z",
@@ -1419,6 +1454,11 @@
  "Institutional Comet: Transition Plan to Compound Governance": {
   "fr": "Institutional Comet : plan de transition vers la gouvernance de Compound",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Institutional Comet: Update on proposed council architecture and migration": {
+  "fr": "Institutional Comet : mise à jour sur l'architecture proposée du conseil et la migration",
+  "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
  "Introducing 0x02 CSM: A Permissionless Path to Running Higher-Balance Validators": {
@@ -1651,6 +1691,11 @@
  "Liquid staking exodus as base-yield substitution | \"Liquid Staking n'est plus le risk-free rate on-chain\" | 3 veilles : Lido TVL ≤ 23 Md, JustLend sTRX TVL ≤ 3,1 Md, Aave V3 fees ≥ 10,5 M USD (7j)": {
   "fr": "Exode du staking liquide comme substitut de rendement de base | « Le staking liquide n'est plus le taux sans risque on-chain » | 3 veilles : TVL de Lido ≤ 23 Md, TVL de JustLend sTRX ≤ 3,1 Md, frais d'Aave V3 ≥ 10,5 M USD (7j)",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Live updates: Binance says $6.34B set aside to cover hack losses": {
+  "fr": "Direct : Binance affirme avoir mis de côté 6,34 B$ pour couvrir les pertes liées au piratage",
+  "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
  "Live updates: Bitcoin clings to $80,000 as Samsung and Google tumble after earnings": {
@@ -1982,6 +2027,11 @@
   "quand": "2026-10-16T11:59:16Z",
   "statut": "ok"
  },
+ "Polygon adds Solana to payment stack linking bank accounts, crypto and payouts": {
+  "fr": "Polygon ajoute Solana à son infrastructure de paiement reliant comptes bancaires, cryptomonnaies et versements",
+  "quand": "2026-10-30T15:07:55Z",
+  "statut": "ok"
+ },
  "Polygon gains US payments licenses after closing Coinme deal": {
   "fr": "Polygon obtient des licences de paiement américaines après la conclusion du rachat de Coinme",
   "quand": "2026-10-15T11:07:37Z",
@@ -2207,6 +2257,11 @@
   "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
+ "Risk Stewards: Temporary Slope2 Reductions on Aave V3 and Aave V4 / 2026.10.30": {
+  "fr": "Risk Stewards : réductions temporaires du Slope2 sur Aave V3 et Aave V4 / 2026.10.30",
+  "quand": "2026-10-30T15:07:55Z",
+  "statut": "ok"
+ },
  "Robinhood Adds Eight Stock and ETF Tokens to Its Chain": {
   "fr": "Robinhood ajoute huit jetons d'actions et d'ETF à sa chaîne",
   "quand": "2026-10-29T08:21:37Z",
@@ -2359,6 +2414,11 @@
  "SharpLink Says It Deployed $400 Million Across Ether.fi and Lido": {
   "fr": "SharpLink annonce avoir déployé 400M$ sur Ether.fi et Lido",
   "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
+ "Short note on proposal 620 (deprecated Polygon markets reserves withdrawal) cancellation": {
+  "fr": "Brève sur l'annulation de la proposition 620 (retrait des réserves des marchés Polygon obsolètes)",
+  "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
  "Sky Ecosystem Q3 2026 Quarterly Report": {
@@ -2544,6 +2604,11 @@
  "Strategy pauses bitcoin buys, repurchases $205 million of STRC preferred shares": {
   "fr": "Strategy suspend ses achats de bitcoin et rachète pour 205 M$ d'actions privilégiées STRC",
   "quand": "2026-10-27T07:07:28Z",
+  "statut": "ok"
+ },
+ "Strategy reports $19.5 billion in Q3 net income as preferred shareholders approve daily dividends": {
+  "fr": "Strategy publie 19,5 milliards de $ de bénéfice net au T3, les actionnaires privilégiés approuvant des dividendes quotidiens",
+  "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
  "Strategy shareholders approve daily dividends for four preferred stocks": {
@@ -2877,6 +2942,11 @@
   "quand": "2026-10-23T19:16:31Z",
   "statut": "ok"
  },
+ "Uniswap Volume Tops $5.97 Billion as Ethereum Trading Surges": {
+  "fr": "Le volume d'Uniswap dépasse 5,97 milliards de $ tandis que le trading sur Ethereum s'envole",
+  "quand": "2026-10-30T15:07:55Z",
+  "statut": "ok"
+ },
  "Uniswap’s aggregator hooks go live on Ethereum, Base and Robinhood Chain": {
   "fr": "Les hooks agrégateurs d'Uniswap sont en ligne sur Ethereum, Base et Robinhood Chain",
   "quand": "2026-10-23T07:07:43Z",
@@ -2959,6 +3029,11 @@
  "Wells Fargo, Cisco, Marvell among latest firms objecting to OKXICE's tokenized stock plan": {
   "fr": "Wells Fargo, Cisco, Marvell parmi les dernières entreprises à s'opposer au plan d'actions tokenisées d'OKXICE",
   "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "Why Switzerland’s first genuine spot bitcoin ETF could soon attract overseas banks and brokers": {
+  "fr": "Pourquoi le premier ETF bitcoin au comptant véritable de Suisse pourrait bientôt attirer des banques et courtiers étrangers",
+  "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
  "Why centralized exchanges refuse to list legacy crypto tokens without explicit SEC immunity": {
