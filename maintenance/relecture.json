@@ -1,112 +1,14 @@
 {
  "defauts": [
   {
-   "constat": "Les noms PancakeSwap et Re se superposent sous les pièces : les deux sont difficiles à lire.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "chevauchement",
-   "vue": "Attention"
-  },
-  {
-   "constat": "Bande du bas : Aerodro…, Compoun… et Pancake… sont tronqués.",
-   "ecran": "ordinateur",
+   "constat": "Les valeurs « 8,4 ans » (staking liquide) et « 5,7 ans » (perpétuels) sont masquées par la rangée de filtres ; elles ne se lisent que dans le bandeau du bas.",
+   "ecran": "telephone",
    "gravite": "gene",
    "type": "texte_coupe",
-   "vue": "Attention"
-  },
-  {
-   "constat": "Fables affiche 27,8 M$ sur sa colonne et 27,7 M$ dans la bande du bas.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "autre",
-   "vue": "Cohorte"
-  },
-  {
-   "constat": "Bande du bas : Lighter…, Arcus P… et UNCX Ne… sont tronqués.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Cohorte"
-  },
-  {
-   "constat": "Bande du bas : SSV Net…, Binance…, JustLen… et EigenCl… sont tronqués.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "DeFi"
-  },
-  {
-   "constat": "Bande du bas : Maple F…, JustLen…, Compoun…, Hyperli… et Jupiter… sont tronqués.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Prêt"
-  },
-  {
-   "constat": "Bande du bas : Securit…, Franklin… et Centrif… sont tronqués.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Actifs réels"
-  },
-  {
-   "constat": "Bande du bas : Jupiter…, Sanctum… et Binance… sont tronqués.",
-   "ecran": "ordinateur",
-   "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Solana"
-  },
-  {
-   "constat": "Les pièces XRP, SOL, TRX et autres n'ont pas de nom visible ; seules BTC, ETH et USDT sont lisibles dans la bande du bas.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Crypto"
-  },
-  {
-   "constat": "Les protocoles des colonnes et des bulles n'ont pas de nom visible ; la bande du bas n'en montre que trois.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "DeFi"
-  },
-  {
-   "constat": "Les anneaux des protocoles n'ont pas de nom visible ; la bande du bas n'en montre que trois.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Prêt"
-  },
-  {
-   "constat": "Les piles des plateformes n'ont pas de nom visible ; la bande du bas n'en montre que trois.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Actifs réels"
-  },
-  {
-   "constat": "Les protocoles de la scène n'ont pas de nom visible ; la bande du bas n'en montre que trois.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Solana"
-  },
-  {
-   "constat": "Aave, Aerodrome, Jupiter, Lighter, Morpho, Re, Spark et Uniswap, cités cette semaine, n'ont pas d'étiquette visible ; seuls Compound Finance et PancakeSwap sont nommés.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Attention"
-  },
-  {
-   "constat": "Fables affiche 27,8 M$ sur sa colonne et 27,7 M$ dans la bande du bas.",
-   "ecran": "telephone",
-   "gravite": "gene",
-   "type": "autre",
-   "vue": "Cohorte"
+   "vue": "Prix des frais · Ensemble"
   }
  ],
- "jour": "2026-10-29",
- "n_captures": 34,
- "quand": "2026-10-29T08:21:17Z"
+ "jour": "2026-10-30",
+ "n_captures": 32,
+ "quand": "2026-10-30T08:20:52Z"
 }
