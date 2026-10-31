@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 31/10 — les actions tokenisées s'arrêtent à l'heure de New York</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du samedi 31/10/2026</b> · générée 31/10 ~11:00 UTC · méthode : comptages complets sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> (témoins : <code>eth_chainId</code> = 0x1237 ; code d'une adresse bidon = 0x ; lundi 26/10 00:00–01:00 UTC rejoué : 64 émissions, première à 00:02:17, exactement le chiffre publié le 26/10 ; recensement avant le 23/10 rejoué : 1 065 350 pools, exactement le chiffre publié le 23/10) · relectures jusqu'au bloc 102 453 264 (~09:40 UTC) · DefiLlama /protocols, /v2/chains, /overview/fees, /overview/dexs, dailyHoldersRevenue : 09:15 UTC, dernier jour complet = 30/10 · registre <code>Uniswap/hooklist</code> : régénéré 29/10 15:39 UTC (âge 41 h 40) · API Morpho, SEC 4-927, Federal Register : ~10:00 UTC · delta (agent Hermes) : joignable, <code>defi.json</code> de 08:53 UTC, non utilisé comme résultat · <b>trou déclaré : aucune enquête le vendredi 30/10</b> ; les deltas ci-dessous se lisent contre le 29/10
+</div>
+
+<h1>Les actions tokenisées s'arrêtent à l'heure de New York ; le hook d'Uniswap s'est réveillé à une nouvelle adresse</h1>
+
+<div class="key">
+<div class="v">23:19 UTC</div>
+<div class="l">heure de la dernière émission d'action tokenisée de la semaine, vendredi 30/10 : 19:19 à New York. Aucune émission ensuite, alors que l'horaire publié par Robinhood Europe laissait ouvert jusqu'à samedi 01:00 UTC.</div>
+<div class="p">population : 1 884 émissions du vendredi 30/10 (comptage complet, 79 jetons) ; 0 émission le samedi 31/10 de 00:00 à 09:00 UTC</div>
+</div>
+
+<h2>La question</h2>
+<p>Depuis le 25/10, deux veilles opposaient deux horloges pour le canal qui émet les jetons d'actions. La première disait : il suit l'horaire de Robinhood Europe (lundi 02:00 → samedi 02:00, heure de Paris). La seconde disait : il suit le marché 24 h de Robinhood aux États-Unis (dimanche 20:00 → vendredi 20:00, heure de New York). L'été, les deux tombaient sur la même minute UTC. La semaine du 26 au 31/10 est la seule de l'automne où elles divergent : l'Europe est passée à l'heure d'hiver le 25/10, les États-Unis ne le font que le 01/11. Ce samedi tranchait.</p>
+
+<h2>Le fil : les veilles re-testées ce matin</h2>
+<p>Dix-huit veilles ouvertes, dix-huit points datés d'aujourd'hui. Trois sont soldées.</p>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du 31/10</th><th>statut</th></tr>
+<tr><td>v_20261026_01 — horloge de New York</td><td class="n">dernière émission ven 30/10 23:19:16 UTC (avant 00:05) ; 0 entre 00:05 et 01:00 UTC</td><td><span class="tag ok">CONFIRMEE</span></td></tr>
+<tr><td>v_20261025_01 — horloge de Paris</td><td class="n">première émission lun 26/10 00:02:17 UTC (avant 00:30) ; arrêt ven 23:19 UTC (avant minuit)</td><td><span class="tag ko">MORTE</span></td></tr>
+<tr><td>v_20261029_01 — VolatilePair reste une coquille</td><td class="n">0 pool à l'ancienne adresse ; 1 pool ETH/USDG à la nouvelle adresse, 9 662 échanges</td><td><span class="tag rv">REVISEE</span></td></tr>
+<tr><td>v_20260918_01 — hooks d'extraction</td><td class="n">afterSwapReturnsDelta 72,3 % (868/1 201) ; beforeAddLiquidity 26,4 % (317/1 201)</td><td class="op">ouverte</td></tr>
+<tr><td>v_20260918_02 — audits des hooks</td><td class="n">5 / 1 201 au champ auditUrl (0,42 %)</td><td class="op">ouverte</td></tr>
+<tr><td>v_20260918_03 — la v3 refuge</td><td class="n">v3 33,9 % / v4 43,0 % du volume 30 j (9,16 / 11,62 / 27,05 Md$)</td><td class="op">ouverte</td></tr>
+<tr><td>v_20260918_04 — infrastructure actions</td><td class="n">156 sur 1 201 (13,0 %) ; aucun avis de TSV</td><td class="op">ouverte</td></tr>
+<tr><td>v_20260919_01 — poids de Pons</td><td class="n">18,6 % (Pons V2 16,08 / 86,51 M$) ; 19,2 % avec V1</td><td class="op">ouverte, seuil de mort 15 %</td></tr>
+<tr><td>v_20261002_01 — prêt sans actions</td><td class="n">0,70 % (3,74 M$ sur 535,9 M$ de collatéral Morpho)</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261005_02 — volume via asrd</td><td class="n">non re-mesuré (échantillon de volume non refait) ; échéance 05/11</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261008_02 — clé des jetons d'actions</td><td class="n">admin 0xd6f8…b66d : hasRole = 1, sans code ; 0 évènement</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261019_01 — rachats d'UNI</td><td class="n">29/10 : 5 ; 30/10 : 3 ; 31/10 : 1 (partiel) ; nonce 1 346</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261021_01 — TVL v3</td><td class="n">DefiLlama 85,66 M$ (−5,8 %) ; seuil 80 M$ au 04/11</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261022_01 — préavis Lighter</td><td class="n">0 évènement de la porte de mise à jour depuis le 29/10</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261023_01 — registre en retard</td><td class="n">1 249 hooks nouveaux depuis le 23/10, 5 au registre (0,4 %)</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261023_02 — Lanista vitrine</td><td class="n">72 pools ; 4 échanges au total (1 depuis le 29/10)</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261027_01 — famille a80</td><td class="n">volume non re-mesuré ; nouveaux hooks a80 : 370 le 29/10, 6 le 30/10</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261029_02 — DualPool s'éteint</td><td class="n">29/10 : 5 échanges après le relevé ; 30/10 : 29 ; 31/10 : 0</td><td class="op">ouverte</td></tr>
+</table></div>
+
+<h2>Ce qui a été mesuré</h2>
+<p>J'ai compté tous les évènements <code>Transfer</code> qui créent un jeton (expéditeur 0x0) vers l'adresse de réception unique des émissions, <code>0xc5844f…e616</code>, tous contrats confondus, du vendredi 30/10 00:00 au samedi 31/10 09:00 UTC. Les bornes de bloc sont lues par recherche sur l'horodatage.</p>
+<div class="wrap"><table>
+<tr><th>fenêtre (UTC)</th><th>heure de New York</th><th>émissions</th><th>jetons</th></tr>
+<tr><td>ven 30/10 00:00 → 20:00</td><td>jeu 20:00 → ven 16:00</td><td class="n">1 796</td><td class="n">79</td></tr>
+<tr><td>ven 20:00 → 23:00</td><td>16:00 → 19:00</td><td class="n">85</td><td class="n">29</td></tr>
+<tr><td>ven 23:00 → sam 00:00</td><td>19:00 → 20:00</td><td class="n">3 (dernière 23:19:16)</td><td class="n">2</td></tr>
+<tr><td>sam 00:00 → 00:05</td><td>20:00 → 20:05</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>sam 00:05 → 01:00</td><td>20:05 → 21:00</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>sam 01:00 → 09:00</td><td>21:00 → 05:00</td><td class="n">0</td><td class="n">0</td></tr>
+</table></div>
+<p>Le profil heure par heure du vendredi (horodatage interpolé entre les blocs de minuit) le montre aussi : 277 émissions entre 13:00 et 14:00 UTC, l'heure de l'ouverture de Wall Street (09:30 à New York). Puis 33, 23, 28 et 3 sur les quatre dernières heures, après la clôture de 16:00. Le canal ne vit pas au rythme de Paris : il vit au rythme de la séance américaine, et il se tait à la fin du marché 24 h de Robinhood.</p>
+
+<h2>Le fait neuf de la semaine : VolatilePair sert, mais pas à l'adresse annoncée</h2>
+<p>Le 29/10, j'avais écrit que le hook VolatilePair d'Uniswap Labs (<code>0xe9e0…fcc0</code>) n'avait aucun pool. C'est toujours vrai à cette adresse. Mais le registre Uniswap a été modifié le 29/10 à 15:39 UTC : l'entrée a été déplacée vers une adresse redéployée, <code>0x987e330f…abcc0</code>. Le message de commit dit que tous les autres champs sont inchangés.</p>
+<p>Lu sur la chaîne ce matin :</p>
+<ul>
+<li>la nouvelle adresse est un mandataire de 135 octets ; son code réel (19 212 octets) vit à <code>0x3328…8000</code> ;</li>
+<li>le rôle d'administrateur est tenu par <code>0x2bad…46cd</code>, l'alias du Timelock de la gouvernance UNI (témoin négatif <code>0x…dead</code> : 0) ;</li>
+<li>le coffre 2 sur 5 <code>0xa67e…5953</code>, qui seul peut ouvrir un pool, est passé du nonce 0 au nonce 1 : sa première transaction a initialisé un pool <b>ETH/USDG</b> à frais dynamique, le 29/10 à 23:28:50 UTC ;</li>
+<li>depuis : <b>9 662 échanges</b>, 1 874 modifications de liquidité, 47 expéditeurs distincts, <b>4,26 M USDG</b> échangés (1 904,8 ETH). Le 30/10 : 2,09 M USDG. Le 31/10 jusqu'à 09:23 UTC : 2,17 M USDG, déjà plus que toute la veille ;</li>
+<li>frais prélevés par échange : médiane 1,55 point de base, entre 0,40 et 5,15.</li>
+</ul>
+<p>La veille v_20261029_01 est donc soldée en REVISEE. La mesure écrite portait sur l'ancienne adresse et rend 0 ; l'affirmation, elle, portait sur le hook d'Uniswap Labs, et ce hook sert. J'ouvre une veille sur sa part du volume Uniswap v4 de la chaîne : 2,09 M$ le 30/10, contre 194,8 M$ de volume v4 sur les 24 h précédant le relevé DefiLlama, soit environ 1,1 %. Les deux fenêtres ne coïncident pas exactement, l'ordre de grandeur seul est sûr.</p>
+
+<h2>Le delta contre le 29/10</h2>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>29/10</th><th>31/10</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne (DefiLlama)</td><td class="n">1 129,8 M$</td><td class="n">1 089,9 M$</td><td class="n">−3,5 %</td></tr>
+<tr><td>TVL Uniswap v4</td><td class="n">180,6 M$</td><td class="n">170,9 M$</td><td class="n">−5,4 %</td></tr>
+<tr><td>Volume 30 j de la chaîne</td><td class="n">28,50 Md$</td><td class="n">27,05 Md$</td><td class="n">−5,1 %</td></tr>
+<tr><td>Volume 30 j Uniswap v4</td><td class="n">12,33 Md$</td><td class="n">11,62 Md$</td><td class="n">−5,8 %</td></tr>
+<tr><td>Frais 30 j de la chaîne (total déclaré)</td><td class="n">95,48 M$</td><td class="n">86,51 M$</td><td class="n">−9,4 %</td></tr>
+<tr><td>Revenu aux détenteurs 30 j (total déclaré)</td><td class="n">3,64 M$</td><td class="n">3,40 M$</td><td class="n">−6,6 %</td></tr>
+<tr><td>Pools Uniswap v4 sur la chaîne</td><td class="n">1 095 143</td><td class="n">1 103 705</td><td class="n">+8 562</td></tr>
+<tr><td>Hooks distincts utilisés</td><td class="n">30 073</td><td class="n">30 564</td><td class="n">+491</td></tr>
+<tr><td>Hooks au registre (chaîne robinhood)</td><td class="n">1 201</td><td class="n">1 201</td><td class="n">0 (1 adresse déplacée)</td></tr>
+<tr><td>Rachats d'UNI (Firepit, nonce)</td><td class="n">1 338</td><td class="n">1 346</td><td class="n">+8</td></tr>
+</table></div>
+<p>Pools v4 créés par jour : 5 204 le 29/10, 4 087 le 30/10, 1 125 le 31/10 jusqu'à 09:40 UTC. Les 22 changements d'adaptateurs DefiLlama depuis le 29/10 (piège P10 re-vérifié) ne touchent la chaîne que par Relay, le 29/10 à 10:08 UTC. La baisse des frais n'est donc pas un changement de périmètre visible. Elle reste lue sur des fenêtres glissantes de 30 jours.</p>
+
+<h2>Cohorte</h2>
+<p>Le 31/10 était l'échéance de quatre critères de sortie. Deux sont franchis.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>preuve</th><th>traction 31/10</th><th>frais / Pons V2</th><th>décision</th></tr>
+<tr><td>TermMax</td><td class="n">3</td><td class="n">TVL 11,1 k$</td><td class="n">0</td><td><span class="tag ko">SORT</span> TVL sous 0,5 M$ au 31/10</td></tr>
+<tr><td>Fables</td><td class="n">1</td><td class="n">TVL 24,2 M$, frais 3,25 M$</td><td class="n">0,202</td><td><span class="tag ko">SORT</span> audit toujours sans lien au 31/10</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">TVL 63,7 M$, frais 2,05 M$</td><td class="n">0,128</td><td><span class="tag ok">RESTE</span> lignée prouvée par une source primaire</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">TVL 111,8 M$, frais 2,29 M$</td><td class="n">0,142</td><td><span class="tag ok">RESTE</span> mécanisme documenté par Robinhood</td></tr>
+<tr><td>Morpho Blue <span class="muted">(entre)</span></td><td class="n">2</td><td class="n">TVL 596,0 M$, frais 1,79 M$</td><td class="n">0,111</td><td><span class="tag rv">ENTRE</span> 7 jours sur 7, place de Fables</td></tr>
+<tr><td>Ekubo</td><td class="n">2</td><td class="n">mcap 13,2 M$, vol. 31,4 M$</td><td class="n">0,003</td><td>inchangé</td></tr>
+<tr><td>up v3</td><td class="n">0</td><td class="n">vol. 282 M$ (−15 %)</td><td class="n">0,034</td><td>seuil 200 M$ qui se rapproche</td></tr>
+<tr><td>StonkBrokers</td><td class="n">0</td><td class="n">frais 507,8 k$ (9 fiches)</td><td class="n">0,032</td><td>inchangé</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">vol. 119,9 M$</td><td class="n">0,003</td><td>inchangé</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">TVL 5,94 M$</td><td class="n">0,040</td><td>inchangé</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">TVL 3,71 M$</td><td class="n">0</td><td>inchangé</td></tr>
+</table></div>
+<p><b>Arcus.</b> Le billet « A New Arc » d'Antonio Juliano sur le blog de dYdX, daté du 30/06/2026, dit qu'Arcus a été incubé chez dYdX Labs et construit avec Robinhood Crypto. C'est la source primaire que le critère réclamait. La lignée reste un champ déclaré, sans point.</p>
+<p><b>Lighter.</b> La page d'aide de Robinhood sur les contrats perpétuels du portefeuille décrit le mécanisme : l'USDG déposé est bloqué dans un contrat relais de Lighter sur la chaîne, et l'appariement des ordres se fait hors de la chaîne. Le critère « aucun mécanisme documenté » n'est pas franchi. C'est un jugement : ce mécanisme n'est pas original à cette chaîne, et Lighter reste membre pour son échelle.</p>
+<p><b>Morpho Blue.</b> Il domine Fables sur la preuve (2 contre 1) et sur la TVL depuis le 25/10. Le 30/10 n'a pas été relevé. Je le reconstitue depuis deux sources datées : la série DefiLlama de la TVL de Morpho Blue sur la chaîne (592,7 M$ le 30/10) et l'historique Git du rapport d'audit, inchangé depuis le 22/04/2024 (aucun commit dans le dépôt depuis le 16/10). Sept jours consécutifs sont atteints. Morpho prend la place de Fables, qui sort le même jour par son propre critère ; je n'évince aucun autre membre. La cohorte compte neuf membres ; la place de TermMax reste vide. Aucun membre de l'antichambre ne franchit son seuil (GlueHook 3,5 k$, Twofold 16,1 k$, ARMSys 48,4 k$).</p>
+<p><b>Recalcul global.</b> 297 protocoles. Liens d'audit : 81 sur 85 en HTTP 200. Comptes GitHub : 51 sur 53 existent. Scores : 196 à 0, 39 à 1, 47 à 2, 14 à 3, 1 à 4. Pons V2 encaisse toujours 18,6 % des frais de la chaîne, deuxième ligne après Uniswap v4 (33,0 M$). La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</p>
+
+<h2>Ce qui contredit</h2>
+<p>Trois choses retiennent ma lecture. D'abord, le canal s'est arrêté à 23:19 UTC, 41 minutes avant 20:00 à New York. Il n'a pas émis jusqu'à la dernière minute du marché 24 h. Le 23/10, la dernière émission tombait à 23:58 UTC. La fin de semaine suit donc l'horloge de New York, mais pas comme un interrupteur : la demande s'éteint après 16:00, le canal suit. Ensuite, une seule semaine discrimine. Dès le 01/11, l'heure d'hiver américaine réaligne les deux horloges. Je ne pourrai pas rejouer ce test avant mars 2027. Enfin, le volume de VolatilePair peut venir de robots qui testent le pool : 47 expéditeurs, dont un porte 4 108 échanges sur 9 662. Rien ne dit encore que ce soit une demande durable.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li>Pourquoi Uniswap a redéployé VolatilePair en moins de 19 h. Le message de commit ne le dit pas, et je n'ai pas comparé les deux codes.</li>
+<li>Le nombre total de lettres au dossier SEC 4-927 : toujours non lisible par script. La première page montre une lettre de Ledger (29/10) et une note de réunion avec TD Securities (28/10). Le Federal Register compte 312 documents, inchangé ; 2026-19388 (22/09) reste le seul document de l'ordre. Aucun avis de TSV.</li>
+<li>La part du volume v4 via les hooks afterSwapReturnsDelta et via la famille a80 : échantillon non refait ce jour.</li>
+<li>Pièges du mémo re-vérifiés ce jour : P2 et P8 (lignes doublecounted hors du total déclaré), P5 (lien d'audit en 200 seulement), P7 (populations nommées), P10 (commits d'adaptateurs), P11 (registre ≠ recensement), P12 (rafale a80 du 29/10 : 370 hooks en un jour). Une erreur de ma propre sonde a été attrapée avant usage : j'avais lu le mauvais mot de l'évènement Initialize, ce qui aurait rendu 0 hook.</li>
+</ul>
+<p class="muted">Sources web : dydx.xyz/blog/a-new-arc ; robinhood.com/us/en/support/articles/robinhood-wallet-perpetual-futures ; sec.gov/rules-regulations/public-comments/4-927 ; federalregister.gov API ; github.com/Uniswap/hooklist (commit f4c9315b).</p>
+</main>
+</body>
+</html>
