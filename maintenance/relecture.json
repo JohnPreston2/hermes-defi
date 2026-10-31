@@ -1,14 +1,21 @@
 {
  "defauts": [
   {
-   "constat": "Les valeurs « 8,4 ans » (staking liquide) et « 5,7 ans » (perpétuels) sont masquées par la rangée de filtres ; elles ne se lisent que dans le bandeau du bas.",
-   "ecran": "telephone",
+   "constat": "L'icône Compound Finance, au centre de la scène des cités, n'a pas d'étiquette visible ; son nom n'apparaît que dans la bande du bas.",
+   "ecran": "ordinateur",
    "gravite": "gene",
-   "type": "texte_coupe",
-   "vue": "Prix des frais · Ensemble"
+   "type": "sans_nom",
+   "vue": "Attention"
+  },
+  {
+   "constat": "L'icône HumidiFi, en bas à gauche du groupe « chiffre instable », n'a pas d'étiquette ni de valeur sur la scène ; seul le nom de la bande du bas la désigne.",
+   "ecran": "ordinateur",
+   "gravite": "gene",
+   "type": "sans_nom",
+   "vue": "Attention"
   }
  ],
- "jour": "2026-10-30",
- "n_captures": 32,
- "quand": "2026-10-30T08:20:52Z"
+ "jour": "2026-10-31",
+ "n_captures": 34,
+ "quand": "2026-10-31T08:21:01Z"
 }
