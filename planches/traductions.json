@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-10-31T07:46:01Z",
+"generated_at": "2026-10-31T09:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 140,
+"n_affiches": 142,
 "n_refuses": 0,
-"n_traduits": 93,
+"n_traduits": 92,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -94,7 +94,6 @@
 "Tokenized Tesla, Inc. shares (TSLAc) on Aave Base Assessments": "Actions tokenisées Tesla, Inc. (TSLAc) sur Aave Base Assessments",
 "Trade Where You Read: Decrypt Brings Jupiter-Powered Trading to The Information Exchange": "Trader là où vous lisez : Decrypt ajoute le trading propulsé par Jupiter à The Information Exchange",
 "Uniswap Volume Tops $5.97 Billion as Ethereum Trading Surges": "Le volume d'Uniswap dépasse 5,97 milliards de $ tandis que le trading sur Ethereum s'envole",
-"Utah Brings Criminal Charges Against Kalshi and Its Co-Founders": "L'Utah engage des poursuites pénales contre Kalshi et ses cofondateurs",
 "Utah charges predictions platform Kalshi with illegal gambling": "L'Utah accuse la plateforme de prédictions Kalshi de jeux d'argent illégaux",
 "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur.",
 "Your fridge could one day stake Ether, launch memecoins: CFTC chair": "Votre frigo pourrait un jour staker de l'Ether et lancer des mémécoins : selon le président de la CFTC",
