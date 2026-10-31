@@ -847,6 +847,37 @@
     }
    ],
    "genere": "2026-10-29T10:45:00Z"
+  },
+  {
+   "date": "2026-10-31",
+   "fichier": "rapport/2026-10-31-enquete.html",
+   "titre": "Robinhood Chain, 31/10 : les actions tokenisées s'arrêtent à l'heure de New York ; le hook d'Uniswap s'est réveillé à une nouvelle adresse",
+   "question": "La seule semaine où l'horaire de Robinhood Europe et celui du marché 24 h de New York divergent (26-31/10), sur quelle horloge le canal d'émission des actions tokenisées s'arrête-t-il ?",
+   "mesure_neuve": "Comptage complet sur la chaîne : la dernière émission d'action de la semaine tombe vendredi 30/10 à 23:19:16 UTC (19:19 à New York), et aucune émission ne tombe le samedi 31/10 entre 00:00 et 09:00 UTC, alors que l'horaire de Paris laissait ouvert jusqu'à 01:00 UTC : veille New York CONFIRMÉE, veille Paris MORTE. En parallèle, le hook VolatilePair d'Uniswap Labs, redéployé à 0x987e…bcc0, a ouvert un pool ETH/USDG le 29/10 à 23:28 UTC : 9 662 échanges et 4,26 M USDG au relevé.",
+   "chiffre_cle": {
+    "valeur": "23:19 UTC",
+    "libelle": "dernière émission d'action tokenisée de la semaine, vendredi 30/10 (19:19 à New York) ; rien ensuite, alors que l'horaire de Paris laissait ouvert jusqu'à samedi 01:00 UTC",
+    "population": "1 884 émissions du vendredi 30/10, comptage complet sur 79 jetons ; 0 le samedi 31/10 de 00:00 à 09:00 UTC"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais sur 30 jours (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_vol_30d_v4",
+     "libelle": "Volume Uniswap v4 sur 30 jours (les échanges)"
+    },
+    {
+     "champ": "rh_v4_pools_total_onchain",
+     "libelle": "Pools Uniswap v4 (marchés d'échange créés)"
+    }
+   ],
+   "genere": "2026-10-31T11:00:00Z"
   }
  ]
 }
