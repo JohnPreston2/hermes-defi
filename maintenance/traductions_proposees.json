@@ -62,6 +62,11 @@
   "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
+ "Aave Reopens Markets but Keeps Nine Assets at Zero LTV": {
+  "fr": "Aave rouvre ses marchés mais garde neuf actifs à LTV zéro",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
  "Aave V4’s Arc Markets Connect Dollar-Euro Loans to Shared Liquidity": {
   "fr": "Les Arc Markets d’Aave V4 relient des prêts dollar-euro à une liquidité partagée",
   "quand": "2026-10-16T11:59:16Z",
@@ -261,6 +266,11 @@
   "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
+ "Binance Finds 'Additional Points of Breach' in $6.3B Hack": {
+  "fr": "Binance trouve des « points de brèche supplémentaires » dans le piratage de $6,3 B",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
  "Binance Hot Wallet Exploit: Aave's Response": {
   "fr": "Exploitation du portefeuille chaud de Binance : la réponse d'Aave",
   "quand": "2026-10-30T15:07:55Z",
@@ -271,9 +281,24 @@
   "quand": "2026-10-30T15:07:55Z",
   "statut": "ok"
  },
+ "Binance Says It Has Reserved Over $6.34 Billion to Cover Hack Losses": {
+  "fr": "Binance affirme avoir réservé plus de $6,34 B pour couvrir les pertes du piratage",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
  "Binance Seeks Brazil Crypto License as It Delists 22 Tokens": {
   "fr": "Binance demande une licence crypto au Brésil alors qu'elle retire 22 jetons de sa cote",
   "quand": "2026-10-28T07:07:57Z",
+  "statut": "ok"
+ },
+ "Binance Sets Aside $6.34B to Cover Hack Losses, CEO Says 'Your Assets Are Safe'": {
+  "fr": "Binance met de côté $6,34 B pour couvrir les pertes du piratage, son PDG affirme « Vos actifs sont en sécurité »",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
+ "Binance arranges $6.34 billion to cover losses from record crypto hack": {
+  "fr": "Binance réunit $6,34 B pour couvrir les pertes du record de piratage crypto",
+  "quand": "2026-10-31T07:07:39Z",
   "statut": "ok"
  },
  "Binance hack drained wallets backing customer assets, reserve data shows": {
@@ -299,6 +324,21 @@
  "Binance points to engineer’s hacked laptop in $6.3B breach": {
   "fr": "Binance pointe l'ordinateur portable piraté d'un ingénieur dans une faille de 6,3 B$",
   "quand": "2026-10-30T11:07:33Z",
+  "statut": "ok"
+ },
+ "Binance says it has $6.34 billion ready to cover hack losses": {
+  "fr": "Binance affirme disposer de $6,34 B pour couvrir les pertes du piratage",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
+ "Binance uncovers wider breach in $6.3 billion exploit, targets Sunday withdrawal restart": {
+  "fr": "Binance découvre une brèche plus large dans l'exploit de $6,3 B et vise une reprise des retraits dimanche",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
+ "Binance working with FBI to recover assets following $6.3B hack": {
+  "fr": "Binance travaille avec le FBI pour récupérer les actifs après le piratage de $6,3 B",
+  "quand": "2026-10-31T07:07:39Z",
   "statut": "ok"
  },
  "BingX, YouHodler added to ESMA MiCA register in latest update": {
@@ -1151,6 +1191,11 @@
   "quand": "2026-10-26T15:07:33Z",
   "statut": "ok"
  },
+ "Elon Musk, CZ Trade Blows Over SpaceX Shares After $6.4B Binance Hack": {
+  "fr": "Elon Musk et CZ s'affrontent sur les actions SpaceX après le piratage de $6,4 B sur Binance",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
  "Enable General Collaterals for POL Borrowing on Polygon v3": {
   "fr": "Activer les collatéraux généraux pour l'emprunt de POL sur Polygon v3",
   "quand": "2026-10-14T09:35:34Z",
@@ -1254,6 +1299,11 @@
  "FTX’s crypto mining venture is now used to advance AI": {
   "fr": "L'entreprise de minage de cryptos de FTX sert désormais à développer l'IA",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "FUN Plunges 95% in Uniswap Pool as Binance Exploiter Sells": {
+  "fr": "FUN chute de 95% dans le pool Uniswap alors que l'exploitant de Binance vend",
+  "quand": "2026-10-31T07:07:39Z",
   "statut": "ok"
  },
  "Fed’s Williams sees AI supply squeeze lasting beyond 2 years": {
@@ -1828,6 +1878,11 @@
   "quand": "2026-10-21T13:36:37Z",
   "statut": "ok"
  },
+ "Morning Minute: Binance’s $6.4B Hack Overshadows Hyperliquid’s Biggest Day": {
+  "fr": "Morning Minute : le piratage de $6,4 B sur Binance éclipse la plus grande journée d'Hyperliquid",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
  "Morning Minute: Google Clears a Major Quantum Hurdle, Bitcoin Still Safe": {
   "fr": "Morning Minute : Google franchit un obstacle majeur en informatique quantique, Bitcoin reste à l'abri",
   "quand": "2026-10-17T07:07:37Z",
@@ -2150,6 +2205,11 @@
  "Ramp Seeks OCC Trust Bank Charter for Digital Asset Custody": {
   "fr": "Ramp demande une charte de banque de confiance auprès de l'OCC pour la conservation d'actifs numériques",
   "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
+ "Recap: How Binance’s record $6.3B hack unfolded": {
+  "fr": "Récapitulatif : le déroulé du piratage record de Binance à $6,3 B",
+  "quand": "2026-10-31T07:07:39Z",
   "statut": "ok"
  },
  "Reduce ABC Step 2 to 25%, increase Staking emissions 50%": {
@@ -2656,6 +2716,11 @@
   "quand": "2026-10-14T23:08:52Z",
   "statut": "ok"
  },
+ "Strategy’s preferred-stock fix sets up renewed bitcoin buying, analysts say": {
+  "fr": "Le correctif des actions privilégiées de Strategy ouvre la voie à de nouveaux achats de bitcoin, selon des analystes",
+  "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
  "Strive closes in on second-largest corporate bitcoin treasury with $511 million purchase": {
   "fr": "Strive s'approche de la deuxième plus grande trésorerie d'entreprise en bitcoin avec un achat de 511 M$",
   "quand": "2026-10-27T07:07:28Z",
@@ -2726,6 +2791,11 @@
  "Tether America USD (USAT) on Aave Ethereum Assessments": {
   "fr": "Évaluations de Tether America USD (USAT) sur Aave Ethereum",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Tether Reports $1.5 Billion Q3 Operating Profit, $7.95 Billion Reserve Buffer": {
+  "fr": "Tether publie un bénéfice d'exploitation de $1,5 B au T3, avec une réserve tampon de $7,95 B",
+  "quand": "2026-10-31T07:07:39Z",
   "statut": "ok"
  },
  "Tether Routed Payments to Hines's Firm During White House Tenure, WSJ Reports": {
@@ -3194,6 +3264,11 @@
  "[Direct-to-AIP] CAPO SnapshotRatio Update Across Aave V3: October 2026": {
   "fr": "[Direct-to-AIP] Mise à jour du CAPO SnapshotRatio sur Aave V3 : octobre 2026",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "[Gauntlet] Deprecation of the Ethereum WBTC Comet": {
+  "fr": "[Gauntlet] Dépréciation du Comet WBTC sur Ethereum",
+  "quand": "2026-10-31T07:07:39Z",
   "statut": "ok"
  },
  "[November 5, 2026] - Proposed Changes to Grove for Upcoming Spell": {
