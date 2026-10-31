@@ -172,6 +172,11 @@
   "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
+ "Atlas Edit Weekly Cycle Proposal - Week Of 2026-11-02": {
+  "fr": "Proposition de cycle hebdomadaire d'Atlas Edit, semaine du 2026-11-02",
+  "quand": "2026-10-31T11:07:42Z",
+  "statut": "ok"
+ },
  "Attention sur PancakeSwap V3 : divergence fondamentale TVL +51 % / fees −7,5 %. Veille fees 170 k$ et LayerZero TVL 14 Md$.": {
   "quand": "2026-10-25T07:07:27Z",
   "statut": "fr"
@@ -569,6 +574,11 @@
  "Bitcoin slips under $80K after US PPI gains most in four years": {
   "fr": "Bitcoin passe sous 80K$ après la plus forte hausse du PPI américain en quatre ans",
   "quand": "2026-10-16T07:59:22Z",
+  "statut": "ok"
+ },
+ "Bitcoin stolen from Binance tops Tesla’s holdings and is over twice El Salvador’s reserve": {
+  "fr": "Le bitcoin volé à Binance dépasse les avoirs de Tesla et représente plus du double de la réserve d'El Salvador",
+  "quand": "2026-10-31T11:07:42Z",
   "statut": "ok"
  },
  "Bitcoin treasury Datavault AI plunges 50% after firm says it can’t access its BTC": {
@@ -1176,6 +1186,11 @@
   "quand": "2026-10-14T23:08:52Z",
   "statut": "ok"
  },
+ "ERC draft: Independent Simulation Result for (STVA)": {
+  "fr": "Projet ERC : résultat de simulation indépendant pour (STVA)",
+  "quand": "2026-10-31T11:07:42Z",
+  "statut": "ok"
+ },
  "ESMA Calls for Noncompliant Stablecoin Wind-Down by Jan. 8": {
   "fr": "L'ESMA demande la liquidation des stablecoins non conformes avant le 8 janvier",
   "quand": "2026-10-14T09:35:34Z",
@@ -1479,6 +1494,11 @@
  "ICE Plans US-Regulated Hyperliquid Perps With TradeXYZ": {
   "fr": "ICE prévoit des contrats perpétuels Hyperliquid réglementés aux États-Unis avec TradeXYZ",
   "quand": "2026-10-30T06:44:30Z",
+  "statut": "ok"
+ },
+ "IPX Unveils Patent-Pending Atomic Router: Protected Capital in the Bonding Curve, Coinbase-Funded Rewards and Automatic Graduation Into Liquid Markets": {
+  "fr": "IPX dévoile un routeur atomique en cours de brevet : capital protégé dans la bonding curve, récompenses financées par Coinbase et passage automatique vers des marchés liquides",
+  "quand": "2026-10-31T11:07:42Z",
   "statut": "ok"
  },
  "IRYS Surges 1,200% Past May Listing Peak": {
@@ -1888,6 +1908,10 @@
   "quand": "2026-10-17T07:07:37Z",
   "statut": "ok"
  },
+ "Morpho Labs (marches de pret isoles, deploye multi-chaines)": {
+  "quand": "2026-10-31T11:07:42Z",
+  "statut": "fr"
+ },
  "Morpho Opens Robinhood Stock Tokens to Stablecoin Borrowing": {
   "fr": "Morpho ouvre les tokens d'actions Robinhood aux emprunts en stablecoins",
   "quand": "2026-10-23T07:07:43Z",
@@ -2062,6 +2086,10 @@
   "quand": "2026-10-16T11:59:16Z",
   "statut": "fr"
  },
+ "PROVISOIRE, a valider par l'user : lien d'audit qui cesse de repondre 200 (score < 2), ou TVL sous 50 M$ pendant 14 jours -- et toujours remplacable par la meme regle automatique.": {
+  "quand": "2026-10-31T11:07:42Z",
+  "statut": "fr"
+ },
  "PancakeSwap TVL tops $380M as major fee overhaul heads to vote": {
   "fr": "La TVL de PancakeSwap dépasse $380M alors qu'une refonte majeure des frais est soumise au vote",
   "quand": "2026-10-21T15:07:27Z",
@@ -2210,6 +2238,11 @@
  "Recap: How Binance’s record $6.3B hack unfolded": {
   "fr": "Récapitulatif : le déroulé du piratage record de Binance à $6,3 B",
   "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
+ "Reddit Stock Plunges 30% as Google's AI Search Hits Traffic and User Growth": {
+  "fr": "L'action Reddit chute de 30% alors que la recherche IA de Google frappe son trafic et sa croissance d'utilisateurs",
+  "quand": "2026-10-31T11:07:42Z",
   "statut": "ok"
  },
  "Reduce ABC Step 2 to 25%, increase Staking emissions 50%": {
@@ -2816,6 +2849,11 @@
  "Tether: Senator's investigation misses positive work that's led to lower Iran volumes": {
   "fr": "Tether : l'enquête d'un sénateur ignore le travail positif qui a fait baisser les volumes liés à l'Iran",
   "quand": "2026-10-20T15:07:44Z",
+  "statut": "ok"
+ },
+ "Tether’s excess reserves nearly double to $8B as Q3 profit hits $1.5B": {
+  "fr": "Les réserves excédentaires de Tether presque doublent à $8B tandis que le bénéfice du Q3 atteint $1,5B",
+  "quand": "2026-10-31T11:07:42Z",
   "statut": "ok"
  },
  "Thai Supreme Court rules bitcoin is property after thief challenges conviction": {
