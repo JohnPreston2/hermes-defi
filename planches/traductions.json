@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-11-01T03:46:01Z",
+"generated_at": "2026-11-01T09:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 129,
+"n_affiches": 128,
 "n_refuses": 0,
-"n_traduits": 66,
+"n_traduits": 64,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -18,8 +18,6 @@
 "Binance arranges $6.34 billion to cover losses from record crypto hack": "Binance réunit $6,34 B pour couvrir les pertes du record de piratage crypto",
 "Binance hack drained wallets backing customer assets, reserve data shows": "Le piratage de Binance a vidé les portefeuilles qui garantissent les actifs des clients, selon les données de réserve",
 "Binance hacker splits $1.4 billion of bitcoin into 19 wallets that no one can freeze": "Un pirate de Binance répartit 1,4 milliard $ de bitcoin dans 19 portefeuilles que personne ne peut geler",
-"Binance investigating hack as suspicious outflows reach up to $5.8 billion": "Binance enquête sur un piratage, les sorties suspectes atteignant jusqu'à 5,8 milliards $",
-"Binance loses over $6 billion in 'biggest crypto hack in history'": "Binance perd plus de 6 milliards $ dans « le plus gros piratage crypto de l'histoire »",
 "Binance points to engineer’s hacked laptop in $6.3B breach": "Binance pointe l'ordinateur portable piraté d'un ingénieur dans une faille de 6,3 B$",
 "Binance says it has $6.34 billion ready to cover hack losses": "Binance affirme disposer de $6,34 B pour couvrir les pertes du piratage",
 "Binance uncovers wider breach in $6.3 billion exploit, targets Sunday withdrawal restart": "Binance découvre une brèche plus large dans l'exploit de $6,3 B et vise une reprise des retraits dimanche",
