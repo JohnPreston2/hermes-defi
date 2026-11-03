@@ -3717,7 +3717,15 @@
    "rh_actions_destructions_ven23oct_jour": 1737,
    "rh_actions_emissions_ven23oct_jour": 2663,
    "rh_actions_destructions_plafond_horaire_ven30oct": 225,
-   "rh_actions_destructions_plafond_horaire_ven23oct": 166
+   "rh_actions_destructions_plafond_horaire_ven23oct": 166,
+   "rh_v4_eth_usdg_vol_jour_29oct_usd": 48237414,
+   "rh_v4_eth_usdg_part_volatilepair_jour_29oct_pct": 0.0,
+   "rh_v4_eth_usdg_part_sans_hook_jour_29oct_pct": 23.2,
+   "rh_v4_eth_usdg_autres_hooks_vol_jour_29oct_usd": 37029069,
+   "rh_v4_eth_usdg_vol_jour_02nov_usd": 48719412,
+   "rh_v4_eth_usdg_part_volatilepair_jour_02nov_pct": 69.6,
+   "rh_v4_eth_usdg_part_sans_hook_jour_02nov_pct": 9.6,
+   "rh_v4_eth_usdg_autres_hooks_vol_jour_02nov_usd": 10105163
   }
  ]
 }
