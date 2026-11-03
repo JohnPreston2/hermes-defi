@@ -878,6 +878,37 @@
     }
    ],
    "genere": "2026-10-31T11:00:00Z"
+  },
+  {
+   "date": "2026-11-03",
+   "fichier": "rapport/2026-11-03-enquete.html",
+   "titre": "Robinhood Chain, 03/11 : le hook d'Uniswap Labs prend 15 % du volume v4 en quatre jours ; les actions tokenisées suivent l'heure d'hiver de New York",
+   "question": "Le pool ETH/USDG du hook VolatilePair, ouvert le 29/10 par Uniswap Labs et marginal au relevé du 31/10, reste-t-il sous 2 % du volume Uniswap v4 de la chaîne ?",
+   "mesure_neuve": "Comptage complet sur la chaîne des 96 896 échanges du pool depuis son ouverture : 9,52 M USDG le 31/10 (6,3 % du volume v4 journalier de la chaîne chez DefiLlama), 13,26 M le 01/11 (7,4 %), 33,92 M le 02/11 (14,8 %). Veille du 31/10 soldée REVISEE. Le même jour, le volume v4 total de la chaîne est plus bas que la semaine précédente (229,6 M$ contre 279 à 289 M$ du 26 au 29/10) : le pool prend une part, il ne crée pas le volume. Un seul expéditeur porte 36,1 % du 02/11. À côté : première émission d'action lundi 02/11 à 01:05:48 UTC, une heure plus tard que le 26/10, alignée sur l'heure d'hiver de New York ; premier blocage d'un compte par la balise des jetons d'actions depuis l'ouverture de la chaîne (02/11 21:03 UTC, levé 72 minutes plus tard).",
+   "chiffre_cle": {
+    "valeur": "14,8 %",
+    "libelle": "du volume Uniswap v4 de la chaîne est passé le 02/11 par le seul pool du hook VolatilePair d'Uniswap Labs, ouvert quatre jours plus tôt",
+    "population": "33,92 M USDG échangés dans ce pool le jour UTC du 02/11 (37 450 échanges, comptage complet sur la chaîne), sur 229,6 M$ de volume Uniswap V4 Robinhood Chain ce jour-là chez DefiLlama"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_volatilepair_v2_echanges",
+     "libelle": "Échanges dans le pool VolatilePair (le hook, programme greffé, d'Uniswap Labs)"
+    },
+    {
+     "champ": "rh_vol_30d_v4",
+     "libelle": "Volume Uniswap v4 sur 30 jours (les échanges)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais sur 30 jours (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    }
+   ],
+   "genere": "2026-11-03T19:30:00Z"
   }
  ]
 }

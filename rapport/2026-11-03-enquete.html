@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 03/11 — le hook d'Uniswap Labs prend 15 % du volume v4 en quatre jours</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du mardi 03/11/2026</b> · générée 03/11 ~19:30 UTC · méthode : comptages complets sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> (témoins : <code>eth_chainId</code> = 0x1237 ; code d'une adresse bidon = 0x ; 30/10 rejoué : 1 884 émissions d'actions, 2 090 097 USDG dans le pool VolatilePair, 29 échanges DualPool, 5 204 et 4 087 pools créés les 29 et 30/10 — tous exactement les chiffres publiés) · relectures jusqu'au bloc ~105 298 000 (~18:57 UTC) · DefiLlama /protocols, /v2/chains, /overview/fees, /overview/dexs, dailyHoldersRevenue, /summary/dexs/uniswap-v4 : 18:55 UTC · registre <code>Uniswap/hooklist</code> : régénéré 02/11 14:38 UTC (âge 28 h 20) · API Morpho ~19:10 UTC · SEC 4-927, Federal Register ~19:15 UTC · delta (agent Hermes) : joignable, <code>defi.json</code> de 18:53 UTC, non utilisé comme résultat · <b>trou déclaré : aucun relevé les 01 et 02/11</b> ; les deltas se lisent contre le 31/10
+</div>
+
+<h1>Le hook d'Uniswap Labs prend 15 % du volume v4 en quatre jours ; les actions tokenisées passent à l'heure d'hiver de New York</h1>
+
+<div class="key">
+<div class="v">14,8 %</div>
+<div class="l">du volume Uniswap v4 de la chaîne est passé le 02/11 par le seul pool du hook VolatilePair, ouvert par Uniswap Labs le 29/10. Le 31/10, la veille disait « reste sous 2 % ».</div>
+<div class="p">population : 33,92 M USDG échangés dans ce pool le jour UTC du 02/11 (37 450 échanges, comptage complet sur la chaîne), sur 229,6 M$ de volume Uniswap V4 Robinhood Chain ce jour-là chez DefiLlama</div>
+</div>
+
+<h2>La question</h2>
+<p>Le 29/10, Uniswap Labs a ouvert sur la chaîne un pool ETH/USDG greffé de son hook VolatilePair (un programme qui fait varier les frais quand le prix bouge vite). C'est le seul hook de la chaîne dont le code ne peut changer que par la gouvernance UNI. Au relevé du 31/10, le pool avait traité 4,26 M USDG, environ 1 % du volume v4. Une veille ouverte ce jour-là pariait qu'il resterait sous 2 % d'un jour plein avant le 30/11. Quatre jours plus tard, la question est tranchée.</p>
+
+<h2>Le fil : les veilles re-testées</h2>
+<p>Seize veilles ouvertes, seize points datés d'aujourd'hui. Une est soldée. Deux sont ouvertes.</p>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du 03/11</th><th>statut</th></tr>
+<tr><td>v_20261031_01 — VolatilePair reste marginal</td><td class="n">31/10 : 6,3 % · 01/11 : 7,4 % · 02/11 : 14,8 % du volume v4 du jour</td><td><span class="tag rv">REVISEE</span></td></tr>
+<tr><td>v_20260919_01 — Pons, pilier des frais</td><td class="n">16,7 % des frais 30 j (12,88 / 77,16 M$) ; seuil de mort 15 %, échéance 19/11</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261008_02 — clé unique sur les actions</td><td class="n">admin inchangé, sans code ; <b>1 blocage de compte le 02/11</b> (voir plus bas)</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261021_01 — TVL v3 corrigée (échéance 04/11)</td><td class="n">DefiLlama 82,94 M$ (seuil 80 M$) ; mesure sur la chaîne non refaite</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261005_02 — volume v4 et prélèvement (échéance 05/11)</td><td class="n">non re-mesurée : aucun des trois jours exigés n'existe depuis le 27/10</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261023_02 — LanistaHook vitrine (échéance 06/11)</td><td class="n">72 pools, 4 échanges au total, aucun depuis le 29/10</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261029_02 — DualPool s'éteint</td><td class="n">jours pleins : 0 (31/10), 1 (01/11), 125 (02/11) ; seuil 1 500</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261023_01 — le registre ne suit pas</td><td class="n">1 577 hooks nouveaux depuis le 23/10, 5 au registre (0,32 %)</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261019_01 — rachats d'UNI</td><td class="n">semaine 26/10 → 01/11 : 19 rachats (seuil 40) ; nonce 1 352</td><td class="op">ouverte</td></tr>
+<tr><td>v_20261027_01 — famille « a80 »</td><td class="n">nouveaux hooks : 0, 1, 3 (31/10 → 02/11) ; volume non re-mesuré</td><td class="op">ouverte</td></tr>
+<tr><td>v_20260918_01 · 02 · 03 · 04</td><td class="n">72,2 % / 26,4 % des 1 202 hooks · 5 / 1 202 audités · v3 34,5 % / v4 46,5 % du volume 30 j · 156 hooks « actions », aucun avis de plateforme</td><td class="op">ouvertes</td></tr>
+<tr><td>v_20261002_01 · v_20261022_01</td><td class="n">actions = 0,72 % du collatéral Morpho (3,81 / 530,17 M$) · 0 événement sur la porte de mise à jour de Lighter</td><td class="op">ouvertes</td></tr>
+</table></div>
+
+<h2>Ce qui a été mesuré</h2>
+<p><b>Méthode en une ligne :</b> tous les échanges (<code>Swap</code>) du PoolId <code>0xa791…cd35</code> sur la PoolManager v4, depuis sa création, jour UTC par jour UTC, valorisés par la jambe USDG, divisés par le volume v4 journalier de la chaîne publié par DefiLlama.</p>
+<div class="wrap"><table>
+<tr><th>jour UTC</th><th>échanges</th><th>volume USDG</th><th>volume v4 chaîne (DefiLlama)</th><th>part</th></tr>
+<tr><td>30/10 (témoin)</td><td class="n">6 795</td><td class="n">2,09 M</td><td class="n">225,3 M$</td><td class="n">0,9 %</td></tr>
+<tr><td>31/10</td><td class="n">10 179</td><td class="n">9,52 M</td><td class="n">150,6 M$</td><td class="n">6,3 %</td></tr>
+<tr><td>01/11</td><td class="n">14 099</td><td class="n">13,26 M</td><td class="n">180,0 M$</td><td class="n">7,4 %</td></tr>
+<tr><td>02/11</td><td class="n">37 450</td><td class="n">33,92 M</td><td class="n">229,6 M$</td><td class="n"><b>14,8 %</b></td></tr>
+<tr><td>03/11 (jusqu'à ~19:00)</td><td class="n">28 373</td><td class="n">22,40 M</td><td class="n">—</td><td class="n">—</td></tr>
+</table></div>
+<p>Au total : 96 896 échanges et 81,2 M USDG depuis l'ouverture. Les expéditeurs (le champ <code>sender</code>, le plus souvent un routeur) passent de 47 au 31/10 à 813. Le frais médian est de 160 millionièmes, soit 1,6 point de base. La liquidité active du pool a été multipliée par environ 4 100 depuis le premier jour. Elle est gérée presque entièrement par deux contrats : 99,6 % des 16 908 modifications de liquidité.</p>
+
+<h2>Le delta contre le 31/10</h2>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>31/10</th><th>03/11</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td class="n">1 089,9 M$</td><td class="n">1 070,7 M$</td><td class="n">−1,8 %</td></tr>
+<tr><td>Volume 30 j, chaîne</td><td class="n">27,05 Md$</td><td class="n">23,33 Md$</td><td class="n">−13,8 %</td></tr>
+<tr><td>Volume 30 j, Uniswap v4</td><td class="n">11,62 Md$</td><td class="n">10,84 Md$</td><td class="n">−6,7 %</td></tr>
+<tr><td>Frais 30 j, total déclaré</td><td class="n">86,51 M$</td><td class="n">77,16 M$</td><td class="n">−10,8 %</td></tr>
+<tr><td>Frais 30 j, périmètre du 31/10</td><td class="n">86,51 M$</td><td class="n">73,28 M$</td><td class="n">−15,3 %</td></tr>
+<tr><td>Revenu aux détenteurs 30 j, déclaré</td><td class="n">3,40 M$</td><td class="n">6,52 M$</td><td class="n">+91,8 %</td></tr>
+<tr><td>Revenu aux détenteurs 30 j, périmètre du 31/10</td><td class="n">3,40 M$</td><td class="n">3,02 M$</td><td class="n">−11,2 %</td></tr>
+<tr><td>Part de Pons dans les frais 30 j</td><td class="n">18,6 %</td><td class="n">16,7 %</td><td class="n">−1,9 pt</td></tr>
+<tr><td>Pools v4 sur la chaîne (recensement complet)</td><td class="n">1 103 705</td><td class="n">1 115 788</td><td class="n">+12 083</td></tr>
+<tr><td>Hooks utilisés sur la chaîne · dont au registre</td><td class="n">30 564 · 1 177</td><td class="n">30 892 · 1 178</td><td class="n">+328 · +1</td></tr>
+</table></div>
+<p>Le doublement du revenu aux détenteurs est un changement de périmètre, pas un événement. DefiLlama a ajouté le 01/11 la fiche de The Standard Reserve (commit <code>ce2bc517</code>) : 3,88 M$ de frais sur 30 jours, dont 3,50 M$ reversés aux détenteurs. Cette fiche a un champ <code>chains</code> vide : elle échappe à tout filtre « protocoles de la chaîne » et ne peut pas entrer dans le calcul de la cohorte. Sans elle, les frais baissent de 15,3 % et le revenu aux détenteurs de 11,2 %.</p>
+
+<h2>Les actions tokenisées ont suivi l'heure d'hiver de New York</h2>
+<p>Les États-Unis sont passés à l'heure d'hiver le 01/11. Le 31/10, la veille « horloge de New York » était confirmée sur la fermeture du vendredi. Lundi 02/11 offrait le test inverse : si le canal ouvrait à heure UTC fixe, la première émission tomberait encore vers 00:00 UTC. Comptage complet des transferts vers l'adresse de réception <code>0xc584…e616</code> : <b>0 émission le dimanche 01/11, 0 entre 00:00 et 01:00 UTC lundi, première émission à 01:05:48 UTC</b>, soit 20:05 à New York le dimanche. Le 26/10, elle tombait à 00:02:17 UTC. Le canal a bougé d'une heure avec New York. Paris ouvre aussi à 01:00 UTC cette semaine : ce test exclut l'heure fixe, il ne départage plus les deux horloges.</p>
+<p>Fait neuf, côté destructions (adresse source unique <code>0xa855…3c74</code>). Le vendredi 30/10, elles plafonnent entre 220 et 230 par heure de 14:00 à 24:00 UTC. Le vendredi 23/10, le plateau était d'environ 160 par heure. Le samedi 31/10, <b>2 511 destructions</b> s'écoulent de 00:01 à 11:10 UTC, contre 2 le samedi 24/10, alors qu'aucune émission ne tombe. Une file plafonnée s'est vidée après la fermeture. Lundi 02/11, le rythme monte jusqu'à 1 101 par heure : le plafond n'est donc pas fixe. En nombre d'événements, les destructions dépassent les émissions le 30/10 (2 957 contre 1 884) et le 02/11 (7 197 contre 2 503). C'est un compte d'opérations, pas de valeur : je n'ai pas valorisé ces jetons ce jour.</p>
+
+<h2>Premier blocage de compte sur les actions depuis l'ouverture</h2>
+<p>La balise commune des jetons d'actions (<code>0xe10b…1b00</code>, le contrat qui fixe leur code) porte une liste de blocage. Le 02/11 à 21:03:06 UTC, elle bloque le compte <code>0xb397…af94</code> (sans code, 180 transactions envoyées). Elle le débloque à 22:15:23 UTC, 72 minutes plus tard. Les deux appels viennent de <code>0x913c…28fd</code>, un compte à clé unique, titulaire d'un rôle accordé au bloc 8 687. L'historique complet de la balise compte 247 blocages, tous du 08 au 09/06, avant l'ouverture publique du 02/07, puis des essais sur l'adresse <code>…dead</code> en juin. Le 02/11 est donc le premier blocage d'un compte réel depuis l'ouverture. Ce compte n'a fait aucun transfert de jeton les 02 et 03/11 : la raison du blocage n'est pas lisible sur la chaîne.</p>
+
+<h2>Ce qui contredit ma lecture</h2>
+<ul>
+<li><b>Le pool ne crée pas le volume.</b> Le volume v4 journalier de la chaîne était de 279 à 289 M$ du 26 au 29/10. Il tombe à 150,6 M$ le 31/10 et 229,6 M$ le 02/11. Une partie de la hausse de la part vient de la baisse du total. Le pool prend probablement des échanges aux 621 autres pools v4 ETH/USDG. Ce report n'est pas mesuré ce jour : le comptage de ces pools n'a pas fini à temps.</li>
+<li><b>Un seul expéditeur pèse lourd.</b> Le contrat <code>0x29d8…80db</code> porte 36,1 % du volume du pool le 02/11 et 59,1 % le 03/11 (jour partiel). Il est l'appelé direct de 69 transactions sur 150 tirées au hasard le 02/11. Ces 150 transactions viennent pourtant de 71 comptes distincts : ce contrat est un routeur partagé, pas un compte unique.</li>
+<li><b>La liquidité est tenue par deux robots.</b> Deux contrats font 99,6 % des retraits et ajouts. Un marché qui dépend de deux gestionnaires actifs peut disparaître aussi vite qu'il est venu.</li>
+<li><b>La frontière des jours DefiLlama est supposée.</b> Je lis la valeur journalière sous l'horodatage de minuit UTC du même jour. Si DefiLlama décale d'un jour, la part du 02/11 se lit contre 180,0 M$ et vaut 18,8 %. Elle reste dans tous les cas au-dessus du seuil de 5 %.</li>
+</ul>
+
+<h2>Cohorte</h2>
+<p>Rien n'a bougé au point de franchir un critère. Aucune sortie, aucune entrée. Les scores de preuve recalculés sur les 300 protocoles sont identiques au 31/10 : 201 à 0, 37 à 1, 47 à 2, 14 à 3, 1 à 4. LayerBank (score 3) passe sous UNCX Network V3 en TVL (3,43 contre 3,76 M$) : il ne domine plus aucun membre, et sa série de jours repart à zéro. Ce qui devrait inquiéter : <b>up v3</b> perd 17,7 % de volume 30 j en trois jours (232,3 M$), à 16 % de son seuil de sortie (200 M$).</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>preuve</th><th>traction du 03/11</th><th>frais / Pons</th></tr>
+<tr><td>Morpho Blue</td><td class="n">2</td><td class="n">TVL 584,6 M$</td><td class="n">0,140</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">TVL 112,1 M$ · frais 2,22 M$</td><td class="n">0,172</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">TVL 63,7 M$ · frais 1,98 M$</td><td class="n">0,153</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">TVL 5,56 M$</td><td class="n">0,044</td></tr>
+<tr><td>up v3</td><td class="n">0</td><td class="n">volume 30 j 232,3 M$</td><td class="n">0,035</td></tr>
+<tr><td>StonkBrokers (9 fiches)</td><td class="n">0</td><td class="n">frais 493,2 k$</td><td class="n">0,038</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">TVL 3,76 M$, 0 frais</td><td class="n">0</td></tr>
+<tr><td>Ekubo (+ STONX)</td><td class="n">2</td><td class="n">mcap 11,5 M$ · STONX 23,0 M$ de volume</td><td class="n">0,003</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">volume 30 j 101,0 M$</td><td class="n">0,003</td></tr>
+</table></div>
+<p>Antichambre : GlueHook (score 4, TVL 3,6 k$), Twofold (16,3 k$), ARMSys (45,8 k$, GitHub toujours en 404) restent sous leur seuil. Contre-référence : Pons pèse 16,7 % des frais 30 j, reverse 21,9 % de ses frais à ses détenteurs, et reste la 2e ligne après Uniswap V4. La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</p>
+
+<h2>Les pièges du mémo re-vérifiés ce jour</h2>
+<ul>
+<li><b>P1</b> (champ <code>chains</code> vide) : rejoué sur The Standard Reserve, nouvelle 5e ligne de frais de la chaîne, absente du filtre.</li>
+<li><b>P2 / P8</b> (périmètre du total) : somme des lignes non doublées (78 524 461 $) moins la ligne de la chaîne (1 367 518 $) = 77 156 943 $, le total déclaré au dollar près.</li>
+<li><b>P10</b> (adaptateurs qui changent) : 70 commits DefiLlama depuis le 31/10, dont 2 sur la chaîne (The Standard Reserve, Quotrons) et la refonte des frais de Fables.</li>
+<li><b>P11</b> (le registre n'est pas un recensement) : 1 178 des 30 892 hooks utilisés sont au registre.</li>
+<li><b>P12</b> (rafales d'un jour) : la rafale « a80 » du 29/10 (370 hooks) ne s'est pas répétée.</li>
+<li><b>Ma propre sonde</b> : la première version du comptage des émissions rendait 0 sur tout le week-end. Le témoin du 30/10 (1 884 attendus) a révélé une signature d'événement mal recopiée. Corrigée, elle rend 1 884 exactement.</li>
+</ul>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li>Pourquoi le volume afflue vers ce pool : aucune annonce publique trouvée d'Uniswap sur le hook VolatilePair à Robinhood Chain. Les annonces trouvées portent sur Ethereum (ETH/USDC, octobre). Un changement de routage d'un agrégateur est possible, non prouvé.</li>
+<li>Si DefiLlama inclut ce pool dans son volume v4 : si non, la part est surestimée.</li>
+<li>Pourquoi le compte <code>0xb397…af94</code> a été bloqué, puis débloqué.</li>
+<li>La valeur en dollars des destructions du samedi 31/10.</li>
+<li>Le dossier SEC 4-927 : total des lettres toujours illisible par script ; la première page n'a pas changé depuis le 31/10. Aucun nouveau document au Federal Register depuis le 22/09.</li>
+</ul>
+<p class="muted">Deux veilles ouvertes ce jour : <b>v_20261103_01</b> (le pool VolatilePair porte plus de 10 % du volume v4 en moyenne sur la semaine 09-15/11 ; révisée sous 5 %) et <b>v_20261103_02</b> (moins de 100 destructions d'actions le samedi 07/11 ; révisée au-dessus de 500).</p>
+</main>
+</body>
+</html>
