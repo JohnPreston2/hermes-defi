@@ -1,25 +1,21 @@
 {
-"generated_at": "2026-11-03T03:46:02Z",
+"generated_at": "2026-11-03T11:46:01Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 138,
+"n_affiches": 146,
 "n_refuses": 0,
-"n_traduits": 27,
+"n_traduits": 21,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
-"Compound V3: Supply Paused Across Major Markets": "Compound V3 : offre suspendue sur les principaux marchés",
-"Crypto could outperform AI stocks: Wall Street veteran Jordi Visser": "La crypto pourrait surpasser les actions d'IA : le vétéran de Wall Street Jordi Visser",
 "FDV/Mcap exceeds 2.0x or fees coverage drops below 60%.": "Le ratio FDV/Mcap dépasse 2,0x ou la couverture des frais tombe sous 60%.",
 "FDV/Mcap exceeds 2.0x or fees decline >10% over 7 days.": "Le FDV/Mcap dépasse 2,0x ou les frais baissent de plus de 10 % sur 7 jours.",
 "Fee growth turns negative or FDV/Mcap exceeds 2.5.": "La croissance des frais devient négative, ou le ratio FDV/Mcap dépasse 2,5.",
 "Former Swift CEO joins stablecoin firm OpenTrade as chairman": "L'ancienne directrice générale de Swift rejoint la société de stablecoins OpenTrade en tant que présidente",
-"Google to preview crypto custody security system as AI threats grow": "Google présentera en avant-première un système de sécurité pour la garde crypto, alors que les menaces liées à l'IA grandissent",
 "HYPE teases all-time high as NYSE owner ICE eyes US Hyperliquid perps": "HYPE vise un record historique alors que la maison mère du NYSE, ICE, envisage des perps Hyperliquid aux États-Unis",
 "Jupiter Lend Says Liquidity Crunch Is Delaying Withdrawals": "Jupiter Lend indique qu'une crise de liquidité retarde les retraits",
 "LEGO Grant Proposal: Preventing Theft in Mainstream Wallets with Vaults": "Proposition de subvention LEGO : empêcher le vol dans les portefeuilles grand public grâce aux coffres (vaults)",
 "LEGO Grant Proposal: Production-Ready Local-First Safe UI": "Proposition de subvention LEGO : interface Safe prête pour la production, locale d'abord",
 "Marinade Waives Bond Charges for Agave Slot-Skipping Bug": "Marinade renonce aux frais de caution (bond) liés au bug de saut de slots d'Agave",
-"Mirae Asset Securities issues tokenized notes on Solana": "Mirae Asset Securities émet des billets tokenisés sur Solana",
 "Morning Minute: Binance’s $6.4B Hack Overshadows Hyperliquid’s Biggest Day": "Morning Minute : le piratage de $6,4 B sur Binance éclipse la plus grande journée d'Hyperliquid",
 "Mystery Wall Street Journal ad sparks new fight over tokenized stocks": "Une publicité mystère du Wall Street Journal relance le débat sur les actions tokenisées",
 "Optimum Says Block Propagation Layer Is Live on Ethereum Mainnet": "Optimum annonce que sa couche de propagation de blocs est en ligne sur le mainnet d’Ethereum",
@@ -27,12 +23,10 @@
 "P/F expands above 3.5x or token capture drops below 5%.": "Le P/F dépasse 3,5x ou la capture du jeton tombe sous 5%.",
 "Pump.fun Sets Nov. 9 Start for Elysium Trading in Its App": "Pump.fun fixe au 9 novembre le lancement d'Elysium Trading dans son application",
 "Robinhood Opens Earn to All Eligible Users for Onchain USDG Lending": "Robinhood ouvre Earn à tous les utilisateurs éligibles pour le prêt on-chain en USDG",
-"Securitize adds Stellar blockchain as institutional tokenization gathers steam": "Securitize ajoute la blockchain Stellar alors que la tokenisation institutionnelle prend de l'ampleur",
 "SparkLend Has $11.95 Million in USDT Available as Utilization Holds Near 96%": "SparkLend dispose de 11,95 millions de dollars en USDT disponibles, alors que le taux d'utilisation reste proche de 96 %",
 "TVL base trend turns negative or FDV/Mcap ratio exceeds 3.5.": "La tendance de base de la TVL devient négative, ou le ratio FDV/Mcap dépasse 3,5.",
 "Token capture remains 0.0% for 30 days or base (OI/Vol) contracts for 7 consecutive days.": "La capture de jetons reste à 0,0% pendant 30 jours, ou la base (OI/Vol) se contracte pendant 7 jours consécutifs.",
 "Uniswap Volume Tops $5.97 Billion as Ethereum Trading Surges": "Le volume d'Uniswap dépasse 5,97 milliards de $ tandis que le trading sur Ethereum s'envole",
-"Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur.",
-"[Gauntlet] Deprecation of the Ethereum WBTC Comet": "[Gauntlet] Dépréciation du Comet WBTC sur Ethereum"
+"Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur."
 }
 }
