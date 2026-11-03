@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-11-03T16:46:01Z",
+"generated_at": "2026-11-03T18:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 148,
+"n_affiches": 147,
 "n_refuses": 0,
-"n_traduits": 22,
+"n_traduits": 21,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -19,7 +19,6 @@
 "Marinade Waives Bond Charges for Agave Slot-Skipping Bug": "Marinade renonce aux frais de caution (bond) liés au bug de saut de slots d'Agave",
 "Morning Minute: Binance’s $6.4B Hack Overshadows Hyperliquid’s Biggest Day": "Morning Minute : le piratage de $6,4 B sur Binance éclipse la plus grande journée d'Hyperliquid",
 "Mystery Wall Street Journal ad sparks new fight over tokenized stocks": "Une publicité mystère du Wall Street Journal relance le débat sur les actions tokenisées",
-"Optimum Says Block Propagation Layer Is Live on Ethereum Mainnet": "Optimum annonce que sa couche de propagation de blocs est en ligne sur le mainnet d’Ethereum",
 "P/F expands above 3.0x or base (fees) turns negative for two consecutive periods.": "Le P/F dépasse 3,0x ou la base (frais) devient négative pendant deux périodes consécutives.",
 "P/F expands above 3.5x or token capture drops below 5%.": "Le P/F dépasse 3,5x ou la capture du jeton tombe sous 5%.",
 "Pump.fun Sets Nov. 9 Start for Elysium Trading in Its App": "Pump.fun fixe au 9 novembre le lancement d'Elysium Trading dans son application",
