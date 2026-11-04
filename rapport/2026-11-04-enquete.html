@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 04/11 — relue sur la chaîne, Uniswap v3 vaut 69,8 M$, dont 31 % en actions tokenisées</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du mercredi 04/11/2026</b> · générée 04/11 ~09:40 UTC · méthode : comptages complets sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> (témoins : <code>eth_chainId</code> = 0x1237 ; code d'une adresse bidon = 0x ; PoolManager v4 = 24 009 octets ; 29/10 et 30/10 rejoués : 5 204 et 4 087 pools créés ; semaine 26/10-01/11 : 19 rachats d'UNI — tous exactement les chiffres publiés) · relectures jusqu'au bloc ~105 791 000 (~09:20 UTC) · DefiLlama /protocols, /v2/chains, /overview/fees, /overview/dexs, dailyHoldersRevenue, /summary/dexs/uniswap-v4 : ~09:10 UTC · prix coins.llama.fi ~09:15 UTC · registre <code>Uniswap/hooklist</code> : régénéré 03/11 21:37 UTC (âge 11 h 40) · API Morpho ~09:05 UTC · Federal Register ~09:10 UTC · SEC 4-927 : lu par WebFetch (le script direct rend 403) · delta (agent Hermes) : joignable, <code>defi.json</code> de 08:53 UTC, non utilisé comme résultat · relevé précédent : 03/11 ~18:55 UTC, soit <b>14 h 15 d'écart</b> : les deltas sur 30 jours sont petits par construction
+</div>
+
+<h1>Relue sur la chaîne, la liquidité Uniswap v3 vaut 69,8 M$, et 31 % de cette somme sont des actions tokenisées</h1>
+
+<div class="key">
+<div class="v">31,0 %</div>
+<div class="l">de l'argent relu dans les pools Uniswap v3 de la chaîne est en jetons d'actions et d'ETF. Les mêmes 52 jetons pèsent 0,71 % du collatéral prêté sur Morpho.</div>
+<div class="p">population : 21,66 M$ en actions sur 69,82 M$ relus dans 448 351 pools v3 (soldes WETH, USDG, PONS et des 52 jetons « Robinhood Token » de la liste Morpho, lus au bloc ~105 791 000, prix coins.llama.fi)</div>
+</div>
+
+<h2>La question</h2>
+<p>Le 19/10, DefiLlama a doublé d'un coup la TVL (l'argent déposé) d'Uniswap v3 sur la chaîne : de 49 à 102 M$. Le 21/10, une veille pariait que ce doublement était une correction de mesure, pas un pic : DefiLlama devait rester au-dessus de 80 M$ jusqu'au 04/11, et l'écart avec une relecture directe des soldes des pools rester sous 25 %. L'échéance tombe aujourd'hui. Il fallait donc refaire la relecture sur la chaîne, ce qui n'avait pas été fait depuis le 21/10. En la refaisant, la composition de cet argent est sortie : c'est elle, le fait neuf.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : les 448 351 événements de création de pool de la fabrique v3 depuis le bloc 1, puis le solde de chaque pool dans chacune de ses deux devises quand elle est WETH, USDG, PONS ou l'un des 52 jetons d'actions, lus par paquets de 800 (Multicall3), valorisés aux prix DefiLlama du relevé. Aucune erreur de lecture sur 443 793 soldes.</p>
+<div class="wrap"><table>
+<tr><th>composante</th><th>valeur relue (04/11)</th><th>part</th></tr>
+<tr><td>WETH (l'ether)</td><td class="n">31,69 M$</td><td class="n">45,4 %</td></tr>
+<tr><td>Actions et ETF tokenisés (52 jetons)</td><td class="n">21,66 M$</td><td class="n">31,0 %</td></tr>
+<tr><td>USDG (le dollar numérique de la chaîne)</td><td class="n">14,24 M$</td><td class="n">20,4 %</td></tr>
+<tr><td>PONS</td><td class="n">2,24 M$</td><td class="n">3,2 %</td></tr>
+<tr><td><b>Total relu</b></td><td class="n"><b>69,82 M$</b></td><td class="n">dont 38,38 M$ après le 100 000e pool</td></tr>
+<tr><td>DefiLlama, même instant</td><td class="n">82,54 M$</td><td class="n">écart 18,2 %</td></tr>
+</table></div>
+<p>Les plus grosses lignes d'actions : NVDA 2,96 M$, SPCX 2,49 M$, GLD (or) 2,41 M$, CRCL 2,13 M$, USO (pétrole) 1,47 M$, MU 1,20 M$, QQQ 1,11 M$. Le plus gros pool est un ETH/USDG à 0,01 % : 10,48 M$, soit 15 % du total relu. Le troisième est un USDG/CRCL à 0,3 % : 2,73 M$.</p>
+<p><b>Veille v_20261021_01 soldée CONFIRMEE.</b> DefiLlama est à 82,54 M$, au-dessus de 80 M$ ; l'écart est de 18,2 %, sous 25 %. Le doublement du 19/10 était bien une correction. Mais la phrase s'arrête là : les deux mesures ont baissé ensemble depuis le 21/10. DefiLlama perd 21 % (104,75 → 82,54 M$), la relecture 24 % (92,29 → 69,82 M$). La correction tient ; la liquidité v3 recule.</p>
+
+<h2>Le delta contre la veille</h2>
+<p>Relevé précédent : 03/11 ~18:55 UTC. Sur 14 heures, les cumuls de 30 jours bougent peu ; ils se lisent comme une tendance, pas comme un événement.</p>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>03/11</th><th>04/11</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne (DefiLlama)</td><td class="n">1 070,7 M$</td><td class="n">1 078,1 M$</td><td class="n">+0,7 %</td></tr>
+<tr><td>TVL Uniswap v4 / v3</td><td class="n">167,2 / 82,9 M$</td><td class="n">169,8 / 82,5 M$</td><td class="n">+1,6 % / −0,5 %</td></tr>
+<tr><td>Volume 30 j de la chaîne</td><td class="n">23,33 Md$</td><td class="n">22,99 Md$</td><td class="n">−1,5 %</td></tr>
+<tr><td>Frais 30 j de la chaîne (total déclaré)</td><td class="n">77,16 M$</td><td class="n">75,01 M$</td><td class="n">−2,8 %</td></tr>
+<tr><td>Part de Pons V2 dans ces frais</td><td class="n">16,7 %</td><td class="n">16,3 %</td><td class="n">−0,4 pt</td></tr>
+<tr><td>Revenu aux détenteurs de jetons, 30 j</td><td class="n">6,52 M$</td><td class="n">6,36 M$</td><td class="n">−2,4 %</td></tr>
+<tr><td>Hooks au registre, chaîne robinhood</td><td class="n">1 202</td><td class="n">1 202</td><td class="n">0</td></tr>
+<tr><td>Hooks utilisés sur la chaîne (recensement)</td><td class="n">30 892</td><td class="n">30 926</td><td class="n">+34</td></tr>
+<tr><td>Pools v4 créés (recensement complet)</td><td class="n">1 115 788</td><td class="n">1 118 117</td><td class="n">+2 329</td></tr>
+</table></div>
+<p>Changement de périmètre à signaler (piège P10) : DefiLlama a ajouté le 03/11 à 16:22 UTC une ligne « Quotrons » sur la chaîne (8,7 k$ de frais 30 j, sans effet visible sur le total). Les autres modifications de ses adaptateurs depuis 24 h portent sur Arc et Solana.</p>
+
+<h2>Le fil : les veilles re-testées</h2>
+<p>Dix-sept veilles ouvertes ce matin, dix-sept points datés d'aujourd'hui. Une est soldée, une est ouverte.</p>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du 04/11</th><th>statut</th></tr>
+<tr><td>v_20261021_01 — le doublement de la TVL v3 est une correction</td><td class="n">DefiLlama 82,54 M$ · chaîne 69,82 M$ · écart 18,2 %</td><td><span class="tag ok">CONFIRMEE</span></td></tr>
+<tr><td>v_20261005_02 — le prélèvement invisible reste minoritaire et les pools à hook gardent la moitié du volume v4</td><td class="n">échantillon refait sur 8 jours (22 821 échanges) : pools à hook 26,4 à 39,9 % ; bit « afterSwapReturnsDelta » 7,1 à 20,2 %</td><td><span class="tag op">OUVERTE</span> échéance 05/11 : ne peut plus être confirmée</td></tr>
+<tr><td>v_20260919_01 — Pons reste un pilier des frais</td><td class="n">16,3 % (12,22 / 75,01 M$)</td><td><span class="tag op">OUVERTE</span> à 1,3 pt du seuil de mort (15 %)</td></tr>
+<tr><td>v_20261103_01 — VolatilePair porte plus de 10 % du volume v4</td><td class="n">03/11 : 10,9 % (25,79 M USDG / 237,66 M$)</td><td><span class="tag op">OUVERTE</span> semaine mesurée : 09-15/11</td></tr>
+<tr><td>v_20261027_01 — la famille de hooks « a80 » ne revient pas</td><td class="n">semaine 27/10-02/11 : 2,2 % du volume v4 échantillonné</td><td><span class="tag op">OUVERTE</span> sous 10 %</td></tr>
+<tr><td>v_20261023_02 — LanistaHook reste une vitrine</td><td class="n">72 pools, 4 échanges, aucun depuis le 29/10</td><td><span class="tag op">OUVERTE</span> échéance 06/11</td></tr>
+<tr><td>v_20261029_02 — le DualPoolHook audité s'éteint</td><td class="n">03/11 : 7 échanges</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261023_01 — le registre ne suit pas la chaîne</td><td class="n">5 hooks au registre sur 1 611 apparus depuis le 23/10 (0,31 %)</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261019_01 — les rachats d'UNI restent au niveau d'octobre</td><td class="n">03/11 : 2 · semaine du 02/11 : 7 à mi-mardi</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261002_01 — le prêt n'est pas adossé aux actions</td><td class="n">0,71 % du collatéral Morpho</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261008_02 et v_20261022_01 — clés uniques (balise des actions, conseil de Lighter)</td><td class="n">inchangé : comptes sans code, 0 événement</td><td><span class="tag op">OUVERTES</span></td></tr>
+<tr><td>v_20260918_01 à _04 — registre, audits, v3, avis de TSV</td><td class="n">72,2 % / 26,4 % · 5 audits sur 1 202 hooks · v3 34,4 % du volume · 156 hooks « actions »</td><td><span class="tag op">OUVERTES</span></td></tr>
+<tr><td>v_20261103_02 — destructions d'actions du samedi</td><td class="n">mesurable le 07/11</td><td><span class="tag op">OUVERTE</span></td></tr>
+</table></div>
+<p>La veille v_20261005_02 mérite une phrase. Son seuil de révision (plus de 25 % de volume par le bit afterSwapReturnsDelta, un hook qui peut prélever hors du champ « frais ») n'a été franchi aucun des 8 jours. Mais sa condition de confirmation exigeait aussi que les pools à hook gardent plus de la moitié du volume v4. Ce n'est vrai aucun jour : 26,4 à 39,9 %, contre 61,4 % le 04/10. Demain, elle ne pourra pas être confirmée.</p>
+
+<h2>Cohorte</h2>
+<p>Score de preuve recalculé sur les 300 protocoles du filtre DefiLlama : 90 liens d'audit sur 94 répondent 200, 51 comptes GitHub sur 53 existent. Répartition : 198 à 0, 38 à 1, 49 à 2, 14 à 3, 1 à 4. Aucun score de membre n'a changé. Aucune sortie, aucune entrée, aucun remplacement.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>traction du 04/11</th><th>frais 30 j / Pons V2</th></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">TVL 111,8 M$ · frais 2,24 M$</td><td class="n">0,183</td></tr>
+<tr><td>Arcus Perps</td><td class="n">TVL 63,9 M$ · frais 1,97 M$</td><td class="n">0,162</td></tr>
+<tr><td>Morpho Blue</td><td class="n">TVL 588,4 M$ · frais 1,82 M$</td><td class="n">0,149</td></tr>
+<tr><td>Snuggle</td><td class="n">TVL 5,57 M$ · frais 0,57 M$</td><td class="n">0,046</td></tr>
+<tr><td>StonkBrokers (9 fiches)</td><td class="n">frais 0,50 M$</td><td class="n">0,041</td></tr>
+<tr><td>up v3</td><td class="n">volume 222,8 M$ (−4,1 %) · frais 0,43 M$</td><td class="n">0,035</td></tr>
+<tr><td>Ekubo</td><td class="n">TVL 1,21 M$ · mcap 11,7 M$ · volume 26,8 M$</td><td class="n">0,004</td></tr>
+<tr><td>GIGA V3</td><td class="n">volume 83,7 M$ (−17,2 %)</td><td class="n">0,003</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">TVL 3,70 M$ · 0 frais</td><td class="n">0</td></tr>
+</table></div>
+<p>Ce qui devrait inquiéter : <b>GIGA V3</b> perd plus de 15 % de volume 30 j pour le deuxième relevé de suite (101,0 → 83,7 M$) ; il reste au-dessus de son seuil de sortie de 50 M$. <b>up v3</b> n'est plus qu'à 11 % de son seuil de 200 M$. <b>LayerBank</b>, candidat automatique (score 3), a 3,60 M$ de TVL contre 3,70 M$ pour UNCX : il ne le domine pas encore. Antichambre : GlueHook (score 4, TVL 3,6 k$), Twofold (16,3 k$), ARMSys (45,1 k$, GitHub toujours en 404) restent sous leur seuil. Volume STONX d'Ekubo : non re-mesuré ce jour.</p>
+<p>Contre-référence Pons : 12,22 M$ de frais 30 j, 16,3 % du total déclaré, reversement aux détenteurs 22,1 % (V1 et V2 recollées, piège P4). Pons reste la 2e ligne de frais de la chaîne après Uniswap V4 (28,74 M$).</p>
+
+<h2>Côté web : ce qui date</h2>
+<ul>
+<li><b>SEC, dossier 4-927</b> : nouvelle entrée en tête, un mémo de la Division of Trading and Markets daté du 02/11. Il rapporte une réunion de la Crypto Task Force avec le cabinet Lowenstein Sandler LLP sur l'ordre d'exemption des plateformes d'actions tokenisées. Le client représenté n'est pas nommé. Le nombre total de lettres reste illisible : 30 entrées par page, 4 pages.</li>
+<li><b>Federal Register</b> : 312 documents SEC « tokenized », inchangé ; le seul document de l'ordre reste le 2026-19388 du 22/09.</li>
+<li><b>Uniswap</b> : le blogue officiel annonce les « aggregator hooks » le 22/10 et un système de conversion des frais (TJAR) les 29-30/10. Aucune entrée ne nomme Robinhood Chain. Les annonces sur VolatilePair (14/10) parlent d'Ethereum ; le pool de la chaîne existe pourtant, relu sur la chaîne.</li>
+<li><b>Robinhood</b> : aucune annonce trouvée en novembre sur les jetons d'actions ou la chaîne. Aucun avis public de plateforme d'actions tokenisées (TSV) sur Robinhood Chain.</li>
+</ul>
+
+<h2>Ce qui contredit</h2>
+<ul>
+<li><b>31 % ne veut pas dire « les actions dominent v3 ».</b> C'est une part de valeur déposée, pas de volume. Le volume v4 échantillonné passe surtout par des paires ETH et USDG. Et cette part grossit mécaniquement quand l'ETH baisse.</li>
+<li><b>La relecture est un plancher, de deux côtés.</b> Seuls les 52 jetons d'actions de la liste Morpho sont comptés, sur 113 jetons d'actions vus sur la chaîne le 24/10. Et les autres jetons des pools (memecoins) ne sont pas comptés du tout. L'écart de 18,2 % avec DefiLlama vient au moins en partie de là.</li>
+<li><b>Comparer à Morpho est asymétrique.</b> 0,71 % est une part de collatéral prêté, 31 % une part de liquidité d'échange. Les deux disent la même chose — les actions servent à échanger, pas à emprunter — mais ce ne sont pas des grandeurs de même nature.</li>
+<li><b>La veille v3 confirmée tient à 3,2 %.</b> DefiLlama est passé de 101,83 M$ (23/10) à 82,54 M$ (04/11), soit environ −1,7 % par jour en moyenne ; à ce rythme, les 80 M$ cèdent dans deux jours. Le verdict porte sur l'échéance écrite, pas sur la suite.</li>
+</ul>
+<p>Pièges du mémo re-vérifiés ce jour : <b>P1</b> (Pons, StonkBrokers, The Standard Reserve et Quotrons absents du filtre par chaîne : suivis par /overview/fees) ; <b>P2/P8</b> (le total déclaré exclut les lignes « doublecounted » : 9,69 M$ de somme des lignes contre 6,36 M$ déclarés côté détenteurs) ; <b>P4</b> (Pons V1+V2 recollés : 12,65 M$) ; <b>P5</b> (seuls les liens d'audit en 200 comptent : 4 liens en 404, dont Curve) ; <b>P7</b> (5 hooks audités sur 1 202, jamais « sur 300 ») ; <b>P10</b> (adaptateur Quotrons du 03/11) ; <b>P11</b> (1 178 des 30 926 hooks utilisés sont au registre) ; <b>P12</b> (la rafale « a80 » du 29/10 ne s'est pas répétée : 3 nouveaux le 03/11).</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li>La composition de la relecture du 21/10 n'a pas été publiée : on ne sait pas si la part des actions a monté ou baissé.</li>
+<li>Combien pèsent les actions dans les pools v4. La même relecture sur 1,1 million de pools v4 n'a pas été faite : dans v4, l'argent est gardé par un seul contrat.</li>
+<li>Qui Lowenstein Sandler représentait à la SEC le 02/11.</li>
+<li>Pourquoi le volume des pools à hook est tombé d'environ 60 % à environ un tiers du volume v4 depuis début octobre.</li>
+</ul>
+<p class="muted">Veille ouverte ce jour : <b>v_20261104_01</b> — les 52 jetons d'actions pèsent encore au moins 20 % de la valeur relue des pools v3 le 02/12 (révisée si sous 10 % avant).</p>
+</main>
+</body>
+</html>

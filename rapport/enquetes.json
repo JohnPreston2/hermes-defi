@@ -909,6 +909,37 @@
     }
    ],
    "genere": "2026-11-03T19:30:00Z"
+  },
+  {
+   "date": "2026-11-04",
+   "fichier": "rapport/2026-11-04-enquete.html",
+   "titre": "Robinhood Chain, 04/11 — relue sur la chaîne, Uniswap v3 vaut 69,8 M$, dont 31 % en actions tokenisées",
+   "question": "Le doublement de la TVL Uniswap v3 chez DefiLlama (49 -> 102 M$ le 19/10) tient-il, a l'echeance du 04/11, face a une relecture directe des soldes des pools sur la chaine ?",
+   "mesure_neuve": "Relecture complete sur la chaine des 448 351 pools Uniswap v3 (443 793 soldes, Multicall3, prix coins.llama.fi) : 69,82 M$, dont 21,66 M$ (31,0 %) en 52 jetons d'actions et d'ETF, 31,69 M$ en WETH, 14,24 M$ en USDG, 2,24 M$ en PONS. DefiLlama affiche 82,54 M$ (ecart 18,2 %) : veille v_20261021_01 soldee CONFIRMEE, mais les deux mesures ont baisse ensemble depuis le 21/10 (-21 % et -24 %). Les memes 52 jetons pesent 0,71 % du collateral Morpho : les actions tokenisees servent a echanger, pas a emprunter. A cote : echantillon de volume v4 refait sur 8 jours (22 821 echanges) : les pools a hook portent 26 a 40 % du volume, contre 61 % le 04/10.",
+   "chiffre_cle": {
+    "valeur": "31,0 %",
+    "libelle": "de l'argent relu dans les pools Uniswap v3 de la chaîne est en actions et ETF tokenisés, contre 0,71 % du collatéral prêté sur Morpho",
+    "population": "21,66 M$ en 52 jetons d'actions sur 69,82 M$ relus sur la chaîne dans 448 351 pools v3 (WETH, USDG, PONS et actions comptés), 04/11 ~09:20 UTC"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_v3_tvl_usd",
+     "libelle": "TVL Uniswap v3 chez DefiLlama (l'argent déposé)"
+    },
+    {
+     "champ": "rh_vol_30d_v3",
+     "libelle": "Volume Uniswap v3 sur 30 jours (les échanges)"
+    },
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons dans les frais (ce que la chaîne encaisse)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    }
+   ],
+   "genere": "2026-11-04T09:45:00Z"
   }
  ]
 }

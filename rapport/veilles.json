@@ -196,6 +196,11 @@
      "date": "2026-11-03",
      "valeur": "72,2 % (868/1202) / 26,4 % (317/1202)",
      "note": "registre regenere 02/11 14:38 UTC ; +1 hook (CurbHook)"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "72,2 % (868/1202) / 26,4 % (317/1202)",
+     "note": "registre regenere le 03/11 21:37 UTC (d5bcc5c8) : aucun changement chain='robinhood'"
     }
    ],
    "solde": null
@@ -386,6 +391,11 @@
     },
     {
      "date": "2026-11-03",
+     "valeur": "5 / 1202 (0,42 %) au champ auditUrl ; 3 / 1202 (0,25 %) vers un vrai rapport",
+     "note": "inchange"
+    },
+    {
+     "date": "2026-11-04",
      "valeur": "5 / 1202 (0,42 %) au champ auditUrl ; 3 / 1202 (0,25 %) vers un vrai rapport",
      "note": "inchange"
     }
@@ -580,6 +590,11 @@
      "date": "2026-11-03",
      "valeur": "v3 34,5 % / v4 46,5 % du volume 30 j (8,05 / 10,84 / 23,33 Md$)",
      "note": "DefiLlama 03/11 ~18:55 UTC"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "v3 34,4 % / v4 46,3 % du volume 30 j (7,91 / 10,64 / 22,99 Md$)",
+     "note": "DefiLlama 04/11 ~09:10 UTC"
     }
    ],
    "solde": null
@@ -772,6 +787,11 @@
      "date": "2026-11-03",
      "valeur": "156 sur 1202 (13,0 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "SEC 4-927 : premiere page inchangee depuis le 31/10 ; FR : 312 documents, inchange"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "156 sur 1202 (13,0 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "SEC 4-927 : nouvelle entree, memo de reunion du 02/11 avec Lowenstein Sandler LLP (sujet : l'ordre lui-meme) ; FR : 312 documents, inchange"
     }
    ],
    "solde": null
@@ -1063,6 +1083,11 @@
      "date": "2026-11-03",
      "valeur": "16,7 % (12,88/77,16 M$) Pons V2 ; 17,6 % hors The Standard Reserve (nouvelle ligne du 01/11) ; 18,9 % hors Relay",
      "note": "echeance 19/11 ; seuil de mort 15 % : il reste 1,7 point"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "16,3 % (12,22/75,01 M$) Pons V2 ; 17,2 % hors The Standard Reserve ; 18,5 % hors Relay",
+     "note": "echeance 19/11 ; seuil de mort 15 % : il reste 1,3 point (1,7 hier)"
     }
    ],
    "solde": null
@@ -1848,6 +1873,11 @@
      "date": "2026-11-03",
      "valeur": "0,72 % (3,81 M$ sur 530,17 M$ de collateral Morpho), 13 marches d'actions au-dessus de 1 000 $, 52 jetons",
      "note": "API Morpho ~19:10 UTC, non recoupe sur la chaine ce jour"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "0,71 % (3,76 M$ sur 529,87 M$ de collateral Morpho), 13 marches d'actions au-dessus de 1 000 $, 52 jetons",
+     "note": "API Morpho ~09:05 UTC. Contraste mesure ce jour : les memes 52 jetons pesent 21,66 M$, soit 31,0 % de la valeur relue des pools Uniswap v3 (69,82 M$)"
     }
    ]
   },
@@ -2333,6 +2363,11 @@
      "date": "2026-11-03",
      "valeur": "non re-mesure (echantillon de volume non refait)",
      "note": "echeance 05/11 : aucun des trois jours mesures exiges n'existe depuis le 27/10 ; sauf re-mesure, la veille sera close sans verdict"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "echantillon refait, 8 jours (27/10 -> 03/11, 2 tirages, 22 821 echanges) : pools a hook 26,4 a 39,9 % du volume valorise ; asrd 7,1 a 20,2 %",
+     "note": "Aucun jour au-dessus de 25 % d'asrd (pas de REVISEE par le seuil), mais aucun jour non plus au-dessus de 50 % pour les pools a hook : la condition de CONFIRMEE ne peut plus etre remplie a l'echeance de demain. La moitie 'prelevement invisible minoritaire' tient ; la moitie 'les pools a hook gardent plus de la moitie du volume' est contredite depuis le 27/10. Verdict a rendre le 05/11."
     }
    ]
   },
@@ -2657,6 +2692,11 @@
      "date": "2026-11-03",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 2 evenements sur la balise : Blocked(0xb397...af94) le 02/11 21:03:06 UTC puis Unblocked 22:15:23 UTC, appels blockAccounts/unblockAccounts envoyes par 0x913c...28fd (compte sans code, role 0x8f2e...9037 accorde au bloc 8 687)",
      "note": "premier blocage d'un compte depuis l'ouverture du 02/07 (247 blocages en juin, avant l'ouverture). Ni Upgraded ni Paused : le seuil ne bouge pas, l'evenement s'ecrit"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise depuis l'Unblocked du 02/11 22:15 UTC",
+     "note": "inchange"
     }
    ]
   },
@@ -3355,6 +3395,11 @@
      "date": "2026-11-03",
      "valeur": "31/10 : 1 ; 01/11 : 1 ; 02/11 : 3 ; 03/11 : 2 (partiel ~19:00 UTC) ; semaine 26/10 -> 01/11 : 19 ; nonce 1 352",
      "note": "sous 40 par semaine"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "03/11 : 2 ; 04/11 : 2 (partiel ~09:10 UTC) ; semaine 26/10 -> 01/11 : 19 (temoin retrouve) ; semaine du 02/11 : 7 a mi-mardi ; nonce 1 354",
+     "note": "sous 40 par semaine"
     }
    ]
   },
@@ -3365,8 +3410,12 @@
    "mesure": "(1) DefiLlama /protocol/uniswap-v3, chainTvls['Robinhood Chain'] : derniere valeur. (2) Sur la chaine : soldes WETH, USDG, actions et PONS des pools v3 (PoolCreated de la fabrique 0x1f7d7550b1b028f7571e69a784071f0205fd2efa, Multicall3 tryAggregate), valorises aux prix coins.llama.fi. Reference 21/10 : DefiLlama 104,75 M$ ; mesure 92,29 M$ sur 445 446 pools (dont 46,38 M$ dans les pools apres le 100 000e).",
    "seuil": "CONFIRMEE si DefiLlama reste au-dessus de 80 M$ au 04/11 et que l'ecart avec la mesure sur la chaine reste sous 25 %. REVISEE si DefiLlama retombe sous 60 M$ avant l'echeance (retour du defaut ou autre cause).",
    "echeance": "2026-11-04",
-   "statut": "OUVERTE",
-   "solde": null,
+   "statut": "CONFIRMEE",
+   "solde": {
+    "date": "2026-11-04",
+    "verdict": "CONFIRMEE",
+    "raison": "Au 04/11, DefiLlama affiche 82,54 M$ et la valeur relue sur la chaine vaut 69,82 M$ (ecart 18,2 % contre 13,5 % le 21/10). Le doublement du 19/10 etait bien une correction de mesure. Mais les deux mesures ont baisse ensemble depuis le 21/10 (-21 % chez DefiLlama, -24 % sur la chaine) : la correction tient, la liquidite v3 recule."
+   },
    "historique": [
     {
      "date": "2026-10-21",
@@ -3417,6 +3466,11 @@
      "date": "2026-11-03",
      "valeur": "DefiLlama 82,94 M$ (03/11 ~18:55 UTC), -3,2 % vs 31/10 ; mesure sur la chaine non refaite",
      "note": "au-dessus de 80 M$ a la veille de l'echeance ; la condition d'ecart < 25 % reste a mesurer le 04/11"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "DefiLlama 82,54 M$ (04/11 ~09:10 UTC) ; mesure sur la chaine 69,82 M$ sur 448 351 pools (WETH 31,69 ; USDG 14,24 ; actions 21,66 ; PONS 2,24), ecart 18,2 %",
+     "note": "Echeance. Les deux conditions tiennent : DefiLlama au-dessus de 80 M$ (marge 3,2 %), ecart sous 25 %."
     }
    ]
   },
@@ -3474,6 +3528,11 @@
      "date": "2026-11-03",
      "valeur": "0 evenement de la porte de mise a jour du bloc 102 453 264 au bloc 105 297 150 ; conseil 0x4972...efdb sans code",
      "note": "inchange"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "0 evenement de la porte de mise a jour du bloc 105 297 150 au bloc 105 788 219 ; conseil 0x4972...efdb sans code",
+     "note": "inchange"
     }
    ]
   },
@@ -3525,6 +3584,11 @@
      "date": "2026-11-03",
      "valeur": "point intermediaire : 1 577 hooks ont servi pour la premiere fois du 23/10 00:00 au 03/11 ~18:55 UTC, 5 sont au registre (0,32 %)",
      "note": "recensement complet ; temoins 29/10 = 5 204 pools et 30/10 = 4 087 retrouves exactement"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "point intermediaire : 1 611 hooks ont servi pour la premiere fois du 23/10 00:00 au 04/11 ~09:10 UTC, 5 sont au registre (0,31 %)",
+     "note": "recensement complet (1 118 117 pools) ; temoins 29/10 = 5 204 et 30/10 = 4 087 pools retrouves exactement"
     }
    ]
   },
@@ -3576,6 +3640,11 @@
      "date": "2026-11-03",
      "valeur": "72 pools ; 4 echanges depuis le bloc 94 313 544 (aucun nouveau depuis le 29/10)",
      "note": "sous le seuil de confirmation ; echeance 06/11"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "72 pools ; 4 echanges depuis le bloc 94 313 544 (aucun nouveau depuis le 29/10) ; USDG entres non re-mesures ce jour",
+     "note": "sous le seuil de confirmation (100 echanges) ; echeance 06/11"
     }
    ]
   },
@@ -3693,6 +3762,11 @@
      "date": "2026-11-03",
      "valeur": "mesure de volume non refaite ; mesure seconde : nouveaux hooks 'a80' hors registre 0 le 31/10, 1 le 01/11, 3 le 02/11",
      "note": "la rafale du 29/10 (370) ne s'est pas repetee"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "semaine 27/10 -> 02/11 : 2,2 % du volume v4 valorise (moyenne de 7 jours, 2 tirages chacun) ; nouveaux hooks 'a80' hors registre : 3 le 03/11",
+     "note": "premiere semaine mesuree, sous 10 %"
     }
    ]
   },
@@ -3741,6 +3815,11 @@
      "date": "2026-11-03",
      "valeur": "29/10 : 5 ; 30/10 : 29 ; 31/10 : 0 ; 01/11 : 1 ; 02/11 : 125 ; 03/11 : 6 (partiel)",
      "note": "jours pleins recomptes ; aucun au-dessus de 1 500"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "03/11 : 7 ; 04/11 : 10 (partiel ~09:10 UTC)",
+     "note": "aucun jour au-dessus de 1 500"
     }
    ]
   },
@@ -3779,6 +3858,11 @@
      "date": "2026-11-03",
      "valeur": "31/10 6,3 % ; 01/11 7,4 % ; 02/11 14,8 %",
      "note": "point de reference ; premier expediteur 0x29d8...80db = 36,1 % du 02/11 et 59,1 % du 03/11 (partiel)"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "31/10 6,3 % ; 01/11 7,4 % ; 02/11 14,8 % ; 03/11 10,9 % (25,79 M USDG / 237,66 M$)",
+     "note": "premier expediteur 0x29d8...80db = 59,1 % du 03/11 ; 04/11 partiel : 12,69 M USDG a ~09:10 UTC"
     }
    ]
   },
@@ -3795,6 +3879,27 @@
      "date": "2026-11-03",
      "valeur": "24/10 : 2 ; 31/10 : 2 511 (derniere 11:10:19 UTC) ; 01/11 : 0",
      "note": "point de reference ; vendredi 30/10 : 2 957 destructions, plateau 220-230 par heure de 14:00 a 24:00 UTC"
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": "non mesurable avant le samedi 07/11",
+     "note": "rien a re-tester ce jour"
+    }
+   ]
+  },
+  {
+   "id": "v_20261104_01",
+   "ouverte": "2026-11-04",
+   "affirmation": "Les actions tokenisees vivent dans les pools Uniswap v3, pas dans le pret : les 52 jetons d'actions de la liste Morpho pesent 31,0 % de la valeur relue des pools v3 (21,66 M$ sur 69,82 M$) contre 0,71 % du collateral Morpho. Cette part reste au-dessus de 20 % au 02/12.",
+   "mesure": "RPC, methode de rh_v3_tvl_onchain_usd (PoolCreated de la fabrique 0x1f7d...2efa, balanceOf par Multicall3, prix coins.llama.fi) : rh_v3_tvl_onchain_actions_usd / rh_v3_tvl_onchain_usd. Reference 04/11 : 31,0 %. En second : la meme part au collateral Morpho (0,71 %).",
+   "seuil": "CONFIRMEE si la part est >= 20 % le 02/12. REVISEE si elle passe sous 10 % a un releve avant l'echeance.",
+   "echeance": "2026-12-02",
+   "statut": "OUVERTE",
+   "historique": [
+    {
+     "date": "2026-11-04",
+     "valeur": "31,0 % (21,66 M$ sur 69,82 M$, 448 351 pools)",
+     "note": "point de reference ; plancher : les jetons d'actions hors liste Morpho ne sont pas comptes"
     }
    ]
   }
