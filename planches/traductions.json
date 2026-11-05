@@ -1,12 +1,13 @@
 {
-"generated_at": "2026-11-05T18:46:02Z",
+"generated_at": "2026-11-05T19:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 146,
+"n_affiches": 148,
 "n_refuses": 0,
-"n_traduits": 17,
+"n_traduits": 18,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
+"Ethena Pay Rolls Out Earn+ With Up to 12% Target Rewards": "Ethena Pay lance Earn+ avec jusqu'à 12 % de récompenses cibles",
 "FDV/Mcap exceeds 2.0x or fees coverage drops below 60%.": "Le ratio FDV/Mcap dépasse 2,0x ou la couverture des frais tombe sous 60%.",
 "FDV/Mcap exceeds 2.0x or fees decline >10% over 7 days.": "Le FDV/Mcap dépasse 2,0x ou les frais baissent de plus de 10 % sur 7 jours.",
 "Fee growth turns negative or FDV/Mcap exceeds 2.5.": "La croissance des frais devient négative, ou le ratio FDV/Mcap dépasse 2,5.",
