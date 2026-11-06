@@ -940,6 +940,37 @@
     }
    ],
    "genere": "2026-11-04T09:45:00Z"
+  },
+  {
+   "date": "2026-11-06",
+   "fichier": "rapport/2026-11-06-enquete.html",
+   "titre": "Robinhood Chain, 06/11 : Aero, arrive le 22/10, fait tourner 35 fois par jour un depot de 2,55 M$ et prend 11,8 % du volume de la chaine",
+   "question": "Qui est Aero Slipstream, 3e echangeur de la chaine sur 24 h et absent de toutes les enquetes precedentes, depuis quand est-il la, et que vaut son volume ?",
+   "mesure_neuve": "Comptage complet sur la chaine des 98 426 echanges des 91 pools Aero le 05/11 : 99,95 M$ (DefiLlama 99,30 M$, ecart 0,7 %), dont 89,7 % dans un seul pool WETH/USDG qui ne contient que 2,55 M$ : 35 rotations du depot en un jour, contre 2,3 pour Uniswap v4. Frais de 0,0112 % et 98,2 % de la liquidite placee dans la jauge d'emissions ; les 5 premiers destinataires (77 % du volume) sont des contrats. Le meme jour, le pool VolatilePair d'Uniswap Labs sur la meme paire a echange 48,45 M USDG. Aero porte 11,8 % du volume 7 j de la chaine et 0,32 % de ses frais 30 j. Veilles soldees : LanistaHook CONFIRMEE, part des pools a hook MORTE.",
+   "chiffre_cle": {
+    "valeur": "35×",
+    "libelle": "Le pool ETH/USDG d'Aero echange chaque jour 35 fois l'argent qu'il contient ; Uniswap v4 tourne 2,3 fois.",
+    "population": "89,68 M$ echanges le 05/11 sur 2,55 M$ de soldes, 1 des 91 pools Aero de la chaine"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "Volume 30 j de la chaine (tout ce qui s'echange)"
+    },
+    {
+     "champ": "rh_vol_30d_v4",
+     "libelle": "Volume 30 j Uniswap v4 (le premier echangeur)"
+    },
+    {
+     "champ": "rh_aero_slipstream_vol_30d_usd",
+     "libelle": "Volume 30 j d'Aero (le nouvel entrant)"
+    },
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons dans les frais (lanceur de memecoins)"
+    }
+   ],
+   "genere": "2026-11-06T21:00:00Z"
   }
  ]
 }

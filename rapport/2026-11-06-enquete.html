@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 06/11 — Aero fait tourner 35 fois par jour un dépôt de 2,55 M$</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du vendredi 06/11/2026</b> · générée 06/11 ~21:00 UTC · méthode : comptages complets sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> (témoins : <code>eth_chainId</code> = 0x1237 ; code d'une adresse bidon = 0x ; PoolManager v4 = 24 009 octets ; 29/10 rejoué : 5 204 pools créés, le chiffre publié) · relectures jusqu'au bloc 107 860 861 (~20:28 UTC) · DefiLlama /protocols, /v2/chains, /overview/fees, /overview/dexs, dailyHoldersRevenue, /summary/dexs/uniswap-v4 et aero-slipstream : 20:21 UTC · prix coins.llama.fi ~20:30 UTC · registre <code>Uniswap/hooklist</code> : régénéré 05/11 22:16 UTC (âge 22 h) · API Morpho ~20:45 UTC · Federal Register ~20:50 UTC · SEC 4-927 : lu par WebFetch · delta (agent Hermes) : joignable, non lu comme source ce jour · relevé précédent : 04/11 ~09:15 UTC, soit <b>2 j 11 h d'écart</b> ; <b>aucun relevé le 05/11</b>
+</div>
+
+<h1>Aero, arrivé le 22/10, fait tourner 35 fois par jour un dépôt de 2,55 M$ et prend déjà 11,8 % du volume de la chaîne</h1>
+
+<div class="key">
+<div class="v">35×</div>
+<div class="l">Le pool ETH/USDG d'Aero échange chaque jour 35 fois l'argent qu'il contient. Uniswap v4, toutes poches confondues, tourne 2,3 fois.</div>
+<div class="p">population : 89,68 M$ échangés le 05/11 (68 091 échanges, jour UTC complet, blocs 106 302 584 → 107 143 207) sur 2,55 M$ de soldes lus dans le pool 0x7615…9750, 1 des 91 pools Aero de la chaîne ; Uniswap v4 : 384,4 M$ (DefiLlama) sur 163,9 M$ de TVL</div>
+</div>
+
+<h2>La question</h2>
+<p>Depuis deux semaines, l'enquête suit le pool ETH/USDG qu'Uniswap Labs a ouvert le 29/10 avec son hook VolatilePair (un programme greffé sur le pool qui ajuste les frais à la volatilité). Il est passé de 6 % à 15 % du volume Uniswap v4. Mais en descendant aujourd'hui la liste complète des échangeurs de la chaîne, une ligne absente de toutes les enquêtes précédentes apparaît au 3<sup>e</sup> rang du volume sur 24 h : <b>Aero Slipstream</b>, 118,9 M$ ce jour. Qui est-ce, depuis quand, et que vaut ce volume ?</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : l'adresse de la fabrique Aero sur la chaîne, lue dans le code de l'adaptateur DefiLlama (<code>0xc63d…e136</code>, 9 547 octets de code), puis ses 91 événements de création de pool, puis les 98 426 échanges de ces pools le 05/11, chacun valorisé par sa jambe USDG, sinon WETH, sinon au prix coins.llama.fi.</p>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>valeur</th><th>source</th></tr>
+<tr><td>première activité sur la chaîne</td><td class="n">21/10 (310 $), 22/10 : 23,9 M$</td><td>DefiLlama, série journalière</td></tr>
+<tr><td>pools créés</td><td class="n">91, sur 64 jetons</td><td>RPC, PoolCreated</td></tr>
+<tr><td>volume du 05/11, compté</td><td class="n">99,95 M$ (98 426 échanges, 67 pools actifs)</td><td>RPC</td></tr>
+<tr><td>volume du 05/11, déclaré</td><td class="n">99,30 M$ — écart 0,7 %</td><td>DefiLlama</td></tr>
+<tr><td>part du seul pool WETH/USDG</td><td class="n">89,7 % (89,68 M$)</td><td>RPC</td></tr>
+<tr><td>soldes du pool WETH/USDG</td><td class="n">2,55 M$ (896,4 WETH + 0,55 M USDG)</td><td>RPC, balanceOf</td></tr>
+<tr><td>frais du pool</td><td class="n">112 pips = 0,0112 % par échange</td><td>RPC, fee()</td></tr>
+<tr><td>liquidité placée dans la jauge (gauge)</td><td class="n">98,2 %</td><td>RPC, stakedLiquidity / liquidity</td></tr>
+<tr><td>soldes des 91 pools</td><td class="n">4,87 M$, dont 1,16 M$ en jetons d'actions</td><td>RPC ; DefiLlama : 4,80 M$</td></tr>
+<tr><td>volume 05/11 des pools qui contiennent une action</td><td class="n">7,90 M$ (7,9 %)</td><td>RPC</td></tr>
+<tr><td>part du volume 7 j de la chaîne</td><td class="n">11,8 % (534,6 M$ sur 4,52 Md$)</td><td>DefiLlama /overview/dexs</td></tr>
+<tr><td>part des frais 30 j de la chaîne</td><td class="n">0,32 % (232 k$ sur 71,71 M$)</td><td>DefiLlama /overview/fees</td></tr>
+</table></div>
+<p>La « jauge » est le contrat qui verse les jetons AERO neufs aux fournisseurs de liquidité. Quand la liquidité y est placée, ses frais vont aux votants, et le fournisseur est payé en jetons émis. Avec 98,2 % de la liquidité placée et un frais de 0,0112 %, ce pool est construit pour attirer le flux, pas pour le facturer. Les cinq premiers destinataires des échanges (77 % du volume) sont tous des contrats de 1 157 à 37 606 octets : routeurs et agrégateurs. Ce volume est routé, pas cliqué.</p>
+<p>Sur la même paire, le même jour : le pool VolatilePair d'Uniswap Labs a échangé <b>48,45 M USDG</b> (59 015 échanges, comptage complet). Aero en a fait 1,85 fois plus avec un dépôt connu de 2,55 M$. Le dépôt du pool Uniswap ne se lit pas par un simple solde, car la v4 garde tout l'argent dans un seul contrat : trou déclaré.</p>
+<p>Côté presse, non recoupé : Aero est la fusion d'Aerodrome et de Velodrome, lancée le 21/10 à 20 h heure de New York sur sept chaînes, dont Robinhood Chain (<a href="https://milkroad.com/news/aero-is-coming-for-robinhood-chain/">Milk Road, 21/10</a> ; <a href="https://www.bankless.com/read/news/aerodrome-velodrome-go-live-as-aero.md">Bankless, 22/10</a>). La date se recoupe : 22/10 00:00 UTC, c'est le premier jour où DefiLlama compte 23,9 M$.</p>
+
+<h2>Le delta contre le 04/11</h2>
+<div class="wrap"><table>
+<tr><th>champ</th><th>04/11 ~09:15</th><th>06/11 ~20:21</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne</td><td class="n">1 078,1 M$</td><td class="n">1 059,0 M$</td><td class="n">−1,8 %</td></tr>
+<tr><td>TVL Uniswap V4</td><td class="n">169,8 M$</td><td class="n">163,9 M$</td><td class="n">−3,5 %</td></tr>
+<tr><td>volume 30 j de la chaîne</td><td class="n">22,99 Md$</td><td class="n">22,92 Md$</td><td class="n">−0,3 %</td></tr>
+<tr><td>volume 30 j Uniswap V4</td><td class="n">10,64 Md$</td><td class="n">10,48 Md$</td><td class="n">−1,4 %</td></tr>
+<tr><td>frais 30 j de la chaîne</td><td class="n">75,01 M$</td><td class="n">71,71 M$</td><td class="n">−4,4 %</td></tr>
+<tr><td>part de Pons V2 dans ces frais</td><td class="n">16,3 %</td><td class="n">15,6 %</td><td class="n">−0,7 pt</td></tr>
+<tr><td>hooks robinhood au registre</td><td class="n">1 202</td><td class="n">1 206</td><td class="n">+4</td></tr>
+<tr><td>protocoles DefiLlama sur la chaîne</td><td class="n">300</td><td class="n">307</td><td class="n">+7</td></tr>
+<tr><td>VolatilePair, part du volume v4 du jour</td><td class="n">10,9 % (03/11)</td><td class="n">10,2 % (04/11) · 12,6 % (05/11)</td><td class="n">—</td></tr>
+</table></div>
+<p>Le périmètre a bougé (piège P10 re-vérifié) : 79 modifications des adaptateurs DefiLlama depuis le 04/11 09:00 UTC, dont sept ajoutent la chaîne (MetaMask, Binance Alpha, Binance Wallet, dln, kipseli, The River, OnOne). Leurs frais 30 j cumulés font moins de 2 k$ : la baisse de 4,4 % n'en vient pas. Le total déclaré des frais égale au dollar près la somme des lignes non doublecounted hors ligne de la chaîne, 71 708 574 $ (piège P2 re-vérifié). Les quatre hooks entrés au registre le 05/11 sont RyftPoolHook, OFinHook, DNAHook (Stockmon DNA) et ElcasLaunchHook.</p>
+
+<h2>Les veilles re-testées</h2>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du jour</th><th>statut</th></tr>
+<tr><td>LanistaHook reste une vitrine (échéance 06/11)</td><td>72 pools, 4 échanges depuis le 21/10, dernier au bloc 100 972 081 ; 7,70 USDG entrés</td><td><span class="tag ok">CONFIRMÉE</span></td></tr>
+<tr><td>volume v4 vers les pools à hook, pas vers le prélèvement invisible (échéance 05/11)</td><td>dernier échantillon (27/10 → 03/11) : asrd 7,1 à 20,2 %, jamais au-dessus de 25 % ; pools à hook 26,4 à 39,9 %, jamais au-dessus de 50 %. Non ré-échantillonné les 04 et 05/11</td><td><span class="tag ko">MORTE</span></td></tr>
+<tr><td>Pons garde son poids dans les frais (échéance 19/11)</td><td>15,6 % (11,20 / 71,71 M$) ; 17,6 % hors Relay ; seuil de mort 15 %</td><td><span class="tag op">OUVERTE</span> — 0,6 pt</td></tr>
+<tr><td>VolatilePair au-dessus de 10 % du volume v4</td><td>04/11 : 30,05 M USDG (10,2 %) ; 05/11 : 48,45 M (12,6 %)</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>rachats d'UNI sous 40 par semaine</td><td>semaine du 02/11 : 20 au 06/11 20:28 UTC (3, 2, 5, 7, 3) ; nonce 1 367</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>hooks : extraction plutôt que gestion de liquidité</td><td>afterSwapReturnsDelta 72,3 % (872/1 206) ; beforeAddLiquidity 26,5 % (319/1 206)</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>audit des hooks structurellement nul</td><td>5 / 1 206 (0,41 %) au champ auditUrl</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>la v3 garde plus de 20 % du volume</td><td>v3 34,4 % / v4 45,7 % (7,88 / 10,48 / 22,92 Md$)</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>infrastructure actions : famille actions + avis de TSV</td><td>156 / 1 206 (12,9 %) ; aucun avis de TSV ; SEC 4-927 : 5 lettres nouvelles depuis le 04/11 (dont l'American Securities Association le 06/11) ; FR : 312 documents, inchangé</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>actions sous 2 % du collatéral Morpho</td><td>0,72 % (3,67 M$ sur 510,31 M$), 11 marchés d'actions au-dessus de 1 000 $, 52 jetons</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>admin de la balise des 50 jetons d'actions à clé unique</td><td>hasRole = 1 (témoin 0x…dead : 0), sans code ; implémentation inchangée ; 0 événement depuis le 04/11</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>préavis Lighter de façade</td><td>0 événement de la porte de mise à jour depuis le bloc 105 788 219 ; conseil sans code</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>registre sous 2 % des hooks nouveaux · famille « a80 » · DualPoolHook · v3 en actions · destructions du samedi</td><td>non re-mesurés ce jour (recensements longs) ; la veille du samedi se mesure le 07/11</td><td><span class="tag op">OUVERTE</span></td></tr>
+</table></div>
+<p>La veille du 05/10 meurt sans avoir franchi aucun de ses deux seuils. Sa moitié « le prélèvement invisible reste minoritaire » a tenu. Sa moitié « les pools à hook gardent plus de la moitié du volume v4 » est contredite depuis le 27/10. Le verdict repose sur l'échantillon du 04/11 : les 04 et 05/11 n'ont pas été ré-échantillonnés.</p>
+
+<h2>Cohorte</h2>
+<p>Rescan des 307 protocoles : 94 liens d'audit, 90 en HTTP 200, 4 en 404 ; 54 comptes GitHub déclarés, 52 existent (témoins ARMSys26 404, Uniswap 200). Scores sans la part hooks : 205 à 0, 37 à 1, 50 à 2, 15 à 3. Aucun remplacement, aucune entrée de l'antichambre. LayerBank (score 3, TVL 3,04 M$) reste sous UNCX Network V3 (3,57 M$). Aero Slipstream score 0 : DefiLlama ne publie pour lui ni lien d'audit ni GitHub.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>traction du jour</th><th>vs 04/11</th><th>frais / Pons V2</th></tr>
+<tr><td>Morpho Blue</td><td class="n">TVL 578,2 M$ · frais 1,82 M$</td><td class="n">−1,7 %</td><td class="n">0,162</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">TVL 114,6 M$ · frais 2,34 M$</td><td class="n">+2,5 %</td><td class="n">0,208</td></tr>
+<tr><td>Arcus Perps</td><td class="n">TVL 63,8 M$ · frais 2,02 M$</td><td class="n">0,0 %</td><td class="n">0,180</td></tr>
+<tr><td>Snuggle</td><td class="n">TVL 5,80 M$ · frais 0,59 M$</td><td class="n">+4,1 %</td><td class="n">0,053</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">TVL 3,57 M$ · 0 frais</td><td class="n">−3,4 %</td><td class="n">0</td></tr>
+<tr><td>Ekubo</td><td class="n">TVL 1,19 M$ · vol. 30 j 24,8 M$ · mcap 10,6 M$</td><td class="n">vol. −7,4 %</td><td class="n">0,004</td></tr>
+<tr><td>StonkBrokers</td><td class="n">frais 559,5 k$ sur 11 fiches</td><td class="n">+12,8 %</td><td class="n">0,050</td></tr>
+<tr><td><b>up v3</b></td><td class="n">vol. 30 j <b>203,5 M$</b></td><td class="n">−8,7 %</td><td class="n">0,036</td></tr>
+<tr><td>GIGA V3</td><td class="n">vol. 30 j 76,6 M$</td><td class="n">−8,5 %</td><td class="n">0,004</td></tr>
+</table></div>
+<p><b>Ce qui devrait inquiéter :</b> up v3 n'est plus qu'à 1,7 % de son critère de sortie (volume 30 j sous 200 M$) ; il perd 8,7 % en 2,5 jours, le jour même où Aero, un échangeur de même famille, monte. Le lien entre les deux n'est pas prouvé. GIGA V3 baisse encore (−17,2 % au relevé du 04/11, −8,5 % ce jour), mais reste 53 % au-dessus de son seuil. Antichambre inchangée : GlueHook TVL 3,4 k$, Twofold 15,8 k$, ARMSys 42,5 k$. Contre-référence : Pons V2 encaisse 11,20 M$ de frais 30 j, toujours 2<sup>e</sup> après Uniswap V4 (27,36 M$). Remarque de règle : Beefy (score 3, TVL 2,19 M$) dépasse Ekubo sur la preuve et sur la TVL, mais Ekubo se juge au volume et au mcap ; comme pour Longbow et UNCX le 16/10, la règle écrite ne tranche pas cette ambiguïté.</p>
+
+<h2>Ce qui contredit</h2>
+<p><b>Aero ne prend pas son volume à Uniswap.</b> Le volume Uniswap v4 du 05/11 (384,4 M$) est le plus haut depuis le 21/10. Aero s'ajoute au volume de la chaîne ; rien dans les chiffres du jour ne montre qu'il le déplace.</p>
+<p><b>Par les trois mesures, Aero n'est pas la même chose.</b> Par le volume, c'est le 3<sup>e</sup> échangeur de la chaîne (11,8 % sur 7 j). Par les frais, il pèse 0,32 % : il encaisse environ 2,5 points de base par dollar échangé, contre 26 pour Uniswap V4. Par le capital déposé, 4,8 M$, soit 0,45 % de la TVL de la chaîne. Un volume qui tourne 35 fois par jour sur un dépôt payé en jetons émis ressemble à du flux d'arbitrage routé, pas à une demande d'utilisateurs. Les données du jour ne permettent pas de trancher.</p>
+<p><b>La thèse « actions tokenisées » n'y trouve presque rien.</b> Aero a ouvert des pools sur NVDA, SPY, AAPL, META, GME et SPCX. Ces jetons pèsent 24 % de ses dépôts (1,16 M$ sur 4,87 M$), mais 7,9 % de son volume du 05/11.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<p>Le dépôt du pool VolatilePair : il faudrait lire l'état du pool dans la PoolManager, ce qui n'a pas été fait. Le montant des émissions AERO versées sur la chaîne : la jauge <code>0xe033…b7a6</code> est identifiée, ses versements ne sont pas comptés. Qui est derrière les routeurs : il faudrait lire l'expéditeur de chaque transaction. Le nombre total de lettres au dossier SEC 4-927 : non lisible par script. Quatre veilles ouvertes n'ont pas été re-mesurées ce jour, et le 05/11 manque à la série.</p>
+<p class="muted">Pièges du mémo re-vérifiés ce jour : P1 (Pons et The Standard Reserve hors filtre par chaîne), P2 (total déclaré des frais = somme des lignes, au dollar près), P5 (liens d'audit comptés en HTTP 200 seulement), P7 (populations nommées : hooks du registre, protocoles, pools), P10 (79 modifications d'adaptateurs listées avant de lire le delta), santé du registre (commits du 05/11 lus avant de conclure).</p>
+</main>
+</body>
+</html>

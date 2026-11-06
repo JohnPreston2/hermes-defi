@@ -201,6 +201,11 @@
      "date": "2026-11-04",
      "valeur": "72,2 % (868/1202) / 26,4 % (317/1202)",
      "note": "registre regenere le 03/11 21:37 UTC (d5bcc5c8) : aucun changement chain='robinhood'"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
+     "note": "registre regenere le 05/11 22:16 UTC (f4b5956d) : +4 entrees robinhood"
     }
    ],
    "solde": null
@@ -398,6 +403,11 @@
      "date": "2026-11-04",
      "valeur": "5 / 1202 (0,42 %) au champ auditUrl ; 3 / 1202 (0,25 %) vers un vrai rapport",
      "note": "inchange"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "5 / 1206 (0,41 %) au champ auditUrl ; 3 / 1206 (0,25 %) vers un vrai rapport",
+     "note": "inchange en nombre ; population +4"
     }
    ],
    "solde": null
@@ -595,6 +605,11 @@
      "date": "2026-11-04",
      "valeur": "v3 34,4 % / v4 46,3 % du volume 30 j (7,91 / 10,64 / 22,99 Md$)",
      "note": "DefiLlama 04/11 ~09:10 UTC"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "v3 34,4 % / v4 45,7 % du volume 30 j (7,88 / 10,48 / 22,92 Md$)",
+     "note": "DefiLlama 06/11 20:21 UTC ; nouvel entrant Aero Slipstream 0,94 Md$ sur 30 j"
     }
    ],
    "solde": null
@@ -792,6 +807,11 @@
      "date": "2026-11-04",
      "valeur": "156 sur 1202 (13,0 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "SEC 4-927 : nouvelle entree, memo de reunion du 02/11 avec Lowenstein Sandler LLP (sujet : l'ordre lui-meme) ; FR : 312 documents, inchange"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "156 sur 1206 (12,9 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "SEC 4-927 : 5 lettres nouvelles depuis le 04/11 (dont American Securities Association le 06/11) ; FR : 312 documents, inchange"
     }
    ],
    "solde": null
@@ -1088,6 +1108,11 @@
      "date": "2026-11-04",
      "valeur": "16,3 % (12,22/75,01 M$) Pons V2 ; 17,2 % hors The Standard Reserve ; 18,5 % hors Relay",
      "note": "echeance 19/11 ; seuil de mort 15 % : il reste 1,3 point (1,7 hier)"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "15,6 % (11,20/71,71 M$) Pons V2 ; 17,6 % hors Relay",
+     "note": "echeance 19/11 ; seuil de mort 15 % : il reste 0,6 point (1,3 au 04/11)"
     }
    ],
    "solde": null
@@ -1878,6 +1903,11 @@
      "date": "2026-11-04",
      "valeur": "0,71 % (3,76 M$ sur 529,87 M$ de collateral Morpho), 13 marches d'actions au-dessus de 1 000 $, 52 jetons",
      "note": "API Morpho ~09:05 UTC. Contraste mesure ce jour : les memes 52 jetons pesent 21,66 M$, soit 31,0 % de la valeur relue des pools Uniswap v3 (69,82 M$)"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "0,72 % (3,67 M$ sur 510,31 M$ de collateral Morpho), 11 marches d'actions au-dessus de 1 000 $, 52 jetons",
+     "note": "API Morpho ~20:45 UTC"
     }
    ]
   },
@@ -2252,7 +2282,7 @@
    "mesure": "Echantillon on-chain : 12 fenetres de 100 blocs par jour UTC, Swap de la PoolManager 0x8366...0951, volume valorise par la jambe ETH/WETH/USDG, hook lu dans les evenements Initialize, bit afterSwapReturnsDelta = adresse & 0x4. Deux tirages a chaque re-test. Reference 04/10 : pools a hook 61,4 % (2 tirages), asrd 11,8 % (tirage unique) ; 04/09 : 16,2 % et 24,8 %.",
    "seuil": "REVISEE si la part asrd depasse 25 % un jour mesure (moyenne de 2 tirages). CONFIRMEE si, a l'echeance, asrd reste sous 20 % et les pools a hook au-dessus de 50 % sur trois jours mesures.",
    "echeance": "2026-11-05",
-   "statut": "OUVERTE",
+   "statut": "MORTE",
    "historique": [
     {
      "date": "2026-10-05",
@@ -2368,8 +2398,18 @@
      "date": "2026-11-04",
      "valeur": "echantillon refait, 8 jours (27/10 -> 03/11, 2 tirages, 22 821 echanges) : pools a hook 26,4 a 39,9 % du volume valorise ; asrd 7,1 a 20,2 %",
      "note": "Aucun jour au-dessus de 25 % d'asrd (pas de REVISEE par le seuil), mais aucun jour non plus au-dessus de 50 % pour les pools a hook : la condition de CONFIRMEE ne peut plus etre remplie a l'echeance de demain. La moitie 'prelevement invisible minoritaire' tient ; la moitie 'les pools a hook gardent plus de la moitie du volume' est contredite depuis le 27/10. Verdict a rendre le 05/11."
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "non re-echantillonne les 04 et 05/11 ; dernier echantillon (27/10 -> 03/11) : pools a hook 26,4 a 39,9 %, asrd 7,1 a 20,2 %",
+     "note": "echeance 05/11 depassee sans franchir aucun seuil : soldee MORTE"
     }
-   ]
+   ],
+   "solde": {
+    "date": "2026-11-06",
+    "statut": "MORTE",
+    "raison": "Echeance du 05/11 atteinte sans franchir aucun des deux seuils : asrd jamais au-dessus de 25 % un jour mesure (pas de REVISEE), mais pools a hook jamais au-dessus de 50 % depuis le 27/10 (pas de CONFIRMEE). La moitie 'prelevement invisible minoritaire' a tenu ; la moitie 'les pools a hook gardent plus de la moitie du volume v4' est contredite. Verdict sur l'echantillon du 04/11 (jours 27/10 -> 03/11) ; 04 et 05/11 non re-echantillonnes."
+   }
   },
   {
    "id": "v_20261006_01",
@@ -2696,6 +2736,11 @@
     {
      "date": "2026-11-04",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise depuis l'Unblocked du 02/11 22:15 UTC",
+     "note": "inchange"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise du bloc 105 788 219 au bloc 107 860 861",
      "note": "inchange"
     }
    ]
@@ -3400,6 +3445,11 @@
      "date": "2026-11-04",
      "valeur": "03/11 : 2 ; 04/11 : 2 (partiel ~09:10 UTC) ; semaine 26/10 -> 01/11 : 19 (temoin retrouve) ; semaine du 02/11 : 7 a mi-mardi ; nonce 1 354",
      "note": "sous 40 par semaine"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "04/11 : 5 ; 05/11 : 7 ; semaine du 02/11 : 20 au 06/11 ~20:28 UTC ; nonce 1 367",
+     "note": "sous 40 par semaine"
     }
    ]
   },
@@ -3533,6 +3583,11 @@
      "date": "2026-11-04",
      "valeur": "0 evenement de la porte de mise a jour du bloc 105 297 150 au bloc 105 788 219 ; conseil 0x4972...efdb sans code",
      "note": "inchange"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "0 evenement de la porte de mise a jour du bloc 105 788 219 au bloc 107 860 861 ; conseil 0x4972...efdb sans code",
+     "note": "inchange"
     }
    ]
   },
@@ -3589,6 +3644,11 @@
      "date": "2026-11-04",
      "valeur": "point intermediaire : 1 611 hooks ont servi pour la premiere fois du 23/10 00:00 au 04/11 ~09:10 UTC, 5 sont au registre (0,31 %)",
      "note": "recensement complet (1 118 117 pools) ; temoins 29/10 = 5 204 et 30/10 = 4 087 pools retrouves exactement"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": null,
+     "note": "non re-mesure ce jour (recensement complet des Initialize non refait) ; prochain point avant l'echeance du 22/11"
     }
    ]
   },
@@ -3599,7 +3659,7 @@
    "mesure": "RPC : evenements Swap de la PoolManager v4 sur les pools dont hooks = 0x2e24565dbd125adcc2b96a86010bc2cade0c6888 (depuis le bloc 94 313 544) ; somme des Transfer USDG 0x5fc5...d168 vers le hook. Reference 23/10 : 72 pools, 3 echanges, 5,90 USDG entres.",
    "seuil": "REVISEE si plus de 1 000 echanges OU plus de 1 M USDG entres avant le 06/11. CONFIRMEE si moins de 100 echanges ET moins de 100 000 USDG au 06/11.",
    "echeance": "2026-11-06",
-   "statut": "OUVERTE",
+   "statut": "CONFIRMEE",
    "historique": [
     {
      "date": "2026-10-23",
@@ -3645,8 +3705,18 @@
      "date": "2026-11-04",
      "valeur": "72 pools ; 4 echanges depuis le bloc 94 313 544 (aucun nouveau depuis le 29/10) ; USDG entres non re-mesures ce jour",
      "note": "sous le seuil de confirmation (100 echanges) ; echeance 06/11"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "72 pools ; 4 echanges depuis le bloc 94 313 544 (dernier au bloc 100 972 081) ; 7,70 USDG entres",
+     "note": "echeance 06/11 : moins de 100 echanges et moins de 100 000 USDG : CONFIRMEE"
     }
-   ]
+   ],
+   "solde": {
+    "date": "2026-11-06",
+    "statut": "CONFIRMEE",
+    "raison": "Au 06/11 ~20:28 UTC : 4 echanges (seuil 100) et 7,70 USDG entres (seuil 100 000) sur les 72 pools de LanistaHook. Aucun echange depuis le bloc 100 972 081 (~29/10)."
+   }
   },
   {
    "id": "v_20261025_01",
@@ -3767,6 +3837,11 @@
      "date": "2026-11-04",
      "valeur": "semaine 27/10 -> 02/11 : 2,2 % du volume v4 valorise (moyenne de 7 jours, 2 tirages chacun) ; nouveaux hooks 'a80' hors registre : 3 le 03/11",
      "note": "premiere semaine mesuree, sous 10 %"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": null,
+     "note": "non re-mesure ce jour (echantillonnage de la semaine 03-09/11 a faire apres le 09/11)"
     }
    ]
   },
@@ -3820,6 +3895,11 @@
      "date": "2026-11-04",
      "valeur": "03/11 : 7 ; 04/11 : 10 (partiel ~09:10 UTC)",
      "note": "aucun jour au-dessus de 1 500"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": null,
+     "note": "non re-mesure ce jour (identifiants des 34 pools non recharges)"
     }
    ]
   },
@@ -3863,6 +3943,11 @@
      "date": "2026-11-04",
      "valeur": "31/10 6,3 % ; 01/11 7,4 % ; 02/11 14,8 % ; 03/11 10,9 % (25,79 M USDG / 237,66 M$)",
      "note": "premier expediteur 0x29d8...80db = 59,1 % du 03/11 ; 04/11 partiel : 12,69 M USDG a ~09:10 UTC"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": "04/11 10,2 % (30,05 M USDG / 295,1 M$) ; 05/11 12,6 % (48,45 M USDG / 384,4 M$)",
+     "note": "comptage complet ; meme jour, le pool WETH/USDG d'Aero (0x7615...9750) a echange 89,68 M$, 1,85 fois plus"
     }
    ]
   },
@@ -3884,6 +3969,11 @@
      "date": "2026-11-04",
      "valeur": "non mesurable avant le samedi 07/11",
      "note": "rien a re-tester ce jour"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": null,
+     "note": "non mesurable avant le samedi 07/11"
     }
    ]
   },
@@ -3900,6 +3990,28 @@
      "date": "2026-11-04",
      "valeur": "31,0 % (21,66 M$ sur 69,82 M$, 448 351 pools)",
      "note": "point de reference ; plancher : les jetons d'actions hors liste Morpho ne sont pas comptes"
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": null,
+     "note": "non re-mesure ce jour (relecture des 448 351 pools v3 non refaite)"
+    }
+   ]
+  },
+  {
+   "id": "v_20261106_01",
+   "ouverte": "2026-11-06",
+   "affirmation": "Aero (fusion Aerodrome+Velodrome, arrive le 22/10) n'est pas un pic de lancement : son volume sur la chaine tient au-dessus de 10 % du volume 7 j des echangeurs, alors qu'il encaisse moins de 1 % des frais (liquidite payee en emissions, frais de 0,0112 % sur son pool principal).",
+   "mesure": "DefiLlama /overview/dexs/Robinhood%20Chain : total7d de la ligne 'Aero Slipstream' / total7d de la chaine (rh_aero_slipstream_vol_7d_part_chaine_pct). En second : sa part des frais 30 j (/overview/fees) et rh_aero_weth_usdg_liquidite_stakee_pct sur la chaine. Reference 06/11 : 11,8 % du volume 7 j (534,6 M$ / 4,52 Md$), 0,32 % des frais 30 j, 98,2 % de la liquidite du pool WETH/USDG dans la jauge.",
+   "seuil": "CONFIRMEE si la part du volume 7 j est >= 10 % le 04/12. REVISEE si elle passe sous 5 % a un releve avant l'echeance (le volume suivait un programme d'emissions de lancement).",
+   "echeance": "2026-12-04",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-11-06",
+     "valeur": "11,8 % du volume 7 j ; 0,32 % des frais 30 j ; liquidite stakee 98,2 %",
+     "note": "point de reference ; volume du 05/11 recompte sur la chaine : 99,95 M$ contre 99,30 M$ chez DefiLlama (0,7 %)"
     }
    ]
   }
