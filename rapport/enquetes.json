@@ -971,6 +971,37 @@
     }
    ],
    "genere": "2026-11-06T21:00:00Z"
+  },
+  {
+   "date": "2026-11-07",
+   "fichier": "rapport/2026-11-07-enquete.html",
+   "titre": "Robinhood Chain, 07/11 : la file des destructions d'actions du samedi a disparu, et le pool d'Uniswap Labs vit de deux contrats",
+   "question": "Le samedi 31/10, 2 511 jetons d'actions avaient ete detruits apres la cloture : nouveau regime de week-end, ou file d'attente plafonnee ? Et qui fait le volume du pool d'Uniswap Labs ?",
+   "mesure_neuve": "Comptage complet sur la chaine des destructions de jetons d'actions : vendredi 06/11, 9 069 (jusqu'a 344 par quart d'heure, contre un plateau de 225 par heure le 30/10) ; samedi 07/11, 55 seulement, toutes avant 01:06 UTC. Et des 44 757 echanges du pool VolatilePair le 06/11 : 89,9 % du volume vient de deux contrats qui appellent la PoolManager directement, 0,41 % du routeur public.",
+   "chiffre_cle": {
+    "valeur": "55",
+    "libelle": "jetons d'actions detruits ce samedi, tous avant 01:06 UTC, contre 2 511 le samedi precedent : la file du week-end a disparu",
+    "population": "comptage complet sur la chaine, samedi 07/11 00:00 -> 09:51 UTC, destructions par l'adresse d'emission 0xa855...3c74 ; temoins rejoues : 31/10 = 2 511, 01/11 = 0"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons (un lanceur de memecoins) dans les frais"
+    },
+    {
+     "champ": "rh_aero_slipstream_vol_7d_part_chaine_pct",
+     "libelle": "Part d'Aero (le nouvel echangeur) dans le volume 7 j"
+    },
+    {
+     "champ": "rh_vol_30d_v4",
+     "libelle": "Volume Uniswap v4 sur 30 jours (les echanges)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaine (l'argent depose)"
+    }
+   ],
+   "genere": "2026-11-07T10:30:00Z"
   }
  ]
 }

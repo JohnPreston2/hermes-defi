@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 07/11 — la file du samedi a disparu</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du samedi 07/11/2026</b> · générée 07/11 ~10:30 UTC · méthode : comptages complets sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> (témoins : <code>eth_chainId</code> = 0x1237 ; code d'une adresse bidon = 0x ; destructions du 31/10 rejouées = 2 511, le chiffre publié ; 01/11 rejoué = 0 ; borne du jour 06/11 retrouvée au bloc 107 143 208, celle publiée hier) · relectures jusqu'au bloc 108 318 812 (~09:55 UTC) · DefiLlama /protocols, /v2/chains, /overview/fees, /overview/dexs, dailyHoldersRevenue, /summary/dexs/uniswap-v4 : ~09:45 UTC · registre <code>Uniswap/hooklist</code> : dernier commit 05/11 22:16 UTC (âge 35 h, aucun changement depuis hier) · API Morpho ~10:00 UTC · Federal Register ~09:50 UTC · SEC 4-927 : <b>403 aux scripts</b> ce jour (témoin négatif aussi en 403 : sonde non concluante), lu par WebFetch · delta (agent Hermes) : joignable (flux de 08:53 UTC), non lu comme source · relevé précédent : 06/11 20:21 UTC, soit <b>13 h 30 d'écart</b>
+</div>
+
+<h1>La file des destructions d'actions du samedi a disparu, et le pool d'Uniswap Labs vit de deux contrats</h1>
+
+<div class="key">
+<div class="v">55</div>
+<div class="l">jetons d'actions détruits ce samedi, tous avant 01:06 UTC. Le samedi précédent, 2 511 l'avaient été, de 00:01 à 11:02 UTC.</div>
+<div class="p">population : comptage complet sur la chaîne des Transfer de l'adresse d'émission 0xa855…3c74 vers 0x0, tous contrats, samedi 07/11 00:00 → 09:51 UTC (bloc 108 317 438) ; 16 jetons distincts. Témoins rejoués ce matin : 31/10 = 2 511 sur 65 jetons, 01/11 = 0.</div>
+</div>
+
+<h2>La question</h2>
+<p>Le samedi 31/10, 2 511 jetons d'actions tokenisées avaient été détruits — c'est-à-dire rachetés puis retirés de la chaîne — alors que le marché américain était fermé. Le samedi d'avant, il n'y en avait eu que 2. Deux lectures s'opposaient. Soit Robinhood ouvre un régime de week-end. Soit c'est une file d'attente née le vendredi et vidée à vitesse plafonnée : le 30/10, le rythme ne dépassait jamais 225 destructions par heure. Une veille (v_20261103_02) devait trancher ce samedi : moins de 100 destructions confirme la file, plus de 500 révise. Seconde question, ouverte hier : qui fait le volume du pool ETH/USDG qu'Uniswap Labs a ouvert avec son hook VolatilePair (un programme greffé sur le pool qui règle les frais selon la volatilité) ?</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : tous les événements de destruction de l'adresse d'émission, jour par jour, en fenêtres de 25 000 blocs (le RPC refuse plus de 30 000 blocs sans filtre d'adresse — piège découvert ce matin, voir plus bas) ; puis les 44 757 échanges du pool VolatilePair le 06/11, rangés par contrat appelant.</p>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>valeur</th><th>source</th></tr>
+<tr><td>destructions, vendredi 06/11 (jour UTC)</td><td class="n">9 069, sur 123 jetons</td><td>RPC, comptage complet</td></tr>
+<tr><td>quart d'heure le plus chargé du 06/11</td><td class="n">344 (23:15 UTC)</td><td>RPC</td></tr>
+<tr><td>même mesure, plateau publié le 30/10</td><td class="n">225 par heure, soit ~56 par quart d'heure</td><td>enquête du 03/11</td></tr>
+<tr><td>pause du 06/11</td><td class="n">aucune destruction de ~20:40 à 22:15 UTC</td><td>RPC</td></tr>
+<tr><td>dernière destruction du vendredi</td><td class="n">23:55 UTC</td><td>RPC</td></tr>
+<tr><td>destructions, samedi 07/11, 00:00 → 09:51 UTC</td><td class="n">55 (00:02 → 01:06), puis 0</td><td>RPC</td></tr>
+<tr><td>pool VolatilePair, volume du 06/11</td><td class="n">40,03 M USDG (44 757 échanges)</td><td>RPC</td></tr>
+<tr><td>part du volume Uniswap v4 du jour</td><td class="n">15,4 % (sur 259,7 M$)</td><td>RPC / DefiLlama</td></tr>
+<tr><td>part du 1<sup>er</sup> contrat appelant <code>0x520e…8aa7</code></td><td class="n">65,8 % (20 576 échanges)</td><td>RPC</td></tr>
+<tr><td>part du 2<sup>e</sup> <code>0x29d8…80db</code></td><td class="n">24,2 % (15 158 échanges)</td><td>RPC</td></tr>
+<tr><td>part de l'Universal Router <code>0x8876…0904</code> (le routeur public)</td><td class="n">0,41 % (551 échanges)</td><td>RPC</td></tr>
+</table></div>
+<p><b>Lecture.</b> Le vendredi 06/11, le rythme de destruction a atteint 344 par quart d'heure, six fois le plateau du 30/10. La file du vendredi s'est donc vidée le vendredi même : la dernière destruction tombe à 23:55 UTC. Il ne reste au samedi qu'une traîne de 55 destructions en une heure. Le samedi 31/10 n'était pas un régime de week-end : c'était un débit trop étroit. Ce débit a été élargi entre le 30/10 et le 06/11. La pause du vendredi, de ~20:40 à 22:15 UTC, tombe de 15:40 à 17:15 à New York : la clôture de la séance. La veille reste ouverte, car le jour n'est pas clos ; elle se solde demain à son échéance, sur le jour complet. À 09:51 UTC, elle est à 55 sur un seuil de 100.</p>
+<p><b>Le pool d'Uniswap Labs.</b> Le routeur public d'Uniswap, celui que traverse un utilisateur ordinaire, est le premier appelant de toute la v4 : 51 % des échanges d'une fenêtre de 3 000 blocs le 06/11. Dans le pool VolatilePair, il pèse 0,41 %. Les deux contrats qui font 89,9 % du volume n'ont que la fonction de rappel de la PoolManager (<code>unlockCallback</code>), sans fonction d'exécution publique ni <code>owner()</code> lisible. Ce sont des contrats d'exécution privés : robots d'arbitrage ou moteurs d'un agrégateur. Le 02/11, le premier appelant pesait 36,1 % ; le 06/11, 65,8 %. La part de marché du pool a monté pendant que sa base se resserrait. J'ouvre une veille (v_20261107_01) sur ce point.</p>
+
+<h2>Le delta contre le 06/11 (20:21 UTC)</h2>
+<div class="wrap"><table>
+<tr><th>champ</th><th>06/11</th><th>07/11</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td class="n">1 059,0 M$</td><td class="n">1 090,3 M$</td><td class="n">+3,0 %</td></tr>
+<tr><td>dont Morpho Blue</td><td class="n">578,2 M$</td><td class="n">609,0 M$</td><td class="n">+5,3 %</td></tr>
+<tr><td>volume 30 j de la chaîne</td><td class="n">22,92 Md$</td><td class="n">22,60 Md$</td><td class="n">−1,4 %</td></tr>
+<tr><td>volume 30 j Uniswap v4</td><td class="n">10,48 Md$</td><td class="n">10,28 Md$</td><td class="n">−2,0 %</td></tr>
+<tr><td>frais 30 j de la chaîne (ce que les protocoles encaissent)</td><td class="n">71,71 M$</td><td class="n">69,55 M$</td><td class="n">−3,0 %</td></tr>
+<tr><td>part de Pons V2 dans ces frais</td><td class="n">15,6 %</td><td class="n">15,5 %</td><td class="n">−0,1 pt</td></tr>
+<tr><td>part d'Aero dans le volume 7 j</td><td class="n">11,8 %</td><td class="n">13,4 %</td><td class="n">+1,6 pt</td></tr>
+<tr><td>revenu 30 j versé aux détenteurs de jetons</td><td class="n">6,07 M$</td><td class="n">5,87 M$</td><td class="n">−3,2 %</td></tr>
+<tr><td>hooks au registre, chaîne robinhood</td><td class="n">1 206</td><td class="n">1 206</td><td class="n">0 (aucun commit)</td></tr>
+</table></div>
+<p>Une seule nature ne suffit pas à dire ce qu'est la chaîne aujourd'hui. Par le capital déposé, c'est une chaîne de prêt : Morpho porte 56 % de la TVL. Par le volume, c'est un DEX : Uniswap fait 79,8 % des 30 derniers jours. Par les frais, Pons, un lanceur de memecoins, reste la 2<sup>e</sup> ligne avec 10,80 M$ sur 30 jours. Le 24 h de DefiLlama (−26 % en volume) porte sur une fenêtre qui finit un samedi matin : je ne le lis pas comme une tendance. Sur 7 jours, Aero devient le 3<sup>e</sup> échangeur de la chaîne (599 M$), derrière Uniswap v4 et v3.</p>
+
+<h2>Les veilles re-testées</h2>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du jour</th><th>statut</th></tr>
+<tr><td>v_20261103_02 — file du samedi</td><td>55 destructions à 09:51 UTC (seuil : moins de 100 sur le jour)</td><td><span class="tag op">OUVERTE</span> solde demain</td></tr>
+<tr><td>v_20260919_01 — poids de Pons dans les frais</td><td>15,5 % ; mort sous 15 %, échéance 19/11</td><td><span class="tag rv">OUVERTE, à 0,5 pt</span></td></tr>
+<tr><td>v_20261103_01 — pool VolatilePair &gt; 10 % du v4</td><td>06/11 : 15,4 % (04/11 10,2 %, 05/11 12,6 %)</td><td><span class="tag op">OUVERTE</span> semaine test 09-15/11</td></tr>
+<tr><td>v_20261106_01 — Aero ≥ 10 % du volume 7 j</td><td>13,4 % ; 0,37 % des frais 30 j</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261019_01 — rachats d'UNI sous 40/semaine</td><td>06/11 : 3 ; semaine du 02/11 : 20 ; nonce 1 367</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20260918_03 — la v3 reste un refuge</td><td>v3 34,0 % / v4 45,5 % du volume 30 j</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261002_01 — le prêt n'est pas adossé aux actions</td><td>0,69 % du collatéral Morpho (3,71 M$ sur 540,56 M$)</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261008_02 — balise des jetons d'actions</td><td>admin toujours un compte sans code ; 0 événement</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20261022_01 — Lighter</td><td>0 événement de la porte de mise à jour</td><td><span class="tag op">OUVERTE</span></td></tr>
+<tr><td>v_20260918_01, _02, _04 — registre des hooks</td><td>inchangé : 72,3 % / 26,5 % ; 5 audits sur 1 206 hooks ; 156 hooks « actions » sur 1 206</td><td><span class="tag op">OUVERTES</span></td></tr>
+<tr><td>v_20261023_01, v_20261027_01, v_20261029_02, v_20261104_01</td><td>non re-mesurées ce jour (recensements longs), point daté « non mesuré »</td><td><span class="tag op">OUVERTES</span></td></tr>
+</table></div>
+<p>Aucune veille n'est soldée aujourd'hui. Une veille est ouverte : v_20261107_01, sur les deux contrats du pool VolatilePair.</p>
+
+<h2>Cohorte</h2>
+<p><b>Ce qui a bougé : up v3 sort.</b> Son volume sur 30 jours tombe à 198,1 M$, sous le seuil de sortie écrit de 200 M$. Il était à 232,3 M$ le 03/11 et 203,5 M$ hier. Aucune modification de son adaptateur chez DefiLlama dans les 16 heures précédentes : la baisse est réelle (4,2 M$ sur 24 h). Le critère était le seul argument de sa présence (« c'est l'échelle qui le justifie »). La place reste vide : aucun candidat automatique ne domine un membre sur la preuve et la traction depuis 7 jours. Aero, de la même famille d'échangeurs à vote, fait 5 fois son volume, mais son score de preuve est de 0 : ni lien d'audit ni compte GitHub publiés chez DefiLlama. La règle ne peut pas le faire entrer.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>preuve</th><th>traction du jour</th><th>frais / Pons V2</th></tr>
+<tr><td>Morpho Blue</td><td class="n">2</td><td class="n">TVL 609,0 M$ (+5,3 %)</td><td class="n">0,169</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">TVL 114,5 M$ ; frais 30 j 2,31 M$</td><td class="n">0,214</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">TVL 63,6 M$ ; frais 30 j 1,97 M$</td><td class="n">0,182</td></tr>
+<tr><td>StonkBrokers (11 fiches)</td><td class="n">0</td><td class="n">frais 30 j 627,1 k$</td><td class="n">0,058</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">TVL 5,87 M$</td><td class="n">0,055</td></tr>
+<tr><td>Ekubo (STONX)</td><td class="n">2</td><td class="n">mcap 10,9 M$ ; volume 30 j 24,4 M$, dont STONX 20,2 M$</td><td class="n">0,004</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">volume 30 j 72,7 M$</td><td class="n">0,004</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">TVL 3,60 M$ ; 0 frais</td><td class="n">0</td></tr>
+<tr><td class="muted">up v3 — sorti le 07/11</td><td class="n">0</td><td class="n">volume 30 j 198,1 M$ &lt; 200 M$</td><td class="n">0,036</td></tr>
+</table></div>
+<p><b>Ce qui n'a pas bougé et devrait inquiéter.</b> Les huit membres réunis encaissent 7,41 M$ de frais sur 30 jours, soit 69 % de la seule fiche Pons V2 (10,80 M$). Cinq des huit ont un score de preuve nul. LayerBank (score 3) remonte à 3,40 M$ de TVL, à 0,20 M$ d'UNCX : s'il le dépasse sept jours de suite, il prend sa place. Antichambre : GlueHook (score 4) reste à 3,5 k$ de TVL, Twofold et ARMSys loin de leurs seuils. Score de preuve recalculé sur les 309 protocoles de la chaîne : 90 liens d'audit sur 94 répondent 200, 52 comptes GitHub sur 54 existent.</p>
+
+<h2>Ce qui contredit</h2>
+<p><b>Contre ma lecture des destructions.</b> 9 069 destructions un vendredi, c'est beaucoup plus que la file du 30/10. Un débit élargi ne prouve pas que la demande de rachat est restée la même. Il se peut que la demande ait grossi, et que le débit ait été relevé pour la suivre. Je ne sais pas trancher : je n'ai pas compté le total du vendredi 30/10, seulement son plateau publié. Deuxième réserve : le samedi n'est pas fini. Un lot de destructions après 09:51 UTC suffirait à faire passer le jour au-dessus de 100.</p>
+<p><b>Contre ma lecture du pool VolatilePair.</b> Des contrats privés ne signifient pas un faux volume. Les agrégateurs exécutent souvent par leurs propres contrats. Un utilisateur ordinaire peut donc se cacher derrière <code>0x520e…8aa7</code>. Ce que la mesure établit : le routeur public d'Uniswap n'y amène presque rien (0,41 %). Elle n'établit pas qui est derrière les deux contrats. Enfin, le samedi, le pool ralentit fort : 4,97 M USDG de 00:00 à ~09:50 UTC, contre 40,03 M sur le vendredi complet.</p>
+<p><b>Contre la sortie de up v3.</b> 1,9 M$ sous le seuil, sur un total glissant : un bon jour suffit à le faire remonter au-dessus. Le critère écrit ne prévoit pas de durée ; je l'applique tel quel. Rendre la sortie durable, par exemple 7 jours sous le seuil, serait une décision de l'utilisateur, pas une déduction.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<p>Pourquoi le débit des destructions a changé entre le 30/10 et le 06/11 : aucune annonce trouvée (recherche web sur Robinhood et les jetons d'actions : rien de daté cette semaine). Qui opère les deux contrats du pool VolatilePair. Le nombre total de lettres au dossier SEC 4-927 : la SEC rend 403 aux scripts ce jour ; la lecture web montre 4 pages et aucune lettre depuis celle de l'American Securities Association le 06/11. Federal Register : 312 documents, inchangé ; l'avis 2026-19388 du 22/09 reste le seul document de l'ordre. Les recensements longs (hooks utilisés, pools v3 relus, famille « a80 », DualPool) n'ont pas été refaits ce jour.</p>
+<p class="muted"><b>Pièges du mémo re-vérifiés ce jour.</b> P2 et P8 : total déclaré des frais et des revenus aux détenteurs comparé à la somme des lignes (5,87 M$ déclarés contre 9,06 M$ de lignes, les lignes doublecounted exclues des deux côtés). P4 : Pons recollé V1 + V2 avant le ratio de reversement (23,3 %). P5 : liens d'audit comptés à la réponse HTTP, pas au code DefiLlama. P7 : chaque chiffre porte sa population. P10 : commits d'adaptateurs DefiLlama listés depuis le 06/11 18:00 UTC (10 commits ; GMGN et vfat touchés, rien sur up, Aero ni Pons). Piège nouveau, à ajouter au mémo : sans filtre d'adresse, <code>eth_getLogs</code> du RPC officiel refuse plus de 30 000 blocs ; une boucle qui relance la même fenêtre sur cette erreur tourne indéfiniment sans rien rendre.</p>
+</main>
+</body>
+</html>
