@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 08/11 — les actions dorment le samedi, la chaîne non</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du dimanche 08/11/2026</b> · générée 08/11 ~10:30 UTC · méthode : comptages complets sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code> (témoins : <code>eth_chainId</code> = 0x1237 ; code d'une adresse bidon = 0x ; destructions du 31/10 rejouées = 2 511, le chiffre publié ; 01/11 rejoué = 0 ; échanges VolatilePair du 06/11 rejoués = 44 757 et 89,9 %, les chiffres publiés hier) · relectures jusqu'au bloc 109 118 421 (~09:14 UTC) · DefiLlama /protocols, /v2/chains, /overview/fees, /overview/dexs (avec séries journalières, Robinhood Chain + Base, Ethereum, Arbitrum, Solana), dailyHoldersRevenue : ~09:15 UTC · registre <code>Uniswap/hooklist</code> : dernier commit 05/11 22:16 UTC (âge 59 h, inchangé) · API Morpho ~09:40 UTC · Federal Register ~09:45 UTC · SEC 4-927 : <b>403 aux scripts</b> (témoin négatif aussi en 403 : sonde non concluante), lu par WebFetch · <b>github.com : 504 à nos scripts ce matin</b> (témoin github.com/Uniswap aussi en 504) ; liens d'audit concernés relus par l'API GitHub · delta (agent Hermes) : joignable (flux de 08:53 UTC), non utilisé comme source · relevé précédent : 07/11 09:51 UTC, soit <b>23 h 30 d'écart</b>
+</div>
+
+<h1>Les actions tokenisées dorment le samedi, la chaîne non</h1>
+
+<div class="key">
+<div class="v">−73 %</div>
+<div class="l">de transferts de jetons d'actions le samedi 07/11 par rapport au vendredi 06/11. Le même samedi, la chaîne entière ne ralentit pas plus que Base ou Ethereum.</div>
+<div class="p">population : les 134 jetons d'actions rattachés à la balise commune 0xe10b…1b00 (slot beacon vérifié un par un) ; 881 929 transferts le 06/11, 238 827 le 07/11 ; comptage complet sur la chaîne, jours UTC, hors émissions et destructions.</div>
+</div>
+
+<h2>Ce que le fil a tranché ce matin</h2>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du jour</th><th>statut</th></tr>
+<tr><td>v_20261103_02 — la file des destructions du 31/10 était ponctuelle</td><td class="n">55 destructions sur le samedi 07/11 complet, toutes entre 00:02 et 01:06 UTC ; 0 émission ; dimanche 08/11 jusqu'à 09:14 : 0</td><td><span class="tag ok">CONFIRMÉE</span></td></tr>
+<tr><td>v_20260919_01 — le poids de Pons dans les frais tient</td><td class="n">15,6 % (10,45 / 67,01 M$) ; seuil de mort 15 %, échéance 19/11</td><td><span class="tag op">ouverte, 0,6 pt de marge</span></td></tr>
+<tr><td>v_20261103_01 — le pool d'Uniswap Labs dépasse 10 % du volume v4</td><td class="n">samedi 07/11 : 8,2 % (14,51 M USDG / 176,6 M$)</td><td><span class="tag op">ouverte, semaine 09-15/11 à venir</span></td></tr>
+<tr><td>v_20261107_01 — ce pool vit de deux contrats</td><td class="n">07/11 : 73,2 % pour les deux premiers ; routeur public 0,87 %</td><td><span class="tag op">ouverte (seuil lu le 05/12)</span></td></tr>
+<tr><td>v_20261106_01 — Aero tient plus de 10 % du volume 7 j</td><td class="n">13,4 % (592,2 / 4 420,9 M$)</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>v_20260918_03 — la v3 reste un refuge</td><td class="n">v3 33,2 % / v4 45,9 % du volume 30 j</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>v_20261002_01 — le prêt n'est pas adossé aux actions</td><td class="n">0,69 % du collatéral Morpho (3,71 / 534,63 M$)</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>v_20261019_01 — rachats d'UNI sous 40 par semaine</td><td class="n">semaine du 02/11 : 21 ; 1 le 07/11</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>v_20261008_02 et v_20261022_01 — clés uniques (actions, Lighter)</td><td class="n">0 événement sur la balise et sur la porte de Lighter, blocs 108 318 813 → 109 118 421</td><td><span class="tag op">ouvertes, inchangé</span></td></tr>
+<tr><td>v_20260918_01, _02, _04 — registre des hooks</td><td class="n">72,3 % / 26,5 % ; 5 audités sur 1 206 ; 156 sur 1 206 au vocabulaire « actions »</td><td><span class="tag op">ouvertes, registre figé depuis 59 h</span></td></tr>
+</table></div>
+<p class="muted">Non re-mesurées ce jour : v_20261023_01, v_20261027_01, v_20261029_02, v_20261104_01 (recensements longs). Une veille ouverte : v_20261108_01, ci-dessous.</p>
+
+<h2>La question</h2>
+<p>Robinhood Chain a été lancée le 1<sup>er</sup> juillet pour porter des actions tokenisées, échangeables jour et nuit. Mais l'émission et la destruction de ces jetons suivent un calendrier : la presse rapporte un fonctionnement du lundi au samedi, et nos comptages montrent que, de fait, plus rien ne s'émet après la clôture du vendredi. Si la chaîne vit vraiment des actions, elle devrait se vider le week-end bien plus que les autres chaînes. Est-ce le cas ?</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : tous les transferts des jetons d'actions, vendredi puis samedi, comptés sur la chaîne ; et les séries journalières de volume des échangeurs chez DefiLlama, sur quatre semaines, pour Robinhood Chain et quatre chaînes témoins.</p>
+<p>D'abord la population. En prenant tous les jetons émis ou détruits par l'adresse d'émission le 06/11, plus ceux détruits le 31/10, on obtient <b>134 jetons</b>. Les 134 pointent vers la même balise de mise à jour (<code>0xe10b…1b00</code>), celle dont un seul compte sans code détient le rôle d'administrateur (veille v_20261008_02). La veille parlait de « 50 jetons de la liste » : la balise en gouverne en réalité au moins 134.</p>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>vendredi 06/11</th><th>samedi 07/11</th><th>rapport</th></tr>
+<tr><td>transferts des 134 jetons d'actions (hors émissions et destructions)</td><td class="n">881 929</td><td class="n">238 827</td><td class="n">0,271</td></tr>
+<tr><td>jetons ayant bougé</td><td class="n">134</td><td class="n">98</td><td class="n">0,73</td></tr>
+<tr><td>adresses expéditrices distinctes</td><td class="n">9 250</td><td class="n">9 229</td><td class="n">1,00</td></tr>
+<tr><td>émissions + destructions, tous émetteurs</td><td class="n">10 895</td><td class="n">62</td><td class="n">0,006</td></tr>
+<tr><td>volume des échangeurs de la chaîne (DefiLlama)</td><td class="n">715,1 M$</td><td class="n">300,6 M$</td><td class="n">0,42</td></tr>
+<tr><td>pool ETH/USDG du hook VolatilePair (jambe USDG)</td><td class="n">40,03 M</td><td class="n">14,51 M</td><td class="n">0,36</td></tr>
+</table></div>
+<p>Les jetons les plus transférés : SPY (178 017 puis 47 251), NVDA (139 266 puis 35 604), SPCX (97 437 puis 23 963). Le samedi, META remonte en troisième place avec 33 718 transferts. Fait frappant : le nombre d'adresses qui envoient des jetons d'actions ne bouge pas (9 250 puis 9 229). Ce sont les mêmes acteurs, qui font quatre fois moins de mouvements. Les robots d'arbitrage, qui alignent le jeton sur le cours de Bourse, n'ont plus de cours à suivre.</p>
+
+<h3>La chaîne, elle, ne dort pas plus que les autres</h3>
+<p>Volume journalier moyen des échangeurs, week-end divisé par semaine, du lundi 12/10 au samedi 07/11 (20 jours de semaine, 7 jours de week-end, source DefiLlama, calcul local) :</p>
+<div class="wrap"><table>
+<tr><th>chaîne ou protocole</th><th>week-end / semaine</th><th>samedi 07 / vendredi 06</th></tr>
+<tr><td><b>Robinhood Chain</b> (826,4 M$ en semaine, 481,8 M$ le week-end)</td><td class="n"><b>0,583</b></td><td class="n">0,42</td></tr>
+<tr><td>Base (témoin)</td><td class="n">0,558</td><td class="n">0,49</td></tr>
+<tr><td>Solana (témoin)</td><td class="n">0,555</td><td class="n">0,32</td></tr>
+<tr><td>Ethereum (témoin)</td><td class="n">0,521</td><td class="n">0,47</td></tr>
+<tr><td>Arbitrum (témoin)</td><td class="n">0,483</td><td class="n">0,32</td></tr>
+<tr><td>— Uniswap V4 sur Robinhood Chain</td><td class="n">0,761</td><td class="n">0,68</td></tr>
+<tr><td>— Uniswap V3 sur Robinhood Chain</td><td class="n">0,388</td><td class="n">0,26</td></tr>
+<tr><td>— Rialto Prop AMM (actions, ETF, matières premières)</td><td class="n">0,007</td><td class="n">0</td></tr>
+<tr><td>— 0x (agrégateur)</td><td class="n">0,123</td><td class="n">—</td></tr>
+<tr><td>— Pons V2 (lanceur de memecoins, contre-référence)</td><td class="n">0,594</td><td class="n">—</td></tr>
+<tr><td>— Metric V1</td><td class="n">0,869</td><td class="n">—</td></tr>
+<tr><td>— frais de Morpho Blue (prêt)</td><td class="n">0,988</td><td class="n">—</td></tr>
+</table></div>
+<p>La chaîne entière a même un week-end <b>plus actif</b>, relativement à sa semaine, que les quatre témoins. La coupure du samedi existe, mais elle est localisée. Rialto, qui fait coter des actions, s'arrête net (0,007). La v3, où 31 % de la valeur relue le 04/11 était en jetons d'actions, tombe à 0,39. La v4, où vivent les lanceurs de memecoins et les pools à hook, garde 0,76. Le prêt ne connaît pas de week-end (0,99 pour les frais de Morpho).</p>
+<p>Les trois natures de la chaîne, lues ensemble ce dimanche. Par les frais (ce que les protocoles encaissent) : 67,01 M$ sur 30 jours, dont 15,6 % pour Pons, un lanceur de memecoins. Par le TVL (l'argent déposé) : 1,079 Md$, dont 605,5 M$ chez Morpho Blue, un prêteur. Par le volume (les échanges) : 21,77 Md$ sur 30 jours, dont 79,3 % chez Uniswap. Le samedi enlève surtout la quatrième couche, les actions. Les trois autres restent.</p>
+
+<h2>Le delta contre la veille</h2>
+<div class="wrap"><table>
+<tr><th>champ</th><th>07/11 09:51 UTC</th><th>08/11 09:15 UTC</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne</td><td class="n">1 090,3 M$</td><td class="n">1 079,2 M$</td><td class="n">−1,0 %</td></tr>
+<tr><td>TVL Uniswap V4</td><td class="n">164,6 M$</td><td class="n">156,9 M$</td><td class="n">−4,6 %</td></tr>
+<tr><td>volume 30 j, chaîne</td><td class="n">22,60 Md$</td><td class="n">21,77 Md$</td><td class="n">−3,7 %</td></tr>
+<tr><td>volume 30 j, Uniswap V3</td><td class="n">7,69 Md$</td><td class="n">7,22 Md$</td><td class="n">−6,1 %</td></tr>
+<tr><td>frais 30 j, chaîne (total déclaré)</td><td class="n">69,55 M$</td><td class="n">67,01 M$</td><td class="n">−3,7 %</td></tr>
+<tr><td>part de Pons V2 dans les frais 30 j</td><td class="n">15,5 %</td><td class="n">15,6 %</td><td class="n">+0,1 pt</td></tr>
+<tr><td>revenu aux détenteurs, 30 j (total déclaré)</td><td class="n">5,87 M$</td><td class="n">5,63 M$</td><td class="n">−4,1 %</td></tr>
+<tr><td>hooks au registre (chaîne robinhood)</td><td class="n">1 206</td><td class="n">1 206</td><td class="n">0</td></tr>
+</table></div>
+<p>Le recul du volume 30 jours est mécanique pour une part : un samedi à 300,6 M$ entre dans la fenêtre pendant qu'un jour de semaine en sort. Les commits d'adaptateurs DefiLlama depuis le 07/11 09:00 UTC (28) n'en touchent qu'un sur la chaîne : <code>aveai</code> ajoute Robinhood Chain à un agrégateur, sans effet sur les lignes d'échangeurs lues ici.</p>
+
+<h2>Ce qui contredit</h2>
+<p><b>Un transfert n'est pas un échange.</b> Un échange routé à travers deux pools produit plusieurs transferts. Si les routes du samedi sont plus courtes, le −73 % exagère la baisse du volume en dollars. Nous n'avons pas valorisé ces transferts.</p>
+<p><b>La presse donne une autre proportion.</b> Selon un article du 25/10 qui ne nomme pas sa source, le week-end a porté 14 % des 3,68 Md$ échangés en jetons d'actions du 24/09 au 23/10, et 59 % du volume est passé hors des heures de Bourse américaines. Recalculé par jour, ces 14 % donneraient un week-end à environ 0,45 de la semaine, contre notre 0,27 pour un seul samedi (presse, non recoupé). Les deux ne sont pas forcément incompatibles : un mois contre un jour, des dollars contre des transferts. Mais l'écart est trop grand pour être ignoré.</p>
+<p><b>Un seul samedi.</b> Le 07/11 suit une semaine chargée (979 M$ le jeudi 05/11). Le samedi 31/10 avait porté 358,6 M$ de volume de chaîne, le 24/10 485,8 M$ : le 07/11 est le samedi le plus calme des trois. C'est pourquoi la nouvelle veille porte sur trois samedis.</p>
+<p><b>Le week-end « normal » de la chaîne peut cacher une substitution.</b> Si le volume d'actions tombe et que les memecoins montent le samedi, le total ressemble aux autres chaînes pour une mauvaise raison. Uniswap V4 à 0,76 et Pons à 0,59 vont dans ce sens, sans le prouver.</p>
+
+<h2>Cohorte</h2>
+<p>Rien n'a franchi un seuil. Aucune entrée, aucune sortie ; la place laissée par up v3 le 07/11 reste vide, faute de candidat qui domine un membre sept jours de suite. Score de preuve recalculé sur les 309 protocoles du filtre chaîne : 207 à 0, 37 à 1, 50 à 2, 15 à 3 (identique au 07/11). github.com rendait 504 ce matin à tous nos scripts, témoin compris. Les 40 liens d'audit concernés ont été relus par l'API GitHub, calibrée sur un témoin négatif (404) : 38 existent, 2 rendent 404. Total : 90 liens sur 94.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>preuve</th><th>traction 08/11</th><th>frais / Pons</th><th>à surveiller</th></tr>
+<tr><td>Morpho Blue</td><td class="n">2</td><td class="n">TVL 605,5 M$ (−0,6 %)</td><td class="n">0,17</td><td>frais du week-end à 0,99 de la semaine</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">TVL 114,7 M$ (+0,1 %)</td><td class="n">0,21</td><td>2<sup>e</sup> TVL hors Uniswap ; porte de mise à jour muette</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">TVL 64,1 M$ (+0,7 %)</td><td class="n">0,18</td><td>—</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">TVL 5,82 M$ (−0,9 %)</td><td class="n">0,055</td><td>—</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">TVL 3,58 M$ (−0,7 %)</td><td class="n">0</td><td>LayerBank (score 3) à 0,13 M$ derrière</td></tr>
+<tr><td>Ekubo / STONX</td><td class="n">2</td><td class="n">vol. 30 j 23,3 M$ (−4,4 %), STONX 19,1 M$</td><td class="n">0,004</td><td>week-end à 0,44</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">vol. 30 j 68,1 M$ (−6,3 %)</td><td class="n">0,004</td><td>3<sup>e</sup> baisse ; seuil de sortie 50 M$</td></tr>
+<tr><td>StonkBrokers (11 fiches)</td><td class="n">0</td><td class="n">frais 30 j 611,7 k$</td><td class="n">0,059</td><td>—</td></tr>
+</table></div>
+<p>Ce qui devrait inquiéter sans franchir de seuil : GIGA V3 perd 6,3 % de volume en un jour et se rapproche de son seuil de 50 M$. La contre-référence Pons tient 15,6 % des frais de la chaîne, toujours deuxième derrière Uniswap V4 (25,6 M$). Tant qu'elle reste là, la thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse. Le samedi 07/11 l'illustre : ce qui tourne le week-end, c'est ce que Pons représente.</p>
+
+<h2>Veille ouverte ce jour</h2>
+<p><b>v_20261108_01</b> — Les jetons d'actions dorment le week-end, la chaîne non. Mesure : transferts des 134 jetons le samedi divisés par ceux du vendredi précédent, pour les samedis 14, 21 et 28/11 ; en second, le rapport samedi/vendredi de la chaîne contre Base. Référence : 27,1 % ; chaîne 42,0 % contre Base 48,7 %. CONFIRMÉE si les trois rapports restent sous 40 % ; RÉVISÉE si un seul dépasse 60 %. Échéance : 29/11.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<p>La valeur en dollars des transferts d'actions du samedi : non valorisée ce jour. La part des transferts qui sont des échanges, et non des mouvements de portefeuille. Qui sont les 9 229 expéditeurs du samedi. Si le dimanche ressemble au samedi : le 08/11 n'est pas clos. Dossier SEC 4-927 : la SEC rend 403 aux scripts ; la lecture web montre 4 pages et aucune lettre depuis celle de l'American Securities Association le 06/11. Federal Register : 312 documents, inchangé ; l'avis 2026-19388 du 22/09 reste le seul document de l'ordre. Aucun avis de lieu de négociation de titres tokenisés trouvé pour Robinhood Chain. Les recensements longs n'ont pas été refaits.</p>
+<p class="muted"><b>Pièges du mémo re-vérifiés ce jour.</b> P2 et P8 : total déclaré des frais comparé à la somme des lignes hors doublecounted (67 013 549 $ des deux côtés, au dollar près) ; revenus aux détenteurs : 5,63 M$ déclarés contre 8,77 M$ de lignes. P4 : Pons recollé V1 + V2 avant le reversement (23,6 %). P5 : liens d'audit comptés à la réponse, pas au code DefiLlama. P7 : chaque chiffre porte sa population (134 jetons, 309 protocoles, 1 206 hooks). P10 : commits d'adaptateurs listés depuis le 07/11 09:00 UTC. Piège nouveau, à ajouter au mémo : <b>github.com peut rendre 504 à tous les scripts</b> alors que l'API GitHub répond ; sans témoin connu (github.com/Uniswap), 21 protocoles auraient perdu 2 points de preuve en silence. Et : le dernier point de <code>totalDataChart</code> chez DefiLlama est un glissant de 24 h, daté du jour en cours ; le jour plein est dans <code>totalLastFullDay</code>.</p>
+</main>
+</body>
+</html>

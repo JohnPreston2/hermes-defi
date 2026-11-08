@@ -1002,6 +1002,37 @@
     }
    ],
    "genere": "2026-11-07T10:30:00Z"
+  },
+  {
+   "date": "2026-11-08",
+   "fichier": "rapport/2026-11-08-enquete.html",
+   "titre": "Robinhood Chain, 08/11 : les actions tokenisees dorment le samedi, la chaine non",
+   "question": "Une chaine construite pour les actions tokenisees se vide-t-elle le week-end, quand Wall Street est ferme, plus que les autres chaines ?",
+   "mesure_neuve": "Comptage complet sur la chaine des transferts des 134 jetons d'actions rattaches a la balise commune : 881 929 le vendredi 06/11, 238 827 le samedi 07/11 (27,1 %), avec presque autant d'adresses expeditrices (9 250 puis 9 229). Le meme samedi, le volume des echangeurs de la chaine tombe a 42 % du vendredi ; et sur quatre semaines, son week-end vaut 0,58 de la semaine, autant que Base (0,56) et plus qu'Ethereum (0,52).",
+   "chiffre_cle": {
+    "valeur": "-73 %",
+    "libelle": "de transferts de jetons d'actions le samedi par rapport au vendredi, alors que la chaine entiere ne ralentit pas plus le week-end que Base ou Ethereum",
+    "population": "134 jetons d'actions de la balise 0xe10b...1b00 ; 881 929 transferts le 06/11, 238 827 le 07/11, comptage complet, hors emissions et destructions"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_vol_weekend_sur_semaine_4sem_ratio",
+     "libelle": "Week-end / semaine, volume des echanges de la chaine"
+    },
+    {
+     "champ": "rh_actions_transferts_ratio_sam_ven",
+     "libelle": "Samedi / vendredi, transferts des jetons d'actions"
+    },
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons (un lanceur de memecoins) dans les frais"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaine (l'argent depose)"
+    }
+   ],
+   "genere": "2026-11-08T10:30:00Z"
   }
  ]
 }

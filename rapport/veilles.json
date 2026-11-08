@@ -211,6 +211,11 @@
      "date": "2026-11-07",
      "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
      "note": "registre inchange depuis le 05/11 22:16 UTC"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
+     "note": "registre inchange depuis le 05/11 22:16 UTC (dernier commit f4b5956d)"
     }
    ],
    "solde": null
@@ -418,6 +423,11 @@
      "date": "2026-11-07",
      "valeur": "5 / 1206 (0,41 %) au champ auditUrl ; 3 vers un vrai rapport ; 4 liens sur 5 en 200 (le PDF DualPool d'Uniswap rend 404)",
      "note": "inchange"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "5 / 1206 (0,41 %) au champ auditUrl",
+     "note": "inchange ; liens non re-sondes ce jour (github.com rend 504 a nos scripts, temoin github.com/Uniswap aussi en 504)"
     }
    ],
    "solde": null
@@ -625,6 +635,11 @@
      "date": "2026-11-07",
      "valeur": "v3 34,0 % / v4 45,5 % du volume 30 j (7,69 / 10,28 / 22,60 Md$)",
      "note": "DefiLlama 07/11 ~09:45 UTC ; Aero 1,06 Md$ sur 30 j"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "v3 33,2 % / v4 45,9 % du volume 30 j (7,22 / 10,00 / 21,77 Md$)",
+     "note": "DefiLlama 08/11 ~09:15 UTC"
     }
    ],
    "solde": null
@@ -830,6 +845,11 @@
     },
     {
      "date": "2026-11-07",
+     "valeur": "156 sur 1206 (12,9 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "SEC 4-927 : aucune lettre depuis le 06/11 (WebFetch) ; FR : 312 documents, inchange ; recherche web : rien"
+    },
+    {
+     "date": "2026-11-08",
      "valeur": "156 sur 1206 (12,9 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "SEC 4-927 : aucune lettre depuis le 06/11 (WebFetch) ; FR : 312 documents, inchange ; recherche web : rien"
     }
@@ -1138,6 +1158,11 @@
      "date": "2026-11-07",
      "valeur": "15,5 % (10,80/69,55 M$) Pons V2 ; 17,5 % hors Relay",
      "note": "echeance 19/11 ; il reste 0,5 point avant le seuil de mort de 15 %"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "15,6 % (10,45/67,01 M$) Pons V2 ; 17,5 % hors Relay",
+     "note": "echeance 19/11 ; il reste 0,6 point avant le seuil de mort de 15 %"
     }
    ],
    "solde": null
@@ -1938,6 +1963,11 @@
      "date": "2026-11-07",
      "valeur": "0,69 % (3,71 M$ sur 540,56 M$ de collateral Morpho), 11 marches d'actions au-dessus de 1 000 $, 52 jetons",
      "note": "API Morpho ~10:00 UTC"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "0,69 % (3,71 M$ sur 534,63 M$ de collateral Morpho), 11 marches d'actions au-dessus de 1 000 $, 53 jetons",
+     "note": "API Morpho ~09:40 UTC"
     }
    ]
   },
@@ -2777,6 +2807,11 @@
      "date": "2026-11-07",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoins 0x...dead et deployeur : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise du bloc 107 860 862 au bloc 108 318 812",
      "note": "inchange"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise du bloc 108 318 813 au bloc 109 118 421",
+     "note": "inchange ; la balise est commune a 134 jetons d'actions (slot beacon verifie un par un)"
     }
    ]
   },
@@ -3490,6 +3525,11 @@
      "date": "2026-11-07",
      "valeur": "06/11 : 3 rachats ; 07/11 jusqu'a ~09:50 UTC : 0 ; semaine du 02/11 : 20 ; nonce 1 367",
      "note": "sous 40 par semaine"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "07/11 : 1 rachat ; 08/11 jusqu'a ~09:14 UTC : 0 ; semaine du 02/11 : 21 ; nonce 1 368",
+     "note": "sous 40 par semaine"
     }
    ]
   },
@@ -3633,6 +3673,11 @@
      "date": "2026-11-07",
      "valeur": "0 evenement de la porte de mise a jour du bloc 107 860 862 au bloc 108 318 812",
      "note": "conseil non relu ce jour"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "0 evenement de la porte de mise a jour du bloc 108 318 813 au bloc 109 118 421 ; conseil 0x4972...efdb sans code",
+     "note": "inchange"
     }
    ]
   },
@@ -3697,6 +3742,11 @@
     },
     {
      "date": "2026-11-07",
+     "valeur": null,
+     "note": "non re-mesure ce jour ; prochain point avant l'echeance du 22/11"
+    },
+    {
+     "date": "2026-11-08",
      "valeur": null,
      "note": "non re-mesure ce jour ; prochain point avant l'echeance du 22/11"
     }
@@ -3897,6 +3947,11 @@
      "date": "2026-11-07",
      "valeur": null,
      "note": "non re-mesure ce jour (semaine 03-09/11 a echantillonner apres le 09/11)"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": null,
+     "note": "non re-mesure ce jour (semaine 03-09/11 a echantillonner apres le 09/11)"
     }
    ]
   },
@@ -3960,6 +4015,11 @@
      "date": "2026-11-07",
      "valeur": null,
      "note": "non re-mesure ce jour (identifiants des 34 pools non recharges)"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": null,
+     "note": "non re-mesure ce jour (identifiants des 34 pools non recharges)"
     }
    ]
   },
@@ -4013,6 +4073,11 @@
      "date": "2026-11-07",
      "valeur": "06/11 15,4 % (40,03 M USDG / 259,7 M$) ; 07/11 partiel 4,97 M USDG a ~09:50 UTC",
      "note": "comptage complet ; 89,9 % du volume du 06/11 vient de deux contrats qui appellent la PoolManager directement, 0,41 % de l'Universal Router"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "07/11 8,2 % (14,51 M USDG / 176,6 M$) ; 08/11 partiel 5,15 M USDG a ~09:14 UTC",
+     "note": "comptage complet ; moyenne 09-15/11 a calculer apres le 15/11"
     }
    ]
   },
@@ -4023,7 +4088,7 @@
    "mesure": "RPC, comptage complet : Transfer(from=0xa8553db0049fc6843c0d00d0efc08d31848e3c74, to=0x0) tous contrats, jour UTC 07/11. Temoins : 2 le 24/10, 2 511 le 31/10, 0 le 01/11. En second : plateau horaire du vendredi 06/11 (166/h le 23/10, 225/h le 30/10).",
    "seuil": "CONFIRMEE si moins de 100 destructions le 07/11. REVISEE si plus de 500 (le samedi devient un jour de destruction).",
    "echeance": "2026-11-08",
-   "statut": "OUVERTE",
+   "statut": "CONFIRMEE",
    "historique": [
     {
      "date": "2026-11-03",
@@ -4044,8 +4109,17 @@
      "date": "2026-11-07",
      "valeur": "55 destructions le 07/11 de 00:00 a 09:51 UTC, toutes entre 00:02 et 01:06 ; vendredi 06/11 : 9 069 (jusqu'a 344 par quart d'heure, contre 225 par heure le 30/10)",
      "note": "temoins rejoues : 31/10 = 2 511, 01/11 = 0. Jour non clos : solde a l'echeance du 08/11 sur le jour complet"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "55 destructions sur le jour UTC 07/11 complet (00:00 -> 23:59), toutes entre 00:02 et 01:06 ; 0 emission ; dimanche 08/11 jusqu'a ~09:14 UTC : 0",
+     "note": "temoins rejoues ce jour : 31/10 = 2 511, 01/11 = 0"
     }
-   ]
+   ],
+   "solde": {
+    "date": "2026-11-08",
+    "motif": "55 destructions le samedi 07/11, sous le seuil de 100 : la file du 31/10 etait un ecoulement ponctuel, pas un regime de week-end."
+   }
   },
   {
    "id": "v_20261104_01",
@@ -4070,6 +4144,11 @@
      "date": "2026-11-07",
      "valeur": null,
      "note": "non re-mesure ce jour (relecture des 448 351 pools v3 non refaite)"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": null,
+     "note": "non re-mesure ce jour (relecture des 448 351 pools v3 non refaite)"
     }
    ]
   },
@@ -4092,6 +4171,11 @@
      "date": "2026-11-07",
      "valeur": "13,4 % du volume 7 j (599,2 / 4 469 M$) ; 0,37 % des frais 30 j",
      "note": "DefiLlama 07/11 ~09:45 UTC ; 3e echangeur sur 7 j"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "13,4 % du volume 7 j (592,2 / 4 420,9 M$) ; 0,40 % des frais 30 j",
+     "note": "DefiLlama 08/11 ~09:15 UTC"
     }
    ]
   },
@@ -4109,6 +4193,28 @@
      "date": "2026-11-07",
      "valeur": "89,9 % deux premiers senders ; Universal Router 0,41 % (551 echanges sur 44 757)",
      "note": "point de reference, jour UTC 06/11 complet"
+    },
+    {
+     "date": "2026-11-08",
+     "valeur": "07/11 : deux premiers senders 73,2 % (51,5 + 21,7) ; Universal Router 0,87 % (415 echanges sur 13 138)",
+     "note": "jour UTC complet ; sous les 75 % du seuil, mais le seuil ne se lit qu'au 05/12"
+    }
+   ]
+  },
+  {
+   "id": "v_20261108_01",
+   "ouverte": "2026-11-08",
+   "affirmation": "Les jetons d'actions Robinhood dorment le week-end, la chaine non : le samedi, leurs transferts tombent sous 40 % de ceux du vendredi (27,1 % le 07/11), alors que le volume des echangeurs de la chaine baisse comme celui des autres chaines.",
+   "mesure": "RPC : rh_actions_transferts du samedi / du vendredi precedent (134 jetons de la balise 0xe10b...1b00, hors emissions et destructions), pour les samedis 14/11, 21/11 et 28/11. En second : DefiLlama totalDataChart, ratio samedi/vendredi de Robinhood Chain contre Base le meme jour. Reference 07/11 : 238 827 / 881 929 = 27,1 % ; chaine 42,0 % contre Base 48,7 %.",
+   "seuil": "CONFIRMEE si les trois ratios samedi/vendredi des transferts restent sous 40 %. REVISEE si un ratio depasse 60 % (les actions vivent le week-end comme le reste).",
+   "echeance": "2026-11-29",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-11-08",
+     "valeur": "27,1 % (238 827 / 881 929) ; chaine 42,0 % contre Base 48,7 %",
+     "note": "point de reference, jours UTC 06 et 07/11 complets"
     }
    ]
   }
