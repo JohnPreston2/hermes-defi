@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-11-08T03:46:02Z",
+"generated_at": "2026-11-08T11:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 138,
+"n_affiches": 135,
 "n_refuses": 0,
-"n_traduits": 15,
+"n_traduits": 14,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -16,7 +16,6 @@
 "Mystery Wall Street Journal ad sparks new fight over tokenized stocks": "Une publicité mystère du Wall Street Journal relance le débat sur les actions tokenisées",
 "P/F expands above 3.0x or base (fees) turns negative for two consecutive periods.": "Le P/F dépasse 3,0x ou la base (frais) devient négative pendant deux périodes consécutives.",
 "P/F expands above 3.5x or token capture drops below 5%.": "Le P/F dépasse 3,5x ou la capture du jeton tombe sous 5%.",
-"Pump.fun Sets Nov. 9 Start for Elysium Trading in Its App": "Pump.fun fixe au 9 novembre le lancement d'Elysium Trading dans son application",
 "SparkLend Has $11.95 Million in USDT Available as Utilization Holds Near 96%": "SparkLend dispose de 11,95 millions de dollars en USDT disponibles, alors que le taux d'utilisation reste proche de 96 %",
 "TVL base trend turns negative or FDV/Mcap ratio exceeds 3.5.": "La tendance de base de la TVL devient négative, ou le ratio FDV/Mcap dépasse 3,5.",
 "Token capture remains 0.0% for 30 days or base (OI/Vol) contracts for 7 consecutive days.": "La capture de jetons reste à 0,0% pendant 30 jours, ou la base (OI/Vol) se contracte pendant 7 jours consécutifs.",
