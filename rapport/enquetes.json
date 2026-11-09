@@ -1033,6 +1033,37 @@
     }
    ],
    "genere": "2026-11-08T10:30:00Z"
+  },
+  {
+   "date": "2026-11-09",
+   "fichier": "rapport/2026-11-09-enquete.html",
+   "titre": "Robinhood Chain, 09/11 : les jetons d'actions se reveillent le dimanche soir, cinq heures avant que Robinhood en emette un seul",
+   "question": "Apres un samedi a -73 %, quand les jetons d'actions de la chaine reprennent-ils vie : a l'ouverture du marche 24 h de New York (dimanche 20:00, soit lundi 01:00 UTC), ou avant ?",
+   "mesure_neuve": "Comptage complet sur la chaine des transferts des 134 jetons d'actions : 330 139 le dimanche 08/11, plus que le samedi (238 827), dont, sur les 142 jetons de la balise, 169 499 sur 332 701 (50,9 %) entre 20:00 et 24:00 UTC. L'heure de 23:00 UTC (59 043) egale la premiere heure du lundi apres ouverture (59 419). Or aucune emission n'a lieu avant lundi 01:04:45 UTC, soit 20:04 a New York : le reveil se fait sur les jetons deja en circulation. Temoin : les echanges Uniswap v4 de toute la chaine montent aussi le dimanche soir, mais 2,2 fois la moyenne de la journee a 23:00, contre 7,2 fois pour les jetons d'actions.",
+   "chiffre_cle": {
+    "valeur": "50,9 %",
+    "libelle": "des transferts de jetons d'actions du dimanche tombent entre 15:00 et 19:00 heure de New York, avant l'ouverture du marche 24 h et avant la premiere emission de Robinhood",
+    "population": "169 499 transferts entre 20:00 et 24:00 UTC sur 332 701 le dimanche 08/11, 142 jetons de la balise 0xe10b...1b00, comptage complet ; premiere emission lundi 09/11 a 01:04:45 UTC"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_actions_transferts_ratio_sam_ven",
+     "libelle": "Samedi / vendredi, transferts des jetons d'actions"
+    },
+    {
+     "champ": "rh_actions_transferts_ratio_dim_ven",
+     "libelle": "Dimanche / vendredi, transferts des jetons d'actions"
+    },
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons (un lanceur de memecoins) dans les frais"
+    },
+    {
+     "champ": "rh_v4_tvl_usd",
+     "libelle": "TVL Uniswap v4 (l'argent depose)"
+    }
+   ],
+   "genere": "2026-11-09T14:30:00Z"
   }
  ]
 }
