@@ -1,21 +1,28 @@
 {
  "defauts": [
   {
-   "constat": "Les icônes Compound Finance et Uniswap, en lumière, n'ont pas d'étiquette sur la scène ; leur nom n'apparaît que dans la bande du bas.",
+   "constat": "L'étiquette « 10,0 M$ de frais en 30 j » est coupée au bord droit : le mot « jours » sort de l'écran.",
    "ecran": "ordinateur",
    "gravite": "gene",
-   "type": "sans_nom",
-   "vue": "Attention"
+   "type": "texte_coupe",
+   "vue": "Cohorte"
   },
   {
-   "constat": "Les icônes HumidiFi et Rocket Pool, dans la rangée « chiffre instable », n'ont pas d'étiquette sur la scène ; leur nom n'apparaît que dans la bande du bas.",
-   "ecran": "ordinateur",
+   "constat": "Les mentions « 0 OU 1 POINT » et « 2 POINTS OU PLUS » se superposent aux colonnes et à la barre de 613 M$.",
+   "ecran": "telephone",
    "gravite": "gene",
-   "type": "sans_nom",
+   "type": "chevauchement",
+   "vue": "Cohorte"
+  },
+  {
+   "constat": "Dans « ApeX Protocol × 3,4 », une icône voisine masque en partie le chiffre 3,4.",
+   "ecran": "telephone",
+   "gravite": "gene",
+   "type": "chevauchement",
    "vue": "Attention"
   }
  ],
- "jour": "2026-11-04",
+ "jour": "2026-11-10",
  "n_captures": 34,
- "quand": "2026-11-04T08:20:33Z"
+ "quand": "2026-11-10T09:26:13Z"
 }

@@ -177,6 +177,11 @@
   "quand": "2026-10-31T11:07:42Z",
   "statut": "ok"
  },
+ "Atlas Edit Weekly Cycle Proposal - Week Of 2026-11-09": {
+  "fr": "Cycle hebdomadaire de propositions Atlas Edit, semaine du 2026-11-09",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Attention sur PancakeSwap V3 : divergence fondamentale TVL +51 % / fees −7,5 %. Veille fees 170 k$ et LayerZero TVL 14 Md$.": {
   "quand": "2026-10-25T07:07:27Z",
   "statut": "fr"
@@ -344,6 +349,11 @@
  "Binance working with FBI to recover assets following $6.3B hack": {
   "fr": "Binance travaille avec le FBI pour récupérer les actifs après le piratage de $6,3 B",
   "quand": "2026-10-31T07:07:39Z",
+  "statut": "ok"
+ },
+ "Binance, Tether and Trump crypto firms face Senate records deadline": {
+  "fr": "Binance, Tether et des entreprises crypto liées à Trump face à une échéance de dossiers au Sénat",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "BingX, YouHodler added to ESMA MiCA register in latest update": {
@@ -756,6 +766,11 @@
   "quand": "2026-10-29T08:21:37Z",
   "statut": "ok"
  },
+ "Bridge’s OCC Approval Opens Path to Federal Stablecoin Trust Bank": {
+  "fr": "L'approbation de l'OCC pour Bridge ouvre la voie à une banque fiduciaire fédérale pour stablecoins",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Bubblemaps Alleges Anglio-Linked Wallets Traded Ahead of Pump.fun Calls": {
   "fr": "Bubblemaps affirme que des portefeuilles liés à Anglio ont opéré avant les appels de Pump.fun",
   "quand": "2026-10-14T23:08:52Z",
@@ -921,14 +936,34 @@
   "quand": "2026-10-23T07:07:43Z",
   "statut": "ok"
  },
+ "Coinbase Joins Circle, Ripple With Final OCC Approval for Federal Trust Bank Charter": {
+  "fr": "Coinbase rejoint Circle et Ripple avec l'approbation finale de l'OCC pour une charte de banque fiduciaire fédérale",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
+ "Coinbase and PNC Bank expand partnership with USDC payments for corporate clients": {
+  "fr": "Coinbase et PNC Bank élargissent leur partenariat de paiements en USDC pour les entreprises clientes",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Coinbase denies systems breach, says vendor exposed customer data": {
   "fr": "Coinbase nie une intrusion dans ses systèmes et affirme qu'un prestataire a exposé des données clients",
   "quand": "2026-10-28T15:07:32Z",
   "statut": "ok"
  },
+ "Coinbase gets full U.S. trust charter from federal banking regulator": {
+  "fr": "Coinbase obtient la pleine charte de banque fiduciaire américaine de la part de son régulateur bancaire fédéral",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Coinbase says user funds are safe after third-party vendor exposes customer contact info": {
   "fr": "Coinbase affirme que les fonds des utilisateurs sont sûrs après qu'un prestataire tiers a exposé les coordonnées de clients",
   "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
+ "Coinbase’s US national trust bank charter takes effect": {
+  "fr": "La charte de banque fiduciaire nationale de Coinbase entre en vigueur",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Collector Crypt Logs $151 Million in Monthly Pack Sales": {
@@ -939,6 +974,11 @@
  "Common vs. Preferred Dividends: What MSTR and STRC Holders Can Claim": {
   "fr": "Dividendes ordinaires contre privilégiés : ce que peuvent toucher les détenteurs de MSTR et STRC",
   "quand": "2026-10-28T07:07:57Z",
+  "statut": "ok"
+ },
+ "Compound Foundation: Monthly V4 Programme Update [October 2026]": {
+  "fr": "Compound Foundation : mise à jour mensuelle du programme V4 [octobre 2026]",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Compound Foundation: Monthly V4 Programme Update [September 2026]": {
@@ -977,6 +1017,11 @@
  "Confirming interest rate mechanism scope across SparkLend Ethereum reserves": {
   "fr": "Confirmation du périmètre du mécanisme de taux d'intérêt sur les réserves Ethereum de SparkLend",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Cosmos Batch Moves 2,266 Staked ATOM From Six Accounts": {
+  "fr": "Un lot de Cosmos déplace 2 266 ATOM stakés depuis six comptes",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Crypto Firms Launch Quantum Alliance as 6 Million Bitcoin Sit Exposed": {
@@ -1049,6 +1094,11 @@
   "quand": "2026-10-27T15:07:44Z",
   "statut": "ok"
  },
+ "Crypto-friendly Robinhood brings US IPO access to UK retail investors": {
+  "fr": "Robinhood, favorable aux cryptos, ouvre l'accès aux introductions en bourse américaines aux particuliers britanniques",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Crypto.com, Novig sue Missouri over sports event contracts; Kalshi, Polymarket, Robinhood hold off": {
   "fr": "Crypto.com et Novig attaquent le Missouri en justice au sujet des contrats sur événements sportifs ; Kalshi, Polymarket et Robinhood s'abstiennent",
   "quand": "2026-10-19T11:07:31Z",
@@ -1108,6 +1158,11 @@
   "quand": "2026-10-17T15:07:31Z",
   "statut": "ok"
  },
+ "DTCC’s tokenization launch could accelerate adoption and boost Securitize, StoneX says": {
+  "fr": "Le lancement de la tokenisation par la DTCC pourrait accélérer l'adoption et profiter à Securitize, selon StoneX",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "DWF Labs Subsidiaries Sue BitGo for $141 Million Over Early Token Sales": {
   "fr": "Des filiales de DWF Labs poursuivent BitGo pour 141 M$ au sujet de ventes précoces de jetons",
   "quand": "2026-10-14T09:35:34Z",
@@ -1136,6 +1191,11 @@
  "Developer Links $370,000 Theft to Railway Secrets Exposure": {
   "fr": "Un développeur relie un vol de $370,000 à une exposition de secrets sur Railway",
   "quand": "2026-10-23T07:07:43Z",
+  "statut": "ok"
+ },
+ "Dinari Promises Anthropic dShares on IPO Day, Including for US Investors": {
+  "fr": "Dinari promet des dShares Anthropic dès le jour de l'introduction en bourse, y compris pour les investisseurs américains",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Discussion: Strategic Opportunity, Should Lido Treasury Acquire & Stake 5–10% of SSV?": {
@@ -1226,6 +1286,11 @@
   "quand": "2026-10-21T13:36:37Z",
   "statut": "ok"
  },
+ "Ethena Explained: USDe, sUSDe, Rewards and Exit Routes": {
+  "fr": "Ethena expliqué : USDe, sUSDe, récompenses et voies de sortie",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Ethena Pay Rolls Out Earn+ With Up to 12% Target Rewards": {
   "fr": "Ethena Pay lance Earn+ avec jusqu'à 12 % de récompenses cibles",
   "quand": "2026-10-29T08:21:37Z",
@@ -1256,6 +1321,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Ether.fi Explained: Staking, Vaults, Borrowing and Cash": {
+  "fr": "Ether.fi expliqué : staking, coffres, emprunt et Cash",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Ethereum HEX Sinks 31% After Reports of Richard Heart's Detention": {
   "fr": "Ethereum HEX chute de 31% après des informations faisant état de la détention de Richard Heart",
   "quand": "2026-10-16T07:59:22Z",
@@ -1279,6 +1349,11 @@
  "Ethereum staking hits record as yields fall and Solana activity grows: Bitwise": {
   "fr": "Le staking sur Ethereum atteint un record alors que les rendements baissent et que l’activité de Solana progresse : Bitwise",
   "quand": "2026-10-21T13:36:37Z",
+  "statut": "ok"
+ },
+ "Ethereum treasury Sharplink’s Q3 net income hits $751 million on unrealized ether gains": {
+  "fr": "Sharplink, trésorerie en ether, affiche un bénéfice net du T3 de 751 M$ grâce à des gains latents sur l'ether",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Ex-Trump crypto adviser profited after helping pass stablecoin bill: WSJ": {
@@ -1349,6 +1424,16 @@
  "Firelight Adds $30.5 Million of Cover to Kraken USDC Vault": {
   "fr": "Firelight ajoute 30,5 M$ de couverture au coffre USDC de Kraken",
   "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
+ "Formation Notifies SEC of Plan for Solana Tokenized Stock Venue": {
+  "fr": "Formation notifie la SEC de son projet de site de négociation d'actions tokenisées sur Solana",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
+ "Formation notifies SEC to operate first tokenized securities venue on Solana": {
+  "fr": "Formation notifie la SEC qu'elle exploitera le premier site de titres tokenisés sur Solana",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Former Acting Chair Caroline Pham says CFTC can regulate almost everything except ‘onions and box office receipts’": {
@@ -1481,6 +1566,11 @@
   "quand": "2026-10-27T07:07:28Z",
   "statut": "ok"
  },
+ "Hyperliquid Whale’s 56,667-ETH Long Fully Liquidated": {
+  "fr": "La position longue de 56 667 ETH d'une baleine d'Hyperliquid est entièrement liquidée",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Hyperliquid says Kraken parent Payward to be first CFTC-regulated HIP-3 deployer": {
   "fr": "Hyperliquid indique que Payward, maison mère de Kraken, sera le premier déployeur HIP-3 régulé par la CFTC",
   "quand": "2026-10-27T14:20:59Z",
@@ -1499,6 +1589,11 @@
  "IPX Unveils Patent-Pending Atomic Router: Protected Capital in the Bonding Curve, Coinbase-Funded Rewards and Automatic Graduation Into Liquid Markets": {
   "fr": "IPX dévoile un routeur atomique en cours de brevet : capital protégé dans la bonding curve, récompenses financées par Coinbase et passage automatique vers des marchés liquides",
   "quand": "2026-10-31T11:07:42Z",
+  "statut": "ok"
+ },
+ "IRIS Sets Nov. 10 Launch for Fixed-Rate Borrowing on SparkLend": {
+  "fr": "IRIS fixe au 10 novembre le lancement de l'emprunt à taux fixe sur SparkLend",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "IRYS Surges 1,200% Past May Listing Peak": {
@@ -1534,6 +1629,19 @@
  "Institutional Comet: Update on proposed council architecture and migration": {
   "fr": "Institutional Comet : mise à jour sur l'architecture proposée du conseil et la migration",
   "quand": "2026-10-30T15:07:55Z",
+  "statut": "ok"
+ },
+ "Interprétation attribuée : RLUSD supply a repris une croissance dynamique (+4,1 % 7j, +2,74 % 1j) pour atteindre ~$2,67B au 6 nov 2026, tandis que USDC (−1,6 % 7j) et USDT (−1,7 % 7j) poursuivent leur… [suite dans la trace]\nLimites conservées : Pas de données whale_flow ni stablecoin_flow par chaîne pour RLUSD ; impossible de distinguer formellement afflux net de fiat vs redistribution interne ; Articles réglementaires (Grèce, Nigeria) lus sous résumés uniquement ; détails des dispositifs non vérifiés ; Utilisation on-chain DeFi inférée par gouvernances publiques uniquement ; utilisation marginale sur DEX non indexés non exclue\nSuite : Vérifier dans 10-14 jours : (1) maintien de la croissance RLUSD >+3 % 7j pour confirmer le pivot, (2) première proposition d'intégration RLUSD dans Aave / Morpho / Compound, (3) confirmation ou infirmation de l'inversion USDC via métrique 7j, (4) effets des nouvelles taxes grecques et nigérianes sur les volumes et premiums.": {
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "fr"
+ },
+ "Interprétation attribuée : RLUSD supply stabilisé à ~$2,6B (var. 7j −0,3 % au 5 nov 2026) après l'impulsion réglementaire de fin octobre. Aucune proposition d'intégration dans Aave V3/V4 (4 nov) ni Mo… [suite dans la trace]\nLimites conservées : Pas de données whale_flow ni stablecoin_flow par chaîne pour RLUSD ; Utilisation on-chain DeFi inférée par gouvernances publiques uniquement ; utilisation marginale sur DEX non indexés non exclue ; Impossible de distinguer formellement afflux net de fiat vs redistribution interne entre stablecoins\nSuite : Vérifier dans 2-3 semaines : (1) reprise de croissance hebdomadaire RLUSD >+5 % 7j, (2) première proposition d'intégration RLUSD dans Aave/Morpho/autre protocole majeur, (3) confirmation ou infirmation de l'inversion USDC via métrique 7j.": {
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "fr"
+ },
+ "Interprétation attribuée : Sky TVL dropped 13.6% 7d to $4.47B and USDS supply contracted 11.6% 7d to $5.64B as of 2026-11-08 12:20 UTC, disproportionate to global stablecoin contraction (-1.8%). This … [suite dans la trace]\nLimites conservées : Destination of the $738M leaving USDS not traced — no whale flow by asset available ; Articles read as summaries/records only; full text not verified ; No governance proposal to adjust USDS savings rate found in recent 7d ; Actual deposit yields on Aave/Morpho not verified; competitiveness inferred from capital flow, not rate comparison ; Sky forum (makerdao.com and sky.money) searched but no direct mention of savings rate changes found\nSuite : Verify within 7-10 days: (1) whether Sky governance adjusts USDS savings rate, (2) whether USDS contraction rate changes, (3) correlation between USDS supply and Aave TVL to test capture hypothesis": {
+  "fr": "Interprétation attribuée : la TVL de Sky a baissé de 13,6 % sur 7 jours, à 4,47 Md$, et l'offre d'USDS a reculé de 11,6 % sur 7 jours, à 5,64 Md$, au 2026-11-08 12:20 UTC, une baisse disproportionnée par rapport à la contraction mondiale des stablecoins (−1,8 %). Ceci … [suite dans la trace] — Limites conservées : destination des 738 M$ quittant USDS non tracée, aucun flux de baleines par actif disponible ; articles lus seulement en résumés ou fiches ; texte intégral non vérifié ; aucune proposition de gouvernance pour ajuster le taux d'épargne USDS trouvée sur 7 jours ; rendements réels de dépôt sur Aave et Morpho non vérifiés ; compétitivité déduite des flux de capitaux, non d'une comparaison de taux ; forum Sky (makerdao.com et sky.money) consulté, sans mention directe d'un changement de taux d'épargne. — Suite : à vérifier sous 7 à 10 jours : (1) si la gouvernance Sky ajuste le taux d'épargne USDS, (2) si le rythme de contraction d'USDS change, (3) corrélation entre l'offre d'USDS et la TVL d'Aave, pour tester l'hypothèse de capture.",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Introducing 0x02 CSM: A Permissionless Path to Running Higher-Balance Validators": {
@@ -1601,14 +1709,29 @@
   "quand": "2026-10-14T15:10:04Z",
   "statut": "ok"
  },
+ "Jito Names First Outside BAM Node Operators": {
+  "fr": "Jito nomme les premiers opérateurs de nœuds BAM externes",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Jito’s JTX plans mobile app this fall, eyes perps integration later this winter": {
   "fr": "Le JTX de Jito prévoit une application mobile cet automne et envisage une intégration des perps plus tard cet hiver",
   "quand": "2026-10-14T15:10:04Z",
   "statut": "ok"
  },
+ "Jupiter Lend Explained: Deposits, Borrowing and Withdrawals": {
+  "fr": "Jupiter Lend expliqué : dépôts, emprunts et retraits",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Jupiter Lend Says Liquidity Crunch Is Delaying Withdrawals": {
   "fr": "Jupiter Lend indique qu'une crise de liquidité retarde les retraits",
   "quand": "2026-10-30T19:07:31Z",
+  "statut": "ok"
+ },
+ "Jupiter Lend USDC Withdrawal Liquidity Rebounds to 27.9 Million": {
+  "fr": "La liquidité de retrait USDC de Jupiter Lend remonte à 27,9 millions",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Jupiter Says YOLO Hit $1 Billion in Volume in Under 24 Hours": {
@@ -1624,6 +1747,11 @@
  "Kazakhstan court bars Coinbase, five others from unlicensed crypto services in Astana International Financial Centre": {
   "fr": "Un tribunal kazakh interdit à Coinbase et à cinq autres sociétés de proposer des services crypto sans licence au Centre financier international d’Astana",
   "quand": "2026-10-21T13:36:37Z",
+  "statut": "ok"
+ },
+ "Keplr Confirms Web3Auth Recovery Addresses After Wallet Breach": {
+  "fr": "Keplr confirme les adresses de récupération Web3Auth après une faille du portefeuille",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Keystone Website Breach Exposes Customer Addresses and Order Details": {
@@ -1644,6 +1772,11 @@
  "Keystone says website breach exposed hardware wallet buyers’ addresses": {
   "fr": "Keystone indique qu'une faille du site web a exposé les adresses des acheteurs de portefeuilles matériels",
   "quand": "2026-10-26T11:07:30Z",
+  "statut": "ok"
+ },
+ "Kinetiq Launches Elysium Mainnet for Hyperliquid": {
+  "fr": "Kinetiq lance le mainnet Elysium pour Hyperliquid",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Kospi surges 7% as SK Hynix earnings fuel AI stock rebound": {
@@ -1720,9 +1853,19 @@
   "quand": "2026-10-16T07:59:22Z",
   "statut": "ok"
  },
+ "Lido Adds Firelight Loss Protection to Earn Vaults": {
+  "fr": "Lido ajoute la protection contre les pertes de Firelight aux coffres Earn",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Lido Earn DAO Treasury Allocation — Q3 2026": {
   "fr": "Allocation de la trésorerie de la DAO Lido Earn — T3 2026",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Lido Earn: Introducing Two Layers of Loss Protection": {
+  "fr": "Lido Earn : deux couches de protection contre les pertes sont introduites",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Lido Engineer Warns of Staking Deposit Hijack at Glamsterdam": {
@@ -1917,6 +2060,11 @@
   "quand": "2026-10-23T07:07:43Z",
   "statut": "ok"
  },
+ "Mosaico Delegate Platform": {
+  "fr": "Plateforme de délégation Mosaico",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Most tokenized stock trading on Solana, BNB Chain occurs outside US market hours": {
   "fr": "La plupart des négociations d'actions tokenisées sur Solana et BNB Chain ont lieu en dehors des heures d'ouverture du marché américain",
   "quand": "2026-10-14T15:10:04Z",
@@ -2032,6 +2180,11 @@
   "quand": "2026-10-22T07:07:42Z",
   "statut": "ok"
  },
+ "Ondo Plans Tokenized Anthropic Shares From IPO Day": {
+  "fr": "Ondo prévoit des actions Anthropic tokenisées dès le jour de l'introduction en bourse",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "OpenAI says research model spent another wallet’s testnet ETH without authorization on coding task": {
   "fr": "OpenAI indique qu'un modèle de recherche a dépensé sans autorisation l'ETH de test d'un autre portefeuille lors d'une tâche de programmation",
   "quand": "2026-10-16T15:59:12Z",
@@ -2105,6 +2258,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "PeckShield Flags $45.3 Million ETH Long With Possible UXLink Exploit Link": {
+  "fr": "PeckShield signale une position longue de 45,3 M$ sur l'ETH, avec un lien possible avec une exploitation d'UXLink",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Peer Adds Alipay-Funded USDC Trading on Base in Beta": {
   "fr": "Peer ajoute en bêta des échanges d'USDC financés par Alipay sur Base",
   "quand": "2026-10-29T15:07:30Z",
@@ -2120,9 +2278,19 @@
   "quand": "2026-10-23T07:07:43Z",
   "statut": "ok"
  },
+ "Per-Asset Liquidation Thresholds Underpredict Co-Liquidation by 301×": {
+  "fr": "Les seuils de liquidation par actif sous-estiment la co-liquidation de 301 fois",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Pirate Chain Says Exploit Created 39.8 Million ARRR": {
   "fr": "Pirate Chain affirme qu’un exploit a créé 39,8 millions d’ARRR",
   "quand": "2026-10-16T11:59:16Z",
+  "statut": "ok"
+ },
+ "Poland’s Lower House Backs Crypto Freezes Under Broader Sanctions Bill": {
+  "fr": "La Chambre basse polonaise soutient le gel de cryptoactifs dans un projet de loi de sanctions plus large",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Polygon adds Solana to payment stack linking bank accounts, crypto and payouts": {
@@ -2148,6 +2316,11 @@
  "Polymarket brings ultra-short crypto prediction markets to U.S. platform": {
   "fr": "Polymarket ouvre des marchés de prédiction crypto ultra-courts à sa plateforme américaine",
   "quand": "2026-10-30T06:44:30Z",
+  "statut": "ok"
+ },
+ "Prediction market broker River Markets registers affiliate as CFTC futures commission merchant": {
+  "fr": "Le courtier de marchés de prédiction River Markets enregistre une filiale comme commissionnaire de futures auprès de la CFTC",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "President Trump declares 'energy ceasefire' between Russia and Ukraine": {
@@ -2240,6 +2413,11 @@
   "quand": "2026-10-31T07:07:39Z",
   "statut": "ok"
  },
+ "Recovery Request – 2 AAVE Accidentally Sent to AAVE Token Contract (Ethereum)": {
+  "fr": "Demande de récupération : 2 AAVE envoyés par erreur au contrat du jeton AAVE (Ethereum)",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Reddit Stock Plunges 30% as Google's AI Search Hits Traffic and User Growth": {
   "fr": "L'action Reddit chute de 30% alors que la recherche IA de Google frappe son trafic et sa croissance d'utilisateurs",
   "quand": "2026-10-31T11:07:42Z",
@@ -2248,6 +2426,11 @@
  "Reduce ABC Step 2 to 25%, increase Staking emissions 50%": {
   "fr": "Réduire l'étape 2 de ABC à 25%, augmenter de 50% les émissions de staking",
   "quand": "2026-10-29T15:07:30Z",
+  "statut": "ok"
+ },
+ "Request: wallet list behind the Aave Insights treasury figure": {
+  "fr": "Demande : liste des portefeuilles derrière le chiffre de trésorerie d'Aave Insights",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Revolut secures Gibraltar crypto licence to support international expansion plans": {
@@ -2345,6 +2528,11 @@
   "quand": "2026-10-30T06:44:30Z",
   "statut": "ok"
  },
+ "Risk Stewards: Cap and IRM Changes on Aave V3 / 2026.11.06": {
+  "fr": "Risk Stewards : modifications des plafonds et des IRM sur Aave V3 / 2026.11.06",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Risk Stewards: Cap and IRM Changes on Aave V4 / 2026.10.09": {
   "fr": "Risk Stewards : changements de plafond et d'IRM sur Aave V4 / 2026.10.09",
   "quand": "2026-10-14T09:35:34Z",
@@ -2368,6 +2556,21 @@
  "Risk Stewards: Supply and Borrow Cap Changes on Aave V3 / 2026.10.16": {
   "fr": "Risk Stewards : modifications des plafonds d'offre et d'emprunt sur Aave V3 / 2026.10.16",
   "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
+ "Risk Stewards: Supply and Borrow Cap Changes on Aave V3 / 2026.11.09": {
+  "fr": "Risk Stewards : modifications des plafonds d'offre et d'emprunt sur Aave V3 / 2026.11.09",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
+ "Risk Stewards: Supply and Borrow Cap Increases on Aave V3 / 2026.11.02": {
+  "fr": "Risk Stewards : hausses des plafonds d'offre et d'emprunt sur Aave V3 / 2026.11.02",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
+ "Risk Stewards: Supply and Borrow Cap Increases on Aave V3 / 2026.11.08": {
+  "fr": "Risk Stewards : hausses des plafonds d'offre et d'emprunt sur Aave V3 / 2026.11.08",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Risk Stewards: Temporary Slope2 Reductions on Aave V3 and Aave V4 / 2026.10.30": {
@@ -2423,6 +2626,11 @@
  "SAEP-24: Update Risk Curation Framework": {
   "fr": "SAEP-24 : mise à jour du cadre de curation des risques",
   "quand": "2026-10-17T07:07:37Z",
+  "statut": "ok"
+ },
+ "SAEP-25: Update the Allocation System Primitive": {
+  "fr": "SAEP-25 : mise à jour de la primitive du système d'allocation",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "SEC Flags AI 'Super Intelligence' and Tokenization as Systemic Market Risks": {
@@ -2539,6 +2747,11 @@
   "quand": "2026-10-30T06:44:30Z",
   "statut": "ok"
  },
+ "Sky TVL Falls 15% in a Week as USDS Supply Contracts": {
+  "fr": "La TVL de Sky chute de 15 % en une semaine alors que l'offre d'USDS se contracte",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "SkyAI Sells Entire Solana Treasury, Launches $201 Million Tender": {
   "fr": "SkyAI vend l'intégralité de sa trésorerie Solana et lance une offre de rachat de 201M$",
   "quand": "2026-10-20T07:27:15Z",
@@ -2559,6 +2772,11 @@
   "quand": "2026-10-28T07:07:57Z",
   "statut": "ok"
  },
+ "Solana Labs’ Leap Opens iPhone Beta for Tokenized Stocks and Crypto": {
+  "fr": "Leap de Solana Labs ouvre la bêta iPhone pour les actions tokenisées et les cryptos",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Solana Postpones Shanghai Event, Citing Registration Surge": {
   "fr": "Solana reporte son événement de Shanghai, invoquant un afflux d'inscriptions",
   "quand": "2026-10-16T15:59:12Z",
@@ -2572,6 +2790,11 @@
  "Solana bug reports now cost 1 SOL as AI floods security teams with spam": {
   "fr": "Les signalements de bugs sur Solana coûtent désormais 1 SOL, l'IA inondant les équipes de sécurité de spam",
   "quand": "2026-10-28T15:07:32Z",
+  "statut": "ok"
+ },
+ "Solana set for its first tokenized stock venue under SEC framework, listing Galaxy": {
+  "fr": "Solana prêt pour son premier site d'actions tokenisées dans le cadre réglementaire de la SEC, avec la cotation de Galaxy",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Solana sets Oct. 21 for Alpenglow upgrade targeting 150-millisecond finality": {
@@ -2604,6 +2827,11 @@
   "quand": "2026-10-16T15:59:12Z",
   "statut": "ok"
  },
+ "Solving PQC Bandwidth via Nybrind Wiesner Money & Lattice HSMs": {
+  "fr": "Résoudre la bande passante PQC via Nybrind Wiesner Money et les HSM Lattice",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "South Korea Arrests Seven in First Big AI-Assisted Hacking Case": {
   "fr": "La Corée du Sud arrête sept personnes dans la première grande affaire de piratage assisté par IA",
   "quand": "2026-10-27T14:20:59Z",
@@ -2627,6 +2855,11 @@
  "SparkLend Has $11.95 Million in USDT Available as Utilization Holds Near 96%": {
   "fr": "SparkLend dispose de 11,95 millions de dollars en USDT disponibles, alors que le taux d'utilisation reste proche de 96 %",
   "quand": "2026-10-30T06:44:30Z",
+  "statut": "ok"
+ },
+ "Stablecoin growth has stalled. The payments boom hasn't": {
+  "fr": "La croissance des stablecoins a calé. Le boom des paiements, lui, non",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Stablecoin remittances cost 84% less than traditional transfers, report finds": {
@@ -2679,9 +2912,19 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "StoneX sees 97% upside for Bullish as $4.2 billion Equiniti deal opens tokenization market": {
+  "fr": "StoneX voit 97 % de potentiel de hausse pour Bullish, car l'accord Equiniti de 4,2 Md$ ouvre le marché de la tokenisation",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Strategy Buys $22M in Bitcoin, Buys Back $193M of STRC": {
   "fr": "Strategy achète pour 22M$ de bitcoins et rachète pour 193M$ de STRC",
   "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
+ "Strategy Buys $82M in Bitcoin, Buys Back $188M of STRC": {
+  "fr": "Strategy achète 82 M$ de bitcoin et rachète 188 M$ de STRC",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Strategy CFO Andrew Kang resigns as company posts record operating profit": {
@@ -2712,6 +2955,11 @@
  "Strategy buys $22M in Bitcoin, repurchases $193M in STRC": {
   "fr": "Strategy achète pour 22M$ de bitcoins et rachète pour 193M$ de STRC",
   "quand": "2026-10-20T07:27:15Z",
+  "statut": "ok"
+ },
+ "Strategy buys 1,036 Bitcoin as BTC holdings climb to 850,364": {
+  "fr": "Strategy achète 1 036 bitcoins alors que ses avoirs atteignent 850 364 BTC",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Strategy eyes more Bitcoin buys as Saylor touts $30B credit capacity": {
@@ -2876,9 +3124,19 @@
   "quand": "2026-10-30T06:44:30Z",
   "statut": "ok"
  },
+ "These Finland homes get free heat from bitcoin miners (as long as BTC stays above $70,000)": {
+  "fr": "Ces maisons finlandaises bénéficient d'une chaleur gratuite grâce aux mineurs de bitcoin (tant que le BTC reste au-dessus de 70 000 $)",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Third X100 Exploit Transaction Pulls 550,000 X From Uniswap Pool": {
   "fr": "Troisième transaction d'exploit X100 qui retire 550,000 X du pool Uniswap",
   "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "Threshold Says tBTC Bridge Has Resumed Onchain, but App Remains Paused": {
+  "fr": "Threshold affirme que le pont tBTC a repris sur la chaîne, mais l'application reste en pause",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Title: Independent check of RLUSD reserves and on-chain supply (Aug 2025 – Aug 2026)": {
@@ -2946,6 +3204,16 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "ok"
  },
+ "Tom Lee’s Bitmine nears 5% Ethereum supply target with $20 million ETH buy as he predicts tokenization and AI ‘supercycle’": {
+  "fr": "Bitmine de Tom Lee approche de 5 % de l'offre d'ether avec un achat de 20 M$ d'ETH, et il prédit un « supercycle » de la tokenisation et de l'IA",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
+ "Tornado Cash-Funded Wallet Builds $26 Million Bitcoin-Ether Trade": {
+  "fr": "Un portefeuille financé par Tornado Cash réalise un échange bitcoin-ether de 26 M$",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Trade Where You Read: Decrypt Brings Jupiter-Powered Trading to The Information Exchange": {
   "fr": "Trader là où vous lisez : Decrypt ajoute le trading propulsé par Jupiter à The Information Exchange",
   "quand": "2026-10-23T07:07:43Z",
@@ -2959,6 +3227,11 @@
  "Trezor Shrinks Reseller Network After Hardware Wallet Supply-Chain Incidents": {
   "fr": "Trezor réduit son réseau de revendeurs après des incidents de chaîne d'approvisionnement des portefeuilles matériels",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Two rival Ethereum proposals aim to stop Glamsterdam breaking old contracts": {
+  "fr": "Deux propositions concurrentes sur Ethereum visent à empêcher Glamsterdam de casser les anciens contrats",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Tx launches USTX stablecoin to pull RWA liquidity onto its chain": {
@@ -3055,6 +3328,11 @@
   "quand": "2026-10-25T06:08:47Z",
   "statut": "ok"
  },
+ "USDC was mistakenly deposited to the Aave V3 contract address": {
+  "fr": "USDC a été déposé par erreur sur l'adresse du contrat Aave V3",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "USDGO Adds Solana Trading Liquidity Through Jupiter Lend and Fluid": {
   "fr": "USDGO ajoute de la liquidité d'échange sur Solana via Jupiter Lend et Fluid",
   "quand": "2026-10-14T09:35:34Z",
@@ -3063,6 +3341,11 @@
  "USDT0 Freezes 6.19 Million Tokens Linked to Binance Exploit": {
   "fr": "USDT0 gèle 6,19 millions de jetons liés à l'exploitation de Binance",
   "quand": "2026-10-30T19:07:31Z",
+  "statut": "ok"
+ },
+ "USDY, OUSG and Ondo Stock Tokens Compared": {
+  "fr": "USDY, OUSG et les jetons d'actions Ondo comparés",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Unable to Connect": {
@@ -3098,6 +3381,11 @@
  "Unveiling Lido Lend: Security-First Lending": {
   "fr": "Présentation de Lido Lend : le prêt axé sur la sécurité d'abord",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "Uphold RLUSD Earn vs. Ethena Pay Earn+: Lending and Leverage Compared": {
+  "fr": "Uphold RLUSD Earn ou Ethena Pay Earn+ : prêt et effet de levier comparés",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Utah Brings Criminal Charges Against Kalshi and Its Co-Founders": {
@@ -3139,6 +3427,11 @@
   "quand": "2026-10-23T07:07:43Z",
   "statut": "ok"
  },
+ "Vitalik Buterin says ETH should be valued as a store of value, not a fee-burning token": {
+  "fr": "Vitalik Buterin estime que l'ETH doit être valorisé comme réserve de valeur, et non comme jeton à brûlage des frais",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": {
   "fr": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5 fois la médiane du secteur.",
   "quand": "2026-10-14T09:35:34Z",
@@ -3172,6 +3465,16 @@
  "Wells Fargo, Cisco, Marvell among latest firms objecting to OKXICE's tokenized stock plan": {
   "fr": "Wells Fargo, Cisco, Marvell parmi les dernières entreprises à s'opposer au plan d'actions tokenisées d'OKXICE",
   "quand": "2026-10-25T06:08:47Z",
+  "statut": "ok"
+ },
+ "What Does Securitize Do? A Guide to Its Fund Services": {
+  "fr": "Qu'est-ce que Securitize ? Guide de ses services de gestion de fonds",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
+ "What is Zcash (ZEC)? How shielded transactions work": {
+  "fr": "Qu'est-ce que Zcash (ZEC) ? Comment fonctionnent les transactions blindées",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Why Switzerland’s first genuine spot bitcoin ETF could soon attract overseas banks and brokers": {
@@ -3222,6 +3525,11 @@
  "Your fridge could one day stake Ether, launch memecoins: CFTC chair": {
   "fr": "Votre frigo pourrait un jour staker de l'Ether et lancer des mémécoins : selon le président de la CFTC",
   "quand": "2026-10-29T11:07:40Z",
+  "statut": "ok"
+ },
+ "Zama spin-off Raycash launches confidential stablecoin payments and private yield on Ethereum": {
+  "fr": "La filiale de Zama, Raycash, lance des paiements en stablecoins confidentiels et un rendement privé sur Ethereum",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "Zcash co-founder proposes ending grants subsidy, citing $125 million treasury": {
@@ -3309,6 +3617,11 @@
   "quand": "2026-10-31T07:07:39Z",
   "statut": "ok"
  },
+ "[Gauntlet] Scroll USDC Comet: Closing Remaining Positions": {
+  "fr": "[Gauntlet] Scroll USDC Comet : fermeture des positions restantes",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "[November 5, 2026] - Proposed Changes to Grove for Upcoming Spell": {
   "fr": "[5 novembre 2026] - Changements proposés pour Grove pour le prochain spell",
   "quand": "2026-10-22T07:07:42Z",
@@ -3332,6 +3645,16 @@
  "[Pre-Proposal] Establishing a Post-Quantum Readiness Working Group for Lido Validator Infrastructure": {
   "fr": "[Pré-proposition] Création d'un groupe de travail sur la préparation post-quantique de l'infrastructure des validateurs Lido",
   "quand": "2026-10-14T09:35:34Z",
+  "statut": "ok"
+ },
+ "[Proposal] Updated MEV Policy for Lido": {
+  "fr": "[Proposition] Politique MEV mise à jour pour Lido",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
+ "[RFC] Midnight Managed Account - Scoped Authorization and Risk Limits for Morpho Midnight": {
+  "fr": "[RFC] Compte géré Midnight : autorisation limitée et plafonds de risque pour Morpho Midnight",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "aucun audit publie au 31/10, ou TVL sous 1 M$": {
@@ -3411,6 +3734,11 @@
   "quand": "2026-10-14T09:35:34Z",
   "statut": "fr"
  },
+ "tBTC bridge partially resumes as $120M Aave reserve remains frozen": {
+  "fr": "Le pont tBTC reprend partiellement alors qu'une réserve Aave de 120 M$ reste gelée",
+  "quand": "2026-11-10T09:26:56Z",
+  "statut": "ok"
+ },
  "term-structure (GitHub public, 2 audits lies)": {
   "quand": "2026-10-14T09:35:34Z",
   "statut": "fr"
@@ -3426,6 +3754,11 @@
  "zkLink Nova Bridge Exploit Drains About $779,000 in One Transaction": {
   "fr": "Une faille du pont zkLink Nova siphonne environ $779,000 en une seule transaction",
   "quand": "2026-10-29T11:07:40Z",
+  "statut": "ok"
+ },
+ "‘Connecting the dots’: Michael Saylor’s Strategy buys another 1,036 bitcoin for $82 million as holdings top 850,000 BTC": {
+  "fr": "« Relier les points » : la Strategy de Michael Saylor achète 1 036 bitcoins de plus pour 82 M$, et ses avoirs dépassent 850 000 BTC",
+  "quand": "2026-11-10T09:26:56Z",
   "statut": "ok"
  },
  "‘Leave’: Crypto Backlash Over French Proposal to Report Wallets Over $112K": {
