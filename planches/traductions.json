@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-11-10T11:46:02Z",
+"generated_at": "2026-11-10T12:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 137,
+"n_affiches": 136,
 "n_refuses": 0,
-"n_traduits": 71,
+"n_traduits": 70,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -37,7 +37,6 @@
 "Kinetiq Launches Elysium Mainnet for Hyperliquid": "Kinetiq lance le mainnet Elysium pour Hyperliquid",
 "Lido Adds Firelight Loss Protection to Earn Vaults": "Lido ajoute la protection contre les pertes de Firelight aux coffres Earn",
 "Lido Earn: Introducing Two Layers of Loss Protection": "Lido Earn : deux couches de protection contre les pertes sont introduites",
-"Marinade Waives Bond Charges for Agave Slot-Skipping Bug": "Marinade renonce aux frais de caution (bond) liés au bug de saut de slots d'Agave",
 "Mosaico Delegate Platform": "Plateforme de délégation Mosaico",
 "Ondo Plans Tokenized Anthropic Shares From IPO Day": "Ondo prévoit des actions Anthropic tokenisées dès le jour de l'introduction en bourse",
 "P/F expands above 3.0x or base (fees) turns negative for two consecutive periods.": "Le P/F dépasse 3,0x ou la base (frais) devient négative pendant deux périodes consécutives.",
