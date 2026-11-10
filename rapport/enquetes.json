@@ -1064,6 +1064,37 @@
     }
    ],
    "genere": "2026-11-09T14:30:00Z"
+  },
+  {
+   "date": "2026-11-10",
+   "fichier": "rapport/2026-11-10-enquete.html",
+   "titre": "Robinhood Chain, 10/11 : Pons ne gagne pas moins par jeton lance, il lance deux fois moins de jetons",
+   "question": "La part de Pons dans les frais de la chaine (15,3 % hier, seuil de mort 15 % au 19/11) tient-elle parce que Pons resiste, ou parce que le reste baisse aussi ? Et de quoi est faite la baisse de ses frais ?",
+   "mesure_neuve": "Comptage complet sur la chaine des 16 853 jetons lances par la fabrique Pons du 26/10 au 09/11 : de 1 607 par jour (26-28/10) a 787 (07-09/11), alors que les frais par jeton lance restent entre 170 et 243 $ (mediane 207 $, correlation 0,963 avec les frais journaliers DefiLlama ; 0,704 avec un jour de decalage). La part de Pons sur 30 j (15,2 %) est une moyenne en retard : 12,8 % sur la semaine 02-08/11. Et le pret et les contrats a terme (Lighter, Arcus, Morpho, Steakhouse) doublent leur part des frais (8,7 -> 15,9 %) a dollars constants (-3,3 %), parce que la chaine perd 46,8 % de frais entre les semaines 12-18/10 et 02-08/11.",
+   "chiffre_cle": {
+    "valeur": "207 $",
+    "libelle": "de frais Pons par jeton lance le 09/11 : ce montant ne bouge pas (170-243 $ depuis le 26/10), ce sont les lancements qui ont chute de moitie",
+    "population": "15 jours UTC pleins 26/10-09/11, 16 853 TokenLaunched de la fabrique 0x7eD5...EC7e comptes sur la chaine, frais Pons V2 journaliers DefiLlama"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons dans les frais 30 j (ce que la chaine encaisse)"
+    },
+    {
+     "champ": "rh_fees_30d_pons",
+     "libelle": "Frais 30 j de Pons (ce que le lanceur encaisse)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 j de la chaine (tous protocoles)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaine (l argent depose)"
+    }
+   ],
+   "genere": "2026-11-10T09:40:00Z"
   }
  ]
 }

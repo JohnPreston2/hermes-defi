@@ -221,6 +221,11 @@
      "date": "2026-11-09",
      "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
      "note": "registre inchange depuis le 05/11 22:16 UTC (dernier commit f4b5956d)"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
+     "note": "registre inchange depuis le 05/11 22:16 UTC (dernier commit f4b5956d)"
     }
    ],
    "solde": null
@@ -438,6 +443,11 @@
      "date": "2026-11-09",
      "valeur": "5 / 1206 (0,41 %) au champ auditUrl",
      "note": "inchange ; liens des hooks non re-sondes ce jour"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "5 / 1206 (0,41 %) au champ auditUrl",
+     "note": "inchange"
     }
    ],
    "solde": null
@@ -655,6 +665,11 @@
      "date": "2026-11-09",
      "valeur": "v3 33,0 % / v4 45,7 % du volume 30 j (7,06 / 9,78 / 21,40 Md$)",
      "note": "DefiLlama 09/11 ~13:40 UTC"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "v3 33,5 % / v4 44,7 % du volume 30 j (7,21 / 9,63 / 21,54 Md$)",
+     "note": "DefiLlama 10/11 ~09:14 UTC"
     }
    ],
    "solde": null
@@ -872,6 +887,11 @@
      "date": "2026-11-09",
      "valeur": "156 sur 1206 (12,9 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "SEC 4-927 : aucune lettre depuis le 06/11 (WebFetch) ; FR : 312 documents, inchange ; recherche web : rien"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "156 sur 1206 (12,9 %, registre identique au 05/11) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "SEC 4-927 : derniere lettre 06/11 (WebFetch) ; FR : 312 documents, inchange ; recherche web : rien"
     }
    ],
    "solde": null
@@ -1188,6 +1208,11 @@
      "date": "2026-11-09",
      "valeur": "15,3 % (10,04/65,45 M$) Pons V2 ; 17,2 % hors Relay",
      "note": "echeance 19/11 ; il reste 0,3 point avant le seuil de mort de 15 %"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "15,2 % (9,78/64,29 M$) Pons V2 ; 17,1 % hors Relay",
+     "note": "toujours au-dessus du seuil de mort (15 %), echeance 19/11. Mais la semaine pleine 02-08/11 est a 12,8 % et 11 des 14 derniers jours pleins sont sous 15 % : la moyenne 30 j est portee par les jours d'octobre qui sortent de la fenetre"
     }
    ],
    "solde": null
@@ -1998,6 +2023,11 @@
      "date": "2026-11-09",
      "valeur": "0,70 % (3,76 M$ sur 534,67 M$ de collateral Morpho), 11 marches d'actions au-dessus de 1 000 $, 53 jetons",
      "note": "API Morpho ~13:50 UTC"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "0,73 % (3,95 M$ sur 537,99 M$ de collateral Morpho), 11 marches d'actions au-dessus de 1 000 $, 53 jetons",
+     "note": "API Morpho ~09:25 UTC ; appartenance des 53 jetons prouvee par le slot beacon ERC-1967 = 0xe10b...1b00"
     }
    ]
   },
@@ -2847,6 +2877,11 @@
      "date": "2026-11-09",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise du bloc 109 118 422 au bloc 110 102 942",
      "note": "inchange"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement sur la balise du bloc 110 102 943 au bloc 110 772 915",
+     "note": "inchange"
     }
    ]
   },
@@ -3570,6 +3605,11 @@
      "date": "2026-11-09",
      "valeur": "08/11 : 2 rachats ; semaine 02-08/11 : 23 ; 09/11 jusqu'a ~13:47 UTC : 2 ; nonce 1 372",
      "note": "sous 40 par semaine"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "09/11 : 3 rachats ; semaine 09-15/11 jusqu'au 10/11 09:18 UTC : 4 ; nonce 1 374",
+     "note": "sous 40 par semaine"
     }
    ]
   },
@@ -3723,6 +3763,11 @@
      "date": "2026-11-09",
      "valeur": "0 evenement de la porte de mise a jour du bloc 109 118 422 au bloc 110 102 942",
      "note": "conseil non relu ce jour"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "0 evenement de la porte de mise a jour du bloc 110 102 943 au bloc 110 772 915",
+     "note": "conseil non relu ce jour"
     }
    ]
   },
@@ -3797,6 +3842,11 @@
     },
     {
      "date": "2026-11-09",
+     "valeur": null,
+     "note": "non re-mesure ce jour ; prochain point avant l'echeance du 22/11"
+    },
+    {
+     "date": "2026-11-10",
      "valeur": null,
      "note": "non re-mesure ce jour ; prochain point avant l'echeance du 22/11"
     }
@@ -4007,6 +4057,11 @@
      "date": "2026-11-09",
      "valeur": null,
      "note": "non re-mesure ce jour (semaine 03-09/11 incomplete au releve)"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": null,
+     "note": "non re-mesure ce jour (semaine 03-09/11 a echantillonner ; travail du jour porte sur Pons)"
     }
    ]
   },
@@ -4080,6 +4135,11 @@
      "date": "2026-11-09",
      "valeur": null,
      "note": "non re-mesure ce jour (identifiants des 34 pools non recharges : recensement des Initialize trop lourd pour ce releve)"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": null,
+     "note": "non re-mesure ce jour (identifiants des 34 pools non recharges)"
     }
    ]
   },
@@ -4143,6 +4203,11 @@
      "date": "2026-11-09",
      "valeur": "08/11 14,3 % (26,43 M USDG / 185,5 M$)",
      "note": "comptage complet ; moyenne 09-15/11 a calculer apres le 15/11"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "09/11 : 20,1 % (43,71 M USDG / 217,07 M$) - 1er jour de la semaine 09-15/11",
+     "note": "comptage complet, 43 136 echanges"
     }
    ]
   },
@@ -4219,6 +4284,11 @@
      "date": "2026-11-09",
      "valeur": null,
      "note": "non re-mesure ce jour (relecture des 448 351 pools v3 non refaite)"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": null,
+     "note": "non re-mesure ce jour (relecture des 448 351 pools v3 non refaite)"
     }
    ]
   },
@@ -4251,6 +4321,11 @@
      "date": "2026-11-09",
      "valeur": "13,0 % du volume 7 j (577,8 / 4 439,4 M$) ; 0,43 % des frais 30 j",
      "note": "DefiLlama 09/11 ~13:40 UTC"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "12,2 % du volume 7 j (553,4 / 4 530,2 M$) ; 0,47 % des frais 30 j",
+     "note": "DefiLlama 10/11 ~09:14 UTC"
     }
    ]
   },
@@ -4278,6 +4353,11 @@
      "date": "2026-11-09",
      "valeur": "08/11 : deux premiers senders 69,1 % (41,5 + 27,6) ; Universal Router 0,5 %",
      "note": "jour UTC complet (27 446 echanges) ; le seuil ne se lit qu'au 05/12"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": "09/11 : deux premiers senders 87,7 % (0x520e 85,1 + 0xf655 2,6) ; Universal Router 0,8 %",
+     "note": "jour UTC complet (43 136 echanges) ; 0x29d8 recule a 1,9 % ; le seuil ne se lit qu'au 05/12"
     }
    ]
   },
@@ -4300,6 +4380,11 @@
      "date": "2026-11-09",
      "valeur": "dimanche 08/11 : 330 139 transferts, 37,4 % du vendredi 06/11 (et 138 % du samedi)",
      "note": "hors protocole de la veille (qui lit les samedis) : le dimanche est plus actif que le samedi, et 50,9 % de ses transferts tombent entre 20:00 et 24:00 UTC"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": null,
+     "note": "pas de samedi dans la fenetre ; prochain point le 14/11"
     }
    ]
   },
@@ -4317,6 +4402,28 @@
      "date": "2026-11-09",
      "valeur": "50,9 % (169 499 / 332 701, 142 jetons) ; premiere emission lundi 09/11 01:04:45 UTC ; temoin v4 28,1 %",
      "note": "point de reference, jour UTC 08/11 complet"
+    },
+    {
+     "date": "2026-11-10",
+     "valeur": null,
+     "note": "pas de dimanche dans la fenetre ; prochain point le 15/11"
+    }
+   ]
+  },
+  {
+   "id": "v_20261110_01",
+   "ouverte": "2026-11-10",
+   "affirmation": "La baisse des frais de Pons est une baisse du nombre de jetons lances, pas une baisse de ce que rapporte chaque jeton : du 26/10 au 09/11, les frais par lancement restent entre 170 et 243 $ (mediane 207 $) pendant que les lancements passent de 1 607 a 787 par jour. Tant que ce rapport tient, compter les lancements sur la chaine suffit a lire les frais de Pons.",
+   "mesure": "RPC officiel : TokenLaunched de la fabrique 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e par jour UTC (comptage complet) ; DefiLlama /overview/fees/Robinhood Chain, totalDataChartBreakdown, ligne Pons V2, meme jour (etiquette = debut du jour UTC). Moyenne hebdomadaire (lun-dim) de frais/lancement. Reference 26/10-09/11 : 15 jours, 170-243 $, correlation 0,963 (0,704 avec un jour de decalage).",
+   "seuil": "REVISEE si une semaine pleine sort de 150-300 $ par lancement (changement de tarif ou de comportement par jeton). CONFIRMEE si les semaines 09-15/11, 16-22/11, 23-29/11 et 30/11-06/12 restent toutes dans 150-300 $.",
+   "echeance": "2026-12-07",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-11-10",
+     "valeur": "09/11 : 206,8 $ (181 538 $ / 878 lancements) ; 15 jours 26/10-09/11 : 170-243 $, correlation 0,963",
+     "note": "point de reference"
     }
    ]
   }

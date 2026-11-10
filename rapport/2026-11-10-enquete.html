@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 10/11 — Pons, 207 $ par jeton lancé</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+.bars{display:grid;grid-template-columns:repeat(15,1fr);gap:3px;align-items:end;height:130px;margin:12px 0 2px}
+.bars div{background:var(--acc);border-radius:2px 2px 0 0;opacity:.85}
+.axis{display:grid;grid-template-columns:repeat(15,1fr);gap:3px;font:10px ui-monospace,Menlo,Consolas,monospace;color:var(--mute);text-align:center}
+.axis.f{color:#cdbdff}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="prov">
+<b>Enquête du mardi 10/11/2026</b> · générée 10/11 ~09:40 UTC · méthode : comptages complets sur la chaîne + jeux complets DefiLlama et registre Uniswap, comptés en local<br>
+RPC officiel <code>rpc.mainnet.chain.robinhood.com</code>, relevé jusqu'au bloc 110 772 915 (10/11 09:19 UTC) · témoins : <code>eth_chainId</code> = 0x1237 ; code d'une adresse bidon = 0x ; PoolManager v4 = 24 009 octets ; <code>web3_sha3</code> de <code>Released(uint256,address,address[])</code> = le topic0 du mémo · lancements Pons des 26 et 27/10 recomptés : 1 430 et 1 452, identiques à la série<br>
+DefiLlama <code>/v2/chains</code>, <code>/protocols</code>, <code>/overview/dexs</code>, <code>/overview/fees</code> (dont ventilation journalière et <code>dailyHoldersRevenue</code>) : relevés 10/11 09:14 UTC · somme des 30 jours pleins 11/10→09/11 = 64 286 089 $, égale au <code>total30d</code> déclaré au dollar près<br>
+Registre <code>Uniswap/hooklist</code> : 5 019 entrées, dernier commit 05/11 22:16 UTC (âge : 4 j 11 h) · API Morpho 09:25 UTC · Federal Register API 09:30 UTC · SEC 4-927 via WebFetch 09:30 UTC · VPS delta joignable, non utilisé comme source
+</div>
+
+<h1>Pons ne gagne pas moins par jeton lancé : il lance deux fois moins de jetons</h1>
+
+<div class="key">
+<div class="v">207 $</div>
+<div class="l">de frais encaissés par Pons pour chaque jeton lancé le 09/11. Ce montant tient entre 170 et 243 $ depuis le 26/10, alors que les lancements ont chuté de moitié.</div>
+<div class="p">population : 15 jours UTC pleins (26/10 → 09/11) ; 16 853 événements TokenLaunched de la fabrique 0x7eD5…EC7e comptés sur la chaîne ; frais Pons V2 journaliers DefiLlama ; corrélation 0,963</div>
+</div>
+
+<h2>La question</h2>
+<p>La veille <code>v_20260919_01</code> affirme que le poids de Pons dans les frais de la chaîne tient. Elle meurt si ce poids passe sous 15 % avant le 19/11. Hier, il valait 15,3 %. Ce matin, il vaut <b>15,2 %</b> (9,78 M$ sur 64,29 M$ de frais 30 j). La question du jour est double. D'abord : de quoi est faite la baisse des frais de Pons ? Ensuite : sa part tient-elle parce que Pons résiste, ou parce que le reste de la chaîne baisse aussi ?</p>
+
+<h2>Ce que le fil a tranché ce matin</h2>
+<p>Aucune veille n'a franchi son seuil. Les 18 veilles ouvertes portent un point daté du 10/11 ; huit sont notées « non re-mesurée », avec leur raison. Une veille est ouverte (voir plus bas).</p>
+<div class="wrap"><table>
+<tr><th>veille</th><th>mesure du jour</th><th>statut</th></tr>
+<tr><td>v_20260919_01 — le poids de Pons dans les frais tient</td><td class="n">15,2 % (9,78 / 64,29 M$) ; 17,1 % hors Relay</td><td><span class="tag rv">ouverte, 0,2 pt de marge, échéance 19/11</span></td></tr>
+<tr><td>v_20261103_01 — le pool d'Uniswap Labs dépasse 10 % du volume v4</td><td class="n">lundi 09/11 : <b>20,1 %</b> (43,71 M USDG / 217,07 M$), 43 136 échanges</td><td><span class="tag op">ouverte, 1er jour de la semaine 09-15/11</span></td></tr>
+<tr><td>v_20261107_01 — ce pool vit de deux contrats</td><td class="n">09/11 : deux premiers 87,7 % (0x520e… 85,1 + 0xf655… 2,6) ; routeur public 0,8 %</td><td><span class="tag op">ouverte (seuil lu le 05/12)</span></td></tr>
+<tr><td>v_20261106_01 — Aero tient plus de 10 % du volume 7 j</td><td class="n">12,2 % (553,4 / 4 530,2 M$) ; 0,47 % des frais 30 j</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>v_20261019_01 — pas de retour des rachats d'UNI</td><td class="n">09/11 : 3 rachats ; semaine en cours : 4 ; nonce 1 374</td><td><span class="tag op">ouverte, échéance 16/11</span></td></tr>
+<tr><td>v_20261002_01 — le prêt n'est pas adossé aux actions</td><td class="n">0,73 % (3,95 / 537,99 M$ de collatéral Morpho), 53 jetons prouvés par leur balise</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>v_20261008_02 et v_20261022_01 — clés uniques (balise des actions, porte de Lighter)</td><td class="n">administrateur toujours sans code ; 0 événement sur les deux contrats, blocs 110 102 943 → 110 772 915</td><td><span class="tag op">ouvertes</span></td></tr>
+<tr><td>v_20260918_01 à 04 — hooks, audits, v3, famille actions</td><td class="n">72,3 % / 26,5 % ; 5 audités sur 1 206 ; v3 33,5 % du volume 30 j ; 156 sur 1 206, aucun avis de TSV</td><td><span class="tag op">ouvertes</span></td></tr>
+<tr><td>v_20261023_01, v_20261027_01, v_20261029_02, v_20261104_01, v_20261108_01, v_20261109_01</td><td class="n">non re-mesurées : recensement v4, échantillon de semaine, 34 pools DualPool, relecture v3 ; pas de samedi ni de dimanche dans la fenêtre</td><td><span class="tag op">ouvertes</span></td></tr>
+</table></div>
+
+<h2>Ce qui a été mesuré</h2>
+<p class="muted">Méthode en une ligne : <code>eth_getLogs</code> de l'événement <code>TokenLaunched</code> sur la fabrique Pons, jour par jour UTC aux bornes de bloc retrouvées par dichotomie, rapproché de la ligne « Pons V2 » de la ventilation journalière des frais DefiLlama.</p>
+<p><b>Les lancements ont chuté de moitié.</b> Moyenne des 26-28/10 : 1 607 jetons lancés par jour. Moyenne des 07-09/11 : 787. Le pic est le mercredi 28/10 (1 938), le creux le dimanche 08/11 (721).</p>
+<div class="bars" aria-label="jetons lancés par jour sur Pons, 26/10 au 09/11">
+<div style="height:74%"></div><div style="height:75%"></div><div style="height:100%"></div><div style="height:76%"></div><div style="height:57%"></div><div style="height:46%"></div><div style="height:43%"></div><div style="height:60%"></div><div style="height:47%"></div><div style="height:61%"></div><div style="height:63%"></div><div style="height:45%"></div><div style="height:39%"></div><div style="height:37%"></div><div style="height:45%"></div>
+</div>
+<div class="axis"><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span></div>
+<div class="axis f"><span>216</span><span>223</span><span>205</span><span>237</span><span>188</span><span>170</span><span>192</span><span>193</span><span>212</span><span>243</span><span>203</span><span>235</span><span>216</span><span>195</span><span>207</span></div>
+<p class="muted" style="font-size:13px">Barres : jetons lancés par jour (max 1 938). Ligne violette : frais Pons en dollars par jeton lancé, le même jour.</p>
+<p><b>Ce que rapporte chaque jeton, lui, ne bouge pas.</b> Les frais par lancement restent entre 170 $ (samedi 31/10) et 243 $ (mercredi 04/11), médiane 207 $. Sur ces 15 jours, la corrélation entre lancements et frais vaut 0,963.</p>
+<p><b>Le calibrage de la sonde.</b> Si on décale les frais d'un jour, la corrélation tombe à 0,704 et l'écart entre jours double. L'étiquette de date de DefiLlama est donc bien le début du jour UTC. Sans ce test, le rapprochement aurait pu comparer deux jours différents.</p>
+<p>Conclusion mesurée : la baisse des frais de Pons n'est pas une baisse de tarif ni d'activité par jeton. C'est une baisse du nombre de jetons créés. Compter les lancements sur la chaîne suffit à lire les frais de Pons, un jour avant l'agrégateur.</p>
+
+<h2>Le delta contre la veille</h2>
+<div class="wrap"><table>
+<tr><th>mesure</th><th>09/11</th><th>10/11</th><th>écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td class="n">1 057,5 M$</td><td class="n">1 069,5 M$</td><td class="n">+1,1 %</td></tr>
+<tr><td>TVL Uniswap v4</td><td class="n">143,5 M$</td><td class="n">146,8 M$</td><td class="n">+2,3 %</td></tr>
+<tr><td>volume 30 j de la chaîne</td><td class="n">21,40 Md$</td><td class="n">21,54 Md$</td><td class="n">+0,6 %</td></tr>
+<tr><td>volume 30 j Uniswap v4</td><td class="n">9,78 Md$</td><td class="n">9,63 Md$</td><td class="n">−1,5 %</td></tr>
+<tr><td>frais 30 j de la chaîne</td><td class="n">65,45 M$</td><td class="n">64,29 M$</td><td class="n">−1,8 %</td></tr>
+<tr><td>frais 30 j Pons V2</td><td class="n">10,04 M$</td><td class="n">9,78 M$</td><td class="n">−2,6 %</td></tr>
+<tr><td>part de Pons dans les frais 30 j</td><td class="n">15,3 %</td><td class="n">15,2 %</td><td class="n">−0,1 pt</td></tr>
+<tr><td>revenu reversé aux détenteurs de PONS (V1+V2), part des frais</td><td class="n">22,6 %</td><td class="n">20,8 %</td><td class="n">−1,8 pt</td></tr>
+<tr><td>hooks au registre (robinhood / toutes chaînes)</td><td class="n">1 206 / 5 019</td><td class="n">1 206 / 5 019</td><td class="n">registre figé depuis le 05/11</td></tr>
+<tr><td>dossier SEC 4-927 / Federal Register</td><td class="n">dernière lettre 06/11 / 312 doc.</td><td class="n">idem</td><td class="n">rien de neuf</td></tr>
+</table></div>
+<p class="muted">Les comptes du dossier SEC ne se lisent pas par script ; la page a été lue par WebFetch (4 pages, dernière lettre de l'American Securities Association le 06/11). Federal Register : témoin négatif 2026-99999999 en 404, témoin positif 2026-19388 en 200.</p>
+
+<h2>Ce qui contredit : la part de Pons est une moyenne en retard</h2>
+<p>Les 15,2 % sur 30 jours flattent Pons. Sur la semaine pleine du 02 au 08/11, sa part tombe à <b>12,8 %</b>. Sur les 14 derniers jours pleins, à 13,8 %. Onze de ces 14 jours sont sous 15 %. La moyenne 30 j est portée par la seconde quinzaine d'octobre, où la part journalière montait à 17-20 %. Ces jours sortent de la fenêtre un par un.</p>
+<p>Deuxième contradiction, plus importante pour la thèse « la chaîne mûrit » : <b>tout baisse, sauf le prêt et les contrats à terme</b>. Semaine 12-18/10 contre semaine 02-08/11 (frais totaux de la chaîne : 21,45 M$ puis 11,41 M$, −46,8 %) :</p>
+<div class="wrap"><table>
+<tr><th>groupe de lignes DefiLlama</th><th>12-18/10</th><th>02-08/11</th><th>variation en $</th></tr>
+<tr><td>Uniswap V2+V3+V4</td><td class="n">9,57 M$ (44,6 %)</td><td class="n">5,57 M$ (48,8 %)</td><td class="n">−41,8 %</td></tr>
+<tr><td>Pons V2</td><td class="n">3,22 M$ (15,0 %)</td><td class="n">1,46 M$ (12,8 %)</td><td class="n">−54,6 %</td></tr>
+<tr><td>Relay (pont)</td><td class="n">2,93 M$ (13,6 %)</td><td class="n">0,81 M$ (7,1 %)</td><td class="n">−72,2 %</td></tr>
+<tr><td>Lighter + Arcus + Morpho Blue + Steakhouse</td><td class="n">1,87 M$ (8,7 %)</td><td class="n">1,81 M$ (15,9 %)</td><td class="n">−3,3 %</td></tr>
+<tr><td>terminaux GMGN, Axiom, fomo Wallet</td><td class="n">1,16 M$ (5,4 %)</td><td class="n">0,33 M$ (2,9 %)</td><td class="n">−71,2 %</td></tr>
+</table></div>
+<p>Le prêt et les contrats à terme ont presque doublé leur part (8,7 % → 15,9 %) sans gagner un dollar. Leur part monte parce que la spéculation recule autour d'eux. Lire ce doublement comme une maturation serait une erreur de dénominateur. Par le capital déposé, la chaîne reste une chaîne de prêt (Morpho Blue : 610,5 M$ sur 1 069,5 M$). Par le volume, elle reste un échangeur (Uniswap : 78,5 % des 21,54 Md$ sur 30 j). Par les frais, Pons reste la 2e ligne derrière Uniswap V4. Aucune des trois mesures ne suffit seule.</p>
+<p><b>La presse contredit aussi la mesure</b>, sur un point précis. Plusieurs pages présentent le rachat de PONS comme financé par « 80 % » des frais du protocole (presse, non recoupé). DefiLlama attribue aux détenteurs 2,12 M$ sur 10,16 M$ de frais 30 j pour les deux versions de Pons, soit 20,8 %. L'écart peut venir de la définition : 80 % de la part protocole, et non des frais totaux. Il n'a pas été tranché sur la chaîne ce jour.</p>
+<p><b>Un fait à côté, sur la veille Uniswap Labs.</b> Le lundi 09/11, le pool ETH/USDG du hook VolatilePair a porté 20,1 % du volume Uniswap v4 de la chaîne, son plus haut relevé. Un seul expéditeur, <code>0x520e…8aa7</code>, en porte 85,1 %. Le second contrat d'hier, <code>0x29d8…80db</code>, recule de 27,6 % à 1,9 %. Le routeur public reste à 0,8 %.</p>
+
+<h2>Cohorte</h2>
+<p>Rien n'a bougé chez les huit membres au-delà de quelques pour cent ; aucun critère de sortie n'est approché. Un événement : <b>LayerBank</b> (score de preuve 3, TVL 3,36 M$) dépasse ce jour <b>UNCX Network V3</b> (score 2, TVL 3,30 M$) sur la preuve et la traction. C'est le jour 1 sur 7 de la règle des candidats automatiques. L'ambiguité déjà signalée le 10/10 revient : un prêteur et un verrou de jetons se jugent-ils à la même TVL ? La règle écrite ne prévoit pas d'arbitrage ; elle s'appliquera telle quelle si la domination tient jusqu'au 16/11.</p>
+<div class="wrap"><table>
+<tr><th>membre</th><th>preuve</th><th>traction du jour</th><th>frais vs Pons</th></tr>
+<tr><td>Morpho Blue</td><td class="n">2</td><td class="n">TVL 610,5 M$ (+1,2 %)</td><td class="n">0,186</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">TVL 114,7 M$ (+1,2 %), frais 30 j 2,26 M$</td><td class="n">0,231</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">TVL 63,1 M$ (−3,3 %), frais 30 j 1,89 M$</td><td class="n">0,194</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">TVL 5,71 M$ (+3,4 %)</td><td class="n">0,059</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">TVL 3,30 M$ (−1,0 %), 0 frais</td><td class="n">0</td></tr>
+<tr><td>Ekubo (STONX)</td><td class="n">2</td><td class="n">volume 30 j 22,5 M$ dont STONX 18,1 M$ ; mcap 10,1 M$</td><td class="n">0,004</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">volume 30 j 62,6 M$ (−2,9 %)</td><td class="n">0,004</td></tr>
+<tr><td>StonkBrokers (11 fiches)</td><td class="n">0</td><td class="n">frais 30 j 609,2 k$</td><td class="n">0,062</td></tr>
+</table></div>
+<p>Ce qui devrait inquiéter sans avoir bougé : Lighter et Arcus restent à 0 sur 4 en preuve, avec 178 M$ déposés à eux deux. La porte de mise à jour de Lighter n'a émis aucun événement depuis hier, mais son conseil de sécurité reste une clé seule. Antichambre : GlueHook (score 4, TVL 3,3 k$), Twofold (13,4 k$), ARMSys (GitHub toujours en 404) ; aucun seuil d'entrée franchi. Score de preuve recalculé sur les 311 protocoles de la chaîne : 209 à 0, 37 à 1, 50 à 2, 15 à 3 (hors composante hooks). Liens d'audit : 90 sur 94 répondent 200.</p>
+
+<h2>Pièges du mémo re-vérifiés ce jour</h2>
+<p>P2 et P8 : le total déclaré exclut les lignes <code>doublecounted</code> ; la somme des 30 jours pleins du graphique (sans ces lignes) égale le total déclaré au dollar près. P4 : Pons recollé en V1+V2 avant le ratio de reversement. P10 : trois commits d'adaptateurs touchent la chaîne depuis hier (Kyte, options, 10/11 08:56 UTC ; cro.trade Spot, 09/11 ; OpenOcean). Kyte n'a pas encore de ligne de frais ; le delta de frais n'en est pas affecté. Sonde du registre : historique des commits relu, aucune régénération depuis le 05/11 — l'immobilité des champs de hooks est une panne amont ou un gel, pas un écosystème figé.</p>
+
+<h2>Veille ouverte</h2>
+<p><code>v_20261110_01</code> — la baisse des frais de Pons est une baisse du nombre de lancements, pas de ce que rapporte chaque jeton. <b>Mesure</b> : frais Pons V2 journaliers divisés par les TokenLaunched du même jour, moyenne par semaine lundi-dimanche. <b>Seuil</b> : révisée si une semaine sort de 150-300 $ par lancement ; confirmée si les quatre semaines du 09/11 au 06/12 restent dedans. <b>Échéance</b> : 07/12.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<p>Pourquoi les lancements baissent. La chaîne seule ne dit pas si les créateurs partent vers un autre lanceur, si l'offre de jetons sature, ou si quelques robots ont cessé. Le nombre d'adresses créatrices distinctes n'a pas été compté ce jour. Ensuite, le partage réel des frais de Pons entre plateforme, créateurs et rachat n'est pas lu sur la chaîne : le chiffre de 20,8 % est celui de DefiLlama. Enfin, la veille de Pons ne se tranche pas aujourd'hui : il reste 0,2 point et neuf jours. Aucune recherche web n'a trouvé d'annonce de Pons ou d'Uniswap datée de novembre qui expliquerait la baisse.</p>
+<p class="muted" style="font-size:13px">Sources web consultées : <a href="https://www.sec.gov/rules-regulations/public-comments/4-927">SEC 4-927</a> · <a href="https://www.federalregister.gov/api/v1/documents.json">Federal Register API</a> · recherches « Pons Robinhood Chain » (résultats les plus récents : fin octobre, aucun en novembre) · <a href="https://tokenomist.ai/research/29-79-of-pons-supply-has-been-burned-future-buybacks-are-not-guaranteed">Tokenomist, rachats PONS</a> (presse, non recoupé).</p>
+</main>
+</body>
+</html>
