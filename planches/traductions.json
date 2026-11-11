@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-11-11T15:46:02Z",
+"generated_at": "2026-11-11T18:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 153,
+"n_affiches": 152,
 "n_refuses": 0,
-"n_traduits": 43,
+"n_traduits": 42,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -16,7 +16,6 @@
 "Crypto-friendly Robinhood brings US IPO access to UK retail investors": "Robinhood, favorable aux cryptos, ouvre l'accès aux introductions en bourse américaines aux particuliers britanniques",
 "Dinari Promises Anthropic dShares on IPO Day, Including for US Investors": "Dinari promet des dShares Anthropic dès le jour de l'introduction en bourse, y compris pour les investisseurs américains",
 "Ethena Explained: USDe, sUSDe, Rewards and Exit Routes": "Ethena expliqué : USDe, sUSDe, récompenses et voies de sortie",
-"Ethena Pay Rolls Out Earn+ With Up to 12% Target Rewards": "Ethena Pay lance Earn+ avec jusqu'à 12 % de récompenses cibles",
 "Ether.fi Explained: Staking, Vaults, Borrowing and Cash": "Ether.fi expliqué : staking, coffres, emprunt et Cash",
 "Ethereum treasury Sharplink’s Q3 net income hits $751 million on unrealized ether gains": "Sharplink, trésorerie en ether, affiche un bénéfice net du T3 de 751 M$ grâce à des gains latents sur l'ether",
 "FDV/Mcap exceeds 2.0x or fees coverage drops below 60%.": "Le ratio FDV/Mcap dépasse 2,0x ou la couverture des frais tombe sous 60%.",
