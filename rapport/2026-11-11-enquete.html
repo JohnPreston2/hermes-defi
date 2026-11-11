@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 11/11 — un marché de robots</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body><main>
+<div class="prov">
+<b>Généré</b> 11/11/2026 ~14:20 UTC · enquête quotidienne Uniswap v4 × Robinhood Chain<br>
+<b>DefiLlama</b> (chaînes, protocoles, échangeurs, frais, revenu aux détenteurs) relevé 13:28 UTC, âge &lt; 1 h · <b>registre des hooks</b> Uniswap/hooklist : dernière régénération 05/11 22:16 UTC (<b>6 jours</b>) · <b>RPC</b> <code>rpc.mainnet.chain.robinhood.com</code> lu jusqu'au bloc 111 744 796 (11/11 13:46 UTC), témoins eth_chainId = 0x1237 et code d'adresse bidon = 0x · <b>API Morpho</b> 13:40 UTC · <b>SEC 4-927</b> et <b>Federal Register</b> 13:35 UTC · <b>delta</b> (agent Hermes) non utilisé comme source ce jour.<br>
+<b>Pièges du mémo re-vérifiés ce jour</b> : P2/P8 (total des frais et lignes doublecounted : Pons V1 exclue du dénominateur), P4 (Pons V1+V2 recollées avant le taux de reversement), P5 (liens d'audit comptés en HTTP 200, pas le code <code>audits</code>), P7 (chaque chiffre porte sa population), P10 (commits dimension-adapters des 24 h listés : 4 adaptateurs nouveaux sur la chaîne, moins de 30 k$ de frais 30 j au total).
+</div>
+
+<h1>Robinhood Chain, 11/11 : le marché d'Uniswap Labs est tenu par des robots, et Robinhood ouvre l'émission d'actions à un second contrat qui n'émet rien</h1>
+
+<div class="key"><div class="v">93 %</div><div class="l">du volume du pool ETH/USDG d'Uniswap Labs vient de comptes robots, qui ont déjà signé plus de 10 000 transactions chacun.</div><div class="p">Population : 800 transactions tirées au hasard parmi les 57 200 du pool 0xa791…cd35 le 10/11 (jour UTC plein), 47,3 M USDG de volume ce jour-là.</div></div>
+
+<h2>Le fil : ce que disent les veilles ce matin</h2>
+<p>Dix-neuf veilles étaient ouvertes. Treize ont été re-mesurées ; six ne l'ont pas été et le disent (recensement des hooks, famille « a80 », DualPoolHook, pools v3, samedi et dimanche hors fenêtre). Aucune n'a franchi son seuil.</p>
+<div class="wrap"><table>
+<tr><th>Veille</th><th>Mesure du 11/11</th><th>État</th></tr>
+<tr><td>Pons sous 15 % des frais 30 j avant le 19/11 = morte</td><td class="n">15,16 % (9,61 / 63,39 M$)</td><td><span class="tag rv">0,16 pt du seuil</span></td></tr>
+<tr><td>Pool VolatilePair &gt; 10 % du volume v4, semaine 09-15/11</td><td class="n">22,1 % le 10/11 ; moyenne 21,1 % sur 2 jours</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Deux expéditeurs &gt; 75 % du pool au 05/12</td><td class="n">73,7 % le 10/11 (87,7 % le 09/11)</td><td><span class="tag op">se lit au 05/12</span></td></tr>
+<tr><td>Frais Pons par lancement entre 150 et 300 $</td><td class="n">218,7 $ (159 025 $ / 727)</td><td><span class="tag op">dans la bande</span></td></tr>
+<tr><td>Admin des jetons d'actions = compte sans code</td><td class="n">hasRole = 1, code 0x ; 2 rôles accordés le 10/11</td><td><span class="tag rv">événement</span></td></tr>
+<tr><td>Actions &lt; 2 % du collatéral Morpho</td><td class="n">0,76 % (4,08 / 533,93 M$)</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Rachats d'UNI &lt; 40 / semaine</td><td class="n">7 du 09/11 au 11/11 13:30 UTC</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Aero ≥ 10 % du volume 7 j</td><td class="n">12,0 % (538,7 / 4 507,7 M$)</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Uniswap v3 &gt; 20 % du volume 30 j</td><td class="n">33,6 %</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Hooks : afterSwapReturnsDelta / beforeAddLiquidity</td><td class="n">72,3 % / 26,5 % (sur 1 206 hooks du registre)</td><td><span class="tag op">registre figé</span></td></tr>
+</table></div>
+<p>La veille Pons est la plus proche de sa mort. Les deux derniers jours pleins DefiLlama donnent 13,1 % chacun. La moyenne de 30 jours tient encore grâce aux jours d'octobre.</p>
+
+<h2>La question</h2>
+<p>Depuis le 31/10, le pool ETH/USDG du hook VolatilePair, lancé par Uniswap Labs, porte entre 6 et 22 % du volume journalier d'Uniswap v4 sur la chaîne. Les enquêtes du 07/11 et du 10/11 ont montré que deux contrats y font l'essentiel du volume. Une question restait ouverte : ces contrats sont-ils des portes d'entrée d'une application grand public, ou des robots ?</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p class="muted">Méthode : tous les échanges du pool le 10/11 (jour UTC, blocs 110 459 116 à 111 281 135), puis un tirage de 800 transactions. Pour chacune : l'expéditeur réel et son nombre total de transactions signées. Ce nombre est un compteur public de la chaîne.</p>
+<p><b>57 481 échanges</b> le 10/11, contre 43 136 le 09/11. Volume : <b>47,31 M USDG</b>, soit <b>22,1 %</b> des 213,91 M$ d'Uniswap v4 sur la chaîne ce jour-là (DefiLlama).</p>
+<div class="wrap"><table>
+<tr><th>Contrat appelant</th><th>Part du volume</th><th>Échanges</th><th>Clés qui le pilotent</th><th>Net / brut</th></tr>
+<tr><td><code>0x520e…8aa7</code></td><td class="n">50,7 %</td><td class="n">19 858</td><td>au moins 89 clés ; compteur médian 83 523 tx, minimum 19 264</td><td class="n">3,1 %</td></tr>
+<tr><td><code>0x29d8…80db</code></td><td class="n">23,0 %</td><td class="n">18 099</td><td>12 clés, toutes entre 53 484 et 60 720 tx</td><td class="n">0,1 %</td></tr>
+<tr><td><code>0x2db5…79fd</code></td><td class="n">15,7 %</td><td class="n">9 151</td><td>5 clés, toutes entre 43 815 et 43 987 tx</td><td class="n">2,3 %</td></tr>
+<tr><td>Universal Router (routeur public)</td><td class="n">0,46 %</td><td class="n">455</td><td>25 clés</td><td class="n">12,4 %</td></tr>
+</table></div>
+<p>Par taille de compteur, sur l'échantillon de 800 transactions :</p>
+<div class="wrap"><table>
+<tr><th>Clé ayant signé…</th><th>Transactions</th><th>Part du volume</th><th>Témoin : Universal Router (452 tx)</th></tr>
+<tr><td>moins de 100 tx</td><td class="n">11</td><td class="n">0,5 %</td><td class="n">5,7 %</td></tr>
+<tr><td>100 à 999 tx</td><td class="n">31</td><td class="n">3,3 %</td><td class="n">7,9 %</td></tr>
+<tr><td>1 000 à 9 999 tx</td><td class="n">21</td><td class="n">2,8 %</td><td class="n">86,3 %</td></tr>
+<tr><td><b>10 000 tx et plus</b></td><td class="n">737</td><td class="n"><b>93,4 %</b></td><td class="n">0,1 %</td></tr>
+</table></div>
+<p>Le témoin sert à vérifier la sonde. Sur le routeur public, la classe des robots tombe à 0,1 %. La sonde distingue donc bien deux populations.</p>
+<p>Trois signes vont dans le même sens. Les clés d'un même contrat ont des compteurs presque identiques : elles tournent en parallèle. Les tailles d'ordre sont régulières : médiane 1 075 $ pour <code>0x520e</code>, 549 $ pour <code>0x29d8</code>. Enfin, <code>0x29d8</code> achète et revend presque autant : 16 191 USDG nets sur 10,9 M$ échangés. C'est la signature d'un teneur de marché, pas d'un investisseur.</p>
+<p>Dans un échantillon de 30 transactions par contrat, <code>0x520e</code> et <code>0x29d8</code> ne touchent aucun autre pool de la chaîne. Leur autre jambe, s'il y en a une, est hors de la chaîne. <code>0x2db5</code>, lui, passe par un contrat d'adresse « vanité » <code>0x0000…c998</code>. Dans au moins 10 transactions sur 30, il touche aussi un pool Uniswap v3 : c'est un arbitrage entre pools de la chaîne.</p>
+
+<h2>L'autre fait du jour : un second contrat peut émettre les actions</h2>
+<p>Le 10/11 à 21:32:53 UTC, puis à 21:33:06, la clé unique qui administre la balise des jetons d'actions (<code>0xd6f8…b66d</code>, sans code) a accordé deux rôles à <code>0x23e5…34c8</code> : le droit d'émettre (MINTER) et le droit de détruire (BURNER). La balise est le contrat commun aux 53 jetons d'actions vus en collatéral Morpho.</p>
+<p>Le nouveau titulaire est un proxy de 163 octets. Son code réel vit à <code>0x99aa…7663</code> (9 450 octets). Ce n'est pas le même code que celui du contrat qui avait reçu les mêmes droits le 22/10 (<code>0x1364…9c08</code>, code <code>0x31e1…9113</code>, 21 928 octets). Aucun rôle n'a été retiré. Trois adresses peuvent donc émettre, trois peuvent détruire.</p>
+<p><b>Mesure complète depuis l'octroi</b> : 617 transactions d'émission ou de destruction sur les 53 jetons (243 émissions, 374 destructions), jusqu'au 11/11 13:46 UTC. <b>617 sur 617</b> sont signées par les deux mêmes clés qu'avant : <code>0x2b94…3a87</code> pour émettre (161 110 tx à ce jour), <code>0x6e40…d8c1</code> pour détruire (105 758 tx). Les deux contrats n'ont encore rien fait. Celui du 22/10 attend depuis 19 jours.</p>
+<p>L'administrateur reste un compte sans code. Le seuil de la veille du 08/10 n'est donc pas franchi. Mais la préparation d'un second circuit d'émission se voit sur la chaîne avant tout usage. Une veille l'ouvre aujourd'hui.</p>
+
+<h2>Le delta contre la veille</h2>
+<p class="muted">Relevé du 10/11 à 09:14 UTC contre relevé du 11/11 à 13:28 UTC : 28 heures d'écart, pas 24.</p>
+<div class="wrap"><table>
+<tr><th>Mesure</th><th>10/11</th><th>11/11</th><th>Écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td class="n">1 069,5 M$</td><td class="n">1 057,4 M$</td><td class="n">−1,1 %</td></tr>
+<tr><td>TVL Uniswap v4</td><td class="n">146,8 M$</td><td class="n">143,5 M$</td><td class="n">−2,3 %</td></tr>
+<tr><td>Volume 30 j de la chaîne</td><td class="n">21,54 Md$</td><td class="n">21,55 Md$</td><td class="n">+0,0 %</td></tr>
+<tr><td>Volume 30 j Uniswap v4</td><td class="n">9,63 Md$</td><td class="n">9,52 Md$</td><td class="n">−1,2 %</td></tr>
+<tr><td>Frais 30 j de la chaîne (ce qu'elle encaisse)</td><td class="n">64,29 M$</td><td class="n">63,39 M$</td><td class="n">−1,4 %</td></tr>
+<tr><td>Part de Pons dans ces frais</td><td class="n">15,2 %</td><td class="n">15,2 % (15,16)</td><td class="n">≈ 0</td></tr>
+<tr><td>Revenu aux détenteurs, Pons V1+V2 / frais</td><td class="n">20,8 %</td><td class="n">18,9 %</td><td class="n">−1,9 pt</td></tr>
+<tr><td>Hooks au registre (Robinhood / total)</td><td class="n">1 206 / 5 019</td><td class="n">1 206 / 5 019</td><td class="n">figé</td></tr>
+<tr><td>Hooks audités au registre</td><td class="n">5 sur 1 206</td><td class="n">5 sur 1 206</td><td class="n">0</td></tr>
+<tr><td>Protocoles DefiLlama sur la chaîne</td><td class="n">311</td><td class="n">313</td><td class="n">+2</td></tr>
+</table></div>
+<p>Réglementaire : le dossier SEC 4-927 compte 5 lettres datées des 09 et 10/11, toutes de particuliers. Le <i>Federal Register</i> n'a rien publié de neuf (312 documents ; l'ordre reste le n° 2026-19388 du 22/09). Aucun avis public de place de négociation d'actions tokenisées sur Robinhood Chain.</p>
+
+<h2>Cohorte</h2>
+<p>Rien n'a bougé de façon décisive. Aucune entrée, aucune sortie. Score de preuve recalculé sur les 313 protocoles : 91 liens d'audit sur 95 répondent HTTP 200 ; 52 comptes GitHub sur 54 existent.</p>
+<div class="wrap"><table>
+<tr><th>Membre</th><th>Preuve</th><th>Traction (11/11)</th><th>Frais 30 j / Pons</th></tr>
+<tr><td>Morpho Blue</td><td class="n">2</td><td class="n">TVL 606,1 M$</td><td class="n">0,190</td></tr>
+<tr><td>Lighter Robinhood Perps</td><td class="n">0</td><td class="n">TVL 115,0 M$</td><td class="n">0,237</td></tr>
+<tr><td>Arcus Perps</td><td class="n">0</td><td class="n">TVL 62,7 M$</td><td class="n">0,199</td></tr>
+<tr><td>Snuggle</td><td class="n">2</td><td class="n">TVL 5,58 M$</td><td class="n">0,061</td></tr>
+<tr><td>UNCX Network V3</td><td class="n">2</td><td class="n">TVL 3,13 M$ (−5,2 %)</td><td class="n">0</td></tr>
+<tr><td>Ekubo (STONX)</td><td class="n">2</td><td class="n">volume 30 j 22,4 M$, dont STONX 17,8 M$</td><td class="n">0,004</td></tr>
+<tr><td>GIGA V3</td><td class="n">0</td><td class="n">volume 30 j 60,1 M$ (−4,0 %)</td><td class="n">0,004</td></tr>
+<tr><td>StonkBrokers</td><td class="n">0</td><td class="n">frais 30 j 0,61 M$</td><td class="n">0,063</td></tr>
+</table></div>
+<p>Ce qui devrait inquiéter : GIGA V3 est à 10,1 M$ de son seuil de sortie (volume 30 j sous 50 M$). Et LayerBank (score 3, TVL 3,42 M$) domine UNCX Network V3 (score 2, 3,13 M$) pour le 2e jour sur 7 : au 7e jour consécutif, la règle écrite le fait entrer à sa place. Antichambre inchangée : GlueHook a le score 4 mais 3 192 $ de TVL. La contre-référence Pons reste la 2e source de frais de la chaîne, derrière Uniswap v4 (23,7 M$).</p>
+
+<h2>Ce qui contredit</h2>
+<p><b>Une clé chargée n'est pas forcément un robot.</b> Un service qui signe pour ses clients, par exemple un portefeuille géré ou un relais, aurait aussi des compteurs de dizaines de milliers. Deux éléments rendent cette lecture moins probable : aucune transaction ne passe par un point d'entrée de comptes intelligents (dans les 90 transactions examinées, la cible est le contrat robot lui-même ou un contrat d'arbitrage), et les achats et ventes s'annulent presque. Mais la chaîne ne dit pas qui tient les clés.</p>
+<p><b>Un marché fait par des robots reste un marché.</b> Sur tout échangeur, les arbitragistes alignent le prix sur les places centralisées. 93 % ne prouve pas que le pool est fermé au public. Cela prouve que le public n'y est presque pas : 0,5 % du volume vient de clés à moins de 100 transactions. Aucun témoin d'une autre chaîne n'a été mesuré ce jour ; le chiffre ne se compare donc à rien d'extérieur.</p>
+<p><b>La prime se termine demain.</b> Selon la presse (non recoupé), Uniswap verse 50 000 USDG aux apporteurs de liquidité de ce pool du 30/10 au 12/11. Si la liquidité part après le 12/11, les robots peuvent partir avec elle. La veille du 03/11 et la nouvelle veille du jour le diront.</p>
+<p><b>Ma propre lecture d'hier sur la concentration était trop forte.</b> Le 09/11, deux expéditeurs faisaient 87,7 %. Le 10/11, ils font 73,7 %, parce qu'un troisième robot est arrivé. La concentration par contrat baisse ; la concentration par type de compte, elle, reste totale.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li>Qui opère les trois contrats. Leur code n'est pas publié et les explorateurs bloquent les scripts.</li>
+<li>À quoi servira <code>0x23e5…34c8</code>. Son code diffère de celui de <code>0x1364…9c08</code>. Remplacement, second émetteur, ou outil de rapprochement : rien ne le dit encore.</li>
+<li>Le recensement complet des hooks hors registre, la famille « a80 », le DualPoolHook et les pools v3 n'ont pas été re-mesurés ce jour.</li>
+<li>Le nombre total de lettres au dossier 4-927 : la page n'est pas lisible en entier par script.</li>
+</ul>
+<h2>Veilles ouvertes ce jour</h2>
+<p><b>v_20261111_01</b> : les deux contrats dotés des droits d'émission et de destruction ne servent pas encore. Révisée dès qu'une émission ou destruction passe par l'un d'eux ; confirmée si 100 % restent signées par les deux clés au 10/12.<br>
+<b>v_20261111_02</b> : le pool d'Uniswap Labs reste un marché de robots après la fin de la prime. Confirmée si un jour plein entre le 01/12 et le 09/12 reste au-dessus de 80 % ; révisée si un jour tombe sous 60 % avant.</p>
+<p class="muted">Sources : DefiLlama (api.llama.fi), Uniswap/hooklist (GitHub), RPC officiel de Robinhood Chain, API Morpho, sec.gov (dossier 4-927), federalregister.gov ; presse sur la prime VolatilePair : cryptonews.net, pro.edgex.exchange (non recoupé).</p>
+</main></body>
+</html>

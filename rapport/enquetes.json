@@ -1095,6 +1095,37 @@
     }
    ],
    "genere": "2026-11-10T09:40:00Z"
+  },
+  {
+   "date": "2026-11-11",
+   "fichier": "rapport/2026-11-11-enquete.html",
+   "titre": "Robinhood Chain, 11/11 : le marche d'Uniswap Labs est tenu par des robots, et Robinhood ouvre l'emission d'actions a un second contrat qui n'emet rien",
+   "question": "Qui fait le volume du pool ETH/USDG d'Uniswap Labs, devenu le premier marche de la chaine (20 % du volume v4) : des particuliers passes par une application, ou des robots ?",
+   "mesure_neuve": "Sur 800 transactions tirees au hasard parmi les 57 200 du pool le 10/11, 93,4 % du volume vient de cles ayant deja signe au moins 10 000 transactions ; 0,5 % de cles en ayant signe moins de 100 (temoin Universal Router : 0,1 % dans la classe des robots). Trois contrats font 89,4 % du volume, chacun alimente par une flotte de cles (5, 12 et au moins 89), allers-retours presque nets (0,1 % net sur 10,9 M$ pour l'un). Et le 10/11 a 21:32 UTC, la cle unique qui administre les 53 jetons d'actions a donne les droits d'emission et de destruction a un second contrat ; les 617 emissions et destructions qui ont suivi sont toutes signees par les deux memes cles qu'avant.",
+   "chiffre_cle": {
+    "valeur": "93 %",
+    "libelle": "du volume du pool ETH/USDG d'Uniswap Labs vient de comptes robots, qui ont deja signe plus de 10 000 transactions chacun",
+    "population": "800 transactions tirees au hasard parmi les 57 200 du pool 0xa791...cd35 le 10/11 (jour UTC plein), 47,3 M USDG de volume ce jour-la"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "Volume 30 j de la chaine (les echanges du mois)"
+    },
+    {
+     "champ": "rh_vol_30d_v4",
+     "libelle": "Volume 30 j d'Uniswap v4 (les echanges du mois)"
+    },
+    {
+     "champ": "rh_fees_30d_pons_share_pct",
+     "libelle": "Part de Pons dans les frais 30 j (ce que la chaine encaisse)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaine (l'argent depose)"
+    }
+   ],
+   "genere": "2026-11-11T14:20:00Z"
   }
  ]
 }
