@@ -1,14 +1,13 @@
 {
-"generated_at": "2026-11-12T12:46:02Z",
+"generated_at": "2026-11-12T21:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 149,
+"n_affiches": 146,
 "n_refuses": 0,
-"n_traduits": 25,
+"n_traduits": 21,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
 "Compound Foundation: Monthly V4 Programme Update [October 2026]": "Compound Foundation : mise à jour mensuelle du programme V4 [octobre 2026]",
-"Dinari Promises Anthropic dShares on IPO Day, Including for US Investors": "Dinari promet des dShares Anthropic dès le jour de l'introduction en bourse, y compris pour les investisseurs américains",
 "Ethena Explained: USDe, sUSDe, Rewards and Exit Routes": "Ethena expliqué : USDe, sUSDe, récompenses et voies de sortie",
 "Ether.fi Explained: Staking, Vaults, Borrowing and Cash": "Ether.fi expliqué : staking, coffres, emprunt et Cash",
 "FDV/Mcap exceeds 2.0x or fees coverage drops below 60%.": "Le ratio FDV/Mcap dépasse 2,0x ou la couverture des frais tombe sous 60%.",
@@ -17,7 +16,6 @@
 "IRIS Sets Nov. 10 Launch for Fixed-Rate Borrowing on SparkLend": "IRIS fixe au 10 novembre le lancement de l'emprunt à taux fixe sur SparkLend",
 "Interprétation attribuée : Sky TVL dropped 13.6% 7d to $4.47B and USDS supply contracted 11.6% 7d to $5.64B as of 2026-11-08 12:20 UTC, disproportionate to global stablecoin contraction (-1.8%). This … [suite dans la trace]\nLimites conservées : Destination of the $738M leaving USDS not traced — no whale flow by asset available ; Articles read as summaries/records only; full text not verified ; No governance proposal to adjust USDS savings rate found in recent 7d ; Actual deposit yields on Aave/Morpho not verified; competitiveness inferred from capital flow, not rate comparison ; Sky forum (makerdao.com and sky.money) searched but no direct mention of savings rate changes found\nSuite : Verify within 7-10 days: (1) whether Sky governance adjusts USDS savings rate, (2) whether USDS contraction rate changes, (3) correlation between USDS supply and Aave TVL to test capture hypothesis": "Interprétation attribuée : la TVL de Sky a baissé de 13,6 % sur 7 jours, à 4,47 Md$, et l'offre d'USDS a reculé de 11,6 % sur 7 jours, à 5,64 Md$, au 2026-11-08 12:20 UTC, une baisse disproportionnée par rapport à la contraction mondiale des stablecoins (−1,8 %). Ceci … [suite dans la trace] — Limites conservées : destination des 738 M$ quittant USDS non tracée, aucun flux de baleines par actif disponible ; articles lus seulement en résumés ou fiches ; texte intégral non vérifié ; aucune proposition de gouvernance pour ajuster le taux d'épargne USDS trouvée sur 7 jours ; rendements réels de dépôt sur Aave et Morpho non vérifiés ; compétitivité déduite des flux de capitaux, non d'une comparaison de taux ; forum Sky (makerdao.com et sky.money) consulté, sans mention directe d'un changement de taux d'épargne. — Suite : à vérifier sous 7 à 10 jours : (1) si la gouvernance Sky ajuste le taux d'épargne USDS, (2) si le rythme de contraction d'USDS change, (3) corrélation entre l'offre d'USDS et la TVL d'Aave, pour tester l'hypothèse de capture.",
 "Jito Names First Outside BAM Node Operators": "Jito nomme les premiers opérateurs de nœuds BAM externes",
-"Jupiter Lend Explained: Deposits, Borrowing and Withdrawals": "Jupiter Lend expliqué : dépôts, emprunts et retraits",
 "Kinetiq Launches Elysium Mainnet for Hyperliquid": "Kinetiq lance le mainnet Elysium pour Hyperliquid",
 "Lido Adds Firelight Loss Protection to Earn Vaults": "Lido ajoute la protection contre les pertes de Firelight aux coffres Earn",
 "Lido Earn: Introducing Two Layers of Loss Protection": "Lido Earn : deux couches de protection contre les pertes sont introduites",
@@ -28,9 +26,7 @@
 "TVL base trend turns negative or FDV/Mcap ratio exceeds 3.5.": "La tendance de base de la TVL devient négative, ou le ratio FDV/Mcap dépasse 3,5.",
 "Token capture remains 0.0% for 30 days or base (OI/Vol) contracts for 7 consecutive days.": "La capture de jetons reste à 0,0% pendant 30 jours, ou la base (OI/Vol) se contracte pendant 7 jours consécutifs.",
 "Uniswap Volume Tops $5.97 Billion as Ethereum Trading Surges": "Le volume d'Uniswap dépasse 5,97 milliards de $ tandis que le trading sur Ethereum s'envole",
-"Uphold RLUSD Earn vs. Ethena Pay Earn+: Lending and Leverage Compared": "Uphold RLUSD Earn ou Ethena Pay Earn+ : prêt et effet de levier comparés",
 "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur.",
-"Zama spin-off Raycash launches confidential stablecoin payments and private yield on Ethereum": "La filiale de Zama, Raycash, lance des paiements en stablecoins confidentiels et un rendement privé sur Ethereum",
 "[Gauntlet] Scroll USDC Comet: Closing Remaining Positions": "[Gauntlet] Scroll USDC Comet : fermeture des positions restantes"
 }
 }
