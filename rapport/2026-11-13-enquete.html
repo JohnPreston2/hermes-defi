@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robinhood Chain, 13/11 — la prime se termine</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mute:#9aa3c7;--acc:#a68cff;--line:#1d2340;--card:#0e1224}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 60px}
+main{max-width:860px;margin:0 auto}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
+h1{font-size:2.05rem;margin:28px 0 10px}
+h2{font-size:1.35rem;margin:38px 0 10px;color:var(--acc)}
+.prov{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:22px;background:var(--card)}
+.prov b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);padding:6px 0 6px 16px;margin:22px 0}
+.key .v{font-family:Georgia,serif;font-size:3rem;color:var(--acc);line-height:1}
+.key .l{font-size:1.05rem}
+.key .p{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--mute)}
+.wrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mute);font:12px ui-monospace,Menlo,Consolas,monospace}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:11px ui-monospace,Menlo,Consolas,monospace;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.ok{color:#7ee0a8}.rv{color:#ffc46b}.op{color:var(--mute)}.ko{color:#ff8a8a}
+code{font:13px ui-monospace,Menlo,Consolas,monospace;color:#cdbdff;word-break:break-all}
+.muted{color:var(--mute)}
+a{color:var(--acc)}
+</style>
+</head>
+<body><main>
+<div class="prov">
+<b>Généré</b> 13/11/2026 ~21:10 UTC · enquête quotidienne Uniswap v4 × Robinhood Chain · aucune enquête le 12/11 : les deltas se lisent contre le relevé du 11/11 (deux jours)<br>
+<b>DefiLlama</b> (chaînes, protocoles, échangeurs, frais, revenu aux détenteurs, volume Uniswap v4 par jour) relevé 20:30 UTC, âge &lt; 1 h · <b>registre des hooks</b> Uniswap/hooklist : dernière régénération 05/11 22:16 UTC (<b>8 jours</b>) · <b>RPC</b> <code>rpc.mainnet.chain.robinhood.com</code> lu jusqu'au bloc 113 635 084 (13/11 20:33 UTC), témoins eth_chainId = 0x1237, code de la PoolManager lisible (non vide), échanges du 10/11 rejoués = 57 481 (valeur de référence) · <b>SEC 4-927</b> et <b>Federal Register</b> 20:35 UTC (témoin négatif 4-99927 : 404) · <b>delta</b> (agent Hermes) non utilisé comme source ce jour.<br>
+<b>Pièges du mémo re-vérifiés ce jour</b> : P2 (la somme des lignes de frais non doublecounted, hors ligne de la chaîne, égale le total déclaré au dollar : 59 095 512 $), P8 (somme des lignes de revenu aux détenteurs 7,29 M$ contre total déclaré 5,18 M$ : les lignes doublecounted sont hors dénominateur), P4 (Pons V1 et V2 recollées avant le taux de reversement), P5 (liens d'audit comptés en HTTP 200 : 91 sur 95), P7 (chaque chiffre porte sa population), santé du registre (aucun commit depuis le 05/11). <b>Non rejoué</b> : P10 (commits dimension-adapters des 24 h), donc les deltas de périmètre de DefiLlama ne sont pas isolés ce jour.
+</div>
+
+<h1>Robinhood Chain, 13/11 : la prime aux apporteurs de liquidité se termine, et le pool d'Uniswap Labs échange 79 % de plus par heure</h1>
+
+<div class="key"><div class="v">+79 %</div><div class="l">d'échanges par heure dans le pool ETH/USDG d'Uniswap Labs le 13/11 par rapport au 12/11, dernier jour de la prime aux apporteurs de liquidité (presse, non recoupée).</div><div class="p">Population : comptage complet des échanges (Swap) du pool 0xa791…cd35 : 74 389 du 13/11 00:00 au 20:33 UTC (blocs 112 925 846 → 113 635 084), contre 48 627 sur le jour UTC plein du 12/11.</div></div>
+
+<h2>La question</h2>
+<p>Depuis le 30/10, d'après la presse (non recoupé par moi), Uniswap Labs verse une prime de 50 000 USDG aux apporteurs de liquidité du pool ETH/USDG de son hook VolatilePair. Cette prime s'arrête le 12/11. Le 11/11, l'enquête a établi que le volume de ce pool vient de comptes robots. La question du jour : quand la prime s'arrête, le pool se vide-t-il ?</p>
+
+<h2>Le fil : ce que disent les veilles</h2>
+<p>Vingt et une veilles étaient ouvertes. Onze ont été re-mesurées ; dix ne l'ont pas été et le disent (recensements on-chain lourds, échantillons de nonces, relevé du samedi et du dimanche hors fenêtre). <b>Une veille a franchi son seuil et est soldée : la part de Pons.</b> Une veille est ouverte aujourd'hui (voir plus bas). Une échéance approche sans mesure : la famille de hooks « a80 » (échéance 17/11).</p>
+<div class="wrap"><table>
+<tr><th>Veille</th><th>Mesure du 13/11</th><th>État</th></tr>
+<tr><td>Pons sous 15 % des frais 30 j avant le 19/11 = morte</td><td class="n">14,997 % (8,862 / 59,096 M$), contre 15,16 % le 11/11</td><td><span class="tag ko">MORTE</span></td></tr>
+<tr><td>Pool VolatilePair &gt; 10 % du volume v4, semaine 09-15/11</td><td class="n">20,1 / 22,1 / 19,4 / 15,8 % du 09 au 12/11 ; moyenne 19,4 %</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Deux expéditeurs &gt; 75 % du pool au 05/12</td><td class="n">77,1 % (11/11), 72,3 % (12/11), 67,9 % (13/11 partiel)</td><td><span class="tag op">se lit au 05/12</span></td></tr>
+<tr><td>Hooks : afterSwapReturnsDelta ≥ 60 % et beforeAddLiquidity ≤ 40 %</td><td class="n">72,3 % (872/1 206) · 26,5 % (319/1 206)</td><td><span class="tag op">ouverte, registre figé</span></td></tr>
+<tr><td>Hooks audités : taux ≤ 1 %</td><td class="n">5 sur 1 206 hooks du registre (0,41 %)</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Uniswap v3 &gt; 20 % du volume de la chaîne</td><td class="n">v3 33,4 % · v4 43,4 % (6,94 / 9,00 / 20,76 Md$)</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Actions tokenisées : famille de hooks et avis de TSV</td><td class="n">156 sur 1 206 hooks (12,9 %) · aucun avis de TSV ; lettres de Chainlink Labs (11/11) et Securitize (12/11) au dossier 4-927</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Rachats d'UNI (Firepit) &lt; 40 par semaine</td><td class="n">7 rachats du 11/11 13:36 au 13/11 20:33 UTC, nonce 1 377 → 1 384 ; semaine 09-15/11 : 14</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Contrôle des jetons d'actions : admin à clé unique</td><td class="n">admin 0xd6f8…b66d : rôle = 1 (témoin 0x…dead : 0), sans code ; implémentation inchangée ; 0 événement sur la balise depuis le 11/11</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Aero &gt; 10 % du volume 7 j</td><td class="n">12,6 % du volume 7 j ; 0,62 % des frais 30 j</td><td><span class="tag op">ouverte</span></td></tr>
+<tr><td>Porte de mise à jour de Lighter</td><td class="n">0 événement du bloc 110 772 915 au bloc 113 634 754</td><td><span class="tag op">ouverte</span></td></tr>
+</table></div>
+<p class="muted">Non re-mesurées (le fait est écrit dans le carnet) : collatéral Morpho, recensement des hooks hors registre (22/11), famille « a80 » (17/11), DualPoolHook (26/11), pools v3 (02/12), frais par lancement Pons, origine des émissions d'actions, échantillon de nonces.</p>
+<p><b>Sur Pons.</b> La veille mourait si la part de Pons V2 passait sous 15 % des frais 30 j. Elle vaut 14,997 %. La marge est de 0,003 point : c'est le bruit d'un relevé. J'applique la règle écrite et la pratique de la série (Pons V2 seule sur le total déclaré) : <b>morte</b>. Deux autres lectures donnent un autre côté du seuil : Pons V1 + V2 = 15,58 %, et hors Relay (un service de passerelle, 6,07 M$ de frais) = 16,7 %. Le verdict dépend donc de la définition. Ce qui ne dépend pas d'elle : la part de Pons est passée de 42 % (19/09) à 15 %.</p>
+
+<h2>Ce qui a été mesuré</h2>
+<p>Méthode en une ligne : DefiLlama pour le chiffre de la chaîne ; un comptage complet des événements Swap du pool sur la chaîne, jour par jour, avec le jour du 10/11 rejoué comme témoin ; le registre officiel pour les hooks.</p>
+<div class="wrap"><table>
+<tr><th>Jour UTC</th><th>Échanges</th><th>Volume (USDG)</th><th>Ticket moyen</th><th>Part du volume v4</th><th>Trois premiers expéditeurs</th></tr>
+<tr><td>10/11</td><td class="n">57 481</td><td class="n">47,31 M</td><td class="n">823</td><td class="n">22,1 %</td><td class="n">89,4 %</td></tr>
+<tr><td>11/11</td><td class="n">42 387</td><td class="n">41,35 M</td><td class="n">975</td><td class="n">19,4 %</td><td class="n">88,9 %</td></tr>
+<tr><td>12/11 (dernier jour de la prime)</td><td class="n">48 627</td><td class="n">37,17 M</td><td class="n">764</td><td class="n">15,8 %</td><td class="n">87,9 %</td></tr>
+<tr><td>13/11, 00:00 → 20:33 (20 h 33)</td><td class="n">74 389</td><td class="n">48,94 M</td><td class="n">658</td><td class="muted">jour non clos</td><td class="n">90,8 %</td></tr>
+</table></div>
+<p>Le témoin passe : le 10/11, je retrouve 57 481 échanges, 47,31 M USDG et la même répartition entre expéditeurs (50,7 / 23,0 / 15,7 %) que dans le relevé du 11/11. Le 13/11 n'est pas un jour plein : je ne l'extrapole pas, je compare des rythmes horaires. 3 619 échanges par heure le 13/11, contre 2 026 le 12/11 : <b>+79 %</b>. Le volume par heure monte de 54 %. <b>L'écart entre les deux vient du ticket moyen</b> : 823 USDG le 10/11, 764 le 12/11, 658 le 13/11. Il y a davantage d'échanges, et chacun est plus petit.</p>
+<p>Population de la mesure des trois premiers expéditeurs : contrats qui appellent directement la PoolManager d'Uniswap (champ « sender »), sur l'ensemble des échanges du pool ce jour-là. Le premier recule de 50,7 % (10/11) à 35,7 % (13/11), le deuxième monte de 23,0 % à 32,2 %, le troisième rang de 15,7 % à 22,9 % (ce ne sont pas toujours les mêmes contrats).</p>
+
+<h2>Le delta contre le dernier relevé (11/11 13:28 UTC)</h2>
+<div class="wrap"><table>
+<tr><th>Mesure (population)</th><th>11/11</th><th>13/11</th><th>Écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé), DefiLlama, 313 → 317 protocoles</td><td class="n">1 057,4 M$</td><td class="n">1 027,5 M$</td><td class="n">−2,8 %</td></tr>
+<tr><td>TVL d'Uniswap v4 sur la chaîne</td><td class="n">143,5 M$</td><td class="n">135,2 M$</td><td class="n">−5,8 %</td></tr>
+<tr><td>Volume 30 j de la chaîne (échangeurs DefiLlama)</td><td class="n">21,55 Md$</td><td class="n">20,76 Md$</td><td class="n">−3,6 %</td></tr>
+<tr><td>Volume 24 h de la chaîne</td><td class="n">553,5 M$</td><td class="n">641,5 M$</td><td class="n">+15,9 %</td></tr>
+<tr><td>Volume 30 j d'Uniswap v4</td><td class="n">9,52 Md$</td><td class="n">9,00 Md$</td><td class="n">−5,5 %</td></tr>
+<tr><td>Frais 30 j de la chaîne (total déclaré, hors ligne de la chaîne)</td><td class="n">63,39 M$</td><td class="n">59,10 M$</td><td class="n">−6,8 %</td></tr>
+<tr><td>Frais 7 j de la chaîne</td><td class="n">11,00 M$</td><td class="n">9,12 M$</td><td class="n">−17,2 %</td></tr>
+<tr><td>Revenu 30 j aux détenteurs de jetons (total déclaré) ; 69 protocoles sur 173 en ont un non nul</td><td class="n">5,40 M$</td><td class="n">5,18 M$</td><td class="n">−4,1 %</td></tr>
+<tr><td>Hooks du registre, chaîne Robinhood (1 206 sur 5 019 toutes chaînes)</td><td class="n">1 206</td><td class="n">1 206</td><td class="n">0 (registre figé)</td></tr>
+</table></div>
+<p>Trois lectures, trois bases de valeur, aucune ne suffit seule. Par le capital déposé (TVL), la chaîne perd 2,8 % en deux jours. Par les échanges du mois, −3,6 %, mais le volume des dernières 24 h monte de 15,9 %. Par les frais, −6,8 % sur 30 jours et −17,2 % sur 7 jours : les frais baissent plus vite que le volume. Le revenu qui revient aux détenteurs de jetons (5,18 M$ sur 59,10 M$ de frais) reste une mesure affichée, pas un critère.</p>
+
+<h2>Cohorte : ce qui a bougé chez les dix</h2>
+<p>Un membre est <b>à surveiller de près</b> : <b>GIGA V3</b> (un échangeur réservé aux robots). Son volume 30 j vaut 50,99 M$ contre 60,06 M$ le 11/11 (−15,1 % en deux jours). Le critère de sortie est 50 M$ : il reste 0,99 M$. Aucune sortie n'est déclenchée ce jour. Au rythme observé, le critère sera franchi dans les prochains relevés.</p>
+<p>Les autres : <b>Ekubo</b> mcap 8,03 M$ (−19,5 %), volume 30 j de STONX 15,3 M$ contre 17,8 M$ (seuil 10 M$) ; <b>UNCX Network V3</b> TVL 2,85 M$ (−9,0 %, seuil 1 M$) et passé sous LayerBank ; <b>Lighter</b> TVL 110,8 M$ (−3,6 %), deuxième hors Uniswap derrière Morpho Blue, aucun événement de la porte de mise à jour ; <b>Arcus</b> TVL 61,2 M$ ; <b>Morpho Blue</b> TVL 595,4 M$ (−1,8 %) ; <b>Snuggle</b> TVL 5,59 M$ ; <b>StonkBrokers</b> frais 30 j 604 k$ (plancher 200 k$). Aucun critère de sortie franchi. Le point commun : la plupart des lignes de TVL baissent de 1,8 à 9 % en deux jours (Snuggle : +0,2 %), sans événement propre à un protocole que j'aie relevé.</p>
+<p><b>Candidats automatiques.</b> LayerBank (3,12 M$, score de preuve 3) reste devant UNCX Network V3 (2,85 M$, score 2) : jour 4 sur 7. Le 12/11 est reconstitué par l'historique DefiLlama, pas relevé ce jour-là ; les scores du 12/11 sont supposés inchangés. Le compteur atteint 7 le 16/11. Les trois autres candidats (Beefy, vfat.io, Mellow Core) ne dominent aucun membre. Scores de preuve sur les 317 protocoles de la chaîne (sans la composante hooks hors membres) : 213 à 0, 38 à 1, 51 à 2, 15 à 3.</p>
+<p><b>Contre-référence Pons.</b> 8,86 M$ de frais 30 j (V2), 14,997 % des frais de la chaîne, deuxième ligne derrière Uniswap v4 (21,79 M$). Rapport des frais 30 j à ceux de Pons : Lighter 0,25 ; Morpho Blue 0,21 ; Arcus 0,21 ; StonkBrokers 0,07 ; Snuggle 0,07 ; Ekubo 0,004 ; GIGA V3 0,004. La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse : Pons pèse encore près de quatre fois Lighter.</p>
+
+<h2>Ce qui contredit ma lecture</h2>
+<p><b>1. Le +79 % ne dit pas « le pool tient ».</b> Ce sont des échanges plus petits. Le volume par heure monte de 54 % seulement, et la part du volume Uniswap v4 portée par le pool recule : 22,1 % (10/11), 19,4 % (11/11), 15,8 % (12/11). Le 12/11 est le jour où le volume de la chaîne en v4 est le plus haut des six derniers jours dans DefiLlama (235,5 M$) : la hausse de ce jour ne vient pas du pool.</p>
+<p><b>2. Je ne sais pas si la prime a vraiment pris fin le 12/11.</b> La date vient de la presse, et le programme a pu être prolongé ou remplacé. Un pool qui garde son rythme après une prime qui continue ne prouve rien.</p>
+<p><b>3. La concentration ne baisse pas.</b> Les trois premiers expéditeurs portent toujours 88 à 91 % du volume. Le premier recule, le troisième monte : l'activité se déplace entre contrats, elle ne se disperse pas vers des particuliers. La mesure par échantillon de nonces (clés ≥ 10 000 transactions) n'a pas été refaite ce jour.</p>
+<p><b>4. Le verdict sur Pons dépend d'une définition.</b> Voir plus haut : 14,997 % (V2 seule), 15,58 % (V1 + V2), 16,7 % (hors Relay).</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul>
+<li>Le 12/11 n'a pas de relevé de série : le delta couvre deux jours, et rien n'indique si la baisse de TVL s'est faite en une fois.</li>
+<li>Les commits récents de DefiLlama (<code>dimension-adapters</code>) n'ont pas été listés : un changement de périmètre peut expliquer une partie des −6,8 % de frais.</li>
+<li>Le registre des hooks n'a pas bougé depuis 8 jours. Les 1 206 hooks comptés sont ceux du registre, pas ceux de la chaîne (le recensement du 25/09 en trouvait 23 209 utilisés par un pool). Les taux de hooks ne portent donc que sur la population du registre.</li>
+<li>La chaîne en direct n'a pas été recensée ce jour : 10 veilles sans nouveau point chiffré, dont une qui expire le 17/11.</li>
+<li>La recherche web ne donne rien de daté de novembre sur Uniswap × Robinhood Chain. Les articles trouvés remontent à juillet-septembre. Sur la SEC : l'ordre d'exemption (17/09) fixe des plafonds de symboles et de volume ; Robinhood déclare déjà s'en approcher (The Block, 02/10, presse non recoupée). Aucun avis de TSV sur cette chaîne. Le dossier 4-927 reçoit des lettres d'acteurs de marché (Chainlink Labs, Securitize) : à lire, pas à interpréter sans en connaître le contenu.</li>
+</ul>
+
+<h2>Une veille ouverte aujourd'hui</h2>
+<p><b>v_20261113_01</b> — le pool VolatilePair ne s'effondre pas quand la prime prend fin : somme du volume USDG de chaque jour UTC plein du 14/11 au 20/11. Confirmée si les sept jours restent au-dessus de 30 M USDG ; révisée si un jour tombe sous 20 M USDG. Référence : 37,17 M le 12/11, 41,35 M le 11/11, 47,31 M le 10/11. Échéance 21/11.</p>
+</main></body></html>

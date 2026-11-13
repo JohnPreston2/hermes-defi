@@ -1126,6 +1126,37 @@
     }
    ],
    "genere": "2026-11-11T14:20:00Z"
+  },
+  {
+   "date": "2026-11-13",
+   "fichier": "rapport/2026-11-13-enquete.html",
+   "titre": "Robinhood Chain, 13/11 : la prime aux apporteurs de liquidité se termine, et le pool d'Uniswap Labs échange 79 % de plus par heure",
+   "question": "Quand la prime aux apporteurs de liquidité du pool ETH/USDG d'Uniswap Labs prend fin (12/11, presse non recoupée), son activité retombe-t-elle ?",
+   "mesure_neuve": "Comptage complet des échanges du pool 0xa791…cd35 : 3 619 échanges par heure le 13/11 (74 389 de 00:00 à 20:33 UTC) contre 2 026 par heure le 12/11 (48 627 sur le jour plein), soit +79 %. Le volume horaire monte de 54 % : le ticket moyen baisse de 823 USDG (10/11) à 764 (12/11) puis 658 (13/11). Les trois premiers expéditeurs portent toujours 90,8 % du volume, mais le premier recule de 50,7 % à 35,7 %.",
+   "chiffre_cle": {
+    "valeur": "+79 %",
+    "libelle": "d'échanges par heure dans le pool ETH/USDG d'Uniswap Labs le 13/11 par rapport au 12/11, dernier jour de la prime aux apporteurs de liquidité (presse, non recoupée)",
+    "population": "comptage complet des Swap du PoolId 0xa791…cd35 : 74 389 échanges du 13/11 00:00 au 20:33 UTC (blocs 112 925 846 → 113 635 084) contre 48 627 sur le jour UTC plein du 12/11"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "Volume 30 j de la chaîne (les échanges du mois)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "Frais 30 j de la chaîne (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_vol_30d_v4",
+     "libelle": "Volume 30 j d'Uniswap v4 (les échanges du mois)"
+    }
+   ],
+   "genere": "2026-11-13T21:10:00Z"
   }
  ]
 }

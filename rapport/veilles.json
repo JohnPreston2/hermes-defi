@@ -231,6 +231,11 @@
      "date": "2026-11-11",
      "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
      "note": "registre inchange depuis le 05/11 22:16 UTC (dernier commit f4b5956d), 6 jours sans regeneration"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
+     "note": "registre inchange depuis le 05/11 22:16 UTC (dernier commit f4b5956d), 8 jours sans regeneration"
     }
    ],
    "solde": null
@@ -457,6 +462,11 @@
     {
      "date": "2026-11-11",
      "valeur": "5 / 1206 (0,41 %) au champ auditUrl",
+     "note": "inchange"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "5 / 1206 (0.41 %) au champ auditUrl",
      "note": "inchange"
     }
    ],
@@ -685,6 +695,11 @@
      "date": "2026-11-11",
      "valeur": "v3 33,6 % / v4 44,2 % du volume 30 j (7,24 / 9,52 / 21,55 Md$)",
      "note": "DefiLlama 11/11 ~13:29 UTC"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "v3 33.4 % / v4 43.4 % du volume 30 j (6.94 / 9.00 / 20.76 Md$)",
+     "note": "DefiLlama 13/11 ~20:30 UTC"
     }
    ],
    "solde": null
@@ -912,6 +927,11 @@
      "date": "2026-11-11",
      "valeur": "156 sur 1206 (12,9 %, registre identique au 05/11) ; aucun avis de TSV sur Robinhood Chain",
      "note": "SEC 4-927 : 5 lettres de particuliers les 09-10/11 ; FR : 312 documents, inchange ; recherche web : rien"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "156 sur 1206 (12.9 %, motif strict) ; vocabulaire large 157 (13.0 %) ; aucun avis de TSV sur Robinhood Chain",
+     "note": "registre identique au 05/11. SEC 4-927 : deux lettres d'acteurs de marche (Chainlink Labs, 11/11 ; Securitize, 12/11) ; FR : 313 documents (312 le 11/11), dernier 13/11 = avis de depot Nasdaq ISE ; recherche web : rien de nouveau"
     }
    ],
    "solde": null
@@ -1027,7 +1047,7 @@
    "mesure": "DefiLlama /overview/fees/Robinhood%20Chain : part de Pons (V1+V2) dans total30d. Reference 2026-09-19 : 135 487 898 $ sur 322 641 481 $ = 42,0 %.",
    "seuil": "MORTE si la part de Pons tombe sous 15 % du total avant l'echeance. CONFIRMEE si elle reste au-dessus de 30 % a l'echeance.",
    "echeance": "2026-11-19",
-   "statut": "OUVERTE",
+   "statut": "MORTE",
    "historique": [
     {
      "date": "2026-09-19",
@@ -1238,9 +1258,16 @@
      "date": "2026-11-11",
      "valeur": "15,2 % (9,61/63,39 M$ = 15,16 %) Pons V2 ; 17,0 % hors Relay",
      "note": "toujours au-dessus du seuil de mort de 0,16 point, echeance 19/11. Jours pleins DefiLlama : 13,1 % le 09/11 et le 10/11 ; les 10 derniers jours pleins sont tous sous 15,1 %"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "14.997 % (8.862 / 59.096 M$) Pons V2",
+     "note": "SOUS LE SEUIL DE MORT DE 0,003 POINT. Memes definition et denominateur que le releve du 11/11 (15,16 %). Lecture alternative V1+V2 : 15.58 % ; hors Relay : 16.7 %. Verdict : MORTE selon la regle ecrite et la pratique de la serie ; la marge est a la limite du bruit de relevage."
     }
    ],
-   "solde": null
+   "solde": null,
+   "soldee": "2026-11-13",
+   "solde_motif": "Part de Pons V2 dans les frais 30 j de la chaine : 14.997 % le 13/11, sous le seuil de 15 % (15,16 % le 11/11). Marge de 0,003 point : lecture V1+V2 15.58 %, hors Relay 16.7 %."
   },
   {
    "id": "v_20260920_01",
@@ -2058,6 +2085,11 @@
      "date": "2026-11-11",
      "valeur": "0,76 % (4,08 M$ sur 533,93 M$ de collateral Morpho), 11 marches d'actions au-dessus de 1 000 $, 53 jetons",
      "note": "API Morpho (champ marketId, uniqueKey ne repond plus) ~13:40 UTC ; appartenance par slot beacon ERC-1967"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "non re-mesure ce jour (API Morpho non interrogee). TVL Morpho Blue DefiLlama : 595.4 M$ (606,1 le 11/11)"
     }
    ]
   },
@@ -2917,6 +2949,11 @@
      "date": "2026-11-11",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 2 RoleGranted le 10/11",
      "note": "EVENEMENT : 10/11 21:32:53 et 21:33:06 UTC, l'admin accorde MINTER_ROLE puis BURNER_ROLE au contrat 0x23e5...34c8 (proxy, implementation 0x99aa...7663, distincte de celle de 0x1364). Les 617 transactions d'emission ou de destruction depuis l'octroi (243 + 374, 53 jetons) sont toutes signees par les cles 0x2b94 et 0x6e40. Aucun Upgraded ni Paused. Seuil non franchi."
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1 (temoin 0x...dead : 0), sans code ; implementation 0xb354...5ae2 inchangee ; 0 evenement de la balise",
+     "note": "RPC officiel, blocs 111 739 206 (11/11 13:36 UTC) -> 113 634 754 (13/11 20:32 UTC), eth_getLogs sur la balise : 0 entree. Les deux MINTER_ROLE du 10/11 restent le dernier evenement."
     }
    ]
   },
@@ -3650,6 +3687,11 @@
      "date": "2026-11-11",
      "valeur": "10/11 : 3 rachats ; semaine 09-15/11 jusqu'au 11/11 13:30 UTC : 7 ; nonce 1 377",
      "note": "sous 40 par semaine ; temoin 09/11 = 3, identique a la veille"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "nonce Firepit 1 384 (1 377 le 11/11) ; 7 rachats du 11/11 13:36 au 13/11 20:33 UTC",
+     "note": "comptage complet des Released (7) = difference des nonces (7), les deux mesures concordent. Semaine 09-15/11 : 7 jusqu'au 11/11 13:30 + 7 = 14 a ce jour, sous 40."
     }
    ]
   },
@@ -3813,6 +3855,11 @@
      "date": "2026-11-11",
      "valeur": "0 evenement de la porte de mise a jour du bloc 110 772 915 au bloc 111 739 206",
      "note": "conseil non relu ce jour"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "0 evenement de la porte de mise a jour du bloc 110 772 915 au bloc 113 634 754",
+     "note": "conseil non relu ce jour"
     }
    ]
   },
@@ -3899,6 +3946,11 @@
      "date": "2026-11-11",
      "valeur": null,
      "note": "non re-mesure ce jour (recensement Initialize complet a faire avant l'echeance du 22/11)"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "non re-mesure ce jour (recensement ou relecture on-chain lourd non refait)"
     }
    ]
   },
@@ -4117,6 +4169,11 @@
      "date": "2026-11-11",
      "valeur": null,
      "note": "non re-mesure ce jour : semaines 03-09/11 et 10-16/11 restent a echantillonner avant l'echeance du 17/11"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "non re-mesure ce jour (recensement ou relecture on-chain lourd non refait) ; ECHEANCE LE 17/11, A MESURER AVANT"
     }
    ]
   },
@@ -4200,6 +4257,11 @@
      "date": "2026-11-11",
      "valeur": null,
      "note": "non re-mesure ce jour (identifiants des 34 pools non recharges)"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "non re-mesure ce jour (recensement ou relecture on-chain lourd non refait)"
     }
    ]
   },
@@ -4273,6 +4335,11 @@
      "date": "2026-11-11",
      "valeur": "10/11 : 22,1 % (47,31 M USDG / 213,91 M$) ; moyenne 09-10/11 : 21,1 %",
      "note": "comptage complet, 57 481 echanges. Presse, non recoupe : la prime de 50 000 USDG aux apporteurs de liquidite court du 30/10 au 12/11, soit au milieu de la semaine mesuree"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "09-12/11 : 20,1 / 22,1 / 19,4 / 15,8 % ; moyenne simple 19,4 % (4 jours)",
+     "note": "12/11 : 37,17 M USDG sur 235,53 M$ de volume v4 DefiLlama = 15,8 % (comptage complet, 48 627 echanges). 09/11 reprise du releve du 11/11 (20,1 % deduit de la moyenne 09-10/11). 13/11 : jour non clos, exclu."
     }
    ]
   },
@@ -4359,6 +4426,11 @@
      "date": "2026-11-11",
      "valeur": null,
      "note": "non re-mesure ce jour (relecture des pools v3 non refaite)"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "non re-mesure ce jour (recensement ou relecture on-chain lourd non refait)"
     }
    ]
   },
@@ -4401,6 +4473,11 @@
      "date": "2026-11-11",
      "valeur": "12,0 % du volume 7 j (538,7 / 4 507,7 M$) ; 0,51 % des frais 30 j",
      "note": "DefiLlama 11/11 ~13:29 UTC"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "12.6 % du volume 7 j (495.5 / 3937.8 M$) ; 0.62 % des frais 30 j",
+     "note": "DefiLlama 13/11 ~20:30 UTC"
     }
    ]
   },
@@ -4438,6 +4515,11 @@
      "date": "2026-11-11",
      "valeur": "10/11 : deux premiers senders 73,7 % (0x520e 50,7 + 0x29d8 23,0) ; troisieme 0x2db5 15,7 % ; Universal Router 0,46 %",
      "note": "jour UTC complet (57 481 echanges). Le trio porte 89,4 %. Echantillon de 800 tx : 93,4 % du volume vient de cles ayant signe au moins 10 000 transactions. Le seuil ne se lit qu'au 05/12"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": "deux premiers expediteurs : 77,1 % (11/11), 72,3 % (12/11), 67,9 % (13/11, jusqu'a 20:33 UTC)",
+     "note": "comptage complet (42 387, 48 627 et 74 389 echanges) ; le premier expediteur recule de 52,3 % (11/11) a 35,7 % (13/11) pendant que le troisieme monte de 11,8 % a 22,9 %. Part de l'Universal Router non recomptee ce jour. Echeance 05/12."
     }
    ]
   },
@@ -4470,6 +4552,11 @@
      "date": "2026-11-11",
      "valeur": null,
      "note": "pas de samedi dans la fenetre ; prochain point le 14/11"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "pas de samedi dans la fenetre ; prochain point le 14/11"
     }
    ]
   },
@@ -4497,6 +4584,11 @@
      "date": "2026-11-11",
      "valeur": null,
      "note": "pas de dimanche dans la fenetre ; prochain point le 15/11"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "pas de dimanche dans la fenetre ; prochain point le 15/11"
     }
    ]
   },
@@ -4519,6 +4611,11 @@
      "date": "2026-11-11",
      "valeur": "10/11 : 218,7 $ (159 025 $ / 727 lancements)",
      "note": "dans la bande 150-300 $ ; semaine 09-15/11 en cours (09/11 : 206,8 $)"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "non re-mesure ce jour (TokenLaunched de la fabrique Pons non recompte). Frais 30 j Pons V2 : 8.86 M$ (9,61 le 11/11)"
     }
    ]
   },
@@ -4536,6 +4633,11 @@
      "date": "2026-11-11",
      "valeur": "617 / 617 (100 %) par les cles 0x2b94 et 0x6e40 depuis l'octroi du 10/11 21:32 UTC",
      "note": "point de reference"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "non re-mesure ce jour (origine des transactions d'emission non relue)"
     }
    ]
   },
@@ -4553,6 +4655,28 @@
      "date": "2026-11-11",
      "valeur": "93,4 % (10/11, 800 tx sur 57 200)",
      "note": "point de reference ; temoin Universal Router 0,1 %"
+    },
+    {
+     "date": "2026-11-13",
+     "valeur": null,
+     "note": "mesure par echantillon de nonces non refaite. Indice indirect, comptage complet : les trois premiers expediteurs du pool portent 87,9 % du volume le 12/11 et 90,8 % le 13/11 (jusqu'a 20:33 UTC) ; ce sont des contrats, pas des particuliers."
+    }
+   ]
+  },
+  {
+   "id": "v_20261113_01",
+   "ouverte": "2026-11-13",
+   "affirmation": "Le pool ETH/USDG du hook VolatilePair d'Uniswap Labs ne s'effondre pas quand la prime aux apporteurs de liquidite prend fin (12/11, presse non recoupee) : son volume reste au niveau d'avant la fin de la prime, porte par les memes trois contrats.",
+   "mesure": "RPC officiel : somme |amount1|/1e6 (jambe USDG) des Swap du PoolId 0xa791e5169faf703c0b63fd9552c33ec1128a773a00f5dc33a640da62a022cd35 sur la PoolManager v4 0x8366...0951, pour chaque jour UTC plein 14/11 -> 20/11 (bornes par recherche binaire sur l'horodatage), champ rh_volatilepair_v2_vol_usdg_jour_AAnov. Reference : 37,17 M USDG le 12/11 (48 627 echanges, dernier jour de la prime), 41,35 M le 11/11, 47,31 M le 10/11 ; 13/11 jusqu'a 20:33 UTC : 48,94 M en 74 389 echanges. Temoin rejoue : 10/11 = 57 481 echanges, 47,31 M USDG.",
+   "seuil": "CONFIRMEE si les sept jours pleins 14-20/11 restent tous au-dessus de 30 M USDG. REVISEE si un jour plein tombe sous 20 M USDG.",
+   "echeance": "2026-11-21",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-11-13",
+     "valeur": "13/11 partiel (0 h -> 20 h 33 UTC) : 48,94 M USDG, 74 389 echanges",
+     "note": "point de reference. Le jour plein du 12/11 (37,17 M) est le plus bas des quatre jours relus (10, 11, 12, 13/11)."
     }
    ]
   }
