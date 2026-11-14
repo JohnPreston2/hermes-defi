@@ -1,9 +1,9 @@
 {
-"generated_at": "2026-11-13T23:46:01Z",
+"generated_at": "2026-11-14T00:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 145,
+"n_affiches": 142,
 "n_refuses": 0,
-"n_traduits": 18,
+"n_traduits": 17,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
@@ -15,7 +15,6 @@
 "IRIS Sets Nov. 10 Launch for Fixed-Rate Borrowing on SparkLend": "IRIS fixe au 10 novembre le lancement de l'emprunt à taux fixe sur SparkLend",
 "Interprétation attribuée : Sky TVL dropped 13.6% 7d to $4.47B and USDS supply contracted 11.6% 7d to $5.64B as of 2026-11-08 12:20 UTC, disproportionate to global stablecoin contraction (-1.8%). This … [suite dans la trace]\nLimites conservées : Destination of the $738M leaving USDS not traced — no whale flow by asset available ; Articles read as summaries/records only; full text not verified ; No governance proposal to adjust USDS savings rate found in recent 7d ; Actual deposit yields on Aave/Morpho not verified; competitiveness inferred from capital flow, not rate comparison ; Sky forum (makerdao.com and sky.money) searched but no direct mention of savings rate changes found\nSuite : Verify within 7-10 days: (1) whether Sky governance adjusts USDS savings rate, (2) whether USDS contraction rate changes, (3) correlation between USDS supply and Aave TVL to test capture hypothesis": "Interprétation attribuée : la TVL de Sky a baissé de 13,6 % sur 7 jours, à 4,47 Md$, et l'offre d'USDS a reculé de 11,6 % sur 7 jours, à 5,64 Md$, au 2026-11-08 12:20 UTC, une baisse disproportionnée par rapport à la contraction mondiale des stablecoins (−1,8 %). Ceci … [suite dans la trace] — Limites conservées : destination des 738 M$ quittant USDS non tracée, aucun flux de baleines par actif disponible ; articles lus seulement en résumés ou fiches ; texte intégral non vérifié ; aucune proposition de gouvernance pour ajuster le taux d'épargne USDS trouvée sur 7 jours ; rendements réels de dépôt sur Aave et Morpho non vérifiés ; compétitivité déduite des flux de capitaux, non d'une comparaison de taux ; forum Sky (makerdao.com et sky.money) consulté, sans mention directe d'un changement de taux d'épargne. — Suite : à vérifier sous 7 à 10 jours : (1) si la gouvernance Sky ajuste le taux d'épargne USDS, (2) si le rythme de contraction d'USDS change, (3) corrélation entre l'offre d'USDS et la TVL d'Aave, pour tester l'hypothèse de capture.",
 "Jito Names First Outside BAM Node Operators": "Jito nomme les premiers opérateurs de nœuds BAM externes",
-"Kinetiq Launches Elysium Mainnet for Hyperliquid": "Kinetiq lance le mainnet Elysium pour Hyperliquid",
 "Lido Earn: Introducing Two Layers of Loss Protection": "Lido Earn : deux couches de protection contre les pertes sont introduites",
 "Mosaico Delegate Platform": "Plateforme de délégation Mosaico",
 "P/F expands above 3.0x or base (fees) turns negative for two consecutive periods.": "Le P/F dépasse 3,0x ou la base (frais) devient négative pendant deux périodes consécutives.",
