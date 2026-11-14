@@ -1,14 +1,13 @@
 {
-"generated_at": "2026-11-14T03:46:02Z",
+"generated_at": "2026-11-14T11:46:02Z",
 "modele": "claude-haiku-5-5 (routine cloud)",
-"n_affiches": 141,
+"n_affiches": 139,
 "n_refuses": 0,
-"n_traduits": 22,
+"n_traduits": 17,
 "regle": "traduction automatique ; publiée seulement si chaque nombre de l’original s’y retrouve",
 "schema": 1,
 "t": {
 "Compound Foundation: Monthly V4 Programme Update [October 2026]": "Compound Foundation : mise à jour mensuelle du programme V4 [octobre 2026]",
-"Ethena Explained: USDe, sUSDe, Rewards and Exit Routes": "Ethena expliqué : USDe, sUSDe, récompenses et voies de sortie",
 "Ether.fi Explained: Staking, Vaults, Borrowing and Cash": "Ether.fi expliqué : staking, coffres, emprunt et Cash",
 "FDV/Mcap exceeds 2.0x or fees coverage drops below 60%.": "Le ratio FDV/Mcap dépasse 2,0x ou la couverture des frais tombe sous 60%.",
 "FDV/Mcap exceeds 2.0x or fees decline >10% over 7 days.": "Le FDV/Mcap dépasse 2,0x ou les frais baissent de plus de 10 % sur 7 jours.",
@@ -20,13 +19,9 @@
 "Mosaico Delegate Platform": "Plateforme de délégation Mosaico",
 "P/F expands above 3.0x or base (fees) turns negative for two consecutive periods.": "Le P/F dépasse 3,0x ou la base (frais) devient négative pendant deux périodes consécutives.",
 "P/F expands above 3.5x or token capture drops below 5%.": "Le P/F dépasse 3,5x ou la capture du jeton tombe sous 5%.",
-"Risk Stewards: Cap and IRM Changes on Aave V3 / 2026.11.06": "Risk Stewards : modifications des plafonds et des IRM sur Aave V3 / 2026.11.06",
-"Risk Stewards: Supply and Borrow Cap Changes on Aave V3 / 2026.11.09": "Risk Stewards : modifications des plafonds d'offre et d'emprunt sur Aave V3 / 2026.11.09",
-"Risk Stewards: Supply and Borrow Cap Increases on Aave V3 / 2026.11.02": "Risk Stewards : hausses des plafonds d'offre et d'emprunt sur Aave V3 / 2026.11.02",
 "Solana Labs’ Leap Opens iPhone Beta for Tokenized Stocks and Crypto": "Leap de Solana Labs ouvre la bêta iPhone pour les actions tokenisées et les cryptos",
 "TVL base trend turns negative or FDV/Mcap ratio exceeds 3.5.": "La tendance de base de la TVL devient négative, ou le ratio FDV/Mcap dépasse 3,5.",
 "Token capture remains 0.0% for 30 days or base (OI/Vol) contracts for 7 consecutive days.": "La capture de jetons reste à 0,0% pendant 30 jours, ou la base (OI/Vol) se contracte pendant 7 jours consécutifs.",
-"Uphold RLUSD Earn vs. Ethena Pay Earn+: Lending and Leverage Compared": "Uphold RLUSD Earn ou Ethena Pay Earn+ : prêt et effet de levier comparés",
 "Volume base trend turns negative or P/F multiple expands above 1.5x sector median.": "La tendance du volume de base devient négative, ou le multiple P/F dépasse 1,5x la médiane du secteur.",
 "[Gauntlet] Scroll USDC Comet: Closing Remaining Positions": "[Gauntlet] Scroll USDC Comet : fermeture des positions restantes"
 }
