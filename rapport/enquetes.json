@@ -1157,6 +1157,33 @@
     }
    ],
    "genere": "2026-11-13T21:10:00Z"
+  },
+  {
+   "date": "2026-11-15",
+   "fichier": "2026-11-15-enquete.html",
+   "titre": "Robinhood Chain, 15/11 : la chaîne ne dort pas le samedi",
+   "question": "Le volume d'échanges de la chaîne dort-il le samedi comme les transferts de jetons d'actions ?",
+   "mesure_neuve": "Samedi 14/11 : 577,1 M$ de volume contre 576,2 M$ le vendredi (×1,00 ; Base ×1,06). GIGA V3 franchit son critère de sortie (43,71 M$ sous 50 M$) et quitte la cohorte.",
+   "chiffre_cle": {
+    "valeur": "×1,00",
+    "libelle": "volume de la chaîne le samedi 14/11 comparé au vendredi : elle ne dort pas, alors que les transferts d'actions avaient chuté de 73 % le samedi précédent",
+    "population": "volume DEX quotidien, jours UTC pleins 13 et 14/11, DefiLlama (576,2 puis 577,1 M$) ; Base : 1 421 puis 1 511 M$"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaîne (l'argent déposé)"
+    },
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "volume sur 30 jours (ce qui s'échange)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "frais sur 30 jours (ce que les protocoles encaissent)"
+    }
+   ],
+   "genere": "2026-11-15T09:30Z"
   }
  ]
 }

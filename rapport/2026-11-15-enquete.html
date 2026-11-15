@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 15/11 : la chaîne ne dort pas le samedi</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mut:#98a0c0;--acc:#a68cff;--line:#232a45;--warn:#ffb86b}
+@media (prefers-color-scheme:light){:root{--bg:#080b16;--ink:#e9edfc}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,sans-serif;padding:0 16px 64px}
+main{max-width:760px;margin:0 auto}
+h1,h2{font-family:Georgia,serif;font-weight:600;line-height:1.2}h1{font-size:2rem;margin:.6em 0 .3em}h2{font-size:1.35rem;margin-top:2em;color:var(--acc)}
+.prov{font:13px/1.5 ui-monospace,Consolas,monospace;color:var(--mut);border:1px solid var(--line);padding:10px 12px;border-radius:8px;margin-top:20px}
+.big{font:700 3.2rem/1 Georgia,serif;color:var(--acc);margin:.4em 0 .1em}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:12px 0}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+code,.m{font-family:ui-monospace,Consolas,monospace;font-size:.9em;color:var(--mut)}
+.alert{border-left:3px solid var(--warn);padding:2px 12px;background:#141a30}
+</style></head><body><main>
+<div class="prov">Généré le 15/11/2026 vers 09:30 UTC · DefiLlama relevé 09:03 UTC · registre des hooks Uniswap : dernier commit 05/11 22:16 UTC (10 jours) · chaîne (RPC officiel) bloc 114 848 109 · SEC et Federal Register : illisibles ce jour · delta : non interrogé pour le bonus</div>
+<h1>Robinhood Chain, 15/11 : la chaîne ne dort pas le samedi</h1>
+
+<h2>La question</h2>
+<p>Le 07/11, les transferts de jetons d'actions ont chuté de 73 % le samedi. Le volume d'échanges de la chaîne suit-il le même rythme ?</p>
+<div class="big">×1,00</div>
+<p>Le samedi 14/11, la chaîne a échangé <b>577,1 M$</b>, contre <b>576,2 M$</b> le vendredi 13/11. Base, le même jour : 1 511 M$ contre 1 421 M$, soit ×1,06. Population : volume DEX quotidien (jour UTC plein) de DefiLlama, Robinhood Chain et Base. Ce n'est pas le comptage des transferts d'actions : cette mesure n'a pas été refaite aujourd'hui (voir « ce qu'on ne sait pas »).</p>
+<p>Lecture : le volume de la chaîne ne baisse pas le week-end. Les enquêtes du 11 et du 13/11 ont montré qu'il est porté par des robots, dont deux contrats expéditeurs signaient 67,9 % du pool principal le 13/11. Un volume de robots ne dort pas. Les actions, elles, dorment.</p>
+
+<h2>Reprise du fil : les veilles</h2>
+<p>21 veilles ouvertes, aucune soldée ce jour. Re-testées avec une mesure aujourd'hui : 9. Les 12 autres portent la mention « non re-mesuré » dans leur historique.</p>
+<table><tr><th>Veille</th><th>Résultat du jour</th></tr>
+<tr><td>Hooks : extraction contre gestion de liquidité</td><td>afterSwapReturnsDelta 72,3 % (872 sur 1 206 hooks robinhood), beforeAddLiquidity 26,5 % (319 sur 1 206). Inchangé : le registre n'a pas bougé depuis 10 jours.</td></tr>
+<tr><td>Taux d'audit des hooks</td><td>5 sur 1 206 (0,41 %). Inchangé.</td></tr>
+<tr><td>Refuge de la v3 sans hook</td><td>v3 32,9 % et v4 42,8 % du volume 30 j de la chaîne (6,50 et 8,47 Md$ sur 19,78 Md$).</td></tr>
+<tr><td>Contrôle des jetons d'actions</td><td>Le compte à clé unique garde le rôle d'administrateur (hasRole = 1, sans code). Implémentation inchangée. 0 événement sur la balise depuis le bloc 113 634 754.</td></tr>
+<tr><td>Rachats d'UNI (Firepit)</td><td>4 rachats du 13/11 20:32 au 15/11 ~09:00 UTC. Semaine 09-15/11 : 18 à ce jour, sous 40. Échéance le 16/11.</td></tr>
+<tr><td>Porte de mise à jour de l'enveloppe Lighter</td><td>0 événement sur la même fenêtre de blocs.</td></tr>
+<tr><td>Aero Slipstream</td><td>12,6 % du volume 7 j de la chaîne ; 0,77 % des frais 30 j.</td></tr>
+<tr><td>Samedi et volume (veille du 08/11)</td><td>Mesure principale non faite. Mesure seconde : ×1,00 pour la chaîne, ×1,06 pour Base.</td></tr></table>
+<p class="alert"><b>Échéances proches non tenues aujourd'hui :</b> la veille sur la part du pool principal (échéance 16/11) et celle sur les hooks hors registre (échéance 17/11) demandent un comptage on-chain lourd, non fait. La routine du 16/11 doit les mesurer avant de les solder.</p>
+
+<h2>Le delta contre le 13/11</h2>
+<table><tr><th>Mesure (population)</th><th class="n">13/11</th><th class="n">15/11</th></tr>
+<tr><td>TVL de la chaîne (argent déposé), DefiLlama</td><td class="n">1 027,5 M$</td><td class="n">1 011,4 M$ (−1,6 %)</td></tr>
+<tr><td>Volume 30 j de la chaîne</td><td class="n">20,76 Md$</td><td class="n">19,78 Md$ (−4,7 %)</td></tr>
+<tr><td>Frais 30 j de la chaîne (ce que les protocoles encaissent)</td><td class="n">59,10 M$</td><td class="n">54,06 M$ (−8,5 %)</td></tr>
+<tr><td>Frais 30 j d'Uniswap V4</td><td class="n">21,79 M$</td><td class="n">19,98 M$ (−8,3 %)</td></tr>
+<tr><td>Revenu 30 j aux détenteurs de jetons (173 lignes, 69 non nulles)</td><td class="n">5,18 M$</td><td class="n">4,57 M$ (−11,7 %)</td></tr>
+<tr><td>Hooks robinhood au registre</td><td class="n">1 206</td><td class="n">1 206</td></tr></table>
+<p>Piège re-vérifié du mémo : P10 (une fenêtre de 30 jours change quand les gros jours sortent). La baisse des totaux 30 j vient d'abord de la fenêtre qui avance, pas d'une chute d'activité : le volume 24 h est de 577 M$ contre 641 M$ le 13/11, et le volume 7 j monte de 3,94 à 4,07 Md$. Je n'ai pas relu les derniers commits dimension-adapters : un changement de périmètre n'est pas exclu. Piège P2 : le total des frais ne compte ni la ligne de la chaîne ni les lignes « doublecounted ».</p>
+
+<h2>Cohorte</h2>
+<p class="alert"><b>GIGA V3 sort de la cohorte.</b> Son critère écrit était « volume sous 50 M$ ». DefiLlama donne 43,71 M$ sur 30 jours le 15/11 (50,99 M$ le 13/11, alerte posée ce jour-là). Aucune interface grand public n'a été constatée. Il sort au titre du critère, pas de la baisse. La cohorte compte maintenant 7 membres.</p>
+<ul>
+<li><b>Ekubo / STONX</b> : le plus proche de son critère. Volume 30 j de STONX 12,57 M$ (15,33 le 13/11) pour un seuil de sortie à 10 M$. Mcap 6,65 M$ (8,03 le 13/11).</li>
+<li><b>Lighter</b> : TVL 110,6 M$, frais 30 j 2,21 M$, rien sur la porte de mise à jour. Rapport frais contre Pons : 0,27.</li>
+<li><b>Arcus</b> : TVL 58,5 M$, frais 1,86 M$ (0,23 de Pons). Lignée dYdX toujours déclarée, jamais prouvée.</li>
+<li><b>StonkBrokers</b> : frais 30 j toutes fiches 598 k$, au-dessus du plancher de 200 k$.</li>
+<li><b>Snuggle</b> TVL 5,27 M$ · <b>UNCX V3</b> TVL 2,54 M$ · <b>Morpho Blue</b> TVL 599,8 M$ : critères tenus.</li>
+<li>Antichambre (GlueHook, Twofold, ARMSys) : aucun seuil d'entrée franchi (TVL de 3,6 k$, 10,9 k$ et 41,2 k$ contre 1 M$).</li>
+<li><b>Contre-référence Pons</b> : 15,0 % des frais 30 j de la chaîne (8,11 M$ sur 54,06 M$), deuxième ligne derrière Uniswap V4. Tant que Pons domine, la thèse « la chaîne mûrit vers les actions » reste une thèse.</li></ul>
+<p>Trou déclaré : le score de preuve et les candidats automatiques ne sont pas recalculés sur les 176 protocoles. Les liens d'audit et les comptes GitHub n'ont pas été rejoués. Les scores sont repris du 13/11.</p>
+
+<h2>Ce qui contredit</h2>
+<p>Un volume plat le samedi ne prouve pas que les actions tradent le week-end. Le 07/11, le volume DefiLlama de la chaîne était déjà à 302 M$ le samedi, contre 387 M$ le dimanche et 704 M$ le lundi : le rythme n'est pas constant d'une semaine à l'autre. Une seule paire vendredi/samedi ne fait pas une tendance. Et le chiffre de DefiLlama peut être refait après coup.</p>
+
+<h2>Ce qu'on ne sait pas</h2>
+<ul><li>Les transferts de jetons d'actions du samedi 14/11 : non comptés. C'est la mesure qui tranche la veille du 08/11.</li>
+<li>Le dossier SEC 4-927 : sec.gov répond 403 à mon client générique, et le témoin négatif (un dossier inexistant) répond aussi 403. La sonde est cassée, ce n'est pas un « rien à signaler ». La recherche web ne montre aucune lettre de novembre ; les plus récentes vues datent du 19 au 22/10 (SIFMA, Better Markets). Le relevé du 13/11 reste la référence.</li>
+<li>Le Federal Register : réponse illisible ce jour, état du 13/11 non revérifié.</li>
+<li>Presse : aucune actualité de novembre retrouvée par la recherche web (étiquette « presse, non recoupé »). Les articles retrouvés datent de juillet à septembre.</li>
+<li>Le bonus delta (<code>defi.json</code>, rapport 0-LLM) : non lu ce jour.</li></ul>
+</main></body></html>
