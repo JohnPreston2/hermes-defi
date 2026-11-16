@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robinhood Chain, 16/11 : un seul pool porte 22,7 % du volume v4</title>
+<style>
+:root{--bg:#080b16;--ink:#e9edfc;--mut:#9aa3c7;--acc:#a68cff;--line:#232a47;--card:#0f1426}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+h1,h2{font-family:Georgia,serif;font-weight:600;line-height:1.2}h1{font-size:30px;margin:.3em 0}h2{font-size:22px;margin:2em 0 .5em;color:var(--acc)}
+.meta,.prov{font:13px ui-monospace,Consolas,monospace;color:var(--mut)}
+.prov{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px 12px;margin:14px 0}
+.big{font-family:Georgia,serif;font-size:56px;color:var(--acc);line-height:1}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:12px 0;display:block;overflow-x:auto}
+td,th{border-bottom:1px solid var(--line);padding:6px 10px;text-align:left;white-space:nowrap}th{color:var(--mut);font-weight:500}
+.tag{font:12px ui-monospace,monospace;padding:1px 7px;border-radius:99px;border:1px solid var(--acc);color:var(--acc)}
+.note{border-left:3px solid var(--acc);padding:2px 14px;color:var(--mut)}
+</style></head><body><main>
+<div class="meta">Hermes DeFi · enquête quotidienne · Uniswap v4 × Robinhood Chain</div>
+<h1>Un seul pool d'Uniswap Labs porte 22,7 % du volume v4 de la chaîne</h1>
+<div class="prov">Généré le 16/11/2026 à ~09:40 UTC · DefiLlama lu à ~09:10 UTC (âge : 30 min) · registre des hooks (Uniswap/hooklist) : dernier commit le 05/11 à 22:16 UTC, soit 11 jours · chaîne lue en direct, bloc 115 653 530 (~09:35 UTC) · dossier SEC 4-927 et Federal Register lus à ~09:25 UTC · serveur Hermes (delta) : non consulté, l'enquête repose sur les sources publiques.</div>
+
+<h2>Ce qu'il faut retenir</h2>
+<div class="big">22,7 %</div>
+<p>Du 9 au 15/11, le pool ETH/USDG du hook « VolatilePair » d'Uniswap Labs (un hook est un programme greffé sur un pool) a porté en moyenne 22,7 % du volume Uniswap v4 de Robinhood Chain. Population : sept jours UTC pleins, comptage complet des échanges du pool, jambe USDG (le dollar numérique de Paxos) rapportée au volume v4 de DefiLlama du même jour.</p>
+
+<h2>1. Les veilles d'abord</h2>
+<p>Vingt veilles étaient ouvertes. Deux sont soldées aujourd'hui, une troisième arrive à échéance demain sans mesure.</p>
+<table><tr><th>Veille</th><th>Verdict</th><th>Mesure</th></tr>
+<tr><td>Le pool VolatilePair est un marché principal (&gt; 10 %)</td><td><span class="tag">CONFIRMEE</span></td><td>moyenne 22,7 % ; chaque jour entre 15,8 % (12/11) et 28,8 % (14/11)</td></tr>
+<tr><td>La chaîne ne redevient pas la première source de rachats d'UNI</td><td><span class="tag">CONFIRMEE</span></td><td>19 rachats du 09 au 15/11 (maximum 29 depuis le 19/10, seuil 40) ; Ethereum devant</td></tr>
+<tr><td>Le pool ne s'effondre pas après la prime (veille ouverte le 13/11)</td><td>OUVERTE</td><td>14/11 : 60,19 M USDG ; 15/11 : 46,19 M USDG, au-dessus du plancher de 30 M</td></tr>
+<tr><td>Famille de hooks « a80 » sous 10 % du volume (échéance 17/11)</td><td>OUVERTE, <b>non mesurée</b></td><td>le relevé par échantillon n'a pas été refait ; à trancher demain, dernier jour</td></tr>
+</table>
+<p>Détails du second solde. Les rachats d'UNI sont des destructions de 2 000 UNI par le contrat Firepit (le contrat qui brûle les frais de protocole) ; la semaine du 09 au 15/11 compte 19 événements, au bloc près (nonce 1 390 à ce jour). Sur 30 jours pleins (17/10-15/11), la part des frais d'Uniswap v3 reversée aux détenteurs vaut 1,22 M$ sur Robinhood Chain contre 3,82 M$ sur Ethereum. Les pourcentages de référence de la veille (32 %/33 %) ne se rejouent pas avec le même dénominateur : j'ai comparé en dollars, et l'ordre est net.</p>
+<p>Les autres veilles ont reçu leur point daté : registre inchangé (72,3 % de hooks avec « afterSwapReturnsDelta », un drapeau de prélèvement sur l'échange ; 5 hooks audités sur 1 206 au registre), balise des jetons d'actions toujours sous une clé unique sans code, aucun événement sur la balise ni sur la porte de mise à jour de Lighter depuis le 15/11. Onze veilles n'ont pas été re-mesurées faute de relevé lourd : chacune le dit dans son carnet.</p>
+
+<h2>2. Ce qui a été mesuré</h2>
+<p><b>Méthode.</b> Journal d'événements « Swap » de la PoolManager v4, filtré sur le pool 0xa791…cd35, fenêtres de 8 000 blocs, par jour UTC. <b>Témoin rejoué avant usage :</b> le 10/11 donne 57 481 échanges et 47,31 M USDG, exactement la référence du carnet. Le dénominateur est le volume Uniswap v4 de DefiLlama du même jour.</p>
+<table><tr><th>Jour</th><th>Échanges</th><th>USDG (M)</th><th>Volume v4 (M$)</th><th>Part</th></tr>
+<tr><td>13/11</td><td>82 359</td><td>54,74</td><td>217,13</td><td>25,2 %</td></tr>
+<tr><td>14/11</td><td>100 623</td><td>60,19</td><td>208,90</td><td>28,8 %</td></tr>
+<tr><td>15/11</td><td>87 714</td><td>46,19</td><td>165,91</td><td>27,8 %</td></tr></table>
+<p>Les jours 09 à 12/11 viennent des relevés des 11 et 13/11 (20,1 / 22,1 / 19,4 / 15,8 %). La prime de 50 000 USDG aux apporteurs de liquidité s'est terminée le 12/11 (presse, non recoupé) : le volume du pool, loin de tomber, est monté de 37,2 M USDG le 12/11 à 60,2 M le 14/11.</p>
+
+<h2>3. Le delta contre le relevé du 15/11</h2>
+<table><tr><th>Mesure (DefiLlama)</th><th>15/11</th><th>16/11</th><th>Écart</th></tr>
+<tr><td>TVL de la chaîne (l'argent déposé)</td><td>1 011,4 M$</td><td>1 012,5 M$</td><td>+0,1 %</td></tr>
+<tr><td>Volume sur 30 jours (ce qui s'échange)</td><td>19,78 Md$</td><td>19,44 Md$</td><td>−1,7 %</td></tr>
+<tr><td>Frais sur 30 jours (ce que les protocoles encaissent)</td><td>54,06 M$</td><td>51,94 M$</td><td>−3,9 %</td></tr>
+<tr><td>Frais sur 30 jours de Pons (lanceur de jetons)</td><td>8,11 M$ (15,0 %)</td><td>7,67 M$ (14,8 %)</td><td>−5,4 %</td></tr>
+<tr><td>Volume sur 7 jours d'Aero</td><td>514,9 M$</td><td>561,9 M$</td><td>+9,1 %</td></tr></table>
+<p>Le volume du pool VolatilePair a évité la baisse de la semaine : la chaîne entière perd en frais, ce pool non. Aero reste à 13,3 % du volume sur 7 jours mais à 0,85 % des frais sur 30 jours (442 k$ sur 51,94 M$).</p>
+
+<h2>4. La cohorte</h2>
+<p><b>Événement : LayerBank remplace UNCX Network V3.</b> LayerBank (prêt, TVL 2,62 M$, score de preuve 3 : lien d'audit répondant HTTP 200 et compte GitHub existant) dépasse UNCX (verrou de liquidité, TVL 2,53 M$, score 2) sur la preuve et la traction depuis sept jours de suite, du 10 au 16/11. La règle écrite le 19/09 impose le remplacement sans arbitrage, comme UNCX l'avait obtenu le 16/10. <b>Réserve :</b> les 12, 14 et 15/11 sont reconstitués depuis l'historique DefiLlama à 00:00 UTC, pas relevés ces jours-là. LayerBank ne réalise aucun frais : la règle compare un prêteur à un verrou, ambiguïté déjà notée.</p>
+<p><b>Ce qui devrait inquiéter :</b> STONX (la ligne d'Ekubo pour actifs tokenisés) ne fait plus que 11,6 M$ de volume sur 30 jours (15,3 le 13/11, 12,6 le 15/11), à 1,6 M$ de son critère de sortie de 10 M$. J'ouvre une veille. Ekubo : TVL 1,06 M$, capitalisation 6,89 M$. Lighter garde 112,5 M$ de TVL, Arcus 58,3 M$, Snuggle 5,2 M$ de TVL et 539 k$ de frais. StonkBrokers : 604 k$ de frais toutes fiches confondues, au-dessus du plancher de 200 k$. Aucun autre critère de sortie franchi ; GlueHook (score 5 sur l'antichambre) reste à 3,6 k$ de TVL.</p>
+<p><b>Contre-référence Pons :</b> 14,8 % des frais de la chaîne, deuxième ligne derrière Uniswap v4 (19,15 M$). Ratio de frais contre Pons : Lighter 0,29, Arcus 0,24, Snuggle 0,07, Morpho 0,24, Ekubo 0,004. La thèse « la chaîne mûrit vers les actions tokenisées » reste une thèse.</p>
+<p>Candidats hors cohorte (23 contrôlés sur ceux dépassant 1 M$ de TVL ou 100 k$ de frais, <i>pas</i> sur les 320 du filtre : trou déclaré) : Beefy (score 3, non compté face à Ekubo), vfat.io et Mellow Core (score 2).</p>
+
+<h2>5. Ce qui contredit ma lecture</h2>
+<p>Ce pool ressemble à un marché principal, mais le nombre d'échanges raconte autre chose : 87 714 à 100 623 échanges par jour, pour 0,5 à 0,7 k$ chacun en moyenne. Les trois premiers expéditeurs portent 85 à 88 % des <i>échanges</i> (en nombre, pas en volume) les 14 et 15/11, et les deux premiers 70,6 % et 69,6 %. Un marché où trois contrats font presque tout n'est pas un marché ouvert. La part de 22,7 % mesure un volume, pas une demande de particuliers. Les veilles sur ce point (89,9 % via deux contrats, 80 % de robots) restent ouvertes et non re-mesurées aujourd'hui.</p>
+<p>Deuxième contradiction : la chaîne perd 3,9 % de frais en un jour pendant que son pool phare monte. Les frais de la chaîne ne suivent donc pas ce pool, dont les frais par échange sont faibles.</p>
+
+<h2>6. Ce qu'on ne sait pas</h2>
+<ul>
+<li>La famille « a80 », le DualPoolHook, les jetons d'actions de Morpho, l'origine des émissions, les transferts du dimanche : non re-mesurés (relevés lourds non refaits).</li>
+<li>Le score de preuve sur les 320 protocoles n'est pas recalculé, seulement sur 23.</li>
+<li>Le registre des hooks est gelé depuis 11 jours : tout taux calculé dessus porte sur le registre, pas sur la chaîne (piège P11).</li>
+<li>Recherche web : rien de daté du 10 au 16/11 retrouvé sur la fin de la prime, un dépôt de lieu de négociation titrisé (TSV) ou une lettre SEC nouvelle. Dossier 4-927 : dernière lettre le 13/11, aucune depuis.</li>
+</ul>
+<p class="note"><b>Pièges du mémo re-vérifiés ce jour :</b> P1 (Pons V1 et V2 ont toujours un champ « chaînes » vide, absents du filtre par chaîne), P7 (chaque chiffre porte sa population : « 5 hooks sur 1 206 au registre », jamais « sur 320 protocoles »), P11 (registre ≠ recensement), témoins SEC 200/404 et RPC chainId 0x1237.</p>
+<p class="meta">Sources : DefiLlama (/protocols, /overview/dexs, /overview/fees, /summary/dexs/uniswap-v4, /summary/fees/uniswap-v3), RPC officiel Robinhood Chain, Uniswap/hooklist, sec.gov, federalregister.gov. Presse (recherche du jour) : contexte de lancement et exemption SEC du 17/09 seulement, aucun chiffre repris.</p>
+</main></body></html>

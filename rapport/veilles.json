@@ -241,6 +241,11 @@
      "date": "2026-11-15",
      "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
      "note": "registre inchange depuis le 05/11 22:16 UTC (commit f4b5956d), 10 jours sans regeneration"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "72,3 % (872/1206) / 26,5 % (319/1206)",
+     "note": "registre inchange depuis le 05/11 22:16 UTC (commit f4b5956d), 11 jours sans regeneration ; recompte sur le fichier du jour"
     }
    ],
    "solde": null
@@ -478,6 +483,11 @@
      "date": "2026-11-15",
      "valeur": "5 / 1206 (0,41 %) au champ auditUrl",
      "note": "registre inchange depuis le 05/11 22:16 UTC (commit f4b5956d), 10 jours sans regeneration"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "5 / 1206 (0,41 %) au champ auditUrl",
+     "note": "registre inchange depuis le 05/11, recompte du jour"
     }
    ],
    "solde": null
@@ -715,6 +725,11 @@
      "date": "2026-11-15",
      "valeur": "v3 32,9 % / v4 42,8 % du volume 30 j (6,50 / 8,47 / 19,78 Md$)",
      "note": "DefiLlama 15/11 ~09:03 UTC ; v4 et v3 reculent tous deux avec la fenetre 30 j"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "v3 32,7 % / v4 41,9 % du volume 30 j (6,48 / 8,15 / 19,44 Md$)",
+     "note": "DefiLlama 16/11 ~09:10 UTC"
     }
    ],
    "solde": null
@@ -952,6 +967,11 @@
      "date": "2026-11-15",
      "valeur": "156 sur 1206 (12,9 %) ; aucun avis de TSV sur Robinhood Chain",
      "note": "registre inchange depuis le 05/11 22:16 UTC (commit f4b5956d), 10 jours sans regeneration. SEC 4-927 non lisible (403, temoin negatif aussi 403) ; recherche web : aucune lettre de novembre retrouvee."
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "aucun avis de TSV sur Robinhood Chain ; dossier 4-927 : derniere lettre 13/11, aucune nouvelle",
+     "note": "registre : 156 sur 1206 (12,9 %), inchange. SEC lue par curl avec temoin negatif 404. Recherche web : aucun element date de novembre sur un depot de TSV."
     }
    ],
    "solde": null
@@ -2115,6 +2135,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "non re-mesure ce jour (API Morpho non interrogee). TVL Morpho Blue DefiLlama : 599,8 M$ (595,4 le 13/11)"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "non re-mesure ce jour (API Morpho non interrogee). TVL Morpho Blue DefiLlama : 602,0 M$ (599,8 le 15/11)"
     }
    ]
   },
@@ -2984,6 +3009,11 @@
      "date": "2026-11-15",
      "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation() 0xb354...5ae2 inchangee ; 0 evenement de la balise",
      "note": "RPC officiel, bloc 113 634 754 (13/11 20:32 UTC) -> 114 848 109 (15/11 ~09 UTC), eth_getLogs sur la balise : 0. Temoin : eth_chainId 0x1237, eth_getCode(0x...dEaD) = 0x."
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "admin 0xd6f8...b66d : hasRole = 1, sans code ; implementation() 0xb354...5ae2 inchangee ; 0 evenement de la balise",
+     "note": "RPC officiel, bloc 114 848 109 (15/11 ~09 UTC) -> 115 653 530 (16/11 ~09:35 UTC), eth_getLogs sur la balise : 0. Temoins : eth_chainId 0x1237, eth_getCode(0x...dEaD) = 0x."
     }
    ]
   },
@@ -3625,8 +3655,11 @@
    "mesure": "RPC Robinhood Chain : evenements Released (topic0 0x0143172ff1dd87f3691e870b3fb5616db820278d26d2d16c3e03330a240a6c38) du Firepit 0x7A8F74C2585F84C781F951B7F2FF21337D5B630B, comptage complet par semaine UTC lundi-dimanche ; temoin 25/08-23/09 = 765. En second : DefiLlama /summary/fees/uniswap-v3?dataType=dailyHoldersRevenue, part 30 jours pleins Robinhood Chain vs Ethereum. Reference : 25 rachats (06-12/10), 26 (13-18/10, 6 jours) ; 30 j au 18/10 : 32,7 % contre 33,0 %.",
    "seuil": "REVISEE si une semaine depasse 60 rachats, ou si Robinhood Chain repasse devant Ethereum sur 30 jours pleins avant l'echeance. CONFIRMEE si les semaines 19/10 -> 15/11 restent toutes sous 40 rachats et Ethereum devant a l'echeance.",
    "echeance": "2026-11-16",
-   "statut": "OUVERTE",
-   "solde": null,
+   "statut": "CONFIRMEE",
+   "solde": {
+    "date": "2026-11-16",
+    "raison": "toutes les semaines 19/10-15/11 sous 40 rachats (max 29) ; Ethereum devant Robinhood Chain sur 30 jours pleins"
+   },
    "historique": [
     {
      "date": "2026-10-19",
@@ -3727,6 +3760,11 @@
      "date": "2026-11-15",
      "valeur": "nonce Firepit 1 388 (1 384 le 13/11 20:33) ; 4 Released du 13/11 20:32 au 15/11 ~09 UTC",
      "note": "comptage complet des Released (4) = difference des nonces (4). Semaine 09-15/11 : 14 a la date du 13/11 + 4 = 18, sous 40. ECHEANCE LE 16/11 : la comparaison 30 jours pleins avec Ethereum n'a pas ete refaite ce jour."
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "semaine 09-15/11 : 19 Released (comptage complet, blocs 109 623 865 -> 115 340 614) ; nonce 1 390 ; 30 j pleins 17/10-15/11 : Robinhood 1,22 M$ contre Ethereum 3,82 M$",
+     "note": "toutes les semaines relevees depuis le 19/10 : max 29 (13-19/10), sous 40. Ethereum devant. Les pourcentages de reference (32 %/33 %) ne se rejouent pas avec le meme denominateur : comparaison faite en dollars, ordre sans ambiguite."
     }
    ]
   },
@@ -3900,6 +3938,11 @@
      "date": "2026-11-15",
      "valeur": "0 evenement de la porte de mise a jour du bloc 113 634 754 au bloc 114 848 109",
      "note": "conseil (securityCouncilAddress) non relu ce jour"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "0 evenement de la porte de mise a jour du bloc 114 848 109 au bloc 115 653 530",
+     "note": "conseil (securityCouncilAddress) non relu ce jour"
     }
    ]
   },
@@ -3996,6 +4039,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "non re-mesure ce jour (releve on-chain lourd non refait)"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "non re-mesure ce jour (recensement des Initialize non refait)"
     }
    ]
   },
@@ -4224,6 +4272,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "non re-mesure ce jour (releve on-chain lourd non refait) ; ECHEANCE LE 17/11, A MESURER AVANT (la routine du 16/11 doit le faire)"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "NON MESURE ce jour : le releve echantillonne des Swap (3 semaines, cle de pool par Initialize) n'a pas ete refait. ECHEANCE LE 17/11 : sans mesure, la veille ne peut etre confirmee ; a trancher a l'echeance."
     }
    ]
   },
@@ -4317,6 +4370,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "non re-mesure ce jour (releve on-chain lourd non refait)"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "non re-mesure ce jour (34 requetes par PoolId non refaites)"
     }
    ]
   },
@@ -4349,7 +4407,7 @@
    "mesure": "RPC : somme |amount1|/1e6 (jambe USDG) des Swap du PoolId 0xa791e516...cd35 par jour UTC plein, divisee par le volume Uniswap V4 Robinhood Chain du meme jour (DefiLlama /summary/dexs/uniswap-v4, totalDataChartBreakdown). Moyenne simple des 7 parts journalieres. Reference : 6,3 % (31/10), 7,4 % (01/11), 14,8 % (02/11). En second : part du premier expediteur (36,1 % le 02/11).",
    "seuil": "CONFIRMEE si la moyenne 09-15/11 depasse 10 %. REVISEE si elle tombe sous 5 % (retour a un pool marginal). Entre les deux : MORTE a l'echeance, l'affirmation n'etant ni confirmee ni contredite.",
    "echeance": "2026-11-16",
-   "statut": "OUVERTE",
+   "statut": "CONFIRMEE",
    "historique": [
     {
      "date": "2026-11-03",
@@ -4400,8 +4458,17 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "non re-mesure ce jour (releve on-chain lourd non refait) ; ECHEANCE LE 16/11 : la moyenne 09-15/11 n'est pas calculable sans les jours 13-15/11 pleins. Acquis : 09-12/11 = 19,4 % (4 jours), tres au-dessus du seuil de 10 %."
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "09-15/11 : 20,1 / 22,1 / 19,4 / 15,8 / 25,2 / 28,8 / 27,8 % ; moyenne simple 22.8 %",
+     "note": "comptage complet ; 13/11 : 54,74 M USDG sur 217,13 M$ ; 14/11 : 60,19 sur 208,90 ; 15/11 : 46,19 sur 165,91 (v4 DefiLlama). 09/11 deduit du releve du 11/11, 11/11 = 41,35 M sur 213,16 M$. Seuil 10 % franchi, 7 jours sur 7 au-dessus de 15 %."
     }
-   ]
+   ],
+   "solde": {
+    "date": "2026-11-16",
+    "raison": "moyenne 09-15/11 de 22.8 % > 10 % sur sept jours pleins"
+   }
   },
   {
    "id": "v_20261103_02",
@@ -4496,6 +4563,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "non re-mesure ce jour (releve on-chain lourd non refait)"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "non re-mesure ce jour (releve on-chain lourd non refait)"
     }
    ]
   },
@@ -4548,6 +4620,11 @@
      "date": "2026-11-15",
      "valeur": "12,6 % du volume 7 j (514,9 / 4 073,8 M$) ; 0,77 % des frais 30 j",
      "note": "DefiLlama 15/11 ~09:03 UTC"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "13,3 % du volume 7 j (561,9 / 4 227,0 M$) ; 0,85 % des frais 30 j",
+     "note": "DefiLlama 16/11 ~09:10 UTC (frais Aero 442 k$ sur 51,94 M$)"
     }
    ]
   },
@@ -4595,6 +4672,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "non re-mesure ce jour (releve on-chain lourd non refait). Pas de comptage complet des expediteurs ; dernier acquis 13/11 : deux premiers 67,9 %."
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "non re-mesure ce jour (comptage des expediteurs non refait). Sur 14-15/11, les deux premiers expediteurs portent 70,6 % et 69,6 % des ECHANGES (en nombre, pas en volume) du pool."
     }
    ]
   },
@@ -4637,6 +4719,11 @@
      "date": "2026-11-15",
      "valeur": "mesure principale non faite (transferts de jetons d'actions du samedi 14/11 non comptes). Second : volume DefiLlama chaine samedi/vendredi = 1.00 (Base 1.06)",
      "note": "Le volume de la chaine ne tombe pas le samedi (577 M$ contre 576 M$ le vendredi) ; ce n'est PAS la mesure des transferts d'actions, et il est domine par des robots (cf. veilles du 07-12/11). Le premier samedi de la fenetre (14/11) reste a mesurer sur les 134 jetons."
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "mesure principale (transferts des 134 jetons le samedi 14/11) non faite ; volume chaine sam/ven = 1,00 le 14/11 (acquis du 15/11)"
     }
    ]
   },
@@ -4674,6 +4761,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "dimanche 15/11 en cours a l'heure du releve (~09:00 UTC) : la fenetre 20:00-24:00 UTC n'est pas ecoulee. Prochain point le 16/11 (relecture du dimanche plein)."
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "dimanche 15/11 plein non mesure (fenetre 20:00-24:00 UTC des 134 jetons et premiere emission du lundi 16/11 non relues)"
     }
    ]
   },
@@ -4706,6 +4798,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "non re-mesure ce jour (TokenLaunched de la fabrique Pons non recompte). Frais 30 j Pons V2 : 8,11 M$ (8,86 le 13/11)"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "non re-mesure ce jour (TokenLaunched de la fabrique Pons non recompte). Frais 30 j Pons V2 : 7,67 M$ (8,11 le 15/11)"
     }
    ]
   },
@@ -4731,6 +4828,11 @@
     },
     {
      "date": "2026-11-15",
+     "valeur": null,
+     "note": "non re-mesure ce jour (origine des transactions d'emission non relue)"
+    },
+    {
+     "date": "2026-11-16",
      "valeur": null,
      "note": "non re-mesure ce jour (origine des transactions d'emission non relue)"
     }
@@ -4760,6 +4862,11 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "mesure par echantillon de nonces non refaite"
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": null,
+     "note": "mesure par echantillon de nonces non refaite. Indice, non mesure : les 3 premiers expediteurs portent 85 a 88 % des echanges des 14 et 15/11 (les memes trois contrats)."
     }
    ]
   },
@@ -4782,6 +4889,28 @@
      "date": "2026-11-15",
      "valeur": null,
      "note": "jour plein du samedi 14/11 non compte (volume USDG du pool 0xa791...cd35). Fenetre 14-20/11 : premier point a faire le 16/11."
+    },
+    {
+     "date": "2026-11-16",
+     "valeur": "14/11 : 60,19 M USDG (100 623 echanges) ; 15/11 : 46,19 M USDG (87 714 echanges)",
+     "note": "comptage complet, Swap du PoolId 0xa791...cd35 sur la PoolManager v4. Les deux jours pleins relus sont au-dessus de 30 M. Temoin rejoue : 10/11 = 57 481 echanges, 47,31 M USDG (identique a la reference). 16/11 en cours."
+    }
+   ]
+  },
+  {
+   "id": "v_20261116_01",
+   "ouverte": "2026-11-16",
+   "affirmation": "STONX, la ligne de l'echangeur Ekubo suivie dans la cohorte, franchira son critere de sortie (volume 30 jours sous 10 M$) avant le 15/12 : son volume recule de 15,3 M$ (13/11) a 12,6 M$ (15/11) puis 11,6 M$ (16/11) sans signe de reprise.",
+   "mesure": "DefiLlama /overview/dexs/Robinhood%20Chain : total30d de la ligne 'STONX'. Reference 16/11 : 11 602 757 $ (Ekubo 16 629 360 $).",
+   "seuil": "CONFIRMEE si total30d < 10 M$ avant le 15/12. REVISEE si le total30d remonte au-dessus de 15 M$ avant cette date.",
+   "echeance": "2026-12-15",
+   "statut": "OUVERTE",
+   "solde": null,
+   "historique": [
+    {
+     "date": "2026-11-16",
+     "valeur": "11,60 M$",
+     "note": "15/11 : 12,57 M$ ; 13/11 : 15,3 M$ ; seuil de sortie 10 M$ a 1,6 M$"
     }
    ]
   }

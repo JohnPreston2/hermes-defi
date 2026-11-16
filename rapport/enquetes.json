@@ -1184,6 +1184,37 @@
     }
    ],
    "genere": "2026-11-15T09:30Z"
+  },
+  {
+   "date": "2026-11-16",
+   "fichier": "2026-11-16-enquete.html",
+   "titre": "Robinhood Chain, 16/11 : le pool ETH/USDG d'Uniswap Labs porte 22,7 % du volume v4",
+   "question": "Le pool ETH/USDG du hook VolatilePair est-il devenu un marche principal de la chaine, ou un pic de prime ?",
+   "mesure_neuve": "Moyenne 09-15/11 : 22.8 % du volume Uniswap v4 journalier (comptage complet des echanges), et le volume monte apres la fin de la prime (60,2 M USDG le 14/11 contre 37,2 M le 12/11). LayerBank entre dans la cohorte a la place d'UNCX Network V3 (7 jours consecutifs).",
+   "chiffre_cle": {
+    "valeur": "22.8 %",
+    "libelle": "du volume Uniswap v4 de la chaine passe par un seul pool ETH/USDG, dont trois contrats portent l'essentiel des echanges",
+    "population": "sept jours UTC pleins 09-15/11, comptage complet des Swap du pool 0xa791...cd35 (jambe USDG) divisé par le volume Uniswap v4 DefiLlama du jour ; moyenne simple"
+   },
+   "points_cles": [
+    {
+     "champ": "rh_volatilepair_v2_part_vol_v4_moy_09_15nov_pct",
+     "libelle": "part du pool ETH/USDG dans le volume v4"
+    },
+    {
+     "champ": "rh_vol_30d_chaine",
+     "libelle": "volume sur 30 jours (ce qui s'echange)"
+    },
+    {
+     "champ": "rh_fees_30d_chaine",
+     "libelle": "frais sur 30 jours (ce que les protocoles encaissent)"
+    },
+    {
+     "champ": "rh_chain_tvl_usd",
+     "libelle": "TVL de la chaine (l'argent depose)"
+    }
+   ],
+   "genere": "2026-11-16T09:40Z"
   }
  ]
 }
